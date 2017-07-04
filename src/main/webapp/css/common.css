@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+.container {
+  width: 600px;
+  margin: 0px auto;
+}
+a[disabled] {
+  pointer-events: none;
+}
+address {
+  display: inline-block;
+}
+.footer {
+  background-color: gray;
+  color: #ffffff;
+  margin: 10px 0px;
+  padding: 10px;
+  text-align: center;
+  height: 30px;
+}
+.header {
+  background-color: black;
+  color: white;
+  height: 30px;
+  padding: 5px 10px;
+}
+div .photo1 {
+  height: 100px;
+}
+
+#logo {
+  float: left;
+}
+#login {
+  float: right;
+}
+.header a {
+  text-decoration: none;
+  color: white;
+}
+.header a:hover {
+  text-decoration: underline;
+}
