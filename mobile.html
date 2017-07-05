@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html> <!-- root element -->
+<head> <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+  /* 스마트폰 (가로 및 세로) ----------- */
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body {
+  color: red;
+    }
+  }
+
+  /*------- 스마트폰에서 아이폰 사이 ---------*/
+  @media only screen and (min-device-width : 481px) and (max-device-width : 767px) {
+  body {
+  color: blue;
+    }
+  }
+
+  /* 아이패드 (가로 및 세로) ----------- */
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1223px) {
+  body {
+  color: yellow;
+    }
+  }
+
+
+  @media only screen and (min-width : 1224px) {
+  body {
+  color: aqua;
+    }
+  }
+
+  /* 대형 스크린 ----------- */
+  @media only screen and (min-width : 1824px) {
+  body {
+  color: orange;
+    }
+  }
+  body {
+    font-size: 100px;
+  }
+
+</style>
+</head>
+<body>
+  가
+</body>
+</html>
