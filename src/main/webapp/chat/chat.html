@@ -1,43 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- <meta name="viewport"
+        content="width = 320, initial-scale = 1, maximum-scale=1"
+        charset="utf-8"> -->
   <meta charset="utf-8">
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'> -->
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel='../css/tomato.css'>
   <style>
-  .chat {
-    margin: auto;
-    width: 386px;
-    height: 624px;
-    border: gray solid 1px;
+  /*mobile*/
+  @media (max-width: 740px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  /*desktop*/
+  @media (min-width: 741px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  .header {
+    border: 2px solid red;
+    height: 60px;
+    position: relative;
+    padding: 0 10px;
+    text-align: center;
+    line-height: 60px;
+  }
+  #logo {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0;
+    margin-top: 15px;
+  }
+  #menu {
+    position: absolute;
+    /*border: 1px solid black;*/
+    left: 10px;
+    /*display: inline;
+    float: left;*/
+  }
+  #search {
+    position: absolute;
+    /*border: 1px solid black;*/
+    right: 10px;
+    /*display: inline-block;*/
+    /*float: right;*/
   }
   #chat-header {
-    padding: 0;
-    margin: 0;
-    width: 370px;
-    height: 70px;
-    border: 1px solid black;
+    font-size: 1.6rem;
+    line-height: 70px;
+    text-align: center;
     background-color: #D17171;
-    border-radius: 10px 10px 0px 0px;
+    height: 70px;
+    color: white;
   }
-  #chat-content {
-    width: 370px;
-    height: 505px;
-    border: 1px solid gray;
-    background-color: white;
-    border-radius: 10px;
-    padding: 0;
-    margin: 0;
-  }
+
   </style>
 </head>
 <body>
-<div class='chat'>
-<div id='chat-content'>
-  <div id='chat-header'>
-    <img src="speech-alt-1.svg.png">
+  <div class='header'>
+    <a class='side' id='menu'>
+      <img src='../image/header-menu.png' id='header-menu'/>
+    </a>
+    <h1 id='logo'><a href="#">TOMATO</a></h1>
+    <a  class='side' id='search'>
+      <img src='../image/search.png' id='header-search'/>
+    </a>
   </div>
 
+<!-- <div class='chat'>
+<p id='chat-header'>목록</p>
+<div id='chat-content'> -->
+
+</div>
 </div>
 </body>
 </html>
