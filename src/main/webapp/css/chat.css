@@ -1,0 +1,54 @@
+body {
+  margin: 0px;
+  padding: 0
+}
+
+.container {
+  padding: 0;
+}
+.header {
+  height: 60px;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  line-height: 60px;
+}
+.chat-body {
+  margin: 0;
+}
+#logo {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+}
+#logo a {
+  color: #d17171;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 60px;
+}
+#menu {
+  position: absolute;
+  left: 10px;
+}
+#search {
+  position: absolute;
+  right: 10px;
+}
+#header-menu {
+  width: 35px;
+}
+#header-search {
+  width: 34px;
+}
+
+#chat-header {
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 47.4px;
+  background-color: #D17171;
+  height: 45px;
+  color: white;
+}

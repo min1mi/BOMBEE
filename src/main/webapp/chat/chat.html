@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <meta name="viewport"
-        content="width = 320, initial-scale = 1, maximum-scale=1"
-        charset="utf-8"> -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'> -->
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel='../css/tomato.css'>
+  <!-- <link rel='stylesheet' href='../css/tomato.css'> -->
+  <link rel='stylesheet' href='../css/chat.css'>
   <style>
   /*mobile*/
   @media (max-width: 740px) {
@@ -23,46 +21,10 @@
     }
   }
 
-  .header {
-    border: 2px solid red;
-    height: 60px;
-    position: relative;
-    padding: 0 10px;
-    text-align: center;
-    line-height: 60px;
-  }
-  #logo {
-    display: inline-block;
-    font-size: 2rem;
-    margin: 0;
-    margin-top: 15px;
-  }
-  #menu {
-    position: absolute;
-    /*border: 1px solid black;*/
-    left: 10px;
-    /*display: inline;
-    float: left;*/
-  }
-  #search {
-    position: absolute;
-    /*border: 1px solid black;*/
-    right: 10px;
-    /*display: inline-block;*/
-    /*float: right;*/
-  }
-  #chat-header {
-    font-size: 1.6rem;
-    line-height: 70px;
-    text-align: center;
-    background-color: #D17171;
-    height: 70px;
-    color: white;
-  }
-
   </style>
 </head>
 <body>
+<div class='container'>
   <div class='header'>
     <a class='side' id='menu'>
       <img src='../image/header-menu.png' id='header-menu'/>
@@ -73,10 +35,11 @@
     </a>
   </div>
 
-<!-- <div class='chat'>
-<p id='chat-header'>목록</p>
-<div id='chat-content'> -->
+  <div class='chat-body'>
+    <p id='chat-header'>목록</p>
+  <div id='chat-content'>
 
+  </div>
 </div>
 </div>
 </body>
