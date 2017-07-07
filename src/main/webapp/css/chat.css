@@ -35,7 +35,6 @@ dd {
 .chat-body {
   margin: 0;
 }
-
 .chat-content > div {
   border-bottom: 1px solid gray;
 }
@@ -46,6 +45,11 @@ dd {
 .chat-content p {
   display: inline-block;
 }
+.chat-detail {
+  height:623px;
+  background-color: #F2D9D9;
+}
+
 #logo {
   display: inline-block;
   font-size: 2rem;
@@ -81,4 +85,17 @@ dd {
   background-color: #D17171;
   height: 45px;
   color: white;
+}
+
+#cd-content {
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
+  height: 45px;
+  border-bottom: 1px solid gray;
+}
+#cd-content img {
+  float: legal
+vertical-align: top;
+margin-top: 3px;
 }
