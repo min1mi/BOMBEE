@@ -21,6 +21,12 @@ body {
   font-family: Comic Sans MS;
 }
 
+
+.clearfix::after {
+   display: block;
+   content: '';
+   clear: both;
+}
 .header {
   height: 60px;
   position: relative;
@@ -52,8 +58,6 @@ body {
   width: 100%;
   border-bottom: 2px solid #d17171;
 }
-
-
 .promotion {
   margin-top: 5%;
   text-align: center;
