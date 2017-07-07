@@ -2,37 +2,13 @@
 <html> <!-- root element -->
 <head> <!-- HTML 문서에 대한 설명 -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+
   <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../css/tomato.css'>
   <style>
-  #footer-last-tomato {
-    margin:0%;
-  }
-  #logo {
-    display: inline-block;
-    font-size: 2rem;
-    margin: 0;
-  }
-  #logo a {
-    color: #d17171;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 60px;
-  }
-  #menu {
-    position: absolute;
-    left: 10px;
-  }
-  #search {
-    position: absolute;
-    right: 10px;
-  }
-  #header-menu {
-    width: 35px;
-  }
-  #header-search {
-    width: 34px;
+  body {
+    font-family: Comic Sans MS;
   }
   .container {
     margin: 0px auto;
@@ -43,15 +19,6 @@
     padding: 0;
     text-align: center;
     line-height: 60px;
-  }
-  .footer-button {
-    margin: 5%;
-    color: black;
-  }
-  .eventI::before {
-    content: " | ";
-    color:black;
-    margin: 5%;
   }
   .outer {
     margin-top: 10px;
@@ -64,6 +31,73 @@
   vertical-align: middle;
   text-align: center;
   }
+  .select {
+    text-decoration:none !important;
+    text-decoration:none;
+    margin: 0 0 0 0;
+  }
+  .btn-danger {
+    background-color: #d17171;
+  }
+  .btn-danger:hover{
+    background-color: #d17171;
+  }
+  .test {
+    background-color: #d17171;
+    color:white;
+  }
+  .btn {
+    border: 1px solid #d17171;
+    width:50%;
+  }
+  .btn-group {
+    width:100%;
+  }
+  .col-xs-2 {
+    padding-left: 15px;
+    padding-right: 0px;
+    width: 25%;
+  }
+  #footer-last-tomato {
+    margin:0%;
+  }
+  #logo a {
+    color: #d17171;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 60px;
+  }
+  #select-user {
+    background-color: #d17171;
+    color: white;
+  }
+  #select-trainer {
+    color: #d17171;
+    background-color: white;
+    border: 1px solid #d17171;
+  }
+  #margin {
+    margin-top: 10px;
+  }
+  #mm {
+    width: 23%;
+    height: 34px;
+  }
+  #padding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #padding1 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  #last-margin {
+    margin-top: 30px;
+    width:100%;
+  }
+
+
+
   </style>
 </head>
 <body>
@@ -71,63 +105,97 @@
 
   <div class='container'>
     <div class='header'>
-      <a class='side' id='menu'>
-        <img src='../image/header-menu.png' id='header-menu'/>
-      </a>
       <h1 id='logo'><a href="#">TOMATO</a></h1>
-      <a  class='side' id='search'>
-        <img src='../image/search.png' id='header-search'/>
-      </a>
-    </div>
-
-
-
-<!--  푸터 시작 -->
-<br>
-    <div class="outer">
-      <div class="inner">
-        <img src='../image/F.png' class='eventI'/>
-        <b class='eventI'></b>
-        <img src='../image/Y.png' class='eventI'/>
-        <b class='eventI'></b>
-        <img src='../image/M.png' class='eventI'/>
-        <b class='eventI'></b>
-        <img src='../image/B.png' class='eventI'/>
-      </div>
-    </div>
-
-
-    <div class="outer">
-      <div class="inner">
-        <a id='footer-login' class='footer-button'>로그인</a>
-        <a id='footer-join' class='footer-button'>회원가입</a>
-        <a id='footer-pcver' class='footer-button'>PC버전</a>
-      </div>
-    </div>
-
-
-    <div class="outer">
-      <div class="inner">
-        <a id='footer-tomato' class='footer-button'>TOMATO</a>
-        <a class='eventI'></a>
-        <a id='footer-pcver' class='footer-button'>개인정보 처리방침</a>
-      </div>
     </div>
 
     <div class="outer">
       <div class="inner">
-        <a id='footer-tomato' class='footer-button'>문의 전화</a>
-          <img src='../image/TEL.png' class='eventI'/>
-        <a id='footer-pcver' class='footer-button'>010-1234-5678</a>
-      </div>
+    <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+      <label class="btn test" role="button">
+        <input class='label-size' type="radio" name="options" value="1" required="required">일반회원
+      </label>
+      <label class="btn" role="button">
+        <input class='label-size' type="radio" name="options" value="0">트레이너
+      </label>
     </div>
+      </div>
+      </div>
+
+      <form>
+        <div>
+          <input type="text" class="form-control" placeholder="아이디">
+          <input type="text" class="form-control" placeholder="비밀번호">
+          <input type="text" class="form-control" placeholder="비밀번호확인">
+        </div>
+        <div id='margin'>
+          <input type="text" class="form-control" placeholder="이름">
+        </div>
+
+        <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+          <label class="btn test" role="button">
+            <input class='label-size' type="radio" name="options" value="1" required="required">여자
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="0">남자
+          </label>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-2">
+            <input class="form-control" type="text" placeholder="생일" readonly>
+          </div>
+  <div class="col-xs-2" id='padding'>
+    <input type="text" class="form-control" placeholder="년도">
+  </div>
+  <select id="mm" title="월" class="sel" onchange="checkBirthday('check')">
+											<option value="">월</option>
+										  	 			<option value="1">1</option>
+										  	 			<option value="2">2</option>
+										  	 			<option value="3">3</option>
+										  	 			<option value="4">4</option>
+										  	 			<option value="5">5</option>
+										  	 			<option value="6">6</option>
+										  	 			<option value="7">7</option>
+										  	 			<option value="8">8</option>
+										  	 			<option value="9">9</option>
+										  	 			<option value="10">10</option>
+										  	 			<option value="11">11</option>
+										  	 			<option value="12">12</option>
+  </select>
+  <div class="col-xs-2" id='padding'>
+    <input type="text" class="form-control" placeholder="일">
+  </div>
+  <div id="padding1">
+    <input type="text" class="form-control" placeholder="본인확인 이메일(선택)">
+  </div>
+</div>
+
+<div id='margin'>
+  <input type="text" class="form-control" placeholder="휴대폰 번호">
+</div>
+<div>
+  <input type="text" class="form-control" placeholder="인증 번호">
+</div>
+
+
+      <button id='last-margin'class='test'>가입하기</button>
+      </form>
 
     <div class="outer">
       <div class="inner">
           <img src='../image/lastFooterImg.png' class='eventI'/>
       </div>
     </div>
+
   </div>
 
+
+  </div>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script>
+    $(".btn-group-toggle").twbsToggleButtons();
+  </script>
 </body>
 </html>
