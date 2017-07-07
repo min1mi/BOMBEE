@@ -23,6 +23,8 @@ dd {
   color: black;
 }
 .container {
+  min-width: 320px;
+  max-width: 375px;
   padding: 0;
 }
 .header {
