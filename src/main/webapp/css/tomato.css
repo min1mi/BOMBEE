@@ -1,17 +1,17 @@
 /*iphone5~6*/
-@media (mid-width: 320px) and (max-width: 414px) {
+@media (min-device-width: 320px) and (max-device-width: 414px) {
   html {
     font-size: 10px;
   }
 }
 /*iphone plus*/
-@media (mid-width: 415px) and (max-width: 767px) {
+@media (min-device-width: 415px) and (max-device-width: 767px) {
   html {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 /*ipad*/
-@media (min-width: 768px) {
+@media (min-device-width: 768px) {
   html {
     font-size: 16px;
   }
