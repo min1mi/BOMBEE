@@ -19,14 +19,19 @@
 
 @font-face {
   font-family: 'UhBeemysen';
-  src: url('../font/UhBeemysen.woff');
-  src: url('../font/UhBeemysen.eof'); // eot 포맷
-  src: local(※), url('../font/UhBeemysen.woff') format('woff');
+  /*src: url('../font/UhBeemysen.woff');*/
+  src: local(※),
+  url('../font/UhBeemysen.woff') format('woff'),
+  url('../font/UhBeenMyHusband.woff') format('woff');
+  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/
+
 }
+
 html body div a h1 {
-  font-family: 'UhBeemysen';
-  font-size: 2rem;
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
+  font-size: 1.6rem;
 }
+
 #main-promotion1 {
   width: 100%;
 }
