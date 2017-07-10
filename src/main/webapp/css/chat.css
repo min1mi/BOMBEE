@@ -24,8 +24,6 @@ dd {
   color: black;
 }
 .container {
-  min-width: 320px;
-  max-width: 375px;
   padding: 0;
 }
 .header {
@@ -128,10 +126,15 @@ dd {
 }
 
 #cd-content {
+  box-sizing: border-box;
   overflow:scroll;
   width: 100%;
   height: 72%;
   padding: 10px;
+}
+
+#cd-footer {
+  box-sizing: border-box;
 }
 
 #me {

@@ -5,11 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/chat.css'>
 <style>
+@font-face {
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
+  src: url('../font/UhBeemysen.woff');
+  src: url('../font/UhBeeMyHusband.woff');
+  /*src:
+  /*url('../font/UhBeemysen.woff') format('woff'),*/
+  url('../font/UhBeenMyHusband.woff') format('woff');
+  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/*/
 
+}
+
+html body div a h1 {
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
+  font-size: 1.6rem;
+}
 </style>
 </head>
 <body>
@@ -38,7 +52,7 @@
       </div>
     </div>
     <ul id="messageBox"></ul>
-    <div>
+    <div id='cd-footer'>
       <input id="message" type="text">
       <button id="sendBtn" type="button" class='btn'>전송</button>
     </div>
