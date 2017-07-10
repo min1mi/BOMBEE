@@ -57,8 +57,8 @@ html body div a h1 {
     </div>
   </div>
 </div>
-<script src="../socket.io/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../socket.io/socket.io.js"></script>
 <script>
 "use strict"
 const net = require('net')
@@ -67,16 +67,16 @@ var message = $('#message'),
     sendBtn = $('#sendBtn'),
     buffer='';
 
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://localhost:8080/Tomato/chat/deatil-chat.html');
         $("#messageBox").keyup(function(event) {
             if (event.which == 13) {
-                socket.emit('fromclient',{msg:$('#messageBox').val()});
+                socket.emit('fromclient',{message:$('#messageBox').val()});
                 $('#messageBox').val('');
             }
         });
         socket.on('toclient',function(data){
-            console.log(data.msg);
-            $('#message').append(data.msg+'<br>');
+            console.log(data.message);
+            $('#message').append(data.message+'<br>');
         });
 
 </script>
