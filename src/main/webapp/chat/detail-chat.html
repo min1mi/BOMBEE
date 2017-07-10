@@ -15,8 +15,8 @@
   src: url('../font/UhBeeMyHusband.woff');
   /*src:
   /*url('../font/UhBeemysen.woff') format('woff'),*/
-  url('../font/UhBeenMyHusband.woff') format('woff');
-  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/*/
+  /*url('../font/UhBeenMyHusband.woff') format('woff');*/
+  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/
 
 }
 
@@ -39,25 +39,48 @@ html body div a h1 {
       <img src='../image/small/arrow-left.png'>
       강사1
     </div>
-    <div id='cd-content'>
-      <div id='cd-me' class='cd-content clearfix'>
+    <ul id='messageBox'>
+      <div class='cd-content clearfix'>
         <span id='me' name="me" rows="8" cols="80">안녕하세요</span>
       </div>
-      <div id='cd-you' class='cd-content clearfix'>
+      <div class='cd-content clearfix'>
         <span id='you' name="you" rows="8" cols="80">네, 안녕하세요^^</span>
         <img src="../image/small/user2.png">
       </div>
-      <div id='cd-me' class='cd-content clearfix'>
+      <div class='cd-content clearfix'>
         <span id='me' name="me" rows="8" cols="80">안녕하세요</span>
       </div>
-    </div>
-    <ul id="messageBox"></ul>
+    </ul>
     <div id='cd-footer'>
       <input id="message" type="text">
       <button id="sendBtn" type="button" class='btn'>전송</button>
     </div>
   </div>
 </div>
+<script src="../socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+"use strict"
+const net = require('net')
+var message = $('#message'),
+    messageBox = $('#messageBox'),
+    sendBtn = $('#sendBtn'),
+    buffer='';
+
+var socket = io.connect('http://localhost');
+        $("#messageBox").keyup(function(event) {
+            if (event.which == 13) {
+                socket.emit('fromclient',{msg:$('#messageBox').val()});
+                $('#messageBox').val('');
+            }
+        });
+        socket.on('toclient',function(data){
+            console.log(data.msg);
+            $('#message').append(data.msg+'<br>');
+        });
+
+</script>
+
 
 </body>
 </html>

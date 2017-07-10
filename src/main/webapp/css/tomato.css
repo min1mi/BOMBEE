@@ -32,8 +32,9 @@
 }
 
 @font-face {
-  font-family: 'UhBeemysen';
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
   /*src: url('../font/UhBeemysen.woff');*/
+
   src: local(※),
   url('../font/UhBeemysen.woff') format('woff'),
   url('../font/UhBeenMyHusband.woff') format('woff');

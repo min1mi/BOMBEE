@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "body-parser": "^1.17.1",
+    "consolidate": "^0.14.5",
+    "express": "^4.15.2",
     "handlebars": "^4.0.6",
-    "jquery": "^1.12.4"
+    "mysql": "^2.13.0"
   }
+
 }
