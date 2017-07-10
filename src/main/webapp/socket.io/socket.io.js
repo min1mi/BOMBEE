@@ -4,7 +4,7 @@ var express = require('express'),
     path = require('path')
 
 var app = express()
-app.use(express.static(path.join(__dirname, '../../../../chat/detail-chat.html')))
+app.use(express.static(path.join(__dirname, '/index.html')))
 console.log(path.join(__dirname, '../../../chat/detail-chat.html'));
 
 var httpServer = http.createServer(app).listen(8080, function(req, res) {
