@@ -1,0 +1,248 @@
+
+  body {
+    font-family: Comic Sans MS;
+    width: auto;
+    height: auto;
+  }
+
+  @media (min-width: 0px) and (max-width: 414px) {
+    html {font-size: 10px;}
+    div{
+      height: 40%;
+    }
+    #td-timg {
+      size : 20%;
+    }
+    #td-detail {
+      /*padding : 10px 10px 0px 10px;*/
+    }
+    #d11 {
+      font-size: 130%;
+    }
+    #td-timg {
+      position: sticky;
+      border-radius: 3%;
+      width: 40%;
+      float:right;
+      margin: 0% 0% 1% 0%;
+    }
+    #td-detail4 {
+      float :left;
+      margin: 2% 2% 0% 2%;
+      height: auto;
+      width: 96%;
+      background-color: white;
+      padding : 1% 1% 0% 1%;
+      border-radius: 3%;
+    }
+    #td-detail5 {
+      float :left;
+      margin: 2% 2% 0% 2%;
+      height: auto;
+      width: 96%;
+      background-color: white;
+      padding : 1% 1% 0% 1%;
+      border-radius: 3%;
+    }
+    .td--Btn {
+      font-size: 150%;
+      margin: 0 2% 0 1%;
+      height: 50px;;
+      width: 46%;
+      background-color: #d17171;
+      color : white;
+      border: #d17171 solid 1px;
+    }
+    .td-AllBtn {
+      width : 100%;
+    }
+  }
+  @media (min-width: 415px) and (max-width: 767px) {
+    html {font-size: 20px;}
+    div{
+      /*background-color: red;*/
+      height: 60%;
+    }
+    /*div{
+      height: 40%;
+    }*/
+    /*#td-timg {
+      size : 20%;
+    }*/
+    #td-timg {
+      position: sticky;
+      border-radius: 3%;
+      width: 50%;
+      float:right;
+      margin: 0% 0% 1% 0%;
+    }
+    #td-detail {
+      /*padding : 10px 10px 0px 10px;*/
+    }
+    #d11 {
+      font-size: 130%;
+    }
+    #td-detail4 {
+      float :left;
+      margin: 2% 1% 0% 2%;
+      height: auto;
+      width: 47%;
+      background-color: white;
+      border-radius: 3%;
+    }
+    #td-detail5 {
+      float :left;
+      margin: 2% 2% 0% 1%;
+      height: auto;
+      width: 47%;
+      background-color: white;
+      padding: 2% 0% 2% 2%;
+      border-radius: 3%;
+    }
+    .td--Btn {
+      font-size: 150%;
+      margin: 0 2% 0 1%;
+      height: 50px;;
+      width: 46%;
+      background-color: #d17171;
+      color : white;
+      border: #d17171 solid 1px;
+    }
+    .td-AllBtn {
+      width : 100%;
+    }
+  }
+  /*ipad*/
+  @media (min-width: 768px){
+    html {font-size: 1.5em;}
+    div{
+      width: 100%;
+      height: 200%;
+    }
+    #td-top {
+            font-size: 2em;
+
+    }
+    #td-timg {
+      position: sticky;
+      border-radius: 3%;
+      width: 40%;
+      float:right;
+      margin: 0% 0% 1% 0%;
+    }
+    h4 {
+            font-size: 2em;
+    }
+    #d11 {
+
+      font-size: 250%;
+    }
+
+    #td-detail4 {
+      float :left;
+      margin: 2% 1% 0% 2%;
+      height: auto;
+      width: 47%;
+      background-color: white;
+      border-radius: 3%;
+    }
+    #td-detail5 {
+      float :left;
+      margin: 2% 2% 0% 1%;
+      height: auto;
+      width: 47%;
+      background-color: white;
+      padding: 2% 0% 2% 2%;
+      border-radius: 3%;
+    }
+    .td--Btn {
+      font-size: 200%;
+      margin: 0 2% 0 1%;
+      height: 50px;;
+      width: 46%;
+      background-color: #d17171;
+      color : white;
+      border: #d17171 solid 1px;
+
+    }
+  }
+  /*@미디어 */
+  .td-AllBtn {
+    padding: 3% 0% 0% 2%;
+    float: left;
+  }
+  .container {
+    /*min-width: 768px;*/
+    max-width: 769px;
+  }
+
+
+  #td-body {
+    float:left;
+    background-color: #f2d9d9;
+    height : auto;
+    width: 100%;
+    padding-bottom: 2%;
+  }
+  #td-top {
+    background-color: #d17171;
+    color : white;
+    padding: 2% 0% 2% 2%;
+    height: auto;
+    width: 100%;
+  }
+  #td-detail {
+    float :left;
+    margin: 2% 2% 0% 2%;
+    height: auto;
+    width: 96%;
+    background-color: white;
+    padding : 1% 1% 0% 1%;
+    border-radius: 3%;
+  }
+  #td-detail2 {
+    float: left;
+    padding: 5%;
+    border: 1px red solid;
+    width: 100%;
+  }
+  #td-table {
+    border: 5px black solid;
+    width: 100%;
+    background-color: grey;
+    border-radius: 5px;
+  }
+  tr {
+    border-color: ;
+  }
+  td {
+    border: 5px black solid;
+    border-color: white;
+    border-radius: 5%;
+  }
+
+  #td-detail4 {
+    background-color: white;
+    padding : 1% 1% 0% 1%;
+    border-radius: 3%;
+  }
+  #td-detail5 {
+    background-color: white;
+    padding : 1% 1% 0% 1%;
+    border-radius: 3%;
+  }
+
+  /*#td-timg {
+    position: sticky;
+    border-radius: 3%;
+    width: 40%;
+    float:right;
+    margin: 0% 0% 1% 0%;
+  }*/
+  #d11 {
+    position: relative;
+    float:left;
+    border : red solid 1px ;
+    /*width: 48%;*/
+    /*size : 50px;*/
+  }

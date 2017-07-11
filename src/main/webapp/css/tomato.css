@@ -3,6 +3,9 @@
   html {
     font-size: 10px;
   }
+  .container {
+    width: 320px;
+  }
 }
 /*iphone plus*/
 @media (min-device-width: 415px) and (max-device-width: 767px) {

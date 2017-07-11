@@ -1,0 +1,67 @@
+@media (min-device-width: 320px) and (max-device-width: 414px) {
+  html {
+    /*font-size: 10px;*/
+  }
+  h1 {
+    text-align: center;
+    font-size: 350%;
+    color: #d17171;
+    /*font-weight: bold;*/
+    /*border: 1px #d17171 solid;*/
+  }
+  .lg-dlqfur {
+    margin-top: 2%;
+    padding: 3%;
+    width: 92%;
+    height: 40%;
+    font-size: 40px;
+    border-radius: 10px;
+    border: 1px #d17171 solid;
+  }
+  #lg-qjxms {
+    margin-top: 10%;
+    width: 99%;
+    height: 150%;
+    border:none;
+    border-radius: 5px;
+    border: 1px #d17171 solid;
+    background-color: #d17171;
+    font-size: 180%;\
+    color: white;
+
+  }
+  button {
+    color: white;
+  }
+  .boxbox {
+              width: 19px;
+              height: 20px;
+              padding: 0px;
+              background: url("/Content/Images/checkboxBG.jpg");
+              display: block;
+              float: left;
+              color: pink;
+              b
+          }
+  #lg-otherBtn {
+    text-align: center;
+    color: grey;
+  }
+  p {
+    color : grey;
+    text-align: center;
+  }
+
+}
+/*iphone plus*/
+@media (min-device-width: 415px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+
+
+}
+/*ipad*/
+@media (min-device-width: 768px) {
+
+}

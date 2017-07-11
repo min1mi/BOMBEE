@@ -6,89 +6,11 @@
   <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/chat.css'>
+  <link rel='stylesheet' href='../css/td-detail.css'>
   <style>
-
-  body {
-    font-family: Comic Sans MS;
-    width: auto;
-    height: auto;
-  }
-
-  @media (min-width: 320px) and (max-width: 414px) {
-    html {font-size: 20px;}
-    div{
-      background-color: white;
-      height: 40%;
-    }
-    #td-timg {
-      /*width: 10%;*/
-    }
-  }
-  @media (min-width: 415px) and (max-width: 767px) {
-    html {font-size: 20px;}
-    div{
-      background-color: red;
-      height: 60%;
-    }
-    #td-top {
-            font-size: 1.5em;
-
-    }
-    h4 {
-            font-size: 1.5em;
-    }
-  }
-  /*ipad*/
-  @media (min-width: 768px){
-    html {font-size: 20px;}
-    div{
-      width: 100%;
-      height: 200%;
-    }
-    #td-top {
-            font-size: 2em;
-
-    }
-    h4 {
-            font-size: 2em;
-    }
-
-  }
-  /*@미디어 */
-
-      #td-name {
-
-      }
-      #td-body {
-        float:left;
-        background-color: #f2d9d9;
-        height : auto;
-        width: 100%;
-
-
-      }
-      #td-top {
-        background-color: #d17171;
-        color : white;
-        padding: 2% 0% 2% 2%;
-        height: auto;
-        width: 100%;
-
-      }
-      #td-detail {
-        /*margin:*/
-        float :left;
-        margin: 2% 2% 0% 2%;
-        height: auto;
-        width: 96%;
-        background-color: white;
-      }
-      #td-timg {
-        width: 8em;
-      }
-  .container {
-    /*min-width: 768px;*/
-    max-width: 769px;
+  .td-tkwls {
+    width: 46%;
+    float: left;
   }
 
   </style>
@@ -109,18 +31,87 @@
       <div id="td-top"><h4>김반장</h4>트레이너 헬스 강남서초</div> <!--td-top-->
       <div id="td-detail">
         <div>
-          <table>
+          <table id="d11">
             <tbody>
               <tr><td><strong>이름</strong></td><td>권승민</td></tr>
               <tr><td><strong>출생</strong></td><td>1970.5.7</td>
               <tr><td><strong>소속</strong></td><td><a>ABC헬스장</a></td></tr>
               <tr><td><strong>신체</strong></td><td>185cm, 82kg</td>
-              <tr><td><strong>사이트</strong></td><td><a>블로그</a><a>트위터</a></td></tr>
+              <tr><td><strong>SNS</strong></td><td><a>블로그</a><a>트위터</a></td></tr>
+            </tbody>
+          </table>
+          <img id="td-timg" float="rigtt" src="1111.png">
+        </div>
+      </div><!--td-detail-->
+      <div id="td-detail2">
+        <table id="td-table">
+          <tr>
+            <td>월</td><td>화</td><td>수</td><td>목</td><td>금</td><td>토</td><td>일</td>
+          </tr>
+          <tr>
+            <td>10~11</td><td>10~11</td><td>10~11</td><td>10~11</td><td>10~11</td><td>10~11</td><td>10~11</td>
+          </tr>
+          <tr>
+            <td>13~14</td><td>13~14</td><td>13~14</td><td>13~14</td><td>13~14</td><td>13~14</td><td>13~14</td>
+          </tr>
+          <tr>
+            <td>15~16</td><td>15~16</td><td>15~16</td><td>15~16</td><td>15~16</td><td>15~16</td><td>15~16</td>
+          </tr>
+          <tr>
+            <td>17~18</td><td>17~18</td><td>17~18</td><td>17~18</td><td>17~18</td><td>17~18</td><td>17~18</td>
+          </tr>
+          <tr>
+            <td>20~21</td><td>20~21</td><td>20~21</td><td>20~21</td><td>20~21</td><td>20~21</td><td>20~21</td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="td-detail3">
+        <div>
+          <img class="td-tkwls" src="333.png">
+        </div>
+        <div>
+          <img class="td-tkwls" src="333.png">
+        </div>
+      </div><!--td-detail-->
+
+
+
+      <div id="td-detail4">
+        <h1>경력사항</h1>
+        <div>
+          <table id="d12">
+            <tbody>
+              <tr><td>2013.01</td><td>몸짱몸짱몸짱</td>
+              <tr><td>2013.01</td><td>몸짱몸짱몸짱</td>
+              <tr><td>2013.01</td><td>몸짱몸짱몸짱</td>
+              <tr><td>2013.01</td><td>몸짱몸짱몸짱</td>
+              <tr><td>2013.01</td><td>몸짱몸짱몸짱</td>
             </tbody>
           </table>
         </div>
-        <img id="td-timg" float="rigtt" src="1111.png">
       </div><!--td-detail-->
+
+      <div id="td-detail5">
+        <h1>특이사항</h1>
+        <div>
+          <table id="d12">
+            <tbody>
+              <tr><td>2013~2014</td><td>비트대학</td>
+              <tr><td>2013~2014</td><td>비트대학</td>
+              <tr><td>2013~2014</td><td>비트대학</td>
+              <tr><td>2013~2014</td><td>비트대학</td>
+              <tr><td>2013~2014</td><td>비트대학</td>
+              <tr><td>2013~2014</td><td>비트대학</td>
+            </tbody>
+          </table>
+        </div>
+      </div><!--td-detail-->
+
+      <div class="td-AllBtn">
+        <button class="td--Btn">1:1문의</button><button class="td--Btn">친구신청</button>
+        <h2 style="text-align :center;">ⓒTOMATO</h2>
+      </div>
     </div> <!-- td-body-->
   </div><!--container-->
 </body>
