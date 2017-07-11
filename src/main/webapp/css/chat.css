@@ -18,12 +18,11 @@ dd {
   position: absolute;
   margin-top: 20px;;
 
-}
-.fa {
+}.fa {
   font-size: 2rem;
   color: black;
 }
-.container {
+.chat-container {
   padding: 0;
 }
 .header {
@@ -64,6 +63,13 @@ dd {
   font-size: 1.6rem;
   color: white;
   background-color: #D17171;
+}
+.me {
+  float: right;
+}
+.you {
+  display: inline-block;
+  margin: 4px 0;
 }
 #logo {
   display: inline-block;
@@ -137,13 +143,6 @@ dd {
   box-sizing: border-box;
 }
 
-#me {
-  float: right;
-}
-#you {
-  display: inline-block;
-  margin: 4px 0;
-}
 #message {
   margin-left: 2px;
   height: 30px;
