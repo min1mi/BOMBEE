@@ -6,38 +6,117 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/mypage.css'>
+  <style>
+    .mypage-click {
+      width: 50%;
+    }
+    #mypage-infoinfo {
+      float: left;
+    }
+    #mypage-security {
+      float: right;
+    }
+    #mypage-userBorder {
+      font-size: 20px;
+      padding: 10px 0px;
+      margin-top: 5px;
+      color: #d17171;
+    }
+    #mypage-securityBorder {
+      font-size: 20px;
+      padding: 10px 0px;
+      margin-top: 5px;
+    }
+    .mypage-outer .inner {
+      padding-top: 10px;
+    }
+    .mypage-container{
+      background-color: #f2d9d9;
+    }
+    .header {
+      background-color: white;
+    }
+    .inner {
+      background-color: white;
+    }
+    .inner #user {
+      padding-bottom: 10px;
+    }
+  </style>
+
+
+
 </head>
 <body>
-  <div class='container'>
-    <div class='mypage-header'>
-      <a class='side' id='mypage-menu'>
-        <img src='../image/mypage-arrow.png' id='mypage-header-menu'/>
+  <div class='container mypage-container'>
+    <div class='header'>
+      <a class='side' id='menu'>
+        <img src='../image/header-menu.png' id='header-menu'/>
       </a>
+      <h1 id='logo'><a href="#">TOMATO</a></h1>
+      <a  class='side' id='search'>
+        <img src='../image/search.png' id='header-search'/>
+      </a>
+    </div>
+    <div class='mypage-header'>
       <h1 id='mypage-logo'><a href="#">내정보</a></h1>
     </div>
 
     <div class="mypage-outer">
-      <div class="inner">
-    <div class="btn-group btn-group-toggle"  data-toggle="buttons">
-      <label class="btn test" role="button">
-        <input class='label-size' type="radio" name="options" value="1" required="required">일반회원
-      </label>
-      <label class="btn" role="button">
-        <input class='label-size' type="radio" name="options" value="0">트레이너
-      </label>
+      <div class="inner clearfix">
+          <label class='mypage-click' id='mypage-userinfo'>
+            <span id='mypage-userBorder'>회원정보</span>
+          </label>
+          <label class='mypage-click' id='mypage-security'>
+            <span id='mypage-securityBorder'>보안정보</span>
+          </label>
+      </div>
     </div>
+    <div class='outer'>
+      <div class='inner'>
+        <span id='user'>사용자 이름</span>
+        <div class='centered'>
+
+        </div>
       </div>
+    </div>
+
+    <div class='outer'>
+      <div class='inner'>
+        <div class='centered'>
+
+        </div>
       </div>
-
-
-
+    </div>
   </div>
   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="http://code.jquery.com/jquery.min.js"></script>
-  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script>
-    $(".btn-group-toggle").twbsToggleButtons();
+    $('#mypage-userinfo').click(()=> {
+      $('#mypage-userBorder').css({
+        'border-bottom':'2px solid #d17171',
+        'color': '#d17171'
+      })
+
+      $('#mypage-securityBorder').css({
+        'border-bottom':'',
+        'color': 'black'
+      })
+    })
+
+    $('#mypage-security').click(()=> {
+      $('#mypage-userBorder').css({
+        'border-bottom':'',
+        'color': 'black'
+      })
+
+      $('#mypage-securityBorder').css({
+        'border-bottom':'2px solid #d17171',
+        'color': '#d17171'
+      })
+    })
   </script>
+
 
 </body>
 </html>
