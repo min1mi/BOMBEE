@@ -4,7 +4,13 @@
     font-size: 10px;
   }
   .container {
+<<<<<<< HEAD
     width: 320px;
+=======
+    min-width: 320px;
+    max-width: 375px;
+    padding: 0;
+>>>>>>> ec883fefbc9206d51b5233dc34525a34cfd415de
   }
 }
 /*iphone plus*/
@@ -12,17 +18,27 @@
   html {
     font-size: 14px;
   }
+  .container {
+    min-width: 415px;
+    max-width: 767px;
+    padding: 0;
+  }
 }
 /*ipad*/
 @media (min-device-width: 768px) {
   html {
     font-size: 16px;
   }
+  .container {
+    max-width: 768px;
+    padding: 0;
+  }
 }
 
 @font-face {
-  font-family: 'UhBeemysen';
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
   /*src: url('../font/UhBeemysen.woff');*/
+
   src: local(※),
   url('../font/UhBeemysen.woff') format('woff'),
   url('../font/UhBeenMyHusband.woff') format('woff');
@@ -52,6 +68,14 @@ html body div a h1 {
   text-align: center;
   line-height: 60px;
 }
+.mypage-header {
+  height: 60px;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  line-height: 60px;
+  background-color: #d17171;
+}
 .eventI::before {
   content: " | ";
   color:black;
@@ -61,7 +85,7 @@ html body div a h1 {
   margin: 5%;
   color: black;
 }
-.p-tag{
+.main-p-tag{
   color: white;
   font-size: 15px;
   width: 100px;
@@ -72,7 +96,7 @@ html body div a h1 {
   padding : 0 0;
   background-color: #d17171;
 }
-.border {
+.main-border {
   width: 100%;
   border-bottom: 2px solid #d17171;
 }
@@ -85,6 +109,12 @@ html body div a h1 {
   }
 .outer {
   margin-top: 10px;
+display: table;
+width: 100%;
+
+height: 100%;
+}
+.mypage-outer {
 display: table;
 width: 100%;
 
@@ -109,6 +139,38 @@ padding: 0 0 0 0px;
 width:49%;
 height: 200px;
 }
+btn-danger {
+  background-color: #d17171;
+}
+.btn-danger:hover{
+  background-color: #d17171;
+}
+.test {
+  background-color: #d17171;
+  color:white;
+  height: 40px;
+}
+.btn {
+  border: 1px solid #d17171;
+  width:50%;
+  height: 40px;
+}
+.btn-group {
+  width:100%;
+}
+.col-xs-2 {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 25%;
+}
+.form-control {
+  height: 50px;
+}
+.join-row {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+}
 
 
 
@@ -117,7 +179,7 @@ height: 200px;
 }
 
 
-#btn-findTrainer {
+#main-btn-findTrainer {
   width:100%;
   height:50px;
   color:white;
@@ -127,12 +189,17 @@ height: 200px;
 #footer-last-tomato {
   margin:0%;
 }
-#outer {
+#main-outer {
 display: table;
 width: 100%;
 height: 100%;
 }
 #logo {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+}
+#mypage-logo {
   display: inline-block;
   font-size: 2rem;
   margin: 0;
@@ -143,7 +210,17 @@ height: 100%;
   text-decoration: none;
   line-height: 60px;
 }
+#mypage-logo a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 60px;
+}
 #menu {
+  position: absolute;
+  left: 10px;
+}
+#mypage-menu {
   position: absolute;
   left: 10px;
 }
@@ -154,6 +231,36 @@ height: 100%;
 #header-menu {
   width: 35px;
 }
+#mypage-header-menu {
+  width: 35px;
+}
 #header-search {
   width: 34px;
+}
+#join-margin {
+  margin-top: 10px;
+}
+
+#join-date {
+  width: 100%;
+  height: 50px;
+}
+#join-mm {
+  width: 100%;
+  height: 50px;
+}
+#join-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#join-padding1 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#join-last-margin {
+  margin-top: 30px;
+  width:100%;
+}
+#join-birth {
+  width: 120%;
 }

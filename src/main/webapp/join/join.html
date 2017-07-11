@@ -6,102 +6,6 @@
   <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
-  <style>
-  @font-face {
-    font-family: Comic Sans MS;
-  }
-  body {
-    font-family: Comic Sans MS;
-  }
-  .container {
-    margin: 0px auto;
-    }
-  .header {
-    height: 60px;
-    position: relative;
-    padding: 0;
-    text-align: center;
-    line-height: 60px;
-  }
-  .outer {
-    margin-top: 10px;
-  display: table;
-  width: 100%;
-  height: 100%;
-  }
-  .inner {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  }
-  .select {
-    text-decoration:none !important;
-    text-decoration:none;
-    margin: 0 0 0 0;
-  }
-  .btn-danger {
-    background-color: #d17171;
-  }
-  .btn-danger:hover{
-    background-color: #d17171;
-  }
-  .test {
-    background-color: #d17171;
-    color:white;
-  }
-  .btn {
-    border: 1px solid #d17171;
-    width:50%;
-  }
-  .btn-group {
-    width:100%;
-  }
-  .col-xs-2 {
-    padding-left: 15px;
-    padding-right: 0px;
-    width: 25%;
-  }
-  #footer-last-tomato {
-    margin:0%;
-  }
-  #logo a {
-    color: #d17171;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 60px;
-  }
-  #select-user {
-    background-color: #d17171;
-    color: white;
-  }
-  #select-trainer {
-    color: #d17171;
-    background-color: white;
-    border: 1px solid #d17171;
-  }
-  #margin {
-    margin-top: 10px;
-  }
-  #mm {
-    width: 23%;
-    height: 34px;
-  }
-  #padding {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  #padding1 {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  #last-margin {
-    margin-top: 30px;
-    width:100%;
-  }
-
-
-
-  </style>
 </head>
 <body>
 
@@ -127,10 +31,10 @@
       <form>
         <div>
           <input type="text" class="form-control" placeholder="아이디">
-          <input type="text" class="form-control" placeholder="비밀번호">
-          <input type="text" class="form-control" placeholder="비밀번호확인">
+          <input type="password" class="form-control" placeholder="비밀번호">
+          <input type="password" class="form-control" placeholder="비밀번호확인">
         </div>
-        <div id='margin'>
+        <div id='join-margin'>
           <input type="text" class="form-control" placeholder="이름">
         </div>
 
@@ -143,14 +47,15 @@
           </label>
         </div>
 
-        <div class="row">
+        <div class="join-row">
           <div class="col-xs-2">
-            <input class="form-control" type="text" placeholder="생일" readonly>
+            <input class="form-control" id='join-birth' type="text" placeholder="생일" readonly>
           </div>
-  <div class="col-xs-2" id='padding'>
+  <div class="col-xs-2" id='join-padding'>
     <input type="text" class="form-control" placeholder="년도">
   </div>
-  <select id="mm" title="월" class="sel" onchange="checkBirthday('check')">
+  <div class="col-xs-2" id='join-padding'>
+  <select id="join-mm" title="월" class="sel" onchange="checkBirthday('check')">
 											<option value="">월</option>
 										  	 			<option value="1">1</option>
 										  	 			<option value="2">2</option>
@@ -165,10 +70,44 @@
 										  	 			<option value="11">11</option>
 										  	 			<option value="12">12</option>
   </select>
-  <div class="col-xs-2" id='padding'>
-    <input type="text" class="form-control" placeholder="일">
+</div>
+  <div class="col-xs-2" id='join-padding'>
+    <select id="join-date" title="일" class="sel" onchange="checkBirthday('check')">
+  											<option value="">일</option>
+  										  	 			<option value="1">1</option>
+  										  	 			<option value="2">2</option>
+  										  	 			<option value="3">3</option>
+  										  	 			<option value="4">4</option>
+  										  	 			<option value="5">5</option>
+  										  	 			<option value="6">6</option>
+  										  	 			<option value="7">7</option>
+  										  	 			<option value="8">8</option>
+  										  	 			<option value="9">9</option>
+  										  	 			<option value="10">10</option>
+  										  	 			<option value="11">11</option>
+  										  	 			<option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+    </select>
   </div>
-  <div id="padding1">
+  <div id="join-padding1">
     <input type="text" class="form-control" placeholder="본인확인 이메일(선택)">
   </div>
 </div>
@@ -181,7 +120,7 @@
 </div>
 
 
-      <button id='last-margin'class='test'>가입하기</button>
+      <button id='join-last-margin'class='test'>가입하기</button>
       </form>
 
     <div class="outer">
