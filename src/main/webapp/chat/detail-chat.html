@@ -71,7 +71,7 @@ var myAlias = 'yoon',
 
 message.keyup((e) => {
   if (e.keyCode  == 0x0d) {
-    var test = $('<img>').
+    var test = $('<img>')
                           .appendTo($('<span>').addClass(value.startsWith(myAlias) ? "me" : "you")
                           .text(message.val()))
                           .appendTo($('<div>')

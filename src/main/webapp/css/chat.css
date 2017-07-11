@@ -16,25 +16,13 @@ dt {
 dd {
   float: left;
   position: absolute;
-  margin-top: 20px;;
-
-}.fa {
-  font-size: 2rem;
-  color: black;
+  margin-top: 20px;
 }
+
 .chat-container {
   padding: 0;
 }
-.header {
-  height: 60px;
-  position: relative;
-  padding: 0;
-  text-align: center;
-  line-height: 60px;
-}
-.header a {
-  padding-top: 3px;
-}
+
 .chat-line div {
   display: inline;
 }
@@ -70,31 +58,6 @@ dd {
 .you {
   display: inline-block;
   margin: 4px 0;
-}
-#logo {
-  display: inline-block;
-  font-size: 2rem;
-  margin: 0;
-}
-#logo a {
-  color: #d17171;
-  font-weight: bold;
-  text-decoration: none;
-  line-height: 60px;
-}
-#menu {
-  position: absolute;
-  left: 10px;
-}
-#search {
-  position: absolute;
-  right: 10px;
-}
-#header-menu {
-  width: 35px;
-}
-#header-search {
-  width: 31px;
 }
 
 #chat-header {
