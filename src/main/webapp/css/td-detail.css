@@ -1,6 +1,5 @@
 
   body {
-    font-family: Comic Sans MS;
     width: auto;
     height: auto;
   }
@@ -9,6 +8,9 @@
     html {font-size: 10px;}
     div{
       height: 40%;
+    }
+    #td-top {
+      font-size: 2em;
     }
     #td-timg {
       size : 20%;
@@ -69,6 +71,10 @@
     /*#td-timg {
       size : 20%;
     }*/
+    #td-top {
+            font-size: 2em;
+
+    }
     #td-timg {
       position: sticky;
       border-radius: 3%;
@@ -245,4 +251,8 @@
     border : red solid 1px ;
     /*width: 48%;*/
     /*size : 50px;*/
+  }
+  .td-tkwls {
+    width: 46%;
+    float: left;
   }
