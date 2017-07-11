@@ -50,12 +50,12 @@ html body div a h1 {
   font-family: 'UhBeemysen', 'UhBeeMyHusband';
   font-size: 1.6rem;
 }
-
-#main-promotion1 {
-  width: 100%;
+.btn-danger {
+  background-color: #d17171;
 }
-
-
+.btn-danger:hover{
+  background-color: #d17171;
+}
 .clearfix::after {
    display: block;
    content: '';
@@ -85,21 +85,7 @@ html body div a h1 {
   margin: 5%;
   color: black;
 }
-.main-p-tag{
-  color: white;
-  font-size: 15px;
-  width: 100px;
-  height: 30px;
-  border-radius: 5px 5px 5px 0;
-  text-align: center;
-  line-height: 30px;
-  padding : 0 0;
-  background-color: #d17171;
-}
-.main-border {
-  width: 100%;
-  border-bottom: 2px solid #d17171;
-}
+
 .promotion {
   margin-top: 5%;
   text-align: center;
@@ -139,12 +125,7 @@ padding: 0 0 0 0px;
 width:49%;
 height: 200px;
 }
-btn-danger {
-  background-color: #d17171;
-}
-.btn-danger:hover{
-  background-color: #d17171;
-}
+
 .test {
   background-color: #d17171;
   color:white;
