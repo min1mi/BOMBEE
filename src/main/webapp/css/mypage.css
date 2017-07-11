@@ -11,6 +11,53 @@
   width: 100%;
   height: 100%;
 }
+
+.btn {
+  border: 1px solid #d17171;
+  width:50%;
+  height: 40px;
+}
+.btn-group {
+  width:100%;
+}
+
+.mypage-click {
+  width: 50%;
+}
+
+.mypage-outer .inner {
+  padding-top: 10px;
+}
+.mypage-container{
+  background-color: #f2d9d9;
+}
+.header {
+  background-color: white;
+}
+.inner {
+  background-color: white;
+}
+.inner #user {
+  padding-bottom: 10px;
+}
+#mypage-infoinfo {
+  float: left;
+}
+#mypage-security {
+  float: right;
+}
+#mypage-userBorder {
+  font-size: 20px;
+  padding: 10px 0px;
+  margin-top: 5px;
+  color: #d17171;
+}
+#mypage-securityBorder {
+  font-size: 20px;
+  padding: 10px 0px;
+  margin-top: 5px;
+}
+
 #mypage-logo {
   display: inline-block;
   font-size: 2rem;
@@ -22,19 +69,4 @@
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;
-}
-#mypage-menu {
-  position: absolute;
-  left: 10px;
-}
-#mypage-header-menu {
-  width: 35px;
-}
-.btn {
-  border: 1px solid #d17171;
-  width:50%;
-  height: 40px;
-}
-.btn-group {
-  width:100%;
 }

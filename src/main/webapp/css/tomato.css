@@ -77,8 +77,11 @@ html body div a h1 {
   padding-top: 3px;
 }
 
+.footer-img {
+  padding-bottom: 7px;
+}
 .container {
-  margin: 0px;
+  margin: 0px auto;
 }
 
 .outer {
@@ -104,26 +107,6 @@ html body div a h1 {
 .footer-button {
   margin: 5%;
   color: black;
-}
-
-.test {
-  background-color: #d17171;
-  color:white;
-  height: 40px;
-}
-
-.col-xs-2 {
-  padding-left: 0px;
-  padding-right: 0px;
-  width: 25%;
-}
-.form-control {
-  height: 50px;
-}
-.join-row {
-  margin: 0 auto;
-  overflow: hidden;
-  width: 100%;
 }
 
 #footer-last-tomato {
