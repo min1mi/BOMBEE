@@ -1,0 +1,135 @@
+body {
+  margin: 0px;
+  padding: 0
+
+}
+
+.container {
+  padding: 0;
+}
+
+.header {
+  height: 60px;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  line-height: 60px;
+}
+.header a {
+  padding-top: 3px;
+}
+
+
+
+.projectAdd-top {
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 45px;
+  background-color: #D17171;
+  height: 45px;
+  color: white;r
+}
+
+.projectAdd-top > div {
+  height: 100%;
+}
+
+.projectAdd-top > .projectAdd-top-close {
+  width: 15%;
+  float:left;
+  line-height: 40px;
+  font-size: 4rem;
+}
+.projectAdd-top > .projectAdd-top-temp {
+  width: 25%;
+  float:left;
+}
+
+.projectAdd-top > .projectAdd-top-tempSave {
+  width: 25%;
+  float:right;
+}
+
+.projectAdd-top > .projectAdd-top-save {
+  width: 15%;
+  float:right;
+}
+.projectAdd-top-temp > .projectAdd-top-temp-text {
+  background-color:rgba(255,255,255,0);
+  border: 2px white solid;
+  padding: 1px 10px;
+  border-radius: 2.5rem;
+  line-height: 25px;
+  color: white;
+
+}
+
+.projectAdd-gym {
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 45px;
+  height: 45px;
+
+}
+
+.projectAdd-gym > .projectAdd-gym-select {
+  color:blue;
+  width: 48%;
+  float: left;
+  margin: 2px 3px;
+}
+
+.projectAdd-gym > .projectAdd-gym-select-purpose {
+  color:blue;
+  width: 48%;
+  float: right;
+  margin: 2px 3px;
+}
+
+.form-control {
+
+  margin: 2px 1px;
+}
+
+
+
+
+
+
+#logo {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+}
+#logo a {
+  color: #d17171;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 60px;
+}
+#menu {
+  position: absolute;
+  left: 10px;
+}
+#search {
+  position: absolute;
+  right: 10px;
+}
+#header-menu {
+  width: 35px;
+}
+#header-search {
+  width: 31px;
+}
+
+
+#cd-header img {
+  position: absolute;
+  left: 5px;
+  vertical-align: top;
+  margin: 5px 0 0 5px;;
+}
