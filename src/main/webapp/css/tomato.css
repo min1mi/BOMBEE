@@ -73,7 +73,7 @@ html body div a h1 {
   margin: 5%;
   color: black;
 }
-.p-tag{
+.main-p-tag{
   color: white;
   font-size: 15px;
   width: 100px;
@@ -84,7 +84,7 @@ html body div a h1 {
   padding : 0 0;
   background-color: #d17171;
 }
-.border {
+.main-border {
   width: 100%;
   border-bottom: 2px solid #d17171;
 }
@@ -129,7 +129,7 @@ height: 200px;
 }
 
 
-#btn-findTrainer {
+#main-btn-findTrainer {
   width:100%;
   height:50px;
   color:white;
@@ -139,7 +139,7 @@ height: 200px;
 #footer-last-tomato {
   margin:0%;
 }
-#outer {
+#main-outer {
 display: table;
 width: 100%;
 height: 100%;
