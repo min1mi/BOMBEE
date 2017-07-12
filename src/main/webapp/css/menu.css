@@ -1,3 +1,85 @@
+.sidenav {
+  background-color: #f2d9d9;
+}
+.sidenav {
+  position: relative;
+}
+
+.menu-header > a:link {color: white; text-decoration: none;}
+.menu-header > a:visited {color: white; text-decoration: none;}
+.menu-header > a:hover {color: white; text-decoration: none;}
+.menu-header > a:active {color: white; text-decoration: none;}
+
+.main-container .menu-header {
+  padding-top: 3px;
+  height: 74px;
+  background-color: #d17171;
+}
+.menu-header i {
+  margin-left: 10px;
+  font-size: 2.7rem;
+  color: white;
+}
+
+.font-o {
+  color: white;
+  font-size : 4rem;
+  display: inline-block;
+  float:left;
+  margin: 11px;
+
+}
+.info {
+  font-size : 2.7rem;
+  display: inline-block;
+  float:right;
+  margin:11px;
+
+}
+
+.user-nic {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: 'UhBeenMyHusband';
+  color: #fff;
+  line-height: 74px;
+}
+
+.footer-login {
+  float: left;
+  background-color: #d17171;
+  color: white;
+}
+.footer-login:active{
+  color: white;
+}
+.footer-login:active:after{
+  color: white;
+}
+.footer-qna {
+  float: right;
+  background-color: white;
+  color: black;
+
+}
+.menu-footer {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.menu-footer a {
+  border-radius: 0;
+  width: 50%;
+}
+.menu-footer a:hover {
+  color: white;
+}
+
 .sidenav2 {
     height: 100%;
     width: 0;
@@ -5,7 +87,7 @@
     z-index: 1;
     overflow-x: hidden;
     /*transition: 0.2s;*/
-    padding-top: 60px;
+    /*padding-top: 60px;*/
     top: 0;
     right: 0;
     position: fixed;
@@ -18,23 +100,23 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    /*background-color: #111;*/
     overflow-x: hidden;
     transition: 0.2s;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
   /*float:left;*/
 }
 
-.sidenav a {
+.detail-list a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
 }
 
-.sidenav a:hover, .offcanvas a:focus{
+.sidenav a:hover{
     /*color: #f1f1f1;*/
     color: white;
 }
@@ -47,16 +129,19 @@
     margin-left: 50px;
 }
 
+
 .panel-group > *{
   border: 0;
-  background-color: black;
+  background-color: white;
 }
 
-.panel-default>.panel-heading {
-  background-color: black;
+.panel-default > .panel-heading {
+  color: white;
+  background-color: #424242;
 }
 
 .panel-body {
+  background-color: #f2d9d9;
   text-align:right;
 }
 

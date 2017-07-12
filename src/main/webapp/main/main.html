@@ -13,9 +13,21 @@
 <body>
 
 <div class='container main-container'>
-  <div id="mySidenav" class="sidenav">
-    <a class="closebtn" onclick="closeNav()">&times;</a>
-
+  <div class="sidenav"  id="mySidenav">
+    <div class='menu-header'>
+      <a class='login ' href='#' >
+        <div class="fa fa-user-circle-o font-o" aria-hidden="true"></div>
+        <strong class='user-nic'>로그인이 필요합니다.</strong>
+      </a>
+      <div class='info'>
+      <a href='#' class='user-alert'>
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+      </a>
+      <a href='#' class='btn-useinfo-close' onclick="closeNav()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+      </div>
+    </div>
     <!-- 아코디온 시작 -->
     <div class="panel-group" id="accordion" >
       <div class="panel panel-default" >
@@ -24,7 +36,7 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >헬스</a>
           </h4>
         </div>
-        <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-collapse collapse detail-list" id="collapse1">
           <div class="panel-body" >
             <a>살빼기</a>
             <a>시집가기</a>
@@ -38,7 +50,7 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">필라테스</a>
           </h4>
         </div>
-        <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-collapse collapse detail-list" id="collapse2">
           <div class="panel-body" >
             <a>살빼기</a>
             <a>시집가기</a>
@@ -52,7 +64,7 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">요가</a>
           </h4>
         </div>
-        <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-collapse collapse detail-list" id="collapse3">
           <div class="panel-body" >
             <a>살빼기</a>
             <a>시집가기</a>
@@ -61,14 +73,20 @@
       </div>
     </div>
   <!-- 아코디온 끝 -->
+    <div class='menu-footer'>
+      <a class='btn footer-login'>로그인</a>
+      <a class='btn footer-qna'>고객센터</a>
+    </div>
   </div>
   <!-- sidenav 끝 -->
 
   <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> -->
 
-  <div id="otherSidenav" class="sidenav2" onclick="closeNav()">
+  <div id="otherSidenav" class="sidenav2">
 
   </div>
+
+
 
 
   <div class='header'>
@@ -192,8 +210,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "66%";
-    document.getElementById("otherSidenav").style.width = "33%";
+    document.getElementById("mySidenav").style.width = "100%";
+    // document.getElementById("otherSidenav").style.width = "%";
 
 }
 

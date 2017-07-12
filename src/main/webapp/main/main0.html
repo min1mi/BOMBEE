@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html> <!-- root element -->
+<head> <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel='stylesheet' href='../css/main.css'>
+  <!-- <link rel='stylesheet' href='../css/menu.css'> -->
+</head>
+<body>
+
+<div class='container main-container'>
+  <div class="sidenav"  id="mySidenav">
+    <div class='menu-header'>
+      <a class='login ' href='#' >
+        <div class="fa fa-user-circle-o font-o" aria-hidden="true"></div>
+        <strong class='user-nic'>로그인이 필요합니다.</strong>
+      </a>
+      <div class='info'>
+      <a href='#' class='user-alert'>
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+      </a>
+      <a href='#' class='btn-useinfo-close'>
+          <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </div>
+    </div>
+    <!-- <a class="closebtn" onclick="closeNav()">&times;</a> -->
+
+    <!-- 아코디온 시작 -->
+    <div class="panel-group" id="accordion" >
+      <div class="panel panel-default" >
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >헬스</a>
+          </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapse1">
+          <div class="panel-body" >
+            <a>살빼기</a>
+            <a>시집가기</a>
+            <a>장가가기</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">필라테스</a>
+          </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapse2">
+          <div class="panel-body" >
+            <a>살빼기</a>
+            <a>시집가기</a>
+            <a>장가가기</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">요가</a>
+          </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapse3">
+          <div class="panel-body" >
+            <a>살빼기</a>
+            <a>시집가기</a>
+            <a>장가가기</a></div>
+        </div>
+      </div>
+    </div>
+  <!-- 아코디온 끝 -->
+  </div>
+  <!-- sidenav 끝 -->
+
+  <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span> -->
+
+  <div id="otherSidenav" class="sidenav2" onclick="closeNav()">
+
+  </div>
+
+<div class='menu-footer'>
+  <a class='btn footer-login'>로그인</a>
+  <a class='btn footer-qna'>고객센터</a>
+</div>
+</div>
+
+<!--  푸터 끝 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "66%";
+    document.getElementById("otherSidenav").style.width = "33%";
+
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("otherSidenav").style.width = "0%";
+}
+</script>
+</body>
+</html>

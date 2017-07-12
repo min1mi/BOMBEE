@@ -1,11 +1,11 @@
 /*iphone5~6*/
 @media (min-device-width: 320px) and (max-device-width: 414px) {
   html {
-    font-size: 10px;
+    font-size: 12px;
   }
   .container {
     min-width: 320px;
-    max-width: 375px;
+    max-width: 414px;
     padding: 0;
   }
 }
@@ -49,11 +49,14 @@ html body div a h1 {
 /*bootstrap 버튼 색 변경*/
 .btn-danger {
   background-color: #d17171;
+  border: 0;
+  outline: 0;
 }
 
 .btn-danger:hover{
   background-color: #d17171;
 }
+
 /* float 시 div 높이 만들어 주기*/
 .clearfix::after {
   display: block;
