@@ -1,191 +1,66 @@
-@media (min-device-width: 320px) and (max-device-width: 413px) {
-  .main-container {
-    min-width: 320px;
-    max-width: 413px;
-    padding: 0;
-    height: 100%;
-  }
-  .sidenav {
-    position: relative;
-    background-color: #f2d9d9;
-    height: 100%;
-  }
-  .sidenav .menu-header {
-    /*padding-top: 3px;*/
-    height: 11%;
-    background-color: #d17171;
-  }
-  .font-login {
-    color: white;
-    font-size : 3.5rem;
-    display: inline-block;
-    float:left;
-    margin: 5.5% 4% 0 5%;
-  }
-  .btn-useinfo-close > .font-info {
-    display: inline-block;
-    margin-left: 11%;
-  }
-
-  .font-info{
-    font-size:2rem;
-    color: white;
-    /*margin-left: 25%;*/
-  }
-  .login-form {
-    width: 70%;
-    display: inline-block;
-  }
-  .info {
-    width: 22%;
-    display: inline-block;
-    box-sizing: border-box;
-    float:right;
-    padding: 6% 4% 0 0;
-  }
-
-  .user-nic {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
-    font-size: 1.4rem;
-    font-weight: 400;
-    font-family: 'UhBeenMyHusband';
-    color: #fff;
-    line-height: 74px;
-  }
+*{
+  font-family: sans-serif;
 }
-/*iphone plus*/
-@media (min-device-width: 414px) and (max-device-width: 767px) {
-  .main-container {
-    /*min-width: 415px;*/
-    max-width: 414px;
-    padding: 0;
-    height: 100%;
-  }
-  .sidenav {
-    max-width: 415px;
-    position: relative;
-    background-color: #f2d9d9;
-    height: 100%;
-  }
-  .sidenav .menu-header {
-    /*padding-top: 3px;*/
-    height: 13%;
-    background-color: #d17171;
-  }
-  .font-login {
-    color: white;
-    font-size : 3.8rem;
-    display: inline-block;
-    float:left;
-    margin: 5.5% 4% 0 5%;
-  }
-  .btn-useinfo-close > .font-info {
-    display: inline-block;
-    margin-left: 11%;
-  }
-
-  .font-info{
-    font-size:2.4rem;
-    color: white;
-    /*margin-left: 25%;*/
-  }
-  .login-form {
-    width: 72%;
-    display: inline-block;
-  }
-  .info {
-    width: 22%;
-    display: inline-block;
-    box-sizing: border-box;
-    float:right;
-    padding: 4.5% 4% 0 0;
-  }
-
-  .user-nic {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-family: 'UhBeenMyHusband';
-    color: #fff;
-    line-height: 94px;
-  }
-}
-/*ipad*/
-@media (min-device-width: 768px) {
-  .main-container {
-    max-width: 768px;
-    padding: 0;
-    height: 100%;
-  }
-  .sidenav {
-    max-width: 750px;
-    position: relative;
-    background-color: #f2d9d9;
-    height: 100%;
-  }
-  .sidenav .menu-header {
-    /*padding-top: 3px;*/
-    height: 15%;
-    background-color: #d17171;
-  }
-  .font-login {
-    color: white;
-    font-size : 4rem;
-    display: inline-block;
-    float:left;
-    margin: 3.5% 4% 0 5%;
-  }
-  .btn-useinfo-close > .font-info {
-    display: inline-block;
-    margin-left: 15%;
-  }
-
-  .font-info{
-    font-size: 3rem;
-    color: white;
-    /*margin-left: 25%;*/
-  }
-  .login-form {
-    width: 72%;
-    display: inline-block;
-  }
-  .info {
-    width: 20%;
-    display: inline-block;
-    box-sizing: border-box;
-    float:right;
-    padding: 3% 4% 0 0;
-  }
-
-  .user-nic {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    display: inline-block;
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-family: 'UhBeenMyHusband';
-    color: #fff;
-    line-height: 94px;
-  }
-}
-
-
 
 .menu-header > a:link {color: white; text-decoration: none;}
 .menu-header > a:visited {color: white; text-decoration: none;}
 .menu-header > a:hover {color: white; text-decoration: none;}
 .menu-header > a:active {color: white; text-decoration: none;}
-.sidenav {
-  position: relative;
-  background-color: #f2d9d9;
+
+#mySidenav {
+  position: fixed;
+  top: 0px;
+  background-color: #2b3342;
+  display: none;
+  width: 100%;
   height: 100%;
+  color: white;
+  overflow: scroll;
+}
+
+.sidenav .menu-header {
+  height: 74px;
+  background: white;
+}
+.font-login {
+  color: #2b3342;
+  font-size : 3.5rem;
+  display: inline-block;
+  float:left;
+  margin: 17px 10px;
+}
+.btn-useinfo-close > .font-info {
+  display: inline-block;
+  margin-left: 11%;
+}
+
+.font-info{
+  font-size:2rem;
+  color: #2b3342;
+}
+.login-form {
+  width: 70%;
+  display: inline-block;
+}
+.info {
+  font-size: 2rem;
+  width: 68px;
+  display: inline-block;
+  box-sizing: border-box;
+  float:right;
+  padding: 20px 10px 0 0;
+}
+
+.user-nic {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: 'UhBeenMyHusband';
+  color: #2b3342;
+  line-height: 74px;
 }
 
 
@@ -203,7 +78,7 @@
 .footer-qna {
   float: right;
   background-color: white;
-  color: black;
+  color: #2b3342;
 
 }
 .menu-footer {
@@ -221,66 +96,68 @@
   color: white;
 }
 
-
-
-.sidenav2 {
-    height: 100%;
-    width: 0;
-    /*position:relative;*/
-    z-index: 1;
-    overflow-x: hidden;
-    transition: 0.2s;
-    /*padding-top: 60px;*/
-    top: 0;
-    right: 0;
-    position: fixed;
-}
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  /*background-color: #111;*/
-  overflow-x: hidden;
-  transition: 0.2s;
-  /*padding-top: 60px;*/
-/*float:left;*/
-}
-
 .detail-list a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: 0.3s;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2b3342;
+  display: block;
+  transition: 0.3s;
 }
-
-
 
 .list-font {
-  font-size: 1.4rem;
+  font-weight: lighter;
+  font-size: 1.6rem;
+  color:white;
+}
+
+.list-font:hover {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color:white
+}
+.list-font:focus {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color:white
 }
 .panel-group > *{
   border: 0;
   background-color: white;
 }
 
-
+.panel-default {
+  height: 100%;
+}
 .panel-default > .panel-heading {
+  height: 15%;
+  border:1px solid #2b3342;
   color: white;
-  background-color: #424242;
+  background-color: #2b3342;
+  border-radius: 0px;
+
 }
 
 .panel-body {
-  background-color: #f2d9d9;
+  /*background-color: #f2d9d9;*/
   text-align: right;
   width: 100%;
 }
 
+.panel-body-detail:hover {
+  border-bottom: 3px solid white;
+}
 .panel-body-detail {
   width: 100%;
+  color:white
 }
 .panel-body > a {
   font-size: 1.6rem;
+
+}
+.panel-group .panel+.panel {
+  margin: 0;
+  color: #313131;
+  background-color:white;
+  border-radius: 0px
 }
