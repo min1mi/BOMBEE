@@ -69,6 +69,11 @@ html body div a h1 {
   font-size: 2rem;
   color: black;
 }
+.eventI::before {
+  content: " | ";
+  color:black;
+  margin: 5%;
+}
 
 .header {
   height: 60px;

@@ -22,11 +22,7 @@
   width:49%;
   height: 200px;
 }
-.eventI::before {
-  content: " | ";
-  color:black;
-  margin: 5%;
-}
+
 
 #main-promotion1 {
   width: 100%;
