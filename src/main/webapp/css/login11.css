@@ -1,0 +1,140 @@
+@media (min-device-width: 320px) and (max-device-width: 414px) {
+  h1 {
+    /*font-size: 300%;*/
+  }
+
+
+
+}
+/*iphone plus*/
+@media (min-device-width: 415px) and (max-device-width: 767px) {
+
+  h1 {
+    font-size: 400%;
+  }
+
+
+
+
+}
+
+
+
+/*ipad*/
+@media (min-device-width: 768px){
+}
+
+h1 {
+  text-align: center;
+  color: #d17171;
+  /*font-weight: bold;*/
+  /*border: 1px #d17171 solid;*/
+}
+.jj-view {
+  padding-top: 100%;
+}
+.jojoin-container {
+  padding: 4%;
+  border: 1px solid black;
+  background-color: #f7f7f7;
+}
+.ididid {
+
+    border: 1px solid silver;
+    padding:4%;
+}
+.idididi23 {
+  /*padding-left: 10%;*/
+  border:5px solid red;
+
+}
+#ahffk {
+  position: inherit;
+  border: 1px solid purple;
+  width:260px;
+  float: left;
+
+}
+#lg-radio-right1{
+  float: right;
+  margin-top: -0.7%;
+  /*border:5px solid red;*/
+}
+
+#lg-radio-right2{
+  float: right;
+  margin-top: -0.7%;
+  /*border:5px solid red;*/
+}
+#lg-radio-right3{
+  float: right;
+  margin-top: -0.7%;
+  /*border:5px solid red;*/
+}
+.lg-radio-right4{
+  float: right;
+  margin-top: -0.7%;
+  /*border:5px solid red;*/
+}
+#dirrhksdlfma {
+  border:5px solid red;
+  /*padding-top: 20px;*/
+}
+.jj-view{
+  padding: 5% 2% 1% 1%;
+  width:96%;
+  /*border:1px solid red;*/
+	height:20%;
+	overflow: hidd9en;
+    /*border: 1px solid green;*/
+}
+.jj-scrollBlind{
+  padding: 3%;
+	width:96%;
+	height:150px;
+	overflow-y:scroll;
+
+}
+.jj-scrollBlind-in{
+  padding:2px;
+	background-color: #e1e1e1;
+}
+#Btn-btn {
+  margin-top: 5%;
+  height: auto;
+
+  /*border: 1px solid green;*/
+}
+#not-Btn{
+  height: 300px;
+  /*width: 49.35%;*/
+  /*width: 300px;*/
+  border:1px solid grey;
+  background-color: white;
+  color : black;
+  padding : 2% 18.5% 2% 18.5%;
+  font-size: 20px;
+
+}
+#good-Btn{
+  height: 300px;
+  /*width: 49.35%;*/
+  /*width: 300px;*/
+  border:1px solid #d17171;
+  background-color: #d17171;
+  color:white;
+  padding : 2% 20.1% 2% 20.1%;
+  font-size: 21px;
+
+}
+a {
+  height: 300px;
+  width: 300px;
+}
+h6 {
+  text-align: center;
+  color: grey;
+  font-size: 2rem;
+}
+
+}
