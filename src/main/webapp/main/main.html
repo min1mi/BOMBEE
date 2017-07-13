@@ -6,6 +6,7 @@
   <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
@@ -15,17 +16,19 @@
 <div class='container main-container'>
   <div class="sidenav"  id="mySidenav">
     <div class='menu-header'>
-      <a class='login ' href='#' >
-        <div class="fa fa-user-circle-o font-o" aria-hidden="true"></div>
-        <strong class='user-nic'>로그인이 필요합니다.</strong>
-      </a>
-      <div class='info'>
-      <a href='#' class='user-alert'>
-        <i class="fa fa-bell-o" aria-hidden="true"></i>
-      </a>
-      <a href='#' class='btn-useinfo-close' onclick="closeNav()">
-          <i class="fa fa-times" aria-hidden="true"></i>
-      </a>
+      <div class='login-form'>
+        <a class='login clearfix' href='#' >
+          <div class="fa fa-user-circle-o font-login" aria-hidden="true"></div>
+          <strong class='user-nic'>로그인이 필요합니다.</strong>
+        </a>
+      </div>
+      <div class='info clearfix'>
+        <a href='#' class='user-alert'>
+          <div class="fa fa-bell-o font-info" aria-hidden="true"></div>
+        </a>
+        <a href='#' class='btn-useinfo-close' onclick="closeNav()">
+            <div class="fa fa-times font-info" aria-hidden="true"></div>
+        </a>
       </div>
     </div>
     <!-- 아코디온 시작 -->
@@ -33,12 +36,12 @@
       <div class="panel panel-default" >
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" >헬스</a>
+            <a class='list-font' data-toggle="collapse" data-parent="#accordion" href="#collapse1" >헬스</a>
           </h4>
         </div>
         <div class="panel-collapse collapse detail-list" id="collapse1">
           <div class="panel-body" >
-            <a>살빼기</a>
+            <a><div class='panel-body-detail' style="border-bottom: 3px solid #d17171">살빼기</div></a>
             <a>시집가기</a>
             <a>장가가기</a>
           </div>
@@ -47,7 +50,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">필라테스</a>
+            <a class='list-font' data-toggle="collapse" data-parent="#accordion" href="#collapse2">필라테스</a>
           </h4>
         </div>
         <div class="panel-collapse collapse detail-list" id="collapse2">
@@ -61,7 +64,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">요가</a>
+            <a class='list-font' data-toggle="collapse" data-parent="#accordion" href="#collapse3">요가</a>
           </h4>
         </div>
         <div class="panel-collapse collapse detail-list" id="collapse3">
@@ -206,6 +209,7 @@
 </div>
 
 <!--  푸터 끝 -->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>

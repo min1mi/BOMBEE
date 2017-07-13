@@ -1,53 +1,193 @@
-.sidenav {
-  background-color: #f2d9d9;
+@media (min-device-width: 320px) and (max-device-width: 413px) {
+  .main-container {
+    min-width: 320px;
+    max-width: 413px;
+    padding: 0;
+    height: 100%;
+  }
+  .sidenav {
+    position: relative;
+    background-color: #f2d9d9;
+    height: 100%;
+  }
+  .sidenav .menu-header {
+    /*padding-top: 3px;*/
+    height: 11%;
+    background-color: #d17171;
+  }
+  .font-login {
+    color: white;
+    font-size : 3.5rem;
+    display: inline-block;
+    float:left;
+    margin: 5.5% 4% 0 5%;
+  }
+  .btn-useinfo-close > .font-info {
+    display: inline-block;
+    margin-left: 11%;
+  }
+
+  .font-info{
+    font-size:2rem;
+    color: white;
+    /*margin-left: 25%;*/
+  }
+  .login-form {
+    width: 70%;
+    display: inline-block;
+  }
+  .info {
+    width: 22%;
+    display: inline-block;
+    box-sizing: border-box;
+    float:right;
+    padding: 6% 4% 0 0;
+  }
+
+  .user-nic {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: 'UhBeenMyHusband';
+    color: #fff;
+    line-height: 74px;
+  }
 }
-.sidenav {
-  position: relative;
+/*iphone plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  .main-container {
+    /*min-width: 415px;*/
+    max-width: 414px;
+    padding: 0;
+    height: 100%;
+  }
+  .sidenav {
+    max-width: 415px;
+    position: relative;
+    background-color: #f2d9d9;
+    height: 100%;
+  }
+  .sidenav .menu-header {
+    /*padding-top: 3px;*/
+    height: 13%;
+    background-color: #d17171;
+  }
+  .font-login {
+    color: white;
+    font-size : 3.8rem;
+    display: inline-block;
+    float:left;
+    margin: 5.5% 4% 0 5%;
+  }
+  .btn-useinfo-close > .font-info {
+    display: inline-block;
+    margin-left: 11%;
+  }
+
+  .font-info{
+    font-size:2.4rem;
+    color: white;
+    /*margin-left: 25%;*/
+  }
+  .login-form {
+    width: 72%;
+    display: inline-block;
+  }
+  .info {
+    width: 22%;
+    display: inline-block;
+    box-sizing: border-box;
+    float:right;
+    padding: 4.5% 4% 0 0;
+  }
+
+  .user-nic {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'UhBeenMyHusband';
+    color: #fff;
+    line-height: 94px;
+  }
 }
+/*ipad*/
+@media (min-device-width: 768px) {
+  .main-container {
+    max-width: 768px;
+    padding: 0;
+    height: 100%;
+  }
+  .sidenav {
+    max-width: 750px;
+    position: relative;
+    background-color: #f2d9d9;
+    height: 100%;
+  }
+  .sidenav .menu-header {
+    /*padding-top: 3px;*/
+    height: 15%;
+    background-color: #d17171;
+  }
+  .font-login {
+    color: white;
+    font-size : 4rem;
+    display: inline-block;
+    float:left;
+    margin: 3.5% 4% 0 5%;
+  }
+  .btn-useinfo-close > .font-info {
+    display: inline-block;
+    margin-left: 15%;
+  }
+
+  .font-info{
+    font-size: 3rem;
+    color: white;
+    /*margin-left: 25%;*/
+  }
+  .login-form {
+    width: 72%;
+    display: inline-block;
+  }
+  .info {
+    width: 20%;
+    display: inline-block;
+    box-sizing: border-box;
+    float:right;
+    padding: 3% 4% 0 0;
+  }
+
+  .user-nic {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'UhBeenMyHusband';
+    color: #fff;
+    line-height: 94px;
+  }
+}
+
+
 
 .menu-header > a:link {color: white; text-decoration: none;}
 .menu-header > a:visited {color: white; text-decoration: none;}
 .menu-header > a:hover {color: white; text-decoration: none;}
 .menu-header > a:active {color: white; text-decoration: none;}
-
-.main-container .menu-header {
-  padding-top: 3px;
-  height: 74px;
-  background-color: #d17171;
-}
-.menu-header i {
-  margin-left: 10px;
-  font-size: 2.7rem;
-  color: white;
+.sidenav {
+  position: relative;
+  background-color: #f2d9d9;
+  height: 100%;
 }
 
-.font-o {
-  color: white;
-  font-size : 4rem;
-  display: inline-block;
-  float:left;
-  margin: 11px;
-
-}
-.info {
-  font-size : 2.7rem;
-  display: inline-block;
-  float:right;
-  margin:11px;
-
-}
-
-.user-nic {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: inline;
-  font-size: 1.6rem;
-  font-weight: 400;
-  font-family: 'UhBeenMyHusband';
-  color: #fff;
-  line-height: 74px;
-}
 
 .footer-login {
   float: left;
@@ -73,12 +213,15 @@
 }
 
 .menu-footer a {
+  font-size: 1.4rem;
   border-radius: 0;
   width: 50%;
 }
-.menu-footer a:hover {
+.footer-login:hover {
   color: white;
 }
+
+
 
 .sidenav2 {
     height: 100%;
@@ -86,25 +229,22 @@
     /*position:relative;*/
     z-index: 1;
     overflow-x: hidden;
-    /*transition: 0.2s;*/
+    transition: 0.2s;
     /*padding-top: 60px;*/
     top: 0;
     right: 0;
     position: fixed;
 }
-
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    /*background-color: #111;*/
-    overflow-x: hidden;
-    transition: 0.2s;
-    /*padding-top: 60px;*/
-  /*float:left;*/
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  /*background-color: #111;*/
+  overflow-x: hidden;
+  transition: 0.2s;
+  /*padding-top: 60px;*/
+/*float:left;*/
 }
 
 .detail-list a {
@@ -116,24 +256,16 @@
     transition: 0.3s;
 }
 
-.sidenav a:hover{
-    /*color: #f1f1f1;*/
-    color: white;
+
+
+.list-font {
+  font-size: 1.4rem;
 }
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-
 .panel-group > *{
   border: 0;
   background-color: white;
 }
+
 
 .panel-default > .panel-heading {
   color: white;
@@ -142,9 +274,13 @@
 
 .panel-body {
   background-color: #f2d9d9;
-  text-align:right;
+  text-align: right;
+  width: 100%;
 }
 
+.panel-body-detail {
+  width: 100%;
+}
 .panel-body > a {
-  font-size: 17px;
+  font-size: 1.6rem;
 }
