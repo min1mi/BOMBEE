@@ -1,0 +1,82 @@
+ 
+ <div class="sidenav" id="mySidenav">
+  <div class='menu-header'>
+    <div class='login-form'>
+      <a class='login clearfix' href='#' >
+        <div class="fa fa-user-circle-o font-login" aria-hidden="true"></div>
+        <strong class='user-nic'>윤민님 ㅎㅇ</strong>
+      </a>
+    </div>
+    <div class='info clearfix'>
+      <a href='#' class='user-alert'>
+        <div class="fa fa-bell-o font-info" aria-hidden="true"></div>
+      </a>
+      <a href='#' id='close' class='btn-useinfo-close'>
+          <div class="fa fa-times font-info" aria-hidden="true"></div>
+      </a>
+    </div>
+  </div>
+ <!-- 아코디온 시작 -->
+  <div class="panel-group" id="accordion" >
+    <div class="panel-default panel " >
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        <h4 class="panel-title">
+          <a class='list-font' >헬스</a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse detail-list" id="collapse1">
+        <div class="panel-body" >
+          <a href="#" class='panel-body-detail'>살빼기</a>
+          <a href="#" class='panel-body-detail'>시집가기</a>
+          <a href="#" class='panel-body-detail'>장가가기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        <h4 class="panel-title">
+          <a class='list-font'>필라테스</a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse detail-list" id="collapse2">
+        <div class="panel-body" >
+          <a>살빼기</a>
+          <a>시집가기</a>
+          <a>장가가기</a>
+        </div>
+      </div>
+    </div>
+    <div class="penal panel-default">
+      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        <h4 class="panel-title">
+          <a class='list-font'>요가</a>
+        </h4>
+      </div>
+      <div class="panel-collapse collapse detail-list" id="collapse3">
+        <div class="panel-body" >
+          <a>살빼기</a>
+          <a>시집가기</a>
+          <a>장가가기</a></div>
+      </div>
+    </div>
+  </div>
+<!-- 아코디온 끝 -->
+  <div class='menu-footer'>
+    <a href='http://localhost:8080/Tomato/login1/login.html' class='btn footer-login'>로그아웃</a>
+    <a class='btn footer-qna'>고객센터</a>
+  </div>
+</div>
+<!-- sidenav 끝 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var mySidenav = $("#mySidenav")
+
+  $("#menu").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+  $("#close").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+</script>
