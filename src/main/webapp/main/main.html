@@ -6,7 +6,7 @@
   <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<!--   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
@@ -124,17 +124,17 @@
 
   <div class="outer">
     <div class="inner">
-        <img src='../image/lastFooterImg.png' class='eventI footer-img'/>
+        <span class='footer-button'>ⓒTOMATO</span>
     </div>
   </div>
 </div><!--footer 끗-->
-<div id='menu'></div>
-
+<div id='load-menu'></div>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $('.header').load('../header/header.html')
-  // $('.menu').load('../menu/menu.html')
+  $('#load-menu').load('../accordion/accordion.html')
 })
 
 </script>

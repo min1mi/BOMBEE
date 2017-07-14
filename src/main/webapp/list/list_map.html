@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/list-map.css'>
+  <link rel='stylesheet' href='../css/main.css'>
+  <link rel='stylesheet' href='../css/menu.css'>
 </head>
 <body>
 
@@ -25,14 +27,18 @@
       </div>
     </div>
   </div>
-
+  <div id='load-menu'></div>
 
 
   <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=445f205d748a3d18c770512dfee12f55&libraries=services" charset="utf-8"></script>
   <script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
   <script type="text/javascript">
   $(document).ready(function() {
     $('.header').load('../header/header.html')
+    $('#load-menu').load('../accordion/accordion.html')
   })
 
   var container = document.getElementById('map');
@@ -125,9 +131,6 @@ $(".input_text").keydown((key)=> {
       seachMap()
     }
   })
-
-
-
 
   </script>
 
