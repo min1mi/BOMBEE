@@ -1,15 +1,25 @@
 @media (min-device-width: 320px) and (max-device-width: 414px) {
   h1 {
-    font-size: 300%;
+    font-size: 150%;
   }
-
-
+  h4 {
+    font-size: 70%;
+  }
+  a {
+    font-size: 10px;
+  }
+  p {
+    font-size: 10px;
+  }
+  .lg-container {
+    height: 520px;
+  }
   .lg-dlqfur {
     margin-top: 2%;
     padding: 5%;
     width: 89%;
-    /*height: 40%;*/
-    font-size: 25px;
+    height: 3px;
+    font-size: 3px;
     border-radius: 10px;
     border: 1px #d17171 solid;
     /*color :silver;*/
@@ -17,14 +27,14 @@
 
 
   #lg-qjxms {
-    margin-top: 10%;
+    margin-top: 6%;
     width: 100%;
-    height: 8%;
+    height: 5%;
     border:none;
     border-radius: 5px;
     border: 1px #d17171 solid;
     background-color: #d17171;
-    font-size: 25px;
+    font-size: 15px;
     color: white;
 
   }
@@ -113,13 +123,12 @@
 
 input::-webkit-input-placeholder { /* WebKit browsers */
 color: silver;
-font-size: 30px;
+font-size: 5px;
 }
 
 /*textarea:focus::-webkit-input-placeholder*/
 
 .lg-container {
-  height: 667px;
   padding: 5%;
   border: 2px grey solid;
 
@@ -127,9 +136,10 @@ font-size: 30px;
 .checkboxes-and-radios {
   border: #d17171 1px solid;
   color : #d17171;
-  font-size:20px;
+  font-size:8px;
 }
 .lg-radio {
+  font-size : 15px;
   color : grey;
 }
 #lg-radio-right {
