@@ -1,0 +1,27 @@
+ 
+ <div class="sidenav" id="mySidenav">
+  <div class='menu-header'>
+        <a id='detail-home' href='#' class="fa fa-home home" aria-hidden="true"></a>
+    <section id='search'>
+      <label for='search-input'>
+        <i class="search-icon fa fa-search" aria-hidden="true"></i>
+      </label>
+      <input id='search-input' class='form-control input-lg'
+             type='search' placeholder='Search'>
+    </section>
+    <a id='detail-menu' href='#' class="fa fa-bars menu" aria-hidden="true"></a>
+  </div>
+</div>
+<!-- sidenav 끝 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var mySidenav = $("#mySidenav")
+
+  $("#menu").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+  $("#close").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+</script>

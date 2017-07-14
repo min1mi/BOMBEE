@@ -2,10 +2,10 @@
   font-family: sans-serif;
 }
 
-.menu-header > a:link {color: white; text-decoration: none;}
-.menu-header > a:visited {color: white; text-decoration: none;}
-.menu-header > a:hover {color: white; text-decoration: none;}
-.menu-header > a:active {color: white; text-decoration: none;}
+.menu-header  a:link {color: white; text-decoration: none;}
+.menu-header  a:visited {color: white; text-decoration: none;}
+.menu-header  a:hover {color: white; text-decoration: none;}
+.menu-header  a:active {color: white; text-decoration: none;}
 
 #mySidenav {
   position: fixed;
@@ -34,6 +34,7 @@
   display: inline-block;
   margin-left: 11%;
 }
+
 
 .font-info{
   font-size:2rem;
