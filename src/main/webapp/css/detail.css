@@ -97,49 +97,54 @@ label {
 }
 
 label > .search-icon {
-  margin-left: 9px;
   color: #ccc;
 }
 #search #search-input {
   display: inline-block;
-  margin-left: 9px;
-  padding: 0 42px;
+  padding: 0 40px;
   border-radius: 50px;
 }
 
-
-.slick-initialized {
-  .swipe-tab-content {
-    position: relative;
-    min-height: 365px;
-
-    @media screen and (min-width: 767px) {
-      min-height: 500px;
-    }
-  }
-
-  .swipe-tab {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    background: none;
-    border: 0;
-    color: $swipe-tab-color;
-    cursor: pointer;
-    text-align: center;
-    border-bottom: 2px solid rgba($swipe-active-tab-color, 0);
-    transition: all 0.5s;
-
-    &:hover {
-      color: $swipe-active-tab-color;
-    }
-
-    &.active-tab {
-      border-bottom-color: $swipe-active-tab-color;
-      color: $swipe-active-tab-color;
-      font-weight: bold;
-    }
-
-  }
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+.tabs-nav li {
+  float: left;
+  width: 25%;
+}
+.tabs-nav li:first-child a {
+  border-right: 0;
+  border-top-left-radius: 6px;
+}
+.tabs-nav li:last-child a {
+  border-top-right-radius: 6px;
+}
+li > a {
+  background: white;
+  /*border: 1px solid #cecfd5;*/
+  color: black;
+  display: block;
+  font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+}
+a:hover {
+  color: #ff7b29;
+}
+.tab-active a {
+  background: white;
+  border-bottom: 2px solid #d17171;
+  color: black;
+  cursor: default;
+}
+.tabs-stage {
+  border: 1px solid #cecfd5;
+  border-radius: 0 0 6px 6px;
+  border-top: 0;
+  clear: both;
+  padding: 24px 30px;
+  position: relative;
+  top: -1px;
 }
