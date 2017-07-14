@@ -1,4 +1,5 @@
-<div class="sidenav" id="mySidenav">
+ 
+ <div class="sidenav" id="mySidenav">
   <div class='menu-header'>
     <div class='login-form'>
       <a class='login clearfix' href='#' >
@@ -15,7 +16,7 @@
       </a>
     </div>
   </div>
-  <!-- 아코디온 시작 -->
+ <!-- 아코디온 시작 -->
   <div class="panel-group" id="accordion" >
     <div class="panel-default panel " >
       <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -62,11 +63,20 @@
   </div>
 <!-- 아코디온 끝 -->
   <div class='menu-footer'>
-    <a class='btn footer-login'>로그인</a>
+    <a href='http://localhost:8080/Tomato/login1/login.html' class='btn footer-login'>로그인</a>
     <a class='btn footer-qna'>고객센터</a>
   </div>
 </div>
 <!-- sidenav 끝 -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  var mySidenav = $("#mySidenav")
+
+  $("#menu").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+  $("#close").on( "click", function() {
+    mySidenav.toggle("slide", 500 );
+  });
+</script>
