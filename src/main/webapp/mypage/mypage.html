@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/mypage.css'>
+  <link rel='stylesheet' href='../css/menu.css'>
 </head>
 
 <body>
@@ -86,15 +87,19 @@
       </div>
     </div>
   </div>
+   
+
+
+
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
     $('.header').load('../header/header.html')
+    $('#load-menu').load('../accordion/accordion.html') 
   })
-  </script>
-
-  <script>
     $('#mypage-userinfo').click(() => {
       $('.display').css('display', '')
       $('.outer-password').css('display', 'none')

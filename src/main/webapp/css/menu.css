@@ -16,6 +16,7 @@
   height: 100%;
   color: white;
   overflow: scroll;
+  z-index: 9999;
 }
 
 .sidenav .menu-header {
