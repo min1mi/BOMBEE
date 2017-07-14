@@ -128,83 +128,15 @@
     </div>
   </div>
 </div><!--footer 끗-->
-
-<div class="sidenav" id="mySidenav">
-  <div class='menu-header'>
-    <div class='login-form'>
-      <a class='login clearfix' href='#' >
-        <div class="fa fa-user-circle-o font-login" aria-hidden="true"></div>
-        <strong class='user-nic'>로그인이 필요합니다.</strong>
-      </a>
-    </div>
-    <div class='info clearfix'>
-      <a href='#' class='user-alert'>
-        <div class="fa fa-bell-o font-info" aria-hidden="true"></div>
-      </a>
-      <a href='#' id='close' class='btn-useinfo-close'>
-          <div class="fa fa-times font-info" aria-hidden="true"></div>
-      </a>
-    </div>
-  </div>
-  <!-- 아코디온 시작 -->
-  <div class="panel-group" id="accordion" >
-    <div class="panel-default panel " >
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        <h4 class="panel-title">
-          <a class='list-font' >헬스</a>
-        </h4>
-      </div>
-      <div class="panel-collapse collapse detail-list" id="collapse1">
-        <div class="panel-body" >
-          <a href="#" class='panel-body-detail'>살빼기</a>
-          <a href="#" class='panel-body-detail'>시집가기</a>
-          <a href="#" class='panel-body-detail'>장가가기</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        <h4 class="panel-title">
-          <a class='list-font'>필라테스</a>
-        </h4>
-      </div>
-      <div class="panel-collapse collapse detail-list" id="collapse2">
-        <div class="panel-body" >
-          <a>살빼기</a>
-          <a>시집가기</a>
-          <a>장가가기</a>
-        </div>
-      </div>
-    </div>
-    <div class="penal panel-default">
-      <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        <h4 class="panel-title">
-          <a class='list-font'>요가</a>
-        </h4>
-      </div>
-      <div class="panel-collapse collapse detail-list" id="collapse3">
-        <div class="panel-body" >
-          <a>살빼기</a>
-          <a>시집가기</a>
-          <a>장가가기</a></div>
-      </div>
-    </div>
-  </div>
-<!-- 아코디온 끝 -->
-  <div class='menu-footer'>
-    <a class='btn footer-login'>로그인</a>
-    <a class='btn footer-qna'>고객센터</a>
-  </div>
-</div>
-<!-- sidenav 끝 -->
+<div id='menu'></div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
   $('.header').load('../header/header.html')
+  $('.menu').load('../menu/menu.html')
 })
+
 </script>
 </body>
 </html>
