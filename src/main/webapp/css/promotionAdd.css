@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0px;
   padding: 0
@@ -33,11 +35,10 @@ body {
 .projectAdd-top > .topClose {
   width: 15%;
   float:left;
-  line-height: 40px;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .projectAdd-top > .temp {
-  width: 25%;
+  width: 35%;
   float:left;
 }
 
@@ -65,7 +66,6 @@ body {
   margin: 0;
   font-size: 1.6rem;
   text-align: center;
-  line-height: 45px;
   height: 45px;
   border-bottom: 1px #ccc solid;
 
