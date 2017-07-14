@@ -13,12 +13,22 @@
 <body>
 <div class='container detail-container'>
   <div class='header'>
-    <input class='search' type="search" placeholder="   search"/>
+    <div class='search'>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input class='search-bar' type="search" placeholder="search"/>
+    </div>
+
       <a id='menu' href='#'>
         <i class="fa fa-bars menu" aria-hidden="true"></i></a>
   </div>
   <div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.header').load('../header/header.html')
+})
+</script>
 </body>
 </html>

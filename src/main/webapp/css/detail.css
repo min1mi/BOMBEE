@@ -30,7 +30,7 @@
   height: 15%;
   background-color: #d17171;
 }
-.detail-container .search {
+.detail-container .search-bar {
   font-size: 1.6rem;
   height: 44px;
   margin-top: 2%;
@@ -38,8 +38,12 @@
   padding: 0;
 
 }
-
 .detail-container .menu {
   right: 10px;
   margin-right: 10%;
+}
+
+.detail-container .search {
+  display: inline-block;
+  background-color: white;
 }
