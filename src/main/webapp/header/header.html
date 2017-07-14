@@ -3,8 +3,13 @@
 <h1 id='logo'><a href="../main/mobile.html">TOMATO</a></h1>
 <a id='search' href='#'><i class="fa fa-search" aria-hidden="true"></i></a>
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
+$(document).ready(function() {
+  $('.menu').load('../menu/menu.html')
+})
+
   var mySidenav = $("#mySidenav")
 
   $("#menu").on( "click", function() {

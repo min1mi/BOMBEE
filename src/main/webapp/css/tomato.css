@@ -118,26 +118,26 @@ html body div a h1 {
   color: black;
 }
 
-.main-container #footer-last-tomato {
+#footer-last-tomato {
   margin:0%;
 }
 
-.main-container #logo {
+#logo {
   display: inline-block;
   font-size: 2rem;
   margin: 0;
 }
-.main-container #logo a {
+#logo a {
   color: #d17171;
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;
 }
-.main-container #menu {
+#menu {
   position: absolute;
   left: 10px;
 }
-.main-container #search {
+#search {
   position: absolute;
   right: 10px;
 }
