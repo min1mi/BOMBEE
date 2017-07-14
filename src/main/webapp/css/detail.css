@@ -23,27 +23,42 @@
   }
 }
 
+label {
+  display: inline-block;
+  max-width: 70%;
+}
 .detail-container {
   background-color: #f3d9d9;
 }
 .detail-container .header {
+  position: relative;
   height: 15%;
   background-color: #d17171;
 }
+
 .detail-container .search-bar {
+  /*line-height: 44px;*/
   font-size: 1.6rem;
+  width: 100%;
   height: 44px;
   margin-top: 2%;
-  border: 0;
+  border: 1px solid silver;
   padding: 0;
-
+  display: block;
 }
 .detail-container .menu {
-  right: 10px;
+  /*right: 10px;*/
   margin-right: 10%;
 }
 
-.detail-container .search {
-  display: inline-block;
-  background-color: white;
+.detail-container #search {
+  width: 100%;
+  position: relative;
+  font-size: 1.6rem;
+  /*padding-right: 10px;*/
+}
+#search label {
+  position: absolute;
+  left: 17px;
+  top: 10px;
 }
