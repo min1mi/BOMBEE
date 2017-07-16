@@ -67,7 +67,7 @@ html body div a h1 {
 
 .fa {
   font-size: 2rem;
-  color: black;
+  color: white;
 }
 .eventI::before {
   content: " | ";
@@ -81,6 +81,7 @@ html body div a h1 {
   padding: 0;
   text-align: center;
   line-height: 60px;
+  background-color: #F7AC1A;
 }
 .header a {
   padding-top: 3px;
@@ -127,16 +128,12 @@ html body div a h1 {
   margin: 0;
 }
 #logo a {
-  color: #d17171;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;
 }
 #menu {
-  position: absolute;
-  left: 10px;
-}
-#search {
   position: absolute;
   right: 10px;
 }
