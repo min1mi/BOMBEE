@@ -33,21 +33,20 @@
 }
 
 @font-face {
-  font-family: 'UhBeepuding';
-  src: url('../font/UhBeepuding.eot');
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
+  /*src: url('../font/UhBeemysen.woff');*/
+
+  src: local(※),
+  url('../font/UhBeemysen.woff') format('woff'),
+  url('../font/UhBeenMyHusband.woff') format('woff');
+  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/
+
 }
 
-@font-face {
-  font-family: 'UhBeepuding';
-  src: url('../font/UhBeepuding.woff') format('woff');
+html body div a h1 {
+  font-family: 'UhBeemysen', 'UhBeeMyHusband';
+  font-size: 1.6rem;
 }
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
-
-
-html, body, h1, h2, h3, h4, h5, h6, li, p {
-  font-family:'Nanum Gothic';
-}
-
 /*bootstrap 버튼 색 변경*/
 .btn-danger {
   background-color: #d17171;
@@ -68,7 +67,7 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {
 
 .fa {
   font-size: 2rem;
-  color: white;
+  color: black;
 }
 .eventI::before {
   content: " | ";
@@ -82,7 +81,6 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {
   padding: 0;
   text-align: center;
   line-height: 60px;
-  background-color: #F7AC1A;
 }
 .header a {
   padding-top: 3px;
@@ -129,14 +127,16 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {
   margin: 0;
 }
 #logo a {
-  color: white;
+  color: #d17171;
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;
-  font-family: 'UhBeepuding';
-  font-size: 3rem;
 }
 #menu {
+  position: absolute;
+  left: 10px;
+}
+#search {
   position: absolute;
   right: 10px;
 }

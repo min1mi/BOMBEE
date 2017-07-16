@@ -1,0 +1,43 @@
+.footer-img {
+  padding-bottom: 7px;
+}
+.main-p-tag{
+  color: white;
+  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px 5px 5px 0;
+  text-align: center;
+  line-height: 30px;
+  padding : 0 0;
+  background-color: #d17171;
+}
+.main-border {
+  width: 100%;
+  border-bottom: 2px solid #d17171;
+}
+.promotion-pic {
+  margin: 0 0 0 0px;
+  padding: 0 0 0 0px;
+  width:49%;
+  height: 200px;
+}
+
+
+#main-promotion1 {
+  width: 100%;
+}
+
+#main-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+#main-btn-findTrainer {
+  width:100%;
+  height:50px;
+  color:white;
+  font-size: 20px;
+  background-color: #d17171;
+}

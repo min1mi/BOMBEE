@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<!-- root element -->
+
+<head>
+  <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+  <title>Hello World!</title>
+  <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel='stylesheet' href='../css/main.css'>
+  <link rel='stylesheet' href='../css/menu.css'>
+</head>
+
+<body>
+  <div class='container main-container'>
+
+    <div class='header'></div>
+
+
+    <div id="main-outer">
+      <div class="inner">
+        <img src='../image/promotion1.png' id='main-promotion1' />
+      </div>
+    </div>
+
+    <div id="main-outer">
+      <div class="inner">
+        <button type='button' id='main-btn-findTrainer'>나에게 맞는 트레이너 찾기</button>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <div class='main-p-tag'>
+          프로모션
+        </div>
+        <div class='main-border'></div>
+      </div>
+    </div>
+
+
+    <div class="outer">
+      <div class="inner">
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion1' class='promotion-pic' />
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion2' class='promotion-pic' />
+      </div>
+    </div>
+
+
+    <div class="outer">
+      <div class="inner">
+        <div class='main-p-tag' style='background-color:#f5a44d'>
+          NEWS
+        </div>
+        <div class='main-border' style='border-bottom: 2px solid #f5a44d'></div>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion1' class='promotion-pic' />
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion2' class='promotion-pic' />
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <div class='main-p-tag' style='background-color:#54c242'>
+          TIPS
+        </div>
+        <div class='main-border' style='border-bottom: 2px solid #54c242'></div>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion1' class='promotion-pic' />
+        <img src='../image/promotion_pic1.png' id='promoBoard-promotion2' class='promotion-pic' />
+      </div>
+    </div>
+
+    <!--  푸터 시작 -->
+    <br>
+    <div class="outer">
+      <div class="inner">
+        <img src='../image/F.png' class='eventI' />
+        <b class='eventI'></b>
+        <img src='../image/Y.png' class='eventI' />
+        <b class='eventI'></b>
+        <img src='../image/M.png' class='eventI' />
+        <b class='eventI'></b>
+        <img src='../image/B.png' class='eventI' />
+      </div>
+    </div>
+
+
+    <div class="outer">
+      <div class="inner">
+        <a id='footer-login' class='footer-button'>로그인</a>
+        <a id='footer-join' class='footer-button'>회원가입</a>
+        <a id='footer-pcver' class='footer-button'>PC버전</a>
+      </div>
+    </div>
+
+
+    <div class="outer">
+      <div class="inner">
+        <a id='footer-tomato' class='footer-button'>TOMATO</a>
+        <a class='eventI'></a>
+        <a id='footer-pcver' class='footer-button'>개인정보 처리방침</a>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <a id='footer-tomato' class='footer-button'>문의 전화</a>
+        <img src='../image/TEL.png' class='eventI' />
+        <a id='footer-pcver' class='footer-button'>010-1234-5678</a>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <span class='footer-button'>ⓒTOMATO</span>
+      </div>
+    </div>
+  </div>
+  <!--footer 끗-->
+  <div id='load-menu'></div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.header').load('../header/header.html')
+      $('#load-menu').load('../menu/menu.html')
+    })
+  </script>
+</body>
+
+</html>
