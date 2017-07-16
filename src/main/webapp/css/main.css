@@ -7,8 +7,15 @@
   text-align: center;
 }
 .body-inner img{
+  z-index: 1;
   display: block;
   margin: 0 auto;
   vertical-align: middle;
   width: 100%;
+  opacity: 0.6;
+}
+
+.hexagon2 {
+  margin-top: 88px;
+  margin-left: 54px;
 }
