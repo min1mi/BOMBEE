@@ -33,20 +33,21 @@
 }
 
 @font-face {
-  font-family: 'UhBeemysen', 'UhBeeMyHusband';
-  /*src: url('../font/UhBeemysen.woff');*/
-
-  src: local(※),
-  url('../font/UhBeemysen.woff') format('woff'),
-  url('../font/UhBeenMyHusband.woff') format('woff');
-  /*url('../font/UhBeemysen.eot?#iefix') format('embedded-opentype'),*/
-
+  font-family: 'UhBeepuding';
+  src: url('../font/UhBeepuding.eot');
 }
 
-html body div a h1 {
-  font-family: 'UhBeemysen', 'UhBeeMyHusband';
-  font-size: 1.6rem;
+@font-face {
+  font-family: 'UhBeepuding';
+  src: url('../font/UhBeepuding.woff') format('woff');
 }
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+
+html, body, h1, h2, h3, h4, h5, h6, li, p {
+  font-family:'Nanum Gothic';
+}
+
 /*bootstrap 버튼 색 변경*/
 .btn-danger {
   background-color: #d17171;
@@ -132,6 +133,8 @@ html body div a h1 {
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;
+  font-family: 'UhBeepuding';
+  font-size: 3rem;
 }
 #menu {
   position: absolute;
