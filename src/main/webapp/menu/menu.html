@@ -71,19 +71,26 @@
 </div>
 <!-- sidenav 끝 -->
 <script src='../node_modules/jquery/dist/jquery.min.js'></script>
- <script src='../node_modules/jquery-ui-dist/jquery-ui.min.js'></script>
+<script src='../node_modules/jquery-ui-dist/jquery-ui.min.js'></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+  var container = $('.container'),
+      mySidenav = $("#mySidenav"),
+      mainBackground = $("#main-background")
+
 	$( "#menu" ).on( "click", function() {
-		$("#mySidenav").toggle('slide',{direction: 'left'}, 500)
-		$("#main-background").toggle('slide',{direction: 'left'}, 500)
-	    });
+		mySidenav.toggle('slide', {direction: 'left'}, 300)
+		mainBackground.css('display', 'block');
+    container.css('position', 'relative').css('overflow', 'hidden');
+  });
   $("#close").on( "click", function() {
-	  $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
-	  $("#main-background").toggle('slide',{direction: 'left'}, 500)
+	  mySidenav.toggle('slide', {direction: 'left'}, 300)
+ 		mainBackground.css('display', 'none');
+    container.css('position', '').css('overflow', '')
   })
-   $("#main-background").on( "click", function() {
-    $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
-    $("#main-background").toggle('slide',{direction: 'left'}, 500)
+   mainBackground.on( "click", function() {
+    mySidenav.toggle('slide', {direction: 'left'}, 300)
+ 		mainBackground.css('display', 'none');
+    container.css('position', '').css('overflow', '')
   })
 </script>

@@ -10,16 +10,15 @@
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
   <script type="text/javascript">
-  var images = ['m-t01.jpg', 'm-t02.jpg', 'm-t03.jpg', 'm-t04.jpg', 'm-t05.jpg',
-                'm-t06.jpg', 'm-t07jpg', 'm-t08.jpg', 'm-t09.jpg', 'm-t10.jpg', 'm-t11.jpg'];
-  $(document).ready(function() {
-    /*   $('.header').load('../header/header.html') */
-    $('#load-menu').load('../menu/menu.html')
-    $('#body-img').css({'background-image': 'url(' + '../image/M-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
-  })
+	  var images = ['m-t01.jpg', 'm-t02.jpg', 'm-t03.jpg', 'm-t04.jpg', 'm-t05.jpg',
+	                'm-t06.jpg', 'm-t07jpg', 'm-t08.jpg', 'm-t09.jpg', 'm-t10.jpg', 'm-t11.jpg'];
+	  $(document).ready(function() {
+	    /*   $('.header').load('../header/header.html') */
+	    $('#load-menu').load('../menu/menu.html')
+	    $('#body-img').css({'background-image': 'url(' + '../image/M-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
+	  })
 </script>
 </head>
 <body>
@@ -35,11 +34,11 @@
     <div class="body-inner">
       <div class='meeting'>
         <img id='meeting-before' src='../image/meeting-before.png'/>
-        <img id='meeting-after' src='../image/meeting-after.png' style="display: none;"/>
+        <img id='meeting-after' src='../image/meeting-after.png'/>
       </div>
       <div class='management'>
         <img id='management-before'src='../image/management-before.png'/>
-        <img id='management-after'src='../image/management-after.png' style="display: none;"/>
+        <img id='management-after'src='../image/management-after.png'/>
 
       </div>
 
@@ -62,12 +61,12 @@ var meetingBefore = $('#meeting-before'),
 
   meetingBefore.click(function() {
     meetingBefore.css('display', 'none')
-    meetingAfter.css('display','')
+    meetingAfter.css('display','block')
   })
 
   managementBefore.click(function() {
     managementBefore.css('display', 'none')
-    managementAfter.css('display','')
+    managementAfter.css('display','block')
   })
 </script>
 </body>
