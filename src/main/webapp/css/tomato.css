@@ -93,6 +93,8 @@ body {
 }
 .header img {
 	margin-top: 5px;
+	width: 200px;
+	height: 50px;
 }
 .footer-img {
   padding-bottom: 7px;
