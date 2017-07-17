@@ -37,6 +37,7 @@
   src: url('../font/UhBeepuding.eot');
 }
 
+
 @font-face {
   font-family: 'UhBeepuding';
   src: url('../font/UhBeepuding.woff') format('woff');
@@ -69,10 +70,11 @@ body {
   clear: both;
 }
 
-.fa {
-  font-size: 2rem;
+.header-font {
+  font-size: 2.5rem;
   color: white;
 }
+
 .eventI::before {
   content: " | ";
   color:black;
@@ -141,5 +143,9 @@ body {
 }
 #menu {
   position: absolute;
-  right: 10px;
+  right: 20px;
+}
+#logo-bee {
+  position: absolute;
+  left: 20px;
 }
