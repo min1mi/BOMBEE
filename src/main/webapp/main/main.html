@@ -22,28 +22,37 @@ $(document).ready(function() {
 
 <div class='container main-container'>
   <div class='header'></div>
-<<<<<<< HEAD
-
-  <div>
-    <svg class='side1'viewBox="0 0 100 100" version="1.1" title="ass">
-      <polygon class='aa' points="50 1 95 25 95 75 50 99 5 75 5 25"/>
-    </svg>
-  </div>
-
-    <svg class='side2'viewBox="0 0 100 100" version="1.1" xmlns="">
-      <polygon class='aa' points="50 1 95 25 95 75 50 99 5 75 5 25"/>
-    </svg>
 
   <div class="body-outer">
     <div class="body-inner">
-  <div class="body-outer">
-    <div class="body-inner">
-      <!-- <div class='centered'> -->
-      
-        <img src='../image/tt2.png'/>
+      <div class='aa1'>
+        <img id='meeting-before' src='../image/meeting-before.png'/>
+        <img id='meeting-after' src='../image/meeting-after.png' style="display: none;"/>
+      </div>
+      <div class='aa2'>
+        <img id='management-before'src='../image/management-before.png'/>
+        <img id='management-after'src='../image/management-after.png' style="display: none;"/>
+      </div>
+      <img class='bb' src='../image/tt2.png'/>
     </div>
 	</div>
 </div><!--main-container 끝-->
 <div id='load-menu'></div>
+<script>
+var meetingBefore = $('#meeting-before'),
+    meetingAfter = $('#meeting-after'),
+    managementBefore = $('#management-before'),
+    managementAfter = $('#management-after')
+
+  meetingBefore.click(function() {
+    meetingBefore.css('display', 'none')
+    meetingAfter.css('display','')
+  })
+
+  managementBefore.click(function() {
+    managementBefore.css('display', 'none')
+    managementAfter.css('display','')
+  })
+</script>
 </body>
 </html>
