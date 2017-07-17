@@ -1,5 +1,6 @@
 
  <div class="sidenav" id="mySidenav">
+ <div id='aa'>
   <div class='menu-header'>
     <div class='login-form'>
       <a class='login clearfix' href='#' >
@@ -66,17 +67,22 @@
     <a href='http://localhost:8080/Tomato/login1/login.html' class='btn footer-login'>로그인</a>
     <a class='btn footer-qna'>고객센터</a>
   </div>
+  </div> <!--  aa -->
 </div>
 <!-- sidenav 끝 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='../node_modules/jquery/dist/jquery.min.js'></script>
+ <script src='../node_modules/jquery-ui-dist/jquery-ui.min.js'></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-  var mySidenav = $("#mySidenav")
-
-  $("#menu").on( "click", function() {
-    mySidenav.toggle("slide", 500 );
-  });
+	$( "#menu" ).on( "click", function() {
+		$("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+		$("#background").toggle('slide',{direction: 'left'}, 500)
+	    });
   $("#close").on( "click", function() {
-    mySidenav.toggle("slide", 500 );
-  });
+	  $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+  })
+  $("#close").on( "click", function() {
+	  $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+	  $("#background").toggle('slide',{direction: 'left'}, 500)
+  })
 </script>

@@ -9,6 +9,12 @@
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+   <script type="text/javascript">
+$(document).ready(function() {
+/*   $('.header').load('../header/header.html') */
+  $('#load-menu').load('../menu/menu.html')
+})
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
   <script type="text/javascript">
@@ -50,6 +56,7 @@
   
 </div><!--main-container 끝-->
 <div id='load-menu'></div>
+
 <script>
 var meetingBefore = $('#meeting-before'),
     meetingAfter = $('#meeting-after'),
