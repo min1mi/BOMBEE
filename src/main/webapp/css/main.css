@@ -14,8 +14,54 @@
   width: 100%;
   opacity: 0.6;
 }
+.body-inner {
+  position: relative;
+}
 
-.hexagon2 {
+/*.hexagon2 {
   margin-top: 88px;
   margin-left: 54px;
+}*/
+svg{
+  position: absolute;
+  width:50%;
+  z-index: 2;
 }
+polygon {
+  fill: white;
+  stroke: white/*#f7ac1a*/;
+  stroke-width:3;
+  fill-opacity: 0;
+  /*fill-rule: evenodd;*/
+}
+
+.main-container .side1 {
+  margin: 98px 0px 0px 51px;
+}
+
+.main-container .side2 {
+  margin: 279px 0px 0px 160px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
