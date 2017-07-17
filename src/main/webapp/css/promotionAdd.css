@@ -151,8 +151,8 @@ body {
 .projectAdd-textArea {
   /*border:1px red solid;*/
   margin: 1%;
-  height: 400px;
-  width: 98%;
+  height: 330px;
+  width: 97%;
 }
 
 .ui-datepicker{ z-index: 9999 !important;}
