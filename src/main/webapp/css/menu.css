@@ -20,7 +20,7 @@
 }
 
 .sidenav .menu-header {
-  height: 74px;
+  height: 60px;
   background: white;
 }
 .font-login {
@@ -28,7 +28,8 @@
   font-size : 3.5rem;
   display: inline-block;
   float:left;
-  margin: 17px 10px;
+  margin-left: 10px;
+  line-height: 60px;
 }
 .btn-useinfo-close > .font-info {
   display: inline-block;
@@ -50,7 +51,7 @@
   display: inline-block;
   box-sizing: border-box;
   float:right;
-  padding: 20px 10px 0 0;
+  line-height:60px;
 }
 
 .user-nic {
@@ -62,13 +63,15 @@
   font-weight: 400;
   font-family: 'UhBeenMyHusband';
   color: #2b3342;
-  line-height: 74px;
+  margin-left:16px;
+  line-height: 60px;
 }
 
 
 .footer-login {
+	height:60px;
   float: left;
-  background-color: #d17171;
+  background-color: #f7ac1a;
   color: white;
 }
 .footer-login:active{
@@ -78,6 +81,7 @@
   color: white;
 }
 .footer-qna {
+	height:60px;
   float: right;
   background-color: white;
   color: #2b3342;
@@ -163,4 +167,10 @@
   color: #313131;
   background-color:white;
   border-radius: 0px
+}
+.menu-footer .btn {
+	text-weight: bold;
+	font-size: 20px;
+	padding:0;
+	line-height: 60px;
 }

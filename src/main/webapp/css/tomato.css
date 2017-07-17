@@ -86,13 +86,14 @@ body {
   position: relative;
   padding: 0;
   text-align: center;
-  line-height: 60px;
   background-color: #F7AC1A;
 }
-.header a {
-  padding-top: 3px;
+.header i {
+	  line-height: 60px;
 }
-
+.header img {
+	margin-top: 5px;
+}
 .footer-img {
   padding-bottom: 7px;
 }
@@ -130,7 +131,6 @@ body {
 
 #logo {
   display: inline-block;
-  font-size: 2rem;
   margin: 0;
 }
 
