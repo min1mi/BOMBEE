@@ -11,29 +11,34 @@
   <link rel='stylesheet' href='../css/menu.css'>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
 $(document).ready(function() {
   $('.header').load('../header/header.html')
   $('#load-menu').load('../menu/menu.html')
 })
-</script>
+</script> -->
 </head>
 <body>
 
 <div class='container main-container'>
-  <div class='header'></div>
+  <div class='header'>
+    <a id='logo-bee' href='#'><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
+    <a id='logo'><img src="../image/bombee_title.png"/></a>
+    <a id='menu' href='#'><i class="header-font fa fa-bars" aria-hidden="true"></i></a>
+  </div>
+  <img class='body-img' src='../image/tt2.png'/>
 
   <div class="body-outer">
     <div class="body-inner">
-      <div class='aa1'>
+      <div class='meeting'>
         <img id='meeting-before' src='../image/meeting-before.png'/>
         <img id='meeting-after' src='../image/meeting-after.png' style="display: none;"/>
       </div>
-      <div class='aa2'>
+      <div class='management'>
         <img id='management-before'src='../image/management-before.png'/>
         <img id='management-after'src='../image/management-after.png' style="display: none;"/>
       </div>
-      <img class='bb' src='../image/tt2.png'/>
+
     </div>
 	</div>
 </div><!--main-container 끝-->
