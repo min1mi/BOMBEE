@@ -9,21 +9,23 @@
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  $('.header').load('../header/header.html')
+  $('#load-menu').load('../menu/menu.html')
+})
+</script>
 </head>
 <body>
 
 <div class='container main-container'>
-
   <div class='header'></div>
-  <div class='hexagon'>
-    가나다
-  </div>
-  <div class=' hexagon2 hexagon'>
-      123
-    </div>
   <div class="body-outer">
     <div class="body-inner">
       <!-- <div class='centered'> -->
+      
         <img src='../image/tt2.png'/>
       <!-- </div> -->
     </div>
@@ -32,14 +34,5 @@
 
 </div><!--main-container 끝-->
 <div id='load-menu'></div>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-  $('.header').load('../header/header.html')
-  $('#load-menu').load('../menu/menu.html')
-})
-
-</script>
 </body>
 </html>
