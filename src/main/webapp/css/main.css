@@ -40,3 +40,14 @@
   height: 736px;
   background-repeat: no-repeat;
 }
+#main-background {
+	background-color: black;
+	z-index:4;
+	width:100%;
+	height:100%;
+	border: solid rex 2px;
+	position: fixed;
+	top:0;
+	opacity: 0.2;
+	display:none;
+}

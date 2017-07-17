@@ -76,8 +76,14 @@
 <script type="text/javascript">
 	$( "#menu" ).on( "click", function() {
 		$("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+		$("#main-background").toggle('slide',{direction: 'left'}, 500)
 	    });
   $("#close").on( "click", function() {
 	  $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+	  $("#main-background").toggle('slide',{direction: 'left'}, 500)
+  })
+   $("#main-background").on( "click", function() {
+    $("#mySidenav").toggle('slide',{direction: 'left'}, 500)
+    $("#main-background").toggle('slide',{direction: 'left'}, 500)
   })
 </script>
