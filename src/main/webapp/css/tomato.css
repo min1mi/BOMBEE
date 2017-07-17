@@ -133,14 +133,7 @@ body {
   font-size: 2rem;
   margin: 0;
 }
-#logo a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  line-height: 60px;
-  font-family: 'UhBeepuding';
-  font-size: 3rem;
-}
+
 #menu {
   position: absolute;
   right: 20px;
