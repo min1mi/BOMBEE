@@ -4,16 +4,7 @@
 .main-container .header {
   z-index: 3;
 }
-.body-img{
-  position: fixed;
-  top: 0;
-  z-index: 0;
-  display: block;
-  margin: 0 auto;
-  vertical-align: middle;
-  width: 100%;
-  opacity: 0.6;
-}
+
 .body-inner {
   position: relative;
 }
@@ -30,25 +21,25 @@
   margin: 300px 0 0 155px;
 }
 
-.body-img {
-  margin: 1px;
-  /*position: absolute;*/
-  z-index: 2;
+#bg-img{
+  background-color:black;
+  top: 0;
+  width: 100%;
+  height: 736px;
+  opacity:0.6;
 }
-.sky {
-  position: absolute;
-  z-index: 3;
+#body-img{
+	opacity:0.6;
+	position: absolute;
+  top: 0;
+  z-index: 0;
+  display: block;
+  margin: 0 auto;
+  vertical-align: middle;
+  width: 100%;
+  height: 736px;
+  background-repeat: no-repeat;
 }
-
-.main-container .side1 {
-
-  background-img: '../image/tt2.png';
-}
-
-.main-container .side2 {
-  margin: 279px 0px 0px 160px;
-}
-
 
 
 

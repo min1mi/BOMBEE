@@ -9,13 +9,15 @@
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <link rel='stylesheet' href='../css/menu.css'>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-   <script type="text/javascript">
-$(document).ready(function() {
-/*   $('.header').load('../header/header.html') */
-  $('#load-menu').load('../menu/menu.html')
-})
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+  var images = ['m-t01.jpg', 'm-t02.jpg', 'm-t03.jpg', 'm-t04.jpg', 'm-t05.jpg'];
+  $(document).ready(function() {
+    /*   $('.header').load('../header/header.html') */
+    $('#load-menu').load('../menu/menu.html')
+    $('#body-img').css({'background-image': 'url(' + '../image/M-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
+  })
 </script>
 </head>
 <body>
@@ -23,10 +25,9 @@ $(document).ready(function() {
 <div class='container main-container'>
   <div class='header'>
     <a id='logo-bee' href='#'><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
-    <a id='logo'><img src="../image/6.png"/></a>
+    <a id='logo'><img src="../image/bombee_title.png"/></a>
     <a id='menu' href='#'><i class="header-font fa fa-bars" aria-hidden="true"></i></a>
   </div>
-  <img class='body-img' src='../image/tt2.png'/>
 
   <div class="body-outer">
     <div class="body-inner">
@@ -37,10 +38,16 @@ $(document).ready(function() {
       <div class='management'>
         <img id='management-before'src='../image/management-before.png'/>
         <img id='management-after'src='../image/management-after.png' style="display: none;"/>
+        
       </div>
-
+      
+    
     </div>
-	</div>
+     
+  <div id='body-img'></div>
+       <div id='bg-img'></div>
+  </div>
+  
 </div><!--main-container 끝-->
 <div id='load-menu'></div>
 <script>
