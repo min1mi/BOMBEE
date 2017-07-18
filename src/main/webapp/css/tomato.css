@@ -1,5 +1,5 @@
 /*iphone5~6*/
-@media (min-device-width: 320px) and (max-device-width: 414px) {
+/*@media (min-device-width: 320px) and (max-device-width: 414px) {
   html {
     font-size: 12px;
     height: 100%;
@@ -9,9 +9,9 @@
     max-width: 414px;
     padding: 0;
   }
-}
+}*/
 /*iphone plus*/
-@media (min-device-width: 415px) and (max-device-width: 767px) {
+/*@media (min-device-width: 415px) and (max-device-width: 767px) {
   html {
     font-size: 14px;
   }
@@ -20,9 +20,9 @@
     max-width: 767px;
     padding: 0;
   }
-}
+}*/
 /*ipad*/
-@media (min-device-width: 768px) {
+/*@media (min-device-width: 768px) {
   html {
     font-size: 16px;
   }
@@ -30,7 +30,7 @@
     max-width: 768px;
     padding: 0;
   }
-}
+}*/
 
 @font-face {
   font-family: 'UhBeepuding';
@@ -51,6 +51,8 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {
 
 body {
   margin: 0px;
+  width: 100%;
+  height: auto;
 }
 /*bootstrap 버튼 색 변경*/
 .btn-danger {
