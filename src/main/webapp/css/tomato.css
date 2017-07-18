@@ -212,7 +212,7 @@ body {
   }
 
 
-  .header-menu-items ul li:hover {
+  .header-menu-items ul li: hover{
     border-bottom: solid 2px #F7AC1A;
   }
 
