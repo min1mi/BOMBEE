@@ -14,13 +14,13 @@
 .body-inner .meeting {
   position: absolute;
   z-index: 3;
-  margin: 105px 0 0 47px;
+  margin: 139px 0 0 45px;
 }
 
 .body-inner .management {
   position: absolute;
   z-index: 3;
-  margin: 300px 0 0 155px;
+  margin: 338px 0 0 155px;
 }
 #meeting-after {
   display: none;

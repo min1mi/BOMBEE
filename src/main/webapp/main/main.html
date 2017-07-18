@@ -64,7 +64,7 @@
 </div><!--main-container 끝-->
 <div id='main-background'></div>
 <!-- 헤더스크립트 시작 -->
-  <script> 
+<script> 
 var count = 0;
 $( document ).ready(function() {
   $( '.header-menu-button' ).click(function() {
@@ -112,6 +112,7 @@ var meetingBefore = $('#meeting-before'),
   })
 
   managementBefore.click(function() {
+    location.href='../login/login.html'
     managementBefore.css('display', 'none')
     managementAfter.css('display','block')
   })
