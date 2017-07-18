@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html> <!-- root element -->
+<head> <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>Promotion</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel='stylesheet' href='../css/list-map02.css'>
+  <link rel='stylesheet' href='../css/menu.css'>
+</head>
+<style>
+
+  </style>
+<body>
+
+
+  <div class='container'>
+    <div class='header'></div>
+
+    <div id="map"></div>
+    <div class="outer">
+      <div class="inner">
+        <span class='gym-search'>
+           <input type='text' class='input_text'/>
+         </span>
+         <button type='submit' class='sch_smit'>검색</button>
+      </div>
+    </div>
+    <div class='wrap'>
+      <div class="scrollBlind">
+        <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+          <label class="btn test" role="button">
+            <input class='label-size' type="radio" name="options" value="1" required="required">인기코스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="2">헬스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="3">요가
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="4">필라테스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="5">스피닝
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=445f205d748a3d18c770512dfee12f55&libraries=services" charset="utf-8"></script>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script src="../js/list_map02.js"></script>
+
+
+</body>
+</html>
