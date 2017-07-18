@@ -3,7 +3,6 @@
 <head> <!-- HTML 문서에 대한 설명 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
-  <title>Hello World!</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
@@ -20,12 +19,6 @@
 <body>
 
 <div class='container main-container'>
-  <!--  <div class='header'>
-    <a id='logo-bee' href='#'><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
-    <a id='logo'><img src="../image/bombee_title.png"/></a>
-    <a id='menu' href='#'><i class="header-font fa fa-bars" aria-hidden="true"></i></a>
-  </div>
-  -->
     <div class="mobile-container"> <!-- 새로운 헤더 -->
    <div class="header-menu-bar">
       <span class="header-menu-button">
@@ -36,10 +29,11 @@
      <div class="header-menu-items">
      <input type="search" id='header-search-bar' placeholder="search"/>
        <ul class='header-menu-ul'>
-         <div class="none">
+         <div class="header-none">
            <li>Login</li>
+           <li>List</li>
            <li>Management</li>
-           <li>Find</li>
+           <li>Meeting</li>
            <li>Mypage</li>
            <li class="header-menu-search"><i class="fa fa-search" aria-hidden="true"></i> Search</li>
         </div>
@@ -69,8 +63,8 @@
 
 </div><!--main-container 끝-->
 <div id='main-background'></div>
-<div id='load-menu'></div>
-  <script>
+<!-- 헤더스크립트 시작 -->
+  <script> 
 var count = 0;
 $( document ).ready(function() {
   $( '.header-menu-button' ).click(function() {
@@ -80,14 +74,14 @@ $( document ).ready(function() {
     if(count == 1) {
       $('#header-search-bar').css('display', 'none')
       $('.header-up').css('display', 'none')
-      $('.none').css('display', 'block')
+      $('.header-none').css('display', 'block')
       $('#header-logo').slideToggle()
       count = 0;
     }
   });
 });
 $('.header-menu-search').click(()=> {
-	$('.none').slideToggle();
+	$('.header-none').slideToggle();
 	$('.header-up').slideToggle()
   $('#header-logo').slideToggle()
 	
@@ -99,12 +93,12 @@ $('.header-menu-search').click(()=> {
 $('.header-up').click(()=> {
   $('.header-up').slideToggle()
   $('#header-search-bar').val('')
-  $('.none').slideToggle()
+  $('.header-none').slideToggle()
   $('#header-search-bar').slideToggle()
   $('#header-logo').slideToggle()
   count = 0;
 })
-</script>
+</script> <!--  헤더스크립트 끝 -->
 
 <script>
 var meetingBefore = $('#meeting-before'),

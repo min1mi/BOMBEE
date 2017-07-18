@@ -32,6 +32,9 @@
   }
 }*/
 
+.container {
+    padding: 0;
+  }
 @font-face {
   font-family: 'UhBeepuding';
   src: url('../font/UhBeepuding.eot');
@@ -186,7 +189,10 @@ body {
     position: absolute;
     background: rgba(0,0,0,0.9);
     width: 100%;
-    padding: 20px 55px;
+    padding-top: 20px;
+    padding-right: 55px;
+    padding-left:55px;
+    padding-bottom: 53%;
     top: 60px;
     font-size: 1.5em;
     color: white;
@@ -243,6 +249,9 @@ body {
 
   .header-menu-items-open ul li:nth-of-type(5) {
     animation: .3s ease-in-out .5s forwards header-menu-item-animation;
+  }
+  .header-menu-items-open ul li:nth-of-type(6) {
+    animation: .2s ease-in-out .6s forwards header-menu-item-animation;
   }
   .header-up {
     color:white;
