@@ -1,9 +1,104 @@
-.login-container {
+body {
   width: 100%;
   height: 100%;
   background-color: #f7ac1a;
 }
 
-.login-container .logo {
-  height: 50px;
+input::placeholder {
+  color: white;
 }
+input:focus {
+  outline: none;
+}
+
+a:link {color: white; text-decoration: none;}
+a:visited {color: white; text-decoration: none;}
+a:hover {color: white; text-decoration: none;}
+a:active {color: white; text-decoration: none;}
+
+
+.login-container .logo {
+  margin-top: 55px;
+}
+
+.login-container .bombee {
+  height: 100px;
+  margin-left: 2px;
+}
+
+.input-idpw {
+  margin-top: 50px;
+  margin-left: 13px;
+}
+
+.input-idpw > input {
+  border: 0px;
+  border-bottom: 2px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  padding-left: 5px;
+  padding-top: 15px;
+  font-size: 1.8rem;
+  width: 96%;
+  height: 54px;
+}
+
+.input-idpw .send {
+  background-color: black;
+  color: white;
+  line-height: 4.2px;
+  font-size: 1.8rem;
+  width: 40%;
+  height: 50px;
+  border-radius: 50px;
+  padding-bottom: 8px;
+  margin-top: 30px;
+  margin-left: 107px;
+}
+.login-container .forgetPW {
+  display: inline-block;
+  margin-left: 132px;
+  margin-top: 10px;
+  font-size: 1.6rem;
+}
+
+.other-login > div {
+  right: 21px;
+  width: 90%;
+  border-radius: 10px;
+  font-size: 1.9rem;
+  position: fixed;
+  padding: 1px 88px;
+}
+.kakao {
+  color: black;
+  bottom: 123px;
+  background-color: #fae100;
+}
+.facebook {
+  color: white;
+  bottom: 60px;
+  background-color: #3a5896;
+}
+
+.other-login img {
+  height: 50px;
+  border-radius: 10px;
+}
+
+.login-container .bottom {
+  position: fixed;
+  bottom: 17px;
+  font-size: 1.5rem;
+  color: white;
+  margin-left: 114px;
+}
+
+
+
+
+
+
+
+
+
+/**/
