@@ -1,0 +1,28 @@
+
+.allList-slide {
+  border: 1px solid red;
+  width: 100%;
+  height: 250px;
+}
+
+.allList-gymSelect {
+  border: 1px solid blue;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.allList-gymSelect > button {
+  width: 21%;
+  height: 100%;
+}
+
+.allList-gymSelect > button {
+  width: 21%;
+  height: 100%;
+}
+
+.allList-gymSelect > .gymSelect-map {
+  width: 12%;
+  height: 100%;
+}
