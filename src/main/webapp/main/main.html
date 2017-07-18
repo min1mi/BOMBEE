@@ -46,11 +46,9 @@
     <div class="body-inner">
       <div class='meeting'>
         <img id='meeting-before' src='../image/meeting-before.png'/>
-        <img id='meeting-after' src='../image/meeting-after.png'/>
       </div>
       <div class='management'>
         <img id='management-before'src='../image/management-before.png'/>
-        <img id='management-after'src='../image/management-after.png'/>
 
       </div>
 
@@ -107,14 +105,10 @@ var meetingBefore = $('#meeting-before'),
     managementAfter = $('#management-after')
 
   meetingBefore.click(function() {
-    meetingBefore.css('display', 'none')
-    meetingAfter.css('display','block')
   })
 
   managementBefore.click(function() {
     location.href='../login/login.html'
-    managementBefore.css('display', 'none')
-    managementAfter.css('display','block')
   })
 </script>
 </body>

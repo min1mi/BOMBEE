@@ -22,12 +22,7 @@
   z-index: 3;
   margin: 338px 0 0 155px;
 }
-#meeting-after {
-  display: none;
-}
-#management-after {
-  display: none;
-}
+
 #bg-img{
 	position: absolute;
   background-color:black;
