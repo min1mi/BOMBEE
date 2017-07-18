@@ -58,15 +58,7 @@ body {
   height: auto;
 }
 /*bootstrap 버튼 색 변경*/
-.btn-danger {
-  background-color: #d17171;
-  border: 0;
-  outline: 0;
-}
 
-.btn-danger:hover{
-  background-color: #d17171;
-}
 
 /* float 시 div 높이 만들어 주기*/
 .clearfix::after {
