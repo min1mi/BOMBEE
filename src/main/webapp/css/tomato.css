@@ -232,11 +232,14 @@ height: 50px;
   position: fixed;
   left: 48%;
 }
-.header-menu-search {
-	display:none;
-}
 .header-menu-ul {
   padding: 0;
+}
+.header-menu-items {
+	display: none;
+}
+.header-menu-items * {
+	display: none;
 }
 #header-search-bar {
   font-size: 1.5em;
