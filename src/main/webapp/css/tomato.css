@@ -127,7 +127,7 @@ body {
     width: 100%;
     height: 60px;
     background:#F7AC1A;
-    z-index: 200;
+    z-index: 5;
     text-align:center;
     position: relative;
   }
@@ -212,6 +212,9 @@ body {
 
   .header-menu-items ul li: hover{
     border-bottom: solid 2px #F7AC1A;
+  }
+  .indexUp {
+    z-index: 6;
   }
 
   @keyframes header-menu-item-animation {
