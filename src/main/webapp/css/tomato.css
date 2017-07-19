@@ -232,6 +232,9 @@ height: 50px;
   position: fixed;
   left: 48%;
 }
+.header-menu-search {
+	display:none;
+}
 .header-menu-ul {
   padding: 0;
 }
