@@ -45,12 +45,7 @@
   font-family: 'UhBeepuding';
   src: url('../font/UhBeepuding.woff') format('woff');
 }
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
-
-html, body, h1, h2, h3, h4, h5, h6, li, p {
-  font-family:'Nanum Gothic';
-}
 
 body {
   margin: 0px;
