@@ -1,0 +1,17 @@
+.type-btn {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: black;
+  border: 1px solid #d17171 !important;
+  width:50% !important;
+  height: 40px !important;
+}
+
+.select-btn {
+  color: white;
+  background-color: #d17171 !important;
+}
+
+.join-btn-group {
+  width:100% !important;
+}

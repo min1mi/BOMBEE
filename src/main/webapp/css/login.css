@@ -1,3 +1,16 @@
+/*iphone5~6*/
+@media (min-device-width: 320px) and (max-device-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+
+}
+/*iphone plus*/
+@media (min-device-width: 375px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
 body {
   width: 100%;
   height: 100%;
@@ -17,12 +30,7 @@ a:visited {color: white; text-decoration: none;}
 a:hover {color: white; text-decoration: none;}
 a:active {color: white; text-decoration: none;}
 
-.login-container {
-  width: 100%;
-}
-
 .login-container .inner-logo {
-  width: 100%;
   padding: 0 20%;
   margin-top: 5%;
 
@@ -35,7 +43,6 @@ a:active {color: white; text-decoration: none;}
 
 .input-idpw {
   padding: 3% 5% 0 5%;
-  width: 100%;
   position: relative;
 }
 
@@ -46,9 +53,9 @@ a:active {color: white; text-decoration: none;}
   background-color: rgba(255, 255, 255, 0);
   padding-left: 2%;
   padding-top: 5%;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: 100%;
-  height: 30%;
+  height: 60px;
 }
 
 .input-idpw .signin {
@@ -66,33 +73,30 @@ a:active {color: white; text-decoration: none;}
 .send-btn .send {
   width: 100%;
 }
-.forget {
-  padding: 0 32.64%;
-}
-.login-container .forgetPW {
-  width: 100%;
-  display: inline;
-  font-size: 1.6rem;
-}
 
+.login-container .forgetPW {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
 .login-container .bottom {
-	width: 100%;
+  margin: 4% 0; 
+  display: inline-block;
+  text-align: center;
+  width: 100%;
   font-size: 1.5rem;
   color: white;
-  padding: 5% 26.38%;
 }
-
 .other-login {
   padding-left: 7%;
   padding-right: 7%;
   margin-top: 45%;
-  width: 100%;
   position: relative;
 }
 
 .other-login > div {
   display: inline;
-  width: 100%;
 }
 
 .left-btn .kakao-img {
