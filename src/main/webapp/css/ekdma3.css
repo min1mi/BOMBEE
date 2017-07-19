@@ -1,3 +1,23 @@
+/*::-webkit-input-placeholder {
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+:-moz-placeholder {
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+::-moz-placeholder {
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+:-ms-input-placeholder {
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}*/
 .header-form {
   height: 50px;
   background-color: #F7AC1A;
@@ -12,26 +32,28 @@
   height: 700px;
 }
 
-.ekdmaekdma {
+.pro-name {
   padding-left: 4%;
+  width: 43%;
   margin:0% 3%;
   border: silver;
   background-color: white;
   color: black;
-  height: 60px;
+  height: 45px;
   display: inline-block;
+  outline: none;
   border-bottom: 2px #F7AC1A solid;
 
 }
-.ekdmaekdma1 {
+.pro-place {
   padding-left: 4%;
   margin:0% 3%;
   /*border: 1px #F7AC1A solid;*/
   border: silver;
   background-color: white;
   color: black;
-  height: 60px;
-  width: 90%;
+  height: 45px;
+  width: 94%;
   outline: none;
   display: inline-block;
   border-bottom: 2px #F7AC1A solid;
@@ -39,36 +61,16 @@
 }
 
 
-::-webkit-input-placeholder { /* Webkit browsers */
-  padding-top: 13px;
-  color: grey;
-  font-size : 1.6rem;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  padding-top: 13px;
-  color: grey;
-  font-size : 1.6rem;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  padding-top: 13px;
-  color: grey;
-  font-size : 1.6rem;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-  padding-top: 13px;
-  color: grey;
-  font-size : 1.6rem;
-}
 
-#soaka {
+#pro-type {
   display: inline-block;
   position: absolute;
 }
 
 #box1 {
-  margin: 51px 0px 0px 98px;
+  margin: 10% 10% 15% 25%;
   background-color: violet;
-  width: 200px;
+  width: 50%;
   height: 200px;
   background-color: #0094ff;
   text-align: center;
@@ -76,35 +78,40 @@
   border-radius: 50%;
 }
 
+#soaka {
+  /*width: 100%;*/
+  /*border : 2px black solid;*/
+  /*height: 3px;*/
+}
 
-#soaka > select {
+#pro-type > select {
 
   display: inline-block;
-  float : right;
-  width:200px;
-  height: 64px;
-  padding-left: 10px;
+  /*float : right;*/
+  width:195%;
+  height: 45px;
+  /*padding-left: 10px;*/
   font-size : 1.6rem;
   color:black;
   border: none;
   border-bottom: 2px #F7AC1A solid;
-
   margin:0% 3%;
   outline: none;
+
 }
-p {
+#pro-dt {
   color: grey;
   margin:3% 7% 2% 7%;
   font-size : 1.6rem;
 }
-textarea {
-  width: 87%;
-  height: 200px;
+#pro-dd {
+  width: 94%;
+  /*height: 200px;*/
   font-size : 1rem;
   padding: 3%;
   margin:0% 3%;
   border: 2px #F7AC1A solid;
 }
-input {
+/*input {
   font-size : 1.6rem;
-}
+}*/

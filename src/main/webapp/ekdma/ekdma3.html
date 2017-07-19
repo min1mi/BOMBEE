@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
   <title>프로필</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/ekdma3.css'>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 </head>
 <body>
   <div class="account-container"><!--ekdma-container 맨 밖 컨테이너 -->
@@ -25,10 +27,10 @@
         </div>
 
         <!-- <div id="soaka2" style="border: 1px red solid;" > -->
-        <div>
-          <input class="ekdmaekdma" type="text" placeholder="이름"/>
+        <div id="soaka">
+          <input class="pro-name" type="text" placeholder="이름"/>
 
-              <div id="soaka">
+              <div id="pro-type">
                 <select>
                   <option>운동 종목</option>
                   <option>헬스</option>
@@ -41,10 +43,10 @@
           </div>
 
 
-        <input class="ekdmaekdma1" type="text" placeholder="트레이닝센터">
+        <input class="pro-place" type="text" placeholder="트레이닝센터">
 
-        <p>소개</p>
-        <textarea></textarea>
+        <p id="pro-dt">소개</p>
+        <textarea class="form-control" rows="10" id="pro-dd"></textarea>
 
 
 
