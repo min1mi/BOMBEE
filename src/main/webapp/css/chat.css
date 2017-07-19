@@ -1,6 +1,4 @@
 body {
-  /*font-family: 'UhBeemysen';
-  font-size: 2rem;*/
   margin: 0px;
   padding: 0
 }
@@ -23,6 +21,15 @@ dd {
   padding: 0;
 }
 
+.chat-header > .close-btn {
+  float: left;
+  font-size: 2.5rem;
+  width: 20%;
+  font-weight: 200;
+  line-height: 1;
+  color: #000;
+
+}
 .chat-line div {
   display: inline;
 }
@@ -50,7 +57,7 @@ dd {
 .btn {
   font-size: 1.6rem;
   color: white;
-  background-color: #D17171;
+  background-color: #f7ac1a;
 }
 .me {
   float: right;
@@ -60,13 +67,13 @@ dd {
   margin: 4px 0;
 }
 
-#chat-header {
+.chat-header {
   width: 100%;
   margin: 0;
   font-size: 1.6rem;
   text-align: center;
   line-height: 45px;
-  background-color: #D17171;
+  background-color: #f7ac1a;
   height: 45px;
   color: white;
 }
