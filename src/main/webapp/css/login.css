@@ -1,7 +1,21 @@
+/*iphone5~6*/
+@media (min-device-width: 320px) and (max-device-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+
+}
+/*iphone plus*/
+@media (min-device-width: 375px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
 body {
   width: 100%;
   height: 100%;
   background-color: #f7ac1a;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 input::placeholder {
@@ -16,89 +30,102 @@ a:visited {color: white; text-decoration: none;}
 a:hover {color: white; text-decoration: none;}
 a:active {color: white; text-decoration: none;}
 
+.login-container .inner-logo {
+  padding: 0 20%;
+  margin-top: 5%;
 
-.login-container .logo {
-  margin-top: 55px;
 }
 
-.login-container .bombee {
-  height: 100px;
-  margin-left: 13px;
+.inner-logo .bombee {
+  display: inline-block;
+  width: 100%;
 }
 
 .input-idpw {
-  margin-top: 50px;
-  margin-left: 13px;
+  padding: 3% 5% 0 5%;
+  position: relative;
 }
 
 .input-idpw > input {
   border: 0px;
+  border-radius: 0px;
   border-bottom: 2px solid white;
   background-color: rgba(255, 255, 255, 0);
-  padding-left: 5px;
-  padding-top: 15px;
-  font-size: 1.8rem;
-  width: 96%;
-  height: 54px;
+  padding-left: 2%;
+  padding-top: 5%;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 60px;
 }
 
-.input-idpw .send {
-  background-color: black;
+.input-idpw .signin {
+  position: absolute;
+  top: 75%;
+  left: 40%;
   color: white;
-  line-height: 4.2px;
-  font-size: 1.8rem;
-  width: 40%;
-  height: 50px;
-  border-radius: 50px;
-  padding-bottom: 8px;
-  margin-top: 30px;
-  margin-left: 107px;
+  background-color: black;
+  font-size: 2rem;
 }
+
+.send-btn {
+  padding: 10% 32% 2% 32%;
+}
+.send-btn .send {
+  width: 100%;
+}
+
 .login-container .forgetPW {
   display: inline-block;
-  margin-left: 132px;
-  margin-top: 10px;
-  font-size: 1.6rem;
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.login-container .bottom {
+  margin: 4% 0; 
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+  color: white;
+}
+.other-login {
+  padding-left: 7%;
+  padding-right: 7%;
+  margin-top: 45%;
+  position: relative;
 }
 
 .other-login > div {
-  right: 21px;
-  width: 90%;
-  border-radius: 10px;
-  font-size: 1.9rem;
-  position: fixed;
-  padding: 1px 88px;
+  display: inline;
 }
-.kakao {
+
+.left-btn .kakao-img {
+  width: 49%;
+}
+.right-btn .facebook-img {
+  width: 49%;
+}
+.other-login .kakao {
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  width: 20%;
+  line-height:2.1rem;
   color: black;
-  bottom: 123px;
   background-color: #fae100;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
-.facebook {
+.other-login .facebook {
+  position: absolute;
+  top: 10%;
+  text-align: right;
+  line-height:2.1rem;
+  right: 12%;
+  width: 20%;
   color: white;
-  bottom: 60px;
-  background-color: #3a5896;
+  background-color: #3b5998;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
-
-.other-login img {
-  height: 50px;
-  border-radius: 10px;
-}
-
-.login-container .bottom {
-  position: fixed;
-  bottom: 17px;
-  font-size: 1.5rem;
-  color: white;
-  margin-left: 114px;
-}
-
-
-
-
-
-
-
-
-
 /**/

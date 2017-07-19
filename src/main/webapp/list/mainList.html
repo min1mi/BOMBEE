@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='../css/tomato.css'>
+<link rel='stylesheet' href='../css/mainList.css'>
+<link rel="stylesheet" href="dist/css/swiper.min.css">
+<script src='../node_modules/jquery/dist/jquery.min.js'></script>
+<script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
+<script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.header').load('../menu/new.html')
+  })
+</script>
+</head>
+<body>
+  <div class='allList-container'>
+    <div class='header'></div>
+    <!-- Swiper -->
+    <div class="indexUp swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+    </div>
+  <div class='indexUp wrap'>
+      <div class="scrollBlind">
+        <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="1" required="required"><i class="fa fa-map-marker" aria-hidden="true"></i>
+          </label>
+          <label class="btn test" role="button">
+            <input class='label-size' type="radio" name="options" value="2" >인기코스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="3">헬스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="4">요가
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="5">필라테스
+          </label>
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="6">스피닝
+          </label>
+        </div> <!-- btn-group -->
+      </div> <!--scrollBlind  -->
+    </div> <!--indexUp wrap  -->
+    <div id='promotion-list-container'>
+        <div id='promotion-in'>
+          <div class='left-promotion main-promotion-heightz'>d</div>
+          <div class='right-promotion main-promotion-height'>
+            <div>
+              <img src='../image/promotion_pic2.png'>
+            </div>
+            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
+          </div>
+          <div class='left-promotion main-promotion-height'>
+            <div>
+              <img src='../image/promotion_pic2.png'>
+            </div>
+            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
+          </div>
+          <div class='right-promotion main-promotion-height'>
+            <div>
+              <img src='../image/promotion_pic2.png'>
+            </div>
+            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
+          </div>
+        </div>
+    </div> <!-- promotion-list-container -->
+   </div> <!-- allList-container -->
+    <!-- Swiper JS -->
+    <script src="dist/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+ $(".btn-group-toggle").twbsToggleButtons();
+</script>
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+      loop: true,
+      autoplay: 2000,
+      autoplayDisableOnInteraction: false
+    });
+    $('.btn').click(()=> {
+    	$('.btn').css('color', 'black');
+    	$('.btn-test').css('color', 'white')
+    })
+    </script>
+</body>
+</html>
