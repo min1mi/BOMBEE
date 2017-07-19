@@ -6,13 +6,13 @@
   <title>JOIN</title>
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
   <link rel='stylesheet' href='../css/tomato.css'>
-  <link rel='stylesheet' href='../css/join.css'>
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 </head>
 <body>
 
-  <div class='container join-container'>
+  <div class='join-container'>
     <div class="mobile-container"> <!-- 새로운 헤더 -->
       <div class="header-menu-bar">
         <span class="header-menu-button"></span>
@@ -26,7 +26,7 @@
               <li>Login</li>
               <li>List</li>
               <li>Management</li>
-             <li>Meeting</li>
+              <li>Meeting</li>
               <li>Mypage</li>
               <li class="header-menu-search"><i class="fa fa-search" aria-hidden="true"></i> Search</li>
            </div>
@@ -38,44 +38,44 @@
     <div class="outer">
       <div class="inner">
         <div class="btn-group btn-group-toggle join-btn-group"  data-toggle="buttons">
-          <label class="btn type-btn select-btn" role="button">
+          <label class="btn type-btn select-btn indexUp" role="button">
             <input class='label-size' type="radio" name="options" value="1" required="required">일반회원
           </label>
-          <label class="btn type-btn" role="button">
+          <label class="btn type-btn indexUp" role="button">
             <input class='label-size' type="radio" name="options" value="0">트레이너
           </label>
         </div>
       </div>
       </div>
 
-      <form>
+      <form class='indexUp'>
         <div>
-          <input type="text" class="form-control" placeholder="아이디">
-          <input type="password" class="form-control" placeholder="비밀번호">
-          <input type="password" class="form-control" placeholder="비밀번호확인">
+          <input type="text" class="indexUp form-control" placeholder="아이디">
+          <input type="password" class="form-control indexUp" placeholder="비밀번호">
+          <input type="password" class="form-control indexUp" placeholder="비밀번호확인">
         </div>
         <div id='join-margin'>
-          <input type="text" class="form-control" placeholder="이름">
+          <input type="text" class="form-control indexUp" placeholder="이름">
         </div>
 
         <div class="btn-group btn-group-toggle"  data-toggle="buttons">
           <label class="btn test" role="button">
-            <input class='label-size' type="radio" name="options" value="1" required="required">여자
+            <input class='label-size indexUp' type="radio" name="options" value="1" required="required">여자
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="0">남자
+            <input class='label-size indexUp' type="radio" name="options" value="0">남자
           </label>
         </div>
 
         <div class="row">
           <div class="col-xs-2">
-            <input class="form-control" id='birth' type="text" placeholder="생일" readonly>
+            <input class="form-control indexUp" id='birth' type="text" placeholder="생일" readonly>
           </div>
   <div class="col-xs-2" id='join-padding'>
-    <input type="text" class="form-control" placeholder="년도">
+    <input type="text" class="form-control indexUp" placeholder="년도">
   </div>
   <div class="col-xs-2" id='join-padding'>
-  <select id="join-mm" title="월" class="sel" onchange="checkBirthday('check')">
+  <select id="join-mm" title="월" class="sel indexUp" onchange="checkBirthday('check')">
 											<option value="">월</option>
 										  	 			<option value="1">1</option>
 										  	 			<option value="2">2</option>
@@ -92,7 +92,7 @@
   </select>
 </div>
   <div class="col-xs-2" id='join-padding'>
-    <select id="join-date" title="일" class="sel" onchange="checkBirthday('check')">
+    <select id="join-date" title="일" class="sel indexUp" onchange="checkBirthday('check')">
   											<option value="">일</option>
   										  	 			<option value="1">1</option>
   										  	 			<option value="2">2</option>
@@ -143,11 +143,7 @@
       <button id='last-margin'class='test'>가입하기</button>
       </form>
 
-    <div class="outer">
-      <div class="inner">
-          <img src='../image/lastFooterImg.png' class='eventI'/>
-      </div>
-    </div>
+
 
   </div>
 
