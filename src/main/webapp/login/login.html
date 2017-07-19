@@ -14,24 +14,31 @@
   <body>
     <div class='login-container container'>
       <div class='logo'>
-        <img class='bombee' src='../image/biglogo.png'/>
+        <div class='inner-logo'>
+          <img class='bombee' src='../image/biglogo.png'/>
+        </div>
       </div>
 
       <form class='input-idpw'>
         <input class='id' type="text" placeholder="ID"/><br>
         <input class='pwd' type="password" placeholder="PASSWORD"/><br>
-        <button id='send' class='send btn' type="button">SIGN IN</button>
+        <div id='send' class='send-btn'>
+        	<span class='signin'>SIGN IN</span>
+          <img class='send' src='../image/signin.png'>
+        </div>
       </form>
-      <a href="#" class='forgetPW'>Forget Password?</a>
+      <div class='forget'>
+        <a href="#" class='forgetPW'>Forget Password?</a>
+      </div>
       <div class='other-login'>
-        <div class='kakao'>
-          <img src='../image/kakao.png' >
-          카카오톡 로그인
+        <div class='left-btn'>
+        	<span class='kakao'>카카오톡<br>로그인</span>
+          <img class='kakao-img' src='../image/kakao.png'>
         </div>
-        <div class='facebook'>
-          <img src='../image/facebook.png' >
-          페이스북 로그인
-        </div>
+        <div class='right-btn'>
+        <span class='facebook'>페이스북<br>로그인</span>
+          <img class="facebook-img" src='../image/facebook.png' >
+      </div>
       </div>
       <div class='bottom'>CREATE NEW ACCOUNT</div>
     </div>
