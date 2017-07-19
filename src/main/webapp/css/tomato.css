@@ -35,16 +35,11 @@
 .container {
     padding: 0;
   }
-@font-face {
-  font-family: 'UhBeepuding';
-  src: url('../font/UhBeepuding.eot');
-}
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-
-@font-face {
-  font-family: 'UhBeepuding';
-  src: url('../font/UhBeepuding.woff') format('woff');
-}
+	html {
+	  font-family: ‘Noto Sans KR’ ;
+	}
 
 
 body {
