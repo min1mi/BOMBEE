@@ -235,6 +235,12 @@ height: 50px;
 .header-menu-ul {
   padding: 0;
 }
+.header-menu-items {
+	display: none;
+}
+.header-menu-items * {
+	display: none;
+}
 #header-search-bar {
   font-size: 1.5em;
   width:100%;

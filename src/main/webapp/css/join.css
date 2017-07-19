@@ -1,17 +1,34 @@
+/*iphone5~6*/
+@media (min-device-width: 320px) and (max-device-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+  .type-btn {
+    height: 37px;
+  }
+}
+/*iphone plus*/
+@media (min-device-width: 375px) and (max-device-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+  .type-btn {
+    height: 40px;
+  }
+}
 .type-btn {
   font-size: 1.6rem;
-  line-height: 2rem;
+  line-height: 2.4rem;
   color: black;
-  border: 1px solid #d17171 !important;
+  border: 1px solid black;
   width:50% !important;
-  height: 40px !important;
 }
 
 .select-btn {
   color: white;
-  background-color: #d17171 !important;
+  background-color: black;
 }
 
 .join-btn-group {
-  width:100% !important;
+  width:100% ;
 }

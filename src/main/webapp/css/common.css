@@ -1,7 +1,3 @@
-.container {
-  width: 600px;
-  margin: 0px auto;
-}
 a[disabled] {
   pointer-events: none;
 }

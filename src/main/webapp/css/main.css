@@ -14,11 +14,13 @@
 .body-inner .meeting {
   position: absolute;
   margin: 139px 0 0 45px;
+  z-index:6;
 }
 
 .body-inner .management {
   position: absolute;
   margin: 338px 0 0 155px;
+  z-index:6;
 }
 
 #bg-img{
