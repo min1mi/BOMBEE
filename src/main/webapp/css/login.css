@@ -110,6 +110,7 @@ a:active {color: white; text-decoration: none;}
   color: black;
   background-color: #fae100;
   font-size: 1.7rem;
+  font-weight: 600;
 }
 .other-login .facebook {
   position: absolute;
@@ -121,5 +122,6 @@ a:active {color: white; text-decoration: none;}
   color: white;
   background-color: #3b5998;
   font-size: 1.7rem;
+  font-weight: 600;
 }
 /**/
