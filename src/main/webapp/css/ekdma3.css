@@ -1,0 +1,91 @@
+.header-form {
+  height: 50px;
+  background-color: #F7AC1A;
+}
+.account-container {
+  /*height: 1000px;*/
+  /*background-color: silver;*/
+  /*border : 8px red solid;*/
+  /*background-color: grey;*/
+  /*background-color: white;*/
+  /*background-color: grey;*/
+  height: 700px;
+}
+
+.ekdmaekdma {
+  padding-left: 4%;
+  margin:0% 3%;
+  border: silver;
+  background-color: white;
+  color: black;
+  height: 60px;
+  display: inline-block;
+  border-bottom: 2px #F7AC1A solid;
+
+}
+.ekdmaekdma1 {
+  padding-left: 4%;
+  margin:0% 3%;
+  /*border: 1px #F7AC1A solid;*/
+  border: silver;
+  background-color: white;
+  color: black;
+  height: 60px;
+  width: 90%;
+  outline: none;
+  display: inline-block;
+  border-bottom: 2px #F7AC1A solid;
+
+}
+
+::-webkit-input-placeholder { /* Webkit browsers */
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+
+#soaka {
+  display: inline-block;
+  position: absolute;
+}
+
+#box1 {
+  margin: 51px 0px 0px 98px;
+  background-color: violet;
+  width: 200px;
+  height: 200px;
+  background-color: #0094ff;
+  text-align: center;
+  line-height: 200px;
+  border-radius: 50%;
+}
+
+
+#soaka > select {
+
+  display: inline-block;
+  float : right;
+  width:200px;
+  height: 64px;
+  padding-left: 10px;
+  font-size : 1.6rem;
+  color:black;
+  border: none;
+  border-bottom: 2px #F7AC1A solid;
+  border-radius:3px;
+  margin:0% 3%;
+  outline: none;
+}
+p {
+  color: grey;
+  margin:3% 7% 2% 7%;
+  font-size : 1.6rem;
+}
+textarea {
+  width: 87%;
+  height: 200px;
+  font-size : 1rem;
+  padding: 3%;
+  margin:0% 3%;
+  border: 2px #F7AC1A solid;
+}
