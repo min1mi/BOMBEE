@@ -7,88 +7,11 @@
 
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel='stylesheet' href='../css/tomato.css'>
-<link rel='stylesheet' href='../css/allList.css'>
+<link rel='stylesheet' href='../css/mainList.css'>
 <link rel="stylesheet" href="dist/css/swiper.min.css">
 <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
 <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
-
-    <!-- Demo styles -->
-    <style>
-    body {
-        font-size: 14px;
-        color:#000;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        height: 300px;
-        margin: 0px auto;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-
-  .btn {
-  height: 50px;
-  width:30%;
-  padding-top: 12px;
-  font-size: 20px;
-}
-.btn-test {
-  background-color: #f7ac1a;
-  color: white;
-}
-.btn-secondary {
-  border : solid #f7ac1a 1px;
-}
-.scrollBlind{
-      width: 100%;
-}
-.btn-group>.btn {
-    float: none;
-  }
-  .btn-group {
-    display: inline;
-  }
-  .wrap{
-    float: left;
-    display: inline-block;
-    height: auto;
-    overflow-x: scroll;
-    white-space:nowrap;
-    width: 100%;
-    display: inline;
-  }
-  .scrollBlind{
-    height: 50px;
-    overflow-x:scroll;
-    font-size: 20px;
-    width: 100%;
-    overflow:hidden;
-    display: inline;
-  }
-label {
-    overflow:hidden;
-  }
-    </style>
 <script>
 $(document).ready(function() {
     $('.header').load('../menu/new.html')
@@ -113,30 +36,39 @@ $(document).ready(function() {
             <div class="swiper-slide">Slide 10</div>
         </div>
     </div>
-        <div class='indexUp wrap'>
+  <div class='indexUp wrap'>
       <div class="scrollBlind">
         <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+          <label class="btn" role="button">
+            <input class='label-size' type="radio" name="options" value="1" required="required"><i class="fa fa-map-marker" aria-hidden="true"></i>
+          </label>
           <label class="btn test" role="button">
-            <input class='label-size' type="radio" name="options" value="1" required="required">인기코스
+            <input class='label-size' type="radio" name="options" value="2" >인기코스
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="2">헬스
+            <input class='label-size' type="radio" name="options" value="3">헬스
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="3">요가
+            <input class='label-size' type="radio" name="options" value="4">요가
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="4">필라테스
+            <input class='label-size' type="radio" name="options" value="5">필라테스
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="5">스피닝
+            <input class='label-size' type="radio" name="options" value="6">스피닝
           </label>
-          <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="6"><i class="fa fa-map-marker" aria-hidden="true"></i>
-          </label>
+        </div> <!-- btn-group -->
+      </div> <!--scrollBlind  -->
+    </div> <!--indexUp wrap  -->
+    <div id='promotion-list-container'>
+        <div id='promotion-in'>
+          <div class='left-promotion main-promotion-heightz'>d</div>
+          <div class='right-promotion main-promotion-height'>d</div>
+          <div class='left-promotion main-promotion-height'>d</div>
+          <div class='right-promotion main-promotion-height'>d</div>
         </div>
-      </div>
-    </div>
+    </div> <!-- promotion-list-container -->
+   </div> <!-- allList-container -->
     <!-- Swiper JS -->
     <script src="dist/js/swiper.min.js"></script>
     <!-- Initialize Swiper -->
