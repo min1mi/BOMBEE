@@ -38,7 +38,23 @@
 
 }
 
+
 ::-webkit-input-placeholder { /* Webkit browsers */
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  padding-top: 13px;
+  color: grey;
+  font-size : 1.6rem;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
   padding-top: 13px;
   color: grey;
   font-size : 1.6rem;
@@ -72,7 +88,7 @@
   color:black;
   border: none;
   border-bottom: 2px #F7AC1A solid;
-  border-radius:3px;
+
   margin:0% 3%;
   outline: none;
 }
@@ -88,4 +104,7 @@ textarea {
   padding: 3%;
   margin:0% 3%;
   border: 2px #F7AC1A solid;
+}
+input {
+  font-size : 1.6rem;
 }
