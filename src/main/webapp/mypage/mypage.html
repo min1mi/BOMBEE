@@ -77,9 +77,8 @@
     <div class="mypage-outer">
       <div class="mypage-inner">
         <div class="btn-collect">
-          <button type="button" class='btn-foot'>로그아웃</button>
-          <button type="button" class='btn-foot'>PC버전</button>
-          <button type="button" class='btn-foot'>전체서비스</button>
+          <button type="button" id='logout' class='btn-foot'>로그아웃</button>
+          <button type="button" id='main' class='btn-foot'>메인으로</button>
           <br>
           <br>
           <span class='footer-button'>ⓒTOMATO</span>
@@ -121,6 +120,12 @@
         'border-bottom': '4px solid black',
         'color': ' #f7ac1a'
       })
+    })
+    $('#logout').click(()=> {
+    	location.href='../main/main.html'
+    })
+    $('#main').click(()=> {
+    	location.href='../main/main.html'
     })
   </script>
 </body>
