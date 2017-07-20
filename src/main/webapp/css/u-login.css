@@ -1,0 +1,35 @@
+.header-form {
+  height: 50px;
+  background-color: #F7AC1A;
+}
+.user-login-container {
+  height: 660px;
+  background-color: red;
+
+}
+.user-login-all-menu {
+  float: inherit;
+  margin-top: 60%;
+
+}
+.user-login-left {
+
+  float : left;
+}
+.user-login-right {
+  float : right;
+}
+#user-login-Btn-img1 {
+
+  margin-top: -16%;
+  z-index: 4;
+}
+#user-login-Btn-img2 {
+  margin-top: -24%;
+  margin-left: 40%;
+  z-index: 3;
+}
+
+  .userLogin-Img {
+  width: 60.2%;
+}
