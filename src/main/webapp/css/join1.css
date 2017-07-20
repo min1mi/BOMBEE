@@ -1,5 +1,5 @@
 .join-container {
-  margin: 0px 5%;
+  margin: 20px 5%;
   }
 
 .test {
@@ -45,8 +45,9 @@
   background-color:  #f7ac1a;
   border: 0;
   outline: 0;
-  height: 30px;
+  height: 40px;
   margin: 10px auto;
+  border-radius: 5px;
 }
 
 #join-margin {
