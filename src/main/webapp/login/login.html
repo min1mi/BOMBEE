@@ -1,46 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
-    <title>login</title>
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel='stylesheet' href='../css/tomato.css'>
-    <link rel="stylesheet" href="../css/login.css">
-    <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-    <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-  </head>
-  <body>
-    <div class='login-container'>
-      <div class='logo'>
-        <div class='inner-logo'>
-          <img class='bombee' src='../image/biglogo.png'/>
-        </div>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>login</title>
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel="stylesheet" href="../css/login.css">
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '484853665195171',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
 
-      <form class='input-idpw'>
-        <input class='id' type="text" placeholder="ID"/><br>
-        <input class='pwd' type="password" placeholder="PASSWORD"/><br>
-        <div id='send' class='send-btn'>
-        	<!-- <span class='signin'>SIGN IN</span> -->
-          <img class='send' src='../image/signin.png'>
-        </div>
-      </form>
-      <div class='forget'>
-        <a href="#" class='forgetPW'>Forget Password?</a>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <div class='login-container'>
+    <div class='logo'>
+      <div class='inner-logo'>
+        <img class='bombee' src='../image/biglogo.png'/>
       </div>
-      <div class='other-login'>
-        <div class='left-btn'>
-        	<!-- <span class='kakao'>카카오톡<br>로그인</span> -->
-          <img class='kakao-img' src='../image/kakao.png'>
-        </div>
-        <div class='right-btn'>
-        <!-- <span class='facebook'>페이스북<br>로그인</span> -->
-          <img class="facebook-img" src='../image/facebook.png' >
-      </div>
-      </div>
-      <a class='bottom'>CREATE NEW ACCOUNT</a>
     </div>
-  </body>
+
+    <form class='input-idpw'>
+      <input class='id' type="text" placeholder="ID"/><br>
+      <input class='pwd' type="password" placeholder="PASSWORD"/><br>
+      <div id='send' class='send-btn'>
+      	<!-- <span class='signin'>SIGN IN</span> -->
+        <img class='send' src='../image/signin.png'>
+      </div>
+    </form>
+    <div class='forget'>
+      <a href="#" class='forgetPW'>Forget Password?</a>
+    </div>
+    <div class='other-login'>
+      <div id='kakao' class='left-btn'>
+      	<!-- <span class='kakao'>카카오톡<br>로그인</span> -->
+        <img class='kakao-img' src='../image/kakao.png'>
+      </div>
+      <div id='facebook' class='right-btn'>
+      <!-- <span class='facebook'>페이스북<br>로그인</span> -->
+        <img class="facebook-img" src='../image/facebook.png' >
+    </div>
+    </div>
+    <a class='bottom'>CREATE NEW ACCOUNT</a>
+  </div>
+
+<script>
+$(document).ready(function() {
+  Kakao.init('90a2de4be0ff30607f507187d5b8dcb0');})
+  
+$(window).on("load", function() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+})
+
+$('#kakao').on('click', function() {
+  Kakao.Auth.login(function() {
+   	location.href=''
+  })
+})
+
+$('#logout').on('click', function() {
+  Kakao.Auth.logout(function() {
+      console.log('응 아니야');
+  })
+  FB.logout(function(response){
+    console.log("로그아웃됬따")
+  });
+})
+
+$('#facebook').on('click', () => {
+  FB.login(function(response) {
+    console.log(response)
+	}, {scope: 'public_profile,email'});
+})
+
+</script>
+</body>
 </html>
