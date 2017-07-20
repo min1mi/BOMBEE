@@ -7,62 +7,92 @@
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/chat.css'>
-
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 </head>
 <body>
 <div class='chat-container'>
   <div class='header'></div>
 
   <div class='chat-body'>
-
     <div class='chat-header'>
-      <div class="fa fa-times close-btn" aria-hidden="true"></div>
-      목록</div>
-    <div class='chat-content'>
-      <div class='chat-line'>
-        <div><img src='../image/user.png'id
-          ='chat-user'/></div>
-        <dl>
-          <dt>회원1</dt>
-          <dd>안녕하세요^^</dd>
-        </dl>
-      </div>
-      <div class='chat-line'>
+      <span class="fa fa-times close-btn" aria-hidden="true"></span>
+      <span class='chat-list'>목록</span>
+    </div>
+    <div class='chat-content' id='chat-container'>
+
+
+      <!-- <div class='chat-line'>
         <div><img src='../image/user.png'id='chat-user'/></div>
         <dl>
           <dt>회원1</dt>
           <dd>안녕하세요^^</dd>
         </dl>
-      </div>
-      <div class='chat-line'>
-        <div><img src='../image/user.png'id='chat-user'/></div>
-        <dl>
-          <dt>회원1</dt>
-          <dd>안녕하세요^^</dd>
-        </dl>
-      </div>
-      <div class='chat-line'>
-        <div><img src='../image/user.png'id='chat-user'/></div>
-        <dl>
-          <dt>회원1</dt>
-          <dd>안녕하세요^^</dd>
-        </dl>
-      </div>
-      <div class='chat-line'>
-        <div><img src='../image/user.png'id='chat-user'/></div>
-        <dl>
-          <dt>회원1</dt>
-          <dd>안녕하세요^^</dd>
-        </dl>
-      </div>
+      </div> -->
+
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script id="chat-template" type="text/x-handlebars-template">
+  {{#each chatList}}
+  <div class='chat-line'>
+    <div><img src='{{img}}' id='chat-user'/></div>
+    <dl>
+      <dt>{{name}}</dt>
+      <dd>{{recentMsg}}</dd>
+    </dl>
+  </div>
+  {{/each}}
+</script>
+
+
+
 <script type="text/javascript">
 $(document).ready(function() {
-  $('.header').load('../header/header.html')
+//$('.header').load('../header/header.html')
+
+
+
 })
+
+var jsonObj =
+    {
+    "chatList" : [
+      {
+        "img" : "../image/user.png",
+        "name" : "회원1",
+        "recentMsg" : "안녕하세요^^"
+      },
+      {
+        "img" : "../image/user.png",
+        "name" : "회원2",
+        "recentMsg" : "안녕하세요^^"
+      },
+      {
+        "img" : "../image/user.png",
+        "name" : "회원3",
+        "recentMsg" : "안녕하세요^^"
+      }
+    ]
+  }
+
+var jsonfile = JSON.stringify(jsonObj)
+
+$.getJSON(jsonfile, function(result) {
+  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+/*  var templateFn = Handlebars.compile($('#chat-template').text())
+  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+  var container = $('#chat-container')
+  var html = container.html()
+  container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.*/
+  
+  console.log(jsonfile)
+ }, function(err) {
+   console.log(err)
+ })
+
+
 </script>
 </body>
 </html>
