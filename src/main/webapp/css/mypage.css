@@ -11,12 +11,14 @@
 }
 
 .mypage-header {
+	margin: 0;
   height: 60px;
   position: relative;
   padding: 0;
   text-align: center;
   line-height: 60px;
-  background-color: #d17171;
+  background-color: white;
+
 }
 .mypage-outer {
   display: table;
@@ -28,10 +30,11 @@
   margin-left: 5%;
   color: white;
   font-size: 12px;
-  background-color: #d17171;
+  background-color:  #f7ac1a;
   width: 20%;
   border: 0;
   outline: 0;
+  height: 30px;
 }
 .btn-group {
   width:100%;
@@ -48,8 +51,8 @@
 }
 
 .btn-foot {
-  color: #d17171;
-  border: 1px solid #d17171;
+  color: black;
+  border: 1px solid black;
   outline: 0;
   background-color: rgba(255, 255, 255, 0)
 }
@@ -62,8 +65,7 @@
   padding-top: 10px;
 }
 .mypage-container{
-  margin: 0 auto;
-  background-color: #f2d9d9;
+  margin: 0 5%;
   position: relative;
 }
 .header {
@@ -100,11 +102,17 @@
   bottom: 0%;
   position: absolute;
 }
+.outer {
+	border: solid 1px black;
+}
 
 .mypage-inner-bottom {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+.btn-change {
+  margin-top: 10px;
 }
 .inner #user {
   padding-bottom: 10px;
@@ -117,13 +125,13 @@
 }
 #mypage-userBorder {
   font-size: 20px;
-  padding: 10px 0px;
+  padding: 5px 0px;
   margin-top: 5px;
-  color: #d17171;
+  color:  #f7ac1a;
 }
 #mypage-securityBorder {
   font-size: 20px;
-  padding: 10px 0px;
+  padding: 5px 0px;
   margin-top: 5px;
 }
 
@@ -134,7 +142,7 @@
 }
 
 #mypage-logo a {
-  color: white;
+  color: #f7ac1a;
   font-weight: bold;
   text-decoration: none;
   line-height: 60px;

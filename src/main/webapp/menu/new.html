@@ -10,7 +10,7 @@
      <input type="search" id='header-search-bar'  style="display:none" placeholder="search"/>
        <ul class='header-menu-ul' style="display:none">
          <div class="header-none" style="display:none">
-           <li style="display:none">Login</li>
+           <li id='header-li-login' style="display:none">Login</li>
            <li style="display:none">Management</li>
            <li style="display:none">Meeting</li>
            <li style="display:none">Mypage</li>
@@ -75,5 +75,8 @@ $('.header-up').click(()=> {
   $('#header-search-bar').slideToggle()
   $('#header-logo').slideToggle()
   count = 0;
+})
+$('#header-li-login').click(()=> {
+	location.href='../login/login.html'
 })
 </script> <!--  헤더스크립트 끝 -->
