@@ -61,13 +61,13 @@
         <img class="facebook-img" src='../image/facebook.png' >
     </div>
     </div>
-    <a class='bottom'>CREATE NEW ACCOUNT</a>
+    <a href='../join/join.html'class='bottom'>CREATE NEW ACCOUNT</a>
   </div>
 
 <script>
 $(document).ready(function() {
   Kakao.init('90a2de4be0ff30607f507187d5b8dcb0');})
-  
+
 $(window).on("load", function() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
@@ -91,8 +91,14 @@ $('#logout').on('click', function() {
 
 $('#facebook').on('click', () => {
   FB.login(function(response) {
-    console.log(response)
-	}, {scope: 'public_profile,email'});
+
+    FB.api('/me?fields=id,name,email', function (response) {
+
+      console.log(JSON.stringify(response));
+  });
+
+   }, {scope: 'public_profile,email'});
+
 })
 
 </script>
