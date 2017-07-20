@@ -56,31 +56,31 @@
             <tr>
               <td class="pro-time" rowspan="2"> 9</td>
               <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
+              <td class="pro-time-off" value="off1"></td>
+              <td class="pro-time-off" value="off2"></td>
+              <td class="pro-time-off" value="off3"></td>
+              <td class="pro-time-off" value="off4"></td>
+              <td class="pro-time-off" value="off5"></td>
+              <td class="pro-time-off" value="off6"></td>
             </tr>
             <tr>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
+              <td class="pro-time-off" value="off7"></td>
+              <td class="pro-time-off" value="off8"></td>
+              <td class="pro-time-off" value="off9"></td>
+              <td class="pro-time-off" value="off10"></td>
+              <td class="pro-time-off" value="off11"></td>
+              <td class="pro-time-off" value="off12"></td>
+              <td class="pro-time-off" value="off13"></td>
             </tr>
             <tr>
               <td class="pro-time" rowspan="2"> 10</td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
+              <td class="pro-time-off" value="off14"></td>
+              <td class="pro-time-off" value="off15"></td>
+              <td class="pro-time-off" value="off16"></td>
+              <td class="pro-time-off" value="off17"></td>
+              <td class="pro-time-off" value="off18"></td>
+              <td class="pro-time-off" value="off19"></td>
+              <td class="pro-time-off" value="off20"></td>
             </tr>
             <tr>
               <td class="pro-time-off" value="off"></td>
@@ -161,13 +161,15 @@
 $(".pro-time-off").on("click", function () {
   var a = $(".pro-time-off")
   console.log(a.attr("value"));
-  if(a.attr("value") == "off"+1){
-    a.css("background-color" ,"green");
-    a.attr("value","on");
-  }
-  else if(a.attr("value") == "on"){
-    a.css("background-color" ,"white");
-    a.attr("value","off");
+  for (i = 0; i < 20; i++){
+    if(a.attr("value") == "off"+i){
+      a.css("background-color" ,"red");
+      a.attr("value","on");
+    }
+    else if(a.attr("value") == "on"){
+      a.css("background-color" ,"white");
+      a.attr("value","off");
+    }
   }
 })
 

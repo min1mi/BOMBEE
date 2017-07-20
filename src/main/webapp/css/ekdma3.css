@@ -89,7 +89,7 @@
 #pro-type > select {
 
   display: inline-block;
-  width:195%;
+  width:205%;
   height: 45px;
   font-size : 1.6rem;
   color:black;
@@ -127,22 +127,29 @@
   margin:0% 3%;
   margin-top: 3%;
   width: 94%;
+  border: 1px solid red;
+  border-radius: 10px;
+}
+
+table {
+  border-radius: 10px;
 }
 
 
 th {
   text-align: center;
   font-weight: lighter;
-  font-size: 22px;
+  font-size: 1.8rem;
   height: 50px;
   width: 50px;
   color: white;
   background-color: #F7AC1A;
   border-left: 1px solid white;
+
 }
 td {
   height: 15px;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #e6e6e6;
   text-align: center;
 }
 td > input {
