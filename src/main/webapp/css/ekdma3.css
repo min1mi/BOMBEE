@@ -9,7 +9,7 @@
 
 .pro-name {
   padding-left: 4%;
-  width: 43%;
+  width: 40%;
   margin:0% 3%;
   border: silver;
   background-color: white;
@@ -25,13 +25,12 @@
 
 }
 .pro-place {
+  display: inline-block;
   padding-left: 4%;
-  margin:0% 3%;
   border: silver;
   background-color: white;
   color: black;
   height: 45px;
-  width: 94%;
   outline: none;
   display: inline-block;
   border-bottom: 2px #F7AC1A solid;
@@ -40,13 +39,27 @@
   -webkit-border-radius:0px;
   -moz-border-radius:0px;
   appearance: none;
+  margin:0% 3%;
 
+}
+#pro-place-1 {
+  width: 40%;
+}
+
+#pro-place-2 {
+  margin:0% 0% 0% 3%;
+  width: 30%;
+}
+#pro-place-3 {
+  width: 94%;
+}
+#pro-place-Btn {
+  margin : 3% 0% 0% 8%;
+  display: inline-block;
+  width: 8%;
 }
 .pro-ttable-no {
   width:50px;;
-}
-.pro-time-off {
-  height: 20px;
 }
 .pro-time {
   border: none;
@@ -89,7 +102,7 @@
 #pro-type > select {
 
   display: inline-block;
-  width:205%;
+  width:180%;
   height: 45px;
   font-size : 1.6rem;
   color:black;
@@ -119,20 +132,30 @@
   -webkit-border-radius:0px;
   -moz-border-radius:0px;
 }
-#pro-ttime {
-	width:10px;
+.pro-time {
+	height: 50px;
 	outline: none;
 }
 #pro-timetable {
   margin:0% 3%;
   margin-top: 3%;
   width: 94%;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   border-radius: 10px;
+}
+#open_nav_link {
+  margin:2% 5% 0% 0%;
+  display: inline-block;
+  float: right;
+  width: 10%;
+}
+.ro-time-off {
+  height: 30px;
 }
 
 table {
-  border-radius: 10px;
+  /*border: 1px solid red;*/
+  border-radius: 100px;;
 }
 
 
@@ -148,7 +171,6 @@ th {
 
 }
 td {
-  height: 15px;
   border-bottom: 1px solid #e6e6e6;
   text-align: center;
 }
@@ -157,3 +179,13 @@ td > input {
   outline: none;
   border: none;
 }
+.pro-bottom-Btn {
+  width: 100%;
+  padding: 5% 0% 0% 10%;
+}
+.pro-view-Btn{
+  width: 45%;
+}
+ .pro-save-Btn {
+   width: 45%;
+ }

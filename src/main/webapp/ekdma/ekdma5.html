@@ -19,8 +19,15 @@
       <!-- <div class="" -->
 
         <div class="pro-pic-div">
-          <div> <img  id="box1" src="download.jpg"></div>
-         </div>
+         <div class="brand">
+             <label for="img-upload">
+             <img  id="box1" src="download.jpg">
+            </label>
+            </div>
+            <input id="img-upload" type="file" accept="image/*" style="display:none;">
+           </div>
+
+
           <div>
           <input class="pro-name" type="text" placeholder="이름"/>
              <div id="pro-type">
@@ -33,130 +40,159 @@
                  <option>크로스핏</option>
                </select>
              </div>
+             <img id="open_nav_link" src="schedule.png">
+          </div>
+          <div id="open_nav" style="display:none;">
+            <div id="pro-timetable">
+              <table>
+                <tr>
+                  <th style="width: 30px"></th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th>토</th>
+                  <th>일</th>
+                </tr>
+                <tr>
+                  <td class="pro-time-off pto-1" value="off"></td>
+                  <td class="pro-time-off pto-2" value="off"></td>
+                  <td class="pro-time-off pto-3" value="off"></td>
+                  <td class="pro-time-off pto-4" value="off"></td>
+                  <td class="pro-time-off pto-5" value="off"></td>
+                  <td class="pro-time-off pto-6" value="off"></td>
+                  <td class="pro-time-off pto-7" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off pto-8" value="off"></td>
+                  <td class="pro-time-off pto-9" value="off"></td>
+                  <td class="pro-time-off pto-10" value="off"></td>
+                  <td class="pro-time-off pto-11" value="off"></td>
+                  <td class="pro-time-off pto-12" value="off"></td>
+                  <td class="pro-time-off pto-13" value="off"></td>
+                  <td class="pro-time-off pto-14" value="off"></td>
+
+                </tr>
+                <tr>
+                  <td class="pro-time" rowspan="2"> 10</td>
+                  <td class="pro-time-off1" value="off"></td>
+                  <td class="pro-time-off2" value="off"></td>
+                  <td class="pro-time-off3" value="off"></td>
+                  <td class="pro-time-off4" value="off"></td>
+                  <td class="pro-time-off5" value="off"></td>
+                  <td class="pro-time-off6" value="off"></td>
+                  <td class="pro-time-off7" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off8" value="off"></td>
+                  <td class="pro-time-off9" value="off"></td>
+                  <td class="pro-time-off10" value="off"></td>
+                  <td class="pro-time-off11" value="off"></td>
+                  <td class="pro-time-off12" value="off"></td>
+                  <td class="pro-time-off13" value="off"></td>
+                  <td class="pro-time-off14" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time" rowspan="2"> 11</td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time" rowspan="2"> 12</td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time" rowspan="2"> 13</td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+                <tr>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                  <td class="pro-time-off" value="off"></td>
+                </tr>
+              </table>
+            </div>
+
           </div>
 
 
+        <div>
+          <input class="pro-place" id="pro-place-1" type="text" placeholder="상호명">
+          <input class="pro-place" id="pro-place-2" style="margin-left: 0%;"type="text" placeholder="우편번호">
+          <img id="pro-place-Btn" src="mapmap.png">
+        <div>
+        <input class="pro-place" id="pro-place-3"type="text" placeholder="상세주소">
 
-        <input class="pro-place" type="text" placeholder="트레이닝센터">
         <p id="pro-dt">소개</p>
+
+
         <textarea class="form-control" rows="10" id="pro-dd"></textarea>
-
-        <div id="pro-timetable">
-          <table>
-            <tr>
-              <th style="width: 30px"></th>
-              <th>월</th>
-              <th>화</th>
-              <th>수</th>
-              <th>목</th>
-              <th>금</th>
-              <th>토</th>
-              <th>일</th>
-            </tr>
-            <tr>
-              <td class="pro-time" rowspan="2"> 9</td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off1"></td>
-              <td class="pro-time-off" value="off2"></td>
-              <td class="pro-time-off" value="off3"></td>
-              <td class="pro-time-off" value="off4"></td>
-              <td class="pro-time-off" value="off5"></td>
-              <td class="pro-time-off" value="off6"></td>
-            </tr>
-            <tr>
-              <td class="pro-time-off" value="off7"></td>
-              <td class="pro-time-off" value="off8"></td>
-              <td class="pro-time-off" value="off9"></td>
-              <td class="pro-time-off" value="off10"></td>
-              <td class="pro-time-off" value="off11"></td>
-              <td class="pro-time-off" value="off12"></td>
-              <td class="pro-time-off" value="off13"></td>
-            </tr>
-            <tr>
-              <td class="pro-time" rowspan="2"> 10</td>
-              <td class="pro-time-off" value="off14"></td>
-              <td class="pro-time-off" value="off15"></td>
-              <td class="pro-time-off" value="off16"></td>
-              <td class="pro-time-off" value="off17"></td>
-              <td class="pro-time-off" value="off18"></td>
-              <td class="pro-time-off" value="off19"></td>
-              <td class="pro-time-off" value="off20"></td>
-            </tr>
-            <tr>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time" rowspan="2"> 11</td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time" rowspan="2"> 12</td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time" rowspan="2"> 13</td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-            <tr>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-              <td class="pro-time-off" value="off"></td>
-            </tr>
-
-          </table>
-        </div>
+        <div class="pro-bottom-Btn">
+          <img class="pro-view-Btn" src="view1.png">
+          <img class="pro-save-Btn" src="save1.png">
+        <div>
     </form>
   </div> <!--ekdma-container 맨 밖 컨테이너 -->
 
 
 
 <script>
+jQuery(document).ready(function($){
+
+$("#open_nav_link").click(function(){
+$("#open_nav").slideToggle(1000);
+});
+});
+
 
 $(".pro-time-off").on("click", function () {
   var a = $(".pro-time-off")
@@ -172,6 +208,14 @@ $(".pro-time-off").on("click", function () {
     }
   }
 })
+jQuery(document).ready(function($){
+
+$("#pro-timetable-Btn").click(function(){
+$("#pro-timetable").slideToggle(250);
+});
+});
+</script>
+
 
 
 
