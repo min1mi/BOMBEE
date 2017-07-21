@@ -50,24 +50,24 @@
   float : right;
 }
 #menagement-Btn-img1 {
-margin: -32% 0% 0% -16%;
+margin: -27% 0% 0% 4%;
   z-index: 4;
-  width: 90%;
+  width: 55%;
 }
 #menagement-Btn-img2 {
-  margin: -32% 0% 0% 32%;
+  margin: -16% 0% 0% 55%;
   z-index: 3;
-  width: 60%;
+  width: 35%;
 }
 #menagement-Btn-img3 {
-  margin: -31% 0% 0% 0%;
+  margin: -8% 0% 0% 15%;
   z-index: 2;
-  width: 60%;
+  width: 35%;
 }
 #menagement-Btn-img4 {
-  margin: -32% 0% 0% 21%;
+  margin: -16% 0% 0% 47%;
   z-index: 1;
-  width: 90%;
+  width: 53%;
 }
 
   /*.menagement-img {
