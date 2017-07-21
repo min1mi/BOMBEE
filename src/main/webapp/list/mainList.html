@@ -12,6 +12,7 @@
 <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
 <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script>
 $(document).ready(function() {
     $('.header').load('../menu/new.html')
@@ -24,82 +25,135 @@ $(document).ready(function() {
     <!-- Swiper -->
     <div class="indexUp swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
+            <div class="swiper-slide"><img src='../image/main_1.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_2.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_3.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_4.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_5.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_6.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_7.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_8.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_9.jpg'></div>
+            <div class="swiper-slide"><img src='../image/main_10.jpg'></div>
         </div>
     </div>
   <div class='indexUp wrap'>
       <div class="scrollBlind">
         <div class="btn-group btn-group-toggle"  data-toggle="buttons">
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="1" required="required"><i class="fa fa-map-marker" aria-hidden="true"></i>
+            <input class='label-size' type="radio" name="options" value="1" required="required">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
           </label>
-          <label class="btn test" role="button">
-            <input class='label-size' type="radio" name="options" value="2" >인기코스
-          </label>
-          <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="3">헬스
+          <label class="btn test" role="button" >
+            <input class='label-size' type="radio" name="options" value="2" id='hot-cos'>인기코스
           </label>
           <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="4">요가
+            <input class='label-size' type="radio" name="options" value="3" id='health' >헬스
           </label>
-          <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="5">필라테스
+          <label class="btn" role="button" >
+            <input class='label-size' type="radio" name="options" value="4" id='yoga'>요가
           </label>
-          <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="6">스피닝
+          <label class="btn" role="button" >
+            <input class='label-size' type="radio" name="options" value="5" id='pilates'>필라테스
+          </label>
+          <label class="btn" role="button" >
+            <input class='label-size' type="radio" name="options" value="6" id='spinning'>스피닝
           </label>
         </div> <!-- btn-group -->
       </div> <!--scrollBlind  -->
     </div> <!--indexUp wrap  -->
     <div id='promotion-list-container'>
         <div id='promotion-in'>
-          <div class='left-promotion main-promotion-heightz'>d</div>
-          <div class='right-promotion main-promotion-height'>
-            <div>
-              <img src='../image/promotion_pic2.png'>
+            <div class='left-promotion main-promotion-heightz'>
+              <img src='../image/first.jpg'>
             </div>
-            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
-          </div>
-          <div class='left-promotion main-promotion-height'>
-            <div>
-              <img src='../image/promotion_pic2.png'>
-            </div>
-            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
-          </div>
-          <div class='right-promotion main-promotion-height'>
-            <div>
-              <img src='../image/promotion_pic2.png'>
-            </div>
-            <span>askdfjasdklfjkasdfjkasldjfklasdjfklasjdfklasjdkfljasdklfjaskldfjklasdjfklasj</span>
-          </div>
         </div>
+         
     </div> <!-- promotion-list-container -->
+
    </div> <!-- allList-container -->
     <!-- Swiper JS -->
     <script src="dist/js/swiper.min.js"></script>
     <!-- Initialize Swiper -->
+    <script id='health-template' type="text/x-handlebars-template">
+      {{#each healthList}}
+          {{#isIndex no}}
+            <div class='right-promotion main-promotion-height promotion'>
+          {{else}}
+            <div class='left-promotion main-promotion-height promotion'>
+          {{/isIndex}}
+             <div>
+               <img src='{{img}}'>
+             </div>
+      <span>{{title}}</span>
+      </div>
+      {{/each}}
+    </script>
     <script>
+    var json = 'hot-cos.json'
+    var count = 0
  $(".btn-group-toggle").twbsToggleButtons();
-</script>
-    <script>
     var swiper = new Swiper('.swiper-container',{
       loop: true,
       autoplay: 2000,
       autoplayDisableOnInteraction: false
     });
     $('.btn').click(()=> {
+    	console.log('9999')
     	$('.btn').css('color', 'black');
     	$('.btn-test').css('color', 'white')
     })
-    </script>
+    
+    Handlebars.registerHelper('isIndex', function(no ,options) {
+        if (no%2  == 1) {
+          return options.fn(this);
+        } else {
+          return options.inverse(this);
+        }
+      });
+
+     getData(json); 
+    
+    function getData(json) {
+    	$.getJSON(json, function(result) {
+            // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+            var templateFn = Handlebars.compile($('#health-template').text())
+            var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+            var container = $('#promotion-in')
+            var html = container.html()
+            container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+           })
+    }
+   
+		 $('#hot-cos').on('click', function (event) {
+			 $('.promotion').remove()
+			 json = 'hot-cos.json'
+				 getData(json)
+		 })
+		 
+		 $('#pilates').click(()=> {
+       json = 'pilates.json'
+    	 $('.promotion').remove()
+       getData(json)
+     })
+     
+     $('#yoga').click(()=> {
+       json = 'yoga.json'
+       $('.promotion').remove()
+       getData(json)
+     })
+     
+     $('#health').click(()=> {
+       json = 'health.json'
+       $('.promotion').remove()
+       getData(json)
+     })
+     $('#spinning').click(()=> {
+    	 json = 'spinning.json'
+    	 $('.promotion').remove()
+       getData(json)
+     })
+
+</script>
 </body>
 </html>
