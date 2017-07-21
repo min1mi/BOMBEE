@@ -13,9 +13,22 @@ function change_btn_color1() {
 // select border-bottom color change
 var sel=$('.selecting');
 sel.on('click', function(event){
-event.preventDefault();
-sel.removeClass('sel');
-$(this).addClass('sel');
+  event.preventDefault();
+  sel.removeClass('sel');
+  $(this).addClass('sel');
+  console.log('밑줄');
+});
+
+$('.listBtn0').click(function(){
+  console.log('리스트 1번 클릭');
+  $(".sportList").css("display","block");
+  $(".sportMap").css("display","none");
+});
+
+$('.listBtn1').click(function(){
+  console.log('리스트 2번 클릭');
+  $(".sportList").css("display","none");
+  $(".sportMap").css("display","block");
 });
 
 
