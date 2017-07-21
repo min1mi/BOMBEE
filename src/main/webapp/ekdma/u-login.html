@@ -5,27 +5,23 @@
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
   <title>마이페이지</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel='stylesheet' href='../css/tomato.css'>
-  <link rel='stylesheet' href='../css/ekdma2.css'>
+  <link rel='stylesheet' href='../css/u-login.css'>
+
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 </head>
 <body>
-  <div class="ekdma-container"><!--ekdma-container 맨 밖 컨테이너 -->
+  <div class="user-login-container"><!--ekdma-container 맨 밖 컨테이너 -->
 
 
     <div class="header-form">dsd<!-- header-form 헤더-->
     </div>  <!-- header-form 헤더-->
-    <div class="ekdma-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
-      <div class="ekdma-left" id="ekdma-Btn1"><!--ekdma-lefe-Btn1 맨위꺼-->
-        <img id="ekdma-Btn-img1" src="PROFILE1.png">
+    <div class="user-login-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
+      <div class="user-login-left" id="user-login-Btn1"><!--ekdma-lefe-Btn1 맨위꺼-->
+        <img class="userLogin-Img" id="user-login-Btn-img1" src="MANAGEMENT5.png">
       </div><!--ekdma-lefe-Btn1 맨위꺼-->
-      <div class="ekdma-right" id="ekdma-Btn2"><!--ekdma-lefe-Btn2 맨위꺼-->
-        <img id="ekdma-Btn-img2" src="PROMOTION.png">
+      <div class="user-login-right" id="user-login-Btn2"><!--ekdma-lefe-Btn2 맨위꺼-->
+        <img class="userLogin-Img" id="user-login-Btn-img2" src="ACCOUNT5.png">
       </div><!--ekdma-lefe-Btn2 맨위꺼-->
-      <div class="ekdma-left" id="ekdma-Btn3"><!--ekdma-lefe-Btn3 맨위꺼-->
-        <img  id="ekdma-Btn-img3" src="MANAGEMENT.png">
-      </div><!--ekdma-lefe-Btn3 맨위꺼-->
-      <div class="ekdma-right" id="ekdma-Btn4"><!--ekdma-lefe-Btn4 맨위꺼-->
-        <img  id="ekdma-Btn-img4" src="ACCOUNT.png">
-      </div><!--ekdma-lefe-Btn4 맨위꺼-->
     </div> <!-- ekdma-all-menu 메뉴 모은 div-->
 
 
@@ -40,6 +36,18 @@
   a:active {text-decoration: none; color: #333333;}
   a:hover {text-decoration: underline; color: red;}
   </style>
+  <script>
+  var userLoginBtn1 = $('#user-login-Btn1'),
+      userLoginBtn2 = $('#user-login-Btn2')
+
+
+     userLoginBtn1.click(function() {
+      console.log('매니지먼트1번')
+    })
+     userLoginBtn2.click(function() {
+      console.log('개인정보2번')
+    })
+</script>
 
 </body>
 </html>
