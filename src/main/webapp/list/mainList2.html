@@ -76,7 +76,7 @@ $(document).ready(function() {
     <!-- Initialize Swiper -->
     <script id='health-template' type="text/x-handlebars-template">
       {{#each healthList}}
-          {{#isIndex @index}}
+          {{#isIndex no}}
             <div class='right-promotion main-promotion-height promotion'>
           {{else}}
             <div class='left-promotion main-promotion-height promotion'>
@@ -102,8 +102,8 @@ $(document).ready(function() {
     	$('.btn-test').css('color', 'white')
     })
     
-    Handlebars.registerHelper('isIndex', function(index,options) {
-        if (index%2  == 0) {
+    Handlebars.registerHelper('isIndex', function(no ,options) {
+        if (no%2  == 1) {
           return options.fn(this);
         } else {
           return options.inverse(this);
