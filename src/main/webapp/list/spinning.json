@@ -1,0 +1,14 @@
+{
+  "healthList" : [
+    {
+      "no": "1",
+      "img" : "../image/spining_promotion1.jpg",
+      "title" : "스피닝 1 매우좋아매우좋아정말좋아짱짱맨 매우좋아매우좋아정말좋아"
+    },
+    {
+      "no": "2",
+      "img" : "../image/spining_promotion2.jpg",
+      "title" : "스피닝2 짱짱맨이네요 제발좀 해주세요 가입좀 부탁할게 꿇는다내가"
+    }
+  ]
+}
