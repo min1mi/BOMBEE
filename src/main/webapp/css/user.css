@@ -1,0 +1,67 @@
+/*iphone5~6*/
+@media (min-device-width: 320px) and (max-device-width: 375px) {
+  html {
+    font-size: 10px;
+  }
+
+}
+/*iphone plus*/
+@media (min-device-width: 375px) and (max-device-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+ul {
+  padding: 0
+}
+.user-container {
+  position: relative;
+  background-color: white;
+  padding: 0px;
+}
+
+.user-container .weekend {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  width: 90%;
+  top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-container .weekend > div {
+  /*float: left;*/
+  /*margin-left: auto;*/
+  width: calc(100% / 7);
+  display: inline-block;
+  border: none;
+  margin-left: -1px;
+  border-collapse: collapse;
+  border-right: 1px solid gray;
+}
+.user-container .weekend > div:first-child {
+  color: #e04c4c;
+}
+.user-container .weekend > div:last-child {
+  color: #4c48ce;
+  border: none;
+}
+
+.user-container .weekly {
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  display: inline-block;
+}
+
+.user-container .day {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.click-active {
+  background-color: gray;
+  border-radius: 50px;
+}
