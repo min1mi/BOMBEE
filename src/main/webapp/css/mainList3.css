@@ -8,7 +8,7 @@
     .swiper-container {
         width: 100%;
         height: 300px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
     .swiper-slide {
         text-align: center;
@@ -23,24 +23,6 @@
     .allList-container .wrap .scrollBlind .btn-group .margin-minus {
       margin-left:-6px;
     }
-      .wrap{
-    float: left;
-    margin: 3% 3%;
-    display: inline-block;
-    height: auto;
-    overflow-x: scroll;
-    white-space:nowrap;
-    width: 100%;
-    display: inline;
-  }
-  .scrollBlind{
-    height: 50px;
-    overflow-x:scroll;
-    font-size: 20px;
-    width: 100%;
-    overflow:hidden;
-    display: inline;
-  }
 
   .btn {
   height: 40px;
@@ -54,6 +36,7 @@
   }
   .btn-group {
     display: inline;
+    margin-top: 20px;
   }
   .wrap{
     float: left;
@@ -64,9 +47,11 @@
     white-space:nowrap;
     width: 100%;
     display: inline;
+    height:50px;
+    background-color:white;
   }
   .scrollBlind{
-    height: 50px;
+    height: 40px;
     overflow-x:scroll;
     font-size: 20px;
     width: 100%;
@@ -143,9 +128,6 @@
   }
   .promotion_in {
     height:100%;
-  }
-  .whiteBack {
-    background-color: white;
   }
   label {
     overflow:hidden;
