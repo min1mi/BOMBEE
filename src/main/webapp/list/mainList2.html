@@ -7,11 +7,10 @@
 
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel='stylesheet' href='../css/tomato.css'>
-<link rel='stylesheet' href='../css/mainList.css'>
+<link rel='stylesheet' href='../css/mainList2.css'>
 <link rel="stylesheet" href="dist/css/swiper.min.css">
 <script src='../node_modules/jquery/dist/jquery.min.js'></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
-<script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -37,31 +36,35 @@ $(document).ready(function() {
             <div class="swiper-slide"><img src='../image/main_10.jpg'></div>
         </div>
     </div>
-  <div class='indexUp wrap'>
+  <div class='outer'>
+    <div class='inner'>
+      <div class='indexUp wrap'>
       <div class="scrollBlind">
         <div class="btn-group btn-group-toggle"  data-toggle="buttons">
           <label class="btn" role="button">
             <input class='label-size' type="radio" name="options" value="1" required="required">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
           </label>
-          <label class="btn test" role="button" >
-            <input class='label-size' type="radio" name="options" value="2" id='hot-cos'>인기코스
+          <label class="btn click margin-minus" role="button" >
+            <input type="radio" name="options" value="2" id='hot-cos'>인기코스
           </label>
-          <label class="btn" role="button">
-            <input class='label-size' type="radio" name="options" value="3" id='health' >헬스
+          <label class="btn margin-minus" role="button">
+            <input type="radio" name="options" value="3" id='health' >헬스
           </label>
-          <label class="btn" role="button" >
-            <input class='label-size' type="radio" name="options" value="4" id='yoga'>요가
+          <label class="btn margin-minus" role="button" >
+            <input type="radio" name="options" value="4" id='yoga'>요가
           </label>
-          <label class="btn" role="button" >
-            <input class='label-size' type="radio" name="options" value="5" id='pilates'>필라테스
+          <label class="btn margin-minus" role="button" >
+            <input type="radio" name="options" value="5" id='pilates'>필라테스
           </label>
-          <label class="btn" role="button" >
-            <input class='label-size' type="radio" name="options" value="6" id='spinning'>스피닝
+          <label class="btn margin-minus" role="button" >
+            <input type="radio" name="options" value="6" id='spinning'>스피닝
           </label>
         </div> <!-- btn-group -->
       </div> <!--scrollBlind  -->
     </div> <!--indexUp wrap  -->
+    </div>
+  </div>
     <div id='promotion-list-container'>
         <div id='promotion-in'>
             <div class='left-promotion main-promotion-heightz'>
@@ -93,8 +96,8 @@ $(document).ready(function() {
     </script>
     <script>
     var json = 'hot-cos.json'
+    var category;
     var count = 0
- $(".btn-group-toggle").twbsToggleButtons();
     var swiper = new Swiper('.swiper-container',{
       loop: true,
       autoplay: 2000,
@@ -117,6 +120,7 @@ $(document).ready(function() {
      getData(json); 
     
     function getData(json) {
+    	 $('.promotion').remove()
     	$.getJSON(json, function(result) {
             // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
             var templateFn = Handlebars.compile($('#health-template').text())
@@ -126,33 +130,43 @@ $(document).ready(function() {
             container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
            })
     }
+    function borderBottom(category) {
+    	  $('.promotion').remove()
+        $('.btn').removeClass('click')
+        $(category).parent().addClass('click')
+    }
    
 		 $('#hot-cos').click(()=> {
-			 $('.promotion').remove()
+			 category='#hot-cos'
+			 borderBottom(category)
 			 json = 'hot-cos.json'
 				 getData(json)
 		 })
 		 
 		 $('#pilates').click(()=> {
+			 category='#pilates'
+			 borderBottom(category)
        json = 'pilates.json'
-    	 $('.promotion').remove()
        getData(json)
      })
      
      $('#yoga').click(()=> {
+    	 category='#yoga'
+    	 borderBottom(category)
        json = 'yoga.json'
-       $('.promotion').remove()
        getData(json)
      })
      
      $('#health').click(()=> {
+    	 category='#health'
+    	 borderBottom(category)
        json = 'health.json'
-       $('.promotion').remove()
        getData(json)
      })
      $('#spinning').click(()=> {
+    	 category='#spinning'
+    	 borderBottom(category)
     	 json = 'spinning.json'
-    	 $('.promotion').remove()
        getData(json)
      })
 
