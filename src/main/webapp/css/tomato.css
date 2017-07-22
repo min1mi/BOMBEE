@@ -37,9 +37,9 @@
   }
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-	html {
-	  font-family: ‘Noto Sans KR’ ;
-	}
+html {
+  font-family: ‘Noto Sans KR’ ;
+}
 
 
 body {
@@ -47,7 +47,7 @@ body {
   width: 100%;
   height: auto;
 }
-/*bootstrap 버튼 색 변경*/
+
 
 
 /* float 시 div 높이 만들어 주기*/
@@ -256,4 +256,3 @@ outline:none;
   top:3px;
   line-height:60px;
 }
-
