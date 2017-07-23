@@ -76,8 +76,14 @@ $(window).on("load", function() {
 })
 
 $('#kakao').on('click', function() {
-  Kakao.Auth.login(function() {
-   	location.href=''
+  Kakao.Auth.login({
+    success: function(authObj) {/* 
+    location.href='../ekdma/u-login.html'; */
+      console.log(JSON.stringify(authObj));
+    },
+    fail: function(err) {
+      alert(JSON.stringify(err));
+    }
   })
 })
 
@@ -90,9 +96,9 @@ $('#logout').on('click', function() {
   });
 })
 
-$('#facebook').on('click', () => {
+$('#facebook').on('click', () => {/* 
+  location.href='../ekdma/t-login.html' */
   FB.login(function(response) {
-
     FB.api('/me?fields=id,name,email', function (response) {
 
       console.log(JSON.stringify(response));

@@ -6,14 +6,18 @@
   <title>마이페이지</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/u-login.css'>
-
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script type="text/javascript">
+	  $(document).ready(function() {
+	    $('.header').load('../menu/new.html')
+	  })
+    </script>
 </head>
 <body>
   <div class="user-login-container"><!--ekdma-container 맨 밖 컨테이너 -->
 
 
-    <div class="header-form">dsd<!-- header-form 헤더-->
+    <div class="header"><!-- header-form 헤더-->
     </div>  <!-- header-form 헤더-->
     <div class="user-login-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
       <div class="user-login-left" id="user-login-Btn1"><!--ekdma-lefe-Btn1 맨위꺼-->
@@ -25,7 +29,7 @@
     </div> <!-- ekdma-all-menu 메뉴 모은 div-->
 
 
-
+    <div id='bg-img'></div>
   </div> <!--ekdma-container 맨 밖 컨테이너 -->
 
 
