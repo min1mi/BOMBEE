@@ -44,8 +44,7 @@
              </div>
              <img id="open_nav_link" src="schedule.png">
           </div>
-          <div id="open_nav" style="display:none;">
-            <div id="pro-timetable">
+            <div id="pro-timetable" style="display:none;">
               <table>
                 <tr>
                   <th style="width: 30px"></th>
@@ -165,12 +164,11 @@
               <img class="pro-schedule-save" src="SSAVE.png">
             </div>
 
-          </div>
 
 
         <div class='trainer-join'>
-          <input class="pro-place form-control pro-place-1" id="pro-place-1" type="text" placeholder="상호명">
-          <input class="pro-place form-control pro-place-2" id="pro-place-2"  style="margin-left: 0% !important;" type="text" placeholder="우편번호">
+          <input class="pro-place form-control pro-place-1" id="" type="text" placeholder="상호명">
+          <input class="pro-place form-control pro-place-2" id=""  style="margin-left: 0% !important;" type="text" placeholder="우편번호">
           <img   class="pro-place-Btn"onclick="sample2_execDaumPostcode()" id="addr-find" src="mapmap.png">
         </div>
         <input type="text" class="pro-place form-control pro-place-4" placeholder="한글주소">
@@ -279,15 +277,10 @@ $("#open_nav").slideToggle(1000);
 jQuery(document).ready(function($){
 
 $("#open_nav_link").click(function(){
-$("#open_nav").slideToggle(1000);
-});
-});
-jQuery(document).ready(function($){
-
-$("#pro-timetable-Btn").click(function(){
 $("#pro-timetable").slideToggle(250);
 });
 });
+
 
 //달력 추가 옵션
 $(".pro-time-off").on("click", function () {

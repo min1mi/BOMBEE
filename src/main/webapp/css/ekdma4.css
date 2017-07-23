@@ -24,6 +24,118 @@
   -moz-border-radius:0px;
 
 }
+
+
+
+
+
+.sl {
+  padding: 0% 4%;
+  width: 375px;
+  height: 50px;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.sl-pic {
+  width: 70px;
+  height: 30px;
+  display: inline-block;
+
+  background-color: green;
+  /*margin: 0% 3%;*/
+}
+.info {
+  border: 1px brown solid;
+}
+
+.cont-box{
+width:0px;height:0px;
+border-right:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+}
+
+.outer {
+  float: left;
+}
+
+.tab-wrap * {
+	margin: 0px;
+	padding: 0px;
+}
+.tab-wrap {
+	position: relative;
+	padding-top: 30px;
+}
+.tab-wrap li {
+	z-index: 2;
+	position: absolute;
+	top: 0px;
+	width: 100px;
+	height: 30px;
+	text-indent: -9999%;
+}
+.tab-wrap li:nth-of-type(1) {
+	left: 0px;
+}
+.tab-wrap li:nth-of-type(2) {
+	left: 100px;
+}
+.tab-wrap li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.tab-wrap article h1 {
+	position: absolute;
+	top: 0px;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	text-align: center;
+	font-size: 12px;
+}
+.tab-wrap article p {
+	border: 1px solid #ddd;
+	padding: 30px;
+}
+.tab-wrap article:target h1 {
+	background-color: yellow;
+}
+.tab-wrap article:nth-of-type(1) h1 {
+	left: 0px;
+}
+.tab-wrap article:nth-of-type(2) h1 {
+	left: 100px;
+}
+.tab-wrap article:nth-of-type(1) p {
+	display: block;
+}
+.tab-wrap article p {
+	display: none;
+}
+.tab-wrap article:target p {
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .pro-place {
   display: inline-block;
   padding-left: 4%;
@@ -39,7 +151,7 @@
   -webkit-border-radius:0px !important;
   -moz-border-radius:0px !important;
   appearance: none !important;
-  margin:0% 3% !important;
+  /*margin:0% 3% !important;*/
 
 }
 .pro-schedule-save {
@@ -53,8 +165,8 @@
 }
 
 .pro-place-2 {
-  /*margin:0% 0% 0% 0%;*/
-  width: 33%;
+  margin:0% 0% 0% 10s%;
+  width: 25%;
   outline: none !important;
   appearance: none !important;
 }
@@ -69,9 +181,9 @@
   appearance: none !important;
 }
 .pro-place-Btn {
-  margin : 3% 0% 0% 1.5%;
+  /*margin : 3% 0% 0%0%;*/
   display: inline-block;
-  width: 8%;
+  width: 6%;
 }
 .pro-ttable-no {
   width:50px;;
@@ -115,15 +227,15 @@
 
 
 #pro-type > select {
-
+  padding-left: 2%;
   display: inline-block;
   width:180%;
   height: 45px;
-  font-size : 1.6rem;
+  font-size : 1rem;
   color:black;
   border: none;
   border-bottom: 2px #F7AC1A solid;
-  margin:0% 3%;
+  margin:3% 3%;
   outline: none;
 
 }
