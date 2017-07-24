@@ -10,17 +10,17 @@ $("document").ready(function(){
     $(".tab-slider--body").hide();
     var activeTab = $(this).attr("rel");
     $("#"+activeTab).fadeIn();
-  	if($(this).attr("rel") == "monday"){
+  	if($(this).attr("rel") == "day1"){
   		$('.tab-slider--tabs').addClass('slide1');
-  	}else if($(this).attr("rel") == "tuesday"){
+  	}else if($(this).attr("rel") == "day2"){
   		$('.tab-slider--tabs').addClass('slide2');
-  	}else if($(this).attr("rel") == "wednesday"){
+  	}else if($(this).attr("rel") == "day3"){
   		$('.tab-slider--tabs').addClass('slide3');
-  	}else if($(this).attr("rel") == "thursday"){
+  	}else if($(this).attr("rel") == "day4"){
   		$('.tab-slider--tabs').addClass('slide4');
-  	}else if($(this).attr("rel") == "friday"){
+  	}else if($(this).attr("rel") == "day5"){
   		$('.tab-slider--tabs').addClass('slide5');
-  	}else if($(this).attr("rel") == "saturday"){
+  	}else if($(this).attr("rel") == "day6"){
   		$('.tab-slider--tabs').addClass('slide6');
   	}
   	else {

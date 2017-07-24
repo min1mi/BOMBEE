@@ -13,9 +13,8 @@
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
   <script src="../node_modules/moment/min/moment.min.js"></script>
-  <script type="text/javascript" src="../js/user.js"></script>
-
-</head>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  </head>
 
 <body>
   <div class='user-container'>
@@ -44,206 +43,126 @@
       </div>
       <!-- 새로운 헤더 끝 -->
     </div>
-
-    <div class='indexUp swiper-container'>
-      <div class="swiper-wrapper">
-        <div class='week-container clearfix swiper-slide'>
-          <div class="tab-slider--nav">
-            <div class='info'>
-              <div class='username'>
-                <div class='fa fa-user user'></div>
-                홍길동
-              </div>
-              <div class='year-month'>
-                <div class='year'></div>
-                <div class='month'></div>
-              </div>
-            </div>
-            <div class="tab-slider--tabs">
-              <div class="weekly tab-slider--trigger" rel='sunday' style="color: #e04c4c">SUN
-                <a href='#' style="color: #e04c4c">
-                  <div class='sun day day0'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='monday'>MON
-                <a href='#'>
-                  <div class='mon day day1'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='tuesday'>TUE
-                <a href='#'>
-                  <div class='tue day day2'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='wednesday'>WED
-                <a href='#'>
-                  <div class='wed day day3'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='thursday'>THU
-                <a href='#'>
-                  <div class='thu day day4'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='friday'>FRI
-                <a href='#'>
-                  <div class='fri day day5'></div>
-                </a>
-              </div>
-              <div class="weekly tab-slider--trigger" rel='saturday' style="color: #4c48ce">SAT
-                <a href='#' style="color: #4c48ce">
-                  <div class='sat day day6'></div>
-                </a>
-              </div>
-            </div>
-          </div>  <!--날짜 끝-->
-
-          <div class='clearfix tab-slider--container info-container'>
-            <div class='kcal-info'>
-              <span class='total'>total</span>
-              <div class='kcal-total'>2000</div>
-              <span class='kcal'>kcal</span>
-            </div>
-            <div id='sunday' class='tab-slider--body kcal-body'>
-              <div class='breakfast meal'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-                <p class='meal-type'>Breakfast</p>
-                <p class='meal-name'>Upload Food Name</p>
-                <p class='meal-kcal'>192</p>
-                <span class='kcal'>kcal</span>
-              </div>
-              <div class='lunch meal'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-                <p class='meal-type'>Lunch</p>
-                <p class='meal-name'>Upload Food Name</p>
-                <p class='meal-kcal'>192</p>
-                <span class='kcal'>kcal</span>
-              </div>
-              <div class='dinner meal'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-                <p class='meal-type'>Dinner</p>
-                <p class='meal-name'>Upload Food Name</p>
-                <p class='meal-kcal'>192</p>
-                <span class='kcal'>kcal</span>
-              </div>
-            </div>
-            <div id='monday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <div id='tuesday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <div id='wednesday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <div id='thursday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <div id='friday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <div id='saturday' class='tab-slider--body kcal-body'>
-              <div class='breakfast'>
-                <div class='img-fix'>
-                  <img src='../image/breakfast.jpg'>
-                </div>
-              </div>
-              <div class='lunch'>
-                <div class='img-fix'>
-                  <img src='../image/lunch.jpg'>
-                </div>
-              </div>
-              <div class='dinner'>
-                <div class='img-fix'>
-                  <img src='../image/dinner.jpg'>
-                </div>
-              </div>
-            </div>
-            <button id='btttn'>버튼</button>
+    <div class='week-container clearfix swiper-slide'>
+      <div class="tab-slider--nav">
+        <div class='info'>
+          <div class='username'>
+            <div class='fa fa-user user'></div>
+            홍길동
+          </div>
+          <div class='year-month'>
+            <div class='year'></div>
+            <div class='month'></div>
+          </div>
+        </div>
+        <div class="tab-slider--tabs">
+          <div class="weekly tab-slider--trigger" rel='day0' style="color: #e04c4c">SUN
+            <a href='#' style="color: #e04c4c">
+              <div class='sun day day0'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day1'>MON
+            <a href='#'>
+              <div class='mon day day1'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day2'>TUE
+            <a href='#'>
+              <div class='tue day day2'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day3'>WED
+            <a href='#'>
+              <div class='wed day day3'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day4'>THU
+            <a href='#'>
+              <div class='thu day day4'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day5'>FRI
+            <a href='#'>
+              <div class='fri day day5'></div>
+            </a>
+          </div>
+          <div class="weekly tab-slider--trigger" rel='day6' style="color: #4c48ce">SAT
+            <a href='#' style="color: #4c48ce">
+              <div class='sat day day6'></div>
+            </a>
           </div>
         </div>
       </div>
+      <!--날짜 끝-->
+<div id='user-container' class='clearfix tab-slider--container info-container'></div>
+
+        <button id='btttn'>버튼</button>
+      </div>
+
+    </div>
+
   </div>
+  <script id="user-template" type="text/x-handlebars-template">
+    {{#each mealList}}
 
-</div>
+    <div id='{{day}}' class='tab-slider--body kcal-body'>
+      <div class='kcal-info'>
+        <span class='total'>total</span>
+        <div class='kcal-total'>{{total-kcal}}</div>
+        <span class='kcal'>kcal</span>
+      </div>
+        {{#meal}}
+        {{#breakfast}}
+        <div class='meal'>
+          <div class='img-fix'>
+            <img src='{{img}}'>
+          </div>
+          <p class='meal-type'>{{type}}</p>
+          <p class='meal-name'>{{name}}</p>
+          <p class='meal-kcal'>{{kcal}}</p>
+          <span class='kcal'>kcal</span>
+        </div>
+        {{/breakfast}}
+        {{#lunch}}
+        <div class='meal'>
+          <div class='img-fix'>
+            <img src='{{img}}'>
+          </div>
+          <p class='meal-type'>{{type}}</p>
+          <p class='meal-name'>{{name}}</p>
+          <p class='meal-kcal'>{{kcal}}</p>
+          <span class='kcal'>kcal</span>
+        </div>
+        {{/lunch}}
+        {{#dinner}}
+        <div class='meal'>
+          <div class='img-fix'>
+            <img src='{{img}}'>
+          </div>
+          <p class='meal-type'>{{type}}</p>
+          <p class='meal-name'>{{name}}</p>
+          <p class='meal-kcal'>{{kcal}}</p>
+          <span class='kcal'>kcal</span>
+        </div>
+        {{/dinner}}
+      </div>
+      {{/meal}}
+    {{/each}}
+  </script>
 
+  <script type="text/javascript">
+    $.getJSON('../json/user.json', function(result) {
+      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+      var templateFn = Handlebars.compile($('#user-template').text())
+      var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      console.log(templateFn(result))
+      var container = $('#user-container')
+      var html = container.html()
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+    })
+  </script>
   <!-- 헤더스크립트 시작 -->
+  <script type="text/javascript" src="../js/user.js"></script>
   <script>
     var count = 0;
     var index = 0;

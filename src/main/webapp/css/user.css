@@ -187,7 +187,9 @@
   position: absolute;
   font-size: 1.1rem;
   height: 30px;
-  right: 6%;
+  top: 0;
+  width: 27%;
+  right: 0%;
 }
 
 .kcal-info .kcal-total {
@@ -252,8 +254,15 @@
   top: 75%;
   right: 1%;
 }
-
-.kcal-body .kcal {
+.kcal-body > .kcal-info .kcal {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    display: inline-block;
+    width: 23%;
+    top: 75%;
+    right: -8%;
+}
+.kcal-body > .meal .kcal {
   position: absolute;
   font-size: 1.2rem;
   font-weight: lighter;
