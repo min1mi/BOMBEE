@@ -14,6 +14,16 @@
       "img" : "../image/user.png",
       "name" : "회원3",
       "recentMsg" : "안녕하세요^^"
+    },
+    {
+      "img" : "../image/user.png",
+      "name" : "회원4",
+      "recentMsg" : "안녕하세요^.^"
+    },
+    {
+      "img" : "../image/user.png",
+      "name" : "회원5",
+      "recentMsg" : "안녕하세요^.^!!!!!"
     }
   ]
 }

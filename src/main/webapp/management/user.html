@@ -11,10 +11,7 @@
   <link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="../js/jindo.desktop.ns.min.js"></script>
-  <script type="text/javascript" src="../js/jindo_component.js"></script>
-  <script type="text/javascript" src="../js/jindo_mobile_component.js"></script>
-  <!-- <script src="../js/user-slide.js"></script> -->
+
 </head>
 
 <body>
@@ -44,10 +41,11 @@
       </div>
       <!-- 새로운 헤더 끝 -->
     </div>
-    <!-- datail-header 끝-->
-    <!-- <div id='calendar'></div> -->
+
   <div class='week-container clearfix'>
     <div class="tab-slider--nav">
+      <div class='year'></div>
+      <div class='month'></div>
       <div class="tab-slider--tabs">
         <div class="weekly tab-slider--trigger" rel='sunday' style="color: #e04c4c">SUN
           <a href='#' style="color: #e04c4c">
@@ -64,12 +62,12 @@
             <div class='tue day'></div>
           </a>
         </div>
-        <div class="weekly tab-slider--trigger" rel='wednseday'>WED
+        <div class="weekly tab-slider--trigger" rel='wednesday'>WED
           <a href='#'>
             <div class='wed day'></div>
           </a>
         </div>
-        <div class="weekly tab-slider--trigger" rel='thurseday'>THU
+        <div class="weekly tab-slider--trigger" rel='thursday'>THU
           <a href='#'>
             <div class='thu day'></div>
           </a>
@@ -79,112 +77,43 @@
             <div class='fri day'></div>
           </a>
         </div>
-        <div class="weekly tab-slider--trigger" rel='saterday' style="color: #4c48ce">SAT
+        <div class="weekly tab-slider--trigger" rel='saturday' style="color: #4c48ce">SAT
           <a href='#' style="color: #4c48ce">
             <div class='sat day'></div>
           </a>
         </div>
       </div>
-    </div>
-  </div>
-  <!--날짜 끝-->
+    </div>  <!--날짜 끝-->
 
-      <div class='tab-slider--container'>
-        <div id='sunday' class='tab-slider--body'>
-          <p>1</p>
-        </div>
-        <div id='monday' class='tab-slider--body'>
-          <p>2</p>
-        </div>
-        <div id='tuesday' class='tab-slider--body'>
-          <p>3</p>
-        </div>
-        <div id='wednesday' class='tab-slider--body'>
-          <p>4</p>
-        </div>
-        <div id='thursday' class='tab-slider--body'>
-          <p>5</p>
-        </div>
-        <div id='friday' class='tab-slider--body'>
-          <p>6</p>
-        </div>
-        <div id='saturday' class='tab-slider--body'>
-          <p>7</p>
-        </div>
+    <div class='tab-slider--container'>
+      <div id='sunday' class='tab-slider--body'>
+        <
       </div>
-
+      <div id='monday' class='tab-slider--body'>
+        <p>2</p>
+      </div>
+      <div id='tuesday' class='tab-slider--body'>
+        <p>3</p>
+      </div>
+      <div id='wednesday' class='tab-slider--body'>
+        <p>4</p>
+      </div>
+      <div id='thursday' class='tab-slider--body'>
+        <p>5</p>
+      </div>
+      <div id='friday' class='tab-slider--body'>
+        <p>6</p>
+      </div>
+      <div id='saturday' class='tab-slider--body'>
+        <p>7</p>
+      </div>
+    </div>
 
   </div>
-  </div>
-  <script>
-  $("document").ready(function(){
-    $(".tab-slider--body").hide();
-    $(".tab-slider--body:first").show();
-  });
-  $(".tab-slider--nav .tab-slider--tabs div").click(function() {
-    $(".tab-slider--body").hide();
-    var activeTab = $(this).attr("rel");
-    $("#"+activeTab).fadeIn();
-  	if($(this).attr("rel") == "monday"){
-  		$('.tab-slider--tabs').addClass('slide1');
-  	}else if($(this).attr("rel") == "tuesday"){
-  		$('.tab-slider--tabs').addClass('slide2');
-  	}else if($(this).attr("rel") == "wednseday"){
-  		$('.tab-slider--tabs').addClass('slide3');
-  	}else if($(this).attr("rel") == "thurseday"){
-  		$('.tab-slider--tabs').addClass('slide4');
-  	}else if($(this).attr("rel") == "friday"){
-  		$('.tab-slider--tabs').addClass('slide5');
-  	}else if($(this).attr("rel") == "saterday"){
-  		$('.tab-slider--tabs').addClass('slide6');
-  	}
-  	else {
-  		$('.tab-slider--tabs')
-  			.removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
-  	}
-    $(".tab-slider--nav .tab-slider--tabs div").removeClass("active");
-    $(this).addClass("active");
-  });
 
-    // var clicks = $('.weekDay a')
-    // $('.content div').hide();
-    // $('.content div:first').show();
-    // $('.weekend .weekDay a:first').addClass('click-active');
+</div>
+<script type="text/javascript" src="../js/user.js"></script>
 
-
-    // $('.weekDay a').on('click', function(event) {
-    //   event.preventDefault();
-    //   clicks.removeClass('click-active');
-    //   $(this).addClass('click-active');
-    //   // $(this).animate({left: '45px;'});
-    //   $('.content div').hide();
-    //   $($(this).attr('href')).show();
-    // });
-
-    date();
-
-    function date() {
-      var current = new Date(); // get current date
-      var weekstart = current.getDate() - current.getDay() + 1;
-      $('.sun').html(weekstart - 1);
-      $('.mon').html(weekstart);
-      $('.tue').html(weekstart + 2);
-      $('.wed').html(weekstart + 3);
-      $('.thu').html(weekstart + 4);
-      $('.fri').html(weekstart + 5);
-      $('.sat').html(weekstart + 6);
-    }
-
-    $('#calendar').datepicker({
-      dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      dayNamesMin: ["일", " 월", " 수", " 목", " 금", " 토", " 일"],
-      showWeek: true,
-      onSelect: function(dateText, inst) {
-        var select = ($.datepicker.iso8601Week(new Date(dateText)))
-      }
-    });
-    $("#calendar").datepicker("setDate", new Date());
-  </script>
   <!-- 헤더스크립트 시작 -->
   <script>
     var count = 0;
