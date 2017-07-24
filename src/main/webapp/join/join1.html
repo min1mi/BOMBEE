@@ -6,31 +6,26 @@
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
-  <link rel='stylesheet' href='../css/join.css'>
+  <link rel='stylesheet' href='../css/join1.css'>
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script type="text/javascript">
-    var images = ['m-t01.jpg', 'm-t02.jpg', 'm-t03.jpg', 'm-t04.jpg', 'm-t05.jpg',
-        'm-t06.jpg', 'm-t07.jpg', 'm-t08.jpg', 'm-t09.jpg', 'm-t10.jpg', 'm-t11.jpg'];
     $(document).ready(function() {
       $('.header').load('../menu/new.html')
-      $('.join-main-container').css({'background-image': 'url(' + '../image/M-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
     })
   </script>
 </head>
 <body>
-<div class='join-main-container'> 
-<div class='join-container'></div>
   <div class='logo'>
       <div class='inner-logo'>
         <img class='bombee' src='../image/bombee_title1.png'/>
       </div>
     </div>
-  
+  <div class='join-container'>
     <div class="outer">
       <div class="inner">
-    <div class="btn-group btn-group-toggle"  data-toggle="buttons">
+    <div class="btn-group"  data-toggle="buttons">
       <label class="btn test" id='join-user' role="button">
         <input class='label-size' type="radio" name="options" value="1" required="required">일반회원
       </label>
@@ -43,12 +38,12 @@
 
       <form>
         <div>
-          <input type="text"  placeholder="아이디">
-          <input type="password"  placeholder="비밀번호">
-          <input type="password"  placeholder="비밀번호확인">
+          <input type="text" class="form-control" placeholder="아이디">
+          <input type="password" class="form-control" placeholder="비밀번호">
+          <input type="password" class="form-control" placeholder="비밀번호확인">
         </div>
         <div id='join-margin'>
-          <input type="text" placeholder="이름">
+          <input type="text" class="form-control" placeholder="이름">
         </div>
 
         <div class="btn-group btn-group-toggle"  data-toggle="buttons">
@@ -62,10 +57,10 @@
 
         <div class="row">
           <div class="col-xs-1">
-            <input  id='birth' type="text" placeholder="생일" readonly>
+            <input class="form-control" id='birth' type="text" placeholder="생일" readonly>
           </div>
   <div class="col-xs-3" id='join-padding'>
-    <input type="text"  placeholder="년도">
+    <input type="text" class="form-control" placeholder="년도">
   </div>
   <div class="col-xs-2" id='join-padding'>
   <select id="join-mm" title="월" class="sel" onchange="checkBirthday('check')">
@@ -85,7 +80,7 @@
   </select>
 </div>
   <div class="col-xs-2" id='join-padding'>
-    <select class='form-control' id="join-date" title="일" class="sel" onchange="checkBirthday('check')">
+    <select id="join-date" title="일" class="sel" onchange="checkBirthday('check')">
   											<option value="">일</option>
   										  	 			<option value="1">1</option>
   										  	 			<option value="2">2</option>
@@ -121,24 +116,24 @@
     </select>
   </div>
   <div id="join-padding1">
-    <input type="text" placeholder="본인확인 이메일(선택)">
+    <input type="text" class="form-control" placeholder="본인확인 이메일(선택)">
   </div>
 </div>
 
 <div id='margin'>
-  <input type="text" placeholder="휴대폰 번호">
+  <input type="text" class="form-control" placeholder="휴대폰 번호">
 </div>
 <div>
-  <input type="text"  placeholder="인증 번호">
+  <input type="text" class="form-control" placeholder="인증 번호">
 </div>
 <div class='trainer-join' style="display:none">
-  <input type="text"  placeholder="상호명">
+  <input type="text" class="form-control" placeholder="상호명">
   <div>
-  <input type="text"  id="sample2_postcode" placeholder="우편번호">
+  <input type="text" class="form-control" id="sample2_postcode" placeholder="우편번호">
   <input type="button" class='btn' onclick="sample2_execDaumPostcode()" id='addr-find' value="우편번호 찾기"><br>
   </div>
-  <input type="text"  id="sample2_address" placeholder="한글주소">
-  <input type="text"  id="sample2_addressDetail" placeholder="상세주소">
+  <input type="text" class="form-control" id="sample2_address" placeholder="한글주소">
+  <input type="text" class="form-control" id="sample2_addressDetail" placeholder="상세주소">
   <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
   <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
     <img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
@@ -159,9 +154,7 @@
           <span class='footer-button'>ⓒTOMATO</span>
       </div>
     </div>
-
   </div>
-
   <script>
     $(".btn-group-toggle").twbsToggleButtons();
 
@@ -239,12 +232,6 @@
     $('#join-user').click(()=> {
     	$('.trainer-join').css('display', 'none')
     })
-    
-    function borderBottom(category) {
-      $('.promotion').remove()
-      $('.btn').removeClass('click')
-      $(category).parent().addClass('click')
-    }
 </script>
 </body>
 </html>
