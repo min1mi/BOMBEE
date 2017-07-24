@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
+  <!-- <link rel="stylesheet" href="../list/dist/css/swiper.min.css"> -->
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/user.css'>
-  <link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  <script src="../node_modules/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="../js/user.js"></script>
 
 </head>
 
@@ -42,77 +45,203 @@
       <!-- 새로운 헤더 끝 -->
     </div>
 
-  <div class='week-container clearfix'>
-    <div class="tab-slider--nav">
-      <div class='year'></div>
-      <div class='month'></div>
-      <div class="tab-slider--tabs">
-        <div class="weekly tab-slider--trigger" rel='sunday' style="color: #e04c4c">SUN
-          <a href='#' style="color: #e04c4c">
-            <div class='sun day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='monday'>MON
-          <a href='#'>
-            <div class='mon day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='tuesday'>TUE
-          <a href='#'>
-            <div class='tue day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='wednesday'>WED
-          <a href='#'>
-            <div class='wed day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='thursday'>THU
-          <a href='#'>
-            <div class='thu day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='friday'>FRI
-          <a href='#'>
-            <div class='fri day'></div>
-          </a>
-        </div>
-        <div class="weekly tab-slider--trigger" rel='saturday' style="color: #4c48ce">SAT
-          <a href='#' style="color: #4c48ce">
-            <div class='sat day'></div>
-          </a>
-        </div>
-      </div>
-    </div>  <!--날짜 끝-->
+    <div class='indexUp swiper-container'>
+      <div class="swiper-wrapper">
+        <div class='week-container clearfix swiper-slide'>
+          <div class="tab-slider--nav">
+            <div class='info'>
+              <div class='username'>
+                <div class='fa fa-user user'></div>
+                홍길동
+              </div>
+              <div class='year-month'>
+                <div class='year'></div>
+                <div class='month'></div>
+              </div>
+            </div>
+            <div class="tab-slider--tabs">
+              <div class="weekly tab-slider--trigger" rel='sunday' style="color: #e04c4c">SUN
+                <a href='#' style="color: #e04c4c">
+                  <div class='sun day day0'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='monday'>MON
+                <a href='#'>
+                  <div class='mon day day1'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='tuesday'>TUE
+                <a href='#'>
+                  <div class='tue day day2'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='wednesday'>WED
+                <a href='#'>
+                  <div class='wed day day3'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='thursday'>THU
+                <a href='#'>
+                  <div class='thu day day4'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='friday'>FRI
+                <a href='#'>
+                  <div class='fri day day5'></div>
+                </a>
+              </div>
+              <div class="weekly tab-slider--trigger" rel='saturday' style="color: #4c48ce">SAT
+                <a href='#' style="color: #4c48ce">
+                  <div class='sat day day6'></div>
+                </a>
+              </div>
+            </div>
+          </div>  <!--날짜 끝-->
 
-    <div class='tab-slider--container'>
-      <div id='sunday' class='tab-slider--body'>
-        <
+          <div class='clearfix tab-slider--container info-container'>
+            <div class='kcal-info'>
+              <span class='total'>total</span>
+              <div class='kcal-total'>2000</div>
+              <span class='kcal'>kcal</span>
+            </div>
+            <div id='sunday' class='tab-slider--body kcal-body'>
+              <div class='breakfast meal'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+                <p class='meal-type'>Breakfast</p>
+                <p class='meal-name'>Upload Food Name</p>
+                <p class='meal-kcal'>192</p>
+                <span class='kcal'>kcal</span>
+              </div>
+              <div class='lunch meal'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+                <p class='meal-type'>Lunch</p>
+                <p class='meal-name'>Upload Food Name</p>
+                <p class='meal-kcal'>192</p>
+                <span class='kcal'>kcal</span>
+              </div>
+              <div class='dinner meal'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+                <p class='meal-type'>Dinner</p>
+                <p class='meal-name'>Upload Food Name</p>
+                <p class='meal-kcal'>192</p>
+                <span class='kcal'>kcal</span>
+              </div>
+            </div>
+            <div id='monday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <div id='tuesday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <div id='wednesday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <div id='thursday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <div id='friday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <div id='saturday' class='tab-slider--body kcal-body'>
+              <div class='breakfast'>
+                <div class='img-fix'>
+                  <img src='../image/breakfast.jpg'>
+                </div>
+              </div>
+              <div class='lunch'>
+                <div class='img-fix'>
+                  <img src='../image/lunch.jpg'>
+                </div>
+              </div>
+              <div class='dinner'>
+                <div class='img-fix'>
+                  <img src='../image/dinner.jpg'>
+                </div>
+              </div>
+            </div>
+            <button id='btttn'>버튼</button>
+          </div>
+        </div>
       </div>
-      <div id='monday' class='tab-slider--body'>
-        <p>2</p>
-      </div>
-      <div id='tuesday' class='tab-slider--body'>
-        <p>3</p>
-      </div>
-      <div id='wednesday' class='tab-slider--body'>
-        <p>4</p>
-      </div>
-      <div id='thursday' class='tab-slider--body'>
-        <p>5</p>
-      </div>
-      <div id='friday' class='tab-slider--body'>
-        <p>6</p>
-      </div>
-      <div id='saturday' class='tab-slider--body'>
-        <p>7</p>
-      </div>
-    </div>
-
   </div>
 
 </div>
-<script type="text/javascript" src="../js/user.js"></script>
 
   <!-- 헤더스크립트 시작 -->
   <script>

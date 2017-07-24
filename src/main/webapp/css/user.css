@@ -1,35 +1,85 @@
 /*iphone5~6*/
-@media (min-device-width: 320px) and (max-device-width: 375px) {
+@media (min-device-width: 320px) and (max-device-width: 374px) {
   html {
     font-size: 12px;
   }
   .tab-slider--tabs:after{
-    height: 33.5px;
-    top: 13px;
-    left: 2px;
+    height: 27px;
+    top: 14.5px;
+    left: 1px;
+  }
+  .kcal-info .kcal-total {
+    width: 40px;
+  }
+  .week-container .info {
+    height: 27px;
+  }
+  .tab-slider--body > div {
+    height: 109px;
   }
 }
 /*iphone plus*/
-@media (min-device-width: 376px) and (max-device-width: 767px) {
+@media (min-device-width: 375px) and (max-device-width: 413px) {
   html {
     font-size: 14px;
   }
   .tab-slider--tabs:after{
-    height: 37.5px;
-    top: 14px;
-    left: 3px;
+    height: 31.7px;
+    top: 15px;
+    left: 1px;
   }
+  .kcal-info .kcal-total {
+    width: 44px;
+  }
+  .week-container .info {
+    height: 28.5px;
+  }
+  .tab-slider--body > div {
+    height: 133px;
+  }
+}
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .tab-slider--tabs:after{
+    height: 35px;
+    top: 16px;
+    left: 2.5px;
+  }
+  .kcal-info .kcal-total {
+    width: 45px;
+  }
+  .week-container .info {
+    height: 30px;
+  }
+  .tab-slider--body > div {
+    height: 150px;
+  }
+}
+/*@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.eot');}
+@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.woff') format('woff');}*/
+
+.user-container {
+  /*font-family: "UhBeepuding", serif;*/
+  height: 100%;
+  background-color: white;
+}
+.week-container {
+  margin: 3%;
+  height: 90%;
+  border-radius: 20px;
+  background-color: white;
 }
 .tab-slider--tabs{
   transform: translateX(2%);
   display:block;
-  /*margin: 5% 5.2%;*/
   padding:0;
   list-style:none;
   position:relative;
 }
 .tab-slider--nav{
-  padding: 5%;
+  padding: 5% 0%;
 }
 .tab-slider--tabs:after{
   content: "";
@@ -101,3 +151,122 @@
 .user-container .tab-slider--tabs > div:last-child {
   border: none;
 }
+
+.week-container .info {
+  position: relative;
+  margin: 0 3% 0 4%;
+}
+.week-container .year-month,
+.week-container .year,
+.week-container .month,
+.week-container .username,
+.week-container .user,
+.week-container .kcal-info .total,
+.week-container .kcal-info .kcal-total,
+.week-container .kcal-info .kcal {
+  color: #666;
+  display: inline-block;
+}
+.week-container .year-month {
+  font-size: 1.4rem;
+  position: absolute;
+  right: 0px;
+}
+.week-container .username {
+  font-size: 1.4rem;
+  position: absolute;
+  left: 0px;
+}
+.week-container .month {
+  font-size: 1rem;
+}
+.week-container .info-container {
+  position: relative;
+}
+.week-container .kcal-info{
+  position: absolute;
+  font-size: 1.1rem;
+  height: 30px;
+  right: 6%;
+}
+
+.kcal-info .kcal-total {
+  font-size: 1.5rem;
+}
+
+.tab-slider--body img {
+  width: 150%;
+}
+
+.tab-slider--body > div {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  margin-bottom: 2%;
+  overflow: hidden;
+}
+
+.img-fix {
+  display: inline-block;
+  width: 55%;
+  height: 91%;
+  border-radius: 10px;
+  margin: 2% 0 2% 2%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+}
+.kcal-body {
+  margin: 10% 6% 5% 6%;
+}
+
+.meal {
+  position: relative;
+}
+.user-container .meal-type {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  display: inline-block;
+  width: 40%;
+  top: 6%;
+  right: 1%;
+}
+
+.user-container .meal-name {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline-block;
+  width: 40%;
+  top: 30%;
+  right: 1%;
+}
+
+.user-container .meal-kcal {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  display: inline-block;
+  width: 40%;
+  top: 75%;
+  right: 1%;
+}
+
+.kcal-body .kcal {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: lighter;
+  display: inline-block;
+  width: 40%;
+  top: 75%;
+  right: -8%;
+}
+
+
+
+
+
+
+
+/**/
