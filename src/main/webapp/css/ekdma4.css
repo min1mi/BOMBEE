@@ -1,11 +1,4 @@
 
-.pro-header-form {
-  height: 50px;
-  background-color: #F7AC1A;
-}
-.pro-container {
-  height: 700px;
-}
 
 .pro-name {
   padding-left: 4%;
@@ -26,7 +19,9 @@
 }
 
 
-
+.dnawlrdu {
+  margin: 0% 0% 0% 0%;
+}
 
 
 .sl {
@@ -306,13 +301,3 @@ td > input {
   outline: none;
   border: none;
 }
-.pro-bottom-Btn {
-  width: 100%;
-  padding: 5% 0% 0% 10%;
-}
-.pro-view-Btn{
-  width: 45%;
-}
- .pro-save-Btn {
-   width: 45%;
- }

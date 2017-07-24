@@ -20,7 +20,6 @@
     opacity: 0.5;
     background-color: gray;
     background-image: url('../image/M-Image/m-t06.jpg');
-    /*background-color: gray;*/
     background-repeat: no-repeat;
     background-position: 50% 0;
     -ms-background-size: cover;
@@ -74,6 +73,3 @@ margin: -27% 0% 0% 4%;
   height: 100%;
   opacity:0.75;
 }
-  /*.menagement-img {
-  width: 70.2%;
-}*/

@@ -15,21 +15,21 @@
 </head>
 <body>
   <div class="user-login-container"><!--ekdma-container 맨 밖 컨테이너 -->
-
+    <div id='bg-img'></div>
 
     <div class="header"><!-- header-form 헤더-->
     </div>  <!-- header-form 헤더-->
     <div class="user-login-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
       <div class="user-login-left" id="user-login-Btn1"><!--ekdma-lefe-Btn1 맨위꺼-->
-        <img class="userLogin-Img" id="user-login-Btn-img1" src="MANAGEMENT5.png">
+        <img class="userLogin-Img" id="user-login-Btn-img1" src="MANAGEMENT2.png">
       </div><!--ekdma-lefe-Btn1 맨위꺼-->
       <div class="user-login-right" id="user-login-Btn2"><!--ekdma-lefe-Btn2 맨위꺼-->
-        <img class="userLogin-Img" id="user-login-Btn-img2" src="ACCOUNT5.png">
+        <img class="userLogin-Img" id="user-login-Btn-img2" src="ACCOUNT2.png">
       </div><!--ekdma-lefe-Btn2 맨위꺼-->
     </div> <!-- ekdma-all-menu 메뉴 모은 div-->
 
 
-    <div id='bg-img'></div>
+
   </div> <!--ekdma-container 맨 밖 컨테이너 -->
 
 
@@ -49,7 +49,7 @@
       console.log('매니지먼트1번')
     })
      userLoginBtn2.click(function() {
-      console.log('개인정보2번')
+        $(location).attr('href', url="../mypage/mypage.html");
     })
 </script>
 
