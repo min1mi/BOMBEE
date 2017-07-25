@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+ <!-- 페이지 컨트롤러를 제외한 웹에서 사용할 공통 객체 준비 -->
+ <!-- Component Scan은 XML에 일일이 빈 등록을 하지 않고 각 빈 클래스에 @Component를 통해
+ 		   자동으로 빈 등록을 하기 위해 사용한다.
+ 		   특정 패키지 아래에 위치한 빈들을 Component Scan 하기 위한 방법은 다음과 같음. -->
+  <context:component-scan base-package="bitcamp.java93">
+  <!-- 자동스캔에 포함시키지 않을 클래스 -->
+    <context:exclude-filter type="aspectj" expression="bitcamp.java93.control.*"/>
+  </context:component-scan>
+  
+  <!-- DAO에 주입해야 할 DBConnectionPool 객체는 기본 생성자가 없기 때문에
+       이 설정 파일에서 객체 생성을 따로 지정해야 한다. -->
+  <context:property-placeholder location="classpath:bitcamp/java93/jdbc.properties"/>
+  
+  <!-- DB의 커넥션 풀을 관리하는 객체, DBConnectionPool 
+       우리가 만든 DBConnectionPool의 기능을 갖고있다. -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${jdbc.driverClassName}"/>
+    <property name="url" value="${jdbc.url}"/>
+    <property name="username" value="${jdbc.username}"/>
+    <property name="password" value="${jdbc.password}"/>
+  </bean>
+  
+  <!-- DB 트랜잭션을 관리하는 객체이다.
+       Mybatis에서 관리하던 것을 스프링으로 옮겼다. -->
+  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- Mybatis를 Spring IoC 컨테이너와 연동해 사용할 때는 
+         DB 커넥션 풀(DataSource)의 관리를 스프링에 맡겨야 한다. -->
+    <property name="dataSource" ref="dataSource"></property>
+    
+    <!-- 별명을 등록할 클래스를 지정하기
+         패키지 명을 주면 그 패키지에 있는 모든 클래스에 대해 별명을 등록한다. -->
+    <property name="typeAliasesPackage" value="bitcamp.java93.domain"/>
+    
+    <!-- SQL 맵퍼 파일의 경로를 등록하기 -->
+    <property name="mapperLocations" value="classpath*:bitcamp/java93/dao/*Dao.xml"/>
+
+  </bean>
+  
+  <!-- DAO 인터페이스의 구현체를 자동으로 생성할 객체 준비 -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="bitcamp.java93.dao" />
+  </bean>
+  
+  <bean id="dbConnectionPool" class="bitcamp.java93.util.DBConnectionPool">
+    <constructor-arg index="0" value="com.mysql.jdbc.Driver"/>
+    <constructor-arg index="1" value="jdbc:mysql://localhost:3306/webappdb"/>
+    <constructor-arg index="2" value="webapp"/>
+    <constructor-arg index="3" value="1111"/>
+  </bean>
+
+	<!-- 트랜잭션을 처리하는 방법1 -->
+	<!-- point-cut과 advice 지정 -->
+  <aop:config>
+	<!-- 포인트 컷 설정
+	     => 트랜잭션 관리 필터를 적용할 위치를 지정한다.. -->
+    <aop:pointcut id="defaultServiceOperation"
+            expression="execution(* bitcamp.java93.service.*Service.*(..))"/>
+    <aop:advisor pointcut-ref="defaultServiceOperation" advice-ref="defaultTxAdvice"/>
+  </aop:config>
+  
+ <!--  트랜잭션 관리자를 사용하여 트랜잭션 정책에 따라 트랜잭션을 관리하는 필터 객체(트랜잭션 AOP 객체) -->
+  <tx:advice id="defaultTxAdvice" transaction-manager="txManager">
+    <tx:attributes> <!-- 트랜잭션 정책설정
+    게시판 조회수 증가 시킬 때는 read-only를 하면 안된다. read-only="true" 하면 안된다 -->
+       <tx:method name="get*" read-only="true"/> <!-- getter 메서드에서는 data 변경 불가 -->
+       <tx:method name="list*" read-only="true"/> <!-- list*() 메서드에서는 data 변경 불가 -->
+       <tx:method name="*"/><!-- 그 외 모든 메서드는 트랜잭션을 적용한다.
+                                 teacher 업데이트 하다가 하나 업데이트 실패를 한다면 전체 다 취소된다. -->
+     </tx:attributes>
+  </tx:advice>	
+   
+  <!-- 트랜잭션을 처리하는 방법2 -->
+  <!-- 
+  <tx:annotation-driven transaction-manager="txManager"/>
+   -->
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 끝 -->
