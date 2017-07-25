@@ -19,6 +19,7 @@ sel.on('click', function(event){
   console.log('밑줄');
 });
 
+// 리스트, 맵 전환 버튼 부분
 $('.listBtn0').click(function(){
   console.log('리스트 1번 클릭');
   $(".sportList").css("display","block");
@@ -103,3 +104,48 @@ $(".searchInput").keydown((key)=> {
     ps.keywordSearch(inputText, placesSearchCB);
   }
 })
+
+// sportList template
+$.getJSON('list_detail_h.json', function(result) {
+  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+  var templateFn = Handlebars.compile($('#array').text())
+  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+  var container = $('#sportList-container')
+  var html = container.html()
+  container.html(html + generatedHTML) // 새 태그들로 설정한다.
+ })
+
+//  시 template
+
+
+
+ $.getJSON('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902', function(result) {
+   // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+   var templateFn = Handlebars.compile($('#codeList').text())
+   var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+   var container = $('#code-container')
+   var html = container.html()
+   container.html(html + generatedHTML) // 새  태그들로 설정한다.
+  })
+
+var admCode;
+// 시 선택시 구 군 구 나오는 부분
+ $( "#code-container" )
+   .change(function() {
+     admCode=$( "#code-container option:selected").val();
+     console.log('admCode: ' + admCode);
+
+     $('').replaceAll('#si-container > option');
+     siList();
+   })
+
+// 구 군 구 template
+ function siList(){
+   $.getJSON('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, function(result) {
+     var templateFn = Handlebars.compile($('#siList').text())
+     var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+     var container = $('#si-container')
+     var html = container.html()
+     container.html(html + generatedHTML) // 새 태그들로 설정한다.
+   })
+ }
