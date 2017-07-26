@@ -4,25 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
   <!-- summernote -->
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+  <link href="../node_modules/summernote/dist/summernote.css" rel="stylesheet">
 
   <link rel='stylesheet' href='../css/promotionAdd.css'>
-
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/tomato.css'>
   <link rel='stylesheet' href='../css/menu.css'>
@@ -36,7 +24,7 @@
 
     <div class='projectAdd-top'>
       <div class='topClose' onclick="closeAlert()">
-        &times;
+        <i class="fa fa-times" aria-hidden="true"></i>
       </div>
 
       <div class='temp'>
@@ -73,20 +61,25 @@
 
 
     <div class='projectAdd-date'>
-      <input class='dateStart' type="text" id="datepicker-start" placeholder="시작 날짜 &nbsp&nbsp&nbsp&#128197;">
-      <input class='dateEnd' type="text" id="datepicker-end" placeholder="종료 날짜 &nbsp&nbsp&nbsp&#128197;">
+      <input class='dateStart' type="text" id="datepicker-start" placeholder="시작 날짜 ">
+      <input class='dateEnd' type="text" id="datepicker-end" placeholder="종료 날짜 ">
+      <!-- &nbsp&nbsp&nbsp&#128197; -->
     </div>
     <!-- projectAdd-date -->
 
-    <div class='projectAdd-price'>
+    <div class='projectAdd-input'>
       <input class='priceIn' type="number" placeholder="가 격">
     </div>
     <!-- projectAdd-price -->
 
-    <div class='projectAdd-title'>
+    <div class='projectAdd-input'>
       <input class='titleIn' type="text" placeholder="제 목">
     </div>
     <!-- projectAdd-title -->
+
+    <div class='projectAdd-input'>
+      <input class='addressIn' type="text" value='서울 특별시 서초구 서초동 1327-29'>
+    </div>
 
     <div class='projectAdd-textArea'>
       <div id="summernote">
@@ -97,11 +90,18 @@
 
   </div>
   <!-- container -->
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src='../node_modules/jquery-ui-dist/jquery-ui.min.js'></script>
+
+  <script src="../node_modules/summernote/dist/summernote.js"></script>
+
   <script src="../js/promotionAdd.js"></script>
   <script>
-    $('.header').ready(()=>{
-      $('.header').load('../header/header.html')
-    })
+  $(document).ready(function() {
+    $('.header').load('../menu/new.html')
+  })
   </script>
+
 </body>
 </html>

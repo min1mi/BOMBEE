@@ -17,7 +17,10 @@ body {
   font-size: 1.6rem;
   text-align: center;
   line-height: 45px;
-  background-color: #D17171;
+  /*background-color: #D17171;*/
+  /*background-color:#F7AC1A;*/
+  background-color: #3f3f3f;
+  /*border: 2px #F7AC1A solid;*/
   height: 45px;
   color: white;
 }
@@ -36,6 +39,7 @@ body {
   width: 15%;
   float:left;
   font-size: 3rem;
+  padding: 1px;
 }
 
 .projectAdd-top > .temp {
@@ -56,18 +60,19 @@ body {
 .temp > .tempText {
   background-color:rgba(255,255,255,0);
   border: 2px white solid;
+  /*border: 2px black solid;*/
   padding: 1px 10px;
   border-radius: 2.5rem;
   line-height: 25px;
   color: white;
 }
 
-.projectAdd-gym,.projectAdd-date, .projectAdd-price, .projectAdd-title,.projectAdd-date {
+.projectAdd-gym,.projectAdd-date, .projectAdd-input,.projectAdd-date {
   width: 100%;
   margin: 0;
   font-size: 1.6rem;
   text-align: center;
-  height: 45px;
+  height: 40px;
   border-bottom: 1px #ccc solid;
 
 }
@@ -92,7 +97,8 @@ body {
  .projectAdd-gym > select {
   width: 250px;
   height: 35px;
-  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+  /*background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;*/
+  background-color: white;
   border: none;
   border-radius: 0px;
   -webkit-appearance: none;
@@ -128,7 +134,7 @@ body {
   padding: 6px 12px;
 }
 
-.projectAdd-price > .priceIn {
+.projectAdd-input > .priceIn, .titleIn, .addressIn{
   border: 0;
   width: 97%;
   height: 85%;
@@ -138,7 +144,7 @@ body {
   padding: 6px 12px;
 }
 
-.projectAdd-title > .titleIn {
+/*.projectAdd-title > .titleIn {
   border: 0;
   width: 97%;
   height: 85%;
@@ -146,7 +152,7 @@ body {
   margin: 3px 3px;
   margin-left: 5px;
   padding: 6px 12px;
-}
+}*/
 
 .projectAdd-textArea {
   /*border:1px red solid;*/
