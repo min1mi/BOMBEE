@@ -123,7 +123,6 @@ height: 50px;
   left: 15px;
   position: absolute;
 }
-
 .header-menu-button:hover {
   cursor: pointer;
 }
@@ -250,7 +249,7 @@ height: 50px;
 box-shadow: none;
 outline:none;
 }
-#header-logo-bee {
+.header-logo-bee {
   position: absolute;
   right: 15px;
   top:3px;

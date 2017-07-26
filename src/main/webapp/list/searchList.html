@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='../css/tomato.css'>
+<style>
+body {
+
+  background-color: #f3f3f3;
+}
+.btn {
+	font-size: 18px;
+}
+.btn-group {
+  width:90%;
+}
+
+.search-list-contatiner {
+	text-align: center;
+}
+
+.search-header-font {
+	font-size: 2.5rem;
+	color: white;
+}
+
+ .mobile-container .header-menu-bar #header-back {
+	position: absolute;
+	left: 15px;
+	top: 3px;
+	line-height: 60px;
+}
+
+.btn-label {
+	height: 40px;
+	color: black;
+	font-weight:bold;
+	width:50%;
+	padding: 0px 12px;
+	padding-top: 15px;
+}
+
+
+.click {
+	border-bottom: 2px solid #f7ac1a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.button-container {
+  margin:10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.radio-tile-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width:100%;
+}
+
+.radio-tile-group .input-container {
+	position: relative;
+	height: 30px;
+	width: 25%;
+	margin: 0;
+}
+
+.radio-tile-group .input-container .radio-button {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+
+.radio-tile-group .input-container .radio-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	padding: 1rem;
+	transition: transform 300ms ease;
+}
+
+.radio-tile-group .input-container .radio-tile-label {
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #f7ac1a;
+	padding-top:3px;
+}
+
+.radio-tile-group .input-container .radio-button:checked+.radio-tile {
+	background-color: #f7ac1a;
+	color: black;
+	transform: scale(1.1, 1.1);
+}
+
+.radio-tile-group .input-container .radio-button:checked+.radio-tile .radio-tile-label
+	{
+	color: white;
+	background-color: #f7ac1a;
+}
+.inline-block {
+  display: inline-block;
+}
+.list-div {
+  background-color:white;
+  margin: 10px 20px;
+}
+#list-title {
+  padding: 5px;
+  font-weight: bold;
+  text-align: left;
+  margin: 0 10px;
+}
+#list-container {
+  width:100%;
+}
+.meter {
+  width: 10%;
+}
+.address {
+  padding: 10px;
+  text-align: left;
+  width:86%;
+  margin: 0 5px;
+}
+.address:before {
+  text-align: left;
+  margin-right: 15px;
+  margin-left: 5px;
+  content: '주소';
+  font-size: small;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 3px;
+  color:black;
+}
+
+</style>
+
+<script src='../node_modules/jquery/dist/jquery.min.js'></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+</head>
+<body>
+	<div class='search-list-contatiner'>
+		<div class='header'>
+			<div class="mobile-container">
+				<!-- 새로운 헤더 -->
+				<div class="header-menu-bar">
+					<a id="header-back" href='#'><i
+						class="search-header-font fa fa-chevron-left" aria-hidden="true"></i></a>
+					<a id='header-logo'><img src="../image/bombee_title.png" /></a> <a
+						class='header-logo-bee' href='#' id='list-header'> <i
+						class="search-header-font fa fa-th-large" aria-hidden="true"></i>
+					</a> <a class='header-logo-bee' href='#' style='display: none'id='map-header'>
+					 <i class="search-header-font fa fa-map-marker" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<!-- 새로운 헤더 끝 -->
+		</div>
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-label click" id='trainer' role="button">
+				<input id='trainer'  class='add-class' type="radio" name="options" value="1"
+				required="required">강사
+			</label> <label class="btn btn-label" id='promotion' role="button"> <input
+				id='promotion' class='add-class'  type="radio" name="options" value="0">프로모션
+			</label>
+		</div>
+		<div class="button-container">
+			<div class="radio-tile-group">
+
+				<div class="input-container">
+					<input id="walk" class="radio-button" type="radio" name="radio" />
+					<div class="radio-tile">
+						<label for="walk" class="radio-tile-label">Health</label>
+					</div>
+				</div>
+
+				<div class="input-container">
+					<input id="bike" class="radio-button" type="radio" name="radio" />
+					<div class="radio-tile">
+						<label for="bike" class="radio-tile-label">Spinning</label>
+					</div>
+				</div>
+
+				<div class="input-container">
+					<input id="drive" class="radio-button" type="radio" name="radio" />
+					<div class="radio-tile">
+						<label for="drive" class="radio-tile-label">Yoga</label>
+					</div>
+				</div>
+
+				<div class="input-container">
+					<input id="fly" class="radio-button" type="radio" name="radio" />
+					<div class="radio-tile">
+						<label for="fly" class="radio-tile-label">Pilates</label>
+					</div>
+				</div>
+			</div>
+			</div>
+		<!-- 지도를 표시할 div 입니다 -->
+		<div id="map" style="width: 100%; height: 350px;"></div>
+		<div id='list-container' style='display:none;'>
+		  <div class='list-div'>
+		  <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
+		   <div>
+		    <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
+        <div class='inline-block meter'>30M</div>
+		   </div>
+			</div>
+			<div class='list-div'>
+      <div id='list-title'>서초 킹갓제너럴 갓조 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 서초구 서초대로 77길 85</div>
+        <div class='inline-block meter'>53M</div>
+       </div>
+      </div>
+      <div class='list-div'>
+      <div id='list-title'>강남 디져도 다이어트 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 강남구 가마산로 25길 30</div>
+        <div class='inline-block meter'>80M</div>
+       </div>
+      </div>
+      <div class='list-div'>
+      <div id='list-title'>여름 몸짱 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 강남구 가마산로 38길 10</div>
+        <div class='inline-block meter'>95M</div>
+       </div>
+      </div>
+      <div class='list-div'>
+      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
+        <div class='inline-block meter'>30M</div>
+       </div>
+      </div>
+      <div class='list-div'>
+      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
+        <div class='inline-block meter'>30M</div>
+       </div>
+      </div>
+      <div class='list-div'>
+      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
+       <div>
+        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
+        <div class='inline-block meter'>30M</div>
+       </div>
+      </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5"></script>
+<script>
+var listHeader = $('#list-header')
+var mapHeader = $('#map-header')
+var trainer = $('#trainer')
+var promotion = $('#promotion')
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new daum.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new daum.maps.Map(mapContainer, mapOption); 
+$('#map').css('height', screen.availHeight-150+'px')
+
+GPSFind()
+
+
+function GPSFind(){
+	//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+	if (navigator.geolocation) {
+	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	        
+	        var lat = position.coords.latitude, // 위도
+	            lon = position.coords.longitude; // 경도
+	        
+	        var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+	            message = ''; // 인포윈도우에 표시될 내용입니다
+	        
+	        // 마커와 인포윈도우를 표시합니다
+	        displayMarker(locPosition, message);
+	            
+	      });
+	    
+	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+	    var locPosition = new daum.maps.LatLng(37.5666805, 126.9784147),    
+	        message = 'geolocation을 사용할수 없어요..'
+	        
+	    displayMarker(locPosition, message);
+	}
+
+	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+	function displayMarker(locPosition, message) {
+
+	    // 마커를 생성합니다
+	    var marker = new daum.maps.Marker({  
+	        map: map, 
+	        position: locPosition
+	    }); 
+	    
+	    // 지도 중심좌표를 접속위치로 변경합니다
+	    map.setCenter(locPosition);      
+	}    
+}
+mapHeader.click(()=>{
+	mapHeader.css('display', 'none')
+	listHeader.css('display', '')
+	$('#map').css('display', '')
+	$('#list-container').css('display', 'none')
+})
+
+listHeader.click(()=>{
+  listHeader.css('display', 'none')
+  mapHeader.css('display', '')
+  $('#map').css('display', 'none')
+  $('#list-container').css('display', '')
+})
+
+$('.add-class').click(function () {
+	console.log(this)
+	$('.btn-label').removeClass('click')
+	$(this).parent().addClass('click')
+})
+
+</script>
+</body>
+</html>
