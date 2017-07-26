@@ -5,12 +5,11 @@
 <meta name="viewport"
 	content="user-scalable=no,initial-scale=1,maximum-scale=1" />
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel='stylesheet' href='../css/tomato.css'>
+
 <style>
 body {
-
   background-color: #f3f3f3;
 }
 .btn {
@@ -36,13 +35,12 @@ body {
 	line-height: 60px;
 }
 
-.btn-label {
+.btn {
 	height: 40px;
 	color: black;
 	font-weight:bold;
 	width:50%;
-	padding: 0px 12px;
-	padding-top: 15px;
+	padding: 10px 12px;
 }
 
 
@@ -181,10 +179,10 @@ body {
 			<!-- 새로운 헤더 끝 -->
 		</div>
 		<div class="btn-group" data-toggle="buttons">
-			<label class="btn btn-label click" id='trainer' role="button">
+			<label class="btn click" id='trainer' role="button">
 				<input id='trainer'  class='add-class' type="radio" name="options" value="1"
 				required="required">강사
-			</label> <label class="btn btn-label" id='promotion' role="button"> <input
+			</label> <label class="btn"  id='promotion' role="button"> <input
 				id='promotion' class='add-class'  type="radio" name="options" value="0">프로모션
 			</label>
 		</div>
@@ -223,63 +221,35 @@ body {
 		<!-- 지도를 표시할 div 입니다 -->
 		<div id="map" style="width: 100%; height: 350px;"></div>
 		<div id='list-container' style='display:none;'>
-		  <div class='list-div'>
-		  <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
-		   <div>
-		    <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
-        <div class='inline-block meter'>30M</div>
-		   </div>
-			</div>
-			<div class='list-div'>
-      <div id='list-title'>서초 킹갓제너럴 갓조 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 서초구 서초대로 77길 85</div>
-        <div class='inline-block meter'>53M</div>
-       </div>
-      </div>
-      <div class='list-div'>
-      <div id='list-title'>강남 디져도 다이어트 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 강남구 가마산로 25길 30</div>
-        <div class='inline-block meter'>80M</div>
-       </div>
-      </div>
-      <div class='list-div'>
-      <div id='list-title'>여름 몸짱 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 강남구 가마산로 38길 10</div>
-        <div class='inline-block meter'>95M</div>
-       </div>
-      </div>
-      <div class='list-div'>
-      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
-        <div class='inline-block meter'>30M</div>
-       </div>
-      </div>
-      <div class='list-div'>
-      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
-        <div class='inline-block meter'>30M</div>
-       </div>
-      </div>
-      <div class='list-div'>
-      <div id='list-title'>서초 개복치 퍼스널 트래이닝</div>
-       <div>
-        <div class='inline-block address'>서울특별시 서초구 서초대로 78길 30</div>
-        <div class='inline-block meter'>30M</div>
-       </div>
-      </div>
 		</div>
 	</div>
-	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5"></script>
+	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
+	 <script id='map-template' type="text/x-handlebars-template">
+   {{#each promotionList}} {{#marker address}}
+    {{/marker}}
+    {{/each}}
+  </script>
+  
+  <script id='list-template' type="text/x-handlebars-template">
+   {{#each promotionList}}
+      <div class='list-div'>
+      <div id='list-title'>{{title}}</div>
+       <div>
+        <div class='inline-block address'>{{address}}</div>
+        <div class='inline-block meter'>30M</div>
+       </div>
+      </div>
+    {{/each}}
+  </script>
 <script>
 var listHeader = $('#list-header')
 var mapHeader = $('#map-header')
 var trainer = $('#trainer')
 var promotion = $('#promotion')
+var type = '#map-template'
+var address_script = '';
+var json = '../json/promotion.json'
+var markers = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -289,11 +259,12 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 var map = new daum.maps.Map(mapContainer, mapOption); 
+var geocoder = new daum.maps.services.Geocoder();
+// 주소-좌표 변환 객체를 생성합니다
 $('#map').css('height', screen.availHeight-150+'px')
 
 GPSFind()
-
-
+getData(json, type, '') //처음엔 '#map-template' 스크립트와 생성될 div가 없어서 연결될 애가없음으로 ''을줌
 function GPSFind(){
 	//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 	if (navigator.geolocation) {
@@ -328,26 +299,81 @@ function GPSFind(){
 	    }); 
 	    
 	    // 지도 중심좌표를 접속위치로 변경합니다
-	    map.setCenter(locPosition);      
+	    map.setCenter(locPosition); 
 	}    
 }
+
+function mapMarker(address) {
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch(address, function(result, status) {
+
+	    // 정상적으로 검색이 완료됐으면 
+	     if (status === daum.maps.services.Status.OK) {
+
+	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+	        // 결과값으로 받은 위치를 마커로 표시합니다
+	        var marker = new daum.maps.Marker({
+	            map: map,
+	            position: coords
+	        });
+	     // 생성된 마커를 배열에 추가합니다
+	        markers.push(marker);
+
+	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	        map.setCenter(coords);
+	    } 
+	});    
+}
+//배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
+function setMarkers(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+    markers = [];
+}
+
+
+Handlebars.registerHelper('marker', function(address, options) {
+	address_script = address
+	console.log(address_script)
+	mapMarker(address_script)
+    return options.fn(this);
+  });
+
+function getData(json, type, create) {
+    $.getJSON(json, function(result) {
+      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+      var templateFn = Handlebars.compile($(type).text())
+      var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var container = $(create)
+      var html = container.html()
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+    })
+  }
+  
+
 mapHeader.click(()=>{
+	console.log(markers)
+	 setMarkers(null)
 	mapHeader.css('display', 'none')
 	listHeader.css('display', '')
 	$('#map').css('display', '')
 	$('#list-container').css('display', 'none')
+	getData(json,  '#map-template', '')
 })
 
 listHeader.click(()=>{
+	$('.list-div').remove()
   listHeader.css('display', 'none')
   mapHeader.css('display', '')
   $('#map').css('display', 'none')
   $('#list-container').css('display', '')
+  getData(json,  '#list-template', '#list-container')
 })
 
 $('.add-class').click(function () {
-	console.log(this)
-	$('.btn-label').removeClass('click')
+	$('.btn').removeClass('click')
 	$(this).parent().addClass('click')
 })
 
