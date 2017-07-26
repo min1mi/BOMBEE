@@ -1,44 +1,65 @@
-/*iphone5~6*/
+/*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
   html {
-    font-size: 12px;
+    font-size: 10px;
   }
   .tab-slider--tabs:after{
     height: 27px;
     top: 14.5px;
     left: 1px;
   }
+
   .week-container .info {
     height: 27px;
   }
   .tab-slider--body > div {
     height: 109px;
   }
+  .user-container .input-food .food-img-form {
+  	height: 235px;
+	}
+	.user-container .input-food-container {
+		height: 343px;
+	}
+	.user-container .input-food .food-img {
+	  height: 235px;
+	}
 }
-/*iphone plus*/
+/*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
   .tab-slider--tabs:after{
-    height: 31.7px;
-    top: 15px;
-    left: 1px;
+    height: 35.2px;
+    top: 16px;
+    left: 2px;
   }
+
   .week-container .info {
     height: 28.5px;
   }
   .tab-slider--body > div {
     height: 133px;
   }
+  .user-container .input-food .food-img-form {
+  	height: 299px;
+	}
+	.user-container .input-food-container {
+		height: 425px;
+	}
+	.user-container .input-food .food-img {
+	  height: 299px;
+	}
 }
+/*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
   html {
     font-size: 14px;
   }
   .tab-slider--tabs:after{
-    height: 35px;
-    top: 16px;
+    height: 38.9px;
+    top: 15px;
     left: 2.5px;
   }
   .week-container .info {
@@ -47,6 +68,15 @@
   .tab-slider--body > div {
     height: 150px;
   }
+  .user-container .input-food .food-img-form {
+  	height: 312px;
+	}
+	.user-container .input-food-container {
+		height: 460px;
+	}
+	.user-container .input-food .food-img {
+	  height: 312px;
+	}
 }
 /*@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.eot');}
 @font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.woff') format('woff');}*/
@@ -70,12 +100,12 @@
   position:relative;
 }
 .tab-slider--nav{
-  padding: 5% 0%;
+  padding: 2% 0% 5% 0%;
 }
 .tab-slider--tabs:after{
   content: "";
   width: 10%;
-  background:#ddd;
+  background:#fbd58c;
   position:absolute;
   transition:all 250ms ease-in-out;
   border-radius:70px;
@@ -145,7 +175,7 @@
 
 .week-container .info {
   position: relative;
-  margin: 0 3% 0 4%;
+  margin: 0 3% 2% 4%;
 }
 .week-container .year-month,
 .week-container .year,
@@ -180,8 +210,8 @@
   font-size: 1.1rem;
   height: 30px;
   top: 0;
-  width: 27%;
-  right: 6%;
+  width: 30%;
+  left: 66%;
 }
 
 .kcal-info .kcal-total {
@@ -251,7 +281,7 @@
     font-size: 1.2rem;
     font-weight: lighter;
     display: inline-block;
-    width: 23%;
+    width: 26%;
     top: 75%;
     right: -8%;
 }
@@ -263,6 +293,89 @@
   width: 40%;
   top: 75%;
   right: -8%;
+}
+
+.user-container .input-food-container {
+	position: absolute;
+	background-color: #f3f3f3;
+	width: 85.5%;
+	top: 0;
+	left: 7.25%;
+	border-radius: 10px;
+	padding: 2% 2% 0 2%;
+	margin-top: 54%;
+}
+.user-container .input-food {
+	/*display: none;*/
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  top: 20%;
+}
+
+.user-container .input-food .food-img {
+  opacity: 0; /*This*/
+  position: absolute;
+  width: 96%;
+  cursor: pointer;
+}
+
+.user-container .input-food .food-img-form {
+  width: 100%;
+}
+
+.user-container .input-food label {
+  color: #5F626A;
+  cursor: pointer;
+  display: block;
+  border: 3px dashed #5F626A;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: background ease .5s;
+  pointer-events: none; /*This for FF*/
+}
+.user-container .add-image {
+  display: block;
+  width: 100%;
+  margin: 38% auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.user-container .food-name, .food-kcal {
+	padding: 2% 0 2% 2%;
+	position: absolute;
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: white;
+	display: inline-block;
+	width: 47%;
+	margin: 3% 2%;
+	font-size: 1.4rem;
+}
+
+.user-container .food-name {
+	left: 0;
+}
+
+.user-container .food-kcal {
+	right: 0;
+}
+
+.user-container .foodAddBtn {
+	position: absolute;
+	width: 50%;
+	font-size: 1.4rem;
+	font-weight: bold;
+	background-color: #f7ac1a;
+	border-radius: 10px;
+	bottom:3.5%;
+	left: 25%;
+}
+
+.user-container .camara-size {
+	width: 100%;
+	font-size: 5rem;
+	margin-top: 12%;
 }
 
 
