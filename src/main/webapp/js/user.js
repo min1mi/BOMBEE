@@ -5,14 +5,11 @@ $(function() {
 
   generateTemplate();
 
-  date(current)
-
-  dateClick();
+  date(current);
 
   slideDate();
-  $('#btttn').on('click', function() {
-    swipeCalendar()
-  })
+
+  dateClick();
 });
 
 
@@ -24,8 +21,8 @@ function generateTemplate() {
     var container = $('#user-container')
     var html = container.html()
     container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
-
-
+    
+    date(current)
     autoSelect(current)
   })
 }
@@ -91,7 +88,6 @@ function autoSelect(moment) {
     $('.day6').addClass("active");
     $("#day6").show();
   }
-
   console.log('autoSelect(current)')
 }
 
@@ -117,8 +113,11 @@ for (var i = 0; i < 7; i++) {
 console.log('date(current)')
 }
 
-function swipeCalendar() {
+function nextCalendar() {
   date(current.weekday(7))
+}
+function prevCalendar() {
+  date(current.weekday(-7))
 }
 
 function inputMeal() {
@@ -143,14 +142,11 @@ function slideDate() {
 
   $(document).on("mouseup touchend", function() {
     if (delX > delY && delX > phWid / 2) {
-      console.log("if")
       shift = "(" + phWid * 1.5 + "px, 0, 0)";
-      console.log("1:" + delX, delY);
-      
+      prevCalendar();
     } else if (Math.abs(delX) > Math.abs(delY) && delX < -phWid / 2) {
       shift = "(" + (-phWid * 1.5) + "px, 0, 0)";
-      swipeCalendar();
-      generateTemplate()
+      nextCalendar();
     }
     delX = 0;
     delY = 0;
