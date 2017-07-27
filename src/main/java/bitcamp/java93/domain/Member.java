@@ -8,16 +8,33 @@ package bitcamp.java93.domain;
 
 public class Member {
   int no;
+  String id;
   String name;
-  String tel;
   String email;
-  String password;
+  String pwd;
+  int accounttype;
+  
   
   @Override
   public String toString() {
-    return "Member [no=" + no + ", name=" + name + ", tel=" + tel + ", email=" + email + ", password=" + password + "]";
+    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", accounttype="
+        + accounttype + "]";
   }
-  
+
+  public int getAccounttype() {
+    return accounttype;
+  }
+
+  public void setAccounttype(int accounttype) {
+    this.accounttype = accounttype;
+  }
+
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
   public int getNo() {
     return no;
   }
@@ -30,24 +47,20 @@ public class Member {
   public void setName(String name) {
     this.name = name;
   }
-  public String getTel() {
-    return tel;
-  }
-  public void setTel(String tel) {
-    this.tel = tel;
-  }
   public String getEmail() {
     return email;
   }
   public void setEmail(String email) {
     this.email = email;
   }
-  public String getPassword() {
-    return password;
+  public String getPwd() {
+    return pwd;
   }
-  public void setPassword(String password) {
-    this.password = password;
+  public void setPwd(String pwd) {
+    this.pwd = pwd;
   }
+  
+  
   
   
 }
