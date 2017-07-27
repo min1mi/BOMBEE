@@ -2,14 +2,17 @@ $(function() {
   moment().format();
   $('.header').load('../menu/new.html')
 
-
+var swiper = new Swiper('.swiper-container', {
+  callback: function() {
+    swipeCalendar()
+  }
+});
   generateTemplate();
 
   date(current)
 
   dateClick();
 
-  slideDate();
   $('#btttn').on('click', function() {
     swipeCalendar()
   })
@@ -124,40 +127,6 @@ function swipeCalendar() {
 function inputMeal() {
   $('.input-food-container').toggle()
 }
-
-var delX;
-var delY;
-var phWid = parseInt($(".week-container").css("width"));
-var shift;
-
-function slideDate() {
-  $(".week-container").on("mousedown touchstart", function(event) {
-    if (!event.pageX) event.preventDefault();
-    var stX = event.pageX || event.originalEvent.touches[0].pageX;
-    var stY = event.pageY || event.originalEvent.touches[0].pageY;
-    $(".week-container").on("mousemove touchmove", function(event) {
-      delX = (event.pageX || event.originalEvent.touches[0].pageX) - stX;
-      delY = (event.pageY || event.originalEvent.touches[0].pageY) - stY;
-    });
-  });
-
-  $(document).on("mouseup touchend", function() {
-    if (delX > delY && delX > phWid / 2) {
-      console.log("if")
-      shift = "(" + phWid * 1.5 + "px, 0, 0)";
-      console.log("1:" + delX, delY);
-      
-    } else if (Math.abs(delX) > Math.abs(delY) && delX < -phWid / 2) {
-      shift = "(" + (-phWid * 1.5) + "px, 0, 0)";
-      swipeCalendar();
-      generateTemplate()
-    }
-    delX = 0;
-    delY = 0;
-
-  });
-}
-
 
 
 

@@ -11,7 +11,7 @@
 	href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
 <link rel="stylesheet" href="../list/dist/css/swiper.min.css">
 <link rel='stylesheet' href='../css/tomato.css'>
-<link rel='stylesheet' href='../css/user.css'>
+<link rel='stylesheet' href='../css/user2.css'>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <script src="../node_modules/moment/min/moment.min.js"></script>
@@ -36,51 +36,54 @@
 					</div>
 				</div>
 
-				<div class="tab-slider--tabs">
-					<div class="weekly tab-slider--trigger" rel='day0'
-						style="color: #e04c4c">
-						SUN <a href='#' style="color: #e04c4c">
-							<div class='sun day day0'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day1'>
-						MON <a href='#'>
-							<div class='mon day day1'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day2'>
-						TUE <a href='#'>
-							<div class='tue day day2'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day3'>
-						WED <a href='#'>
-							<div class='wed day day3'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day4'>
-						THU <a href='#'>
-							<div class='thu day day4'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day5'>
-						FRI <a href='#'>
-							<div class='fri day day5'></div>
-						</a>
-					</div>
-					<div class="weekly tab-slider--trigger" rel='day6'
-						style="color: #4c48ce">
-						SAT <a href='#' style="color: #4c48ce">
-							<div class='sat day day6'></div>
-						</a>
+				<div class='swiper-container'>
+					<div class='swiper-wrapper'>
+						<div class='swiper-slide'>
+							<div class="tab-slider--tabs">
+								<div class="weekly tab-slider--trigger" rel='day0'
+									style="color: #e04c4c">
+									SUN <a href='#' style="color: #e04c4c">
+										<div class='sun day day0'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day1'>
+									MON <a href='#'>
+										<div class='mon day day1'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day2'>
+									TUE <a href='#'>
+										<div class='tue day day2'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day3'>
+									WED <a href='#'>
+										<div class='wed day day3'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day4'>
+									THU <a href='#'>
+										<div class='thu day day4'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day5'>
+									FRI <a href='#'>
+										<div class='fri day day5'></div>
+									</a>
+								</div>
+								<div class="weekly tab-slider--trigger" rel='day6'
+									style="color: #4c48ce">
+									SAT <a href='#' style="color: #4c48ce">
+										<div class='sat day day6'></div>
+									</a>
+								</div>
+							</div>
+						<div id='user-container'
+							class='clearfix tab-slider--container info-container'>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!--날짜 끝-->
-
-			<div id='user-container'
-				class='clearfix tab-slider--container info-container'></div>
-
 
 			<div class='input-food-container' style='display: none'>
 				<div class='input-food'>
@@ -129,7 +132,7 @@
     </div>
     {{/each}}
   </script>
-	<script type="text/javascript" src="../js/user.js"></script>
+	<script type="text/javascript" src="../js/user2.js"></script>
 </body>
 
 </html>
