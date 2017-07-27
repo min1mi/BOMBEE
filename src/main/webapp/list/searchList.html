@@ -137,10 +137,13 @@ body {
   width: 10%;
 }
 .address {
+  height: 40px;
   padding: 10px;
   text-align: left;
   width:86%;
   margin: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .address:before {
   text-align: left;
@@ -190,30 +193,30 @@ body {
 			<div class="radio-tile-group">
 
 				<div class="input-container">
-					<input id="walk" class="radio-button" type="radio" name="radio" />
+					<input id="health" class="radio-button" type="radio" name="radio" value='1'/>
 					<div class="radio-tile">
-						<label for="walk" class="radio-tile-label">Health</label>
+						<label for="health" class="radio-tile-label">Health</label>
 					</div>
 				</div>
 
 				<div class="input-container">
-					<input id="bike" class="radio-button" type="radio" name="radio" />
+					<input id="spinning" class="radio-button" type="radio" name="radio"  value='2'/>
 					<div class="radio-tile">
-						<label for="bike" class="radio-tile-label">Spinning</label>
+						<label for="spinning" class="radio-tile-label">Spinning</label>
 					</div>
 				</div>
 
 				<div class="input-container">
-					<input id="drive" class="radio-button" type="radio" name="radio" />
+					<input id="yoga" class="radio-button" type="radio" name="radio"  value='3'/>
 					<div class="radio-tile">
-						<label for="drive" class="radio-tile-label">Yoga</label>
+						<label for="yoga" class="radio-tile-label">Yoga</label>
 					</div>
 				</div>
 
 				<div class="input-container">
-					<input id="fly" class="radio-button" type="radio" name="radio" />
+					<input id="pilates" class="radio-button" type="radio" name="radio"  value='4'/>
 					<div class="radio-tile">
-						<label for="fly" class="radio-tile-label">Pilates</label>
+						<label for="pilates" class="radio-tile-label">Pilates</label>
 					</div>
 				</div>
 			</div>
@@ -225,20 +228,25 @@ body {
 	</div>
 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
 	 <script id='map-template' type="text/x-handlebars-template">
-   {{#each promotionList}} {{#marker address}}
+   {{#each promotionList}} {{#marker promotion}}
     {{/marker}}
     {{/each}}
   </script>
   
   <script id='list-template' type="text/x-handlebars-template">
    {{#each promotionList}}
-      <div class='list-div'>
+    {{#promotion}} {{#type type}}
+       <div class='list-div'>
       <div id='list-title'>{{title}}</div>
        <div>
         <div class='inline-block address'>{{address}}</div>
         <div class='inline-block meter'>30M</div>
        </div>
       </div>
+          {{else}}
+        {{/type}}
+     
+    {{/promotion}}
     {{/each}}
   </script>
 <script>
@@ -250,11 +258,13 @@ var type = '#map-template'
 var address_script = '';
 var json = '../json/promotion.json'
 var markers = [];
+var jsonObject = []
+var spoNo = 0
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
         center: new daum.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        level: 5 // 지도의 확대 레벨
     };
 
 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
@@ -321,7 +331,7 @@ function mapMarker(address) {
 	        markers.push(marker);
 
 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-	        map.setCenter(coords);
+	        /* map.setCenter(coords); */
 	    } 
 	});    
 }
@@ -334,12 +344,36 @@ function setMarkers(map) {
 }
 
 
-Handlebars.registerHelper('marker', function(address, options) {
-	address_script = address
-	console.log(address_script)
-	mapMarker(address_script)
+Handlebars.registerHelper('marker', function(promotion, options) {
+	if (spoNo == 1) {
+		if (promotion.type == spoNo) {
+			 mapMarker(promotion.address)
+		}
+	}
+	else if (spoNo == 2) {
+		if (promotion.type == spoNo)
+			mapMarker(promotion.address)
+	}else if (spoNo == 3) {
+		if (promotion.type == spoNo)
+			 mapMarker(promotion.address)
+	}else if (spoNo == 4) {
+		if (promotion.type == spoNo)
+		       mapMarker(promotion.address)
+	}else
+		       mapMarker(promotion.address)
     return options.fn(this);
   });
+  
+Handlebars.registerHelper('type', function(type, options) {
+
+	 if (spoNo != 0) {
+		 if(spoNo == type)
+		      return options.fn(this);
+		   else
+		     return options.inverse(this);
+	 } else
+		 return options.fn(this);
+	  });
 
 function getData(json, type, create) {
     $.getJSON(json, function(result) {
@@ -354,6 +388,7 @@ function getData(json, type, create) {
   
 
 mapHeader.click(()=>{
+	console.log($('.select').attr('value'))
 	console.log(markers)
 	 setMarkers(null)
 	mapHeader.css('display', 'none')
@@ -375,6 +410,15 @@ listHeader.click(()=>{
 $('.add-class').click(function () {
 	$('.btn').removeClass('click')
 	$(this).parent().addClass('click')
+})
+$('.radio-button').click(function () {
+	setMarkers(null)
+	$('.radio-button').removeClass('select')
+	$(this).addClass('select')
+	 spoNo = $(this).attr('value')
+	 getData(json,  '#map-template', '')
+	 $('.list-div').remove()
+	 getData(json,  '#list-template', '#list-container')
 })
 
 </script>
