@@ -1,0 +1,187 @@
+{
+  "schedule" : [
+    { "day": "mon",
+      "dateDay" : "월",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        }
+      ]
+    },
+    { "day": "thu",
+      "dateDay" : "화",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    },
+    { "day": "wed",
+      "dateDay" : "수",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    },
+    { "day": "thu",
+      "dateDay" : "목",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    },
+    { "day": "fri",
+      "dateDay" : "금",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    },
+    { "day": "sat",
+      "dateDay" : "토",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    },
+    { "day": "sun",
+      "dateDay" : "일",
+      "time" : [
+        {
+          "date" : "off"
+        },
+        {
+
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        },
+        {
+          "date" : "off"
+        }
+      ]
+    }
+
+  ]
+}

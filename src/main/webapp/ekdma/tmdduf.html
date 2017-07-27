@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html> <!-- root element -->
+<head> <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>프로필</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel='stylesheet' href='../css/tmdduf.css'>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+  <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+  <script type="text/javascript">
+	  $(document).ready(function() {
+	    $('.header').load('../menu/new.html')
+	  })
+    </script>
+
+</head>
+
+<body>
+  <div class="pro-container"><!--ekdma-container 맨 밖 컨테이너 -->
+    <div class="header"><!-- header-form 헤더-->
+    </div>
+    <!-- <div class="dnawlr"> -->
+      <div id="tmdduf-container"></div>
+    <!-- </div> -->
+    <!-- <div id='{{day}}' class="pro1">{{dateDay}}
+
+      <div class='pro'>
+        <div class="pro-time" value="{{date}}">{{date}}</div>
+      </div>
+
+      <div class='pro'>
+        <div class="pro-time" value="">없음</div>
+      </div>
+
+    </div> -->
+
+</div>
+
+
+
+
+
+    <script id="tmdduf-template" type="text/x-handlebars-template">
+      {{#each schedule}}
+      <div id='{{day}}' class="pro1">{{dateDay}}
+        {{#each time}}
+          {{#if date}}
+            <div class='pro'>
+              <div class="pro-time" value="{{date}}">{{date}}</div>
+            </div>
+          {{^}}
+            <div class='pro'>
+              <div class="pro-time" value=""></div>
+            </div>
+          {{/if}}
+
+        {{/each}}
+      </div>
+
+      {{/each}}
+    </script>
+  	<script type="text/javascript" src="../js/tmdduf.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

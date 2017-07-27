@@ -1,0 +1,43 @@
+.pro-container {
+  width: 414px;
+  height: 1000px;
+  border : 1px solid red;
+}
+#tmdduf-container {
+  width: 376px;
+
+}
+
+.pro1 {
+  border : 1px solid red;
+  background: silver;
+  width: 50px;
+  display: inline-block;
+  height: 21px;
+  /*margin-bottom: 20px;*/
+}
+.pro {
+  /*display: inline-block;*/
+  /*margin-bottom: 5%;*/
+  display: none;
+  width: 50px;
+  float: left;
+  border : 2px solid blue;
+  /*left: 0px;*/
+  height: 21px;
+}
+.pro-time {
+  height: 21px;
+}
+
+.click {
+  background-color: green;
+  /*height: 40px;*/
+}
+/*.dnawlr {
+  width: 170px;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 192px;;
+
+}*/
