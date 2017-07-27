@@ -69,8 +69,10 @@ body {
 .radio-tile-group .input-container {
 	position: relative;
 	height: 30px;
-	width: 25%;
 	margin: 0;
+}
+.width {
+    width: 21%;
 }
 
 .radio-tile-group .input-container .radio-button {
@@ -98,25 +100,24 @@ body {
 
 .radio-tile-group .input-container .radio-tile-label {
 	text-align: center;
-	font-size: 1.5rem;
+	font-size: 1.1rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #f7ac1a;
 	padding-top:3px;
 }
-
 .radio-tile-group .input-container .radio-button:checked+.radio-tile {
-	background-color: #f7ac1a;
-	color: black;
-	transform: scale(1.1, 1.1);
-}
+  background-color: #f7ac1a;
+  transform: scale(1.1, 1.1);
+}/* 이거 크게 만드는거임 클릭시 */
 
 .radio-tile-group .input-container .radio-button:checked+.radio-tile .radio-tile-label
-	{
-	color: white;
-	background-color: #f7ac1a;
+  {
+  color: white;
+  background-color: #f7ac1a;
 }
+
 .inline-block {
   display: inline-block;
 }
@@ -140,7 +141,7 @@ body {
   height: 40px;
   padding: 10px;
   text-align: left;
-  width:86%;
+  width:85%;
   margin: 0 5px;
   white-space: nowrap;
   overflow: hidden;
@@ -182,38 +183,45 @@ body {
 			<!-- 새로운 헤더 끝 -->
 		</div>
 		<div class="btn-group" data-toggle="buttons">
-			<label class="btn click" id='trainer' role="button">
+			<label class="btn" id='trainer' role="button">
 				<input id='trainer'  class='add-class' type="radio" name="options" value="1"
 				required="required">강사
-			</label> <label class="btn"  id='promotion' role="button"> <input
-				id='promotion' class='add-class'  type="radio" name="options" value="0">프로모션
+			</label> <label class="btn click"  id='promotion' role="button"> <input
+				id='promotion' class='add-class'  type="radio" name="options" value="0" checked>프로모션
 			</label>
 		</div>
 		<div class="button-container">
 			<div class="radio-tile-group">
+			
+			<div class="input-container ">
+          <input id="all" class="radio-button" type="radio" name="radio" value='0'/>
+          <div class="radio-tile">
+            <label for="all" class="radio-tile-label">All</label>
+          </div>
+        </div>
 
-				<div class="input-container">
+				<div class="input-container width">
 					<input id="health" class="radio-button" type="radio" name="radio" value='1'/>
 					<div class="radio-tile">
 						<label for="health" class="radio-tile-label">Health</label>
 					</div>
 				</div>
 
-				<div class="input-container">
+				<div class="input-container width">
 					<input id="spinning" class="radio-button" type="radio" name="radio"  value='2'/>
 					<div class="radio-tile">
 						<label for="spinning" class="radio-tile-label">Spinning</label>
 					</div>
 				</div>
 
-				<div class="input-container">
+				<div class="input-container width">
 					<input id="yoga" class="radio-button" type="radio" name="radio"  value='3'/>
 					<div class="radio-tile">
 						<label for="yoga" class="radio-tile-label">Yoga</label>
 					</div>
 				</div>
 
-				<div class="input-container">
+				<div class="input-container width">
 					<input id="pilates" class="radio-button" type="radio" name="radio"  value='4'/>
 					<div class="radio-tile">
 						<label for="pilates" class="radio-tile-label">Pilates</label>
@@ -228,9 +236,10 @@ body {
 	</div>
 	<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
 	 <script id='map-template' type="text/x-handlebars-template">
-   {{#each promotionList}} {{#marker promotion}}
-    {{/marker}}
-    {{/each}}
+   {{#promotionList}} 
+      {{#marker promotion @last}}
+      {{/marker}}
+    {{/promotionList}}
   </script>
   
   <script id='list-template' type="text/x-handlebars-template">
@@ -258,12 +267,17 @@ var type = '#map-template'
 var address_script = '';
 var json = '../json/promotion.json'
 var markers = [];
-var jsonObject = []
+var proObject = []
 var spoNo = 0
+var imageSrc,
+imageSize , // 마커이미지의 크기입니다
+imageOprion = {offset: new daum.maps.Point(0, 0)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+var markerImage
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
+        center: new daum.maps.LatLng(37.494533687556945, 127.02810003919578), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
     };
 
@@ -275,6 +289,8 @@ $('#map').css('height', screen.availHeight-150+'px')
 
 GPSFind()
 getData(json, type, '') //처음엔 '#map-template' 스크립트와 생성될 div가 없어서 연결될 애가없음으로 ''을줌
+
+
 function GPSFind(){
 	//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 	if (navigator.geolocation) {
@@ -293,7 +309,7 @@ function GPSFind(){
 	      });
 	    
 	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-	    var locPosition = new daum.maps.LatLng(37.5666805, 126.9784147),    
+	    var locPosition = new daum.maps.LatLng(37.494533687556945, 127.02810003919578),    
 	        message = 'geolocation을 사용할수 없어요..'
 	        
 	    displayMarker(locPosition, message);
@@ -313,19 +329,20 @@ function GPSFind(){
 	}    
 }
 
-function mapMarker(address) {
+function mapMarker(address, imageSrc , size) {
 	// 주소로 좌표를 검색합니다
-	geocoder.addressSearch(address, function(result, status) {
 
+	geocoder.addressSearch(address, function(result, status) {
+		//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+        markerImage = new daum.maps.MarkerImage(imageSrc, size, imageOprion)
 	    // 정상적으로 검색이 완료됐으면 
 	     if (status === daum.maps.services.Status.OK) {
-
 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-
 	        // 결과값으로 받은 위치를 마커로 표시합니다
 	        var marker = new daum.maps.Marker({
 	            map: map,
-	            position: coords
+	            position: coords,
+	            image: markerImage
 	        });
 	     // 생성된 마커를 배열에 추가합니다
 	        markers.push(marker);
@@ -342,27 +359,84 @@ function setMarkers(map) {
     }
     markers = [];
 }
-
-
-Handlebars.registerHelper('marker', function(promotion, options) {
-	if (spoNo == 1) {
-		if (promotion.type == spoNo) {
-			 mapMarker(promotion.address)
-		}
-	}
-	else if (spoNo == 2) {
-		if (promotion.type == spoNo)
-			mapMarker(promotion.address)
-	}else if (spoNo == 3) {
-		if (promotion.type == spoNo)
-			 mapMarker(promotion.address)
-	}else if (spoNo == 4) {
-		if (promotion.type == spoNo)
-		       mapMarker(promotion.address)
-	}else
-		       mapMarker(promotion.address)
-    return options.fn(this);
-  });
+  
+  Handlebars.registerHelper('marker', function(promotion, last, options) {
+	  promotion.check = 0
+	  proObject.push(promotion)
+	  if (last) {
+		  for (var j=0; j< proObject.length-1 ; j++) {
+			  for (var i=1; i<proObject.length;  i++) {
+				  if ( j != i) {
+					  if (proObject[j].address == proObject[i].address) {
+				            proObject[j].check++
+				            proObject.splice(i, 1)
+				            
+				          }
+				  }
+			  }
+		  }
+		 for (var key of proObject) {
+			 if (key.check > 0) {
+				 imageSize = new daum.maps.Size(85, 100)
+				 
+				 if(key.type == '1') {
+		              imageSrc = '../image/health_marker.PNG'
+		            }else if (key.type == '2') {
+		              imageSrc = '../image/spinning_marker.PNG'
+		            }else if (key.type == '3') {
+		              imageSrc = '../image/yoga_marker.PNG'
+		            }else 
+		              imageSrc = '../image/pilates_marker.PNG'
+		                
+		            if (spoNo == 1) {
+		              if (key.type == spoNo) {
+		                 mapMarker(key.address, imageSrc, imageSize)
+		              }
+		            }
+		            else if (spoNo == 2) {
+		              if (key.type == spoNo)
+		                mapMarker(key.address, imageSrc, imageSize)
+		            }else if (spoNo == 3) {
+		              if (key.type == spoNo)
+		                 mapMarker(key.address, imageSrc, imageSize)
+		            }else if (spoNo == 4) {
+		              if (key.type == spoNo)
+		                     mapMarker(key.address, imageSrc, imageSize)
+		            }else
+		                     mapMarker(key.address, imageSrc, imageSize)
+				 
+			 }else {
+				 imageSize = new daum.maps.Size(42, 50)
+				 if(key.type == '1') {
+					    imageSrc = '../image/health_marker.PNG'
+					  }else if (key.type == '2') {
+					    imageSrc = '../image/spinning_marker.PNG'
+					  }else if (key.type == '3') {
+					    imageSrc = '../image/yoga_marker.PNG'
+					  }else 
+					    imageSrc = '../image/pilates_marker.PNG'
+					      
+					  if (spoNo == 1) {
+					    if (key.type == spoNo) {
+					       mapMarker(key.address, imageSrc, imageSize)
+					    }
+					  }
+					  else if (spoNo == 2) {
+					    if (key.type == spoNo)
+					      mapMarker(key.address, imageSrc, imageSize)
+					  }else if (spoNo == 3) {
+					    if (key.type == spoNo)
+					       mapMarker(key.address, imageSrc, imageSize)
+					  }else if (spoNo == 4) {
+					    if (key.type == spoNo)
+					           mapMarker(key.address, imageSrc, imageSize)
+					  }else
+					           mapMarker(key.address, imageSrc, imageSize)
+			 }
+		 }
+		 return
+	  }
+    }); 
   
 Handlebars.registerHelper('type', function(type, options) {
 
@@ -389,16 +463,18 @@ function getData(json, type, create) {
 
 mapHeader.click(()=>{
 	console.log($('.select').attr('value'))
-	console.log(markers)
 	 setMarkers(null)
+	 $('.btn').removeClass('click')
 	mapHeader.css('display', 'none')
 	listHeader.css('display', '')
 	$('#map').css('display', '')
 	$('#list-container').css('display', 'none')
+	proObject = []
 	getData(json,  '#map-template', '')
 })
 
 listHeader.click(()=>{
+	$('.btn').removeClass('click')
 	$('.list-div').remove()
   listHeader.css('display', 'none')
   mapHeader.css('display', '')
@@ -416,6 +492,7 @@ $('.radio-button').click(function () {
 	$('.radio-button').removeClass('select')
 	$(this).addClass('select')
 	 spoNo = $(this).attr('value')
+	 proObject = []
 	 getData(json,  '#map-template', '')
 	 $('.list-div').remove()
 	 getData(json,  '#list-template', '#list-container')
