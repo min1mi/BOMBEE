@@ -26,6 +26,7 @@
     <div class="header"><!-- header-form 헤더-->
     </div>
     <!-- <div class="dnawlr"> -->
+    <div class="skehwkf"><center>Schedule</center></div>
       <div id="tmdduf-container"></div>
     <!-- </div> -->
     <!-- <div id='{{day}}' class="pro1">{{dateDay}}
@@ -41,26 +42,30 @@
     </div> -->
 
 </div>
+<div class="time-text" id="tmdduf1-container">
+
+</div>
 
 
-
-
+<script id="tmdduf1-template" type="text/x-handlebars-template">
+  {{#each t-time}}
+    <div><center>{{hour}}</center></div>
+  {{/each}}
+</script>
 
     <script id="tmdduf-template" type="text/x-handlebars-template">
       {{#each schedule}}
       <div id='{{day}}' class="pro1">{{dateDay}}
+        <div class='pro'>
         {{#each time}}
           {{#if date}}
-            <div class='pro'>
               <div class="pro-time" value="{{date}}">{{date}}</div>
-            </div>
           {{^}}
-            <div class='pro'>
-              <div class="pro-time" value=""></div>
-            </div>
+              <div class="pro-time" value=""> </div>
           {{/if}}
 
         {{/each}}
+        </div>
       </div>
 
       {{/each}}

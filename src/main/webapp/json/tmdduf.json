@@ -1,10 +1,125 @@
 {
   "schedule" : [
     { "day": "mon",
-      "dateDay" : "월",
+      "dateDay" : "MON",
       "time" : [
         {
-          "date" : "off"
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        }
+      ]
+    },
+    { "day": "tue",
+      "dateDay" : "TUE",
+      "time" : [
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        }
+      ]
+    },
+    { "day": "web",
+      "dateDay" : "WEB",
+      "time" : [
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
         },
         {
 
@@ -27,161 +142,238 @@
       ]
     },
     { "day": "thu",
-      "dateDay" : "화",
+      "dateDay" : "THU",
       "time" : [
         {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        }
-      ]
-    },
-    { "day": "wed",
-      "dateDay" : "수",
-      "time" : [
-        {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        },
-        {
-          "date" : "off"
-        }
-      ]
-    },
-    { "day": "thu",
-      "dateDay" : "목",
-      "time" : [
-        {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
         }
       ]
     },
     { "day": "fri",
-      "dateDay" : "금",
+      "dateDay" : "FRI",
       "time" : [
         {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
         }
       ]
     },
     { "day": "sat",
-      "dateDay" : "토",
+      "dateDay" : "SAT",
       "time" : [
         {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
         }
       ]
     },
     { "day": "sun",
-      "dateDay" : "일",
+      "dateDay" : "SUN",
       "time" : [
         {
-          "date" : "off"
+
         },
         {
 
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
         },
         {
-          "date" : "off"
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
         }
       ]
     }
+  ],
+  "t-time" : [
+    {
+      "hour" : "9 AM"
+    },
+    {
+      "hour" : "10 AM"
+    },
+    {
+      "hour" : "11 AM"
+    },
+    {
+      "hour" : "Noon"
+    },
+    {
+      "hour" : "1 PM"
+    },
+    {
+      "hour" : "2 PM"
+    },
+    {
+      "hour" : "3 PM"
+    },
+    {
+      "hour" : "4 PM"
+    },
+    {
+      "hour" : "5 PM"
+    },
+    {
+      "hour" : "6 PM"
+    },
+    {
+      "hour" : "7 PM"
+    },
+    {
+      "hour" : "8 PM"
+    },
+    {
+      "hour" : "9 PM"
+    },
+    {
+      "hour" : "10 PM"
+    }
 
   ]
+
 }
