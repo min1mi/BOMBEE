@@ -17,10 +17,7 @@ body {
   font-size: 1.6rem;
   text-align: center;
   line-height: 45px;
-  /*background-color: #D17171;*/
-  /*background-color:#F7AC1A;*/
   background-color: #3f3f3f;
-  /*border: 2px #F7AC1A solid;*/
   height: 45px;
   color: white;
 }
@@ -67,81 +64,59 @@ body {
   color: white;
 }
 
-.projectAdd-gym,.projectAdd-date, .projectAdd-input,.projectAdd-date {
+.projectAdd-date, .projectAdd-input {
   width: 100%;
   margin: 0;
   font-size: 1.6rem;
   text-align: center;
   height: 40px;
-  border-bottom: 1px #ccc solid;
-
+  /*border-bottom: 1px #ccc solid;*/
 }
 
-.projectAdd-gym > .selectType {
-  /*border: 1px solid blue;*/
-  width: 48%;
-  height: 100%;
-  float: left;
-  margin-left: 5px;
-  padding-left: 15px;
-}
-
-.projectAdd-gym > .selectPurpose {
-  width: 48%;
-  height: 100%;
-  float: right;
-  margin-right: 5px;
-  padding-left: 15px;
-}
-
- .projectAdd-gym > select {
-  width: 250px;
-  height: 35px;
-  /*background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;*/
-  background-color: white;
-  border: none;
-  border-radius: 0px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
 
  .projectAdd-container > input {
   -webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	margin: 0;
-  background: <i class="fa fa-calendar" aria-hidden="true"></i>;
 }
 
 .projectAdd-date > .dateStart {
   border: 0;
-  width: 47.6%;
+  border-bottom: 1px #ccc solid;
+  width: 43.5%;
   height: 85%;
   float: left;
-  margin: 3px 3px;
-  margin-left: 5px;
-  padding: 6px 12px;
+  margin: 3px 10px;
+  /*margin-left: 5px;*/
+  padding: 6px 6px;
+  border-radius: 0;
 
 }
 
 .projectAdd-date > .dateEnd {
   border: 0;
-  width: 47.6%;
-  height: 85%;
-  float: right;
-  margin: 3px 3px;
-  padding: 6px 12px;
-}
-
-.projectAdd-input > .priceIn, .titleIn, .addressIn{
-  border: 0;
-  width: 97%;
+  border-bottom: 1px #ccc solid;
+  width: 43.5%;
   height: 85%;
   float: left;
-  margin: 3px 3px;
-  margin-left: 5px;
-  padding: 6px 12px;
+  margin: 3px 10px;
+  padding: 6px 6px;
+  border-radius: 0;
+}
+
+.projectAdd-input > .priceIn, .titleIn, .addressCompany, .addressIn, .imageIn{
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px #ccc solid;
+  width: 93%;
+  height: 85%;
+  float: left;
+  margin: 3px 10px;
+  /*margin-left: 5px;*/
+  padding: 6px 6px;
+  padding-top: 8px;
+  text-align: left;
 }
 
 /*.projectAdd-title > .titleIn {
@@ -156,9 +131,24 @@ body {
 
 .projectAdd-textArea {
   /*border:1px red solid;*/
-  margin: 1%;
+  padding: 10px;
   height: 330px;
-  width: 97%;
+  width: 100%;
 }
+
+.projectAdd-textArea > textarea {
+  /*background-color: #F0F0F0;*/
+  border: white;
+  border-radius: 5px;
+  width: 100%;
+  height: 280px;
+  resize: none;
+  font-size: 1.5rem;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: #a9a9a9; }
+
+
 
 .ui-datepicker{ z-index: 9999 !important;}

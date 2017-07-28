@@ -41,29 +41,21 @@
     </div>
     <!-- projectAdd-top -->
 
-    <div class='projectAdd-gym'>
-      <select class='selectType'>
-        <option >운동 종류</option>
-        <option >헬스</option>
-        <option >필라테스</option>
-        <option >복싱</option>
-      </select>
-
-
-      <select class='selectPurpose'>
-        <option >운동 목적</option>
-        <option >살빼기</option>
-        <option >시집가기</option>
-        <option >장가기기</option>
-      </select>
+    <div class='projectAdd-input'>
+      <input class='titleIn' type="text" placeholder="제 목">
     </div>
-    <!-- projectAdd-gym -->
+    <!-- projectAdd-title -->
 
+    <div class='projectAdd-input'>
+      <div class='imageIn'>
+        <i class="fa fa-camera" aria-hidden="true"></i>
+        <span>  &nbsp&nbsp프로모션 사진을 올려주세요</span>
+      </div>
+    </div>
 
     <div class='projectAdd-date'>
       <input class='dateStart' type="text" id="datepicker-start" placeholder="시작 날짜 ">
-      <input class='dateEnd' type="text" id="datepicker-end" placeholder="종료 날짜 ">
-      <!-- &nbsp&nbsp&nbsp&#128197; -->
+      <input class='dateEnd' type="text" id="datepicker-end" placeholder="종료 날짜 "  required>
     </div>
     <!-- projectAdd-date -->
 
@@ -73,20 +65,17 @@
     <!-- projectAdd-price -->
 
     <div class='projectAdd-input'>
-      <input class='titleIn' type="text" placeholder="제 목">
+      <p class='addressCompany'>휘트니스 피플 서울</p>
     </div>
-    <!-- projectAdd-title -->
 
     <div class='projectAdd-input'>
-      <input class='addressIn' type="text" value='서울 특별시 서초구 서초동 1327-29'>
+      <p class='addressIn'>서울 특별시 서초구 서초동 1327-29</p>
     </div>
 
-    <div class='projectAdd-textArea'>
-      <div id="summernote">
-        <p>Tomato 프로모션 등록</p>
-      </div>
+    <div class='projectAdd-textArea' >
+      <textarea placeholder="프로모션 내용을 등록해 주세요"></textarea>
     </div>
-    <!-- projectAdd-textArea summernote -->
+    <!-- projectAdd-textArea -->
 
   </div>
   <!-- container -->

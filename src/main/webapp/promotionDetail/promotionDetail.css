@@ -1,0 +1,91 @@
+
+.promotionDetail_container {
+  font-size: 1.8rem;
+
+}
+
+.promotionDetail_title {
+  /*border: 1px solid black;*/
+  width: 99%;
+  height: 45px;
+  font-size: 2.3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.promotionDetail_image {
+  /*border: 1px solid black;*/
+  width: 100%;
+  height: 350px;
+}
+
+.promotionDetail_DatePrice, .promotionDetail_address, .promotionDetail_company {
+  /*border: 1px solid red;*/
+  width: 99%;
+  height: 43px;
+}
+
+.promotionDetail_container p {
+  margin: 0 10px 0 10px;
+  box-sizing: border-box;
+  padding: 10px 0 0 0;
+  vertical-align: middle;
+  border-bottom: 1px #ccc solid;
+}
+
+.promotionDetail_date {
+  /*border: 1px solid black;*/
+  width: 71%;
+  height: 40px;
+  float: left;
+  /*clear: both;*/
+}
+
+.promotionDetail_price {
+  /*border: 1px solid black;*/
+  width: 29%;
+  height: 40px;
+  float: right;
+
+}
+
+.promotionDetail_contents {
+  /*border: 1px solid black;*/
+  width: 100%;
+  height: 100%;
+  margin-bottom: 14%;
+  padding-right: 10px;
+}
+
+.promotionDetail_contents > p {
+  border: 0;
+}
+
+.promotionDetail_container > .footer {
+  z-index: 5;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8%;
+
+  font-weight: bold;
+  text-align: center;
+  background-color: #3f3f3f;
+  color: white;
+}
+
+.footer > p {
+  padding-top: 2.5%;
+  font-size: 2.5rem;
+  border: 0;
+}
+
+.promotionDetail_container .addressPanel {
+    margin: 0;
+    padding: 0 10px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
