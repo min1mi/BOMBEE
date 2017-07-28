@@ -6,7 +6,7 @@
 	content="user-scalable=no,initial-scale=1,maximum-scale=1" />
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel='stylesheet' href='../css/tomato.css'>
+<link rel='stylesheet' href='../css/bombee.css'>
 
 <style>
 body {
@@ -103,7 +103,7 @@ body {
 
 .radio-tile-group .input-container .radio-tile-label {
 	text-align: center;
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -127,6 +127,7 @@ body {
 .list-div {
   background-color:white;
   margin: 10px 20px;
+  z-index: 9999;
 }
 #list-title {
   padding: 5px;
@@ -145,7 +146,7 @@ body {
   background-color: #f3f3f3;
   position: fixed;
   top: 25%;
-  z-index:9999;
+  z-index:1000;
   margin: 0 5%;
   border-radius: 5px;
 }
@@ -155,16 +156,21 @@ body {
   margin: 10px 5%;
 }
 .meter {
-  width: 10%;
+  width: 8%;
+  height: 40px;
+    padding-top: 3%;
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .address {
-  height: 40px;
-  padding: 10px;
-  text-align: left;
-  width:85%;
-  margin: 0 5px;
-  white-space: nowrap;
-  overflow: hidden;
+      height: 40px;
+    padding: 10px;
+    text-align: left;
+    width: 75%;
+    margin: 0 1%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .address:before {
   text-align: left;
@@ -231,7 +237,7 @@ body {
 				<div class="input-container width">
 					<input id="spinning" class="radio-button" type="radio" name="radio"  value='2'/>
 					<div class="radio-tile">
-						<label for="spinning" class="radio-tile-label">Spinning</label>
+						<label for="spinning" class="radio-tile-label">스피닝</label>
 					</div>
 				</div>
 
@@ -275,7 +281,7 @@ body {
       <div id='list-title'>{{title}}</div>
        <div>
         <div class='inline-block address'>{{address}}</div>
-        <div class='inline-block meter'>30M</div>
+        <div class='inline-block meter'>{{meter}}M</div>
        </div>
       </div>
           {{else}}
@@ -386,9 +392,12 @@ function mapMarker(address, imageSrc , size, no, check) {
             // 마커 위에 인포윈도우를 표시합니다
             if(check != 0) {
             	toggleAddr = $(this)[0].Vd
+
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
+            	console.log($('.list-div'))
             	$('#click-container').toggle()
+            	
             	
             }else {
             	 location.href = '../promotionDetail/promotionDetail.html'
@@ -409,13 +418,12 @@ function setMarkers(map) {
 	  promotion.check = 0
 	  proObject.push(promotion)
 	  if (last) {
-		  for (var j=0; j< proObject.length-1 ; j++) {
+		  for (var j=0; j< proObject.length ; j++) {
 			  for (var i=1; i<proObject.length;  i++) {
 				  if ( j != i) {
 					  if (proObject[j].address == proObject[i].address) {
 				            proObject[j].check++
-				            proObject.splice(i, 1)
-				            
+				            console.log(proObject)
 				          }
 				  }
 			  }
@@ -423,16 +431,9 @@ function setMarkers(map) {
 		 for (var key of proObject) {
 			 if (key.check > 0) {
 				 imageSize = new daum.maps.Size(75, 100)
-				 
-				 if(key.type == '1') {
-		              imageSrc = '../image/health_marker.PNG'
-		            }else if (key.type == '2') {
-		              imageSrc = '../image/spinning_marker.PNG'
-		            }else if (key.type == '3') {
-		              imageSrc = '../image/yoga_marker.PNG'
-		            }else 
-		              imageSrc = '../image/pilates_marker.PNG'
-		                
+				 // 여기부터 
+				 imageSrc = '../image/multi-marker.png'
+		                // 지우고 파일 imageSrc = '경로만 적어주면됨' 여기까지
 		            if (spoNo == 1) {
 		              if (key.type == spoNo) {
 		                 mapMarker(key.address, imageSrc, imageSize, key.no, key.check)
@@ -485,7 +486,6 @@ function setMarkers(map) {
   
 Handlebars.registerHelper('type', function(type, address, last, index, options) {
 
-	
 	if (toggleAddr == '') {
 	     if (spoNo != 0) {
 	         if(spoNo == type)
@@ -506,15 +506,19 @@ function getData(json, type, create) {
       var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $(create)
       var html = container.html()
-      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.   
+      if(create == '#addList' || create == '#list-container') {
+    	  $('.list-div').click(function() {
+    	        location.href = '../promotionDetail/promotionDetail.html'
+    	      })
+      }
     })
   }
   
 
 
 
-mapHeader.click(()=>{
-	console.log($('.select').attr('value'))
+mapHeader.click(function (){
 	 setMarkers(null)
 	mapHeader.css('display', 'none')
 	listHeader.css('display', '')
@@ -524,10 +528,11 @@ mapHeader.click(()=>{
 	getData(json,  '#map-template', '')
 })
 
-listHeader.click(()=>{
-	console.log(toggleAddr)
+listHeader.click(function (){
+	console.log($('.list-div'))
+	$('#click-container').hide()
+	console.log($('.list-div'))
 	toggleAddr = ''
-	console.log(toggleAddr)
 	$('.list-div').remove()
   listHeader.css('display', 'none')
   mapHeader.css('display', '')
@@ -550,8 +555,13 @@ $('.radio-button').click(function () {
 	 $('.list-div').remove()
 	 getData(json,  '#list-template', '#list-container')
 })
-$('#quit').click(()=> {
+$('#quit').on('click', function () {
 	$('#click-container').toggle()
+})
+$(function() {
+	$('.list-div').click(function() {
+        location.href = '../promotionDetail/promotionDetail.html'
+      })
 })
 
 </script>
