@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- Mybatis에서 DAO 구현체를 자동으로 만들 때는,
+     SQL 맵퍼 파일의 namespace 값이 DAO 인터페이스와 같아야 한다. -->
+<mapper namespace="bitcamp.java93.dao.TrainerDao">
+  <!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
+  <resultMap type="trainer" id="trainerMap">
+    <id column="mno" property="no"/>
+    <result column="id" property="id"/>
+    <result column="email" property="email"/>
+    <result column="name" property="name"/>
+    <result column="pwd" property="pwd"/>
+    <result column="accounttype" property="accounttype"/>
+    <result column="company" property="comname"/>
+    <result column="zipcode" property="zipcode"/>
+    <result column="comaddr" property="comaddr"/>
+    <result column="comdetailaddr" property="comdetailaddr"/>
+    <result column="spono" property="spono"/>
+    
+  </resultMap>
+  
+  <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
+    select  m.mno, m.name, m.tel, m.email, m.mtype
+    				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
+    from tcher t inner join memb m on t.tno=m.mno
+    where email=#{email} and pwd=password(#{password})
+  </select>
+  
+  <insert id="insert" parameterType="trainer">
+    insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono)
+    values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, null)
+  </insert>
+  
+  
+  
+</mapper>

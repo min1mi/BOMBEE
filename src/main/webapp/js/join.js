@@ -1,15 +1,16 @@
 
 $(function() {
   $('.main-box').css({'background-image': 'url(' + '../image/L-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
-  console.log($('.joinType').val())
-  $('#user').click(()=>{
-    console.log($('.joinType').val())
+
+  $('#user').click(function() {
+    joinType = $(this).val()
     borderBottom('#user')
     $('.main-box').css('background-image','url(' + '../image/L-Image/' + images[Math.floor(Math.random() * images.length)] + ')')
     $('.trainer-join').css('display', 'none')
   })
 
-  $('#trainer').click(()=>{
+  $('#trainer').click(function() {
+    joinType = $(this).val()
     borderBottom('#trainer')
     $('.main-box').css('background-image', 'url(../image/join-tall.jpg)');
     $('.trainer-join').css('display', '')
@@ -19,44 +20,51 @@ $(function() {
 var images = ['l-t01.jpg', 'l-t02.jpg', 'l-t03.jpg', 'l-t04.jpg', 'l-t05.jpg',
   'l-t06.jpg', 'l-t07.jpg', 'l-t08.jpg', 'l-t09.jpg', 'l-t10.jpg', 'l-t11.jpg'];
 
+var joinType = 1;
 var fiId = $('.id'),
 fiEmail = $('.email'),
 fiName = $('.user'),
 fiPassword = $('.pass'),
-fiHomepage = $('#fi-homepage'),
-fiFacebook = $('#fi-facebook'),
-fiTwitter = $('#fi-twitter'),
-fiFilenames = $('#fi-filenames');
+fiComname = $('.company_name'),
+fiZipcode = $('.zip'),
+fiComaddr = $('.address'),
+fiComdetailaddr = $('.detail_address')
 
 
 $('#add-btn').on('click', function() {
-  console.log($('.user').val())
-  if($('.joinType').val() == 1) {
-    console.log(fiName.val())
+  console.log(joinType)
+  if(joinType == 1) {
     $.post('/member/add.json', {
       'id' : fiId.val(),
       'email': fiEmail.val(),
       'name': fiName.val(),
-      'pwd': fiPassword.val()
+      'pwd': fiPassword.val(),
+      'membertype': joinType
+      
     }, function(result) {
-      console.log(result)
       location.href = '../main/main.html'
-    },
-    'json')
-  } else {
-    $.post('add.json', {
+        
+    }, 'json')
+  } else if(joinType == 2) {
+    $.post('/trainer/add.json', {
       'id' : fiId.val(),
       'email': fiEmail.val(),
       'name': fiName.val(),
-      'pwd': fiPassword.val()
-      }, function(result) {
-      location.href = 'index.html'
-      }, 'json')
+      'pwd': fiPassword.val(),
+      'comname': fiComname.val(),
+      'zipcode': fiZipcode.val(),
+      'comaddr': fiComaddr.val(),
+      'comdetailaddr': fiComdetailaddr.val(),
+      'membertype': joinType
+      
+    }, function(result) {
+      console.log(result)
+      location.href = '../main/main.html'
+        
+    }, 'json')
   }
 
 })
-  
-
 
 
 //우편번호 찾기 화면을 넣을 element

@@ -12,34 +12,25 @@ public class Member {
   String name;
   String email;
   String pwd;
+  int membertype;
   int accounttype;
-  
   
   @Override
   public String toString() {
-    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", accounttype="
-        + accounttype + "]";
-  }
-
-  public int getAccounttype() {
-    return accounttype;
-  }
-
-  public void setAccounttype(int accounttype) {
-    this.accounttype = accounttype;
-  }
-
-  public String getId() {
-    return id;
-  }
-  public void setId(String id) {
-    this.id = id;
+    return "Member [no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", membertype="
+        + membertype + ", accounttype=" + accounttype + "]";
   }
   public int getNo() {
     return no;
   }
   public void setNo(int no) {
     this.no = no;
+  }
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
   }
   public String getName() {
     return name;
@@ -59,7 +50,18 @@ public class Member {
   public void setPwd(String pwd) {
     this.pwd = pwd;
   }
-  
+  public int getMembertype() {
+    return membertype;
+  }
+  public void setMembertype(int membertype) {
+    this.membertype = membertype;
+  }
+  public int getAccounttype() {
+    return accounttype;
+  }
+  public void setAccounttype(int accounttype) {
+    this.accounttype = accounttype;
+  }
   
   
   

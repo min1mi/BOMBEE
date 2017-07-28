@@ -14,12 +14,20 @@
     <result column="name" property="name"/>
     <result column="pwd" property="pwd"/>
     <result column="accounttype" property="accounttype"/>
+    <result column="mtype" property="membertype"/>
   </resultMap>
+  
+  
+  <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
+    select *
+    from memb
+    where email=#{email} and pwd=password(#{password})
+  </select>
   
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
-    insert into memb(name, id, email, pwd, accounttype) 
-    values(#{name}, #{id}, #{email}, password(#{pwd}), #{accounttype})
+    insert into memb(name, id, email, pwd, accounttype, mtype) 
+    values(#{name}, #{id}, #{email}, password(#{pwd}), #{accounttype}, #{membertype})
   </insert>
   
   

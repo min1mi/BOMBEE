@@ -67,7 +67,7 @@ h2{
   border-bottom: 2px solid #f7ac1a;
 }
 
-.user, .email, .pass, .id, .title_gym, .detail_address, .address{
+.user, .email, .pass, .id, .company_name, .detail_address, .address{
   width: 85%;
   height: 45px;
   border: none;
