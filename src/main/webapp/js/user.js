@@ -2,11 +2,10 @@ $(function() {
   moment().format();
   $('.header').load('../menu/new.html')
 
-
   generateTemplate();
 
   date(current);
-
+  
   slideDate();
 
   dateClick();

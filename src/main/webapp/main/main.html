@@ -5,7 +5,7 @@
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel='stylesheet' href='../css/tomato.css'>
+  <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/main.css'>
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
     
@@ -27,10 +27,10 @@
     <div class="body-outer">
       <div class="body-inner"><!-- main 육각형 버튼 -->
         <div class='indexUp meeting'>
-          <img id='meeting-before' src='../image/meeting-before.png'/>
+          <img id='meeting' src='../image/meeting-before.png'/>
         </div>
         <div class='management indexUp'>
-          <img id='management-before'  src='../image/management-before.png'/>
+          <img id='management'  src='../image/management-before.png'/>
         </div>
       </div><!-- main 육각형 버튼 끝 -->
 
@@ -39,16 +39,14 @@
   </div>
 </div><!--main-container 끝-->
 <script>
-var meetingBefore = $('.indexUp'),
-    meetingAfter = $('#meeting-after'),
-    managementBefore = $('#management-before'),
-    managementAfter = $('#management-after')
+var meeting = $('#meeting'),
+    management = $('#management')
 
-  meetingBefore.click(function() {
-	  location.href='../list/mainList2.html'
+  meeting.click(function() {
+	  location.href='../list/mainList.html'
   })
 
-  managementBefore.click(function() {
+  management.click(function() {
     location.href='../login/login.html'
   })
 </script>

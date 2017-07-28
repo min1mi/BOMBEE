@@ -43,21 +43,17 @@ $('#add-btn').on('click', function() {
       location.href = '../main/main.html'
     },
     'json')
+  } else {
+    $.post('add.json', {
+      'id' : fiId.val(),
+      'email': fiEmail.val(),
+      'name': fiName.val(),
+      'pwd': fiPassword.val()
+      }, function(result) {
+      location.href = 'index.html'
+      }, 'json')
   }
-  console.log('zzzz')
-//$.post('add.json', {
-//''
-//'email': fiEmail.val(),
-//'name': fiName.val(),
-//'tel': fiTel.val(),
-//'password': fiPassword.val(),
-//'homepage': fiHomepage.val(),
-//'facebook': fiFacebook.val(),
-//'twitter': fiTwitter.val(),
-//'filenames': fiFilenames.val()
-//}, function(result) {
-//location.href = 'index.html'
-//}, 'json')
+
 })
   
 
