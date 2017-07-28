@@ -395,7 +395,6 @@ function mapMarker(address, imageSrc , size, no, check) {
 
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
-            	console.log($('.list-div'))
             	$('#click-container').toggle()
             	
             	
@@ -423,7 +422,6 @@ function setMarkers(map) {
 				  if ( j != i) {
 					  if (proObject[j].address == proObject[i].address) {
 				            proObject[j].check++
-				            console.log(proObject)
 				          }
 				  }
 			  }
