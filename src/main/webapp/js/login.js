@@ -40,17 +40,26 @@ $('#facebook').on('click', function() {/*
 
 })
 
+var loginType = 1;
+
+$('#usertype').click(function() {
+  loginType = $(this).val()
+})
+
+$('#trainertype').click(function() {
+  loginType = $(this).val()
+})
 
 $('.send').on('click', function() {
   $.post('/auth/login.json', {
     'id' : $('.id').val(),
-    'pwd': $('.pwd').val()
+    'pwd': $('.pwd').val(),
+    'membertype' : loginType
     
   }, function(result) {
     location.href = '../main/main.html'
       
   }, 'json')
-  
 })
 
 

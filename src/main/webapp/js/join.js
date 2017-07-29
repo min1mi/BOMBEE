@@ -32,7 +32,6 @@ fiComdetailaddr = $('.detail_address')
 
 
 $('#add-btn').on('click', function() {
-  console.log(joinType)
   if(joinType == 1) {
     $.post('/member/add.json', {
       'id' : fiId.val(),
@@ -58,7 +57,6 @@ $('#add-btn').on('click', function() {
       'membertype': joinType
       
     }, function(result) {
-      console.log(result)
       location.href = '../main/main.html'
         
     }, 'json')
