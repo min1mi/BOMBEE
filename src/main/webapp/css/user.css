@@ -153,9 +153,12 @@
 .user-container .weekly {
   width: calc(100%/7);
   margin-left: -4px;
+
 }
 
+
 .user-container .day {
+
   text-align: center;
   font-size: 1.6rem;
   width: 80%;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mybatis에서 DAO 구현체를 자동으로 만들 때는, SQL 맵퍼 파일의 namespace 값이 DAO 인터페이스와 같아야 
+	한다. -->
+<mapper namespace="bitcamp.java93.dao.UsermealDao">
+	<!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
+	<resultMap type="usermeal" id="usermealMap">
+		<id column="day" property="day" />
+		<result column="menuno" property="no" />
+		<result column="date" property="date" />
+		<result column="confirm" property="confirm" />
+		<collection property="meal" ofType="Meal">
+				<result column="menupic" property="menupicture" />
+				<result column="mealkcal" property="mealkcal" />
+				<result column="mealname" property="mealname" />
+				<result column="mealtype" property="mealtype" />
+		</collection>
+	</resultMap>
+
+	<select id="selectWeeklist" resultMap="usermealMap"
+		parameterType="map">
+		select menupic, mealkcal, mealname, mealtype, date, confirm, day
+		from memb_manage
+		where date between '2017-08-05' and '2017-08-11'
+	</select>
+
+	<insert id="insert" parameterType="usermeal">
+		insert into
+		memb_manage(mealtype, menupic, mealkcal, mealname, date, day,
+		confirm)
+		values(#{mealtype}, #{menupicture}, #{mealkcal}, #{mealname}, #{date},
+		#{day},
+		#{confirm})
+	</insert>
+
+
+</mapper>

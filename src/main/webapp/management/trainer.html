@@ -77,8 +77,10 @@
 				</div>
 			</div>
 			<!--날짜 끝-->
-			<div id='meal-container'
+
+			<div id='user-container'
 				class='clearfix tab-slider--container info-container'></div>
+
 
 			<div class='input-food-container' style='display: none'>
 				<div class='input-food'>
@@ -105,21 +107,22 @@
         <span class='kcal'>kcal</span>
       </div>
       {{#each meal}}
-       	  {{#if menupicture}}
-     			  <div class='meal'>
-       			  <div class='img-fix'>
-       			    <img src='{{menupicture}}'>
-       			  </div>
-       			  <p class='meal-type'>{{mealtype}}</p>
-       			  <p class='meal-name'>{{mealname}}</p>
-       			  <p class='meal-kcal'>{{mealkcal}}</p>
-        			<span class='kcal'>kcal</span>
-     			 </div>
-      			{{^}}
-    			  <div class='input-meal' onClick=inputMeal()>
-    			    <center><div class="fa fa-camera camara-size"></div></center>
-     			 </div>
-   			   {{/if}}
+        {{#if img}}
+      <div class='meal'>
+        <div class='img-fix'>
+          <img src='{{img}}'>
+        </div>
+        <p class='meal-type'>{{type}}</p>
+        <p class='meal-name'>{{name}}</p>
+        <p class='meal-kcal'>{{kcal}}</p>
+        <span class='kcal'>kcal</span>
+      </div>
+      {{^}}
+      <div class='input-meal' onClick=inputMeal()>
+        <center><div class="fa fa-camera camara-size"></div></center>
+      </div>
+      {{/if}}
+
       {{/each}}
     </div>
     {{/each}}

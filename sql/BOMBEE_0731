@@ -1,0 +1,16 @@
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('breakfast', '../image/B.png', 200, '밥', '2017-08-05', 'day0', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-06', 'day1', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-07', 'day2', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-08', 'day3', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-09', 'day4', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-10', 'day5', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('dinner', '../image/B.png', 200, '밥', '2017-08-11', 'day6', 0);
+insert into memb_manage(mealtype, menupic, mealkcal, mealname, date, day, confirm) 
+values('lunch', '../image/B.png', 200, '밥', '2017-08-05', 'day0', 0);

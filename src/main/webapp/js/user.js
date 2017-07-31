@@ -6,18 +6,25 @@ $(function() {
 
   date(current);
   
+  dateClick();
   slideDate();
 
-  dateClick();
+  
+  
 });
 
 
+var startDate = moment().startOf('week').format("YYYY-MM-DD"),
+    endDate = moment().endOf('week').format("YYYY-MM-DD");
+
 function generateTemplate() {
-  $.getJSON('../json/user.json', function(result) {
+  $.getJSON('usermeal-list.json', {"startDate": startDate,
+            "endDate": endDate}, function(result) {
     // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+    console.log(result.data)
     var templateFn = Handlebars.compile($('#user-template').text())
-    var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-    var container = $('#user-container')
+    var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+    var container = $('#meal-container')
     var html = container.html()
     container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
     
@@ -129,17 +136,17 @@ var phWid = parseInt($(".week-container").css("width"));
 var shift;
 
 function slideDate() {
-  $(".week-container").on("mousedown touchstart", function(event) {
-    if (!event.pageX) event.preventDefault();
+  $(".week-container").on("touchstart", function(event) {
+//    if (!event.pageX) event.preventDefault();
     var stX = event.pageX || event.originalEvent.touches[0].pageX;
     var stY = event.pageY || event.originalEvent.touches[0].pageY;
-    $(".week-container").on("mousemove touchmove", function(event) {
+    $(".week-container").on("touchmove", function(event) {
       delX = (event.pageX || event.originalEvent.touches[0].pageX) - stX;
       delY = (event.pageY || event.originalEvent.touches[0].pageY) - stY;
     });
   });
 
-  $(document).on("mouseup touchend", function() {
+  $(document).on("touchend", function() {
     if (delX > delY && delX > phWid / 2) {
       shift = "(" + phWid * 1.5 + "px, 0, 0)";
       prevCalendar();
@@ -152,9 +159,6 @@ function slideDate() {
 
   });
 }
-
-
-
 
 
 // $('#calendar').datepicker({
