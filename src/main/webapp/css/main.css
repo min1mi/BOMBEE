@@ -1,3 +1,33 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+  .main-container #meeting,
+  .main-container #management {
+    width: 170px;
+  }
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+  .main-container #meeting,
+  .main-container #management {
+    width: 199px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .main-container #meeting,
+  .main-container #management {
+    width: 220px;
+  }
+}
 .main-container {
   position: relative;
 }
@@ -10,16 +40,15 @@
   width: 100%;
 }
 
-
 .body-inner .meeting {
   position: absolute;
-  margin: 139px 0 0 45px;
+  margin: 41% 0 0 9%;
   z-index:6;
 }
 
 .body-inner .management {
   position: absolute;
-  margin: 338px 0 0 155px;
+  margin: 92.5% 0 0 38%;
   z-index:6;
 }
 
