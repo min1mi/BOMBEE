@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.PromotionDao">
+
+  <resultMap type="promotion" id="promotionMap">
+		    <id column="pno" property="pno" />
+    <collection property="ptomotionList" ofType="Trainning">
+				<result column="titl" property="title" />
+				<result column="pric" property="pric" />
+				<result column="content" property="content" />
+				<result column="sdt" property="sdt" />
+				<result column="tno" property="tno" />
+				<result column="type" property="type" />
+				<result column="COMADDR" property="comaddr" />
+    </collection>
+  </resultMap>
+
+  <select id="selectList" resultMap="promotionMap" parameterType="map">
+    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr
+    from promotion p inner join tcher t on p.tno = t.tno
+  </select>
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

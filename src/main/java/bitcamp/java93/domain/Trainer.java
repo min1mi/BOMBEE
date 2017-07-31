@@ -12,8 +12,15 @@ public class Trainer extends Member {
   String comaddr;
   String comdetailaddr;
   String spono;
+  int tno;
   
   
+  public int getTno() {
+    return tno;
+  }
+  public void setTno(int tno) {
+    this.tno = tno;
+  }
   @Override
   public String toString() {
     return "Trainer [comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="

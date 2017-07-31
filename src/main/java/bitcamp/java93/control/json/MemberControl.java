@@ -15,9 +15,7 @@ public class MemberControl {
   
   @RequestMapping("add")
   public JsonResult add(Member member) throws Exception {
-    System.out.println("imcoming");
     memberService.add(member);
-    System.out.println("datacoming");
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

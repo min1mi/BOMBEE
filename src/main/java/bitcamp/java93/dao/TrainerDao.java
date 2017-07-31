@@ -7,4 +7,5 @@ import bitcamp.java93.domain.Trainer;
 public interface TrainerDao {
   int insert(Trainer trainer);
   Trainer selectOneByEmailPassword(Map<String,Object> valueMap);
+  Trainer selectOne(int no);
 }

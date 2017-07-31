@@ -32,6 +32,10 @@ public class TrainerServiceImpl implements TrainerService {
     return trainerDao.selectOneByEmailPassword(valueMap);
   }
   
+  public Trainer get(int no) throws Exception {
+    return trainerDao.selectOne(no);
+  }
+  
 }
 
 
