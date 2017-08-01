@@ -29,7 +29,8 @@ var quit = $('#quit')
 var codeContainer = $('#code-container')
 var siContainer = $("#si-container")
 var dongContainer = $('#dong-container')
-
+var teacherOrPromotion
+var modeMapList = 0
 
 var mapContainer = $('#map')[0], // 지도를 표시할 div 
     mapOption = { 
@@ -287,40 +288,82 @@ function searchAddress(searchAddr) {
 
 
 mapHeader.click(function (){
-	 setMarkers(null)
 	mapHeader.css('display', 'none')
 	listHeader.css('display', '')
 	$('#map').css('display', '')
 	$('#list-container').css('display', 'none')
+	modeMapList = 0
 	proObject = []
 	proAllObject = []
-	getData(json,  '#map-template', '')
+	if(teacherOrPromotion == 0 && modeMapList == 0 ){
+		setMarkers(null)
+		getData(json, types, '')
+	}else if (teacherOrPromotion == 0 && modeMapList == 1){
+		$('.list-div').remove()
+		setMarkers(null)
+		  getData(json,  '#list-template', '#list-container')
+	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
+		setMarkers(null)
+		$('.list-div').remove()
+	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
+		setMarkers(null)
+	}
 })
 
 listHeader.click(function (){
-	console.log($('.list-div'))
+	modeMapList = 1
 	$('#click-container').hide()
-	console.log($('.list-div'))
 	toggleAddr = ''
 	$('.list-div').remove()
   listHeader.css('display', 'none')
   mapHeader.css('display', '')
   $('#map').css('display', 'none')
-  $('#list-container').css('display', '')
-  getData(json,  '#list-template', '#list-container')
+  proObject = []
+	proAllObject = []
+	if(teacherOrPromotion == 0 && modeMapList == 0 ){
+		setMarkers(null)
+		getData(json, types, '')
+	}else if (teacherOrPromotion == 0 && modeMapList == 1){
+		$('.list-div').remove()
+		setMarkers(null)
+		  getData(json,  '#list-template', '#list-container')
+	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
+		setMarkers(null)
+		$('.list-div').remove()
+	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
+		setMarkers(null)
+	}
+  
 })
 
 $(addClass).click(function () {
 	$(btn).removeClass('click')
 	$(this).parent().addClass('click')
+	teacherOrPromotion = $(this).val()
+	proObject = []
+	proAllObject = []
+	if(teacherOrPromotion == 0 && modeMapList == 0 ){
+		setMarkers(null)
+		getData(json, types, '')
+	}else if (teacherOrPromotion == 0 && modeMapList == 1){
+		$('.list-div').remove()
+		setMarkers(null)
+		  getData(json,  '#list-template', '#list-container')
+	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
+		setMarkers(null)
+		$('.list-div').remove()
+	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
+		setMarkers(null)
+	}
 })
 $(radioBtn).click(function () {
+	
 	setMarkers(null)
 	$(radioBtn).removeClass('select')
 	$(this).addClass('select')
 	 spoNo = $(this).attr('value')
 	 proObject = []
-	proAllObject = []
+	 proAllObject = []
 	 getData(json,  '#map-template', '')
 	 $('.list-div').remove()
 	 getData(json,  '#list-template', '#list-container')
