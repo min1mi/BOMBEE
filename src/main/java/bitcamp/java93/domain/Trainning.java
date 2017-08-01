@@ -7,6 +7,9 @@ public class Trainning extends Trainer{
   String sdt;
   String edt;
   int type;
+  double lat;
+  double lng;
+  int meter;
   public String getTitle() {
     return title;
   }
@@ -43,11 +46,31 @@ public class Trainning extends Trainer{
   public void setType(int type) {
     this.type = type;
   }
+  public double getLat() {
+    return lat;
+  }
+  public void setLat(double lat) {
+    this.lat = lat;
+  }
+  public double getLng() {
+    return lng;
+  }
+  public void setLng(double lng) {
+    this.lng = lng;
+  }
+  public int getMeter() {
+    return meter;
+  }
+  public void setMeter(int meter) {
+    this.meter = meter;
+  }
   @Override
   public String toString() {
     return "Trainning [title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt
-        + ", type=" + type + "]";
+        + ", type=" + type + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + "]";
   }
+  
+  
   
   
 }

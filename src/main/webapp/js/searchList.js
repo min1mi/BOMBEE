@@ -22,6 +22,13 @@ var seoul = 'http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCode
 var guro = 'http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654'
 var searchAddr
 var promotion = {}
+var addClass = $('.add-class')
+var btn = $('.btn') //라벨 밑줄 클래스 추가하려고 만듬
+var radioBtn = $('.radio-button')
+var quit = $('#quit')
+var codeContainer = $('#code-container')
+var siContainer = $("#si-container")
+var dongContainer = $('#dong-container')
 
 
 var mapContainer = $('#map')[0], // 지도를 표시할 div 
@@ -84,6 +91,7 @@ function mapMarker(address, imageSrc , size, no, check) {
 
 	geocoder.addressSearch(address, function(result, status) {
 		//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+
         markerImage = new daum.maps.MarkerImage(imageSrc, size, imageOprion)
 	    // 정상적으로 검색이 완료됐으면 
 	     if (status === daum.maps.services.Status.OK) {
@@ -131,7 +139,6 @@ function setMarkers(map) {
   
   Handlebars.registerHelper('marker', function(promotionList, last, options) {
 	  promotionList[0].check = 0
-	  console.log(promotionList[0])
 	  proObject.push(promotionList[0])
 	  proAllObject.push(promotionList[0])
 	    if (last) {
@@ -152,24 +159,7 @@ function setMarkers(map) {
                imageSize = new daum.maps.Size(75, 100)
                // 여기부터 
                imageSrc = '../image/multi-marker.png'
-                          // 지우고 파일 imageSrc = '경로만 적어주면됨' 여기까지
-                      if (spoNo == 1) {
-                        if (key.type == spoNo) {
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                        }
-                      }
-                      else if (spoNo == 2) {
-                        if (key.type == spoNo)
-                          mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else if (spoNo == 3) {
-                        if (key.type == spoNo)
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else if (spoNo == 4) {
-                        if (key.type == spoNo)
-                               mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else
-                               mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-               
+               mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
              }else {
                imageSize = new daum.maps.Size(42, 50)
                if(key.type == '1') {
@@ -180,23 +170,7 @@ function setMarkers(map) {
                     imageSrc = '../image/yoga_marker.PNG'
                   }else 
                     imageSrc = '../image/pilates_marker.PNG'
-                      
-                  if (spoNo == 1) {
-                    if (key.type == spoNo) {
-                       mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                    }
-                  }
-                  else if (spoNo == 2) {
-                    if (key.type == spoNo)
-                      mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                  }else if (spoNo == 3) {
-                    if (key.type == spoNo)
-                       mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                  }else if (spoNo == 4) {
-                    if (key.type == spoNo)
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                  }else
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
+                  mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
              }
            }
     }else {
@@ -218,22 +192,14 @@ function setMarkers(map) {
                  // 여기부터 
                  imageSrc = '../image/multi-marker.png'
                             // 지우고 파일 imageSrc = '경로만 적어주면됨' 여기까지
-                        if (spoNo == 1) {
-                          if (key.type == spoNo) {
+                        if (spoNo == 1 && key.type == spoNo) 
                              mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                          }
-                        }
-                        else if (spoNo == 2) {
-                          if (key.type == spoNo)
+                        else if (spoNo == 2 && key.type == spoNo) 
                             mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                        }else if (spoNo == 3) {
-                          if (key.type == spoNo)
+                        else if (spoNo == 3 && key.type == spoNo) 
                              mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                        }else if (spoNo == 4) {
-                          if (key.type == spoNo)
-                                 mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                        }else
-                                 mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
+                        else if (spoNo == 4 && key.type == spoNo) 
+                             mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
                  
                }else {
                  imageSize = new daum.maps.Size(42, 50)
@@ -245,30 +211,19 @@ function setMarkers(map) {
                         imageSrc = '../image/yoga_marker.PNG'
                       }else 
                         imageSrc = '../image/pilates_marker.PNG'
-                          
-                      if (spoNo == 1) {
-                        if (key.type == spoNo) {
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                        }
-                      }
-                      else if (spoNo == 2) {
-                        if (key.type == spoNo)
-                          mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else if (spoNo == 3) {
-                        if (key.type == spoNo)
-                           mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else if (spoNo == 4) {
-                        if (key.type == spoNo)
+                        	if (spoNo == 1 && key.type == spoNo) 
+                                mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
+                           else if (spoNo == 2 && key.type == spoNo) 
                                mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
-                      }else
-                               mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
+                           else if (spoNo == 3 && key.type == spoNo) 
+                                mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
+                           else if (spoNo == 4 && key.type == spoNo) 
+                                mapMarker(key.comaddr, imageSrc, imageSize, key.no, key.check)
                }
              }
     }
     return
   }
-	  
-	  
     }); 
   
 Handlebars.registerHelper('type', function(promotionList, options) {
@@ -291,6 +246,7 @@ Handlebars.registerHelper('type', function(promotionList, options) {
 function getData(json, type, create) {
     $.getJSON(json, function(result) {
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+		console.log(result)
       var templateFn = Handlebars.compile($(type).text())
       if (type== '#map-template' || type== '#list-template')
     	  var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -354,13 +310,13 @@ listHeader.click(function (){
   getData(json,  '#list-template', '#list-container')
 })
 
-$('.add-class').click(function () {
-	$('.btn').removeClass('click')
+$(addClass).click(function () {
+	$(btn).removeClass('click')
 	$(this).parent().addClass('click')
 })
-$('.radio-button').click(function () {
+$(radioBtn).click(function () {
 	setMarkers(null)
-	$('.radio-button').removeClass('select')
+	$(radioBtn).removeClass('select')
 	$(this).addClass('select')
 	 spoNo = $(this).attr('value')
 	 proObject = []
@@ -369,18 +325,18 @@ $('.radio-button').click(function () {
 	 $('.list-div').remove()
 	 getData(json,  '#list-template', '#list-container')
 })
-$('#quit').on('click', function () {
+$(quit).on('click', function () {
 	$('#click-container').toggle()
 })
 
-$( "#code-container" )
+$( codeContainer )
   .change(function() {
     admCode=$( "#code-container option:selected").val();
     searchAddr = $("#code-container option:selected").text();
     $('.selected').remove();
     cityList('city');
   })
-  $( "#si-container" )
+  $(siContainer)
   .change(function() {
     admCode=$( "#si-container option:selected").val();
     searchAddr += ' '+$("#si-container option:selected").text();
@@ -388,7 +344,7 @@ $( "#code-container" )
     
     // 동은 옵션에 dong을 주고 누를때마다 삭제하게 만들어야함  $('.dong').remove()사용
   })
-  $('#dong-container').change(function() {
+  $(dongContainer).change(function() {
 	  searchAddr += ' '+$("#si-container option:selected").text();
 	  searchAddress(searchAddr)
   })

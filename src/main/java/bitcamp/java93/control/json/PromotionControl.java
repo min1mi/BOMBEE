@@ -19,13 +19,8 @@ public class PromotionControl {
   
   @RequestMapping("list")
   public JsonResult list() throws Exception {
-//    TrainerControl trainerControl = new TrainerControl();
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.list());
-
-    ObjectMapper mapper = new ObjectMapper();
-    String json = mapper.writeValueAsString(dataMap);
-    System.out.println(json);
 
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }

@@ -14,12 +14,19 @@
 				<result column="tno" property="tno" />
 				<result column="type" property="type" />
 				<result column="COMADDR" property="comaddr" />
+				<result column="lat" property="lat"/>
+				<result column="lng" property="lng"/>
+				<result column="meter" property="meter"/>
     </collection>
   </resultMap>
 
   <select id="selectList" resultMap="promotionMap" parameterType="map">
-    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr
-    from promotion p inner join tcher t on p.tno = t.tno
+    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr, p.lat, p.lng,
+    (((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
+
+  -radians(127.02810003919578))+sin(radians(37.494533687556945))*sin(radians(p.lat)))))*1000)
+  AS meter
+  from promotion p inner join tcher t on p.tno = t.tno
   </select>
   
 </mapper>
