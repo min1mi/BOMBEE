@@ -31,6 +31,75 @@ var siContainer = $("#si-container")
 var dongContainer = $('#dong-container')
 var teacherOrPromotion = 0
 var modeMapList = 0
+var find = []
+
+$(function(){
+	mapHeader.click(function (){
+		$('.list-div').remove()
+		mapHeader.css('display', 'none')
+		listHeader.css('display', '')
+		$('#map').css('display', '')
+		$('#list-container').css('display', 'none')
+		modeMapList = 0
+		loadData()
+	})
+
+	listHeader.click(function (){
+		modeMapList = 1
+		$('#list-container').css('display', '')
+		$('#click-container').hide()
+		toggleAddr = ''
+		$('.list-div').remove()
+	  listHeader.css('display', 'none')
+	  mapHeader.css('display', '')
+	  $('#map').css('display', 'none')
+	  	loadData()
+	  
+	})
+
+	$(addClass).click(function () {
+		$(btn).removeClass('click')
+		$(this).parent().addClass('click')
+		teacherOrPromotion = $(this).val()
+		proObject = []
+		proAllObject = []
+		loadData()
+	})
+	$(radioBtn).click(function () {
+		
+		$(radioBtn).removeClass('select')
+		$(this).addClass('select')
+		 spoNo = $(this).attr('value')
+		 loadData()
+	})
+	$(quit).on('click', function () {
+		$('#click-container').toggle()
+	})
+
+	$( codeContainer )
+	  .change(function() {
+	    admCode=$( "#code-container option:selected").val();
+	    searchAddr = $("#code-container option:selected").text();
+	    $('.selected').remove();
+	    cityList('city');
+	  })
+	  $(siContainer)
+	  .change(function() {
+	    admCode=$( "#si-container option:selected").val();
+	    searchAddr += ' '+$("#si-container option:selected").text();
+	    cityList('dong');
+	    
+	    // 동은 옵션에 dong을 주고 누를때마다 삭제하게 만들어야함  $('.dong').remove()사용
+	  })
+	  $(dongContainer).change(function() {
+		  searchAddr += ' '+$("#si-container option:selected").text();
+		  searchAddress(searchAddr)
+	  })
+	
+	$(".fa-dot-circle-o").click(function(){ 
+		GPSFind()
+		  })
+		})
 
 var mapContainer = $('#map')[0], // 지도를 표시할 div 
     mapOption = { 
@@ -44,7 +113,6 @@ var geocoder = new daum.maps.services.Geocoder();
 // 주소-좌표 변환 객체를 생성합니다
 $('#map').css('height', screen.availHeight-207+'px')
 
-GPSFind()
 getData(json, types, '') //처음엔 '#map-template' 스크립트와 생성될 div가 없어서 연결될 애가없음으로 ''을줌
 getData(seoul, '#codeList', '#code-container')
 
@@ -57,34 +125,28 @@ function GPSFind(){
 	        
 	        var lat = position.coords.latitude, // 위도
 	            lon = position.coords.longitude; // 경도
+	    	find.push(lat)
+	    	find.push(lon)
 	        
 	        var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 	            message = ''; // 인포윈도우에 표시될 내용입니다
-	        
-	        // 마커와 인포윈도우를 표시합니다
-	        displayMarker(locPosition, message);
 	            
 	      });
 	    
 	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 	    var locPosition = new daum.maps.LatLng(37.494533687556945, 127.02810003919578),    
 	        message = 'geolocation을 사용할수 없어요..'
-	        
-	    displayMarker(locPosition, message);
 	}
-
-	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-	function displayMarker(locPosition, message) {
-
-	    // 마커를 생성합니다
-	     marker = new daum.maps.Marker({  
-	        map: map, 
-	        position: locPosition
-	    }); 
-	    
-	    // 지도 중심좌표를 접속위치로 변경합니다
-	    map.setCenter(locPosition); 
-	}    
+	$.ajax({
+		type: 'post' ,
+		url: '/promotion/gps.json' ,
+		data: find,
+		dataType : 'list' ,
+		success: function(result) {
+			find = []
+			console.log(result)
+			}
+		});
 }
 
 function mapMarker(address, imageSrc , size, no, check) {
@@ -287,67 +349,7 @@ function searchAddress(searchAddr) {
 
 
 
-mapHeader.click(function (){
-	$('.list-div').remove()
-	mapHeader.css('display', 'none')
-	listHeader.css('display', '')
-	$('#map').css('display', '')
-	$('#list-container').css('display', 'none')
-	modeMapList = 0
-	loadData()
-})
 
-listHeader.click(function (){
-	modeMapList = 1
-	$('#list-container').css('display', '')
-	$('#click-container').hide()
-	toggleAddr = ''
-	$('.list-div').remove()
-  listHeader.css('display', 'none')
-  mapHeader.css('display', '')
-  $('#map').css('display', 'none')
-  	loadData()
-  
-})
-
-$(addClass).click(function () {
-	$(btn).removeClass('click')
-	$(this).parent().addClass('click')
-	teacherOrPromotion = $(this).val()
-	proObject = []
-	proAllObject = []
-	loadData()
-})
-$(radioBtn).click(function () {
-	
-	$(radioBtn).removeClass('select')
-	$(this).addClass('select')
-	 spoNo = $(this).attr('value')
-	 loadData()
-})
-$(quit).on('click', function () {
-	$('#click-container').toggle()
-})
-
-$( codeContainer )
-  .change(function() {
-    admCode=$( "#code-container option:selected").val();
-    searchAddr = $("#code-container option:selected").text();
-    $('.selected').remove();
-    cityList('city');
-  })
-  $(siContainer)
-  .change(function() {
-    admCode=$( "#si-container option:selected").val();
-    searchAddr += ' '+$("#si-container option:selected").text();
-    cityList('dong');
-    
-    // 동은 옵션에 dong을 주고 누를때마다 삭제하게 만들어야함  $('.dong').remove()사용
-  })
-  $(dongContainer).change(function() {
-	  searchAddr += ' '+$("#si-container option:selected").text();
-	  searchAddress(searchAddr)
-  })
   function loadData() {
 	setMarkers(null)
 	$('.list-div').remove()

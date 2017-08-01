@@ -28,7 +28,6 @@ public class PromotionControl {
   public JsonResult tList() throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.trainerList());
-    System.out.println(dataMap);
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
