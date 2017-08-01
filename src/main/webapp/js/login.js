@@ -57,7 +57,7 @@ $('.send').on('click', function() {
     'membertype' : loginType
     
   }, function(result) {
-    location.href = '../main/main.html'
+    location.href = '../management/user.html'
       
   }, 'json')
 })

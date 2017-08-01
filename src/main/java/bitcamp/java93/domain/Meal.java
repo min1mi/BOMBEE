@@ -2,7 +2,7 @@ package bitcamp.java93.domain;
 
 public class Meal {
   String mealtype;
-  String menupicture;
+  String mealpicture;
   String mealname;
   String mealkcal;
   public String getMealtype() {
@@ -11,11 +11,11 @@ public class Meal {
   public void setMealtype(String mealtype) {
     this.mealtype = mealtype;
   }
-  public String getMenupicture() {
-    return menupicture;
+  public String getMealpicture() {
+    return mealpicture;
   }
-  public void setMenupicture(String menupicture) {
-    this.menupicture = menupicture;
+  public void setMealpicture(String mealpicture) {
+    this.mealpicture = mealpicture;
   }
   public String getMealname() {
     return mealname;
@@ -31,7 +31,7 @@ public class Meal {
   }
   @Override
   public String toString() {
-    return "Meal [mealtype=" + mealtype + ", menupicture=" + menupicture + ", mealname=" + mealname + ", mealkcal="
+    return "Meal [mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
         + mealkcal + "]";
   }
   

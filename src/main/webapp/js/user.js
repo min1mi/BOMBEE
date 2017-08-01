@@ -5,32 +5,56 @@ $(function() {
   generateTemplate();
 
   date(current);
-  
+
   dateClick();
   slideDate();
 
-  
-  
+
 });
+var months = ["January","February","March",
+  "April","May","June","July",
+  "August","September","October",
+  "November","December"],
+  current = moment(new Date());
 
-
-var startDate = moment().startOf('week').format("YYYY-MM-DD"),
-    endDate = moment().endOf('week').format("YYYY-MM-DD");
+var startDate,
+endDate;
 
 function generateTemplate() {
+  startDate = current.startOf('week').format("YYYY-MM-DD")
+  endDate = current.endOf('week').format("YYYY-MM-DD")
+
   $.getJSON('usermeal-list.json', {"startDate": startDate,
-            "endDate": endDate}, function(result) {
-    // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-    console.log(result.data)
-    var templateFn = Handlebars.compile($('#user-template').text())
-    var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-    var container = $('#meal-container')
-    var html = container.html()
-    container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
-    
-    date(current)
-    autoSelect(current)
-  })
+    "endDate": endDate}, function(result) {
+      console.log(result.data.mealList)
+      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+      for (var dayMeal of result.data.mealList) {
+        var sortedMeals = [];
+        for (var meal of dayMeal.meal) {
+          switch (meal.mealtype) {
+          case "breakfast": sortedMeals[0] = meal; break;
+          case "lunch": sortedMeals[1] = meal; break;
+          case "dinner": sortedMeals[2] = meal; break;
+          }
+        }
+        for (var dayMeal of result.data.mealList) {
+
+        }
+        for (var i = 0; i < 3; i++) {
+          if (!sortedMeals[i]) sortedMeals[i] = null
+        }
+        dayMeal.sortedMeals = sortedMeals;
+      }
+      var mealList = result.data.mealList
+      var templateFn = Handlebars.compile($('#user-template').text())
+      var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var container = $('#meal-container')
+      container.html("")
+      container.html(generatedHTML) // 새 tr 태그들로 설정한다.      })
+
+      date(current)
+      autoSelect(current)
+    })
 }
 
 function dateClick() {
@@ -53,7 +77,7 @@ function dateClick() {
       $('.tab-slider--tabs').addClass('slide6');
     } else {
       $('.tab-slider--tabs')
-        .removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
+      .removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
     }
     tabClick.removeClass("active");
     $(this).addClass("active");
@@ -97,33 +121,31 @@ function autoSelect(moment) {
   console.log('autoSelect(current)')
 }
 
-var months = ["January","February","March",
-              "April","May","June","July",
-              "August","September","October",
-              "November","December"],
-    current = moment(new Date());
+
 
 function date(moment) { // get current date
- var sunDate = moment.clone(),
-     month = months[current.get('month')];
+  var sunDate = moment.clone(),
+  month = months[current.get('month')];
 
   sunDate.add('days', -moment.weekday())
 
   $('.year').html(current.get('year'));
   $('.month').html(month);
 
-for (var i = 0; i < 7; i++) {
-  $('.day' + i).html(sunDate.date())
-  sunDate.add('days', 1)
+  for (var i = 0; i < 7; i++) {
+    $('.day' + i).html(sunDate.date())
+    sunDate.add('days', 1)
   }
-console.log('date(current)')
+  console.log('date(current)')
 }
 
 function nextCalendar() {
   date(current.weekday(7))
+  generateTemplate()
 }
 function prevCalendar() {
   date(current.weekday(-7))
+  generateTemplate()
 }
 
 function inputMeal() {
@@ -137,7 +159,7 @@ var shift;
 
 function slideDate() {
   $(".week-container").on("touchstart", function(event) {
-//    if (!event.pageX) event.preventDefault();
+//  if (!event.pageX) event.preventDefault();
     var stX = event.pageX || event.originalEvent.touches[0].pageX;
     var stY = event.pageY || event.originalEvent.touches[0].pageY;
     $(".week-container").on("touchmove", function(event) {
@@ -161,19 +183,19 @@ function slideDate() {
 }
 
 
-// $('#calendar').datepicker({
-//   dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-//   dayNamesMin: ["일", " 월", " 수", " 목", " 금", " 토", " 일"],
-//   format: "mm-yyyy",
-//   viewMode: "months",
-//   minViewMode: "months",
-//   showWeek: true,
-//   onSelect: function(dateText, inst) {
-//     var date = $(this).datepicker('getDate'),
-//         day  = date.getDate(),
-//         month = date.getMonth() + 1,
-//         year =  date.getFullYear();
-//     alert(day + '-' + month + '-' + year);
-//   }
-// });
-// $("#calendar").datepicker("setDate", new Date());
+//$('#calendar').datepicker({
+//dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+//dayNamesMin: ["일", " 월", " 수", " 목", " 금", " 토", " 일"],
+//format: "mm-yyyy",
+//viewMode: "months",
+//minViewMode: "months",
+//showWeek: true,
+//onSelect: function(dateText, inst) {
+//var date = $(this).datepicker('getDate'),
+//day  = date.getDate(),
+//month = date.getMonth() + 1,
+//year =  date.getFullYear();
+//alert(day + '-' + month + '-' + year);
+//}
+//});
+//$("#calendar").datepicker("setDate", new Date());

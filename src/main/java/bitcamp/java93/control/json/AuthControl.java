@@ -1,7 +1,5 @@
 package bitcamp.java93.control.json;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class AuthControl {
 
   @RequestMapping(path="login", method=RequestMethod.POST) // POST 요청이 들어왔을 때 호출
   public JsonResult login(int membertype, String email, String password, 
-      String saveEmail, Model model, HttpServletResponse response) throws Exception {
+     Model model, HttpSession session) throws Exception {
 
     Member member = null;
     Trainer trainer = null;
@@ -51,18 +49,6 @@ public class AuthControl {
         
       } else if (trainer != null) {
         model.addAttribute("loginMember", trainer);
-      }
-
-      // 이메일 저장하거나 제거한다.
-      if (saveEmail != null) { // 이메일 저장을 체크 했다면
-        Cookie emailCookie = new Cookie("email", email);
-        emailCookie.setMaxAge(60 * 60 * 24 * 7); // 7일간 유지
-        response.addCookie(emailCookie);
-
-      } else {
-        Cookie emailCookie = new Cookie("email", "");
-        emailCookie.setMaxAge(0); // 유효기간이 0이면 즉시 무효화, 제거하라는 의미
-        response.addCookie(emailCookie);
       }
 
       return new JsonResult(JsonResult.SUCCESS, "ok");
