@@ -307,8 +307,11 @@ function getData(json, type, create) {
     })
   }
 
-function siList(){
-	getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, '#siList', '#si-container')
+function cityList(type){
+	if (type == 'city')
+		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, '#siList', '#si-container')
+	else
+		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=5bde843a55e812c6f1f714&admCode='+admCode, '#siList', '#dong-container')
 	}
 
 function searchAddress(searchAddr) {
@@ -375,12 +378,17 @@ $( "#code-container" )
     admCode=$( "#code-container option:selected").val();
     searchAddr = $("#code-container option:selected").text();
     $('.select').remove();
-    siList();
+    cityList('city');
   })
   $( "#si-container" )
   .change(function() {
     admCode=$( "#si-container option:selected").val();
     searchAddr += ' '+$("#si-container option:selected").text();
-    searchAddress(searchAddr)
+    cityList('dong');
+    
     // 동은 옵션에 dong을 주고 누를때마다 삭제하게 만들어야함  $('.dong').remove()사용
+  })
+  $('#dong-container').change(function() {
+	  searchAddr += ' '+$("#si-container option:selected").text();
+	  searchAddress(searchAddr)
   })
