@@ -8,6 +8,7 @@ import bitcamp.java93.domain.Promotion;
 
 public interface PromotionDao {
   List<Promotion> selectList(Map<String,Object> valueMap);
+  List<Promotion> trainerList(Map<String,Object> valueMap);
   Promotion selectOne(int no);
   Promotion selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Promotion Promotion);

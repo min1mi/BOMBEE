@@ -6,6 +6,7 @@ import bitcamp.java93.domain.Promotion;
 
 public interface PromotionService {
   List<Promotion> list() throws Exception;
+  List<Promotion> trainerList() throws Exception;
   Promotion get(int no) throws Exception;
   void add(Promotion promotion) throws Exception;
   void update(Promotion promotion) throws Exception;

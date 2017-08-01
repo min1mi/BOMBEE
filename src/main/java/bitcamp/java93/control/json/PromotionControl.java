@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +21,14 @@ public class PromotionControl {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.list());
 
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("tList")
+  public JsonResult tList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.trainerList());
+    System.out.println(dataMap);
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   

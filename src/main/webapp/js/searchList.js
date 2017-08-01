@@ -29,7 +29,7 @@ var quit = $('#quit')
 var codeContainer = $('#code-container')
 var siContainer = $("#si-container")
 var dongContainer = $('#dong-container')
-var teacherOrPromotion
+var teacherOrPromotion = 0
 var modeMapList = 0
 
 var mapContainer = $('#map')[0], // 지도를 표시할 div 
@@ -288,51 +288,25 @@ function searchAddress(searchAddr) {
 
 
 mapHeader.click(function (){
+	$('.list-div').remove()
 	mapHeader.css('display', 'none')
 	listHeader.css('display', '')
 	$('#map').css('display', '')
 	$('#list-container').css('display', 'none')
 	modeMapList = 0
-	proObject = []
-	proAllObject = []
-	if(teacherOrPromotion == 0 && modeMapList == 0 ){
-		setMarkers(null)
-		getData(json, types, '')
-	}else if (teacherOrPromotion == 0 && modeMapList == 1){
-		$('.list-div').remove()
-		setMarkers(null)
-		  getData(json,  '#list-template', '#list-container')
-	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
-		setMarkers(null)
-		$('.list-div').remove()
-	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
-		setMarkers(null)
-	}
+	loadData()
 })
 
 listHeader.click(function (){
 	modeMapList = 1
+	$('#list-container').css('display', '')
 	$('#click-container').hide()
 	toggleAddr = ''
 	$('.list-div').remove()
   listHeader.css('display', 'none')
   mapHeader.css('display', '')
   $('#map').css('display', 'none')
-  proObject = []
-	proAllObject = []
-	if(teacherOrPromotion == 0 && modeMapList == 0 ){
-		setMarkers(null)
-		getData(json, types, '')
-	}else if (teacherOrPromotion == 0 && modeMapList == 1){
-		$('.list-div').remove()
-		setMarkers(null)
-		  getData(json,  '#list-template', '#list-container')
-	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
-		setMarkers(null)
-		$('.list-div').remove()
-	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
-		setMarkers(null)
-	}
+  	loadData()
   
 })
 
@@ -342,31 +316,14 @@ $(addClass).click(function () {
 	teacherOrPromotion = $(this).val()
 	proObject = []
 	proAllObject = []
-	if(teacherOrPromotion == 0 && modeMapList == 0 ){
-		setMarkers(null)
-		getData(json, types, '')
-	}else if (teacherOrPromotion == 0 && modeMapList == 1){
-		$('.list-div').remove()
-		setMarkers(null)
-		  getData(json,  '#list-template', '#list-container')
-	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
-		setMarkers(null)
-		$('.list-div').remove()
-	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
-		setMarkers(null)
-	}
+	loadData()
 })
 $(radioBtn).click(function () {
 	
-	setMarkers(null)
 	$(radioBtn).removeClass('select')
 	$(this).addClass('select')
 	 spoNo = $(this).attr('value')
-	 proObject = []
-	 proAllObject = []
-	 getData(json,  '#map-template', '')
-	 $('.list-div').remove()
-	 getData(json,  '#list-template', '#list-container')
+	 loadData()
 })
 $(quit).on('click', function () {
 	$('#click-container').toggle()
@@ -391,3 +348,18 @@ $( codeContainer )
 	  searchAddr += ' '+$("#si-container option:selected").text();
 	  searchAddress(searchAddr)
   })
+  function loadData() {
+	setMarkers(null)
+	$('.list-div').remove()
+  	proObject = []
+	proAllObject = []
+	if(teacherOrPromotion == 0 && modeMapList == 0 ){
+		getData(json, types, '')
+	}else if (teacherOrPromotion == 0 && modeMapList == 1){
+		  getData(json,  '#list-template', '#list-container')
+	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
+		console.log('응 없어')
+	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
+			getData('/promotion/tList.json', types, '')
+	}
+}
