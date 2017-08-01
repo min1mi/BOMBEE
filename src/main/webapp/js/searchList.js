@@ -377,7 +377,7 @@ $( "#code-container" )
   .change(function() {
     admCode=$( "#code-container option:selected").val();
     searchAddr = $("#code-container option:selected").text();
-    $('.select').remove();
+    $('.selected').remove();
     cityList('city');
   })
   $( "#si-container" )

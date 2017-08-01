@@ -82,18 +82,21 @@
 			</div>
 <div>
   <div class="mainselection">
+  <i class="fa fa-chevron-circle-down fa1" aria-hidden="true"></i>
   <select id='code-container'>
     <option>지역 선택</option>
   </select>
 </div>
 <div class="mainselection">
+<i class="fa fa-chevron-circle-down fa2" aria-hidden="true"></i>
   <select  id='si-container'>
     <option>세부 지역</option>
   </select>
 </div>
 <div class="mainselection">
+ <i class="fa fa-chevron-circle-down fa3" aria-hidden="true"></i>
   <select id='dong-container'>
-    <option>동 선택</option>
+    <option>동선택</option>
   </select>
 </div>
 </div>
@@ -138,7 +141,7 @@
 
 <script id='siList' type="text/x-handlebars-template">
   {{#each admVOList.admVOList}}
-    <option class='select'>{{lowestAdmCodeNm}}</option>
+    <option class='selected'>{{lowestAdmCodeNm}}</option>
   {{/each}}
 </script>
 <script src="../js/searchList.js"></script>
