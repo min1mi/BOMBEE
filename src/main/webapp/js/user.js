@@ -11,11 +11,7 @@ $(function() {
 
 
 });
-var months = ["January","February","March",
-  "April","May","June","July",
-  "August","September","October",
-  "November","December"],
-  current = moment(new Date());
+
 
 var startDate,
 endDate;
@@ -23,10 +19,11 @@ endDate;
 function generateTemplate() {
   startDate = current.startOf('week').format("YYYY-MM-DD")
   endDate = current.endOf('week').format("YYYY-MM-DD")
-
   $.getJSON('usermeal-list.json', {"startDate": startDate,
     "endDate": endDate}, function(result) {
       console.log(result.data.mealList)
+
+
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
       for (var dayMeal of result.data.mealList) {
         var sortedMeals = [];
@@ -37,23 +34,62 @@ function generateTemplate() {
           case "dinner": sortedMeals[2] = meal; break;
           }
         }
-        for (var dayMeal of result.data.mealList) {
 
-        }
         for (var i = 0; i < 3; i++) {
           if (!sortedMeals[i]) sortedMeals[i] = null
         }
         dayMeal.sortedMeals = sortedMeals;
       }
+      
       var mealList = result.data.mealList
       var templateFn = Handlebars.compile($('#user-template').text())
       var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#meal-container')
       container.html("")
-      container.html(generatedHTML) // 새 tr 태그들로 설정한다.      })
+      
+//      for (var dayMealList of result.data.mealList) {
+//        console.log(dayMealList)
+//        var sortedMealLists = [];
+//        for (var i = 0; i < 7; i++) {
+//          if (dayMealList.day == ('day' + i)){
+//            sortedMealLists[i] = dayMealList.day
+//          } 
+//          if(!result.data.mealList[i]) {
+//            $('#meal-container').append("<div id='day" + i + "' class='tab-slider--body kcal-body'>" +
+//                "<div class='kcal-info'><span class='total'>total</span><div class='kcal-total'>" +
+//            "</div><span class='kcal'>kcal</span></div></div>")
+//            for (var j = 0; j < 3; j++){
+//              $('#day' + i).append("<div class='input-meal' onClick=inputMeal()>" +
+//              "<center><div class='fa fa-camera camara-size'></div></center></div>")
+//            }
+//          }
+//        }
+//        console.log(sortedMealLists)
+////        dayMeal.sortedMeals = sortedMeals;
+//      }
+      
+      for (var i = 0; i < 7; i++) {
+        if(!result.data.mealList[i]) {
+          $('#meal-container').append("<div id='day" + i + "' class='tab-slider--body kcal-body'>" +
+              "<div class='kcal-info'><span class='total'>total</span><div class='kcal-total'>" +
+          "</div><span class='kcal'>kcal</span></div></div>")
+          for (var j = 0; j < 3; j++){
+            $('#day' + i).append("<div class='input-meal' onClick=inputMeal()>" +
+            "<center><div class='fa fa-camera camara-size'></div></center></div>")
+          }
+        }
+      }
+      
+//
+
+      
+      var html = container.html()
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
 
       date(current)
-      autoSelect(current)
+      autoSelect(moment(current._i))
+
+
     })
 }
 
@@ -85,6 +121,12 @@ function dateClick() {
 
   console.log('dateClick()')
 }
+
+var months = ["January","February","March",
+  "April","May","June","July",
+  "August","September","October",
+  "November","December"],
+  current = moment(new Date());
 
 function autoSelect(moment) {
   var dayNo = moment.weekday()
