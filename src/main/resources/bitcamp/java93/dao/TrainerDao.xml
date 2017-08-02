@@ -23,7 +23,7 @@
   </resultMap>
   
   <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
-    select  m.mno, m.name, m.tel, m.email, m.mtype
+    select  m.mno, m.name, m.email, m.mtype,
     				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
     from tcher t inner join memb m on t.tno=m.mno
     where email=#{email} and pwd=password(#{password})

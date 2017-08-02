@@ -21,11 +21,31 @@ function generateTemplate() {
   endDate = current.endOf('week').format("YYYY-MM-DD")
   $.getJSON('usermeal-list.json', {"startDate": startDate,
     "endDate": endDate}, function(result) {
-      console.log(result.data.mealList)
-
-
+      var data = result.data
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-      for (var dayMeal of result.data.mealList) {
+
+      for (var i = 0; i < 7; i++){
+        var sortedMealLists = [];
+        for (var dayMealList of data.mealList) {
+          switch (dayMealList.day) {
+          case "day0":  sortedMealLists[0] = dayMealList; break;
+          case "day1":  sortedMealLists[1] = dayMealList; break;
+          case "day2":  sortedMealLists[2] = dayMealList; break;
+          case "day3":  sortedMealLists[3] = dayMealList; break;
+          case "day4":  sortedMealLists[4] = dayMealList; break;
+          case "day5":  sortedMealLists[5] = dayMealList; break;
+          case "day6":  sortedMealLists[6] = dayMealList; break;
+          }
+        }
+        for (var j = 0; j < 7; j++) {
+          if (!sortedMealLists[j]){
+            sortedMealLists[j] = {day: 'day' + j, meal: []}
+          }
+          data.mealList = sortedMealLists
+        }
+      }
+
+      for (var dayMeal of data.mealList) {
         var sortedMeals = [];
         for (var meal of dayMeal.meal) {
           switch (meal.mealtype) {
@@ -40,56 +60,17 @@ function generateTemplate() {
         }
         dayMeal.sortedMeals = sortedMeals;
       }
-      
-      var mealList = result.data.mealList
+
+      console.log(data)
       var templateFn = Handlebars.compile($('#user-template').text())
       var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#meal-container')
       container.html("")
-      
-//      for (var dayMealList of result.data.mealList) {
-//        console.log(dayMealList)
-//        var sortedMealLists = [];
-//        for (var i = 0; i < 7; i++) {
-//          if (dayMealList.day == ('day' + i)){
-//            sortedMealLists[i] = dayMealList.day
-//          } 
-//          if(!result.data.mealList[i]) {
-//            $('#meal-container').append("<div id='day" + i + "' class='tab-slider--body kcal-body'>" +
-//                "<div class='kcal-info'><span class='total'>total</span><div class='kcal-total'>" +
-//            "</div><span class='kcal'>kcal</span></div></div>")
-//            for (var j = 0; j < 3; j++){
-//              $('#day' + i).append("<div class='input-meal' onClick=inputMeal()>" +
-//              "<center><div class='fa fa-camera camara-size'></div></center></div>")
-//            }
-//          }
-//        }
-//        console.log(sortedMealLists)
-////        dayMeal.sortedMeals = sortedMeals;
-//      }
-      
-      for (var i = 0; i < 7; i++) {
-        if(!result.data.mealList[i]) {
-          $('#meal-container').append("<div id='day" + i + "' class='tab-slider--body kcal-body'>" +
-              "<div class='kcal-info'><span class='total'>total</span><div class='kcal-total'>" +
-          "</div><span class='kcal'>kcal</span></div></div>")
-          for (var j = 0; j < 3; j++){
-            $('#day' + i).append("<div class='input-meal' onClick=inputMeal()>" +
-            "<center><div class='fa fa-camera camara-size'></div></center></div>")
-          }
-        }
-      }
-      
-//
-
-      
       var html = container.html()
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
 
       date(current)
       autoSelect(moment(current._i))
-
-
     })
 }
 

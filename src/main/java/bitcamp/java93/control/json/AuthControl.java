@@ -42,7 +42,7 @@ public class AuthControl {
     //      MemberService memberService = (MemberService)this.getServletContext().getAttribute("memberService");
     //      member = memberService.getByEmailPassword(email, password);
 
-    if (member != null || trainer !=null) { // 로그인에 성공했다면
+    if (member != null || trainer != null) { // 로그인에 성공했다면
       // HttpSession 보관소에 로그인 회원 정보를 저장한다.
       if (member != null ) {
         model.addAttribute("loginMember", member);
