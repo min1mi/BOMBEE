@@ -12,21 +12,8 @@ public class Trainer extends Member {
   String comaddr;
   String comdetailaddr;
   String spono;
+  String introduction;
   int tno;
-  
-  
-  public int getTno() {
-    return tno;
-  }
-  public void setTno(int tno) {
-    this.tno = tno;
-  }
-  @Override
-  public String toString() {
-    return "Trainer [comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="
-        + comdetailaddr + ", spono=" + spono + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email
-        + ", pwd=" + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
-  }
   public String getComname() {
     return comname;
   }
@@ -57,7 +44,24 @@ public class Trainer extends Member {
   public void setSpono(String spono) {
     this.spono = spono;
   }
-  
+
+  public String getIntroduction() {
+    return introduction;
+  }
+  public void setIntroduction(String introduction) {
+    this.introduction = introduction;
+  }
+  public int getTno() {
+    return tno;
+  }
+  public void setTno(int tno) {
+    this.tno = tno;
+  }
+  @Override
+  public String toString() {
+    return "Trainer [comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="
+        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + "]";
+  }
   
   
 }

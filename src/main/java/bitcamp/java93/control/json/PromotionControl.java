@@ -18,7 +18,8 @@ public class PromotionControl {
   @Autowired PromotionService promotionService;
   
   @RequestMapping("list")
-  public JsonResult list() throws Exception {
+  public JsonResult list(Location local) throws Exception {
+    System.out.println(local);
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.list());
 
@@ -29,12 +30,19 @@ public class PromotionControl {
   public JsonResult tList() throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.trainerList());
+    System.out.println(dataMap);
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
   @RequestMapping("gps")
-  public void gps(Location local) throws Exception {
-   System.out.println(local);
+  public JsonResult gps(Location local) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.LatLonList(local));
+   System.out.println(dataMap);
+   if(local.getTeacherOrPromotion() == 0) {
+     
+   }
+   return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
 //  @RequestMapping("detail")

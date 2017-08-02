@@ -1,5 +1,3 @@
-
-  
 var listHeader = $('#list-header')
 var mapHeader = $('#map-header')
 var trainer = $('#trainer')
@@ -32,8 +30,8 @@ var siContainer = $("#si-container")
 var dongContainer = $('#dong-container')
 var teacherOrPromotion = 0
 var modeMapList = 0
-var findLat
-var findLon
+var findLat = 37.494533687556945
+var findLon = 127.02810003919578
 
 $(function(){
 	mapHeader.click(function (){
@@ -99,8 +97,6 @@ $(function(){
 		  dong = $("#dong-container option:selected").text();
 		  searchAddr = seoul + ' ' + guro + ' ' + dong;
 		  searchAddress(searchAddr)
-		  
-		  
 	  })
 	
 	$(".fa-dot-circle-o").click(function(){ 
@@ -129,11 +125,15 @@ function GPSFind(){
 	if (navigator.geolocation) {
 	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
 	    navigator.geolocation.getCurrentPosition(function(position) {
-	        
+	    	var emp = 0
+	    	
 	        findLat = position.coords.latitude // 위도
 	        findLon = position.coords.longitude; // 경도
-	        console.log(findLat)
-	        console.log(findLon)
+	    	emp = position.coords.latitude
+	        if(emp != 0) {
+	        	ajax()
+	        	map.setCenter(new daum.maps.LatLng(findLat, findLon))
+	        }
 
 	        var locPosition = new daum.maps.LatLng(findLat, findLon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 	            message = ''; // 인포윈도우에 표시될 내용입니다
@@ -144,19 +144,8 @@ function GPSFind(){
 	    var locPosition = new daum.maps.LatLng(37.494533687556945, 127.02810003919578),    
 	        message = 'geolocation을 사용할수 없어요..'
 	}
-	$.ajax({
-		type: 'post' ,
-		url: '/promotion/gps.json' ,
-		data: {
-			'lat': findLat,
-			'lon': findLon,
-			'teacherOrPromotion' : teacherOrPromotion
-		},
-		dataType : 'json',
-		success: function(result) {
-			console.log(result)
-			}
-		});
+	
+		
 }
 
 function mapMarker(address, imageSrc , size, no, check) {
@@ -189,7 +178,6 @@ function mapMarker(address, imageSrc , size, no, check) {
             // 마커 위에 인포윈도우를 표시합니다
             if(check != 0) {
             	toggleAddr = $(this)[0].Vd
-
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
             	$('#click-container').toggle()
@@ -198,6 +186,7 @@ function mapMarker(address, imageSrc , size, no, check) {
             }else {
             	 location.href = '../promotionDetail/promotionDetail.html'
             }
+            
             
       })
 	})
@@ -300,6 +289,7 @@ function setMarkers(map) {
     }); 
   
 Handlebars.registerHelper('type', function(promotionList, options) {
+	console.log(promotionList[0])
 	if (toggleAddr == '') {
 	     if (spoNo != 0) {
 	         if(spoNo == promotionList[0].type)
@@ -321,7 +311,7 @@ function getData(json, type, create) {
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 		console.log(result)
       var templateFn = Handlebars.compile($(type).text())
-      if (type== '#map-template' || type== '#list-template')
+      if (type== '#map-template' || type== '#list-template' || type== '#tlist-template')
     	  var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       else 
     	  var generatedHTML = templateFn(result)
@@ -349,10 +339,50 @@ function searchAddress(searchAddr) {
 	    // 정상적으로 검색이 완료됐으면 
 	     if (status === daum.maps.services.Status.OK) {
 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	        findLat = result[0].y
+	        findLon = result[0].x
+	        var emp = 0
+	        emp = result[0].x
+	        console.log(findLon)
 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	        map.setCenter(coords);
+	        if(emp != 0) {
+	        	ajax()
+	        	map.setCenter(new daum.maps.LatLng(findLat, findLon))
+	        }
 	    } 
 	})
+}
+
+function ajax() {
+	setMarkers(null)
+	$('.list-div').remove()
+  	proObject = []
+	proAllObject = []
+	console.log(findLat)
+	console.log(findLon)
+	$.ajax({
+		type: 'post' ,
+		url: '/promotion/gps.json' ,
+		data: {
+			'lat': findLat,
+			'lon': findLon,
+			'teacherOrPromotion' : teacherOrPromotion
+		},
+		dataType : 'json',
+		success: function(result) {
+			var templateFn = Handlebars.compile($('#map-template' ).text())
+			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+			var generatedHTML = templateFn(result.data)
+		      var container = $('')
+		      var html = container.html()
+		      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.   
+		      if(create == '#addList' || create == '#list-container') {
+		    	  $('.list-div').click(function() {
+		    	        location.href = '../promotionDetail/promotionDetail.html'
+		    	      })
+			}
+		})
 }
 
   function loadData() {
@@ -365,7 +395,7 @@ function searchAddress(searchAddr) {
 	}else if (teacherOrPromotion == 0 && modeMapList == 1){
 		  getData(json,  '#list-template', '#list-container')
 	}else if (teacherOrPromotion == 1 && modeMapList == 1) {
-		console.log('응 없어')
+		   getData('/promotion/tList.json', '#tlist-template', '#list-container')
 	}else if (teacherOrPromotion == 1 && modeMapList == 0) {
 			getData('/promotion/tList.json', types, '')
 	}

@@ -11,6 +11,12 @@ public class Trainning extends Trainer{
   double lat;
   double lng;
   int meter;
+  public int getPno() {
+    return pno;
+  }
+  public void setPno(int pno) {
+    this.pno = pno;
+  }
   public String getTitle() {
     return title;
   }
@@ -67,11 +73,9 @@ public class Trainning extends Trainer{
   }
   @Override
   public String toString() {
-    return "Trainning [title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt
-        + ", type=" + type + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + "]";
+    return "Trainning [pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
+        + ", edt=" + edt + ", type=" + type + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + "]";
   }
-  
-  
   
   
 }

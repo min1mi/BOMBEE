@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.PromotionDao;
+import bitcamp.java93.domain.Location;
 import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.service.PromotionService;
 
@@ -67,10 +68,13 @@ public class PromotionServiceImpl implements PromotionService {
     }
   }
 
+
   @Override
-  public void update(Promotion promotion) throws Exception {
-    // TODO Auto-generated method stub
-    
+  public List<Promotion> LatLonList(Location local) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("lat", local.getLat());
+    valueMap.put("lon", local.getLon());
+    return promotionDao.latLonList(valueMap);
   }
 
 
