@@ -8,4 +8,5 @@ public interface TrainerDao {
   int insert(Trainer trainer);
   Trainer selectOneByEmailPassword(Map<String,Object> valueMap);
   Trainer selectOne(int no);
+  int update(Trainer trainer);
 }

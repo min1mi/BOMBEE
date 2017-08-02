@@ -27,5 +27,24 @@ public class TrainerControl {
     }
     model.addAttribute("trainer", trainer);
     return new JsonResult(JsonResult.SUCCESS, trainer);
+    
+  }
+
+  
+  @RequestMapping("detail")
+  public JsonResult detail(int no) throws Exception {
+    
+    Trainer trainer = trainerService.get(no);
+    if (trainer == null) {
+      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
+    }
+    return new JsonResult(JsonResult.SUCCESS, trainer);
+  } // service()
+  
+  
+  @RequestMapping("update")
+  public JsonResult update(Trainer trainer) throws Exception {
+    trainerService.update(trainer);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 }

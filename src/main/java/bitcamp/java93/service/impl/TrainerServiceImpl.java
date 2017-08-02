@@ -34,6 +34,11 @@ public class TrainerServiceImpl implements TrainerService {
   public Trainer get(int no) throws Exception {
     return trainerDao.selectOne(no);
   }
+  public void update(Trainer trainer) throws Exception {
+//  memberDao.update(trainer);
+  trainerDao.update(trainer);
+
+}
   
 }
 

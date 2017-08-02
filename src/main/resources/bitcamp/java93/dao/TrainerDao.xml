@@ -19,6 +19,7 @@
     <result column="comaddr" property="comaddr"/>
     <result column="comdetailaddr" property="comdetailaddr"/>
     <result column="spono" property="spono"/>
+    <result column="introduction" property="introduction"/>
     
   </resultMap>
   
@@ -38,6 +39,25 @@
     select t.mno, t.name, t.email, t.comaddr, t.spono
      from tcher t where mno=#{name}
   </select>
+  
+  <!--
+      <select id="selectOne" resultMap="trainerMap" parameterType="int">
+    select  m.mno, m.name, m.mtype,
+            t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction
+    from tcher t inner join memb m on t.tno=m.mno
+  </select>
+   -->
+  
+  
+  <update id="update" parameterType="trainer">
+    update tcher set
+      introduction=#{introduction},
+      company=#{comname}, 
+      zipcode=#{zipcode},  
+      comaddr=#{comaddr},
+      comdetailaddr=#{comdetailaddr}, 
+      where tno=#{no};
+  </update>
   
   
   
