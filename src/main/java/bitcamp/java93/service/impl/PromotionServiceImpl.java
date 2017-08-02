@@ -17,16 +17,20 @@ public class PromotionServiceImpl implements PromotionService {
   @Autowired
   PromotionDao promotionDao;
   
-  public List<Promotion> list() throws Exception {
+  public List<Promotion> list(Location local) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("lat", local.getLat());
+    valueMap.put("lon", local.getLon());
     return promotionDao.selectList(valueMap);
   }
   
   public Promotion get(int no) throws Exception {
     return promotionDao.selectOne(no);
   }
-  public List<Promotion> trainerList() throws Exception {
+  public List<Promotion> trainerList(Location local) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("lat", local.getLat());
+    valueMap.put("lon", local.getLon());
     return promotionDao.trainerList(valueMap);
   }
   

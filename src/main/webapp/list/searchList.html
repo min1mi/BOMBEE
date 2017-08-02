@@ -121,7 +121,7 @@
   <script id='list-template' type="text/x-handlebars-template">
    {{#each list}} {{#type promotionList}}
         {{#each promotionList}}
-       <div class='list-div'>
+       <div class='list-div' value={{pno}}>
       <div id='list-title'>{{title}}</div>
        <div>
         <div class='inline-block address'>{{comaddr}}</div>
@@ -137,7 +137,7 @@
     <script id='tlist-template' type="text/x-handlebars-template">
    {{#each list}} {{#type promotionList}}
         {{#each promotionList}}
-       <div class='list-div'>
+       <div class='list-div' value='{{tno}}'>
      <div>
       <div id='inline-block' class='list-title'>{{title}}</div>
       <div id='inline-block' class='list-name'>강사이름: {{name}}</div>
@@ -157,13 +157,13 @@
   </script>
   <script id='codeList' type="text/x-handlebars-template">
   {{#each admVOList.admVOList}}
-    <option value='{{admCode}}'>{{admCodeNm}}</option>
+    <option value='{{admCode}}' class='clicked'>{{admCodeNm}}</option>
   {{/each}}
 </script>
 
 <script id='siList' type="text/x-handlebars-template">
   {{#each admVOList.admVOList}}
-    <option class='selected' value='{{admCode}}'>{{lowestAdmCodeNm}}</option>
+    <option class='selected clicked' value='{{admCode}}'>{{lowestAdmCodeNm}}</option>
   {{/each}}
 </script>
 <script src="../js/searchList.js"></script>

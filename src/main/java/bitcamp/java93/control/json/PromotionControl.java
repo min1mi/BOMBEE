@@ -21,15 +21,15 @@ public class PromotionControl {
   public JsonResult list(Location local) throws Exception {
     System.out.println(local);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", promotionService.list());
+    dataMap.put("list", promotionService.list(local));
 
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
   @RequestMapping("tList")
-  public JsonResult tList() throws Exception {
+  public JsonResult tList(Location local) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", promotionService.trainerList());
+    dataMap.put("list", promotionService.trainerList(local));
     System.out.println(dataMap);
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }

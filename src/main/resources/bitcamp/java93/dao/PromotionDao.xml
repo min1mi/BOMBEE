@@ -37,8 +37,8 @@
 
   <select id="selectList" resultMap="promotionMap" parameterType="map">
     select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr, p.lat, p.lng,
-    (((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
-  -radians(127.02810003919578))+sin(radians(37.494533687556945))*sin(radians(p.lat)))))*1000)
+    (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
+  -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter
   from promotion p inner join tcher t on p.tno = t.tno
   having meter <![CDATA[ < ]]> 3000
@@ -48,9 +48,9 @@
 
   </select>
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
-(((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
-  -radians(127.02810003919578))+sin(radians(37.494533687556945))*sin(radians(p.lat)))))*1000)
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+(((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
+  -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter 
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
@@ -59,7 +59,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
   LIMIT 0,3000
   </select>
   <select id="latLonList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter 
