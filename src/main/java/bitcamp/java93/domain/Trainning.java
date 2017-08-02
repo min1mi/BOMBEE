@@ -1,6 +1,7 @@
 package bitcamp.java93.domain;
 
 public class Trainning extends Trainer{
+  int pno;
   String title;
   int pric;
   String content;

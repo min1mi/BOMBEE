@@ -37,12 +37,12 @@ public class PromotionServiceImpl implements PromotionService {
   
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-  public void update(Promotion promotion) throws Exception {
-    int count = promotionDao.update(promotion);
-    if (count < 1) {
-      throw new Exception(promotion.getPno() + "번 프로모션을 찾을 수 없습니다.");
-    }
-  }
+//  public void update(Promotion promotion) throws Exception {
+//    int count = promotionDao.update(promotion);
+//    if (count < 1) {
+//      throw new Exception(promotion.getPno() + "번 프로모션을 찾을 수 없습니다.");
+//    }
+//  }
   
 //  private void insertPhoto(int promotionNo, List<String> photoPathList) {
 //    if (photoPathList == null)
@@ -65,6 +65,12 @@ public class PromotionServiceImpl implements PromotionService {
     if (count < 1) {
       throw new Exception(no + "번 프로모션을 찾을 수 없습니다.");
     }
+  }
+
+  @Override
+  public void update(Promotion promotion) throws Exception {
+    // TODO Auto-generated method stub
+    
   }
 
 

@@ -18,8 +18,9 @@ var markerImage
 var marker
 var toggleAddr = ''
 var proAllObject = []
-var seoul = 'http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902'
-var guro = 'http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654'
+var seoul 
+var guro
+var dong
 var searchAddr
 var promotion = {}
 var addClass = $('.add-class')
@@ -31,7 +32,8 @@ var siContainer = $("#si-container")
 var dongContainer = $('#dong-container')
 var teacherOrPromotion = 0
 var modeMapList = 0
-var find = []
+var findLat
+var findLon
 
 $(function(){
 	mapHeader.click(function (){
@@ -78,22 +80,27 @@ $(function(){
 
 	$( codeContainer )
 	  .change(function() {
+		$('.selected').remove();
 	    admCode=$( "#code-container option:selected").val();
-	    searchAddr = $("#code-container option:selected").text();
-	    $('.selected').remove();
+	    seoul = $("#code-container option:selected").text();
 	    cityList('city');
 	  })
 	  $(siContainer)
 	  .change(function() {
+
+		 $('#dong-container  .selected').remove();
 	    admCode=$( "#si-container option:selected").val();
-	    searchAddr += ' '+$("#si-container option:selected").text();
+	     guro = $("#code-container option:selected").text();
 	    cityList('dong');
 	    
 	    // 동은 옵션에 dong을 주고 누를때마다 삭제하게 만들어야함  $('.dong').remove()사용
 	  })
 	  $(dongContainer).change(function() {
-		  searchAddr += ' '+$("#si-container option:selected").text();
+		  dong = $("#dong-container option:selected").text();
+		  searchAddr = seoul + ' ' + guro + ' ' + dong;
 		  searchAddress(searchAddr)
+		  
+		  
 	  })
 	
 	$(".fa-dot-circle-o").click(function(){ 
@@ -114,7 +121,7 @@ var geocoder = new daum.maps.services.Geocoder();
 $('#map').css('height', screen.availHeight-207+'px')
 
 getData(json, types, '') //처음엔 '#map-template' 스크립트와 생성될 div가 없어서 연결될 애가없음으로 ''을줌
-getData(seoul, '#codeList', '#code-container')
+getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902', '#codeList', '#code-container')
 
 
 function GPSFind(){
@@ -123,12 +130,12 @@ function GPSFind(){
 	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
 	    navigator.geolocation.getCurrentPosition(function(position) {
 	        
-	        var lat = position.coords.latitude, // 위도
-	            lon = position.coords.longitude; // 경도
-	    	find.push(lat)
-	    	find.push(lon)
-	        
-	        var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+	        findLat = position.coords.latitude // 위도
+	        findLon = position.coords.longitude; // 경도
+	        console.log(findLat)
+	        console.log(findLon)
+
+	        var locPosition = new daum.maps.LatLng(findLat, findLon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 	            message = ''; // 인포윈도우에 표시될 내용입니다
 	            
 	      });
@@ -140,10 +147,13 @@ function GPSFind(){
 	$.ajax({
 		type: 'post' ,
 		url: '/promotion/gps.json' ,
-		data: find,
-		dataType : 'list' ,
+		data: {
+			'lat': findLat,
+			'lon': findLon,
+			'teacherOrPromotion' : teacherOrPromotion
+		},
+		dataType : 'json',
 		success: function(result) {
-			find = []
 			console.log(result)
 			}
 		});
@@ -330,25 +340,20 @@ function cityList(type){
 	if (type == 'city')
 		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, '#siList', '#si-container')
 	else
-		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=5bde843a55e812c6f1f714&admCode='+admCode, '#siList', '#dong-container')
+		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admDongList.json?authkey=09a445732f975b572bf0c7&admCode='+admCode, '#siList', '#dong-container')
 	}
 
 function searchAddress(searchAddr) {
 	// 주소로 좌표를 검색합니다
 	geocoder.addressSearch(searchAddr, function(result, status) {
-
 	    // 정상적으로 검색이 완료됐으면 
 	     if (status === daum.maps.services.Status.OK) {
-
 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	        map.setCenter(coords);
 	    } 
 	})
 }
-
-
-
 
   function loadData() {
 	setMarkers(null)

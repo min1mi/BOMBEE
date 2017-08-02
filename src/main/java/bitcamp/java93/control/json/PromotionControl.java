@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.domain.Location;
 import bitcamp.java93.service.PromotionService;
 
 @RestController
@@ -29,6 +30,11 @@ public class PromotionControl {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.trainerList());
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("gps")
+  public void gps(Location local) throws Exception {
+   System.out.println(local);
   }
   
 //  @RequestMapping("detail")

@@ -5,8 +5,20 @@
 <mapper namespace="bitcamp.java93.dao.PromotionDao">
 
   <resultMap type="promotion" id="promotionMap">
+        <id column="pno" property="pno" />
+        <result column="titl" property="title" />
+        <result column="pric" property="pric" />
+        <result column="content" property="content" />
+        <result column="sdt" property="sdt" />
+        <result column="tno" property="tno" />
+        <result column="type" property="type" />
+        <result column="COMADDR" property="comaddr" />
+        <result column="lat" property="lat"/>
+        <result column="lng" property="lng"/>
+        <result column="meter" property="meter"/>
+        <result column="name" property="name"/>
+    <collection property="promotionList" ofType="Trainning">
 		    <id column="pno" property="pno" />
-    <collection property="ptomotionList" ofType="Trainning">
 				<result column="titl" property="title" />
 				<result column="pric" property="pric" />
 				<result column="content" property="content" />
@@ -28,8 +40,11 @@
   AS meter
   from promotion p inner join tcher t on p.tno = t.tno
   having meter <![CDATA[ < ]]> 1500
+  ORDER BY meter 
+  LIMIT 0,1500
+
+
   </select>
-  
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
     SELECT  p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type,
 (((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
@@ -38,6 +53,8 @@
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
   having meter <![CDATA[ < ]]> 1500
+  ORDER BY meter 
+  LIMIT 0,1500
   </select>
   
 </mapper>
