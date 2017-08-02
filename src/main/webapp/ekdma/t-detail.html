@@ -6,23 +6,18 @@
   <title>프로필</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
   <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../css/bombee.css'>
-  <link rel='stylesheet' href='../css/ekdma4.css'>
+  <link rel='stylesheet' href='../css/t-detail.css'>
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
   <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+  <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script type="text/javascript">
-	  $(document).ready(function() {
-	    $('.header').load('../menu/new.html')
-	  })
+    $(document).ready(function() {
+      $('.header').load('../menu/new.html')
+    })
     </script>
-  <style>
-    svg {
-      margin: 5% 0% 0% 0%;
-      width:35%;
-    }
-
-  </style>
 </head>
 
 <body>
@@ -33,57 +28,11 @@
     <div>
 
 
-      <div class="proro-pic"><image class="proro-pic1" style="width : 100%" src="proro.jpg"></div>
-        <div class="cont-box">
-        </div>
-        <h1 class="t-name">라자르</h1>
-  <!-- <div class="dnawlrdu">
-        <svg viewbox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <clipPath id="hexClip">
-              <polygon points="50 1 99 25 99 75 50 99 1 75 1 25"/>
-            </clipPath>
-          </defs>
-          <image class="pro-pic" xlink:href="https://mblogthumb-phinf.pstatic.net/20150722_180/zpaxm20_1437550649646j1LoB_JPEG/1423579188602.jpg?type=w2" x="-25" width="150" height="100" clip-path="url(#hexClip)"/>
-        </svg>
-  </div>
-</div> -->
-    <!-- <div class="cont-box cb2">
-    </div> -->
+      <div class="proro-pic"><image class="proro-pic1" style="width : 100%" src="../image/proro.jpg"></div>
+      <div id="detail-container">
+      </div>
 
-      <div class="info"><!--정보부랴부랴-->
-        <div>나에게 주어진 마약은 운동에 뿐이야</div>
-        <div style='padding-left:3%'>
-          <strong>경력사항</strong>
-          <table style='margin-top:5%'>
-            <tbody>
-              <tr><td><strong>2013.12</strong></td><td style='padding-left:30px'>헬스 어쩌구 저쩌구</td></tr>
-              <tr><td><strong>2010.20</strong></td><td style='padding-left:30px'>홍길동 어쩌구</td>
-                <tr><td><strong>2013.12</strong></td><td style='padding-left:30px'>헬스 어쩌구 저쩌구</td></tr>
-                <tr><td><strong>2010.20</strong></td><td style='padding-left:30px'>홍길동 어쩌구</td>
-                  <tr><td><strong>2013.12</strong></td><td style='padding-left:30px'>헬스 어쩌구 저쩌구</td></tr>
-                  <tr><td><strong>2010.20</strong></td><td style='padding-left:30px'>홍길동 어쩌구</td>
-            </tbody>
-        </table>
-        </div>
-        <div style='padding-left:3%'>
-          <strong>특이사항</strong>
-            <table style='margin-top:5%'>
-              <tbody>
-                <tr><td><strong>2011</strong></td><td style='padding-left:30px'>제4회 아시아송 페스티벌 신인상</td></tr>
-                <tr><td><strong>2009~2011</strong></td><td style='padding-left:30px'>제22회 골든디스크 신인상, 인기상</td>
-              </tbody>
-            </table>
-        </div>
-      </div>
-      <div>
-        <div class="t-text"><p>최강헬스</p>  </div>
-        <div class="t-map">
-          <image class="t-map-pic" src="t-map1.png">
-        </div>
-      </div>
-      <div class="cont-box1">
-      </div>
+
       <center><h3>진행중 프로모션<h3></center>
       <div class="sl">
         <div class="sl1">
@@ -267,17 +216,24 @@
 </div>
 
 
-
-<script>
-jQuery(document).ready(function($){
-
-$(".pro-t-Btn").click(function(){
-$(".t-t-table").slideToggle(400);
-});
-})
-
-
+<script id="detail-template" type="text/x-handlebars-template">
+  <div class="cont-box">
+  </div>
+  <div><h1 class="t-name">{{name}}</h1><h3 class="t-spono">헬스</h3></div>
+  <div class="info">{{introduction}}</div>
+  <div>
+    <div class="t-text">위치 : {{comname}}</div>
+    <div class="t-map">
+        <image class="t-map-pic" src="../image/t-map.png">
+    </div>
+  </div>
+  <div class="cont-box1">
+  </div>
 </script>
+
+
+<script type="text/javascript" src="../js/t-detail.js"></script>
+
 
 </body>
 </html>

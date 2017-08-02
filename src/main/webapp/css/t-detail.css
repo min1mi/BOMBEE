@@ -29,7 +29,10 @@
   overflow: hidden;
 }
 .info {
-  margin-top: -30%;
+  width : 80%;
+  margin: -30% 0% 0% 10%;
+  height: 400px;
+  overflow:visible;
   /*border: 1px brown solid;*/
 }
 .proro-pic {
@@ -60,7 +63,7 @@ margin-top: -40%;
   display: inline-block;
   /*position: absolute;*/
   float: left;
-  margin: -46% 0% 0% 2%;
+  margin: -45% 0% 0% 2%;
   font-weight: bold;
 }
 .cb2 {
@@ -133,20 +136,22 @@ margin-top: -40%;
 	display: block;
 }
 .d-bottom-Btn {
+  padding-bottom: 6%;
   margin-top: 5%;
   margin-left: 2%;
   width: 100%;
 }
 .pro-qa-Btn {
-  width: 35%;
+  width: 34%;
 
 }
 .pro-add-Btn {
   margin-left: 1%;
-  width: 35%;
+  width: 34%;
 }
 .pro-t-Btn {
-  margin-left: 1%;
+  margin: -2% 0% 0% 1%;
+
   width: 25%;
 }
 
@@ -175,19 +180,25 @@ td {
 }
 .t-text {
   /*border: 1px solid red;*/
-  width : 44%;
+  width : 58%;
   font-weight: bold;
   display: inline-block;
   font-size: 2.5rem;
-  margin: 15% 0% 0% 4%;
+  margin: 0% 0% 0% 5%;
 }
 .t-map {
   /*border: 1px solid red;*/
-  margin: 0% 0% 0% 15%;
+  margin: -8% 7% 0% 0%;
   display: inline-block;
   width : 30%;
+  float: right;
 }
 .t-map-pic {
   width : 100%;
-  margin: 0% 0% 0% 0%;
+
 }
+  .t-spono{
+    /*border: 1px solid red;*/
+    margin : -45% 5% 0% 0%;
+    float: right;
+  }

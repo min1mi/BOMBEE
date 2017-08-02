@@ -55,16 +55,15 @@
 
     <script id="tmdduf-template" type="text/x-handlebars-template">
       {{#each schedule}}
-      <div id='{{day}}' class="pro1">{{dateDay}}
-        <div class='pro'>
-        {{#each time}}
-          {{#if date}}
-              <div class="pro-time" value="{{date}}">{{date}}</div>
-          {{^}}
-              <div class="pro-time" value=""> </div>
-          {{/if}}
-
-        {{/each}}
+        <div id='{{day}}' class="pro1">{{dateDay}}
+          <div class='pro'>
+          {{#each time}}
+            {{#if date}}
+                <div class="pro-time" value="{{date}}">{{date}}</div>
+            {{^}}
+                <div class="pro-time" value=""> </div>
+            {{/if}}
+          {{/each}}
         </div>
       </div>
 

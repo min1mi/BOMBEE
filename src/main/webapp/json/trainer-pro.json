@@ -1,0 +1,12 @@
+{
+  "trainer" : [
+    { "spono": "헬스",
+      "name" : "MON",
+      "comname" : "비트헬스",
+      "zipcode" : "1000",
+      "comaddr" : "서울특별시",
+      "comdetailaddr" : "비트캠프",
+      "introduction" :  "안녕하십니까"
+    }
+  ]
+}

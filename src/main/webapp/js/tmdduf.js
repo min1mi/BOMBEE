@@ -20,21 +20,13 @@ $(function() {
 function generateTemplate() {
   $.getJSON('../json/tmdduf.json', function(result) {
     // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-    var templateFn = Handlebars.compile($('#tmdduf-template').text())
-    var templateFn1 = Handlebars.compile($('#tmdduf1-template').text())
-    var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+    var templateFn1 = Handlebars.compile($('#profile-template').text())
     var generatedHTML1 = templateFn1(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-    var container = $('#tmdduf-container')
-    var container1 = $('#tmdduf1-container')
-    var html = container.html()
-    container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
+    var container1 = $('#profile-container')
+
     var html1 = container1.html()
     container1.html(html1 + generatedHTML1) // 새 tr 태그들로 설정한다.      })
 
-    clickPro();
-    clickPro1();
-    $("#tmdduf-container #mon").css("background-color","#f7ac1a");
-    $("#tmdduf-container #mon .pro").show();
   })
 }
 function clickPro() {
