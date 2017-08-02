@@ -26,7 +26,7 @@
     select  m.mno, m.name, m.email, m.mtype,
     				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
     from tcher t inner join memb m on t.tno=m.mno
-    where email=#{email} and pwd=password(#{password})
+    where id=#{id} and pwd=password(#{pwd})
   </select>
   
   <insert id="insert" parameterType="trainer">

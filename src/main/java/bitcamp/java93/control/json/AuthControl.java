@@ -25,18 +25,20 @@ public class AuthControl {
   MemberService memberService;
 
   @RequestMapping(path="login", method=RequestMethod.POST) // POST 요청이 들어왔을 때 호출
-  public JsonResult login(int membertype, String email, String password, 
+  public JsonResult login(int membertype, String id, String pwd, 
      Model model, HttpSession session) throws Exception {
-
+    System.out.println(membertype);
     Member member = null;
     Trainer trainer = null;
 
     if (membertype == 1) {
       //         studentService 객체를 사용하여 로그인 처리
-      member = memberService.getByEmailPassword(email, password, membertype);
+      member = memberService.getByEmailPassword(id, pwd);
+      System.out.println(member);
 
     } else if (membertype == 2) {
-      trainer = trainerService.getByEmailPassword(email, password, membertype);
+      trainer = trainerService.getByEmailPassword(id, pwd);
+      System.out.println(trainer);
     }
 
     //      MemberService memberService = (MemberService)this.getServletContext().getAttribute("memberService");

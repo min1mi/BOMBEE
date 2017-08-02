@@ -39,7 +39,7 @@ $('#add-btn').on('click', function() {
       'name': fiName.val(),
       'pwd': fiPassword.val(),
       'accounttype': joinType,
-      'mtype': joinType
+      'membertype': joinType
       
     }, function(result) {
       location.href = '../main/main.html'
@@ -56,7 +56,7 @@ $('#add-btn').on('click', function() {
       'comaddr': fiComaddr.val(),
       'comdetailaddr': fiComdetailaddr.val(),
       'accounttype': joinType,
-      'mtype': joinType
+      'membertype': joinType
       
     }, function(result) {
       location.href = '../main/main.html'

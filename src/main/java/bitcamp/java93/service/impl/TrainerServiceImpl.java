@@ -23,11 +23,10 @@ public class TrainerServiceImpl implements TrainerService {
   }
 
   @Override
-  public Trainer getByEmailPassword(String email, String password, int membertype) throws Exception {
+  public Trainer getByEmailPassword(String id, String pwd) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("email", email);
-    valueMap.put("password", password);
-    valueMap.put("membertype", membertype);
+    valueMap.put("id", id);
+    valueMap.put("pwd", pwd);
     
     return trainerDao.selectOneByEmailPassword(valueMap);
   }

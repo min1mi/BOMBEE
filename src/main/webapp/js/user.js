@@ -3,15 +3,16 @@ $(function() {
   $('.header').load('../menu/new.html')
 
   generateTemplate();
-
   date(current);
-
   dateClick();
   slideDate();
 
-
 });
 
+$('#foodAddBtn').on('click', function() {
+  
+  $.post('/')
+})
 
 var startDate,
 endDate;
@@ -71,6 +72,7 @@ function generateTemplate() {
 
       date(current)
       autoSelect(moment(current._i))
+      inputMeal()
     })
 }
 
@@ -171,9 +173,40 @@ function prevCalendar() {
   generateTemplate()
 }
 
+var container = $('.input-food-container'),
+backscreen = $('.backscreen');
+
+
 function inputMeal() {
-  $('.input-food-container').toggle()
+  $('.input-meal').on('click', function() {
+    if(container.attr('data-open') == 'close') {
+      backscreen.show()
+      container.show()
+      container.attr('data-open', 'open')
+    } 
+  })
+  backscreen.on('click', function() {
+    backscreen.hide()
+    container.hide()
+    container.attr('data-open', 'close')
+  })
+//$('#inputMeal').on('click', function() {
+//if(container.attr('data-open') == 'close') {
+//backscreen.show()
+//container.toggle()
+//container.attr('data-open', 'open')
+//} 
+
+//backscreen.on('click', function() {
+//backscreen.hide()
+//container.toggle()
+//container.attr('data-open', 'close')
+//})  
+//})
+
+
 }
+
 
 var delX;
 var delY;

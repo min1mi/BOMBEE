@@ -7,21 +7,19 @@
 	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
-	<link rel="stylesheet" href="../list/dist/css/swiper.min.css">
 	<link rel='stylesheet' href='../css/bombee.css'>
 	<link rel='stylesheet' href='../css/user.css'>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 	<script src="../node_modules/moment/min/moment.min.js"></script>
 	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="../node_modules/swiper/dist/js/swiper.jquery.min.js"></script>
 </head>
 
 <body>
 	<div class='user-container'>
 		<div class='header'></div>
 
-		<div class='week-container clearfix '>
+		<div class='slider-container week-container clearfix '>
 			<div class="tab-slider--nav">
 				<div class='info'>
 					<div class='username'>
@@ -82,20 +80,25 @@
 			<!--날짜 끝-->
 			<div id='meal-container' class='clearfix tab-slider--container info-container'></div>
 
-			<div class='input-food-container' style='display: none'>
-				<div class='input-food'>
-					<input id="files" class='food-img' type="file"> <label class='food-img-form' for="files"> <span class="add-image">
-							Add <br> Image
-					</span>
-					</label> <input class='food-name' type="text" placeholder='Food Name'>
-					<input class='food-kcal' type='text' placeholder='Food Kcal'>
-					<button id='foodAddBtn' type='button' class='foodAddBtn btn'>Add
-						Food</button>
-				</div>
-			</div>
 		</div>
-
 	</div>
+
+
+
+<!-- 토글 -->	
+<div class='backscreen'></div> 
+<div class='input-food-container' data-open='close' style='display: none'>
+		<div class='input-food'>
+			<input id="files" class='food-img' type="file"> <label class='food-img-form' for="files"> <span class="add-image">
+					Add <br> Image
+			</span>
+			</label> <input class='food-name' type="text" placeholder='Food Name'>
+			<input class='food-kcal' type='text' placeholder='Food Kcal'>
+			<button id='foodAddBtn' type='button' class='foodAddBtn btn'>Add
+				Food</button>
+		</div> 
+</div>
+			
 
 	<script id="user-template" type="text/x-handlebars-template">
 		{{#each mealList}}
@@ -116,9 +119,9 @@
 				<span class='kcal'>kcal</span>
 			</div>
 			{{else}}
-			<div class='input-meal' onClick=inputMeal()>
+			<div class='input-meal' >
 				<center>
-					<div class="fa fa-camera camara-size"></div>
+					<div class="fa fa-camera camera-size"></div>
 				</center>
 			</div>
 			{{/if}} {{/each}}

@@ -15,14 +15,17 @@
   .tab-slider--body > div {
     height: 109px;
   }
-  .user-container .input-food .food-img-form {
+  .input-food .food-img-form {
   	height: 235px;
 	}
-	.user-container .input-food-container {
+	.input-food-container {
 		height: 343px;
 	}
-	.user-container .input-food .food-img {
+  .input-food .food-img {
 	  height: 235px;
+	}
+	.input-food-container {
+		margin-top: 50%;
 	}
 }
 /*iphone6*/
@@ -42,14 +45,17 @@
   .tab-slider--body > div {
     height: 133px;
   }
-  .user-container .input-food .food-img-form {
+  .input-food .food-img-form {
   	height: 299px;
 	}
-	.user-container .input-food-container {
+	.input-food-container {
 		height: 425px;
 	}
-	.user-container .input-food .food-img {
+	.input-food .food-img {
 	  height: 299px;
+	}
+	.input-food-container {
+		margin-top: 46%;
 	}
 }
 /*iphone6 plus*/
@@ -68,19 +74,24 @@
   .tab-slider--body > div {
     height: 150px;
   }
-  .user-container .input-food .food-img-form {
+  .input-food .food-img-form {
   	height: 312px;
 	}
-	.user-container .input-food-container {
+	.input-food-container {
 		height: 460px;
 	}
-	.user-container .input-food .food-img {
+	.input-food .food-img {
 	  height: 312px;
+	}
+	.input-food-container {
+		margin-top: 44%;
 	}
 }
 /*@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.eot');}
 @font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.woff') format('woff');}*/
-
+body{
+	position relative;
+}
 .user-container {
   /*font-family: "UhBeepuding", serif;*/
   height: 100%;
@@ -298,17 +309,19 @@
   right: -8%;
 }
 
-.user-container .input-food-container {
+.input-food-container {
 	position: absolute;
 	background-color: #f3f3f3;
 	width: 85.5%;
+	height: 63%;
 	top: 0;
 	left: 7.25%;
 	border-radius: 10px;
 	padding: 2% 2% 0 2%;
-	margin-top: 54%;
+	z-index: 20;
 }
-.user-container .input-food {
+
+.input-food {
 	/*display: none;*/
   display: inline-block;
   height: 100%;
@@ -316,18 +329,18 @@
   top: 20%;
 }
 
-.user-container .input-food .food-img {
+.input-food .food-img {
   opacity: 0; /*This*/
   position: absolute;
   width: 96%;
   cursor: pointer;
 }
 
-.user-container .input-food .food-img-form {
+.input-food .food-img-form {
   width: 100%;
 }
 
-.user-container .input-food label {
+.input-food label {
   color: #5F626A;
   cursor: pointer;
   display: block;
@@ -337,14 +350,15 @@
   transition: background ease .5s;
   pointer-events: none; /*This for FF*/
 }
-.user-container .add-image {
+.add-image {
   display: block;
   width: 100%;
   margin: 38% auto;
   text-align: center;
   font-size: 1.5rem;
 }
-.user-container .food-name, .food-kcal {
+
+.food-name, .food-kcal {
 	padding: 2% 0 2% 2%;
 	position: absolute;
 	border: 2px solid black;
@@ -356,15 +370,15 @@
 	font-size: 1.4rem;
 }
 
-.user-container .food-name {
+.food-name {
 	left: 0;
 }
 
-.user-container .food-kcal {
+.food-kcal {
 	right: 0;
 }
 
-.user-container .foodAddBtn {
+.foodAddBtn {
 	position: absolute;
 	width: 50%;
 	font-size: 1.4rem;
@@ -375,14 +389,21 @@
 	left: 25%;
 }
 
-.user-container .camara-size {
+.camera-size {
 	width: 100%;
 	font-size: 5rem;
 	margin-top: 12%;
 }
 
-
-
+.backscreen {
+	position: absolute;
+	top: 0;
+	display: none;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 15;
+}
 
 
 

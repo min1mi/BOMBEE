@@ -21,7 +21,7 @@
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
     select *
     from memb
-    where email=#{email} and pwd=password(#{password})
+    where id=#{id} and pwd=password(#{pwd})
   </select>
   
   <insert id="insert" parameterType="member" 
