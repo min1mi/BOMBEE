@@ -39,7 +39,6 @@ public class PromotionControl {
   public JsonResult gps(Location local) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.LatLonList(local));
-   System.out.println(dataMap);
    if(local.getTeacherOrPromotion() == 0) {
      
    }
