@@ -9,12 +9,53 @@
     });
   });
 
-  $('#summernote').summernote({
-    height: 150, // set editor height
-    minHeight: null, // set minimum height of editor
-    maxHeight: null, // set maximum height of editor
-   });
+  var address = $('.addressIn').text()
+  
+  var titl = $('.titleIn')
+  var pric = $('.priceIn')
+  var content = $('.promotionText')
+  var sdt = $('.dateStart')
+  var edt = $('.dateEnd')
+//  var sdt = null
+//  var edt = null
+  var tno = 1
+  var lat = 0
+  var lng = 0
+  var type = 1
+  
+// 다음맵: 주소 -> 위도, 경도 
+  var geocoder = new daum.maps.services.Geocoder();
+  var callback = function(result, status) {
+    if (status === daum.maps.services.Status.OK) {
+        // console.log(result);
+        // console.log(result[0]);
+        console.log(result[0].y);
+        lat = result[0].y
+        console.log(result[0].x);
+        lng = result[0].x
+    }
+  };
+  geocoder.addressSearch(address, callback);
+// 다음맵 끝 
+  
+  $('.save').on('click', function() {
 
-  function closeAlert() {
-    alert('따당');
-  }
+	  
+	  $.post('/promotion/add.json', {
+		  'titl' : titl.val(),
+		  'pric' : pric.val(),
+		  'content' : content.val(),
+		  'sdt' : sdt.val(),
+		  'edt' : edt.val(),
+		  'tno' : tno,
+		  'lat' : lat,
+		  'lng' : lng,
+		  'type' : type
+		  
+	  }, function(result) {
+//	    location.href = '../management/user.html'     
+	  }, 'json')
+	})
+	
+	
+	

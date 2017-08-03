@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java93.domain.Location;
+import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.service.PromotionService;
 
 @RestController
@@ -43,6 +44,15 @@ public class PromotionControl {
      
    }
    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("add")
+  public JsonResult add(Promotion promotion) throws Exception {
+  	System.out.println("Control");
+  	System.out.println(promotion);
+  	System.out.println(promotion.getTitl());
+  	promotionService.add(promotion);
+  	return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
 //  @RequestMapping("detail")

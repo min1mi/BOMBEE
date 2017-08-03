@@ -10,6 +10,7 @@
         <result column="pric" property="pric" />
         <result column="content" property="content" />
         <result column="sdt" property="sdt" />
+        <result column="edt" property="edt" />
         <result column="tno" property="tno" />
         <result column="type" property="type" />
         <result column="COMADDR" property="comaddr" />
@@ -24,6 +25,7 @@
 				<result column="pric" property="pric" />
 				<result column="content" property="content" />
 				<result column="sdt" property="sdt" />
+				<result column="edt" property="edt" />
 				<result column="tno" property="tno" />
 				<result column="type" property="type" />
 				<result column="COMADDR" property="comaddr" />
@@ -69,6 +71,12 @@ FROM memb m left join tcher t  on t.tno = m.mno
   ORDER BY meter 
   LIMIT 0,3000
   </select>
+  
+  <insert id="insert" parameterType="promotion">
+    insert into promotion(titl, pric, content, tno, lat, lng, type , sdt, edt)
+    values( #{titl}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{type}, #{sdt}, #{edt}) 
+  </insert>
+  
 </mapper>
 
 

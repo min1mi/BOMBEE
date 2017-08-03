@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 
-  <!-- summernote -->
-  <link href="../node_modules/summernote/dist/summernote.css" rel="stylesheet">
-
   <link rel='stylesheet' href='../css/promotionAdd.css'>
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/bombee.css'>
@@ -23,7 +20,7 @@
     <!-- header -->
 
     <div class='projectAdd-top'>
-      <div class='topClose' onclick="closeAlert()">
+      <div class='topClose' >
         <i class="fa fa-times" aria-hidden="true"></i>
       </div>
 
@@ -31,11 +28,11 @@
         <button class='tempText' disabled>임시글 0</button>
       </div>
 
-      <div class='save' onclick="closeAlert()">
+      <div class='save' >
         등록
       </div>
 
-      <div class='tempSave' onclick="closeAlert()">
+      <div class='tempSave' >
         임시저장
       </div>
     </div>
@@ -91,7 +88,7 @@
     </div>
 
     <div class='projectAdd-textArea' >
-      <textarea placeholder="프로모션 내용을 등록해 주세요"></textarea>
+      <textarea class='promotionText' placeholder="프로모션 내용을 등록해 주세요"></textarea>
     </div>
     <!-- projectAdd-textArea -->
 
@@ -100,9 +97,7 @@
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src='../node_modules/jquery-ui-dist/jquery-ui.min.js'></script>
-
-  <script src="../node_modules/summernote/dist/summernote.js"></script>
-
+  <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e93af6b0f8e2ad445bda7e9b6a416ad1&libraries=services"></script>
   <script src="../js/promotionAdd.js"></script>
   <script>
   var textHeight = screen.availHeight-355-100;
