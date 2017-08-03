@@ -84,7 +84,7 @@
   <div class="mainselection">
   <i class="fa fa-chevron-circle-down fa1" aria-hidden="true"></i>
   <select id='code-container'>
-    <option>지역 선택</option>
+    <option id='first'>지역 선택</option>
   </select>
 </div>
 <div class="mainselection">
@@ -121,11 +121,13 @@
   <script id='list-template' type="text/x-handlebars-template">
    {{#each list}} {{#type promotionList}}
         {{#each promotionList}}
-       <div class='list-div' value={{pno}}>
-      <div id='list-title'>{{title}}</div>
-       <div>
-        <div class='inline-block address'>{{comaddr}}</div>
-        <div class='inline-block meter'>{{meter}}M</div>
+       <div class='list-pro list-div' value={{pno}}>
+        <div class='img-div'>
+          <img class='pro-img' src='../image/1.jpg'>
+        </div>
+      <div id='list-title1'>{{title}}</div>
+       <div id='list-height'>
+        <div class='inline-block meter1'>{{meter}}M</div>
        </div>
       </div>
           {{/each}}
@@ -137,7 +139,7 @@
     <script id='tlist-template' type="text/x-handlebars-template">
    {{#each list}} {{#type promotionList}}
         {{#each promotionList}}
-       <div class='list-div' value='{{tno}}'>
+       <div class='list-tra list-div' value='{{tno}}'>
      <div>
       <div id='inline-block' class='list-title'>{{title}}</div>
       <div id='inline-block' class='list-name'>강사이름: {{name}}</div>
@@ -157,7 +159,7 @@
   </script>
   <script id='codeList' type="text/x-handlebars-template">
   {{#each admVOList.admVOList}}
-    <option value='{{admCode}}' class='clicked'>{{admCodeNm}}</option>
+    <option value='{{admCode}}'>{{admCodeNm}}</option>
   {{/each}}
 </script>
 

@@ -102,6 +102,7 @@ $(function(){
 	
 	$(".fa-dot-circle-o").click(function(){ 
 		$('.clicked').remove()
+		$('#first').attr('selected')
 		GPSFind()
 		  })
 		})
