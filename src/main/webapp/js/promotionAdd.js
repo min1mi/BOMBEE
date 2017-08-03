@@ -11,27 +11,23 @@
 
   var address = $('.addressIn').text()
   
-  var titl = $('.titleIn')
+  var title = $('.titleIn')
   var pric = $('.priceIn')
   var content = $('.promotionText')
   var sdt = $('.dateStart')
   var edt = $('.dateEnd')
-//  var sdt = null
-//  var edt = null
   var tno = 1
   var lat = 0
   var lng = 0
   var type = 1
   
+  var img =111
+  
 // 다음맵: 주소 -> 위도, 경도 
   var geocoder = new daum.maps.services.Geocoder();
   var callback = function(result, status) {
     if (status === daum.maps.services.Status.OK) {
-        // console.log(result);
-        // console.log(result[0]);
-        console.log(result[0].y);
         lat = result[0].y
-        console.log(result[0].x);
         lng = result[0].x
     }
   };
@@ -39,10 +35,9 @@
 // 다음맵 끝 
   
   $('.save').on('click', function() {
-
-	  
+	  console.log('save click')
 	  $.post('/promotion/add.json', {
-		  'titl' : titl.val(),
+		  'title' : title.val(),
 		  'pric' : pric.val(),
 		  'content' : content.val(),
 		  'sdt' : sdt.val(),
@@ -50,12 +45,14 @@
 		  'tno' : tno,
 		  'lat' : lat,
 		  'lng' : lng,
-		  'type' : type
+		  'type' : type,
+		  'img' : img
+		  
 		  
 	  }, function(result) {
 //	    location.href = '../management/user.html'     
-	  }, 'json')
+	  },'json')
 	})
 	
-	
+
 	

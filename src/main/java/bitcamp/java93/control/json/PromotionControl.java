@@ -49,10 +49,16 @@ public class PromotionControl {
   public JsonResult add(Promotion promotion) throws Exception {
   	System.out.println("Control");
   	System.out.println(promotion);
-  	System.out.println(promotion.getTitl());
   	promotionService.add(promotion);
   	return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+//  @RequestMapping("add")
+//  public void add(Promotion promotion) throws Exception {
+//  	System.out.println("Control");
+//  	System.out.println(promotion);
+//  	
+//  }
   
 //  @RequestMapping("detail")
 //  public JsonResult detail(int no) throws Exception {

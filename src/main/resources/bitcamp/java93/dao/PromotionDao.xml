@@ -19,6 +19,7 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
+        <result column="img" property="img"/>
     <collection property="promotionList" ofType="Trainning">
 		    <id column="pno" property="pno" />
 				<result column="titl" property="title" />
@@ -72,9 +73,14 @@ FROM memb m left join tcher t  on t.tno = m.mno
   LIMIT 0,3000
   </select>
   
-  <insert id="insert" parameterType="promotion">
+  <insert id="insert" parameterType="promotion" useGeneratedKeys="true" keyColumn="pno" keyProperty="no">
     insert into promotion(titl, pric, content, tno, lat, lng, type , sdt, edt)
-    values( #{titl}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{type}, #{sdt}, #{edt}) 
+    values( #{title}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{type}, #{sdt}, #{edt}) 
+  </insert>
+  
+  <insert id="insertImg" parameterType="promotion">
+    insert into promotionimg(pno, img)
+    values( #{no}, #{img} ) 
   </insert>
   
 </mapper>
