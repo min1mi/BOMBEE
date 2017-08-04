@@ -85,8 +85,9 @@ FROM memb m left join tcher t  on t.tno = m.mno
   <select id="nextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
   select * from promotion
-  where pno <= #{lastNo}
+  where pno < #{lastNo}
   and pno > #{lastNo}-6
+  and pno > 0
   order by pno desc
   ]]>
   </select>
@@ -112,8 +113,10 @@ FROM memb m left join tcher t  on t.tno = m.mno
   <select id="healthNextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
   select * from promotion
-  where pno <= #{lastNo}
+  where pno <= #{lastNo} 
   and pno > #{lastNo}-6
+  and pno > 0  and type = 1
+ 
   order by pno desc
   ]]>
   </select>
@@ -151,6 +154,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
   select * from promotion
   where pno <= #{lastNo}
   and pno > #{lastNo}-6
+  and pno > 0
   and type = 3
   order by pno desc
   ]]>
@@ -161,6 +165,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
   select * from promotion
   where pno <= #{lastNo}
   and pno > #{lastNo}-6
+  and pno > 0
   and type = 2
   order by pno desc
   ]]>
@@ -171,6 +176,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
   select * from promotion
   where pno <= #{lastNo}
   and pno > #{lastNo}-6
+  and pno > 0
   and type = 4
   order by pno desc
   ]]>

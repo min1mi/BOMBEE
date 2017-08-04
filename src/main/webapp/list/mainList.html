@@ -108,11 +108,30 @@
     var lastNo = 0
     var offset = 0
     var no = 0
+    var type = $('.click').children().attr('id')
     var swiper = new Swiper('.swiper-container', {
       loop: true,
       autoplay: 2000,
       autoplayDisableOnInteraction: false
     });
+    $(document).ready(function() {
+    	$(document).bind('touchmove', function(e) {
+    		if (event.touches[0].screenY < 100 ) {
+    			if(type == 'hot-cos') 
+    				json = '/promotion/hot-nextList.json';
+    			else if (type == 'health')
+    				json = '/promotion/health-nextList.json';
+    			else if (type == 'yoga')
+    				json = '/promotion/yoga-nextList.json';
+    			else if (type == 'spinning')
+    				json = '/promotion/spinning-nextList.json';
+    			else
+    				json = '/promotion/pilates-nextList.json';
+    			console.log(json)
+    			getData(json)
+    		}
+		});
+    })
     
     $('.btn').click(()=> {
     	$('.btn').css('color', 'black');
@@ -134,9 +153,13 @@
     			json == '/promotion/health-nextList.json' ||
     			json == '/promotion/spinning-nextList.json' ||
     			json == '/promotion/yoga-nextList.json' ||
-    			json == '/promotion/pilates-nextList.json')
-    			no = $('#last-promotion').attr('value')
-      $('.promotion').remove()
+    			json == '/promotion/pilates-nextList.json') {
+    		
+    			no = $('#last-promotion').attr('value') -1
+    			$('#last-promotion').attr('id', '')
+    			}
+    	else 
+      	$('.promotion').remove()
       $.getJSON(json, {'lastNo' : no}, function(result) {
     	  console.log(result.data)
         // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
@@ -152,12 +175,14 @@
     function borderBottom(category) {
       $('.btn').removeClass('click')
       $(category).parent().addClass('click')
+      type = $('.click').children().attr('id')
     }
     $('#searchMapGo').click(function () {
     	location.href = '../list/searchList.html'
     })
 
     $('#hot-cos').click(() => {
+
       category = '#hot-cos'
       borderBottom(category)
       json = '/promotion/hot-firstList.json'
