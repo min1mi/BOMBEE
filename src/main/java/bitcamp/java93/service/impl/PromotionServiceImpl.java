@@ -82,6 +82,55 @@ public class PromotionServiceImpl implements PromotionService {
     return promotionDao.latLonList(valueMap);
   }
 
+  @Override
+  public List<Promotion> nextList(int lastNo) throws Exception {
+    
+    return  promotionDao.nextList(lastNo);
+  }
+  
+  @Override
+  public List<Promotion> firstList() throws Exception {
+    
+    return  promotionDao.firstList();
+  }
+  
+  @Override
+  public List<Promotion> healthFirstList() throws Exception {
+    
+    return  promotionDao.healthFirstList();
+  }
+  
+  @Override
+  public List<Promotion> healthNextList(int lastNo) throws Exception {
+    return  promotionDao.healthNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> yogaFirstList() throws Exception {
+    return  promotionDao.yogaFirstList();
+  }
+  
+  @Override
+  public List<Promotion> spinningFirstList() throws Exception {
+    return  promotionDao.spinningFirstList();
+  }
+  
+  @Override
+  public List<Promotion> pilatesFirstList() throws Exception {
+    return  promotionDao.pilatesFirstList();
+  }
+  
+  @Override
+  public List<Promotion> yogaNextList(int lastNo) throws Exception {
+    return  promotionDao.yogaNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> pilatesNextList(int lastNo) throws Exception {
+    return  promotionDao.pilatesNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> spinningNextList(int lastNo) throws Exception {
+    return  promotionDao.spinningNextList(lastNo);
+  }
 
 }
 

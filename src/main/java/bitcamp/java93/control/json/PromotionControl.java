@@ -53,6 +53,89 @@ public class PromotionControl {
   	return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
+  @RequestMapping("hot-nextList")
+  public JsonResult nextList(int lastNo) throws Exception {
+    System.out.println(lastNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.nextList(lastNo));
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  @RequestMapping("hot-firstList")
+  public JsonResult firstList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.firstList());
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("health-nextList")
+  public JsonResult healthNextList(int lastNo) throws Exception {
+    System.out.println(lastNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.healthNextList(lastNo));
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  @RequestMapping("health-firstList")
+  public JsonResult healthFirstList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.healthFirstList());
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("yoga-firstList")
+  public JsonResult yogaFirstList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.yogaFirstList());
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("pilates-firstList")
+  public JsonResult pilatesFirstList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.pilatesFirstList());
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("spinning-firstList")
+  public JsonResult spinningFirstList() throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.spinningFirstList());
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("yoga-nextList")
+  public JsonResult yogaNextList(int lastNo) throws Exception {
+    System.out.println(lastNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.yogaNextList(lastNo));
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("pilates-nextList")
+  public JsonResult pilatesNextList(int lastNo) throws Exception {
+    System.out.println(lastNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.pilatesNextList(lastNo));
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("spinning-nextList")
+  public JsonResult spinningNextList(int lastNo) throws Exception {
+    System.out.println(lastNo);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.spinningNextList(lastNo));
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
 //  @RequestMapping("add")
 //  public void add(Promotion promotion) throws Exception {
 //  	System.out.println("Control");

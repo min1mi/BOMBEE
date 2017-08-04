@@ -102,7 +102,7 @@ $(function(){
 	
 	$(".fa-dot-circle-o").click(function(){ 
 		$('.clicked').remove()
-		$('#first').attr('selected')
+		$('#first').prop('selected', 'selected')
 		GPSFind()
 		  })
 		})
@@ -311,6 +311,14 @@ function setMarkers(map) {
     }); 
   
 Handlebars.registerHelper('type', function(promotionList, options) {
+	if (promotionList[0].type == 1)
+		promotionList[0].sport = '헬스';
+	else if (promotionList[0].type == 2)
+		promotionList[0].sport = '스피닝';
+	else if (promotionList[0].type == 3)
+		promotionList[0].sport = '요가';
+	else
+		promotionList[0].sport = '필라테스'
 	console.log(promotionList[0])
 	if (toggleAddr == '') {
 	     if (spoNo != 0) {

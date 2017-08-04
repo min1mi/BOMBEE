@@ -47,8 +47,6 @@
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
-
-
   </select>
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
@@ -82,6 +80,101 @@ FROM memb m left join tcher t  on t.tno = m.mno
     insert into promotionimg(pno, img)
     values( #{no}, #{img} ) 
   </insert>
+  
+  
+  <select id="nextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="firstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="healthFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 1
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="healthNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="spinningFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 2
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  
+  <select id="yogaFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 3
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="pilatesFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 4
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="yogaNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and type = 3
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="spinningNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and type = 2
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="pilatesNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and type = 4
+  order by pno desc
+  ]]>
+  </select>
   
 </mapper>
 

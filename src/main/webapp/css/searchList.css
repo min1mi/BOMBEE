@@ -57,7 +57,12 @@ body {
   justify-content: center;
   width:100%;
 }
-
+.sport {
+	height: 20px;
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .radio-tile-group .input-container {
   position: relative;
   height: 30px;
