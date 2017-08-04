@@ -1,5 +1,7 @@
 package bitcamp.java93.control.json;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,5 +48,10 @@ public class TrainerControl {
   public JsonResult update(Trainer trainer) throws Exception {
     trainerService.update(trainer);
     return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  
+  private Trainer getLoginTrainer(HttpSession session) {
+    Trainer loginMember = (Trainer) session.getAttribute("loginMember");
+    return loginMember;
   }
 }

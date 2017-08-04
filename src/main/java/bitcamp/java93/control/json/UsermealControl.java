@@ -2,10 +2,13 @@ package bitcamp.java93.control.json;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Usermeal;
 import bitcamp.java93.service.UsermealService;
 
@@ -24,11 +27,18 @@ public class UsermealControl {
   }
   
   @RequestMapping("usermeal-add")
-  public JsonResult add(Usermeal usermeal) throws Exception {
-    System.out.println("imcoming");
-    usermealService.add(usermeal);
-    System.out.println("datacoming");
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+  public JsonResult add(Usermeal usermeal, HttpSession session) throws Exception {
+    if (getLoginMember(session).getMembertype() == 1) {
+      usermealService.add(usermeal);
+      return new JsonResult(JsonResult.SUCCESS, "ok");
+    } else {
+      return new JsonResult(JsonResult.SUCCESS, "trainer");
+    }
+    
   }
   
+  private Member getLoginMember(HttpSession session) {
+    Member loginMember = (Member) session.getAttribute("loginMember");
+    return loginMember;
+  }
 }

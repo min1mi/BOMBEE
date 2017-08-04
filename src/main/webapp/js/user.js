@@ -6,13 +6,12 @@ $(function() {
   date(current);
   dateClick();
   slideDate();
-
 });
 
-$('#foodAddBtn').on('click', function() {
-  
-  $.post('/')
-})
+//$('#foodAddBtn').on('click', function() {
+//  
+//  $.post('/')
+//})
 
 var startDate,
 endDate;
@@ -115,38 +114,17 @@ function autoSelect(moment) {
   var dayNo = moment.weekday()
   $('.tab-slider--tabs').removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
   $(".tab-slider--body").hide();
-  if(dayNo == 0) {
-    $('.day0').addClass("active");
-    $("#day0").show();
-  } else if(dayNo == 1){
-    $('.tab-slider--tabs').addClass('slide1');
-    $('.day1').addClass("active");
-    $("#day1").show();
-  } else if(dayNo == 2){
-    $('.tab-slider--tabs').addClass('slide2');
-    $('.day2').addClass("active");
-    $("#day2").show();
-  } else if(dayNo == 3){
-    $('.tab-slider--tabs').addClass('slide3');
-    $('.day3').addClass("active");
-    $("#day3").show();
-  } else if(dayNo == 4){
-    $('.tab-slider--tabs').addClass('slide4');
-    $('.day4').addClass("active");
-    $("#day4").show();
-  } else if(dayNo == 5){
-    $('.tab-slider--tabs').addClass('slide5');
-    $('.day5').addClass("active");
-    $("#day5").show();
-  } else if(dayNo == 6){
-    $('.tab-slider--tabs').addClass('slide6');
-    $('.day6').addClass("active");
-    $("#day6").show();
-  }
-  console.log('autoSelect(current)')
+  selectDate(dayNo)
 }
 
-
+function selectDate(no) {
+  $('.tab-slider--tabs').addClass('slide'+no);
+  $('.day'+no).addClass("active");
+  $("#day"+no).show();
+  if ($('.day'+no).text() == moment(new Date()).format("D")) {
+    $('#day'+no).children('.input-meal').addClass("add")
+  }
+}
 
 function date(moment) { // get current date
   var sunDate = moment.clone(),
@@ -178,7 +156,7 @@ backscreen = $('.backscreen');
 
 
 function inputMeal() {
-  $('.input-meal').on('click', function() {
+  $('.add').on('click', function() {
     if(container.attr('data-open') == 'close') {
       backscreen.show()
       container.show()
@@ -190,21 +168,6 @@ function inputMeal() {
     container.hide()
     container.attr('data-open', 'close')
   })
-//$('#inputMeal').on('click', function() {
-//if(container.attr('data-open') == 'close') {
-//backscreen.show()
-//container.toggle()
-//container.attr('data-open', 'open')
-//} 
-
-//backscreen.on('click', function() {
-//backscreen.hide()
-//container.toggle()
-//container.attr('data-open', 'close')
-//})  
-//})
-
-
 }
 
 
