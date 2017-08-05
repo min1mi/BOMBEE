@@ -167,6 +167,7 @@ body {
 }
 #list-container {
   width:100%;
+  text-align:left;
 }
 #addList {
   width: 100%;
@@ -187,6 +188,7 @@ body {
 }
 #list-height {
 	height:40px;
+	text-align:center;
 }
 .sport img {
   fill: #079ad9;
