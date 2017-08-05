@@ -58,7 +58,7 @@ body {
   width:100%;
 }
 .sport {
-	height: 20px;
+	height: 40px;
     margin: 0 5px;
     white-space: nowrap;
     overflow: hidden;
@@ -121,11 +121,12 @@ body {
 .list-div {
 	  background-color: white;
     z-index: 9999;
+    border: 1px solid #cecece;
 }
 .list-pro {
     margin: 10px 2.5%;
     width: 44%;
-    height: 250px;
+    height: 270px;
     display: inline-block;
 }
 .meter {
@@ -185,7 +186,12 @@ body {
   margin: 10px 5%;
 }
 #list-height {
-	height:20px;
+	height:40px;
+}
+.sport img {
+  fill: #079ad9;
+  width:30px;
+  height:30px;
 }
 .img-div {
 	overflow: hidden;
@@ -197,6 +203,7 @@ body {
 .meter1 {
 	height:20px;
   margin: 0 5px;
+  margin-bottom: 15px;
   white-space: nowrap;
   overflow: hidden;
 }

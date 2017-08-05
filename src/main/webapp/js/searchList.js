@@ -313,13 +313,13 @@ function setMarkers(map) {
   
 Handlebars.registerHelper('type', function(promotionList, options) {
 	if (promotionList[0].type == 1)
-		promotionList[0].sport = '헬스';
+		promotionList[0].sport = '../image/health.png';
 	else if (promotionList[0].type == 2)
-		promotionList[0].sport = '스피닝';
+		promotionList[0].sport = '../image/bike.png';
 	else if (promotionList[0].type == 3)
-		promotionList[0].sport = '요가';
+		promotionList[0].sport = '../image/yoga.png';
 	else
-		promotionList[0].sport = '필라테스'
+		promotionList[0].sport = '../image/pilates.png'
 	console.log(promotionList[0])
 	if (toggleAddr == '') {
 	     if (spoNo != 0) {
