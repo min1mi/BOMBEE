@@ -8,4 +8,5 @@ public interface UsermealService {
   /*read-only : list, get*/
   List<Usermeal> list(String startDate, String endDate) throws Exception;
   void add(Usermeal usermeal) throws Exception;
+  void update(Usermeal usermeal) throws Exception;
 }

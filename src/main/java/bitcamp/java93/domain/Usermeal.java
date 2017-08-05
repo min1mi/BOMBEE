@@ -9,17 +9,22 @@ import java.util.List;
  */
 
 
-public class Usermeal {
+public class Usermeal extends Meal{
   int no;
-  List<Meal> meal; 
+  List<Meal> meal;
   String date;
   String day;
   Boolean confirm;
+
+
+  
   @Override
   public String toString() {
     return "Usermeal [no=" + no + ", meal=" + meal + ", date=" + date + ", day=" + day + ", confirm=" + confirm
-        + "]";
+        + ", mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
+        + mealkcal + "]";
   }
+  
   public int getNo() {
     return no;
   }

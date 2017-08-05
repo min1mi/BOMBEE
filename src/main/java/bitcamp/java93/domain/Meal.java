@@ -5,6 +5,7 @@ public class Meal {
   String mealpicture;
   String mealname;
   String mealkcal;
+  
   public String getMealtype() {
     return mealtype;
   }

@@ -30,15 +30,17 @@
     where id=#{id} and pwd=password(#{pwd})
   </select>
   
+  <select id="selectOne" resultMap="trainerMap" parameterType="int">
+    select t.mno, t.name, t.email, t.comaddr, t.spono
+     from tcher t where mno=#{name}
+  </select>
+  
   <insert id="insert" parameterType="trainer">
     insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono)
     values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, null)
   </insert>
   
-  <select id="selectOne" resultMap="trainerMap" parameterType="int">
-    select t.mno, t.name, t.email, t.comaddr, t.spono
-     from tcher t where mno=#{name}
-  </select>
+  
   
   <!--
       <select id="selectOne" resultMap="trainerMap" parameterType="int">

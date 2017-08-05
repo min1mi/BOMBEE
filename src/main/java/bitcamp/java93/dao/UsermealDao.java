@@ -8,4 +8,5 @@ import bitcamp.java93.domain.Usermeal;
 public interface UsermealDao {
   List<Usermeal> selectWeeklist(Map<String,Object> valueMap);
   int insert(Usermeal usermeal);
+  int update(Usermeal usermeal);
 }
