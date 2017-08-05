@@ -139,6 +139,18 @@ public class PromotionControl {
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
+  @RequestMapping("detail")
+  public JsonResult detail(int no) throws Exception {
+    System.out.println(no);
+    Promotion promotion = promotionService.get(no);
+    if (promotion == null)
+        return new JsonResult(JsonResult.FAIL, no+"번 강사가 없습니다.");
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("promotion", promotion);
+
+    return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
 //  @RequestMapping("add")
 //  public void add(Promotion promotion) throws Exception {
 //  	System.out.println("Control");

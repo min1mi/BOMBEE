@@ -189,7 +189,8 @@ function mapMarker(address, imageSrc , size, no, check) {
             	
             	
             }else {
-            	 location.href = '../promotionDetail/promotionDetail.html'
+            	
+            	 location.href = '../promotionDetail/promotionDetail.html?no='+$(this)[0].Vd
             }
             
             
@@ -354,7 +355,7 @@ function getData(json, type, create) {
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.   
       if(create == '#addList' || create == '#list-container') {
     	  $('.list-div').click(function() {
-    	        location.href = '../promotionDetail/promotionDetail.html'
+    	        location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('value')
     	      })
       }
     })

@@ -182,6 +182,15 @@ FROM memb m left join tcher t  on t.tno = m.mno
   ]]>
   </select>
   
+    <select id="selectOne" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng
+from promotion p inner join tcher t on p.tno = t.tno
+where pno = #{no}
+  ]]>
+  </select>
+  
 </mapper>
 
 

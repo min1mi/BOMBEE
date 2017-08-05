@@ -154,13 +154,12 @@
     			json == '/promotion/spinning-nextList.json' ||
     			json == '/promotion/yoga-nextList.json' ||
     			json == '/promotion/pilates-nextList.json') {
-    		
-    			no = $('#last-promotion').attr('value') -1
+    			lastNo = $('#last-promotion').attr('value') -1
     			$('#last-promotion').attr('id', '')
     			}
     	else 
       	$('.promotion').remove()
-      $.getJSON(json, {'lastNo' : no}, function(result) {
+      $.getJSON(json, {'lastNo' : lastNo}, function(result) {
     	  console.log(result.data)
         // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
         var templateFn = Handlebars.compile($('#health-template').text())
@@ -221,7 +220,10 @@
     })
     function btnClick() {
     	$('.img img').click(function() {
-    		location.href = '../promotionDetail/promotionDetail.html'
+    		
+    		no = $(this).attr('value')
+    		location.href = '../promotionDetail/promotionDetail.html?no='+no
+    		//no='+no
     	      //$.getJSON()
     	    })
     }
