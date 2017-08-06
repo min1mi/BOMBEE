@@ -101,13 +101,12 @@
 	
 <div class='already-meal input-food-container' data-open='close'>
 		<div class='already-food input-food'>
-			<div id='updatefiles'>
-			</div>
+			<div id='updatefiles'></div>
 			<input id="already-files" class='food-img' type="file" name='files' multiple />
 			<input id="filenames" class='food-img' type="hidden" name="filenames" />
 			<label class='food-img-form' for="files"></label> 
-			<input class='food-name' type="text" placeholder='Food Name'>
-			<input class='food-kcal' type='text' placeholder='Food Kcal'>
+			<input class='already-food-name' type="text" placeholder='Food Name'>
+			<input class='already-food-kcal' type='text' placeholder='Food Kcal'>
 			<button id='foodUpdateBtn' type='button' class='foodUpdateBtn btn'>Update
 				Food</button>
 		</div>
@@ -135,13 +134,13 @@
 				<span class='kcal'>kcal</span>
 			</div>
 			{{#each sortedMeals}} {{#if mealpicture}}
-			<div class='meal'>
+			<div class='meal' value='{{no}}'>
 				<div class='img-fix'>
 					<img src='{{mealpicture}}_350.png'>
 				</div>
 				<p class='meal-type'>{{mealtype}}</p>
 				<p class='meal-name'>{{mealname}}</p>
-				<p class='meal-kcal'>{{mealkcal}} kcal</p>
+				<p class='meal-kcal' value='{{mealkcal}}'>{{mealkcal}} kcal</p>
 			</div>
 			{{else}}
 			<div class='input-meal' value='{{index}}'>

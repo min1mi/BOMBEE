@@ -366,7 +366,9 @@ input:focus {
   font-size: 1.5rem;
 }
 
-.food-name, .food-kcal {
+.food-name, .food-kcal, 
+.already-food-name, 
+.already-food-kcal {
 	padding: 2% 0 2% 2%;
 	position: absolute;
 	border: 2px solid black;
@@ -378,11 +380,11 @@ input:focus {
 	font-size: 1.4rem;
 }
 
-.food-name {
+.food-name, .already-food-name {
 	left: 0;
 }
 
-.food-kcal {
+.food-kcal, .already-food-kcal {
 	right: 0;
 }
 

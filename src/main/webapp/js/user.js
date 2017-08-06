@@ -14,7 +14,10 @@ var filenames = $('#filenames');
 var today,
     mealkcal = $('.food-kcal'),
     mealname = $('.food-name'),
-    mealtype;
+    alreadymealname = $('.already-food-name'),
+    alreadymealkcal = $('.already-food-kcal'),
+    mealtype,
+    mealno;
 
 $('#files').fileupload({
   url: '/management/usermeal-add.json',        // 서버에 요청할 URL
@@ -32,13 +35,11 @@ $('#files').fileupload({
       console.log(data.files);
       var imagesDiv = $('#inputfiles');
       imagesDiv.html("");
-      for (var i = 0; i < data.files.length; i++) {
         try {
-          if (data.files[i].preview.toDataURL) {
-            $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '340px').appendTo(imagesDiv);
+          if (data.files[0].preview.toDataURL) {
+            $("<img>").attr('src', data.files[0].preview.toDataURL()).css('width', '332.72px').appendTo(imagesDiv);
           }
         } catch (err) {}
-      }
       $('#foodAddBtn').unbind("click");
       $('#foodAddBtn').click(function() {
         data.submit();
@@ -76,24 +77,21 @@ $('#already-files').fileupload({
       console.log(data.files);
       var imagesDiv = $('#updatefiles');
       imagesDiv.html("");
-      for (var i = 0; i < data.files.length; i++) {
         try {
-          if (data.files[i].preview.toDataURL) {
-            $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '340px').appendTo(imagesDiv);
+          if (data.files[0].preview.toDataURL) {
+            $("<img>").attr('src', data.files[0].preview.toDataURL()).css('width', '332.72px').appendTo(imagesDiv);
           }
         } catch (err) {}
-      }
       $('#foodUpdateBtn').unbind("click");
       $('#foodUpdateBtn').click(function() {
-        console.log(menuno)
         data.submit();
       });
     }, 
     submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
       data.formData = {
-          'menuno' : menuno,
-          'mealkcal': mealkcal.val(), 
-          'mealname': mealname.val(), 
+          'no' : mealno,
+          'mealkcal': alreadymealkcal.val(), 
+          'mealname': alreadymealname.val(), 
           'mealtype': mealtype,
           'day': today
       }
@@ -107,8 +105,7 @@ $('#already-files').fileupload({
 });
 
 var startDate,
-endDate, totalKcal = 0,
-menuno = [];
+endDate, totalKcal = 0;
 
 function generateTemplate() {
   startDate = current.startOf('week').format("YYYY-MM-DD")
@@ -185,8 +182,6 @@ function arrayData(data) {
         continue;
       totalKcal += parseInt(data.mealList[i].meal[j].mealkcal)
     }
-    menuno[i] = data.mealList[i].no
-    console.log(menuno)
     data.mealList[i].totalKcal = totalKcal
     totalKcal = 0;
 //    $('#day' + i).children().children('.kcal-total').text(totalKcal)
@@ -280,10 +275,14 @@ backscreen = $('.backscreen');
 
 function inputMeal() {
   $('.update').on('click', function() {
-    console.log(alreadymeal)
     today = $(this).parent().attr('id')
     mealtype = $(this).children('.meal-type').text()
-    console.log(mealtype)
+    mealno = $(this).attr('value')
+    
+    $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).css('width', '332.72px').appendTo($('#updatefiles'));
+    $('.already-food-name').val($(this).children('.meal-name').text())
+    $('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
+    
     if(alreadymeal.attr('data-open') == 'close') {
       backscreen.show()
       alreadymeal.show()

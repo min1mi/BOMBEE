@@ -5,7 +5,19 @@ public class Meal {
   String mealpicture;
   String mealname;
   String mealkcal;
+  int no;
   
+  @Override
+  public String toString() {
+    return "Meal [mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
+        + mealkcal + ", no=" + no + "]";
+  }
+  public int getNo() {
+    return no;
+  }
+  public void setNo(int no) {
+    this.no = no;
+  }
   public String getMealtype() {
     return mealtype;
   }
@@ -30,11 +42,7 @@ public class Meal {
   public void setMealkcal(String mealkcal) {
     this.mealkcal = mealkcal;
   }
-  @Override
-  public String toString() {
-    return "Meal [mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
-        + mealkcal + "]";
-  }
+
   
   
 }
