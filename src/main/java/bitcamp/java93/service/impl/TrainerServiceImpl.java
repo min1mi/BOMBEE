@@ -1,12 +1,14 @@
 package bitcamp.java93.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.MemberDao;
 import bitcamp.java93.dao.TrainerDao;
+import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.TrainerService;
 
@@ -39,6 +41,14 @@ public class TrainerServiceImpl implements TrainerService {
   trainerDao.update(trainer);
 
 }
+
+@Override
+public List<Promotion> getPromotionList(int no) throws Exception {
+	
+	return trainerDao.selectPromotionList(no);
+}
+
+
   
 }
 

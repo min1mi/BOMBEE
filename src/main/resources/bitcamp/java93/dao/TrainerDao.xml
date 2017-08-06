@@ -20,7 +20,24 @@
     <result column="comdetailaddr" property="comdetailaddr"/>
     <result column="spono" property="spono"/>
     <result column="introduction" property="introduction"/>
-    
+  </resultMap>
+  
+    <resultMap type="promotion" id="promotionMap">
+        <id column="pno" property="pno" />
+        <result column="titl" property="title" />
+        <result column="pric" property="pric" />
+        <result column="content" property="content" />
+        <result column="sdt" property="sdt" />
+        <result column="edt" property="edt" />
+        <result column="tno" property="tno" />
+        <result column="type" property="type" />
+        <result column="COMADDR" property="comaddr" />
+        <result column="lat" property="lat"/>
+        <result column="lng" property="lng"/>
+        <result column="meter" property="meter"/>
+        <result column="name" property="name"/>
+        <result column="introduction" property="introduction"/>
+        <result column="img" property="img"/>
   </resultMap>
   
   <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
@@ -61,6 +78,10 @@
       where tno=#{no};
   </update>
   
+  <select id="selectPromotionList" resultMap="promotionMap" parameterType="int">
+    select  *
+    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+  </select>
   
   
 </mapper>

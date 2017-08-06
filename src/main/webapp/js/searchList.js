@@ -33,7 +33,7 @@ var modeMapList = 0
 var findLat = 0
 var findLon = 0
 var count = 0
-
+console.log(1)
 $(function(){
 	mapHeader.click(function (){
 		$('.list-div').remove()
@@ -161,28 +161,52 @@ function mapMarker(address, imageSrc , size, no, check) {
 
         markerImage = new daum.maps.MarkerImage(imageSrc, size, imageOprion)
 	    // 정상적으로 검색이 완료됐으면 
-	     if (status === daum.maps.services.Status.OK) {
-	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-	        // 결과값으로 받은 위치를 마커로 표시합니다
-	        var marker = new daum.maps.Marker({
-	            map: map,
-	            position: coords,
-	            image: markerImage,
-	            clickable: true,
-	            title: no
-	        });
-	     // 생성된 마커를 배열에 추가합니다
-	        markers.push(marker);
+	     if(check != 0) {
+	    	 if (status === daum.maps.services.Status.OK) {
+	 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	 	        // 결과값으로 받은 위치를 마커로 표시합니다
+	 	        var marker = new daum.maps.Marker({
+	 	            map: map,
+	 	            position: coords,
+	 	            image: markerImage,
+	 	            clickable: true,
+	 	            title: address
+	 	        });
 
-	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-	        /* map.setCenter(coords); */
-	        
-	        
-	    } 
+	 	     // 생성된 마커를 배열에 추가합니다
+	 	        markers.push(marker);
+
+	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	 	        /* map.setCenter(coords); */
+	 	        
+	 	        
+	 	    } 
+	     }else {
+	    	 if (status === daum.maps.services.Status.OK) {
+	 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	 	        // 결과값으로 받은 위치를 마커로 표시합니다
+	 	        var marker = new daum.maps.Marker({
+	 	            map: map,
+	 	            position: coords,
+	 	            image: markerImage,
+	 	            clickable: true,
+	 	            title: no
+	 	        });
+
+	 	     // 생성된 마커를 배열에 추가합니다
+	 	        markers.push(marker);
+
+	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	 	        /* map.setCenter(coords); */
+	 	        
+	 	        
+	 	    } 
+	     }
         daum.maps.event.addListener(marker, 'click', function() {
             // 마커 위에 인포윈도우를 표시합니다
             if(check != 0) {
             	toggleAddr = $(this)[0].Vd
+            	console.log(toggleAddr)
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
             	$('#click-container').toggle()
