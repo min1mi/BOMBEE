@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+  content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='../css/bombee.css'>
+<script src='../node_modules/jquery/dist/jquery.min.js'></script>
+<script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script>
+   $(function() {
+	   $('.header').load('../menu/new.html')
+   })
+</script>
+<style>
+  .mainselection {
+    margin-left : 20px;
+    margin-top: 20px;
+   display: inline-block;
+   overflow:hidden;
+   width:32%;
+   border-radius: 50px;
+   box-shadow: 1px 1px 1px #f7ac1a;
+   background-color:#f3f3f3;
+   margin-bottom: 5px;
+   position:relative;
+}
+.mainselection select {
+  text-align: center;
+   border: 0;
+   color: black;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 100%;
+   *width: 100%;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+.fa1 {
+  position: absolute;
+/*   top: 24.7%; */
+  font-size: 15px;
+   top: 21%;
+   left: 85%;
+}
+#first-line {
+  height:40px;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-block span {
+  margin-left: 30px;
+  font-size: 25px;
+}
+#two-line {
+  text-align:right;
+}
+#promotion-add {
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 32%;
+  border-radius: 50px;
+  position:relative;
+  background-color: white;
+  box-shadow: 1px 1px 1px #f7ac1a;
+   background-color:#f3f3f3;
+   margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+<div class='promotion-control-container'>
+  <div class='header'></div>
+  <div id="first-line">
+  <div class='inline-block'><span>프로모션 등록 정보</span></div>
+    <div class="mainselection inline-block">
+  <i class="fa fa-chevron-circle-down fa1" aria-hidden="true"></i>
+  <select>
+    <option>내림차순</option>
+    <option>등록일순</option>
+  </select>
+</div>
+  </div>
+  <div id='two-line'><button type="button" id='promotion-add'>글쓰기<i class="fa fa-pencil fa1" aria-hidden="true"></i></button></div>
+</div>
+</body>
+</html>

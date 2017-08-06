@@ -10,6 +10,7 @@
   <link rel='stylesheet' href='../css/mainList.css'>
   <link rel="stylesheet" href="dist/css/swiper.min.css">
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src="../list/jquery.mobile.custom.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script>
@@ -17,6 +18,7 @@
       $('.header').load('../menu/new.html')
     })
   </script>
+ 
 </head>
 
 <body>
@@ -72,7 +74,6 @@
         </div>
       </div>
       
-
     </div>
     <!-- promotion-list-container -->
 
@@ -115,7 +116,21 @@
       autoplayDisableOnInteraction: false
     });
     $(document).ready(function() {
-    	$(document).bind('touchmove', function(e) {
+    	$(document).bind('swipeleft', function(e) {
+    		if(type == 'hot-cos') 
+            json = '/promotion/hot-nextList.json';
+          else if (type == 'health')
+            json = '/promotion/health-nextList.json';
+          else if (type == 'yoga')
+            json = '/promotion/yoga-nextList.json';
+          else if (type == 'spinning')
+            json = '/promotion/spinning-nextList.json';
+          else
+            json = '/promotion/pilates-nextList.json';
+          console.log(json)
+          getData(json)
+    	})
+/*     	$(document).bind('touchmove', function(e) {
     		if (event.touches[0].screenY < 100 ) {
     			if(type == 'hot-cos') 
     				json = '/promotion/hot-nextList.json';
@@ -130,7 +145,7 @@
     			console.log(json)
     			getData(json)
     		}
-		});
+		}); */
     })
     
     $('.btn').click(()=> {

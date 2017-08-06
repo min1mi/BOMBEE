@@ -56,9 +56,9 @@ public class PromotionControl {
   @RequestMapping("hot-nextList")
   public JsonResult nextList(int lastNo) throws Exception {
     System.out.println(lastNo);
-    if(lastNo <= 1)
-    	return new JsonResult(JsonResult.SUCCESS, null);
     HashMap<String,Object> dataMap = new HashMap<>();
+    if(lastNo <= 1)
+    	return new JsonResult(JsonResult.SUCCESS, dataMap);
     dataMap.put("list", promotionService.nextList(lastNo));
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
