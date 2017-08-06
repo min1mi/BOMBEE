@@ -10,7 +10,6 @@
   <link rel='stylesheet' href='../css/mainList.css'>
   <link rel="stylesheet" href="dist/css/swiper.min.css">
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-  <script src="../list/jquery.mobile.custom.js"></script>
   <script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script>
@@ -106,7 +105,7 @@
     var json = '/promotion/hot-firstList.json'
     var category;
     var count = 0
-    var lastNo = 0
+    var lastNo = 1000
     var offset = 0
     var no = 0
     var type = $('.click').children().attr('id')
@@ -116,36 +115,23 @@
       autoplayDisableOnInteraction: false
     });
     $(document).ready(function() {
-    	$(document).bind('swipeleft', function(e) {
-    		if(type == 'hot-cos') 
-            json = '/promotion/hot-nextList.json';
-          else if (type == 'health')
-            json = '/promotion/health-nextList.json';
-          else if (type == 'yoga')
-            json = '/promotion/yoga-nextList.json';
-          else if (type == 'spinning')
-            json = '/promotion/spinning-nextList.json';
-          else
-            json = '/promotion/pilates-nextList.json';
-          console.log(json)
-          getData(json)
-    	})
-/*     	$(document).bind('touchmove', function(e) {
-    		if (event.touches[0].screenY < 100 ) {
-    			if(type == 'hot-cos') 
-    				json = '/promotion/hot-nextList.json';
-    			else if (type == 'health')
-    				json = '/promotion/health-nextList.json';
-    			else if (type == 'yoga')
-    				json = '/promotion/yoga-nextList.json';
-    			else if (type == 'spinning')
-    				json = '/promotion/spinning-nextList.json';
-    			else
-    				json = '/promotion/pilates-nextList.json';
-    			console.log(json)
-    			getData(json)
+    	$(window).scroll(function () {
+    		if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    			 if(type == 'hot-cos') 
+    		            json = '/promotion/hot-nextList.json';
+    		          else if (type == 'health')
+    		            json = '/promotion/health-nextList.json';
+    		          else if (type == 'yoga')
+    		            json = '/promotion/yoga-nextList.json';
+    		          else if (type == 'spinning')
+    		            json = '/promotion/spinning-nextList.json';
+    		          else
+    		            json = '/promotion/pilates-nextList.json';
+    		          console.log(json)
+    		          getData(json) 
     		}
-		}); */
+    	})
+
     })
     
     $('.btn').click(()=> {
@@ -174,7 +160,8 @@
     			}
     	else 
       	$('.promotion').remove()
-      $.getJSON(json, {'lastNo' : lastNo}, function(result) {
+      	if (lastNo > 1)
+      		$.getJSON(json, {'lastNo' : lastNo}, function(result) {
     	  console.log(result.data)
         // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
         var templateFn = Handlebars.compile($('#health-template').text())
@@ -184,6 +171,7 @@
         container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
         btnClick()
       })
+      lastNo = 100
     }
 
     function borderBottom(category) {
