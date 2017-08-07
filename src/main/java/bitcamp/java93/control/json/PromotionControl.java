@@ -1,8 +1,10 @@
 package bitcamp.java93.control.json;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,9 +58,9 @@ public class PromotionControl {
   @RequestMapping("hot-nextList")
   public JsonResult nextList(int lastNo) throws Exception {
     System.out.println(lastNo);
-    if(lastNo <= 1)
-    	return new JsonResult(JsonResult.SUCCESS, null);
     HashMap<String,Object> dataMap = new HashMap<>();
+    if(lastNo <= 1)
+    	return new JsonResult(JsonResult.SUCCESS, dataMap);
     dataMap.put("list", promotionService.nextList(lastNo));
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
@@ -149,6 +151,30 @@ public class PromotionControl {
     dataMap.put("promotion", promotion);
 
     return new JsonResult(JsonResult.SUCCESS ,dataMap);
+  }
+  
+  @RequestMapping("promotion")
+  public JsonResult getPromotion(int no) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.getPromotionList(no));
+
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  } // service()
+  
+  @RequestMapping("deletePromotions")
+  public int deletePromotions(HttpServletRequest request) throws Exception {
+    String[] arr1 = request.getParameterValues("list[]");
+    ArrayList<Integer> arr = new ArrayList<Integer>();
+    for (int i=0; i < arr1.length; i++) 
+      arr.add(Integer.parseInt(arr1[i]));
+    return promotionService.deletePromotions(arr);
+  }
+  @RequestMapping("promotionTitle")
+  public JsonResult getPromotionTitle(int no) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.getPromotionListTitle(no));
+
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
 //  @RequestMapping("add")

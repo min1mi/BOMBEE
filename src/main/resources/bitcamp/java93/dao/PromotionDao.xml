@@ -191,6 +191,22 @@ where pno = #{no}
   ]]>
   </select>
   
+   <select id="selectPromotionList" resultMap="promotionMap" parameterType="int">
+    select  *
+    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    order by p.pno desc
+  </select>
+  
+    <delete id="deletePromotions" parameterType="int">
+    delete from promotion
+    where pno=#{no}
+  </delete>
+  <select id="selectPromotionListTitle" resultMap="promotionMap" parameterType="int">
+    select  *
+    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    order by p.titl desc
+  </select>
+  
 </mapper>
 
 
