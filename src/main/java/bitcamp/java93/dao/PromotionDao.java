@@ -25,7 +25,10 @@ public interface PromotionDao {
   int insertImg(Promotion Promotion);
   int delete(int no);
   int update(Promotion Promotion);
-void insertPhoto(HashMap<String, Object> valueMap);
-void deletePhoto(int no);
+  void insertPhoto(HashMap<String, Object> valueMap);
+  void deletePhoto(int no);
  List<Promotion> latLonList(Map<String,Object> valueMap);
+ List<Promotion> selectPromotionList(int no);
+ List<Promotion> selectPromotionListTitle(int no);
+ int deletePromotions(int no);
 }
