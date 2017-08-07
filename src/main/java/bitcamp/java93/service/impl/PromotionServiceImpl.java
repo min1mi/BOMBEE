@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -130,6 +131,25 @@ public class PromotionServiceImpl implements PromotionService {
   @Override
   public List<Promotion> spinningNextList(int lastNo) throws Exception {
     return  promotionDao.spinningNextList(lastNo);
+  }
+  
+  @Override
+  public List<Promotion> getPromotionList(int no) throws Exception {
+    
+    return promotionDao.selectPromotionList(no);
+  }
+
+  @Override
+  public int deletePromotions(ArrayList<Integer> arr) throws Exception {
+    for (int i = 0; i < arr.size(); i++) 
+        promotionDao.deletePromotions(arr.get(i));
+    return 1;
+  }
+
+  @Override
+  public List<Promotion> getPromotionListTitle(int no) throws Exception {
+   
+    return promotionDao.selectPromotionListTitle(no);
   }
 
 }
