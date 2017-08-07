@@ -12,9 +12,7 @@ public interface TrainerService {
   Trainer getByEmailPassword(String id, String pwd) throws Exception;
   Trainer get(int no) throws Exception;
   void update(Trainer trainer) throws Exception;
-<<<<<<< HEAD
-=======
+
   List<Promotion> getPromotionList(int no) throws Exception;
-  
->>>>>>> 178789ce1b92e783af11c1dbc340b9602bc4354d
+
 }

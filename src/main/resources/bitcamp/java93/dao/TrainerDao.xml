@@ -20,7 +20,7 @@
     <result column="comdetailaddr" property="comdetailaddr"/>
     <result column="spono" property="spono"/>
     <result column="introduction" property="introduction"/>
-<<<<<<< HEAD
+
     
     
   </resultMap>
@@ -28,9 +28,7 @@
   <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
     select  m.mno, m.name, m.email, m.mtype,
     				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction
-=======
-  </resultMap>
-  
+</select>  
     <resultMap type="promotion" id="promotionMap">
         <id column="pno" property="pno" />
         <result column="titl" property="title" />
@@ -52,7 +50,6 @@
   <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
     select  m.mno, m.name, m.email, m.mtype, m.id,
     				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
->>>>>>> 178789ce1b92e783af11c1dbc340b9602bc4354d
     from tcher t inner join memb m on t.tno=m.mno
     where id=#{id} and pwd=password(#{pwd})
   </select>
@@ -67,15 +64,12 @@
     values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction})
   </insert>
   
-<<<<<<< HEAD
   <!--
   <select id="selectOne" resultMap="trainerMap" parameterType="int">
     select t.mno, t.name, t.email, t.comaddr, t.spono, m.name
      from tcher t inner join memb m on t.tno=m.mno
   </select>
-=======
   
->>>>>>> 178789ce1b92e783af11c1dbc340b9602bc4354d
   
    -->
       <select id="selectOne" resultMap="trainerMap" parameterType="int">
