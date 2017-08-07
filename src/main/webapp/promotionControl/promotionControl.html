@@ -238,10 +238,11 @@
   			}
   		})
   		selectVal.change(function() {
+  			$('.list-div').remove()
   			if ($('#select-container option:selected').val() == 0)
   				getData(json)
   			else
-  				getData('/promotion/promotionTitle')
+  				getData('/promotion/promotionTitle.json')
   			
   		})
   	})
