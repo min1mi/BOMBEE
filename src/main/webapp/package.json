@@ -9,11 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "blueimp-file-upload": "^9.18.0",
-=======
 		"blueimp-file-upload": "^9.15.0",
->>>>>>> 178789ce1b92e783af11c1dbc340b9602bc4354d
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "consolidate": "^0.14.5",
