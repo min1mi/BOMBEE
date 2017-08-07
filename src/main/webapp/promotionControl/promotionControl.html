@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+  content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='../css/bombee.css'>
+<script src='../node_modules/jquery/dist/jquery.min.js'></script>
+<script src="../node_modules/jquery-ui-dist/jquery-ui.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script>
+   $(function() {
+	   $('.header').load('../menu/new.html')
+   })
+</script>
+<style>
+  .mainselection {
+    margin-left : 20px;
+    margin-top: 20px;
+   display: inline-block;
+   overflow:hidden;
+   width:32%;
+   border-radius: 50px;
+   box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   position:relative;
+}
+.mainselection select {
+  text-align: center;
+   border: 0;
+   color: black;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 100%;
+   *width: 100%;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+.fa1 {
+  position: absolute;
+  font-size: 15px;
+   top: 14%;
+   left: 85%;
+}
+#first-line {
+  height:40px;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-block span {
+  margin-left: 19px;
+  /*font-size: 2.95rem;아이폰6플*/
+  font-size: 2.6rem;
+  border-bottom: 2px solid #f7ac1a;
+}
+#two-line {
+  text-align:right;
+}
+#promotion-add {
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 32%;
+  border-radius: 50px;
+  position:relative;
+  background-color: white;
+  box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   border:0;
+   outline:0;
+}
+.promotion-delete {
+  margin-right: 15px;
+  width: 32%;
+  border-radius: 50px;
+  position:relative;
+  background-color: white;
+  box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   border:0;
+   outline:0;
+}
+.bee {
+  position: absolute;
+  top: 20vh;
+  width: 75px;
+  height: 80px;
+  background: url(//cdn.ficsystems.com/_new/common/3.0/images/characters/earthday-bee.svg);
+  animation: walk-cycle 0.1s infinite steps(6), move 10s forwards linear;
+  animation-iteration-count:infinite;
+}
+#list-container {
+	margin-top:3%;
+	background-color:#f3f3f3;
+	width:100%;
+}
+
+@-webkit-keyframes walk-cycle {
+  0%   {background-position: 0 0;}
+  100% {background-position: -450px 0;}
+}
+
+@keyframes move {
+  0%    { transform: translate(-5vw, -6vh); }
+  10%   { transform: translate(0vw, -6vh); }
+  20%   { transform: translate(5vw, -6vh); }
+  30%   { transform: translate(10vw, -6vh); }
+  40%   { transform: translate(15vw, -6vh); }
+  50%   { transform: translate(20vw, -6vh); }
+  60%   { transform: translate(25vw, -6vh); }
+  70%   { transform: translate(30vw, -6vh); }
+  80%   { transform: translate(35vw, -6vh); }
+  90%   { transform: translate(40vw, -6vh); }
+  100%  { transform: translate(45vw, -6vh); }
+}
+
+.inline-block {
+  display: inline-block;
+}
+.list-div {
+	  background-color: white;
+    z-index: 9999;
+    border: 1px solid #cecece;
+}
+.list-pro {
+    margin: 10px 2.5%;
+    width: 44%;
+    height: 270px;
+    display: inline-block;
+}
+#list-title1 {
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 10px;
+  overflow:hidden;
+}
+#list-container {
+  width:100%;
+  text-align:left;
+}
+#list-height {
+	height:40px;
+	text-align:center;
+	overflow:hidden;
+}
+.img-div {
+	overflow: hidden;
+}
+ .pro-img {
+  height:200px;
+  width:100%;
+ }
+.time {
+	height:20px;
+  margin: 0 5px;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.list-title1 {
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+    width: 50%;
+    margin: 0 1%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.background {
+  background-color: #f7ac1a;
+  color:white;
+}
+.border {
+  border: solid 4px #f7ac1a;
+}
+</style>
+</head>
+<body>
+<div class='promotion-control-container'>
+  <div class='header'></div>
+  <div class='bee'></div>
+  <div id="first-line">
+  <div class='inline-block'><span>프로모션 등록 정보</span></div>
+    <div class="mainselection inline-block">
+  <i class="fa fa-chevron-circle-down fa1" aria-hidden="true"></i>
+  <select id='select-container'>
+    <option value=0>등록일순</option>
+    <option value=1>내림차순</option>
+  </select>
+</div>
+  </div>
+  <div id='two-line'><button type="button" id='promotion-add'>글쓰기<i class="fa fa-pencil fa1" aria-hidden="true"></i></button></div>
+  <div id='two-line'><button type="button" class='promotion-delete'>삭제하기<i class="fa fa-trash-o fa1" aria-hidden="true"></i></button></div>
+  <div id='list-container'></div>
+</div>
+
+
+
+
+
+  <script id='list-template' type="text/x-handlebars-template">
+	{{#each list}}
+       <div class='list-pro list-div' value={{pno}}>
+        <div class='img-div'>
+          <img class='pro-img' src='../image/3.jpg' title='{{pno}}' value=0>
+        </div>
+      <div id='list-title1'>{{title}}</div>
+       <div id='list-height'>
+       <div class='inline-block time'>{{sdt}}~{{edt}}</div>
+       </div>
+      </div>
+      {{/each}}
+  </script>
+  <script>
+  	var no = 9; // 필터처리한걸로 no 값 받아와야함
+  	var json = '/promotion/promotion.json'
+  	var imgBtn = ''
+  	var deleteBtn = $('.promotion-delete')
+  	var deleteCan = 0 //1일때는 삭제할때다. //삭제버튼을 눌럿을때는 1이다.
+  	var deleteNo = new Array()
+  	var selectVal = $('#select-container')
+  	$(function() {
+  		deleteBtn.click(function() {
+  			if (deleteCan == 0) {
+  				deleteCan = 1
+  				deleteBtn.addClass('background')
+  			}else if (deleteCan == 1){
+  				deleteCan = 0
+  				deleteBtn.removeClass('background')
+  				$('.list-pro').removeClass('border')
+  				ajax()
+  			}
+  		})
+  		selectVal.change(function() {
+  			if ($('#select-container option:selected').val() == 0)
+  				getData(json)
+  			else
+  				getData('/promotion/promotionTitle')
+  			
+  		})
+  	})
+  	getData(json)
+	function getData(json) {
+		$.getJSON(json, {'no' : no}, function(result) {
+		  	  console.log(result)
+		      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+		      var templateFn = Handlebars.compile($('#list-template').text())
+		      var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+		      var container = $('#list-container')
+		      var html = container.html()
+		      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+		      btnConect()
+	})
+  }
+  	
+  	function btnConect() {
+  		imgBtn = $('.pro-img')
+  		imgBtn.click(function() {
+  			if (deleteCan != 0) {
+  				if ($(this).attr('value') == 0) {
+  					$(this).parent().parent().addClass('border')
+  		      $(this).attr('value', 1)
+  		      deleteNo.push($(this).prop('title'))
+  		      console.log(deleteNo)
+  				}else {
+  					$(this).parent().parent().removeClass('border')
+  		      $(this).attr('value', 0)
+  		      deleteNo.splice(deleteNo.indexOf($(this).prop('title')), 1)
+  		      console.log(deleteNo)
+  				}
+  			}
+  			else {
+  				//디테일 정보로 가는거 구현
+  				location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('title')
+  			}
+  		})
+  	}
+  	
+  	
+  	function ajax() {
+  	  $.ajax({
+  	    type: 'post' ,
+  	    url: '/promotion/deletePromotions.json' ,
+  	    data: {
+  	    	"list":deleteNo
+  	    	},
+  	    dataType : 'json',
+  	    success: function(result) {
+  	    	console.log(result)
+  	    	$('.list-div').remove()
+  	    	getData(json)
+  	     }
+  	    })
+  	}
+  </script>
+</body>
+</html>
