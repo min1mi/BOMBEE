@@ -14,9 +14,7 @@ body {
 .search-list-contatiner {
   text-align: center;
 }
-.intro {
-	text-align: center;
-}
+
 .search-header-font {
   font-size: 2.5rem;
   color: white;
@@ -59,12 +57,7 @@ body {
   justify-content: center;
   width:100%;
 }
-.sport {
-	height: 40px;
-    margin: 0 5px;
-    white-space: nowrap;
-    overflow: hidden;
-}
+
 .radio-tile-group .input-container {
   position: relative;
   height: 30px;
@@ -121,55 +114,18 @@ body {
   display: inline-block;
 }
 .list-div {
-	  background-color: white;
-    z-index: 9999;
-    border: 1px solid #cecece;
+  background-color:white;
+  margin: 10px 20px;
+  z-index: 9999;
 }
-.list-pro {
-    margin: 10px 2.5%;
-    width: 44%;
-    height: 270px;
-    display: inline-block;
-}
-.meter {
-  width: 10%;
-  height: 40px;
-    padding-top: 3%;
-    margin: 0 5px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.address:before {
-  text-align: left;
-  margin-right: 15px;
-  margin-left: 5px;
-  content: '주소';
-  font-size: small;
-  padding: 2px;
-  border: 1px solid black;
-  border-radius: 3px;
-  color:black;
-}
-.list-title {
-    height: 40px;
-    display: inline-block;
-    padding: 10px;
-    text-align: left;
-    width: 50%;
-    margin: 0 1%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-#list-title1 {
+#list-title {
   padding: 5px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   margin: 0 10px;
-  overflow:hidden;
 }
 #list-container {
   width:100%;
-  text-align:left;
 }
 #addList {
   width: 100%;
@@ -188,28 +144,13 @@ body {
   width:90%;
   margin: 10px 5%;
 }
-#list-height {
-	height:40px;
-	text-align:center;
-}
-.sport img {
-  fill: #079ad9;
-  width:30px;
-  height:30px;
-}
-.img-div {
-	overflow: hidden;
-}
- .pro-img {
-  height:200px;
-  width:100%;
- }
-.meter1 {
-	height:20px;
-  margin: 0 5px;
-  margin-bottom: 15px;
-  white-space: nowrap;
-  overflow: hidden;
+.meter {
+  width: 10%;
+  height: 40px;
+    padding-top: 3%;
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .address {
     height: 40px;
@@ -230,7 +171,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
 }
-.list-title1 {
+.list-title {
     height: 40px;
     display: inline-block;
     padding: 10px;
@@ -239,6 +180,17 @@ body {
     margin: 0 1%;
     white-space: nowrap;
     overflow: hidden;
+}
+.address:before {
+  text-align: left;
+  margin-right: 15px;
+  margin-left: 5px;
+  content: '주소';
+  font-size: small;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 3px;
+  color:black;
 }
 .mainselection select {
   text-align: center;
@@ -252,9 +204,6 @@ body {
    *width: 100%;
    *background: #58B14C;
    -webkit-appearance: none;
-}
-.list-tra {
-	margin: 10px 20px;
 }
   .mainselection {
    display: inline-block;

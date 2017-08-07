@@ -10,6 +10,7 @@
         <result column="pric" property="pric" />
         <result column="content" property="content" />
         <result column="sdt" property="sdt" />
+        <result column="edt" property="edt" />
         <result column="tno" property="tno" />
         <result column="type" property="type" />
         <result column="COMADDR" property="comaddr" />
@@ -18,12 +19,14 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
+        <result column="img" property="img"/>
     <collection property="promotionList" ofType="Trainning">
 		    <id column="pno" property="pno" />
 				<result column="titl" property="title" />
 				<result column="pric" property="pric" />
 				<result column="content" property="content" />
 				<result column="sdt" property="sdt" />
+				<result column="edt" property="edt" />
 				<result column="tno" property="tno" />
 				<result column="type" property="type" />
 				<result column="COMADDR" property="comaddr" />
@@ -37,29 +40,16 @@
 
   <select id="selectList" resultMap="promotionMap" parameterType="map">
     select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr, p.lat, p.lng,
-    (((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
-  -radians(127.02810003919578))+sin(radians(37.494533687556945))*sin(radians(p.lat)))))*1000)
+    (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
+  -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter
   from promotion p inner join tcher t on p.tno = t.tno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
-
-
   </select>
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
-(((6371*acos(cos(radians(37.494533687556945))*cos(radians(p.lat))*cos(radians(p.lng)
-  -radians(127.02810003919578))+sin(radians(37.494533687556945))*sin(radians(p.lat)))))*1000)
-  AS meter 
-FROM memb m left join tcher t  on t.tno = m.mno 
-         left join promotion p on p.tno = t.tno GROUP BY m.id
-  having meter <![CDATA[ < ]]> 3000
-  ORDER BY meter 
-  LIMIT 0,3000
-  </select>
-  <select id="latLonList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter 
@@ -69,6 +59,138 @@ FROM memb m left join tcher t  on t.tno = m.mno
   ORDER BY meter 
   LIMIT 0,3000
   </select>
+  <select id="latLonList" resultMap="promotionMap" parameterType="map">
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+(((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
+  -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
+  AS meter 
+FROM memb m left join tcher t  on t.tno = m.mno 
+         left join promotion p on p.tno = t.tno GROUP BY m.id
+  having meter <![CDATA[ < ]]> 3000
+  ORDER BY meter 
+  LIMIT 0,3000
+  </select>
+  
+  <insert id="insert" parameterType="promotion" useGeneratedKeys="true" keyColumn="pno" keyProperty="no">
+    insert into promotion(titl, pric, content, tno, lat, lng, type , sdt, edt)
+    values( #{title}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{type}, #{sdt}, #{edt}) 
+  </insert>
+  
+  <insert id="insertImg" parameterType="promotion">
+    insert into promotionimg(pno, img)
+    values( #{no}, #{img} ) 
+  </insert>
+  
+  
+  <select id="nextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno < #{lastNo}
+  and pno > #{lastNo}-6
+  and pno > 0
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="firstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="healthFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 1
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="healthNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo} 
+  and pno > #{lastNo}-6
+  and pno > 0  and type = 1
+ 
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="spinningFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 2
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  
+  <select id="yogaFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 3
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="pilatesFirstList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno > 0 and type = 4
+  order by pno desc
+  limit 0, 6;
+  ]]>
+  </select>
+  
+  <select id="yogaNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and pno > 0
+  and type = 3
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="spinningNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and pno > 0
+  and type = 2
+  order by pno desc
+  ]]>
+  </select>
+  
+  <select id="pilatesNextList" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select * from promotion
+  where pno <= #{lastNo}
+  and pno > #{lastNo}-6
+  and pno > 0
+  and type = 4
+  order by pno desc
+  ]]>
+  </select>
+  
+    <select id="selectOne" resultMap="promotionMap" parameterType="int">
+  <![CDATA[
+  select p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng
+from promotion p inner join tcher t on p.tno = t.tno
+where pno = #{no}
+  ]]>
+  </select>
+  
 </mapper>
 
 

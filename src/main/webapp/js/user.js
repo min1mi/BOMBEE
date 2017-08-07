@@ -9,13 +9,103 @@ $(function() {
 
 });
 
-$('#foodAddBtn').on('click', function() {
-  
-  $.post('/')
-})
+var filenames = $('#filenames');
+
+var today,
+    mealkcal = $('.food-kcal'),
+    mealname = $('.food-name'),
+    alreadymealname = $('.already-food-name'),
+    alreadymealkcal = $('.already-food-kcal'),
+    mealtype,
+    mealno;
+
+$('#files').fileupload({
+  url: '/management/usermeal-add.json',        // 서버에 요청할 URL
+  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+  sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+  autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+  disableImageResize: /Android(?!.*Chrome)|Opera/
+    .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    previewMaxWidth: 340,   // 미리보기 이미지 너비
+    previewMaxHeight: 312,  // 미리보기 이미지 높이 
+    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    processalways: function(e, data) {
+      console.log('fileuploadprocessalways()...');
+      console.log(data.files);
+      var imagesDiv = $('#inputfiles');
+      imagesDiv.html("");
+        try {
+          if (data.files[0].preview.toDataURL) {
+            $("<img>").attr('src', data.files[0].preview.toDataURL()).css('width', '332.72px').appendTo(imagesDiv);
+          }
+        } catch (err) {}
+      $('#foodAddBtn').unbind("click");
+      $('#foodAddBtn').click(function() {
+        data.submit();
+      });
+    }, 
+    submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+      data.formData = {
+          'mealkcal': mealkcal.val(), 
+          'mealname': mealname.val(), 
+          'mealtype': mealtype,
+          'day': today
+      }
+      console.log('submit()...');
+    }, 
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log(data.result);
+      location.reload()
+    }
+    
+});
+
+$('#already-files').fileupload({
+  url: '/management/usermeal-update.json',        // 서버에 요청할 URL
+  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+  sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+  autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+  disableImageResize: /Android(?!.*Chrome)|Opera/
+    .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    previewMaxWidth: 340,   // 미리보기 이미지 너비
+    previewMaxHeight: 312,  // 미리보기 이미지 높이 
+    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    processalways: function(e, data) {
+      console.log('fileuploadprocessalways()...');
+      console.log(data.files);
+      var imagesDiv = $('#updatefiles');
+      imagesDiv.html("");
+        try {
+          if (data.files[0].preview.toDataURL) {
+            $("<img>").attr('src', data.files[0].preview.toDataURL()).css('width', '332.72px').appendTo(imagesDiv);
+          }
+        } catch (err) {}
+      $('#foodUpdateBtn').unbind("click");
+      $('#foodUpdateBtn').click(function() {
+        data.submit();
+      });
+    }, 
+    submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+      data.formData = {
+          'no' : mealno,
+          'mealkcal': alreadymealkcal.val(), 
+          'mealname': alreadymealname.val(), 
+          'mealtype': mealtype,
+          'day': today
+      }
+      console.log('submit()...');
+    }, 
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log(data.result);
+      location.reload()
+    }
+    
+});
 
 var startDate,
-endDate;
+endDate, totalKcal = 0;
 
 function generateTemplate() {
   startDate = current.startOf('week').format("YYYY-MM-DD")
@@ -24,85 +114,111 @@ function generateTemplate() {
     "endDate": endDate}, function(result) {
       var data = result.data
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-
-      for (var i = 0; i < 7; i++){
-        var sortedMealLists = [];
-        for (var dayMealList of data.mealList) {
-          switch (dayMealList.day) {
-          case "day0":  sortedMealLists[0] = dayMealList; break;
-          case "day1":  sortedMealLists[1] = dayMealList; break;
-          case "day2":  sortedMealLists[2] = dayMealList; break;
-          case "day3":  sortedMealLists[3] = dayMealList; break;
-          case "day4":  sortedMealLists[4] = dayMealList; break;
-          case "day5":  sortedMealLists[5] = dayMealList; break;
-          case "day6":  sortedMealLists[6] = dayMealList; break;
-          }
-        }
-        for (var j = 0; j < 7; j++) {
-          if (!sortedMealLists[j]){
-            sortedMealLists[j] = {day: 'day' + j, meal: []}
-          }
-          data.mealList = sortedMealLists
-        }
-      }
-
-      for (var dayMeal of data.mealList) {
-        var sortedMeals = [];
-        for (var meal of dayMeal.meal) {
-          switch (meal.mealtype) {
-          case "breakfast": sortedMeals[0] = meal; break;
-          case "lunch": sortedMeals[1] = meal; break;
-          case "dinner": sortedMeals[2] = meal; break;
-          }
-        }
-
-        for (var i = 0; i < 3; i++) {
-          if (!sortedMeals[i]) sortedMeals[i] = null
-        }
-        dayMeal.sortedMeals = sortedMeals;
-      }
-
-      console.log(data)
+      arrayData(data)
+      console.log(data.mealList)
       var templateFn = Handlebars.compile($('#user-template').text())
       var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#meal-container')
       container.html("")
       var html = container.html()
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
-
+      
+      var templateFn1 = Handlebars.compile($('#meal-template').text())
+      var generatedHTML1 = templateFn1(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var popcontainer = $('#pop-container')
+      popcontainer.html("")
+      var html1 = popcontainer.html()
+      popcontainer.html(html1 + generatedHTML1)
+      
       date(current)
       autoSelect(moment(current._i))
       inputMeal()
     })
 }
+function arrayData(data) {
 
+  for (var i = 0; i < 7; i++){
+    var sortedMealLists = [];
+    for (var dayMealList of data.mealList) {
+      switch (dayMealList.day) {
+      case "day0":  sortedMealLists[0] = dayMealList; break;
+      case "day1":  sortedMealLists[1] = dayMealList; break;
+      case "day2":  sortedMealLists[2] = dayMealList; break;
+      case "day3":  sortedMealLists[3] = dayMealList; break;
+      case "day4":  sortedMealLists[4] = dayMealList; break;
+      case "day5":  sortedMealLists[5] = dayMealList; break;
+      case "day6":  sortedMealLists[6] = dayMealList; break;
+      }
+    }
+    for (var j = 0; j < 7; j++) {
+      if (!sortedMealLists[j]){
+        sortedMealLists[j] = {day: 'day' + j, meal: []}
+      }
+      data.mealList = sortedMealLists
+    }
+  }
+
+  for (var dayMeal of data.mealList) {
+    var sortedMeals = [];
+    for (var meal of dayMeal.meal) {
+      switch (meal.mealtype) {
+      case "breakfast": sortedMeals[0] = meal; break;
+      case "lunch": sortedMeals[1] = meal; break;
+      case "dinner": sortedMeals[2] = meal; break;
+      }
+    }
+
+    for (var i = 0; i < 3; i++) {
+      if (!sortedMeals[i]) {
+        sortedMeals[i] = {index: i};
+      }
+    }
+    dayMeal.sortedMeals = sortedMeals;
+  }
+
+  for (var i = 0; i < 7; i++) {
+    for (var j = 0; j < 3; j++) {
+      if(data.mealList[i].meal[j] == undefined)
+        continue;
+      totalKcal += parseInt(data.mealList[i].meal[j].mealkcal)
+    }
+    data.mealList[i].totalKcal = totalKcal
+    totalKcal = 0;
+//    $('#day' + i).children().children('.kcal-total').text(totalKcal)
+  }
+}
 function dateClick() {
   var tabClick = $(".tab-slider--nav .tab-slider--tabs div")
   tabClick.click(function() {
     $(".tab-slider--body").hide();
     var activeTab = $(this).attr("rel");
     $("#"+activeTab).fadeIn();
-    if($(this).attr("rel") == "day1"){
-      $('.tab-slider--tabs').addClass('slide1');
-    } else if($(this).attr("rel") == "day2"){
-      $('.tab-slider--tabs').addClass('slide2');
-    } else if($(this).attr("rel") == "day3"){
-      $('.tab-slider--tabs').addClass('slide3');
-    } else if($(this).attr("rel") == "day4"){
-      $('.tab-slider--tabs').addClass('slide4');
-    } else if($(this).attr("rel") == "day5"){
-      $('.tab-slider--tabs').addClass('slide5');
-    } else if($(this).attr("rel") == "day6"){
-      $('.tab-slider--tabs').addClass('slide6');
+    if(activeTab == "day0"){
+      sliderDate(0)
+    } else if(activeTab == "day1"){
+      sliderDate(1)
+    } else if(activeTab == "day2"){
+      sliderDate(2)
+    } else if(activeTab == "day3"){
+      sliderDate(3)
+    } else if(activeTab == "day4"){
+      sliderDate(4)
+    } else if(activeTab == "day5"){
+      sliderDate(5)
+    } else if(activeTab == "day6"){
+      sliderDate(6)
     } else {
       $('.tab-slider--tabs')
-      .removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
+      .removeClass('slide0 slide1 slide2 slide3 slide4 slide5 slide6');
     }
     tabClick.removeClass("active");
     $(this).addClass("active");
   });
 
   console.log('dateClick()')
+}
+function sliderDate(no) {
+  $('.tab-slider--tabs').addClass('slide' + no);
 }
 
 var months = ["January","February","March",
@@ -113,40 +229,20 @@ var months = ["January","February","March",
 
 function autoSelect(moment) {
   var dayNo = moment.weekday()
-  $('.tab-slider--tabs').removeClass('slide1 slide2 slide3 slide4 slide5 slide6');
+  $('.tab-slider--tabs').removeClass('slide0 slide1 slide2 slide3 slide4 slide5 slide6');
   $(".tab-slider--body").hide();
-  if(dayNo == 0) {
-    $('.day0').addClass("active");
-    $("#day0").show();
-  } else if(dayNo == 1){
-    $('.tab-slider--tabs').addClass('slide1');
-    $('.day1').addClass("active");
-    $("#day1").show();
-  } else if(dayNo == 2){
-    $('.tab-slider--tabs').addClass('slide2');
-    $('.day2').addClass("active");
-    $("#day2").show();
-  } else if(dayNo == 3){
-    $('.tab-slider--tabs').addClass('slide3');
-    $('.day3').addClass("active");
-    $("#day3").show();
-  } else if(dayNo == 4){
-    $('.tab-slider--tabs').addClass('slide4');
-    $('.day4').addClass("active");
-    $("#day4").show();
-  } else if(dayNo == 5){
-    $('.tab-slider--tabs').addClass('slide5');
-    $('.day5').addClass("active");
-    $("#day5").show();
-  } else if(dayNo == 6){
-    $('.tab-slider--tabs').addClass('slide6');
-    $('.day6').addClass("active");
-    $("#day6").show();
-  }
-  console.log('autoSelect(current)')
+  selectDate(dayNo)
 }
 
-
+function selectDate(no) {
+  $('.tab-slider--tabs').addClass('slide' + no);
+  $('.day'+no).addClass("active");
+  $("#day"+no).show();
+  if ($('.day' + no).text() == moment(new Date()).format("D")) {
+    $('#day' + no).children('.input-meal').addClass("add")
+    $('#day' + no).children('.meal').addClass("update")
+  }
+}
 
 function date(moment) { // get current date
   var sunDate = moment.clone(),
@@ -173,38 +269,50 @@ function prevCalendar() {
   generateTemplate()
 }
 
-var container = $('.input-food-container'),
+var alreadymeal = $('.already-meal'),
+addmeal = $('.add-meal'),
 backscreen = $('.backscreen');
 
-
 function inputMeal() {
-  $('.input-meal').on('click', function() {
-    if(container.attr('data-open') == 'close') {
+  $('.update').on('click', function() {
+    today = $(this).parent().attr('id')
+    mealtype = $(this).children('.meal-type').text()
+    mealno = $(this).attr('value')
+    
+    $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).css('width', '332.72px').appendTo($('#updatefiles'));
+    $('.already-food-name').val($(this).children('.meal-name').text())
+    $('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
+    
+    if(alreadymeal.attr('data-open') == 'close') {
       backscreen.show()
-      container.show()
-      container.attr('data-open', 'open')
-    } 
+      alreadymeal.show()
+      alreadymeal.attr('data-open', 'open')
+    }
+  })
+  
+  $('.add').on('click', function() {
+    console.log($('.add-meal').children('.already-food'))
+    today = $(this).parent().attr('id')
+    if($(this).attr('value') == 0) {
+      mealtype = 'breakfast'
+    } else if ($(this).attr('value') == 1) {
+      mealtype = 'lunch'
+    } else if ($(this).attr('value') == 2) {
+      mealtype = 'dinner'
+    }
+    if(addmeal.attr('data-open') == 'close') {
+      backscreen.show()
+      addmeal.show()
+      addmeal.attr('data-open', 'open')
+    }
   })
   backscreen.on('click', function() {
     backscreen.hide()
-    container.hide()
-    container.attr('data-open', 'close')
+    alreadymeal.hide()
+    addmeal.hide()
+    alreadymeal.attr('data-open', 'close')
+    addmeal.attr('data-open', 'close')
   })
-//$('#inputMeal').on('click', function() {
-//if(container.attr('data-open') == 'close') {
-//backscreen.show()
-//container.toggle()
-//container.attr('data-open', 'open')
-//} 
-
-//backscreen.on('click', function() {
-//backscreen.hide()
-//container.toggle()
-//container.attr('data-open', 'close')
-//})  
-//})
-
-
 }
 
 
@@ -237,21 +345,3 @@ function slideDate() {
 
   });
 }
-
-
-//$('#calendar').datepicker({
-//dayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-//dayNamesMin: ["일", " 월", " 수", " 목", " 금", " 토", " 일"],
-//format: "mm-yyyy",
-//viewMode: "months",
-//minViewMode: "months",
-//showWeek: true,
-//onSelect: function(dateText, inst) {
-//var date = $(this).datepicker('getDate'),
-//day  = date.getDate(),
-//month = date.getMonth() + 1,
-//year =  date.getFullYear();
-//alert(day + '-' + month + '-' + year);
-//}
-//});
-//$("#calendar").datepicker("setDate", new Date());

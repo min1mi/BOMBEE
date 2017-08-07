@@ -4,11 +4,10 @@
     font-size: 10px;
   }
   .tab-slider--tabs:after{
-    height: 27px;
+    height: 30px;
     top: 14.5px;
     left: 1px;
   }
-
   .week-container .info {
     height: 27px;
   }
@@ -34,11 +33,10 @@
     font-size: 12px;
   }
   .tab-slider--tabs:after{
-    height: 35.2px;
+    height: 35.250px;
     top: 16px;
     left: 2px;
   }
-
   .week-container .info {
     height: 28.5px;
   }
@@ -92,6 +90,9 @@
 body{
 	position relative;
 }
+input:focus {
+    outline:none;
+}
 .user-container {
   /*font-family: "UhBeepuding", serif;*/
   height: 100%;
@@ -120,6 +121,11 @@ body{
   position:absolute;
   transition:all 250ms ease-in-out;
   border-radius:70px;
+}
+
+
+.tab-slider--tabs.slide0:after{
+  left: calc(100%/120);
 }
 .tab-slider--tabs.slide1:after{
   left: calc(100%/6.65);
@@ -310,6 +316,7 @@ body{
 }
 
 .input-food-container {
+	display: none;
 	position: absolute;
 	background-color: #f3f3f3;
 	width: 85.5%;
@@ -320,6 +327,7 @@ body{
 	padding: 2% 2% 0 2%;
 	z-index: 20;
 }
+
 
 .input-food {
 	/*display: none;*/
@@ -358,7 +366,9 @@ body{
   font-size: 1.5rem;
 }
 
-.food-name, .food-kcal {
+.food-name, .food-kcal, 
+.already-food-name, 
+.already-food-kcal {
 	padding: 2% 0 2% 2%;
 	position: absolute;
 	border: 2px solid black;
@@ -370,15 +380,15 @@ body{
 	font-size: 1.4rem;
 }
 
-.food-name {
+.food-name, .already-food-name {
 	left: 0;
 }
 
-.food-kcal {
+.food-kcal, .already-food-kcal {
 	right: 0;
 }
 
-.foodAddBtn {
+.foodAddBtn, .foodUpdateBtn {
 	position: absolute;
 	width: 50%;
 	font-size: 1.4rem;
@@ -405,7 +415,15 @@ body{
 	z-index: 15;
 }
 
-
+#inputfiles, #updatefiles {
+	width: 94%;
+	height: 66%;
+	position: absolute;
+	top: 2.3%;
+	left: 3%;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
 
 /**/

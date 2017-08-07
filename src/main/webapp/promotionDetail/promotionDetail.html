@@ -4,46 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/menu.css'>
   <link rel='stylesheet' href='promotionDetail.css'>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
-
-  <style>
-
-  .swiper-container {
-      width: 100%;
-      height: 100%;
-  }
-  .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-  }
-  </style>
-
+  <link rel='stylesheet' href="../node_modules/swiper/dist/css/swiper.min.css">
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 </head>
 
 <body>
-  <!-- <h1>sdfdsf</h1> -->
   <div class='container promotionDetail_container'>
 
     <div class='header'></div>
@@ -76,31 +48,42 @@
 
 
     </div>
+    <div id='handlebars-pro-detail'></div>
+    
 
-    <div class='promotionDetail_title'>
-      <p>예쁜 팔 만들기 운동</p>
+    <div class='footer'>
+      <p>COACHING</p>
+    </div>
+
+  </div>
+  <!-- container -->
+
+
+  <script id = 'detail-template' type='text/x-handlebars-template'>
+ <div class='promotionDetail_title'>
+      <p>{{title}}</p>
     </div>
 
     <div class='promotionDetail_DatePrice'>
       <div class='promotionDetail_date'>
-        <p>2017-8-20 ~ 2017-9-20</p>
+        <p>{{sdt}} ~ {{edt}}</p>
       </div>
 
       <div class='promotionDetail_price'>
-        <p>50000&#8361;</p>
+        <p>{{pric}}&#8361;</p>
       </div>
     </div>
 
     <div class='promotionDetail_company '>
       <p>
-        휘트니스피플서울대
+        {{company}}
       </p>
     </div>
 
 
     <div class='promotionDetail_address accordion' >
       <p>
-        서울 관악구 관악로 199 상준빌딩 3층&nbsp;
+        {{comaddr}} {{comdetailaddr}}&nbsp;
         <i style="color:blue;"class="fa fa-map-marker" aria-hidden="true"></i>
       </p>
     </div>
@@ -112,23 +95,11 @@
 
     <div class='promotionDetail_contents'>
       <p>
-        안녕하세요~ 서울대입구 헬스 휘트니스피플서울대점입니다!! 오늘은 예쁜팔을 위한 운동법인 덤벨컬을 보여드리려고해요~ 덤벨컬(dumbbell curl)은 상완이두근(biceps)라 불리는 근육을 단련하는 운동법입니다. 컬(curl)이라는 이름에서 아시듯 구부려주는 동작이 주를 이루는데요, 같은 방식이지만 바벨을 이용하는 바벨컬에 비해서 팔뚝의 사이즈가커지는것이 아니라 탄력을 잡아주는데 조금더 용이한 부분이 있기 때문에 여성분들에게도 추천이되는운동입니다.
+        {{content}}
       </p>
     </div>
-
-    <div class='footer'>
-      <p>COACHING</p>
-    </div>
-
-  </div>
-  <!-- container -->
-
-
-
-  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-  <script src='../node_modules/jquery-ui-dist/jquery-ui.js'></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="promotionDetail.js"></script>
+</script>
+  
 
   <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e93af6b0f8e2ad445bda7e9b6a416ad1&libraries=services"></script>
 
@@ -141,68 +112,48 @@
 
 
   <script>
-  var acc = document.getElementsByClassName("accordion");
 
-    acc[0].onclick = function() {
-      this.classList.toggle("active");
-      var panel = this.nextElementSibling;
-      if (panel.style.maxHeight){
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
+    
+ /*  var lat, lon;
+  lat = 37.483300;
+  lon = 126.953564;
 
-    }
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+  mapOption = {
+      center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
+      level: 5 // 지도의 확대 레벨
+  };
 
-  </script>
-  <script>
+  var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+  //// 여기 까지 기본 맵
 
-    var lat, lon;
-    lat = 37.483300;
-    lon = 126.953564;
+  // 마커가 표시될 위치입니다
+  var markerPosition  = new daum.maps.LatLng(lat, lon);
 
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-    mapOption = {
-        center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
-    };
+  // 마커를 생성합니다
+  var marker = new daum.maps.Marker({
+      position: markerPosition
+  });
 
-    var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-    //// 여기 까지 기본 맵
-
-    // 마커가 표시될 위치입니다
-    var markerPosition  = new daum.maps.LatLng(lat, lon);
-
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({
-        position: markerPosition
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-    ////여기까지 마커
-
-    // var content = '<div class ="label" style="color:black;"><span class="left"></span><span class="center">휘트니스피플서울대</span><span class="right"></span></div>';
-    //
-    // // 커스텀 오버레이가 표시될 위치입니다
-    // var position = new daum.maps.LatLng(lat, lon);
-    //
-    // // 커스텀 오버레이를 생성합니다
-    // var customOverlay = new daum.maps.CustomOverlay({
-    //     position: position,
-    //     content: content
-    // });
-    //
-    // // 커스텀 오버레이를 지도에 표시합니다
-    // customOverlay.setMap(map);
-    // ////여기까지 오버레이
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
+  ////여기까지 마커 */
 
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+  
 
   <!-- Initialize Swiper -->
   <script>
+  var no = 0
+  var lat
+  var lon
+  try {
+	   no = location.href.split('?')[1].substring(3)
+	   console.log(no)
+	} catch (err) {
+
+	}
   var swiper = new Swiper('.swiper-container', {
       pagination: '.swiper-pagination',
       paginationClickable: true,
@@ -210,6 +161,61 @@
       prevButton: '.swiper-button-prev',
       // spaceBetween: 30
   });
+  
+  
+  $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
+      console.log(result.data.promotion)
+      lat = result.data.promotion.lat
+      lon = result.data.promotion.lng
+      console.log(lat)
+      console.log(lon)
+      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+       var templateFn = Handlebars.compile($('#detail-template').text())
+      var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var container = $('#handlebars-pro-detail')
+      var html = container.html()
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다. 
+       var acc = document.getElementsByClassName("accordion");
+
+       
+     mapCreate()
+      
+      acc[0].onclick = function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight){
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+
+        } 
+
+    })
+    
+     function mapCreate() {
+	  var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+      mapOption = {
+          center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
+          level: 5 // 지도의 확대 레벨
+      };
+
+      var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+      //// 여기 까지 기본 맵
+
+      // 마커가 표시될 위치입니다
+      var markerPosition  = new daum.maps.LatLng(lat, lon);
+
+      // 마커를 생성합니다
+      var marker = new daum.maps.Marker({
+          position: markerPosition
+      });
+      
+   // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+      ////여기까지 마커 */ 
+  }
+
   </script>
 
 

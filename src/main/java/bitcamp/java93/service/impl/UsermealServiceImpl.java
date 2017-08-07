@@ -26,6 +26,12 @@ public class UsermealServiceImpl implements UsermealService {
   public void add(Usermeal usermeal) throws Exception {
     usermealDao.insert(usermeal);
   }
+
+  @Override
+  public void update(Usermeal usermeal) throws Exception {
+    usermealDao.update(usermeal);
+  }
+  
 }
 
 

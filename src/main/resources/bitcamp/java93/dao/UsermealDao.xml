@@ -9,10 +9,14 @@
 	<!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
 	<resultMap type="usermeal" id="usermealMap">
 		<id column="day" property="day" />
-		<result column="menuno" property="no" />
 		<result column="date" property="date" />
 		<result column="confirm" property="confirm" />
+		<result column="mealpic" property="mealpicture" />
+		<result column="mealkcal" property="mealkcal" />
+		<result column="mealname" property="mealname" />
+		<result column="mealtype" property="mealtype" />
 		<collection property="meal" ofType="Meal">
+				<result column="menuno" property="no" />
 				<result column="mealpic" property="mealpicture" />
 				<result column="mealkcal" property="mealkcal" />
 				<result column="mealname" property="mealname" />
@@ -22,17 +26,29 @@
 
 	<select id="selectWeeklist" resultMap="usermealMap"
 		parameterType="map">
-		select mealpic, mealkcal, mealname, mealtype, date, confirm, day
+		select menuno, mealpic, mealkcal, mealname, mealtype, date, confirm, day
 		from memb_manage
 		where date between #{startDate} and #{endDate}
 	</select>
 
-	<insert id="insert" parameterType="usermeal">
+	<insert id="insert" parameterType="usermeal" 
+					useGeneratedKeys="true" keyColumn="menuno" keyProperty="no">
 		insert into
 		memb_manage(mealtype, mealpic, mealkcal, mealname, date, day, confirm)
 		values(#{mealtype}, #{mealpicture}, #{mealkcal}, 
-					 #{mealname}, #{date}, #{day}, #{confirm})
+					 #{mealname}, curdate(), #{day}, 0)
 	</insert>
 
+ 	<update id="update" parameterType="usermeal">
+    update memb_manage set 
+      mealpic=#{mealpicture}, 
+      mealkcal=#{mealkcal}, 
+      mealname=#{mealname} 
+    where menuno=#{no}
+  </update>
+  
+	<delete id="delete" parameterType="int">
+    delete from memb_manage where menuno=#{no}
+  </delete>
 
 </mapper>

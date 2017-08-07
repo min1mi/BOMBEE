@@ -17,16 +17,20 @@ public class PromotionServiceImpl implements PromotionService {
   @Autowired
   PromotionDao promotionDao;
   
-  public List<Promotion> list() throws Exception {
+  public List<Promotion> list(Location local) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("lat", local.getLat());
+    valueMap.put("lon", local.getLon());
     return promotionDao.selectList(valueMap);
   }
   
   public Promotion get(int no) throws Exception {
     return promotionDao.selectOne(no);
   }
-  public List<Promotion> trainerList() throws Exception {
+  public List<Promotion> trainerList(Location local) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("lat", local.getLat());
+    valueMap.put("lon", local.getLon());
     return promotionDao.trainerList(valueMap);
   }
   
@@ -34,6 +38,7 @@ public class PromotionServiceImpl implements PromotionService {
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
   public void add(Promotion promotion) throws Exception {
     promotionDao.insert(promotion);
+    promotionDao.insertImg(promotion);
   }
   
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
@@ -77,6 +82,55 @@ public class PromotionServiceImpl implements PromotionService {
     return promotionDao.latLonList(valueMap);
   }
 
+  @Override
+  public List<Promotion> nextList(int lastNo) throws Exception {
+    
+    return  promotionDao.nextList(lastNo);
+  }
+  
+  @Override
+  public List<Promotion> firstList() throws Exception {
+    
+    return  promotionDao.firstList();
+  }
+  
+  @Override
+  public List<Promotion> healthFirstList() throws Exception {
+    
+    return  promotionDao.healthFirstList();
+  }
+  
+  @Override
+  public List<Promotion> healthNextList(int lastNo) throws Exception {
+    return  promotionDao.healthNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> yogaFirstList() throws Exception {
+    return  promotionDao.yogaFirstList();
+  }
+  
+  @Override
+  public List<Promotion> spinningFirstList() throws Exception {
+    return  promotionDao.spinningFirstList();
+  }
+  
+  @Override
+  public List<Promotion> pilatesFirstList() throws Exception {
+    return  promotionDao.pilatesFirstList();
+  }
+  
+  @Override
+  public List<Promotion> yogaNextList(int lastNo) throws Exception {
+    return  promotionDao.yogaNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> pilatesNextList(int lastNo) throws Exception {
+    return  promotionDao.pilatesNextList(lastNo);
+  }
+  @Override
+  public List<Promotion> spinningNextList(int lastNo) throws Exception {
+    return  promotionDao.spinningNextList(lastNo);
+  }
 
 }
 

@@ -1,7 +1,9 @@
+/* Spring WebMVC: JSON 콘텐츠로 응답하기 + 파일 업로드
+ * => AJAX 파일 업로드
+ */
 package bitcamp.java93.control.json;
 
 import java.io.File;
-import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -11,30 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Usermeal;
 import bitcamp.java93.service.UsermealService;
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
-@RequestMapping("/management/")
-public class UsermealControl {
-  @Autowired
-  UsermealService usermealService;
-  @Autowired 
-  ServletContext ctx;
-  
-  @RequestMapping("usermeal-list")
-  public JsonResult list(String startDate, String endDate) throws Exception {
-    
-    HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("mealList", usermealService.list(startDate, endDate));
-    return new JsonResult(JsonResult.SUCCESS, dataMap);
-  }
-  
+@RequestMapping("/management/mealphoto/") 
+public class UsermealPhotoControl {
 
-  @RequestMapping("usermeal-add")
-  public JsonResult add(Usermeal usermeal, MultipartFile[] files) throws Exception {
+  @Autowired UsermealService usermealService;
+  @Autowired ServletContext ctx;
+
+  @RequestMapping(path="upload")
+  public JsonResult upload(Usermeal usermeal, MultipartFile[] files, HttpSession session) throws Exception {
     
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));
@@ -54,13 +45,13 @@ public class UsermealControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
-  @RequestMapping("usermeal-update")
+  @RequestMapping(path="update")
   public JsonResult upload(Usermeal usermeal, MultipartFile[] files) throws Exception {
 
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));
     files[0].transferTo(file);
-    
+
     usermeal.setMealpicture("/upload/" + newFilename);
     
     File thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_140"));
@@ -70,7 +61,7 @@ public class UsermealControl {
     Thumbnails.of(file).size(350, 350).outputFormat("png").toFile(thumbnailfile);
     
     System.out.println(usermeal);
-    usermealService.update(usermeal);
+    usermealService.add(usermeal);
     
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
@@ -83,37 +74,45 @@ public class UsermealControl {
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
   }
-  
-//  
-//  @RequestMapping("usermeal-add")
-//  public JsonResult add(Usermeal usermeal, HttpSession session) throws Exception {
-//    
-//    if (getLoginMember(session).getMembertype() == 1) {
-//      usermealService.add(usermeal);
-//      return new JsonResult(JsonResult.SUCCESS, "ok");
-//    } else {
-//      return new JsonResult(JsonResult.SUCCESS, "trainer");
-//    }
-//    
-//  }
-//  
-//  @RequestMapping("mealphoto-add")
-//public JsonResult photoadd(Usermeal usermeal, HttpSession session) throws Exception {
-//    if (getLoginMember(session).getMembertype() == 1) {
-//      
-//      usermealService.add(usermeal);
-//      return new JsonResult(JsonResult.SUCCESS, "ok");
-//      
-//    } else {
-//      return new JsonResult(JsonResult.SUCCESS, "trainer");
-//      
-//    }
-//    
-//  }
-  
-  
-  private Member getLoginMember(HttpSession session) {
-    Member loginMember = (Member) session.getAttribute("loginMember");
-    return loginMember;
-  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

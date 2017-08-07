@@ -1,5 +1,7 @@
 package bitcamp.java93.control.json;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,4 +21,12 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
+//  @RequestMapping("searchMusician")
+//  public JsonResult searchMusician(HttpSession session, String location) throws Exception {
+//    HashMap<String,Object> dataMap = new HashMap<>();
+//    List<Musician> search= (List<Musician>)musicianService.searchMusician(getLoginMember(session).getNo() ,location);
+//    dataMap.put("listSurf", search);
+//    return new JsonResult(JsonResult.SUCCESS, dataMap);
+//  }
+
 }
