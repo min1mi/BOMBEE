@@ -14,6 +14,7 @@ public class Trainer extends Member {
   String spono;
   String introduction;
   int tno;
+  
   public String getComname() {
     return comname;
   }

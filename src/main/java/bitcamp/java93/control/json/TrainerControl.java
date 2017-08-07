@@ -33,11 +33,12 @@ public class TrainerControl {
   
   @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
-    
+    System.out.println(no);
     Trainer trainer = trainerService.get(no);
     if (trainer == null) {
       return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
     }
+    System.out.println(trainer);
     return new JsonResult(JsonResult.SUCCESS, trainer);
   } // service()
   

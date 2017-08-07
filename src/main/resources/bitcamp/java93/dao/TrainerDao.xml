@@ -21,42 +21,47 @@
     <result column="spono" property="spono"/>
     <result column="introduction" property="introduction"/>
     
+    
   </resultMap>
   
   <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
     select  m.mno, m.name, m.email, m.mtype,
-    				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
+    				t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction
     from tcher t inner join memb m on t.tno=m.mno
     where id=#{id} and pwd=password(#{pwd})
   </select>
   
   <insert id="insert" parameterType="trainer">
-    insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono)
-    values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, null)
+    insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono, introduction)
+    values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction})
   </insert>
   
+  <!--
   <select id="selectOne" resultMap="trainerMap" parameterType="int">
-    select t.mno, t.name, t.email, t.comaddr, t.spono
-     from tcher t where mno=#{name}
+    select t.mno, t.name, t.email, t.comaddr, t.spono, m.name
+     from tcher t inner join memb m on t.tno=m.mno
   </select>
   
-  <!--
+   -->
       <select id="selectOne" resultMap="trainerMap" parameterType="int">
-    select  m.mno, m.name, m.mtype,
+    select  m.mno,t.tno, m.name, m.mtype,
             t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction
     from tcher t inner join memb m on t.tno=m.mno
+    where t.tno = #{no}
   </select>
-   -->
   
   
-  <update id="update" parameterType="trainer">
+  <update id="update"  parameterType="trainer">
     update tcher set
       introduction=#{introduction},
       company=#{comname}, 
       zipcode=#{zipcode},  
       comaddr=#{comaddr},
-      comdetailaddr=#{comdetailaddr}, 
-      where tno=#{no};
+      spono=#{spono},
+      comdetailaddr=#{comdetailaddr} 
+    where tno=#{tno}
+      
+      
   </update>
   
   

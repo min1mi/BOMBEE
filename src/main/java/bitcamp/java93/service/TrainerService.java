@@ -8,5 +8,4 @@ public interface TrainerService {
   Trainer getByEmailPassword(String id, String pwd) throws Exception;
   Trainer get(int no) throws Exception;
   void update(Trainer trainer) throws Exception;
-  
 }
