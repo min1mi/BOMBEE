@@ -50,7 +50,6 @@ function clickPro() {
         }
       })
 }
-
 function clickPro1() {
 $("#tmdduf-container div").click(function(){
     $(".pro1 .pro").hide();
@@ -62,5 +61,5 @@ $("#tmdduf-container div").click(function(){
     // $(this).slideToggle(1000);
 
 
-  })
+})
 }

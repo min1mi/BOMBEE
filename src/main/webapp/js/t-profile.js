@@ -1,4 +1,23 @@
+$(function() {
+  // $('.header').load('../menu/new.html')
 
+
+  generateTemplate();
+  // $(".pro1 .pro").hide();
+
+});
+function generateTemplate() {
+  var no = 1// 로그인했을때 자기 MNO tno를 받아와야 된다.
+  $.getJSON('/trainer/detail.json', {no}, function(result) {
+    console.log(result)
+    // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+    var templateFn = Handlebars.compile($('#profile-template').text())
+    var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+    var container = $('#profile-container')
+    var html = container.html()
+    container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
+  })
+}
 
 // 우편번호 찾기 화면을 넣을 element
 var element_layer = document.getElementById('layer');
@@ -67,139 +86,38 @@ function initLayerPosition(){
     // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
     element_layer.style.left = 0+'px';
     element_layer.style.top = 80 + 'px';
-}
-var fiSpono,
-fiName,
-fiComname,
-fiZipcode,
-fiComaddr,
-fiComdetailaddr,
-fiIntroduction,
-no = -12
-var spono
 
+
+
+
+
+
+
+
+}
+var fiSpono = $('.spono'),
+fiName = $('.name'),
+fiComname = $('.company_name'),
+fiZipcode = $('.zip'),
+fiComaddr = $('.address'),
+fiComdetailaddr = $('.detail_address'),
+fiIntroduction = $('.introduction')
 
 
 $('.pro-save-Btn').on('click', function() {
   console.log("클릭클릭")
-
-
-  // spono.on('change', function() {
-
-    // switch (spono){
-    //   case "1" :
-    //     fiSpono.val()= 1
-    //   break;
-    //   case "2" :
-    //     fiSpono.val()= 2
-    //   break;
-    //   case "3" :
-    //     fiSpono.val()= 3
-    //   break;
-    //   case "4" :
-    //     fiSpono.val()= 4
-    //   break;
-    //   default :
-    //     fiSpono.val()= null
-  //
-  // console.log(fiSpono.val());
-  // console.log(spono.val());
-
     $.post('/trainer/update.json', {
-      // 'spono': $('.spono').val(),
-      // 'comname': $('.company_name').val(),
-      // 'zipcode': $('.zip').val(),
-      // 'comaddr': $('.address').val(),
-      // 'comdetailaddr': $('.detail_address').val(),
-      // 'introduction': $('.introduction').val(),
-      // 'tno': $('.tno').val()
-      'spono': spono,
-      'comname':fiComname.val(),
+      'no': fiComname.val(),
+      'comname': fiComname.val(),
       'zipcode': fiZipcode.val(),
       'comaddr': fiComaddr.val(),
       'comdetailaddr': fiComdetailaddr.val(),
-      'introduction': fiIntroduction.val(),
-      'tno': no
+      'introduction': fiIntroduction.val()
+
+
     }, function(result) {
-      location.href = '../profile/t-profile.html'
+      location.href = '../main/main.html'
 
     }, 'json')
 
 })
-
-
-$.getJSON('/auth/userinfo.json', function(result) {
-	no = result.data.no
-  getData()
-})
-
-
-function getData() {
-  $.getJSON('/trainer/detail.json', {no}, function(result) {
-    console.log(result.data.spono)
-    // console.log($('#spono3'));
-    // $('#spono3').attr('selected')
-    var templateFn = Handlebars.compile($('#profile-template').text())
-	  var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-	  var container = $('#profile-container')
-
-	  var html = container.html()
-    console.log($('#spono3'));
-    // $('#spono3').attr('selected')
-	  container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.      })
-    fiSpono = $('.spono')
-    fiComname = $('.company_name')
-    fiZipcode = $('.zip')
-    fiComaddr = $('.address')
-    fiComdetailaddr = $('.detail_address')
-    fiIntroduction = $('.introduction')
-    $('#pro-select').on('change',function() {
-      spono = $('#pro-select option:selected').val()
-      console.log(spono)
-    })
-    switch (result.data.spono){
-      case "1" :
-      console.log(1)
-      $('#spono1').attr('selected', 'selected')
-      break;
-      case "2" :
-      console.log(2)
-      $('#spono2').attr('selected', 'selected')
-      break;
-      case "3" :
-      console.log(3)
-      $('#spono3').attr('selected', 'selected')
-      break;
-      case "4" :
-      console.log("필라테스")
-      $('#spono4').attr('selected', 'selected')
-      break;
-      default :
-      console.log(5)
-      $('#spono').attr('selected')
-    }
-
-  })
-}
-
-
-$('#fileupload').fileupload({
-    dataType: 'json',
-    add: function (e, data) {
-      console.log('add()..')
-      data.context = $('<button/>').text('Upload')
-        .appendTo(document.body)
-        .click(function () {
-          data.context = $('<p/>').text('Uploading...').replaceAll($(this))
-          data.submit();
-        })
-    },
-    dataType: 'json',
-    done: function (e, data) {
-      console.log('done()...');
-      console.log(data.result); // 서버가 보낸 JSON 객체는 data.result 에 보관되어 있다.
-      var file = data.result.fileList[0];
-      data.context.html("<img width'100' src='/upload/" + file.filename + "'> " + file.filesize)
-    }
-
-});

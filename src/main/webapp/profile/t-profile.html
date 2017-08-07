@@ -33,9 +33,10 @@
              <img  id="box1" src="../image/download.jpg">
             </label>
             </div>
-            <input id="fileupload" type="file" accept="image/*" style="display:none;">
+            <input id="img-upload" type="file" accept="image/*" style="display:none;">
         </div>
-      
+
+
         <div id="profile-container">
         </div>
 
@@ -51,16 +52,13 @@
 
 
 <script id="profile-template" type="text/x-handlebars-template">
+
       <div>
-      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly/>
+      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}"/>
          <div id="pro-type">
            <!-- <option>운동 종목</option> -->
-
            <select id="pro-select">
-                <option class='spono' id="spono1" value="1" >요가</option>
-                <option class='spono' id="spono2" value="2" >헬ㅅ</option>
-                <option class='spono' id="spono3" value="3" >스피닝</option>
-                <option class='spono' id="spono4" value="4" >필라테스</option>
+                <option>{{spono}}</option>
            </select>
          </div>
 
@@ -76,7 +74,7 @@
         <img  id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
       </div>
       <p id="pro-dt">소개</p>
-      <textarea  class="Desc introduction" rows="10" id="pro-dd">{{introduction}}</textarea>
+      <textarea  class="Desc" rows="10" id="pro-dd">{{introduction}}</textarea>
     </div>
   </div>
 

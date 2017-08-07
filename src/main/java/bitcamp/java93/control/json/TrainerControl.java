@@ -1,8 +1,5 @@
 package bitcamp.java93.control.json;
 
-import java.awt.List;
-import java.util.HashMap;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.TrainerService;
 
@@ -39,12 +35,11 @@ public class TrainerControl {
   
   @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
-    System.out.println(no);
+    
     Trainer trainer = trainerService.get(no);
     if (trainer == null) {
       return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
     }
-    System.out.println(trainer);
     return new JsonResult(JsonResult.SUCCESS, trainer);
   } // service()
   
@@ -59,12 +54,4 @@ public class TrainerControl {
     Trainer loginMember = (Trainer) session.getAttribute("loginMember");
     return loginMember;
   }
-  
-  @RequestMapping("promotion")
-  public JsonResult getPromotion(int no) throws Exception {
-	  HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", trainerService.getPromotionList(no));
-
-    return new JsonResult(JsonResult.SUCCESS, dataMap);
-  } // service()
 }
