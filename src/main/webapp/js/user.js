@@ -89,7 +89,7 @@ $('#already-files').fileupload({
     }, 
     submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
       data.formData = {
-          'no' : mealno,
+          'mealno' : mealno,
           'mealkcal': alreadymealkcal.val(), 
           'mealname': alreadymealname.val(), 
           'mealtype': mealtype,

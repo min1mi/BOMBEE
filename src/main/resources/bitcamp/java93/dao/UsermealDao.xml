@@ -16,7 +16,7 @@
 		<result column="mealname" property="mealname" />
 		<result column="mealtype" property="mealtype" />
 		<collection property="meal" ofType="Meal">
-				<result column="menuno" property="no" />
+				<result column="mealno" property="mealno" />
 				<result column="mealpic" property="mealpicture" />
 				<result column="mealkcal" property="mealkcal" />
 				<result column="mealname" property="mealname" />
@@ -26,13 +26,13 @@
 
 	<select id="selectWeeklist" resultMap="usermealMap"
 		parameterType="map">
-		select menuno, mealpic, mealkcal, mealname, mealtype, date, confirm, day
+		select mealno, mealpic, mealkcal, mealname, mealtype, date, confirm, day
 		from memb_manage
 		where date between #{startDate} and #{endDate}
 	</select>
 
 	<insert id="insert" parameterType="usermeal" 
-					useGeneratedKeys="true" keyColumn="menuno" keyProperty="no">
+					useGeneratedKeys="true" keyColumn="mealno" keyProperty="no">
 		insert into
 		memb_manage(mealtype, mealpic, mealkcal, mealname, date, day, confirm)
 		values(#{mealtype}, #{mealpicture}, #{mealkcal}, 
@@ -44,11 +44,11 @@
       mealpic=#{mealpicture}, 
       mealkcal=#{mealkcal}, 
       mealname=#{mealname} 
-    where menuno=#{no}
+    where mealno=#{mealno}
   </update>
   
 	<delete id="delete" parameterType="int">
-    delete from memb_manage where menuno=#{no}
+    delete from memb_manage where mealno=#{mealno}
   </delete>
 
 </mapper>

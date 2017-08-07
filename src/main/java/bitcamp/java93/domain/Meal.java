@@ -5,19 +5,23 @@ public class Meal {
   String mealpicture;
   String mealname;
   String mealkcal;
-  int no;
+  int mealno;
   
+
   @Override
   public String toString() {
     return "Meal [mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
-        + mealkcal + ", no=" + no + "]";
+        + mealkcal + ", mealno=" + mealno + "]";
   }
-  public int getNo() {
-    return no;
+  
+  public int getMealno() {
+    return mealno;
   }
-  public void setNo(int no) {
-    this.no = no;
+
+  public void setMealno(int mealno) {
+    this.mealno = mealno;
   }
+
   public String getMealtype() {
     return mealtype;
   }

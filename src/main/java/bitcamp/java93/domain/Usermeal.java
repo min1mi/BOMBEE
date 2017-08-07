@@ -19,8 +19,8 @@ public class Usermeal extends Meal{
   @Override
   public String toString() {
     return "Usermeal [meal=" + meal + ", date=" + date + ", day=" + day + ", confirm=" + confirm + ", mealtype="
-        + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal=" + mealkcal + ", no=" + no
-        + "]";
+        + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal=" + mealkcal + ", mealno="
+        + mealno + "]";
   }
   public List<Meal> getMeal() {
     return meal;
