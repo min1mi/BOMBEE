@@ -1,5 +1,6 @@
 package bitcamp.java93.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bitcamp.java93.domain.Location;
@@ -22,6 +23,9 @@ public interface PromotionService {
   List<Promotion> yogaNextList(int lastNo) throws Exception;
   List<Promotion> pilatesNextList(int lastNo) throws Exception;
   List<Promotion> spinningNextList(int lastNo) throws Exception;
+  List<Promotion> getPromotionList(int no) throws Exception;
+  List<Promotion> getPromotionListTitle(int no) throws Exception;
+  int deletePromotions(ArrayList<Integer> arr) throws Exception;
 }
 
 
