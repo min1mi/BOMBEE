@@ -11,14 +11,8 @@ public interface PromotionDao {
   List<Promotion> trainerList(Map<String,Object> valueMap);
   List<Promotion> nextList(int lastNo);
   List<Promotion> firstList();
-  List<Promotion> healthFirstList();
-  List<Promotion> yogaFirstList();
-  List<Promotion> pilatesFirstList();
-  List<Promotion> spinningFirstList();
-  List<Promotion> healthNextList(int lastNo);
-  List<Promotion> yogaNextList(int lastNo);
-  List<Promotion> pilatesNextList(int lastNo);
-  List<Promotion> spinningNextList(int lastNo);
+  List<Promotion> healthFirstList(int typeNo);
+  List<Promotion> healthNextList(int lastNo, int typeNo);
   Promotion selectOne(int no);
   Promotion selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Promotion Promotion);
