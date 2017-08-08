@@ -35,7 +35,6 @@ public class TrainerServiceImpl implements TrainerService {
     return trainerDao.selectOne(no);
   }
   public void update(Trainer trainer) throws Exception {
-//  memberDao.update(trainer);
   trainerDao.update(trainer);
 
 }

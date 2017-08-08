@@ -83,61 +83,22 @@ var spono
 
 
 
-$('.pro-save-Btn').on('click', function() {
-  console.log("클릭클릭")
-  // spono.on('change', function() {
-
-    // switch (spono){
-    //   case "1" :
-    //     fiSpono.val()= 1
-    //   break;
-    //   case "2" :
-    //     fiSpono.val()= 2
-    //   break;
-    //   case "3" :
-    //     fiSpono.val()= 3
-    //   break;
-    //   case "4" :
-    //     fiSpono.val()= 4
-    //   break;
-    //   default :
-    //     fiSpono.val()= null
-  //
-  // console.log(fiSpono.val());
-  // console.log(spono.val());
-
-    $.post('/trainer/update.json', {
-      // 'spono': $('.spono').val(),
-      // 'comname': $('.company_name').val(),
-      // 'zipcode': $('.zip').val(),
-      // 'comaddr': $('.address').val(),
-      // 'comdetailaddr': $('.detail_address').val(),
-      // 'introduction': $('.introduction').val(),
-      // 'tno': $('.tno').val()
-      'spono': spono,
-      'comname':fiComname.val(),
-      'zipcode': fiZipcode.val(),
-      'comaddr': fiComaddr.val(),
-      'comdetailaddr': fiComdetailaddr.val(),
-      'introduction': fiIntroduction.val(),
-      'tno': no
-    }, function(result) {
-      location.href = '../profile/t-profile.html'
-
-    }, 'json')
-
-})
-
 
 $.getJSON('/auth/userinfo.json', function(result) {
+	// console.log(result)
 	no = result.data.no
   getData()
 })
 
+// $('.pro-save-Btn').click(function() {
+// 	console.log('눌렸다')
+// 	data.submit();
+// });
 
 function getData() {
   $.getJSON('/trainer/detail.json', {no}, function(result) {
     console.log(result.data.spono)
+		console.log(result.data)
     // console.log($('#spono3'));
     // $('#spono3').attr('selected')
     var templateFn = Handlebars.compile($('#profile-template').text())
@@ -160,57 +121,101 @@ function getData() {
     })
     switch (result.data.spono){
       case "1" :
-      console.log(1)
+      console.log(1, "요가")
       $('#spono1').attr('selected', 'selected')
+			spono = $('#pro-select option:selected').val()
       break;
       case "2" :
-      console.log(2)
+      console.log(2, "헬스")
       $('#spono2').attr('selected', 'selected')
+			spono = $('#pro-select option:selected').val()
       break;
       case "3" :
-      console.log(3)
+      console.log(3, "스피닝")
       $('#spono3').attr('selected', 'selected')
+			spono = $('#pro-select option:selected').val()
       break;
       case "4" :
-      console.log("필라테스")
+      console.log(4, "필라테스")
       $('#spono4').attr('selected', 'selected')
+			spono = $('#pro-select option:selected').val()
       break;
       default :
 			console.log("선택하세요")
       $('#spono').attr('selected', 'selected')
+			spono = $('#pro-select option:selected').val()
     }
 
+		$('#already-files').fileupload({
+			url: '/trainer/update.json',        // 서버에 요청할 URL
+			dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+			sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+			singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+			autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+			disableImageResize: /Android(?!.*Chrome)|Opera/
+			.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+			previewMaxWidth: 415,   // 미리보기 이미지 너비
+			previewMaxHeight: 312,  // 미리보기 이미지 높이
+			previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+			processalways: function(e, data) {
+				console.log('fileuploadprocessalways()...');
+				console.log(data.files);
+				var imagesDiv = $('#box1');
+				imagesDiv.html("");
+				try {
+					if (data.files[0].preview.toDataURL) {
+						$("#box1").attr('src', data.files[0].preview.toDataURL()).css('width', '415px');
+					}
+				} catch (err) {}
+				$('.pro-save-Btn').unbind("click");
+				$('.pro-save-Btn').click(function() {
+					console.log('눌렸다')
+					data.submit();
+				});
+			},
+			submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+				data.formData = {
+					'spono': spono,
+					'comname':fiComname.val(),
+					'zipcode': fiZipcode.val(),
+					'comaddr': fiComaddr.val(),
+					'comdetailaddr': fiComdetailaddr.val(),
+					'introduction': fiIntroduction.val(),
+					'tno': no
+				}
+				console.log('submit()...');
+			},
+			done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+				console.log(data.result);
+				location.reload()
+			}
+		});
   })
-}
 
-// $('#already-files').fileupload({
-//   url: '/trainer/t-pic-update.json',        // 서버에 요청할 URL
-//   dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-//   sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-//   singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-//   autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
-//   disableImageResize: /Android(?!.*Chrome)|Opera/
-//     .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-//     previewMaxWidth: 340,   // 미리보기 이미지 너비
-//     previewMaxHeight: 312,  // 미리보기 이미지 높이
-//     previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-//
-//
-//     processalways: function(e, data) {
-//       console.log('fileuploadprocessalways()...');
-// 			console.log(e)
-// 			console.log(date)
-//       console.log(data.files);
-//       var imagesDiv = $('#box1');
-//       imagesDiv.html("");
-//         try {
-//           if (data.files[0].preview.toDataURL) {
-//             $("<img>").attr('src', data.files[0].preview.toDataURL()).css('width', '332.72px').appendTo(imagesDiv);
-//           }
-//         }
-// 		}
-//
-// 		$('.pro-save-Btn').click(function() {
-// 			data.submit();
-// 		});
-// });//맨윗줄
+
+}
+$('.pro-save-Btn').on('click', function() {
+	console.log("클릭클릭")
+	console.log($('#box1').attr('src').split("_140.png")[0])
+	$.post('/trainer/update2.json', {
+	// 'spono': $('.spono').val(),
+	// 'comname': $('.company_name').val(),
+	// 'zipcode': $('.zip').val(),
+	// 'comaddr': $('.address').val(),
+	// 'comdetailaddr': $('.detail_address').val(),
+	// 'introduction': $('.introduction').val(),
+	// 'tno': $('.tno').val()
+	'tcherpic' : $('#box1').attr('src').split("_140.png")[0],
+	'spono': spono,
+	'comname':fiComname.val(),
+	'zipcode': fiZipcode.val(),
+	'comaddr': fiComaddr.val(),
+	'comdetailaddr': fiComdetailaddr.val(),
+	'introduction': fiIntroduction.val(),
+	'tno': no
+	}, function(result) {
+	  location.href = '../profile/t-profile.html'
+
+	}, 'json')
+
+})

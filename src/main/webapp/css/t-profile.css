@@ -70,6 +70,16 @@
 .click {
   background-color: #32CD32;
 }
+.pro-img {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid red;
+  margin: -44% 0% 0% 0%;
+  height: 183px;
+}
+
 #pro-select {
   padding-left: 4%;
 	-webkit-appearance: none;
@@ -94,8 +104,13 @@
 }
 
 #box1 {
-  width: 147%;
+  width: 50%;
   height: 180px;
+  border-radius: 50%;
+
+  margin: 10% 10% 15% 25%;
+  text-align: center;
+  line-height: 200px;
 }
 #pro-schedule-save-btn {
   margin: 5% 0% 0% 32%;

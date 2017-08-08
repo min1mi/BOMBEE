@@ -6,10 +6,6 @@
 
 
 
-<link rel='stylesheet'
-  href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
-
-
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
   <title>프로필</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
@@ -17,11 +13,9 @@
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/t-profile.css'>
   <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
-  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
-  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-  <script src="../node_modules/moment/min/moment.min.js"></script>
+
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
   <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
@@ -32,7 +26,6 @@
   src="../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
 <script
   src="../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script
   src="../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script
@@ -51,16 +44,8 @@
     <div class="header"><!-- header-form 헤더-->
     </div>
     <form>
-      <!-- <div class="" -->
 
-        <!-- <div class="pro-pic-div"> -->
 
-         <div class="brand">
-             <label for="img-upload">
-             <img  id="box1" src="../image/profile.jpg">
-            </label>
-            </div>
-            <input class='img-upload' id="already-files"  type="file" name='files'accept="" style="display:none;">
 
         <div id="profile-container">
         </div>
@@ -77,6 +62,21 @@
 
 
 <script id="profile-template" type="text/x-handlebars-template">
+
+  <div class="brand">
+    <label for="img-upload">
+    {{#if tcherpic}}
+      <img  id="box1" src="{{tcherpic}}_140.png">
+    {{^}}
+      <img  id="box1" src="../image/profile.jpg">
+    {{/if}}
+  </label>
+  </div>
+
+
+
+  <div id='updatefiles'></div>
+  <input id="already-files" class='pro-img' type="file" name='files' for="box1"/>
       <div>
       <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly/>
          <div id="pro-type">
@@ -85,7 +85,7 @@
            <select id="pro-select">
                 <option class='spono' id="spono" value="null">꼭!선택하세요</option>
                 <option class='spono' id="spono1" value="1" >요가</option>
-                <option class='spono' id="spono2" value="2" >헬ㅅ</option>
+                <option class='spono' id="spono2" value="2" >헬스</option>
                 <option class='spono' id="spono3" value="3" >스피닝</option>
                 <option class='spono' id="spono4" value="4" >필라테스</option>
            </select>
