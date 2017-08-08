@@ -1,6 +1,7 @@
 package bitcamp.java93.control.json;
 
 import java.awt.List;
+import java.io.File;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.domain.Trainer;
@@ -58,4 +60,20 @@ public class TrainerControl {
     Trainer loginMember = (Trainer) session.getAttribute("loginMember");
     return loginMember;
   }
+  @RequestMapping("t-pic-update")
+  public JsonResult upload(Trainer trainer, File[] files) throws Exception {
+
+//    String newFilename = this.getNewFilename();
+//    File file = new File(ctx.getRealPath("/upload/" + newFilename));
+//    file.transferTo(file);
+//    
+//    trainer.setImg("/upload/" + newFilename);
+  
+    System.out.println(trainer);
+    trainerService.update(trainer);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+
 }
+

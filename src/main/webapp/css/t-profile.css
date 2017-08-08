@@ -5,7 +5,7 @@
 
 .pro-name {
   padding-left: 4%;
-  width: 36%;
+  width: 45%;
   margin:0% 3%;
   border: silver;
   background-color: white;
@@ -56,9 +56,9 @@
   width: 93%;
 }
 .pro-place-Btn {
-  margin : 2% 0% 0% 7%;
+  margin : 4% 0% 0% 6%;
   display: inline-block;
-  width: 8%;
+  width: 9%;
 }
 .pro-ttable-no {
   width:50px;;
@@ -94,14 +94,8 @@
 }
 
 #box1 {
-  margin: 10% 10% 15% 25%;
-  background-color: violet;
-  width: 50%;
+  width: 147%;
   height: 180px;
-  background-color: #0094ff;
-  text-align: center;
-  line-height: 200px;
-  border-radius: 50%;
 }
 #pro-schedule-save-btn {
   margin: 5% 0% 0% 32%;
@@ -114,7 +108,7 @@
 #pro-type > select {
   padding-left: 15%;
   display: inline-block;
-  width:210%;
+  width:153%;
   height: 45px;
   font-size : 1.6rem;
   color:black;

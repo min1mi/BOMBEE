@@ -20,6 +20,7 @@
     <result column="comdetailaddr" property="comdetailaddr"/>
     <result column="spono" property="spono"/>
     <result column="introduction" property="introduction"/>
+    <result column="img" property="tcherpic" />
     
   </resultMap>
   
@@ -39,7 +40,7 @@
 
   <insert id="insert" parameterType="trainer">
     insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono, introduction, img)
-     values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction}, #{img})
+     values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction}, #{tcherpic})
   </insert>
 
   
@@ -61,7 +62,7 @@
       zipcode=#{zipcode},  
       comaddr=#{comaddr},
       spono=#{spono},
-      img=#{img},
+      img=#{tcherpic},
       comdetailaddr=#{comdetailaddr}
     where tno=#{tno}
   </update>
