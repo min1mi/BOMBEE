@@ -12,7 +12,7 @@
         <result column="sdt" property="sdt" />
         <result column="edt" property="edt" />
         <result column="tno" property="tno" />
-        <result column="type" property="type" />
+        <result column="spono" property="spono" />
         <result column="COMADDR" property="comaddr" />
         <result column="lat" property="lat"/>
         <result column="lng" property="lng"/>
@@ -28,7 +28,7 @@
 				<result column="sdt" property="sdt" />
 				<result column="edt" property="edt" />
 				<result column="tno" property="tno" />
-				<result column="type" property="type" />
+				<result column="spono" property="spono" />
 				<result column="COMADDR" property="comaddr" />
 				<result column="lat" property="lat"/>
 				<result column="lng" property="lng"/>
@@ -39,7 +39,7 @@
   </resultMap>
 
   <select id="selectList" resultMap="promotionMap" parameterType="map">
-    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, p.type, t.comaddr, p.lat, p.lng,
+    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, t.spono, t.comaddr, p.lat, p.lng,
     (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter
@@ -49,7 +49,7 @@
   LIMIT 0,3000
   </select>
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter 
@@ -60,7 +60,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
   LIMIT 0,3000
   </select>
   <select id="latLonList" resultMap="promotionMap" parameterType="map">
-    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, p.type, t.introduction,
+    SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter 
@@ -72,8 +72,8 @@ FROM memb m left join tcher t  on t.tno = m.mno
   </select>
   
   <insert id="insert" parameterType="promotion" useGeneratedKeys="true" keyColumn="pno" keyProperty="no">
-    insert into promotion(titl, pric, content, tno, lat, lng, type , sdt, edt)
-    values( #{title}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{type}, #{sdt}, #{edt}) 
+    insert into promotion(titl, pric, content, tno, lat, lng, sdt, edt)
+    values( #{title}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{sdt}, #{edt}) 
   </insert>
   
   <insert id="insertImg" parameterType="promotion">
@@ -94,7 +94,8 @@ FROM memb m left join tcher t  on t.tno = m.mno
   
   <select id="firstList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion
+  select p.pno, p.titl, t.spono, p.content, p.sdt, p.edt, p.pric from promotion p
+  inner join tcher t on p.tno = t.tno
   where pno > 0
   order by pno desc
   limit 0, 6;
@@ -103,8 +104,9 @@ FROM memb m left join tcher t  on t.tno = m.mno
   
   <select id="healthFirstList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion
-  where pno > 0 and type = 1
+  select * from promotion p
+  inner join tcher t on p.tno = t.tno
+  where pno > 0 and t.spono = #{typeNo}
   order by pno desc
   limit 0, 6;
   ]]>
@@ -112,72 +114,12 @@ FROM memb m left join tcher t  on t.tno = m.mno
   
   <select id="healthNextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion
+  select * from promotion p
+  inner join tcher t on p.tno = t.tno
   where pno <= #{lastNo} 
   and pno > #{lastNo}-6
-  and pno > 0  and type = 1
+  and pno > 0  and t.spono = #{typeNo}
  
-  order by pno desc
-  ]]>
-  </select>
-  
-  <select id="spinningFirstList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno > 0 and type = 2
-  order by pno desc
-  limit 0, 6;
-  ]]>
-  </select>
-  
-  
-  <select id="yogaFirstList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno > 0 and type = 3
-  order by pno desc
-  limit 0, 6;
-  ]]>
-  </select>
-  
-  <select id="pilatesFirstList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno > 0 and type = 4
-  order by pno desc
-  limit 0, 6;
-  ]]>
-  </select>
-  
-  <select id="yogaNextList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno <= #{lastNo}
-  and pno > #{lastNo}-6
-  and pno > 0
-  and type = 3
-  order by pno desc
-  ]]>
-  </select>
-  
-  <select id="spinningNextList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno <= #{lastNo}
-  and pno > #{lastNo}-6
-  and pno > 0
-  and type = 2
-  order by pno desc
-  ]]>
-  </select>
-  
-  <select id="pilatesNextList" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select * from promotion
-  where pno <= #{lastNo}
-  and pno > #{lastNo}-6
-  and pno > 0
-  and type = 4
   order by pno desc
   ]]>
   </select>
@@ -189,6 +131,22 @@ FROM memb m left join tcher t  on t.tno = m.mno
 from promotion p inner join tcher t on p.tno = t.tno
 where pno = #{no}
   ]]>
+  </select>
+  
+   <select id="selectPromotionList" resultMap="promotionMap" parameterType="int">
+    select  *
+    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    order by p.pno desc
+  </select>
+  
+    <delete id="deletePromotions" parameterType="int">
+    delete from promotion
+    where pno=#{no}
+  </delete>
+  <select id="selectPromotionListTitle" resultMap="promotionMap" parameterType="int">
+    select  *
+    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    order by p.titl desc
   </select>
   
 </mapper>

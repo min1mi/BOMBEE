@@ -11,21 +11,18 @@ public interface PromotionDao {
   List<Promotion> trainerList(Map<String,Object> valueMap);
   List<Promotion> nextList(int lastNo);
   List<Promotion> firstList();
-  List<Promotion> healthFirstList();
-  List<Promotion> yogaFirstList();
-  List<Promotion> pilatesFirstList();
-  List<Promotion> spinningFirstList();
-  List<Promotion> healthNextList(int lastNo);
-  List<Promotion> yogaNextList(int lastNo);
-  List<Promotion> pilatesNextList(int lastNo);
-  List<Promotion> spinningNextList(int lastNo);
+  List<Promotion> healthFirstList(int typeNo);
+  List<Promotion> healthNextList(int lastNo, int typeNo);
   Promotion selectOne(int no);
   Promotion selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Promotion Promotion);
   int insertImg(Promotion Promotion);
   int delete(int no);
   int update(Promotion Promotion);
-void insertPhoto(HashMap<String, Object> valueMap);
-void deletePhoto(int no);
+  void insertPhoto(HashMap<String, Object> valueMap);
+  void deletePhoto(int no);
  List<Promotion> latLonList(Map<String,Object> valueMap);
+ List<Promotion> selectPromotionList(int no);
+ List<Promotion> selectPromotionListTitle(int no);
+ int deletePromotions(int no);
 }

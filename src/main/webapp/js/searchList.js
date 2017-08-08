@@ -33,7 +33,7 @@ var modeMapList = 0
 var findLat = 0
 var findLon = 0
 var count = 0
-
+console.log(1)
 $(function(){
 	mapHeader.click(function (){
 		$('.list-div').remove()
@@ -86,8 +86,7 @@ $(function(){
 	  })
 	  $(siContainer)
 	  .change(function() {
-
-		 $('#dong-container  .selected').remove();
+		$('#dong-container  .selected').remove();
 	    admCode=$( "#si-container option:selected").val();
 	     guro = $("#code-container option:selected").text();
 	    cityList('dong');
@@ -161,28 +160,52 @@ function mapMarker(address, imageSrc , size, no, check) {
 
         markerImage = new daum.maps.MarkerImage(imageSrc, size, imageOprion)
 	    // 정상적으로 검색이 완료됐으면 
-	     if (status === daum.maps.services.Status.OK) {
-	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
-	        // 결과값으로 받은 위치를 마커로 표시합니다
-	        var marker = new daum.maps.Marker({
-	            map: map,
-	            position: coords,
-	            image: markerImage,
-	            clickable: true,
-	            title: no
-	        });
-	     // 생성된 마커를 배열에 추가합니다
-	        markers.push(marker);
+	     if(check != 0) {
+	    	 if (status === daum.maps.services.Status.OK) {
+	 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	 	        // 결과값으로 받은 위치를 마커로 표시합니다
+	 	        var marker = new daum.maps.Marker({
+	 	            map: map,
+	 	            position: coords,
+	 	            image: markerImage,
+	 	            clickable: true,
+	 	            title: address
+	 	        });
 
-	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-	        /* map.setCenter(coords); */
-	        
-	        
-	    } 
+	 	     // 생성된 마커를 배열에 추가합니다
+	 	        markers.push(marker);
+
+	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	 	        /* map.setCenter(coords); */
+	 	        
+	 	        
+	 	    } 
+	     }else {
+	    	 if (status === daum.maps.services.Status.OK) {
+	 	        var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+	 	        // 결과값으로 받은 위치를 마커로 표시합니다
+	 	        var marker = new daum.maps.Marker({
+	 	            map: map,
+	 	            position: coords,
+	 	            image: markerImage,
+	 	            clickable: true,
+	 	            title: no
+	 	        });
+
+	 	     // 생성된 마커를 배열에 추가합니다
+	 	        markers.push(marker);
+
+	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	 	        /* map.setCenter(coords); */
+	 	        
+	 	        
+	 	    } 
+	     }
         daum.maps.event.addListener(marker, 'click', function() {
             // 마커 위에 인포윈도우를 표시합니다
             if(check != 0) {
             	toggleAddr = $(this)[0].Vd
+            	console.log(toggleAddr)
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
             	$('#click-container').toggle()
@@ -233,11 +256,11 @@ function setMarkers(map) {
                  	  mapMarker(key.comaddr, imageSrc, imageSize, key.tno, key.check)
              }else {
                imageSize = new daum.maps.Size(42, 50)
-               if(key.type == '1') {
+               if(key.spono == '1') {
                     imageSrc = '../image/health_marker.PNG'
-                  }else if (key.type == '2') {
+                  }else if (key.spono == '2') {
                     imageSrc = '../image/spinning_marker.PNG'
-                  }else if (key.type == '3') {
+                  }else if (key.spono == '3') {
                     imageSrc = '../image/yoga_marker.PNG'
                   }else 
                     imageSrc = '../image/pilates_marker.PNG'
@@ -252,8 +275,8 @@ function setMarkers(map) {
              for(var j=1;  j < proAllObject.length; j++) {
                if (i != j) {
 
-                 if(proAllObject[i].type == proAllObject[j].type && proAllObject[i].comaddr == proAllObject[j].comaddr) {
-                   if (proAllObject[i].type == spoNo) {
+                 if(proAllObject[i].spono == proAllObject[j].spono && proAllObject[i].comaddr == proAllObject[j].comaddr) {
+                   if (proAllObject[i].spono == spoNo) {
                     proAllObject[i].check++ 
                    }
                  }
@@ -267,42 +290,42 @@ function setMarkers(map) {
                  imageSrc = '../image/multi-marker.png'
                             // 지우고 파일 imageSrc = '경로만 적어주면됨' 여기까지
                         if(teacherOrPromotion == 0) {
-                        	if (spoNo == 1 && key.type == spoNo) 
+                        	if (spoNo == 1 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 2 && key.type == spoNo) 
+                           else if (spoNo == 2 && key.spono == spoNo) 
                                mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 3 && key.type == spoNo) 
+                           else if (spoNo == 3 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 4 && key.type == spoNo) 
+                           else if (spoNo == 4 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
                         }else {
-                        	if (spoNo == 1 && key.type == spoNo) 
+                        	if (spoNo == 1 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.tno, key.check)
-                           else if (spoNo == 2 && key.type == spoNo) 
+                           else if (spoNo == 2 && key.spono == spoNo) 
                                mapMarker(key.comaddr, imageSrc, imageSize, key.tno, key.check)
-                           else if (spoNo == 3 && key.type == spoNo) 
+                           else if (spoNo == 3 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.tno, key.check)
-                           else if (spoNo == 4 && key.type == spoNo) 
+                           else if (spoNo == 4 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.tno, key.check)
                         }
                  
                }else {
                  imageSize = new daum.maps.Size(42, 50)
-                   if(key.type == '1') {
+                   if(key.spono == '1') {
                         imageSrc = '../image/health_marker.PNG'
-                      }else if (key.type == '2') {
+                      }else if (key.spono == '2') {
                         imageSrc = '../image/spinning_marker.PNG'
-                      }else if (key.type == '3') {
+                      }else if (key.spono == '3') {
                         imageSrc = '../image/yoga_marker.PNG'
                       }else 
                         imageSrc = '../image/pilates_marker.PNG'
-                        	if (spoNo == 1 && key.type == spoNo) 
+                        	if (spoNo == 1 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 2 && key.type == spoNo) 
+                           else if (spoNo == 2 && key.spono == spoNo) 
                                mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 3 && key.type == spoNo) 
+                           else if (spoNo == 3 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
-                           else if (spoNo == 4 && key.type == spoNo) 
+                           else if (spoNo == 4 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
                }
              }
@@ -312,24 +335,24 @@ function setMarkers(map) {
     }); 
   
 Handlebars.registerHelper('type', function(promotionList, options) {
-	if (promotionList[0].type == 1)
+	if (promotionList[0].spono == 1)
 		promotionList[0].sport = '../image/health.png';
-	else if (promotionList[0].type == 2)
+	else if (promotionList[0].spono == 2)
 		promotionList[0].sport = '../image/bike.png';
-	else if (promotionList[0].type == 3)
+	else if (promotionList[0].spono == 3)
 		promotionList[0].sport = '../image/yoga.png';
 	else
 		promotionList[0].sport = '../image/pilates.png'
 	console.log(promotionList[0])
 	if (toggleAddr == '') {
 	     if (spoNo != 0) {
-	         if(spoNo == promotionList[0].type)
+	         if(spoNo == promotionList[0].spono)
 	              return options.fn(this);
 	           else
 	             return options.inverse(this);
 	       } else
 	         return options.fn(this);
-	   }else if(toggleAddr == promotionList[0].comaddr && promotionList[0].type == spoNo) 
+	   }else if(toggleAddr == promotionList[0].comaddr && promotionList[0].spono == spoNo) 
 	             return options.fn(this);
 	   else if (toggleAddr == promotionList[0].comaddr) {
 		   if (spoNo == 0)

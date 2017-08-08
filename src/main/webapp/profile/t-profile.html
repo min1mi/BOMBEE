@@ -2,22 +2,48 @@
 <html> <!-- root element -->
 <head> <!-- HTML 문서에 대한 설명 -->
   <meta charset="UTF-8">
+  
+  
+  
+
+<link rel='stylesheet'
+  href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
+
+  
   <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
   <title>프로필</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/t-profile.css'>
-  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-  <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
   <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
-  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-  <script type="text/javascript">
-	  $(document).ready(function() {
-	    $('.header').load('../menu/new.html')
-	  })
-    </script>
+  
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  <script src="../node_modules/moment/min/moment.min.js"></script>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  
+<script
+  src="../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script
+  src="../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script
+  src="../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script
+  src="../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script
+  src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script
+  src="../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script
+  src="../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+</head>
+  
+  
 </head>
 
 <body>
@@ -52,13 +78,16 @@
 
 
 <script id="profile-template" type="text/x-handlebars-template">
-
       <div>
-      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}"/>
+      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly/>
          <div id="pro-type">
            <!-- <option>운동 종목</option> -->
+
            <select id="pro-select">
-                <option>{{spono}}</option>
+                <option class='spono' id="spono1" value="1" >요가</option>
+                <option class='spono' id="spono2" value="2" >헬ㅅ</option>
+                <option class='spono' id="spono3" value="3" >스피닝</option>
+                <option class='spono' id="spono4" value="4" >필라테스</option>
            </select>
          </div>
 
@@ -74,7 +103,7 @@
         <img  id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
       </div>
       <p id="pro-dt">소개</p>
-      <textarea  class="Desc" rows="10" id="pro-dd">{{introduction}}</textarea>
+      <textarea  class="Desc introduction" rows="10" id="pro-dd">{{introduction}}</textarea>
     </div>
   </div>
 

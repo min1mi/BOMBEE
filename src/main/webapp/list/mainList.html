@@ -17,6 +17,7 @@
       $('.header').load('../menu/new.html')
     })
   </script>
+ 
 </head>
 
 <body>
@@ -41,23 +42,23 @@
       <div class="scrollBlind">
         <div class="btn-group outer" data-toggle="buttons">
           <label class="btn" role="button">
-            <input id ='searchMapGo'type="radio" name="options" value="1" required="required">
+            <input id ='searchMapGo'type="radio" name="options"  required="required">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
           </label>
           <label class="btn click margin-minus" role="button" >
-            <input  type="radio" name="options" value="2" id='hot-cos'>인기코스
+            <input  type="radio" name="options" value="0" id='hot-cos'>인기코스
           </label>
           <label class="btn margin-minus" role="button">
-            <input  type="radio" name="options" value="3" id='health' >헬스
+            <input  type="radio" name="options" value="1" id='health' >헬스
           </label>
           <label class="btn margin-minus" role="button">
-            <input type="radio" name="options" value="4" id='yoga'>요가
+            <input type="radio" name="options" value="3" id='yoga'>요가
           </label>
           <label class="btn margin-minus" role="button" >
-            <input  type="radio" name="options" value="5" id='pilates'>필라테스
+            <input  type="radio" name="options" value="4" id='pilates'>필라테스
           </label>
           <label class="btn margin-minus" role="button" >
-            <input  type="radio" name="options" value="6" id='spinning'>스피닝
+            <input  type="radio" name="options" value="2" id='spinning'>스피닝
           </label>
         </div>
         <!-- btn-group -->
@@ -72,7 +73,6 @@
         </div>
       </div>
       
-
     </div>
     <!-- promotion-list-container -->
 
@@ -90,9 +90,9 @@
         <div class='img'>
           
          {{#if @last}}
-          <img src='../image/2.jpg' value='{{pno}}' id='last-promotion'>
+          <img src='../image/2.jpg' value='{{pno}}' title={{spono}} id='last-promotion'>
          {{else}}
-           <img src='../image/2.jpg' value='{{pno}}'>
+           <img src='../image/2.jpg' value='{{pno}}' title={{spono}}>
          {{/if}}
         </div>
         <div class='span'>
@@ -105,32 +105,29 @@
     var json = '/promotion/hot-firstList.json'
     var category;
     var count = 0
-    var lastNo = 0
+    var lastNo = 1000
     var offset = 0
     var no = 0
-    var type = $('.click').children().attr('id')
+    var type = $('.click').children().attr('value')
     var swiper = new Swiper('.swiper-container', {
       loop: true,
       autoplay: 2000,
       autoplayDisableOnInteraction: false
     });
     $(document).ready(function() {
-    	$(document).bind('touchmove', function(e) {
-    		if (event.touches[0].screenY < 100 ) {
-    			if(type == 'hot-cos') 
-    				json = '/promotion/hot-nextList.json';
-    			else if (type == 'health')
-    				json = '/promotion/health-nextList.json';
-    			else if (type == 'yoga')
-    				json = '/promotion/yoga-nextList.json';
-    			else if (type == 'spinning')
-    				json = '/promotion/spinning-nextList.json';
-    			else
-    				json = '/promotion/pilates-nextList.json';
-    			console.log(json)
-    			getData(json)
+    	$(window).scroll(function () {
+    		if($(window).scrollTop() == $(document).height() - $(window).height()) {
+    			lastNo = $('#last-promotion').attr('value') -1
+    			$('#last-promotion').attr('id', '')
+    			json = '/promotion/hot-nextList.json';
+    			console.log(type)
+    			console.log(lastNo)
+    		         if(type != 0)
+    		        	 json = '/promotion/health-nextList.json'
+    		          getData(json, type) 
     		}
-		});
+    	})
+
     })
     
     $('.btn').click(()=> {
@@ -146,20 +143,21 @@
       }
     });
 
-    getData(json);
+    getData(json, 0);
 
-    function getData(json) {
+    function getData(json, typeNo) {
     	if ( json == '/promotion/hot-nextList.json' || 
-    			json == '/promotion/health-nextList.json' ||
-    			json == '/promotion/spinning-nextList.json' ||
-    			json == '/promotion/yoga-nextList.json' ||
-    			json == '/promotion/pilates-nextList.json') {
-    			lastNo = $('#last-promotion').attr('value') -1
-    			$('#last-promotion').attr('id', '')
+    			json == '/promotion/health-nextList.json') {
+    			
+    			console.log(lastNo)
     			}
     	else 
       	$('.promotion').remove()
-      $.getJSON(json, {'lastNo' : lastNo}, function(result) {
+      	if (lastNo > 1) {
+      		$.getJSON(json, {
+      			'lastNo' : lastNo,
+      			'typeNo': typeNo
+      			}, function(result) {
     	  console.log(result.data)
         // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
         var templateFn = Handlebars.compile($('#health-template').text())
@@ -168,55 +166,55 @@
         var html = container.html()
         container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
         btnClick()
-      })
+      		})
+     	}
+     lastNo = 100
     }
 
     function borderBottom(category) {
       $('.btn').removeClass('click')
       $(category).parent().addClass('click')
-      type = $('.click').children().attr('id')
+      type = $('.click').children().prop('value')
+      
     }
     $('#searchMapGo').click(function () {
     	location.href = '../list/searchList.html'
     })
-
+    
     $('#hot-cos').click(() => {
-
       category = '#hot-cos'
       borderBottom(category)
       json = '/promotion/hot-firstList.json'
-      getData(json)
-      
+      getData(json, 0)
     })
 
     $('#pilates').click(() => {
       category = '#pilates'
       borderBottom(category)
-      json = '/promotion/pilates-firstList.json'
-      getData(json)
+      json = '/promotion/health-firstList.json'
+      getData(json, 4)
       
     })
 
     $('#yoga').click(() => {
       category = '#yoga'
       borderBottom(category)
-      json = '/promotion/yoga-firstList.json'
-      getData(json)
-      
+      json = '/promotion/health-firstList.json'
+      getData(json, 3)
     })
 
     $('#health').click(() => {
       category = '#health'
       borderBottom(category)
       json = '/promotion/health-firstList.json'
-      getData(json)
+      getData(json, 1)
       
     })
     $('#spinning').click(() => {
       category = '#spinning'
       borderBottom(category)
-      json = '/promotion/spinning-firstList.json'
-      getData(json)
+      json = '/promotion/health-firstList.json'
+      getData(json, 2)
     })
     function btnClick() {
     	$('.img img').click(function() {

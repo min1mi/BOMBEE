@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -95,41 +96,33 @@ public class PromotionServiceImpl implements PromotionService {
   }
   
   @Override
-  public List<Promotion> healthFirstList() throws Exception {
+  public List<Promotion> healthFirstList(int typeNo) throws Exception {
     
-    return  promotionDao.healthFirstList();
+    return  promotionDao.healthFirstList(typeNo);
   }
   
   @Override
-  public List<Promotion> healthNextList(int lastNo) throws Exception {
-    return  promotionDao.healthNextList(lastNo);
-  }
-  @Override
-  public List<Promotion> yogaFirstList() throws Exception {
-    return  promotionDao.yogaFirstList();
+  public List<Promotion> healthNextList(int lastNo, int typeNo) throws Exception {
+    return  promotionDao.healthNextList(lastNo, typeNo);
   }
   
   @Override
-  public List<Promotion> spinningFirstList() throws Exception {
-    return  promotionDao.spinningFirstList();
+  public List<Promotion> getPromotionList(int no) throws Exception {
+    
+    return promotionDao.selectPromotionList(no);
   }
-  
+
   @Override
-  public List<Promotion> pilatesFirstList() throws Exception {
-    return  promotionDao.pilatesFirstList();
+  public int deletePromotions(ArrayList<Integer> arr) throws Exception {
+    for (int i = 0; i < arr.size(); i++) 
+        promotionDao.deletePromotions(arr.get(i));
+    return 1;
   }
-  
+
   @Override
-  public List<Promotion> yogaNextList(int lastNo) throws Exception {
-    return  promotionDao.yogaNextList(lastNo);
-  }
-  @Override
-  public List<Promotion> pilatesNextList(int lastNo) throws Exception {
-    return  promotionDao.pilatesNextList(lastNo);
-  }
-  @Override
-  public List<Promotion> spinningNextList(int lastNo) throws Exception {
-    return  promotionDao.spinningNextList(lastNo);
+  public List<Promotion> getPromotionListTitle(int no) throws Exception {
+   
+    return promotionDao.selectPromotionListTitle(no);
   }
 
 }
