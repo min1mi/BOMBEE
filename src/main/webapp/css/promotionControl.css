@@ -1,0 +1,162 @@
+.mainselection {
+    margin-left : 20px;
+    margin-top: 20px;
+   display: inline-block;
+   overflow:hidden;
+   width:32%;
+   border-radius: 50px;
+   box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   position:relative;
+}
+.mainselection select {
+  text-align: center;
+   border: 0;
+   color: black;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 100%;
+   *width: 100%;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+.fa1 {
+  position: absolute;
+  font-size: 15px;
+   top: 14%;
+   left: 85%;
+}
+#first-line {
+  height:40px;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline-block span {
+  margin-left: 19px;
+  /*font-size: 2.95rem;아이폰6플*/
+  font-size: 2.6rem;
+  border-bottom: 2px solid #f7ac1a;
+}
+#two-line {
+  text-align:right;
+}
+#promotion-add {
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 32%;
+  border-radius: 50px;
+  position:relative;
+  background-color: white;
+  box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   border:0;
+   outline:0;
+}
+.promotion-delete {
+  margin-right: 15px;
+  width: 32%;
+  border-radius: 50px;
+  position:relative;
+  background-color: white;
+  box-shadow: 1px 1px 1px #f7ac1a;
+   margin-bottom: 5px;
+   border:0;
+   outline:0;
+}
+.bee {
+  position: absolute;
+  top: 20vh;
+  width: 75px;
+  height: 80px;
+  background: url(//cdn.ficsystems.com/_new/common/3.0/images/characters/earthday-bee.svg);
+  animation: walk-cycle 0.1s infinite steps(6), move 10s forwards linear;
+  animation-iteration-count:infinite;
+}
+#list-container {
+  margin-top:3%;
+  width:100%;
+}
+
+@-webkit-keyframes walk-cycle {
+  0%   {background-position: 0 0;}
+  100% {background-position: -450px 0;}
+}
+
+@keyframes move {
+  0%    { transform: translate(-5vw, -6vh); }
+  10%   { transform: translate(0vw, -6vh); }
+  20%   { transform: translate(5vw, -6vh); }
+  30%   { transform: translate(10vw, -6vh); }
+  40%   { transform: translate(15vw, -6vh); }
+  50%   { transform: translate(20vw, -6vh); }
+  60%   { transform: translate(25vw, -6vh); }
+  70%   { transform: translate(30vw, -6vh); }
+  80%   { transform: translate(35vw, -6vh); }
+  90%   { transform: translate(40vw, -6vh); }
+  100%  { transform: translate(45vw, -6vh); }
+}
+
+.inline-block {
+  display: inline-block;
+}
+.list-div {
+    background-color: white;
+    z-index: 9999;
+    border: 1px solid #cecece;
+}
+.list-pro {
+    margin: 10px 2.5%;
+    width: 44%;
+    height: 270px;
+    display: inline-block;
+}
+#list-title1 {
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 10px;
+  overflow:hidden;
+}
+#list-container {
+  width:100%;
+  text-align:left;
+}
+#list-height {
+  height:40px;
+  text-align:center;
+  overflow:hidden;
+}
+.img-div {
+  overflow: hidden;
+}
+ .pro-img {
+  height:200px;
+  width:100%;
+ }
+.time {
+  height:20px;
+  margin: 0 5px;
+  margin-bottom: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.list-title1 {
+    height: 40px;
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+    width: 50%;
+    margin: 0 1%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.background {
+  background-color: #f7ac1a;
+  color:white;
+}
+.border {
+  border: solid 4px #f7ac1a;
+}

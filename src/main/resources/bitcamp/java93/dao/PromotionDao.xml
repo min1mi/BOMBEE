@@ -146,7 +146,7 @@ where pno = #{no}
   <select id="selectPromotionListTitle" resultMap="promotionMap" parameterType="int">
     select  *
     from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
-    order by p.titl desc
+    order by p.titl asc
   </select>
   
 </mapper>
