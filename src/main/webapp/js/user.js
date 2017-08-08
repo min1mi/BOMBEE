@@ -84,6 +84,7 @@ $('#already-files').fileupload({
         } catch (err) {}
       $('#foodUpdateBtn').unbind("click");
       $('#foodUpdateBtn').click(function() {
+        console.log('눌렸다')
         data.submit();
       });
     }, 
@@ -101,9 +102,13 @@ $('#already-files').fileupload({
       console.log(data.result);
       location.reload()
     }
-    
 });
 
+$('#foodDeleteBtn').on('click', function() {
+  $.get('/management/usermeal-delete.json', {'mealno': mealno}, function(result) {
+    location.reload()
+  })
+})
 var startDate,
 endDate, totalKcal = 0;
 
@@ -279,7 +284,7 @@ function inputMeal() {
     mealtype = $(this).children('.meal-type').text()
     mealno = $(this).attr('value')
     
-    $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).css('width', '332.72px').appendTo($('#updatefiles'));
+    $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).addClass("img-size").appendTo($('#updatefiles'));
     $('.already-food-name').val($(this).children('.meal-name').text())
     $('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
     

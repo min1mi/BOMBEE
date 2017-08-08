@@ -4,14 +4,12 @@ import java.io.File;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Usermeal;
 import bitcamp.java93.service.UsermealService;
 import net.coobird.thumbnailator.Thumbnails;
@@ -75,6 +73,11 @@ public class UsermealControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
+  @RequestMapping("usermeal-delete")
+  public JsonResult delete(int mealno) throws Exception {
+    usermealService.remove(mealno);
+   return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
 
   int count = 0;
   synchronized private String getNewFilename() {
@@ -82,38 +85,5 @@ public class UsermealControl {
       count = 0;
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-  }
-  
-//  
-//  @RequestMapping("usermeal-add")
-//  public JsonResult add(Usermeal usermeal, HttpSession session) throws Exception {
-//    
-//    if (getLoginMember(session).getMembertype() == 1) {
-//      usermealService.add(usermeal);
-//      return new JsonResult(JsonResult.SUCCESS, "ok");
-//    } else {
-//      return new JsonResult(JsonResult.SUCCESS, "trainer");
-//    }
-//    
-//  }
-//  
-//  @RequestMapping("mealphoto-add")
-//public JsonResult photoadd(Usermeal usermeal, HttpSession session) throws Exception {
-//    if (getLoginMember(session).getMembertype() == 1) {
-//      
-//      usermealService.add(usermeal);
-//      return new JsonResult(JsonResult.SUCCESS, "ok");
-//      
-//    } else {
-//      return new JsonResult(JsonResult.SUCCESS, "trainer");
-//      
-//    }
-//    
-//  }
-  
-  
-  private Member getLoginMember(HttpSession session) {
-    Member loginMember = (Member) session.getAttribute("loginMember");
-    return loginMember;
   }
 }

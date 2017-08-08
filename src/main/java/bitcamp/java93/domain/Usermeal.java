@@ -9,12 +9,11 @@ import java.util.List;
  */
 
 
-public class Usermeal extends Meal{
+public class Usermeal extends Meal {
   List<Meal> meal;
   String date;
   String day;
   Boolean confirm;
-
   
   @Override
   public String toString() {

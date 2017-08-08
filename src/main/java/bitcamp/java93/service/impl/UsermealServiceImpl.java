@@ -32,6 +32,17 @@ public class UsermealServiceImpl implements UsermealService {
     usermealDao.update(usermeal);
   }
   
+  public void remove(int mealno) throws Exception {
+    int count = usermealDao.delete(mealno);
+    if (count < 1) {
+      throw new Exception(mealno + "번 식단을 찾을 수 없습니다.");
+    }
+
+    try {
+      count = usermealDao.delete(mealno);
+    } catch(Exception e) {}
+  }
+  
 }
 
 

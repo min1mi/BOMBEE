@@ -26,6 +26,12 @@
 	.input-food-container {
 		margin-top: 50%;
 	}
+	#inputfiles, #updatefiles {
+		width: 93%;
+		height: 64%;
+		top: 2.5%;
+		left: 3.5%;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -54,6 +60,12 @@
 	}
 	.input-food-container {
 		margin-top: 46%;
+	}
+	#inputfiles, #updatefiles {
+		width: 94%;
+		height: 70%;
+		top: 2.3%;
+		left: 3%;
 	}
 }
 /*iphone6 plus*/
@@ -84,6 +96,12 @@
 	.input-food-container {
 		margin-top: 44%;
 	}
+	#inputfiles, #updatefiles {
+		width: 94%;
+		height: 66%;
+		top: 2.3%;
+		left: 3%;
+	}
 }
 /*@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.eot');}
 @font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.woff') format('woff');}*/
@@ -91,7 +109,10 @@ body{
 	position relative;
 }
 input:focus {
-    outline:none;
+  outline:none;
+}
+.btn {
+	outline: none;
 }
 .user-container {
   /*font-family: "UhBeepuding", serif;*/
@@ -388,7 +409,7 @@ input:focus {
 	right: 0;
 }
 
-.foodAddBtn, .foodUpdateBtn {
+.foodAddBtn {
 	position: absolute;
 	width: 50%;
 	font-size: 1.4rem;
@@ -399,6 +420,27 @@ input:focus {
 	left: 25%;
 }
 
+.foodUpdateBtn {
+	position: absolute;
+	width: 40%;
+	font-size: 1.4rem;
+	font-weight: bold;
+	background-color: #f7ac1a;
+	border-radius: 10px;
+	bottom:3.5%;
+	left: 7%;
+}
+.foodDeleteBtn {
+	position: absolute;
+	width: 40%;
+	font-size: 1.4rem;
+	font-weight: bold;
+	background-color: #f7ac1a;
+	border-radius: 10px;
+	bottom:3.5%;
+	right: 7%;
+}
+	
 .camera-size {
 	width: 100%;
 	font-size: 5rem;
@@ -416,14 +458,13 @@ input:focus {
 }
 
 #inputfiles, #updatefiles {
-	width: 94%;
-	height: 66%;
 	position: absolute;
-	top: 2.3%;
-	left: 3%;
   border-radius: 8px;
   overflow: hidden;
 }
 
-
+.img-size {
+	width: 332.72px;
+	height: 100%;
+}
 /**/

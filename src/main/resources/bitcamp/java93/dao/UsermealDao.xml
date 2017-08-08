@@ -32,7 +32,7 @@
 	</select>
 
 	<insert id="insert" parameterType="usermeal" 
-					useGeneratedKeys="true" keyColumn="mealno" keyProperty="no">
+					useGeneratedKeys="true" keyColumn="mealno" keyProperty="mealno">
 		insert into
 		memb_manage(mealtype, mealpic, mealkcal, mealname, date, day, confirm)
 		values(#{mealtype}, #{mealpicture}, #{mealkcal}, 
