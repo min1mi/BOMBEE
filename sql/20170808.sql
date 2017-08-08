@@ -42,7 +42,7 @@ CREATE TABLE `MY_SCHEMA`.`TCHER` (
 	`COMADDR`       VARCHAR(255) NOT NULL COMMENT '근무지주소', -- 근무지주소
 	`COMDETAILADDR` VARCHAR(255) NOT NULL COMMENT '상세주소', -- 상세주소
 	`IMG`           VARCHAR(255) NULL     COMMENT '사진경로', -- 사진경로
-	`SPO`           INTEGER      NULL     COMMENT '운동명' -- 운동명
+	`SPONO`         INTEGER      NULL     COMMENT '운동명' -- 운동명
 )
 COMMENT '강사';
 
@@ -173,7 +173,7 @@ ALTER TABLE `MY_SCHEMA`.`SCHEDULE`
 CREATE TABLE `MY_SCHEMA`.`MEMB_MANAGE` (
 	`MEALNO`    INTEGER      NOT NULL COMMENT '회원식단일련번호', -- 회원식단일련번호
 	`MEALTYPE`  VARCHAR(255) NOT NULL COMMENT '끼니', -- 끼니
-	`MENUPIC`   VARCHAR(255) NOT NULL COMMENT '식단사진', -- 식단사진
+	`MEALPIC`   VARCHAR(255) NOT NULL COMMENT '식단사진', -- 식단사진
 	`MEALKCAL`  INTEGER      NOT NULL COMMENT '칼로리', -- 칼로리
 	`MEALNAME`  VARCHAR(50)  NOT NULL COMMENT '식단이름', -- 식단이름
 	`DATE`      DATE         NOT NULL COMMENT '날짜', -- 날짜

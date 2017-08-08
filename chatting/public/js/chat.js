@@ -1,7 +1,7 @@
 var message = $('#message'),
     sendBtn = $('#sendBtn');
 
-var ws = new WebSocket('ws://localhost:8888/chat/chat.json');
+var ws = new WebSocket('ws://192.168.0.19:8888/chat/chat.json');
 ws.onopen = function (event) {
 }
 
@@ -14,12 +14,7 @@ sendBtn.click(() => {
   var value = message.val();
   ws.send(value.replace('\n', '').replace('\r', '') + '\n')
   message.val('')
-  $('<span>').addClass(value.startsWith(myAlias) ? "me" : "him")
-             .append($('<div>').addClass('cd-content clearfix'))
-             .html(value)
-             .appendTo(messageBox)
-  console.log('aaaa')
-  messageBox.scrollTop(messageBox.prop('scrollHeight'))
+
 })
 
 message.keyup((e) => {

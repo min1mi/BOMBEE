@@ -22,6 +22,12 @@ router.ws('/chat.json', function(ws, req) {
   ws.on('message', function(msg) {
     ws.send('서버에서 보냈어!' + msg);
     console.log('ws.on() 콜백 함수 실행')
+    $('<span>').addClass(value.startsWith(myAlias) ? "me" : "him")
+               .append($('<div>').addClass('cd-content clearfix'))
+               .html(value)
+               .appendTo(messageBox)
+    console.log('aaaa')
+    messageBox.scrollTop(messageBox.prop('scrollHeight'))
   });
 });
 
