@@ -42,7 +42,7 @@ CREATE TABLE `MY_SCHEMA`.`TCHER` (
 	`COMADDR`       VARCHAR(255) NOT NULL COMMENT '근무지주소', -- 근무지주소
 	`COMDETAILADDR` VARCHAR(255) NOT NULL COMMENT '상세주소', -- 상세주소
 	`IMG`           VARCHAR(255) NULL     COMMENT '사진경로', -- 사진경로
-	`SPO`           INTEGER      NULL     COMMENT '운동명' -- 운동명
+	`SPONO`         INTEGER      NULL     COMMENT '운동명' -- 운동명
 )
 COMMENT '강사';
 
