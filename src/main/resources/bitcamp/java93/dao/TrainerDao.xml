@@ -21,6 +21,8 @@
     <result column="spono" property="spono"/>
     <result column="introduction" property="introduction"/>
     <result column="img" property="tcherpic" />
+    <result column="accounttype" property="accounttype"/>
+    <result column="mtype" property="membertype"/>
     
   </resultMap>
   
