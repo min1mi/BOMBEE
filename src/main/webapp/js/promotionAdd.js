@@ -1,4 +1,3 @@
-
   $(function() {
     $("#datepicker-start,#datepicker-end").datepicker({
       dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
@@ -7,9 +6,12 @@
       dateFormat: "yy-mm-dd",
       buttonText: "달력"
     });
+    $('.header').load('../menu/new.html')
+    $('.projectAdd-textArea').css('height', textHeight+'px');
   });
+
   var address = $('.addressIn').text()
-  
+  var textHeight = screen.availHeight-355-100;
   var title = $('.titleIn')
   var pric = $('.priceIn')
   var content = $('.promotionText')
@@ -18,9 +20,10 @@
   var tno = 1
   var lat = 0
   var lng = 0
-  var type = 1
-  
-  var img =111
+  var spono = 0
+  var fiFilenames = $('#fi-filenames')
+  var selDiv = "";
+  var storedFiles = [];
   
 // 다음맵: 주소 -> 위도, 경도 
   var geocoder = new daum.maps.services.Geocoder();
@@ -33,25 +36,113 @@
   geocoder.addressSearch(address, callback);
 // 다음맵 끝 
   
-  $('.save').on('click', function() {
-	  console.log('save click')
-	  $.post('/promotion/add.json', {
-		  'title' : title.val(),
-		  'pric' : pric.val(),
-		  'content' : content.val(),
-		  'sdt' : sdt.val(),
-		  'edt' : edt.val(),
-		  'tno' : tno,
-		  'lat' : lat,
-		  'lng' : lng,
-		  'type' : type,
-		  'img' : img
-		  
-		  
-	  }, function(result) {
-//	    location.href = '../management/user.html'     
-	  },'json')
-	})
-	
+
+  $(document).ready(function() {	  
+	  $('.priceIn').on('keyup', function() {
+	        if($(this).val().length >= 11) {
+	            $(this).val($(this).val().substring(0, 11));
+	        }
+	    });
+
+    $("#image_upload").on("change", handleFileSelect);
+
+    selDiv = $("#selectedFiles");
+    // $("#myForm").on("submit", handleForm);
+
+    $("body").on("click", ".selFile", removeFile);
+  });
+  var files
+  function handleFileSelect(e) {
+    	  files = e.target.files
+      var filesArr = Array.prototype.slice.call(files);
+      filesArr.forEach(function(f) {
+
+        if(!f.type.match("image.*")) {
+          return;
+        }
+        storedFiles.push(f);
+        var reader = new FileReader();
+//        console.log('위쪽FileReader:' + reader.storedFiles);
+        
+        reader.onload = function (e) {
+        
+          var html = "<div class='swiper-slide'>" +
+          		"<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
+          		"<i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i>" +
+          		"</div>";
+
+          selDiv.append(html);
+          // $(html).replaceAll('.ImageBtn');
+        }
+        reader.readAsDataURL(f);
+      });
+
+    }
+
+    function removeFile(e) {
+      e.preventDefault();
+      var file = $(this).attr("value");
+      for(var i=0;i<storedFiles.length;i++) {
+        if(storedFiles[i].name === file) {
+          storedFiles.splice(i,1);
+
+          break;
+        }
+      }
+      console.log(storedFiles)
+      $(this).parent().remove();
+    }
+    
+	$('#image_upload').fileupload({
+	  url: '/promotion/add.json',        // 서버에 요청할 URL
+	  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+	  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+	  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.   
+	  add: function (e, data) {
+	    console.log('add()...');
+	    data.files = storedFiles
+	    $.each(data.files, function (index, file) {
+	        console.log('Added file: ' + file.name);
+	    });
+	    $('.save').click(function() {
+	        data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+	    });
+	  },
+	  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+	    console.log('done()...');
+	    console.log(data.result);
+	    var file = data.result.fileList[0];
+	    console.log(file)
+	  },
+	  submit: function (e, data) {
+	    console.log('submit()...');
+	    // data 객체의 formData 프로퍼티에 일반 파라미터 값을 설정한다.
+	    data.formData = {
+	    		title : title.val(),
+				  pric : pric.val(),
+				  content : content.val(),
+				  sdt : sdt.val(),
+				  edt : edt.val(),
+				  tno : tno,
+				  lat : lat,
+				  lng : lng,
+				  spono : spono
+	    };
+	  }
+	}); 
+
+//swiper
+  var swiper = new Swiper('.swiper-container', {
+      scrollbar: '.swiper-scrollbar',
+      scrollbarHide: true,
+      slidesPerView: 'auto',
+      /* centeredSlides: true, */
+      spaceBetween: 8,
+      grabCursor: true,
+      observer:true
+//      onSlideChangeEnd: function(){alert("onSlideChangeEnd")}
+      
+  });
+
 
 	

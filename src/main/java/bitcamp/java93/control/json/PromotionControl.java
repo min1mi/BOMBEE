@@ -1,5 +1,6 @@
 package bitcamp.java93.control.json;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,16 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java93.domain.Location;
 import bitcamp.java93.domain.Promotion;
 import bitcamp.java93.service.PromotionService;
+import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 @RequestMapping("/promotion/")
 public class PromotionControl {
   @Autowired ServletContext servletContext;
   @Autowired PromotionService promotionService;
+  @Autowired ServletContext ctx;
   
   @RequestMapping("list")
   public JsonResult list(Location local) throws Exception {
@@ -47,13 +51,7 @@ public class PromotionControl {
    return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
   
-  @RequestMapping("add")
-  public JsonResult add(Promotion promotion) throws Exception {
-  	System.out.println("Control");
-  	System.out.println(promotion);
-  	promotionService.add(promotion);
-  	return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
+
   
   @RequestMapping("hot-nextList")
   public JsonResult nextList(int lastNo, int typeNo) throws Exception {
@@ -129,12 +127,57 @@ public class PromotionControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-//  @RequestMapping("add")
-//  public void add(Promotion promotion) throws Exception {
-//  	System.out.println("Control");
-//  	System.out.println(promotion);
-//  	
-//  }
+  @RequestMapping("add")
+  public Object addPromotion(String title, int pric, String content, String sdt, String edt, int tno, double lat, double lng, String spono, MultipartFile[] files) throws Exception {
+    HashMap<String,Object> resultMap = new HashMap<>();
+    System.out.println(title);
+    System.out.println(pric);
+    System.out.println(content);
+    System.out.println(sdt);
+    System.out.println(edt);
+    System.out.println(tno);
+    System.out.println(lat);
+    System.out.println(lng);
+    System.out.println(spono);
+    
+    ArrayList<Object> fileList = new ArrayList<>();
+    
+    for (int i = 0; i < files.length; i++) {
+        if (files[i].isEmpty()) 
+          continue;
+        
+        String newFilename = this.getNewFilename();
+        File file = new File(ctx.getRealPath("/upload/" + newFilename));
+        System.out.println(ctx.getRealPath("/upload/" + newFilename));
+        files[i].transferTo(file);
+        
+        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_80"));
+        Thumbnails.of(file).size(80, 80).outputFormat("png").toFile(thumbnail); 
+
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_140"));
+        Thumbnails.of(file).size(140, 140).outputFormat("png").toFile(thumbnail);
+        
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
+        Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
+          
+        HashMap<String,Object> fileMap = new HashMap<>();
+        fileMap.put("filename", newFilename);
+        fileMap.put("filesize", files[i].getSize());
+        fileList.add(fileMap);
+      }
+    resultMap.put("fileList", fileList);
+    return resultMap;
+  }
+  
+  int count = 0;
+  synchronized private String getNewFilename() {
+    if (count > 100) {
+      count = 0;
+    }
+    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+  }
+}
+  
   
 //  @RequestMapping("detail")
 //  public JsonResult detail(int no) throws Exception {
@@ -157,40 +200,6 @@ public class PromotionControl {
 //    return new JsonResult(JsonResult.SUCCESS, "ok");
 //  }  
 //  
-//  @RequestMapping("add")
-//  public JsonResult add(Teacher teacher, String filenames) throws Exception {
-//    String[] nameList = filenames.split(",");
-//    ArrayList<String> photoList = new ArrayList<>();
-//    for (String name : nameList) {
-//      photoList.add(name);
-//    }
-//    teacher.setPhotoList(photoList);
-//    
-//    teacherService.add(teacher);
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }
-//  
-//  @RequestMapping("upload")
-//  public JsonResult upload(MultipartFile[] files) throws Exception {
-//    ArrayList<String> fileList = new ArrayList<>();
-//    for (MultipartFile file : files) {
-//      if (file.isEmpty())
-//        continue;
-//      String filename = getNewFilename();
-//      file.transferTo(new File(servletContext.getRealPath("/teacher/photo/" + filename)));
-//      fileList.add(filename);
-//    }
-//    return new JsonResult(JsonResult.SUCCESS, fileList);
-//  }
-//  
-//  int count = 0;
-//  synchronized private String getNewFilename() {
-//    if (count > 100) {
-//      count = 0;
-//    }
-//    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-//  }
-}
 
 
 
