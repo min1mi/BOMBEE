@@ -12,12 +12,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bitcamp.java93.domain.Lecture;
-import bitcamp.java93.domain.Manager;
 import bitcamp.java93.domain.Member;
-import bitcamp.java93.domain.Teacher;
+import bitcamp.java93.domain.Trainer;
 //"/member/*", "/leture/*", "/manager/*", "/teacher/*"
-@WebFilter({})
+@WebFilter({"/promotionControl/*"})
 public class AuthCheckFilter implements Filter {
 
   public AuthCheckFilter() {}
@@ -30,15 +28,11 @@ public class AuthCheckFilter implements Filter {
 	  HttpServletResponse httpResponse = (HttpServletResponse) response;
 
 	  Member loginMember = (Member)httpRequest.getSession().getAttribute("loginMember");
-	  Lecture loginLecture = (Lecture)httpRequest.getSession().getAttribute("loginLecture");
-	  Manager loginManager = (Manager)httpRequest.getSession().getAttribute("loginManager");
-	  Teacher loginTeacher = (Teacher)httpRequest.getSession().getAttribute("loginTeacher");
-	  if ((loginMember == null) && (loginLecture == null) && 
-	      (loginManager == null) && (loginTeacher== null)) { // 쿠키에 세션 아이디가 없다면
-	    httpResponse.sendRedirect("../auth/login.do"); // 로그인 화면으로 보낸다.
+	  Trainer loginTrainer = (Trainer)httpRequest.getSession().getAttribute("loginTrainer");
+	  if ((loginMember == null) &&  (loginTrainer== null)) { // 쿠키에 세션 아이디가 없다면
+	    httpResponse.sendRedirect("../auth/login.html"); // 로그인 화면으로 보낸다.
       return;
 	  }
-	  
     // 그 밖(쿠키에 세션아이디가 있다면, 로그인 했다면) 다음 필터 또는 서블릿을 실행해야 한다.
 		chain.doFilter(request, response);
 	}

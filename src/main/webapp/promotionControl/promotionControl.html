@@ -218,13 +218,14 @@
       {{/each}}
   </script>
   <script>
-  	var no = 9; // 필터처리한걸로 no 값 받아와야함
+  	var no = 0; // 필터처리한걸로 no 값 받아와야함
   	var json = '/promotion/promotion.json'
   	var imgBtn = ''
   	var deleteBtn = $('.promotion-delete')
   	var deleteCan = 0 //1일때는 삭제할때다. //삭제버튼을 눌럿을때는 1이다.
   	var deleteNo = new Array()
   	var selectVal = $('#select-container')
+  	var promotionAdd = $('#promotion-add')
   	$(function() {
   		deleteBtn.click(function() {
   			if (deleteCan == 0) {
@@ -234,7 +235,8 @@
   				deleteCan = 0
   				deleteBtn.removeClass('background')
   				$('.list-pro').removeClass('border')
-  				ajax()
+  				if(deleteNo.length > 0)
+  				  ajax()
   			}
   		})
   		selectVal.change(function() {
@@ -245,8 +247,22 @@
   				getData('/promotion/promotionTitle.json')
   			
   		})
+  		promotionAdd.click (function() {
+  			location.href = '../promotionAdd/promotionAdd2.html'
+  		})
   	})
-  	getData(json)
+  $.getJSON('/auth/userinfo.json', function(result) {
+	  console.log(result.data.membertype)
+	  if(result.data.membertype == 1)
+		  location.href = '../auth/login.html'
+		else {
+			no = result.data.no
+			  if (no == 0)
+			    console.log('응 로그인 실패')
+			  else
+			     getData(json)
+		}
+})
 	function getData(json) {
 		$.getJSON(json, {'no' : no}, function(result) {
 		  	  console.log(result)

@@ -19,7 +19,7 @@
   
   
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
-    select *
+    select accounttype, email, id, mtype, name, mno
     from memb
     where id=#{id} and pwd=password(#{pwd})
   </select>

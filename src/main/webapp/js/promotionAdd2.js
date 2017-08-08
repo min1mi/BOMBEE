@@ -8,7 +8,8 @@
       buttonText: "달력"
     });
   });
-  var address = $('.addressIn').text()
+  var addrInput = $('.addressIn')
+  var addrComp = $('.addressCompany')
   
   var title = $('.titleIn')
   var pric = $('.priceIn')
@@ -30,7 +31,7 @@
         lng = result[0].x
     }
   };
-  geocoder.addressSearch(address, callback);
+  
 // 다음맵 끝 
   
   $('.save').on('click', function() {
@@ -52,6 +53,18 @@
 //	    location.href = '../management/user.html'     
 	  },'json')
 	})
+	
+	$.getJSON('/auth/userinfo.json', function(result) {
+	  console.log(result.data.membertype)
+	  if(result.data.membertype == 1)
+		  location.href = '../auth/login.html'
+		else {
+			console.log(result.data)
+			addrInput.text(result.data.comaddr)
+			addrComp.text(result.data.comname)
+			geocoder.addressSearch(result.data.comaddr, callback);
+		}
+})
 	
 
 	

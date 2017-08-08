@@ -40,15 +40,29 @@
 </div><!--main-container 끝-->
 <script>
 var meeting = $('#meeting'),
-    management = $('#management')
+    management = $('#management'),
+    membertype
 
   meeting.click(function() {
 	  location.href='../list/mainList.html'
   })
 
   management.click(function() {
-    location.href='../auth/login.html'
+	  $.getJSON('/auth/userinfo.json', function(result) {
+		    console.log(result.status)
+		    if (result.status == 'fail')
+		    	location.href = '../auth/login.html'
+		    else {
+		    	  membertype = result.data.membertype
+		    	   if (membertype == 2)
+		    		    location.href = '../main/t-login.html'
+		    		 else
+		    			  location.href = '../main/u-login.html'
+		    }
+		})
   })
+  
+  
 </script>
 </body>
 </html>
