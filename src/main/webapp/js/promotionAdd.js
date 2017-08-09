@@ -9,7 +9,9 @@
     $('.header').load('../menu/new.html')
     $('.projectAdd-textArea').css('height', textHeight+'px');
   });
-
+  var addrInput = $('.addressIn')
+  var addrComp = $('.addressCompany')
+  
   var address = $('.addressIn').text()
   var textHeight = screen.availHeight-355-100;
   var title = $('.titleIn')
@@ -33,8 +35,6 @@
         lng = result[0].x
     }
   };
-  geocoder.addressSearch(address, callback);
-// 다음맵 끝 
   
 
   $(document).ready(function() {	  
@@ -118,7 +118,7 @@
 	    console.log('submit()...');
 	    // data 객체의 formData 프로퍼티에 일반 파라미터 값을 설정한다.
 	    data.formData = {
-	    		title : title.val(),
+	    		  title : title.val(),
 				  pric : pric.val(),
 				  content : content.val(),
 				  sdt : sdt.val(),
@@ -143,6 +143,18 @@
 //      onSlideChangeEnd: function(){alert("onSlideChangeEnd")}
       
   });
+  
+  $.getJSON('/auth/userinfo.json', function(result) {
+	  console.log(result.data.membertype)
+	  if(result.data.membertype == 1)
+		  location.href = '../auth/login.html'
+		else {
+			console.log(result.data)
+			addrInput.text(result.data.comaddr)
+			addrComp.text(result.data.comname)
+			geocoder.addressSearch(result.data.comaddr, callback);
+		}
+	})
 
 
 	

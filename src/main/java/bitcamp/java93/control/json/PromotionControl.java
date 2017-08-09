@@ -128,17 +128,9 @@ public class PromotionControl {
   }
   
   @RequestMapping("add")
-  public Object addPromotion(String title, int pric, String content, String sdt, String edt, int tno, double lat, double lng, String spono, MultipartFile[] files) throws Exception {
+  public Object addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
     HashMap<String,Object> resultMap = new HashMap<>();
-    System.out.println(title);
-    System.out.println(pric);
-    System.out.println(content);
-    System.out.println(sdt);
-    System.out.println(edt);
-    System.out.println(tno);
-    System.out.println(lat);
-    System.out.println(lng);
-    System.out.println(spono);
+    System.out.println(promotion);
     
     ArrayList<Object> fileList = new ArrayList<>();
     
@@ -151,18 +143,11 @@ public class PromotionControl {
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
         
-        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_80"));
-        Thumbnails.of(file).size(80, 80).outputFormat("png").toFile(thumbnail); 
-
-        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_140"));
-        Thumbnails.of(file).size(140, 140).outputFormat("png").toFile(thumbnail);
-        
-        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
+        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
         Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
           
         HashMap<String,Object> fileMap = new HashMap<>();
         fileMap.put("filename", newFilename);
-        fileMap.put("filesize", files[i].getSize());
         fileList.add(fileMap);
       }
     resultMap.put("fileList", fileList);

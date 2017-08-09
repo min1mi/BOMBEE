@@ -64,7 +64,7 @@
 			addrComp.text(result.data.comname)
 			geocoder.addressSearch(result.data.comaddr, callback);
 		}
-})
+	})
 	
 
 	
