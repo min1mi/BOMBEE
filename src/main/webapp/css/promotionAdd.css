@@ -48,41 +48,43 @@ body {
 }
 
 .image-area {
-  /*border: 1px solid black;*/
-  height: 85px;
-  width: 100%;
+  /* border: 1px solid black; */
+  height: 95px;
+  width: 95%;
   margin: 3px 10px;
+  float:left;
 }
 
 .image-area img {
   height: 100%;
   width: 100%;
+  position:relative;
+}
+
+.selFile {
+  /* border: 1px red solid; */
+  position:absolute;
+  top:0;
+  right:0;
+  font-size: 4.0rem;
 }
 
 .image-areaPlus {
   width: 23%;
-  height: 90%;
+  height: 100%;
   border: 1px solid #ccc;
   float:left;
   margin-right: 3px;
 }
 
-.image-areaPlus > label {
-  /*border: black 1px solid;*/
-  border-radius: 40px;
+.image-areaPlus label {
   text-align: center;
-  line-height: 70px;
+  /* line-height: 100%; */
   font-size: 60px;
   width: 60%;
   height: 75%;
   margin: 8px 18px;
 }
-
-/*.image-areaPlus button {
-  border-radius: 40px;
-  width: 50%;
-  height: 65%;
-}*/
 
 .projectAdd-input label {
   font-weight:normal;
@@ -187,10 +189,10 @@ body {
 }*/
 
 .projectAdd-textArea {
-  border:1px red solid;
   padding: 10px;
   height: 550px;
   width: 100%;
+  float:left;
 }
 
 .projectAdd-textArea > textarea {
@@ -207,3 +209,31 @@ body {
 ::-webkit-scrollbar-thumb { background: #a9a9a9; }
 
 .ui-datepicker{ z-index: 9999 !important;}
+
+/* swiper */
+ .swiper-container {
+        width: 100%;
+        height: 100%;
+       /*  margin: 20px auto; */
+        float:left;
+    }
+ .swiper-slide {
+/*      border: 1px red solid; */
+     text-align: center;
+     font-size: 18px;
+     background: #fff;
+     width: 33%;
+     /* Center slide text vertically */
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+     -webkit-box-pack: center;
+     -ms-flex-pack: center;
+     -webkit-justify-content: center;
+     justify-content: center;
+     -webkit-box-align: center;
+     -ms-flex-align: center;
+     -webkit-align-items: center;
+     align-items: center;
+ }
