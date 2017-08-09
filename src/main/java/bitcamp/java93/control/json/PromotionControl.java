@@ -128,11 +128,10 @@ public class PromotionControl {
   }
   
   @RequestMapping("add")
-  public Object addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
-    HashMap<String,Object> resultMap = new HashMap<>();
+  public JsonResult addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
     System.out.println(promotion);
     
-    ArrayList<Object> fileList = new ArrayList<>();
+    ArrayList<String> fileList = new ArrayList<>();
     
     for (int i = 0; i < files.length; i++) {
         if (files[i].isEmpty()) 
@@ -146,12 +145,14 @@ public class PromotionControl {
         File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
         Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
           
-        HashMap<String,Object> fileMap = new HashMap<>();
-        fileMap.put("filename", newFilename);
-        fileList.add(fileMap);
+
+        fileList.add(newFilename);
       }
-    resultMap.put("fileList", fileList);
-    return resultMap;
+    System.out.println(fileList);
+    promotion.setPhotoList(fileList);
+    promotionService.add(promotion);
+    System.out.println(promotion);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
   int count = 0;

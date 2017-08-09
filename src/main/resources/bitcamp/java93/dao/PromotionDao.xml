@@ -19,7 +19,6 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
-        <result column="img" property="img"/>
     <collection property="promotionList" ofType="Trainning">
 		    <id column="pno" property="pno" />
 				<result column="titl" property="title" />

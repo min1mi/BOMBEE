@@ -16,7 +16,7 @@ public interface PromotionDao {
   Promotion selectOne(int no);
   Promotion selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Promotion Promotion);
-  int insertImg(Promotion Promotion);
+  int insertImg(HashMap<String, Object> valueMap);
   int delete(int no);
   int update(Promotion Promotion);
   void insertPhoto(HashMap<String, Object> valueMap);
