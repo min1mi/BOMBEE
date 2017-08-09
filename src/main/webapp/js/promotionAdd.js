@@ -19,7 +19,7 @@
   var content = $('.promotionText')
   var sdt = $('.dateStart')
   var edt = $('.dateEnd')
-  var tno = 1
+  var tno = 0
   var lat = 0
   var lng = 0
   var spono = 0
@@ -152,6 +152,8 @@
 			addrInput.text(result.data.comaddr)
 			addrComp.text(result.data.comname)
 			geocoder.addressSearch(result.data.comaddr, callback);
+			tno = result.data.no
+			spono = result.data.spono
 		}
 	})
 

@@ -25,4 +25,5 @@ public interface PromotionDao {
  List<Promotion> selectPromotionList(int no);
  List<Promotion> selectPromotionListTitle(int no);
  int deletePromotions(int no);
+ 
 }

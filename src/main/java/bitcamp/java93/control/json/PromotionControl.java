@@ -66,8 +66,6 @@ public class PromotionControl {
 
 @RequestMapping("hot-firstList")
   public JsonResult firstList(int lastNo, int typeNo) throws Exception {
-  System.out.println(lastNo);
-  System.out.println(typeNo);
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.firstList());
 
@@ -145,7 +143,6 @@ public class PromotionControl {
         File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
         Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
           
-
         fileList.add(newFilename);
       }
     System.out.println(fileList);
