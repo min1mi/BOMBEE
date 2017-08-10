@@ -136,7 +136,7 @@ public class PromotionControl {
           continue;
         
         String newFilename = this.getNewFilename();
-        File file = new File(ctx.getRealPath("/upload/" + newFilename + ".png"));
+        File file = new File(ctx.getRealPath("/upload/" + newFilename));
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
         
