@@ -5,7 +5,7 @@
       </span>
       <span class="header-up" style="display:none"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
       <a id='header-logo'><img src="../image/bombee_title.png"/></a>
-      <a class='header-logo-bee' href='#'><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
+      <a class='header-logo-bee' href='192.168.0.19:8888/detail-chat.html?no='><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
      <div class="header-menu-items" style="display:none">
      <input type="search" id='header-search-bar'  style="display:none" placeholder="search"/>
        <ul class='header-menu-ul' style="display:none">
@@ -21,16 +21,16 @@
    </div>
   </div> <!-- 새로운 헤더 끝 -->
 <!-- 헤더스크립트 시작 -->
-<script> 
+<script>
 var count = 0;
 var index = 0;
 $( document ).ready(function() {
   $( '.header-menu-button' ).click(function() {
-	  
+
     $( ".header-menu-button" ).toggleClass('header-menu-button-open');
     $( ".header-menu-items" ).toggleClass('header-menu-items-open');
     $('#header-search-bar').val('')
-    
+
     //메뉴바는 기본적으로 z인덱스가 5
     //화면의 클릭이벤트 z인덱스는 기본적으로 6이다.
     if(index == 0) {
@@ -48,7 +48,7 @@ $( document ).ready(function() {
         $('.header-menu-items *').css('display', 'none');
         $('#header-search-bar').css('display', '');
     }
-    
+
     if(count == 1) {
       $('#header-search-bar').css('display', 'none')
       $('.header-up').css('display', 'none')
