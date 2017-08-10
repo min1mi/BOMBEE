@@ -19,7 +19,7 @@
   var content = $('.promotionText')
   var sdt = $('.dateStart')
   var edt = $('.dateEnd')
-  var tno = 1
+  var tno = 0
   var lat = 0
   var lng = 0
   var spono = 0
@@ -61,6 +61,7 @@
           return;
         }
         storedFiles.push(f);
+        console.log(storedFiles)
         var reader = new FileReader();
 //        console.log('위쪽FileReader:' + reader.storedFiles);
         
@@ -111,8 +112,7 @@
 	  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 	    console.log('done()...');
 	    console.log(data.result);
-	    var file = data.result.fileList[0];
-	    console.log(file)
+	    console.log('서버갔다옴.')
 	  },
 	  submit: function (e, data) {
 	    console.log('submit()...');
@@ -146,13 +146,16 @@
   
   $.getJSON('/auth/userinfo.json', function(result) {
 	  console.log(result.data.membertype)
-	  if(result.data.membertype == 1)
+	  
+	  if(result.data.membertype == 1){
 		  location.href = '../auth/login.html'
-		else {
+	  }else {
 			console.log(result.data)
 			addrInput.text(result.data.comaddr)
 			addrComp.text(result.data.comname)
 			geocoder.addressSearch(result.data.comaddr, callback);
+			tno = result.data.no
+			spono = result.data.spono
 		}
 	})
 

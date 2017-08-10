@@ -28,7 +28,7 @@
   			
   		})
   		promotionAdd.click (function() {
-  			location.href = '../promotionAdd/promotionAdd2.html'
+  			location.href = '../promotionAdd/promotionAdd.html'
   		})
   	})
   $.getJSON('/auth/userinfo.json', function(result) {

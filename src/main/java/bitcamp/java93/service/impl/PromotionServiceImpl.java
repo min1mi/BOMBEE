@@ -39,7 +39,12 @@ public class PromotionServiceImpl implements PromotionService {
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
   public void add(Promotion promotion) throws Exception {
     promotionDao.insert(promotion);
-    promotionDao.insertImg(promotion);
+    for (int i = 0; i < promotion.getPhotoList().size(); i++) {
+      HashMap<String, Object> valueMap = new HashMap<>();
+      valueMap.put("no", promotion.getNo());
+      valueMap.put("pimg", promotion.getPhotoList().get(i));
+      promotionDao.insertImg(valueMap);
+    }
   }
   
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.

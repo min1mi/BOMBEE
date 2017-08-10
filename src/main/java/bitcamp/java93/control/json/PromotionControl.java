@@ -66,8 +66,6 @@ public class PromotionControl {
 
 @RequestMapping("hot-firstList")
   public JsonResult firstList(int lastNo, int typeNo) throws Exception {
-  System.out.println(lastNo);
-  System.out.println(typeNo);
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("list", promotionService.firstList());
 
@@ -128,11 +126,10 @@ public class PromotionControl {
   }
   
   @RequestMapping("add")
-  public Object addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
-    HashMap<String,Object> resultMap = new HashMap<>();
+  public JsonResult addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
     System.out.println(promotion);
     
-    ArrayList<Object> fileList = new ArrayList<>();
+    ArrayList<String> fileList = new ArrayList<>();
     
     for (int i = 0; i < files.length; i++) {
         if (files[i].isEmpty()) 
@@ -143,15 +140,20 @@ public class PromotionControl {
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
         
-        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
-        Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
+        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_mainList"));
+        Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
+        
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
+        Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
           
-        HashMap<String,Object> fileMap = new HashMap<>();
-        fileMap.put("filename", newFilename);
-        fileList.add(fileMap);
+        fileList.add(newFilename);
       }
-    resultMap.put("fileList", fileList);
-    return resultMap;
+    System.out.println(fileList);
+    promotion.setPhotoList(fileList);
+    System.out.println(promotion.getPhotoList());
+    promotionService.add(promotion);
+    System.out.println(promotion);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
   int count = 0;

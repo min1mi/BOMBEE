@@ -4,7 +4,9 @@ import java.util.List;
 
 public class Promotion extends Trainning{
 	List <Trainning> promotionList;
-
+	
+	
+	
   public List<Trainning> getPromotionList() {
     return promotionList;
   }
@@ -15,14 +17,15 @@ public class Promotion extends Trainning{
 
   @Override
   public String toString() {
-    return "Promotion [promotionList=" + promotionList + ", pno=" + pno + ", title=" + title + ", pric=" + pric
-        + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter="
-        + meter + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="
-        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no
-        + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", membertype=" + membertype
-        + ", accounttype=" + accounttype + "]";
+    return "Promotion [promotionList=" + promotionList + ", photoList=" + photoList + ", pno=" + pno + ", title="
+        + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt + ", lat=" + lat
+        + ", lng=" + lng + ", meter=" + meter + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
+        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno
+        + ", tcherpic=" + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
+        + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
 
+  
 
 
 
