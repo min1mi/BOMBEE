@@ -32,6 +32,7 @@
 				<result column="tno" property="tno" />
 				<result column="spono" property="spono" />
 				<result column="COMADDR" property="comaddr" />
+				<result column="company" property="comdetailaddr" />
 				<result column="lat" property="lat"/>
 				<result column="lng" property="lng"/>
 				<result column="meter" property="meter"/>
