@@ -16,7 +16,7 @@ public class ChatServiceImpl implements ChatService {
 
   @Override
   public List<Chat> list(int no) throws Exception {
-    chatDao.selectAll(no);
+     return chatDao.selectAll(no);
   }
   
 }

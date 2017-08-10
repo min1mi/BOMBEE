@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import bitcamp.java93.domain.Member;
 import bitcamp.java93.service.ChatService;
 
 @RestController
@@ -16,7 +15,6 @@ public class ChatControl {
   @RequestMapping("chatList")
   public JsonResult selectAll(int no) throws Exception {
     chatService.list(no);
-    
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
