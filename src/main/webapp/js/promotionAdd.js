@@ -61,6 +61,7 @@
           return;
         }
         storedFiles.push(f);
+        console.log(storedFiles)
         var reader = new FileReader();
 //        console.log('위쪽FileReader:' + reader.storedFiles);
         
@@ -145,6 +146,7 @@
   
   $.getJSON('/auth/userinfo.json', function(result) {
 	  console.log(result.data.membertype)
+	  
 	  if(result.data.membertype == 1){
 		  location.href = '../auth/login.html'
 	  }else {

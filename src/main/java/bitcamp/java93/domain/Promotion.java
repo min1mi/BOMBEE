@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Promotion extends Trainning{
 	List <Trainning> promotionList;
-	List <String> photoList;
+	
 	
 	
   public List<Trainning> getPromotionList() {
@@ -13,14 +13,6 @@ public class Promotion extends Trainning{
 
   public void setPromotionList(List<Trainning> promotionList) {
     this.promotionList = promotionList;
-  }
-
-  public List<String> getPhotoList() {
-    return photoList;
-  }
-
-  public void setPhotoList(List<String> photoList) {
-    this.photoList = photoList;
   }
 
   @Override

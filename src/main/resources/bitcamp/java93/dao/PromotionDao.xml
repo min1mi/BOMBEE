@@ -19,6 +19,9 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
+        <collection property="photoList" ofType="string">
+          <result column="pimg"/>
+        </collection>
     <collection property="promotionList" ofType="Trainning">
 		    <id column="pno" property="pno" />
 				<result column="titl" property="title" />
@@ -34,9 +37,9 @@
 				<result column="meter" property="meter"/>
 				<result column="name" property="name"/>
 				<result column="introduction" property="introduction"/>
-    </collection>
-     <collection property="photoList" ofType="string">
-      <result column="img"/>
+				<collection property="photoList" ofType="string">
+          <result column="pimg"/>
+        </collection>
     </collection>
   </resultMap>
   
@@ -44,8 +47,9 @@
     select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, t.spono, t.comaddr, p.lat, p.lng,
     (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter
+  AS meter, i.pimg
   from promotion p inner join tcher t on p.tno = t.tno
+  left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -54,9 +58,10 @@
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter 
+  AS meter , i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
+         left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -65,9 +70,10 @@ FROM memb m left join tcher t  on t.tno = m.mno
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter 
+  AS meter, i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
+         left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -79,15 +85,15 @@ FROM memb m left join tcher t  on t.tno = m.mno
   </insert>
   
   <insert id="insertImg" parameterType="map">
-    insert into promotionimg(pno, img)
-    values( #{no}, #{img} ) 
+    insert into promotionimg(pno, pimg)
+    values( #{no}, #{pimg} ) 
   </insert>
   
   
   <select id="nextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
   select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.img as img
+          p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno < #{lastNo}
@@ -100,7 +106,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
   <select id="firstList" resultMap="promotionMap">
   <![CDATA[
 select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.img as img
+          p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno > 0
@@ -112,7 +118,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
   <select id="healthFirstList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
 select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.img as img
+          p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno > 0 and t.spono = #{typeNo}
@@ -124,7 +130,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
   <select id="healthNextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
 select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.img as img
+          p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno <= #{lastNo} 
@@ -137,7 +143,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
   
     <select id="selectOne" resultMap="promotionMap" parameterType="int">
 select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.img as img
+          p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
 where p.pno = #{no};
@@ -146,8 +152,10 @@ where p.pno = #{no};
   
   
    <select id="selectPromotionList" resultMap="promotionMap" parameterType="int">
-    select  *
-    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    select  p.*, t.*, i.pimg
+    from promotion p inner join tcher t  on p.tno=t.tno
+                            left outer join promotionimg i on p.pno = i.pno
+     where t.tno = #{no}
     order by p.pno desc
   </select>
   

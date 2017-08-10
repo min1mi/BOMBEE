@@ -42,7 +42,7 @@ public class PromotionServiceImpl implements PromotionService {
     for (int i = 0; i < promotion.getPhotoList().size(); i++) {
       HashMap<String, Object> valueMap = new HashMap<>();
       valueMap.put("no", promotion.getNo());
-      valueMap.put("img", promotion.getPhotoList().get(i));
+      valueMap.put("pimg", promotion.getPhotoList().get(i));
       promotionDao.insertImg(valueMap);
     }
   }

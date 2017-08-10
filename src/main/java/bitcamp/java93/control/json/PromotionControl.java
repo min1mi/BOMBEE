@@ -136,17 +136,21 @@ public class PromotionControl {
           continue;
         
         String newFilename = this.getNewFilename();
-        File file = new File(ctx.getRealPath("/upload/" + newFilename));
+        File file = new File(ctx.getRealPath("/upload/" + newFilename + ".png"));
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
         
-        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_200"));
-        Thumbnails.of(file).size(200, 200).outputFormat("png").toFile(thumbnail);
+        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_mainList"));
+        Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
+        
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
+        Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
           
         fileList.add(newFilename);
       }
     System.out.println(fileList);
     promotion.setPhotoList(fileList);
+    System.out.println(promotion.getPhotoList());
     promotionService.add(promotion);
     System.out.println(promotion);
     return new JsonResult(JsonResult.SUCCESS, "ok");
