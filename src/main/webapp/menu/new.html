@@ -89,6 +89,7 @@ $( document ).ready(function() {
 
 
   $.getJSON('/auth/userinfo.json', function(result) {
-	 no = result.data.no 
+	  if (result.status != 'fail')
+		  no = result.data.no
 })
 </script> <!--  헤더스크립트 끝 -->
