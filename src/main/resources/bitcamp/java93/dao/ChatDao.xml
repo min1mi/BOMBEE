@@ -4,11 +4,12 @@
 <mapper namespace="bitcamp.java93.dao.ChatDao">
 
   <resultMap type="chat" id="chatMap">
-    <id column='mno' property='memberno'/>
-    <result column="tno" property="trainerno" />
-    <result column="date" property="arrivedate" />
-    <result column="msg" property="message" />
-    <result column="confirm" property="confirm" />
+        <id column='mno' property='memberno'/>
+        <result column="tno" property="trainerno" />
+        <result column="date" property="arrivedate" />
+        <result column="msg" property="message" />
+        <result column="confirm" property="confirm" />
+        <result column="name" property="you" />
   </resultMap>
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
 		select mno, tno, date, msg, confirm
@@ -16,20 +17,8 @@
 		where mno = #{memberno};
   </select>
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
-		select mno, tno, date, msg, confirm
-		from chat
+		select DISTINCT c.mno, c.tno, c.date, c.msg, c.confirm, m.name
+		from chat c inner join memb m on c.mno = m.mno
 		where tno = #{trainerno};
   </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

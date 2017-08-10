@@ -70,6 +70,14 @@ dd {
   margin: 5px 0;
   display: inline;
 }
+.chat-line {
+
+}
+.chat-line img{
+	border-radius: 100px;
+	height: 100px;
+	width: 100px;
+}
 
 .chat-detail {
   height:623px;

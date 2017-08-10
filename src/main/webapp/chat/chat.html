@@ -25,12 +25,12 @@
 </div>
 
 <script id="chat-template" type="text/x-handlebars-template">
-  {{#each chatList}}
+  {{#each data}}
   <div class='chat-line'>
-    <div><img src='{{img}}' id='chat-user'/></div>
+    <div><img src='../image/2.jpg' id='chat-user'/></div>
     <dl>
-      <dt>{{name}}</dt>
-      <dd>{{recentMsg}}</dd>
+      <dt>{{you}}</dt>
+      <dd>{{message}}</dd>
     </dl>
   </div>
   {{/each}}
@@ -41,15 +41,17 @@
 <script type="text/javascript">
 var no = -1
 var tno = -1
+var you
+var me
 
 
 $.getJSON('/auth/userinfo.json', function(result) {
-	console.log(result)
+	 console.log(result.data.name)
 	if (result.status != 'fail'){
 		if(result.data.membertype == 1)
-			no = result.data.membertype
+			no = result.data.no
 		if(result.data.membertype == 2)
-			tno = result.data.membertype
+			tno = result.data.no
         	
 			console.log(no)
 			console.log(tno)
@@ -65,6 +67,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
 function getChat(no, json) {
 	$.getJSON(json, {no}, function(result) {
 		console.log(result)
+		you = result.data.you
 		  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 		  var templateFn = Handlebars.compile($('#chat-template').text())
 		  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
