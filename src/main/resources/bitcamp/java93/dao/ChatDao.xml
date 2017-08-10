@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bitcamp.java93.dao.PromotionDao">
+<mapper namespace="bitcamp.java93.dao.chatDao">
 
   <resultMap type="chat" id="chatMap">
   	<id column='mno' property='memberno'/>
