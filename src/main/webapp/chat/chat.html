@@ -44,11 +44,12 @@ var tno = -1
 
 
 $.getJSON('/auth/userinfo.json', function(result) {
+	console.log(result)
 	if (result.status != 'fail'){
 		if(result.data.membertype == 1)
-			no = result.data.type
+			no = result.data.membertype
 		if(result.data.membertype == 2)
-			tno = result.data.type
+			tno = result.data.membertype
         	
 			console.log(no)
 			console.log(tno)
@@ -57,8 +58,8 @@ $.getJSON('/auth/userinfo.json', function(result) {
 			else if (no != -1)
 				getChat(no, '/chat/memberList.json')
 	}
-   else if(result.status == 'fail')
-	   location.href='../auth/login.html'
+  /*  else if(result.status == 'fail')
+	   location.href='../auth/login.html'  */
 	})
 	
 function getChat(no, json) {
