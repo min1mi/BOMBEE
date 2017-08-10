@@ -12,9 +12,14 @@ public class ChatControl {
   @Autowired
   ChatService chatService;
 
-  @RequestMapping("chatList")
-  public JsonResult selectAll(int no) throws Exception {
-    chatService.list(no);
+  @RequestMapping("memberList")
+  public JsonResult selectMemberAll(int no) throws Exception {
+    chatService.memberlist(no);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  @RequestMapping("trainerList")
+  public JsonResult selectTrainerAll(int no) throws Exception {
+    chatService.trainerlist(no);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 

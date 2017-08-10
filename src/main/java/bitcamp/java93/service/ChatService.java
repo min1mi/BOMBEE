@@ -7,5 +7,6 @@ import bitcamp.java93.domain.Chat;
 
 public interface ChatService {
   /*read-only : list, get*/
-  List<Chat> list(int no) throws Exception;
+  List<Chat> memberlist(int no) throws Exception;
+  List<Chat> trainerlist(int no) throws Exception;
 }
