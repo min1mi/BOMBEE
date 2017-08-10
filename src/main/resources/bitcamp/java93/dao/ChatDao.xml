@@ -2,15 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="bitcamp.java93.dao.PromotionDao">
+<mapper namespace="bitcamp.java93.dao.ChatDao">
 
   <resultMap type="chat" id="chatMap">
   	<id column='mno' property='memberno'/>
   	<result column="tno" property="trainerno" />
-  	<result column="date" property="date" />
+  	<result column="date" property="arrivedate" />
     <result column="msg" property="message" />
     <result column="confirm" property="confirm" />
   </resultMap>
+  
   <select id="seletAll" resultMap="chatMap" parameterType="int">
 		select mno, tno, date, msg, confirm
 		from chat

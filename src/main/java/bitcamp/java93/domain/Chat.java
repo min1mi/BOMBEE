@@ -3,7 +3,7 @@ package bitcamp.java93.domain;
 public class Chat {
   int memberno;
   int trainerno;
-  String date;
+  String arrivedate;
   String message;
   boolean confirm;
   
@@ -19,11 +19,12 @@ public class Chat {
   public void setTrainerno(int trainerno) {
     this.trainerno = trainerno;
   }
-  public String getDate() {
-    return date;
+
+  public String getArrivedate() {
+    return arrivedate;
   }
-  public void setDate(String date) {
-    this.date = date;
+  public void setArrivedate(String arrivedate) {
+    this.arrivedate = arrivedate;
   }
   public String getMessage() {
     return message;
@@ -39,8 +40,9 @@ public class Chat {
   }
   @Override
   public String toString() {
-    return "Chat [memberno=" + memberno + ", trainerno=" + trainerno + ", date=" + date + ", message=" + message
-        + ", confirm=" + confirm + "]";
+    return "Chat [memberno=" + memberno + ", trainerno=" + trainerno + ", arrivedate=" + arrivedate + ", message="
+        + message + ", confirm=" + confirm + "]";
   }
+
   
 }
