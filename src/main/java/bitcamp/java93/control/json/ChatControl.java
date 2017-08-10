@@ -14,13 +14,11 @@ public class ChatControl {
 
   @RequestMapping("memberList")
   public JsonResult selectMemberAll(int no) throws Exception {
-    chatService.memberlist(no);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, chatService.memberlist(no));
   }
   @RequestMapping("trainerList")
   public JsonResult selectTrainerAll(int no) throws Exception {
-    chatService.trainerlist(no);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, chatService.trainerlist(no));
   }
 
 //  @RequestMapping("searchMusician")
