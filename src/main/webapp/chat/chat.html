@@ -43,21 +43,26 @@ var no = -1
 
 
 $.getJSON('/auth/userinfo.json', function(result) {
-	if (result.status != 'fail')
+	if (result.status != 'fail'){
         no = result.data.no
+        console.log(no)
+        getChat(no)
+	}
    else if(result.status == 'fail')
 	   location.href='../auth/login.html'
 	})
 	
-$.getJSON('/chat/get.json', {no}, function(result) {
-  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-  var templateFn = Handlebars.compile($('#chat-template').text())
-  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  console.log(templateFn(result))
-  var container = $('#chat-container')
-  var html = container.html()
-  container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
- })
+function getChat(no) {
+	$.getJSON('/chat/chatList.json', {no}, function(result) {
+		  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+		  var templateFn = Handlebars.compile($('#chat-template').text())
+		  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+		  console.log(templateFn(result))
+		  var container = $('#chat-container')
+		  var html = container.html()
+		  container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+		 })
+}
 
 
 </script>
