@@ -43,11 +43,13 @@ var no = -1
 
 
 $.getJSON('/auth/userinfo.json', function(result) {
-	   no = result.data.no 
-	   console.log(no)
+	if (result.status != 'fail')
+        no = result.data.no
+   else if(result.status == 'fail')
+	   location.href='../auth/login.html'
 	})
 	
-$.getJSON('../json/chat.json', function(result) {
+$.getJSON('/chat/get.json', function(result) {
   // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
   var templateFn = Handlebars.compile($('#chat-template').text())
   var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
