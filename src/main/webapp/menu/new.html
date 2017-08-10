@@ -60,7 +60,7 @@
           count = 0;
         }
       });
-    });
+
     $('.header-menu-search').click(() => {
       $('.header-none').slideToggle();
       $('.header-up').slideToggle()
@@ -79,14 +79,22 @@
       $('#header-logo').slideToggle()
       count = 0;
     })
-    $('#header-li-login').click(() => {
-          $.getJSON('/auth/userinfo.json', function(result) {
-                $('.header-logo-bee').attr('href', '192.168.0.19:8888/detail-chat.html?no=' + result.data.no)
-                console.log(result.data.no)
-
-                $.getJSON('/auth/userinfo.json', function(result) {
-                  if (result.status != 'fail')
-                    no = result.data.no
-                })
+   $('#header-li-login').click(()=> {
+    location.href='../auth/login.html'
+  })
+   
+      $('.header-logo-bee').click(function() {
+    if (no != null)
+      location.href = '../chat/chat.html'
+    else if (no == null)
+        location.href = '../auth/login.html'
+  })
+  
+});
+    
+    $.getJSON('/auth/userinfo.json', function(result) {
+        if (result.status != 'fail')
+          no = result.data.no
+})
   </script>
   <!--  헤더스크립트 끝 -->

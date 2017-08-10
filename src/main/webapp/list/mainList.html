@@ -107,6 +107,8 @@
     var offset = 0
     var no = 0
     var type = $('.click').children().attr('value')
+    var titleImage = []
+    var imgTag = []
     var swiper = new Swiper('.swiper-container', {
       loop: true,
       autoplay: 2000,
@@ -134,9 +136,8 @@
     })
 
     Handlebars.registerHelper('isIndex', function(index, promotion ,options) {
-    	console.log(('.img-'+promotion.pno))
-    	//attr('src', promotion.photoList[0]+ '_titleMainList.png')
-    	console.log(promotion.photoList[0])
+    	imgTag.push('.img-'+promotion.pno)
+    	titleImage.push(promotion.photoList[0]+ '_titleMainList.png')
       if (index % 2 == 0) {
         return options.fn(this);
       } else {
@@ -166,6 +167,14 @@
         var container = $('#promotion-in')
         var html = container.html()
         container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+        console.log(imgTag)
+        console.log(titleImage)
+        for (var i = 0; i < imgTag.length; i++) {
+        	$(imgTag[i]).attr('src', '../upload/'+titleImage[i])
+        	console.log(imgTag[i])
+        }
+        imgTag= []
+    	  titleImage = []
         btnClick()
       		})
      	}
