@@ -23,6 +23,7 @@
 <!-- 헤더스크립트 시작 -->
 <script>
 var count = 0;
+var no = null;
 var index = 0;
 $( document ).ready(function() {
   $( '.header-menu-button' ).click(function() {
@@ -78,12 +79,16 @@ $( document ).ready(function() {
 	$('#header-li-login').click(()=> {
 	  location.href='../auth/login.html'
 	})
+	$('.header-logo-bee').click(function() {
+		if (no != null)
+			location.href = '../chat/chat.html'
+		else if (no == null)
+				location.href = '../auth/login.html'
+	})
 });
 
 
   $.getJSON('/auth/userinfo.json', function(result) {
-	  $('.header-logo-bee').attr('href', '192.168.0.19:8888/detail-chat.html?no='+result.data.no )
-    console.log(result.data.no)
-   
+	 no = result.data.no 
 })
 </script> <!--  헤더스크립트 끝 -->

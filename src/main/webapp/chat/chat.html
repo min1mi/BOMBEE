@@ -39,7 +39,14 @@
 
 
 <script type="text/javascript">
+var no = -1
 
+
+$.getJSON('/auth/userinfo.json', function(result) {
+	   no = result.data.no 
+	   console.log(no)
+	})
+	
 $.getJSON('../json/chat.json', function(result) {
   // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
   var templateFn = Handlebars.compile($('#chat-template').text())
