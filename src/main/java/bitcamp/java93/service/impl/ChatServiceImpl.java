@@ -16,11 +16,11 @@ public class ChatServiceImpl implements ChatService {
 
   @Override
   public List<Chat> memberlist(int no) throws Exception {
-     return chatDao.selectAll(no);
+     return chatDao.selectMemberAll(no);
   }
   @Override
   public List<Chat> trainerlist(int no) throws Exception {
-    return chatDao.selectAll(no);
+    return chatDao.selectTrainerAll(no);
   }
   
 }
