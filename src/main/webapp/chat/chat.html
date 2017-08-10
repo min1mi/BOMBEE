@@ -49,7 +49,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
 	   location.href='../auth/login.html'
 	})
 	
-$.getJSON('/chat/get.json', function(result) {
+$.getJSON('/chat/get.json', {no}, function(result) {
   // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
   var templateFn = Handlebars.compile($('#chat-template').text())
   var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
