@@ -27,16 +27,8 @@
 
 
       <div class="swiper-container">
-          <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="image01.jpg" width="100%" >
-              </div>
-              <div class="swiper-slide">
-                <img src="image02.jpg" width="100%" >
-              </div>
-              <div class="swiper-slide">
-                <img src="image03.jpg" width="100%" >
-              </div>
+      
+          <div id='swiper-detail' class="swiper-wrapper">
           </div>
 
           <div class="swiper-pagination"></div>
@@ -76,7 +68,7 @@
 
     <div class='promotionDetail_company '>
       <p>
-        {{company}}
+        {{comname}}
       </p>
     </div>
 
@@ -98,6 +90,14 @@
         {{content}}
       </p>
     </div>
+</script>
+
+<script id = 'swiper-template' type='text/x-handlebars-template'>
+  {{#each photoList}}
+    <div class="swiper-slide">
+       <img src="/upload/{{this}}_promotion.png" width="100%" >
+    </div>
+  {{/each}}
 </script>
   
 
@@ -142,40 +142,51 @@
   </script>
 
   
-
-  <!-- Initialize Swiper -->
   <script>
   var no = 0
   var lat
   var lon
   try {
-	   no = location.href.split('?')[1].substring(3)
-	   console.log(no)
-	} catch (err) {
+     no = location.href.split('?')[1].substring(3)
+     console.log('no:' + no)
+  } catch (err) {
 
-	}
+  }
   var swiper = new Swiper('.swiper-container', {
       pagination: '.swiper-pagination',
       paginationClickable: true,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
-      // spaceBetween: 30
+      observer:true
   });
   
   
   $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
       console.log(result.data.promotion)
+      console.log(result.data.promotion.photoList)
+      console.log(result.data.promotion.photoList[0])
+      var ii = '/upload/' + result.data.promotion.photoList[0]
+      console.log('ii:' + ii)
+      
       lat = result.data.promotion.lat
       lon = result.data.promotion.lng
       console.log(lat)
       console.log(lon)
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-       var templateFn = Handlebars.compile($('#detail-template').text())
+      var templateFn = Handlebars.compile($('#detail-template').text())
       var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#handlebars-pro-detail')
       var html = container.html()
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다. 
        var acc = document.getElementsByClassName("accordion");
+      
+      // 이미지 템플릿 처리
+      var templateFn2 = Handlebars.compile($('#swiper-template').text())
+      var generatedHTML2 = templateFn2(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var container2 = $('#swiper-detail')
+      var html2 = container2.html()
+      container2.html(html2 + generatedHTML2) // 새 tr 태그들로 설정한다. 
+      // 이미지 템플릿 끝 
 
        
      mapCreate()
@@ -194,7 +205,7 @@
     })
     
      function mapCreate() {
-	  var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
           center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
           level: 5 // 지도의 확대 레벨
