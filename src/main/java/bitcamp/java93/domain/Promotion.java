@@ -4,9 +4,18 @@ import java.util.List;
 
 public class Promotion extends Trainning{
 	List <Trainning> promotionList;
+	String titlePhoto;
 	
 	
 	
+  public String getTitlePhoto() {
+    return titlePhoto;
+  }
+
+  public void setTitlePhoto(String titlePhoto) {
+    this.titlePhoto = titlePhoto;
+  }
+
   public List<Trainning> getPromotionList() {
     return promotionList;
   }
@@ -17,26 +26,16 @@ public class Promotion extends Trainning{
 
   @Override
   public String toString() {
-    return "Promotion [promotionList=" + promotionList + ", photoList=" + photoList + ", pno=" + pno + ", title="
+    return "Promotion [promotionList=" + promotionList + ", titlePhoto=" + titlePhoto + ", pno=" + pno + ", title="
         + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt + ", lat=" + lat
-        + ", lng=" + lng + ", meter=" + meter + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
-        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno
-        + ", tcherpic=" + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
-        + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
+        + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList + ", comname=" + comname + ", zipcode="
+        + zipcode + ", comaddr=" + comaddr + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction="
+        + introduction + ", tno=" + tno + ", tcherpic=" + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name
+        + ", email=" + email + ", pwd=" + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
 
-  
-
-
 
   
-  
-
- 
-	
-  
-	
-	
 	
 	
 	

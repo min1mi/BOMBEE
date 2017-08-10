@@ -139,11 +139,12 @@ public class PromotionControl {
         File file = new File(ctx.getRealPath("/upload/" + newFilename));
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
+        if (i == 0) {
+          File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_titleMainList"));
+          Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
+        }
         
-        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_mainList"));
-        Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
-        
-        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
+        File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
         Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
           
         fileList.add(newFilename);

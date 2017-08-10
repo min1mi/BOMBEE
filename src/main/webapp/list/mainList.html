@@ -81,16 +81,16 @@
   <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
   <!-- Initialize Swiper -->
   <script id='health-template' type="text/x-handlebars-template">
-    {{#each list}} {{#isIndex @index}}
+    {{#each list}} {{#isIndex @index this}}
     <div class='right-promotion main-promotion-height promotion'>
       {{else}}
       <div class='left-promotion main-promotion-height promotion'>
         {{/isIndex}}
         <div class='img'>
          {{#if @last}}
-          <img src='../image/2.jpg' value='{{pno}}' title="{{spono}}" id='last-promotion'>
+          <img src='../image/2.jpg' value='{{pno}}' title="{{spono}}" class='img-{{pno}}' id='last-promotion'>
          {{else}}
-           <img src='../upload/1502267228802_3.png' value='{{pno}}' title={{spono}}>
+           <img src='../image/2.jpg' value='{{pno}}' title={{spono}} class='img-{{pno}}'>
          {{/if}}
         </div>
         <div class='span'>
@@ -133,7 +133,10 @@
     	$('.btn-test').css('color', 'white')
     })
 
-    Handlebars.registerHelper('isIndex', function(index, options) {
+    Handlebars.registerHelper('isIndex', function(index, promotion ,options) {
+    	console.log($('.img-'+promotion.pno))
+    	//attr('src', promotion.photoList[0]+ '_titleMainList.png')
+    	console.log(promotion.photoList[0])
       if (index % 2 == 0) {
         return options.fn(this);
       } else {
