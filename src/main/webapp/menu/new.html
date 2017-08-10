@@ -81,9 +81,12 @@
     })
     $('#header-li-login').click(() => {
           $.getJSON('/auth/userinfo.json', function(result) {
-            $('.header-logo-bee').attr('href', '192.168.0.19:8888/detail-chat.html?no=' + result.data.no)
-            console.log(result.data.no)
+                $('.header-logo-bee').attr('href', '192.168.0.19:8888/detail-chat.html?no=' + result.data.no)
+                console.log(result.data.no)
 
-          })
+                $.getJSON('/auth/userinfo.json', function(result) {
+                  if (result.status != 'fail')
+                    no = result.data.no
+                })
   </script>
   <!--  헤더스크립트 끝 -->
