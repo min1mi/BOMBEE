@@ -5,7 +5,7 @@
       </span>
       <span class="header-up" style="display:none"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
       <a id='header-logo'><img src="../image/bombee_title.png"/></a>
-      <a class='header-logo-bee' href='192.168.0.19:8888/detail-chat.html?no='><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
+      <a class='header-logo-bee'><i class="header-font fa fa-forumbee" aria-hidden="true"></i></a>
      <div class="header-menu-items" style="display:none">
      <input type="search" id='header-search-bar'  style="display:none" placeholder="search"/>
        <ul class='header-menu-ul' style="display:none">
@@ -57,26 +57,33 @@ $( document ).ready(function() {
       count = 0;
     }
   });
+  $('.header-menu-search').click(()=> {
+	  $('.header-none').slideToggle();
+	  $('.header-up').slideToggle()
+	  $('#header-logo').slideToggle()
+
+	  $('#header-search-bar').slideToggle()
+
+	  $('#header-search-bar').focus()
+	  count = 1;
+	})
+	$('.header-up').click(()=> {
+	  $('.header-up').slideToggle()
+	  $('#header-search-bar').val('')
+	  $('.header-none').slideToggle()
+	  $('#header-search-bar').slideToggle()
+	  $('#header-logo').slideToggle()
+	  count = 0;
+	})
+	$('#header-li-login').click(()=> {
+	  location.href='../auth/login.html'
+	})
 });
-$('.header-menu-search').click(()=> {
-  $('.header-none').slideToggle();
-  $('.header-up').slideToggle()
-  $('#header-logo').slideToggle()
 
-  $('#header-search-bar').slideToggle()
 
-  $('#header-search-bar').focus()
-  count = 1;
-})
-$('.header-up').click(()=> {
-  $('.header-up').slideToggle()
-  $('#header-search-bar').val('')
-  $('.header-none').slideToggle()
-  $('#header-search-bar').slideToggle()
-  $('#header-logo').slideToggle()
-  count = 0;
-})
-$('#header-li-login').click(()=> {
-	location.href='../auth/login.html'
+  $.getJSON('/auth/userinfo.json', function(result) {
+	  $('.header-logo-bee').attr('href', '192.168.0.19:8888/detail-chat.html?no='+result.data.no )
+    console.log(result.data.no)
+   
 })
 </script> <!--  헤더스크립트 끝 -->
