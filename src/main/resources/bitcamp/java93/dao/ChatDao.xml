@@ -10,7 +10,7 @@
     <result column="msg" property="message" />
     <result column="confirm" property="confirm" />
   </resultMap>
-  <select id="selcetAll" resultMap="chatMap" parameterType="int">
+  <select id="selectAll" resultMap="chatMap" parameterType="int">
 		select mno, tno, date, msg, confirm
 		from chat
 		where mno = #{memberno};
