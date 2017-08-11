@@ -13,7 +13,7 @@ public class Member {
   String email;
   String pwd;
   int membertype;
-  int accounttype;
+  int accounttype; /*0: bombee, 1: facebook, 2: kakao*/
   
   @Override
   public String toString() {

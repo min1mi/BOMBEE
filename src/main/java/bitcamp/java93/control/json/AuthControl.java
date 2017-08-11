@@ -27,6 +27,8 @@ public class AuthControl {
   @RequestMapping(path="login", method=RequestMethod.POST) // POST 요청이 들어왔을 때 호출
   public JsonResult login(int membertype, String id, String pwd, 
      Model model, HttpSession session) throws Exception {
+    System.out.println(id);
+    System.out.println(pwd);
     System.out.println(membertype);
     Member member = null;
     Trainer trainer = null;
@@ -35,24 +37,25 @@ public class AuthControl {
       //         studentService 객체를 사용하여 로그인 처리
       member = memberService.getByEmailPassword(id, pwd);
       System.out.println(member);
-
+      System.out.println("111");
     } else if (membertype == 2) {
       trainer = trainerService.getByEmailPassword(id, pwd);
-      System.out.println(trainer);
+      System.out.println(member);
     }
 
     //      MemberService memberService = (MemberService)this.getServletContext().getAttribute("memberService");
     //      member = memberService.getByEmailPassword(email, password);
-
+    System.out.println("이프문 앞 + "+ member);
     if (member != null || trainer != null) { // 로그인에 성공했다면
+      System.out.println(" 멤버나 트레이너가 널이아니면 member:"+member);
       // HttpSession 보관소에 로그인 회원 정보를 저장한다.
       if (member != null ) {
         model.addAttribute("loginMember", member);
-        
+        System.out.println("11");
       } else if (trainer != null) {
         model.addAttribute("loginMember", trainer);
       }
-
+      System.out.println("model:"+model);
       return new JsonResult(JsonResult.SUCCESS, "ok");
 
     } else {
@@ -71,6 +74,7 @@ public class AuthControl {
   @RequestMapping("userinfo")
   public JsonResult userinfo(HttpSession session)throws Exception {
     Member loginMember = (Member)session.getAttribute("loginMember");
+    System.out.println("userinfo"+loginMember);
     if (loginMember != null)
       return new JsonResult(JsonResult.SUCCESS, loginMember);
     else

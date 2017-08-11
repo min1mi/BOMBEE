@@ -26,6 +26,8 @@
   var fiFilenames = $('#fi-filenames')
   var selDiv = "";
   var storedFiles = [];
+  var delImage = [];
+  var pno
   
 // 다음맵: 주소 -> 위도, 경도 
   var geocoder = new daum.maps.services.Geocoder();
@@ -54,6 +56,7 @@
   var files
   function handleFileSelect(e) {
     	  files = e.target.files
+    	  console.log("e.target.files:" + e.target.files)
       var filesArr = Array.prototype.slice.call(files);
       filesArr.forEach(function(f) {
 
@@ -63,17 +66,13 @@
         storedFiles.push(f);
         console.log(storedFiles)
         var reader = new FileReader();
-//        console.log('위쪽FileReader:' + reader.storedFiles);
-        
+
         reader.onload = function (e) {
-        
           var html = "<div class='swiper-slide'>" +
           		"<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
           		"<i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i>" +
           		"</div>";
-
           selDiv.append(html);
-          // $(html).replaceAll('.ImageBtn');
         }
         reader.readAsDataURL(f);
       });
@@ -83,24 +82,28 @@
     function removeFile(e) {
       e.preventDefault();
       var file = $(this).attr("value");
+      delImage.push(file);
       for(var i=0;i<storedFiles.length;i++) {
         if(storedFiles[i].name === file) {
           storedFiles.splice(i,1);
-
           break;
         }
       }
       console.log(storedFiles)
+      console.log('delImage:' + delImage)
       $(this).parent().remove();
     }
     
 	$('#image_upload').fileupload({
-	  url: '/promotion/add.json',        // 서버에 요청할 URL
+		
+		traditional : true,
+	  url: '/promotion/update.json',        // 서버에 요청할 URL
 	  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
 	  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.   
 	  add: function (e, data) {
-	    console.log('add()...');
+	    console.log('update()...');
+	    
 	    data.files = storedFiles
 	    $.each(data.files, function (index, file) {
 	        console.log('Added file: ' + file.name);
@@ -126,7 +129,10 @@
 				  tno : tno,
 				  lat : lat,
 				  lng : lng,
-				  spono : spono
+				  spono : spono,
+				  pno : pno,
+				  delImage:delImage
+				  
 	    };
 	  }
 	}); 
@@ -145,8 +151,7 @@
   });
   
   $.getJSON('/auth/userinfo.json', function(result) {
-	  console.log(result.data.membertype)
-	  
+	  console.log('membertype:' + result.data.membertype)
 	  if(result.data.membertype == 1){
 		  location.href = '../auth/login.html'
 	  }else {
@@ -158,6 +163,30 @@
 			spono = result.data.spono
 		}
 	})
-
-
 	
+  var no = 0
+
+  try {
+     no = location.href.split('?')[1].substring(3)
+     pno = no
+     console.log('no:' + no)
+  } catch (err) {}
+  
+  $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
+	  console.log(result.data.promotion)
+	  console.log('photolist:' + result.data.promotion.photoList)
+	  
+	  $('.titleIn').val(result.data.promotion.title)
+      $('.dateStart').val(result.data.promotion.sdt)
+      $('.dateEnd').val(result.data.promotion.edt)
+      $('.priceIn').val(result.data.promotion.pric)
+      $('.promotionText').text(result.data.promotion.content)
+      
+      var templateFn = Handlebars.compile($('#update-template').text())
+      var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+      var container = $('#selectedFiles')
+      var html = container.html()
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다. 
+      
+  	}
+  )

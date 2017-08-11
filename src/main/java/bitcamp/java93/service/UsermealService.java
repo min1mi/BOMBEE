@@ -9,5 +9,6 @@ public interface UsermealService {
   List<Usermeal> list(String startDate, String endDate) throws Exception;
   void add(Usermeal usermeal) throws Exception;
   void update(Usermeal usermeal) throws Exception;
+  void nopicUpdate(Usermeal usermeal) throws Exception;
   void remove(int mealno) throws Exception;
 }

@@ -14,35 +14,46 @@
         <result column="tno" property="tno" />
         <result column="spono" property="spono" />
         <result column="COMADDR" property="comaddr" />
+        <result column="COMDETAILADDR" property="comdetailaddr" />
+        <result column="company" property="comname"/>
         <result column="lat" property="lat"/>
         <result column="lng" property="lng"/>
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
+        <collection property="photoList" ofType="string">
+          <result column="pimg"/>
+        </collection>
     <collection property="promotionList" ofType="Trainning">
-		    <id column="pno" property="pno" />
-				<result column="titl" property="title" />
-				<result column="pric" property="pric" />
-				<result column="content" property="content" />
-				<result column="sdt" property="sdt" />
-				<result column="edt" property="edt" />
-				<result column="tno" property="tno" />
-				<result column="spono" property="spono" />
-				<result column="COMADDR" property="comaddr" />
-				<result column="lat" property="lat"/>
-				<result column="lng" property="lng"/>
-				<result column="meter" property="meter"/>
-				<result column="name" property="name"/>
-				<result column="introduction" property="introduction"/>
+        <id column="pno" property="pno" />
+        <result column="titl" property="title" />
+        <result column="pric" property="pric" />
+        <result column="content" property="content" />
+        <result column="sdt" property="sdt" />
+        <result column="edt" property="edt" />
+        <result column="tno" property="tno" />
+        <result column="spono" property="spono" />
+        <result column="COMADDR" property="comaddr" />
+        <result column="COMDETAILADDR" property="comdetailaddr" />
+        <result column="company" property="comname"/>
+        <result column="lat" property="lat"/>
+        <result column="lng" property="lng"/>
+        <result column="meter" property="meter"/>
+        <result column="name" property="name"/>
+        <result column="introduction" property="introduction"/>
+        <collection property="photoList" ofType="string">
+          <result column="pimg"/>
+        </collection>
     </collection>
   </resultMap>
-
+  
   <select id="selectList" resultMap="promotionMap" parameterType="map">
     select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, t.spono, t.comaddr, p.lat, p.lng,
     (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter
+  AS meter, i.pimg
   from promotion p inner join tcher t on p.tno = t.tno
+  left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -51,9 +62,10 @@
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter 
+  AS meter , i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
+         left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -62,9 +74,10 @@ FROM memb m left join tcher t  on t.tno = m.mno
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter 
+  AS meter, i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno GROUP BY m.id
+         left outer join promotionimg i on p.pno = i.pno
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -75,66 +88,78 @@ FROM memb m left join tcher t  on t.tno = m.mno
     values( #{title}, #{pric}, #{content}, #{tno}, #{lat}, #{lng}, #{sdt}, #{edt}) 
   </insert>
   
-  <insert id="insertImg" parameterType="promotion">
-    insert into promotionimg(pno, img)
-    values( #{no}, #{img} ) 
+  <insert id="insertImg" parameterType="map">
+    insert into promotionimg(pno, pimg)
+    values( #{no}, #{pimg} ) 
   </insert>
   
   
   <select id="nextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion
-  where pno < #{lastNo}
-  and pno > #{lastNo}-6
-  and pno > 0
-  order by pno desc
+  select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng, i.pimg
+from tcher t left outer join promotion p on t.tno = p.tno
+        left outer join promotionimg i on p.pno = i.pno
+  where p.pno < #{lastNo}
+  and p.pno > #{lastNo}-6
+  and p.pno > 0
+  order by p.pno desc
   ]]>
   </select>
   
-  <select id="firstList" resultMap="promotionMap" parameterType="int">
+  <select id="firstList" resultMap="promotionMap">
   <![CDATA[
-  select p.pno, p.titl, t.spono, p.content, p.sdt, p.edt, p.pric from promotion p
-  inner join tcher t on p.tno = t.tno
-  where pno > 0
-  order by pno desc
+select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng, i.pimg
+from tcher t left outer join promotion p on t.tno = p.tno
+        left outer join promotionimg i on p.pno = i.pno
+  where p.pno > 0
+  order by p.pno desc
   limit 0, 6;
   ]]>
   </select>
   
   <select id="healthFirstList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion p
-  inner join tcher t on p.tno = t.tno
-  where pno > 0 and t.spono = #{typeNo}
-  order by pno desc
+select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng, i.pimg
+from tcher t left outer join promotion p on t.tno = p.tno
+        left outer join promotionimg i on p.pno = i.pno
+  where p.pno > 0 and t.spono = #{typeNo}
+  order by p.pno desc
   limit 0, 6;
   ]]>
   </select>
   
   <select id="healthNextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
-  select * from promotion p
-  inner join tcher t on p.tno = t.tno
-  where pno <= #{lastNo} 
-  and pno > #{lastNo}-6
-  and pno > 0  and t.spono = #{typeNo}
+select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng, i.pimg
+from tcher t left outer join promotion p on t.tno = p.tno
+        left outer join promotionimg i on p.pno = i.pno
+  where p.pno <= #{lastNo} 
+  and p.pno > #{lastNo}-6
+  and p.pno > 0  and t.spono = #{typeNo}
  
-  order by pno desc
+  order by p.pno desc
   ]]>
   </select>
   
     <select id="selectOne" resultMap="promotionMap" parameterType="int">
-  <![CDATA[
-  select p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng
-from promotion p inner join tcher t on p.tno = t.tno
-where pno = #{no}
-  ]]>
+select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
+          p.tno, p.lat, p.lng, i.pimg
+from tcher t left outer join promotion p on t.tno = p.tno
+        left outer join promotionimg i on p.pno = i.pno
+where p.pno = #{no};
+
   </select>
   
+  
    <select id="selectPromotionList" resultMap="promotionMap" parameterType="int">
-    select  *
-    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    select  p.*, t.*, i.pimg
+    from promotion p inner join tcher t  on p.tno=t.tno
+                            left outer join promotionimg i on p.pno = i.pno
+     where t.tno = #{no}
     order by p.pno desc
   </select>
   
@@ -148,16 +173,19 @@ where pno = #{no}
     order by p.titl asc
   </select>
   
+  <delete id="delAddImage" parameterType="string">
+    delete from promotionimg
+    where pimg=#{delI}
+  </delete>
+  
+  <update id="updatePromotion" parameterType="promotion" >
+    update promotion set
+	    titl=#{title},
+	    pric=#{pric},
+	    sdt=#{sdt},
+	    edt=#{edt},
+	    content=#{content}
+	  where pno=#{pno}
+  </update>
+  
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

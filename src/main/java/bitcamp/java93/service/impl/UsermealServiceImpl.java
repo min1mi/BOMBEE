@@ -32,6 +32,11 @@ public class UsermealServiceImpl implements UsermealService {
     usermealDao.update(usermeal);
   }
   
+  @Override
+  public void nopicUpdate(Usermeal usermeal) throws Exception {
+    usermealDao.nopicUpdate(usermeal);
+  }
+  
   public void remove(int mealno) throws Exception {
     int count = usermealDao.delete(mealno);
     if (count < 1) {
@@ -44,10 +49,3 @@ public class UsermealServiceImpl implements UsermealService {
   }
   
 }
-
-
-
-
-
-
-

@@ -4,9 +4,18 @@ import java.util.List;
 
 public class Promotion extends Trainning{
 	List <Trainning> promotionList;
-	List <String> photoList;
+	String titlePhoto;
 	
 	
+	
+  public String getTitlePhoto() {
+    return titlePhoto;
+  }
+
+  public void setTitlePhoto(String titlePhoto) {
+    this.titlePhoto = titlePhoto;
+  }
+
   public List<Trainning> getPromotionList() {
     return promotionList;
   }
@@ -15,36 +24,18 @@ public class Promotion extends Trainning{
     this.promotionList = promotionList;
   }
 
-  public List<String> getPhotoList() {
-    return photoList;
-  }
-
-  public void setPhotoList(List<String> photoList) {
-    this.photoList = photoList;
-  }
-
   @Override
   public String toString() {
-    return "Promotion [promotionList=" + promotionList + ", photoList=" + photoList + ", pno=" + pno + ", title="
+    return "Promotion [promotionList=" + promotionList + ", titlePhoto=" + titlePhoto + ", pno=" + pno + ", title="
         + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt + ", edt=" + edt + ", lat=" + lat
-        + ", lng=" + lng + ", meter=" + meter + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
-        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno
-        + ", tcherpic=" + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
-        + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
+        + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList + ", comname=" + comname + ", zipcode="
+        + zipcode + ", comaddr=" + comaddr + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction="
+        + introduction + ", tno=" + tno + ", tcherpic=" + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name
+        + ", email=" + email + ", pwd=" + pwd + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
 
-  
-
-
 
   
-  
-
- 
-	
-  
-	
-	
 	
 	
 	
