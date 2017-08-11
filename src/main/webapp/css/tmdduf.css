@@ -1,70 +1,90 @@
 .pro-container {
-  width: 100%;
-  /*height: 736px;*/
-  /*border : 1px solid red;*/
+  width: 415px;
 }
-#tmdduf-container {
-  width: 20%;
-  position: relative;
-/*border : 1px solid red;*/
-}
-
-.pro1 {
-  /*position: absolute;*/
+.sche-top {
+  width : 100%;
   /*border : 1px solid red;*/
-  background: silver;
-  width: 100%;
-  display: inline-block;
-  height: 80px;
-  background-color: #35484f;
+  height : 50px;
+  background-color: grey;
+  size : 50px;
   color: white;
-  /*margin-bottom: 20px;*/
-  padding : 33% 0% 0% 27%;
-  border-bottom: 1px solid #a0a0a0;
-  font-size: 1.8rem;
+  font-size: 3.3rem;
 }
-.pro {
-  /*border: 5px solid orange;*/
+.sche-body {
+  padding: 2% 0% 0% 2%;
+  /*border : 1px solid blue;*/
+  background-color: white;
+  height : 600px;
+}
+.body-day {
+    margin : 0% 0% 0% 0%;
+  /*background-color: yellow;*/
+  width: 80px;
+  height : 580px;
+  display: inline-block;
+}
+.body-day > div {
+  background-color: silver;
+  width: 80px;
+  height : 80px;
+  display: inline-block;
+  margin-top : 3%;
+  padding-top: 25%;
+  font-size : 2.7rem;
+  text-align: center;
+}
+.body-t-text {
+  margin-top: -98%;
+  font-size : 2.9rem;
+  /*background-color: orange;*/
+  width: 40px;
+  height : 490;
+  left : 25%;
+  top : 71%;
   position: absolute;
-  background-color: white !important;
-  margin-left: 142%;
-  display: none;
-  width: 310%;
-  float: left;
-  top: 3%;
-  /*left: 0px;*/
-  height: 0px;
-}
-.pro-time {
-  border-bottom: 0.1rem solid #ececec;
-  /*border: 1px solid green;*/
-  height: 38px;
-  background-color: white !important;
+  text-align: center;
+
 }
 
-#click {
-  background-color: #f7ac1a !important;
-  /*height: 40px;*/
-}
-.skehwkf{
-  width: 100%;
-    height: 40px;
-    font-size: 30px;
-    background-color: #e6e6e6;
-}
-.time-text {
-  margin: -132% 0% 0% 21%;
-  width: 12%;
-  /*height: 524px;*/
+.body-time {
+  margin-top: -200px;
+  background-color: lightgreen;
+  width: 57%;
+  height : 575px;
+  /*display: inline-block;*/
   /*border: 1px solid red;*/
-  font-weight: normal;
-  font-size: 1.5rem;
-  line-height:3.8rem
-}
-/*.dnawlr {
-  width: 170px;
-  overflow: hidden;
-  overflow-x: scroll;
-  height: 192px;;
+  position: absolute;
+  left : 40%;
+  top : 43%;
 
-}*/
+}
+.body-time2 {
+  margin-top: -200px;
+  background-color: green;
+  width: 57%;
+  height : 575px;
+  /*display: inline-block;*/
+  /*border: 1px solid red;*/
+  position: absolute;
+  left : 40%;
+  top : 36%;
+}
+
+.h-time {
+  margin-top: 1%;
+  color: white;
+  background-color: white;
+  /*border : 1px solid red;*/
+  height : 38.5px;
+
+}
+.ok {
+  background-color: black;
+}
+.sche-btn{
+  width: 40%;
+}
+#time-thu {
+   display: show;
+
+}

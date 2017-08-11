@@ -1,10 +1,12 @@
-$(function() {
+$.getJSON('/auth/userinfo.json', function(result) {
+	// console.log(result)
+	no = result.data.no
   generateTemplate();
-});
+	getData();
+})
 function generateTemplate() {
-  var no = 1// 로그인했을때 자기 MNO tno를 받아와야 된다.
   $.getJSON('/trainer/detail.json', {no}, function(result) {
-    console.log(result)
+    // console.log(result)
     var templateFn = Handlebars.compile($('#detail-template').text())
     var generatedHTML = templateFn(result.data)
     var container = $('#detail-container')
@@ -29,7 +31,24 @@ function generateTemplate() {
     }
   })
 }
+function getData() {
+	$.getJSON('/schedule/detail.json', {no}, function(result) {
 
+		console.log(result.data.weeklist.day+result.data.weeklist.time)
+
+		var bookNo = result.data.weeklist.day+result.data.weeklist.time,
+				weeklist = result.data.weeklist
+				console.log(weeklist.length)
+		for (var week of weeklist) {
+			console.log(week.day)
+			console.log(week.time)
+			bookNo = week.day+week.time
+			$('td[data-bookno=' + bookNo + ']').addClass('ok')
+		}
+
+
+	})
+}
 
 jQuery(document).ready(function($){
 

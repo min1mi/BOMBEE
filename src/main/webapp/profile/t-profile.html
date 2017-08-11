@@ -52,9 +52,11 @@
 
         </form>
           <div class="pro-bottom-Btn">
-            <img class="pro-view-Btn" src="../image/VIEW1.png">
+            <!-- <img class="pro-view-Btn" src="../image/VIEW1.png"> -->
             <img class="pro-save-Btn" src="../image/SAVE1.png">
           </div>
+          <div class="cont-box1">
+        </div>
 
 
       </div>
@@ -62,23 +64,28 @@
 
 
 <script id="profile-template" type="text/x-handlebars-template">
-
-  <div class="brand">
-    <label for="img-upload">
-    {{#if tcherpic}}
-      <img  id="box1" src="{{tcherpic}}_140.png">
-    {{^}}
-      <img  id="box1" src="../image/profile.jpg">
-    {{/if}}
-  </label>
-  </div>
-
+  <center>
+    <div class="brand">
+      <label for="img-upload">
+      {{#if tcherpic}}
+        <img  id="box1" src="{{tcherpic}}_140.png">
+      {{^}}
+        <img  id="box1" src="../image/profile.jpg">
+      {{/if}}
+      </label>
+    </div>
+  </center>
 
 
   <div id='updatefiles'></div>
+  <div class="cont-box">
+  </div>
+
   <input id="already-files" class='pro-img' type="file" name='files' for="box1"/>
       <div>
-      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly/>
+      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly onfocus="this.blur();">
+
+
          <div id="pro-type">
            <!-- <option>운동 종목</option> -->
 
@@ -94,10 +101,12 @@
       </div>
       <div class='trainer-join'>
         <input class="form-control pro-place company_name" id="pro-place-1" type="text" placeholder="상호명" value="{{comname}}">
-        <input class="form-control pro-place pro-place-2 zip" id="sample2_postcode" type="text" placeholder="우편번호" value="{{zipcode}}">
+        <input class="form-control pro-place pro-place-2 zip" id="sample2_postcode" type="text" placeholder="우편번호" value="{{zipcode}}"readonly onfocus="this.blur();">
+
         <img   class="pro-place-Btn"onclick="sample2_execDaumPostcode()" src="../image/mapmap.png">
       </div>
-      <input type="text" class="form-control pro-place pro-place-4 address" id="sample2_address" placeholder="기본주소" value="{{comaddr}}">
+      <input type="text" class="form-control pro-place pro-place-4 address" id="sample2_address" placeholder="기본주소" value="{{comaddr}}" readonly onfocus="this.blur();">
+
       <input class="form-control pro-place pro-place-3 detail_address" id="sample2_addressDetail" type="text" placeholder="상세주소" value="{{comdetailaddr}}">
       <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
         <img  id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">

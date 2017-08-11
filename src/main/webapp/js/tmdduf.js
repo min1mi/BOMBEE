@@ -1,65 +1,143 @@
-$(function() {
-  $('.header').load('../menu/new.html')
+// $(function() {
+//   // $('.header').load('../menu/new.html')
+//
+//
+var no;
 
-
-  generateTemplate();
-  // $(".pro1 .pro").hide();
-
-});
-// var foseja;
-
- // console.log(Math.floor(Math.random() * letters.length))
- // foseja = color;
-  // $('#wrap').on("click", function(){
-  //     $('#wrap').css('background-color', color);
-  // })
-// ).document.getElementById('wrap').style.background = color; // 조립한 컬러를 프론트엔드에서 지정한 ID에 적용한다
-
-
-
-function generateTemplate() {
-  $.getJSON('../json/tmdduf.json', function(result) {
-    // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-    var templateFn1 = Handlebars.compile($('#profile-template').text())
-    var generatedHTML1 = templateFn1(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-    var container1 = $('#profile-container')
-
-    var html1 = container1.html()
-    container1.html(html1 + generatedHTML1) // 새 tr 태그들로 설정한다.      })
-
-  })
-}
-function clickPro() {
-
-  $(".pro1 .pro div").click(function() {
-      // console.log($(this).val())
-        if(($(this).attr("value")) == "off"){
-          $(this).attr('id', "click")
-          // $(this).attr('id', "click")
-          $(this).attr("value","on")
-        }
-        else if(($(this).attr("value")) == ""){
-          $(this).attr('id', "click")
-          // $(this).addID('click')
-          $(this).attr("value","on")
-        }
-        else if (($(this).attr("value")) == "on"){
-          // $(this).removeClass('click')
-          $(this).attr('id', "")
-          $(this).attr("value","off")
-        }
-      })
-}
-function clickPro1() {
-$("#tmdduf-container div").click(function(){
-    $(".pro1 .pro").hide();
-    $(".pro1").css("background-color","#35484f");
-    $(this).css("background-color", "#f7ac1a");
-    // console.log(this)
-    // $(this).css("background-color", color);
-    $(this).children().show();
-    // $(this).slideToggle(1000);
-
-
+$.getJSON('/auth/userinfo.json', function(result) {
+	// console.log(result)
+	no = result.data.no
+  show();
+  getData();
 })
+
+
+
+function show() {
+  $('.body-time').hide();
+  // $('.day').css('background-color', "orange")
+  $('#time-mon').show();
+
+
 }
+
+$('.body-day div').click(function() {
+        $('.day').css('background-color', "silver")
+        $(this).css('background-color', "orange")
+        switch ($(this).text()) {
+          case "MON" :
+           $('.body-time').hide()
+           $('#time-mon').show()
+          break;
+          case "TUE" :
+            $('.body-time').hide()
+            $('#time-tue').show()
+          break;
+          case "WEB" :
+            $('.body-time').hide()
+            $('#time-web').show()
+          break;
+          case "THU" :
+            $('.body-time').hide()
+            $('#time-thu').show()
+          break;
+          case "FRI" :
+            $('.body-time').hide()
+            $('#time-fri').show()
+          break;
+          case "SAT" :
+            $('.body-time').hide()
+            $('#time-sat').show()
+          break;
+          case "SUN" :
+            $('.body-time').hide()
+            $('#time-sun').show()
+          break;
+          default:
+         $('.body-time').attr('display: none')
+        }
+
+        // $(this).attr('id', "click")
+})
+var schedule = [];
+$(".h-time").click(function() {
+  console.log(this)
+  if (($(this).attr("value")) == "off") {
+    $(this).addClass('ok')
+    $(this).attr("value","on")
+    schedule.push($(this).attr('data-bookno'))
+    console.log($(this).attr('data-bookno'))
+    console.log(schedule)
+  } else if (($(this).attr("value")) == "on") {
+    $(this).removeClass('ok')
+    $(this).attr("value","off")
+    // schedule.pop()
+    console.log(schedule)
+    for (var i = 0; i < schedule.length; i++) {
+      if (schedule[i] ==  $(this).attr('data-bookno')) {
+        schedule.splice(i, 1)
+        console.log(schedule)
+      }
+    }
+  }
+})
+
+function getData() {
+	$.getJSON('/schedule/detail.json', {no}, function(result) {
+    console.log(result)
+    console.log(no)
+
+    if((result.data) != undefined) {
+      var bookNo = result.data.weeklist[0].day+result.data.weeklist[0].time,
+      weeklist = result.data.weeklist
+      console.log(weeklist.length)
+      for (var week of weeklist) {
+        // console.log(week.day)
+        // console.log(week.time)
+        bookNo = week.day+week.time
+        $('div[data-bookno=' + bookNo + ']').addClass('ok')
+        $('div[data-bookno=' + bookNo + ']').attr('value', 'on')
+        schedule.push(bookNo)
+      }
+    }
+    else if ((result.data) == undefined) {
+
+      console.log('인설트')
+    }
+
+
+
+	})
+}
+
+$("#save_Btn").on('click',function() {
+
+  console.log("클릭클릭")
+  console.log(schedule)
+
+  for (var time of schedule) {
+    // console.log(time)
+    console.log(time.slice(0,3))
+    console.log(time.slice(3,5))
+    // $.post('/schedule/delete.json',{no}, function(result) {
+    //
+    // })
+    $.post('/schedule/insert.json', {
+      'tno': no,
+      'day': time.slice(0,3),
+      'time':time.slice(3,5)
+  }, function(result) {
+	  location.href = '/ekdma/tmdduf0.html'
+
+	}, 'json')
+
+  // console.log($)
+  // var alist = $('.ok')
+  //
+  // console.log($(".ok[data-bookno]").attr("data-bookno"));
+  // $.getJSON('/schedule/update.json', {no}, function(result) {
+
+
+}
+  // })
+})

@@ -77,8 +77,7 @@ fiComname,
 fiZipcode,
 fiComaddr,
 fiComdetailaddr,
-fiIntroduction,
-no = -12
+fiIntroduction
 var spono
 
 
@@ -164,7 +163,7 @@ function getData() {
 				imagesDiv.html("");
 				try {
 					if (data.files[0].preview.toDataURL) {
-						$("#box1").attr('src', data.files[0].preview.toDataURL()).css('width', '415px');
+						$("#box1").attr('src', data.files[0].preview.toDataURL());
 					}
 				} catch (err) {}
 				$('.pro-save-Btn').unbind("click");

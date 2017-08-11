@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- Mybatis에서 DAO 구현체를 자동으로 만들 때는,
+     SQL 맵퍼 파일의 namespace 값이 DAO 인터페이스와 같아야 한다. -->
+<mapper namespace="bitcamp.java93.dao.ScheduleDao">
+  <!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
+  <resultMap type="schedule" id="scheduleMap">
+    <id column="tno" property="tno"/>
+    <result column="day" property="day"/>
+    <result column="time" property="time"/>
+	    <collection property="weeklist" ofType="Day">
+	      <result column="day" property="day"/>
+        <result column="time" property="time"/>
+	    </collection>
+  </resultMap>
+  
+  <select id="selectOne" resultMap="scheduleMap" parameterType="int">
+    select  tno, day, time
+      from schedule
+    where tno = #{no}
+  </select>
+  
+
+
+  <insert id="insert" parameterType="schedule"
+          useGeneratedKeys="true" keyColumn="schno" keyProperty="schno">
+    insert into schedule(tno, day, time)
+     values(#{tno}, #{day}, #{time});
+  </insert>
+ 
+  
+  <delete id="delete" parameterType="int">
+    delete from schedule where tno=#{no}
+  </delete>
+  
+  
+</mapper>
