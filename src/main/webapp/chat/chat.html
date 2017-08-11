@@ -29,7 +29,11 @@
   <div class='chat-line'>
     <div><img src='../image/2.jpg' id='chat-user'/></div>
     <dl>
-      <dt>{{you}}</dt>
+       {{#youAndMe this}}
+      <dt id='youAndMe' value='{{memberno}}'>{{yourName}}</dt>
+       {{else}}
+       <dt id='youAndMe' value='{{trainerno}}'>{{yourName}}</dt>
+       {{/youAndMe}}
       <dd>{{message}}</dd>
     </dl>
   </div>
@@ -41,17 +45,22 @@
 <script type="text/javascript">
 var no = -1
 var tno = -1
-var you
-var me
-
+var yourName
+var yourNo
+var chatLine
+var myNo
 
 $.getJSON('/auth/userinfo.json', function(result) {
 	 console.log(result.data.name)
 	if (result.status != 'fail'){
-		if(result.data.membertype == 1)
+		if(result.data.membertype == 1) {
 			no = result.data.no
-		if(result.data.membertype == 2)
+			myNo = no
+		}
+		if(result.data.membertype == 2) {
 			tno = result.data.no
+			myNo = tno
+		}
         	
 			console.log(no)
 			console.log(tno)
@@ -67,7 +76,9 @@ $.getJSON('/auth/userinfo.json', function(result) {
 function getChat(no, json) {
 	$.getJSON(json, {no}, function(result) {
 		console.log(result)
-		you = result.data.you
+		yourName = result.data.you
+		
+		console.log(yourNo)
 		  // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 		  var templateFn = Handlebars.compile($('#chat-template').text())
 		  var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -75,8 +86,37 @@ function getChat(no, json) {
 		  var container = $('#chat-container')
 		  var html = container.html()
 		  container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+		  chatDetailBtn()
 		 })
 }
+
+
+Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
+	console.log(chatInfo)
+	
+	if (no == -1) {
+      console.log('강사로그인')
+      if (tno == chatInfo.trainerno){
+        yourNo = chatInfo.memberno
+        return options.fn(this);
+      }
+    }else if (tno == -1) {
+      console.log('멤버로그인')
+      if (no == chatInfo.memberno) {
+        yourNo = chatInfo.trainerno
+      }
+    }
+      
+      return options.inverse(this);
+  });
+  
+  function chatDetailBtn() {
+	  chatLine = $('.chat-line')
+	  chatLine.click(function () {
+		console.log($(this).children('dl').children('dt').attr('value'))
+		location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + myNo + '&yourNo='+ $(this).children('dl').children('dt').attr('value')
+	  })
+  }
 
 
 </script>

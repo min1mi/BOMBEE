@@ -5,7 +5,8 @@ public class Chat {
   int trainerno;
   String arrivedate;
   String message;
-  String you;
+  String yourName;
+
   boolean confirm;
   
   public int getMemberno() {
@@ -32,12 +33,13 @@ public class Chat {
   public void setMessage(String message) {
     this.message = message;
   }
-  public String getYou() {
-    return you;
+  public String getYourName() {
+    return yourName;
   }
-  public void setYou(String you) {
-    this.you = you;
+  public void setYourName(String yourName) {
+    this.yourName = yourName;
   }
+  
   public boolean isConfirm() {
     return confirm;
   }
@@ -47,7 +49,9 @@ public class Chat {
   @Override
   public String toString() {
     return "Chat [memberno=" + memberno + ", trainerno=" + trainerno + ", arrivedate=" + arrivedate + ", message="
-        + message + ", you=" + you + ", confirm=" + confirm + "]";
+        + message + ", yourName=" + yourName + ", confirm=" + confirm + "]";
   }
+  
+  
 
 }
