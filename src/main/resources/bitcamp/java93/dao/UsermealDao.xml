@@ -46,6 +46,13 @@
       mealname=#{mealname} 
     where mealno=#{mealno}
   </update>
+ 	<update id="nopicUpdate" parameterType="usermeal">
+    update memb_manage set 
+      mealpic=#{mealpicture}, 
+      mealkcal=#{mealkcal}, 
+      mealname=#{mealname} 
+    where mealno=#{mealno}
+  </update>
   
 	<delete id="delete" parameterType="int">
     delete from memb_manage where mealno=#{mealno}

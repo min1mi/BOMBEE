@@ -9,5 +9,6 @@ public interface UsermealDao {
   List<Usermeal> selectWeeklist(Map<String,Object> valueMap);
   int insert(Usermeal usermeal);
   int update(Usermeal usermeal);
+  int nopicUpdate(Usermeal usermeal);
   int delete(int mealno);
 }

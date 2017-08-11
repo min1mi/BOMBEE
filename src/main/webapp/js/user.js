@@ -111,15 +111,15 @@ $('#foodDeleteBtn').on('click', function() {
 })
 
 $('#foodUpdateBtn').on('click', function() {
-	$.post('/management/usermeal-update.json', {
-		'mealpicture': $('#updatefiles img')
+	$.post('/management/nopicmeal-update.json', {
+		'mealpicture': $('#updatefiles img').attr('src').split('_350.png')[0],
 		'mealno' : mealno,
 		'mealkcal': alreadymealkcal.val(), 
 		'mealname': alreadymealname.val(), 
 		'mealtype': mealtype,
 		'day': today
 	}, function(result) {
-
+	  location.reload()
 	}, 'json')
 })
 

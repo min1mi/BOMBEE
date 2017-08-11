@@ -72,7 +72,15 @@ public class UsermealControl {
     
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
-
+  
+  @RequestMapping("nopicmeal-update")
+  public JsonResult nopicUpload(Usermeal usermeal) throws Exception {
+    System.out.println(usermeal);
+    usermealService.update(usermeal);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  
   @RequestMapping("usermeal-delete")
   public JsonResult delete(int mealno) throws Exception {
     usermealService.remove(mealno);
