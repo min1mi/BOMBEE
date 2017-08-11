@@ -11,7 +11,7 @@
         <input type="search" id='header-search-bar' style="display:none" placeholder="search" />
         <ul class='header-menu-ul' style="display:none">
           <div class="header-none" style="display:none">
-            <li id='header-li-login' style="display:none">Login</li>
+            <li id='header-li-login' >Login</li>
             <li style="display:none">Management</li>
             <li style="display:none">Meeting</li>
             <li style="display:none">Mypage</li>
@@ -61,41 +61,45 @@
         }
       });
 
-    $('.header-menu-search').click(() => {
-      $('.header-none').slideToggle();
-      $('.header-up').slideToggle()
-      $('#header-logo').slideToggle()
+      $('.header-menu-search').click(() => {
+        $('.header-none').slideToggle();
+        $('.header-up').slideToggle()
+        $('#header-logo').slideToggle()
 
-      $('#header-search-bar').slideToggle()
+        $('#header-search-bar').slideToggle()
 
-      $('#header-search-bar').focus()
-      count = 1;
-    })
-    $('.header-up').click(() => {
-      $('.header-up').slideToggle()
-      $('#header-search-bar').val('')
-      $('.header-none').slideToggle()
-      $('#header-search-bar').slideToggle()
-      $('#header-logo').slideToggle()
-      count = 0;
-    })
-   $('#header-li-login').click(()=> {
-    location.href='../auth/login.html'
-  })
-   
+        $('#header-search-bar').focus()
+        count = 1;
+      })
+      $('.header-up').click(() => {
+        $('.header-up').slideToggle()
+        $('#header-search-bar').val('')
+        $('.header-none').slideToggle()
+        $('#header-search-bar').slideToggle()
+        $('#header-logo').slideToggle()
+        count = 0;
+      })
+
+
       $('.header-logo-bee').click(function() {
-    if (no != null)
-      location.href = '../chat/chat.html'
-    else if (no == null)
-        location.href = '../auth/login.html'
-  })
-  
-});
-    
+        if (no != null)
+          location.href = '../chat/chat.html'
+        else if (no == null)
+          location.href = '../auth/login.html'
+      })
+
+    });
+
     $.getJSON('/auth/userinfo.json', function(result) {
-        if (result.status != 'fail')
-          no = result.data.no
-        
-})
+      if (result.status != 'fail') {
+        no = result.data.no
+        $('#header-li-login').text('logout')
+        $('#header-li-login').click(() => {
+          location.href = '../main/main.html'
+        })
+      }
+
+
+    })
   </script>
   <!--  헤더스크립트 끝 -->
