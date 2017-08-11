@@ -28,11 +28,8 @@
     var count = 0;
     var no = null;
     var index = 0;
-
     $(document).ready(function() {
-    	 Kakao.init('90a2de4be0ff30607f507187d5b8dcb0');
       $('.header-menu-button').click(function() {
-
         $(".header-menu-button").toggleClass('header-menu-button-open');
         $(".header-menu-items").toggleClass('header-menu-items-open');
         $('#header-search-bar').val('')
@@ -98,23 +95,23 @@
         no = result.data.no
         $('#header-li-login').text('Logout')
         $('#header-li-login').click(() => {
-        	if (Kakao.Auth == undefined) {
-        	     Kakao.Auth.logout(function() {
-        	      console.log('응 아니야');
-        	    }) 
-        	}
-        	    FB.logout(function(response){
-        	      console.log("로그아웃됬따")
-        	    })
-        	$.getJSON('/auth/logout.json', function(result) {
-        		console.log('로그아웃됨')
-        		location.href = '../main/main.html'
-        	})
+           if (Kakao.Auth == undefined) {
+                Kakao.Auth.logout(function() {
+                 console.log('응 아니야');
+               }) 
+           }
+               FB.logout(function(response){
+                 console.log("로그아웃됬따")
+               })
+           $.getJSON('/auth/logout.json', function(result) {
+              console.log('로그아웃됨')
+              location.href = '../main/main.html'
+           })
         })
       }else {
-    	  $('#header-li-login').click(() => {
-    		  location.href = '../auth/login.html'
-    	  })
+         $('#header-li-login').click(() => {
+            location.href = '../auth/login.html'
+         })
       }
 
     })
