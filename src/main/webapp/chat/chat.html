@@ -49,10 +49,12 @@ var yourName
 var yourNo
 var chatLine
 var myNo
+var membertype
 
 $.getJSON('/auth/userinfo.json', function(result) {
 	 console.log(result.data.name)
 	if (result.status != 'fail'){
+		membertype = result.data.membertype
 		if(result.data.membertype == 1) {
 			no = result.data.no
 			myNo = no
@@ -113,7 +115,9 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
 	  chatLine = $('.chat-line')
 	  chatLine.click(function () {
 		console.log($(this).children('dl').children('dt').attr('value'))
-		location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + myNo + '&yourNo='+ $(this).children('dl').children('dt').attr('value')+'&yourName='+$(this).children('dl').children('dt').text()
+		location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+				+ $(this).children('dl').children('dt').attr('value')+'&yourName='
+				+$(this).children('dl').children('dt').text()+'&membertype='+membertype
 	  })
   }
 

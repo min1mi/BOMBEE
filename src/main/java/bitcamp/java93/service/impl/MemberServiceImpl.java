@@ -23,7 +23,8 @@ public class MemberServiceImpl implements MemberService {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("id", id);
     valueMap.put("pwd", pwd);
-    System.out.println(valueMap);
+    System.out.println("ddd"+valueMap);
+    System.out.println(memberDao.selectOneByEmailPassword(valueMap));
     return memberDao.selectOneByEmailPassword(valueMap);
   }
   
