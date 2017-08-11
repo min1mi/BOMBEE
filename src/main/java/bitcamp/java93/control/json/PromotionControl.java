@@ -157,6 +157,41 @@ public class PromotionControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
+  @RequestMapping("update")
+  public JsonResult addPromotion(Promotion promotion, MultipartFile[] files, String[] delImage) throws Exception {
+  	System.out.println("update control!!");
+  	System.out.println("promotion" + promotion);
+    ArrayList<String> fileList = new ArrayList<>();
+    
+  	for (String delI : delImage){
+  		promotionService.delAddImage(delI);
+  	}
+  	
+  	 for (int i = 0; i < files.length; i++) {
+//       if (files[i].isEmpty()) 
+//         continue;
+
+       String newFilename = this.getNewFilename();
+       File file = new File(ctx.getRealPath("/upload/" + newFilename));
+       System.out.println(ctx.getRealPath("/upload/" + newFilename));
+       files[i].transferTo(file);
+       
+       File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_mainList"));
+       Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
+       
+       thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
+       Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
+         
+       fileList.add(newFilename);
+     }
+  	 
+  	 System.out.println("fileList:" + fileList);
+     promotion.setPhotoList(fileList);
+     System.out.println("promotion.getPhotoList()" + promotion.getPhotoList());
+     promotionService.updatePromotion(promotion);
+     return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  
   int count = 0;
   synchronized private String getNewFilename() {
     if (count > 100) {

@@ -25,23 +25,23 @@
           <result column="pimg"/>
         </collection>
     <collection property="promotionList" ofType="Trainning">
-		    <id column="pno" property="pno" />
-				<result column="titl" property="title" />
-				<result column="pric" property="pric" />
-				<result column="content" property="content" />
-				<result column="sdt" property="sdt" />
-				<result column="edt" property="edt" />
-				<result column="tno" property="tno" />
-				<result column="spono" property="spono" />
-				<result column="COMADDR" property="comaddr" />
-				<result column="COMDETAILADDR" property="comdetailaddr" />
-				<result column="company" property="comname"/>
-				<result column="lat" property="lat"/>
-				<result column="lng" property="lng"/>
-				<result column="meter" property="meter"/>
-				<result column="name" property="name"/>
-				<result column="introduction" property="introduction"/>
-				<collection property="photoList" ofType="string">
+        <id column="pno" property="pno" />
+        <result column="titl" property="title" />
+        <result column="pric" property="pric" />
+        <result column="content" property="content" />
+        <result column="sdt" property="sdt" />
+        <result column="edt" property="edt" />
+        <result column="tno" property="tno" />
+        <result column="spono" property="spono" />
+        <result column="COMADDR" property="comaddr" />
+        <result column="COMDETAILADDR" property="comdetailaddr" />
+        <result column="company" property="comname"/>
+        <result column="lat" property="lat"/>
+        <result column="lng" property="lng"/>
+        <result column="meter" property="meter"/>
+        <result column="name" property="name"/>
+        <result column="introduction" property="introduction"/>
+        <collection property="photoList" ofType="string">
           <result column="pimg"/>
         </collection>
     </collection>
@@ -173,16 +173,19 @@ where p.pno = #{no};
     order by p.titl asc
   </select>
   
+  <delete id="delAddImage" parameterType="string">
+    delete from promotionimg
+    where pimg=#{delI}
+  </delete>
+  
+  <update id="updatePromotion" parameterType="promotion" >
+    update promotion set
+	    titl=#{title},
+	    pric=#{pric},
+	    sdt=#{sdt},
+	    edt=#{edt},
+	    content=#{content}
+	  where pno=#{pno}
+  </update>
+  
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

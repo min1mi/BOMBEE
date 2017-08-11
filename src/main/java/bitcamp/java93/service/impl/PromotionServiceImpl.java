@@ -47,6 +47,19 @@ public class PromotionServiceImpl implements PromotionService {
     }
   }
   
+  @Override
+	public void updatePromotion(Promotion promotion) {
+		System.out.println("implement updatePromotion");
+		promotionDao.updatePromotion(promotion);
+    for (int i = 0; i < promotion.getPhotoList().size(); i++) {
+      HashMap<String, Object> valueMap = new HashMap<>();
+      valueMap.put("no", promotion.getPno());
+      valueMap.put("pimg", promotion.getPhotoList().get(i));
+      promotionDao.insertImg(valueMap);
+    }
+		
+	}
+  
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
   //@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 //  public void update(Promotion promotion) throws Exception {
@@ -129,6 +142,13 @@ public class PromotionServiceImpl implements PromotionService {
    
     return promotionDao.selectPromotionListTitle(no);
   }
+  
+  @Override
+	public void delAddImage(String delI) {
+		System.out.println("imple 에서:" + delI);
+		promotionDao.delAddImage(delI);
+		
+	}
 
 }
 
