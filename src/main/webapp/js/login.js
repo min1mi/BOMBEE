@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   $('#kakao').on('click', function() {
     Kakao.Auth.login({
-      success: function(authObj) {/* 
+      success: function(authObj) {/*
     location.href='../ekdma/u-login.html'; */
         console.log(JSON.stringify(authObj));
         Kakao.API.request({
@@ -22,7 +22,7 @@ $(document).ready(function() {
               id: response.id,
               pwd: '1111',
               membertype: 1
-              
+
             }, function(result) {
               console.log('login')
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
   })
 
 
-  $('#facebook').on('click', function() {/* 
+  $('#facebook').on('click', function() {/*
   location.href='../ekdma/t-login.html' */
     FB.login(function(response) {
       FB.api('/me?fields=id,name,email', function (response) {
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         }, function(result) {
           console.log('login')
-          
+          console.log(result)
           if(result.data == 'ok')
             window.history.go(-1)
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
               }, function(result) {
                 console.log('login')
-                
+
                 if(result.data == 'ok')
                   window.history.go(-1)
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
     })
   })
 
-  
+
   var loginType = 1;
 
 $('#usertype').click(function() {
