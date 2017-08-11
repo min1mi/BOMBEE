@@ -74,7 +74,7 @@
   			}
   			else {
   				//디테일 정보로 가는거 구현
-  				location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('title')
+  				location.href = '../promotionAdd/promotionAdd_update.html?no='+$(this).attr('title')
   			}
   		})
   	}

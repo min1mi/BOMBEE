@@ -168,8 +168,8 @@ public class PromotionControl {
   	}
   	
   	 for (int i = 0; i < files.length; i++) {
-//       if (files[i].isEmpty()) 
-//         continue;
+       if (files[i].isEmpty()) 
+         continue;
 
        String newFilename = this.getNewFilename();
        File file = new File(ctx.getRealPath("/upload/" + newFilename));
