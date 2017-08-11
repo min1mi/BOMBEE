@@ -99,14 +99,7 @@ $(document).ready(function() {
     })
   })
 
-  $('#logout').on('click', function() {
-    Kakao.Auth.logout(function() {
-      console.log('응 아니야');
-    })
-    FB.logout(function(response){
-      console.log("로그아웃됬따")
-    });
-  })
+  
   var loginType = 1;
 
 $('#usertype').click(function() {

@@ -1,3 +1,4 @@
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>  
 <div class='container main-container'>
   <div class="mobile-container">
     <!-- 새로운 헤더 -->
@@ -27,7 +28,9 @@
     var count = 0;
     var no = null;
     var index = 0;
+
     $(document).ready(function() {
+    	 Kakao.init('90a2de4be0ff30607f507187d5b8dcb0');
       $('.header-menu-button').click(function() {
 
         $(".header-menu-button").toggleClass('header-menu-button-open');
@@ -93,12 +96,26 @@
     $.getJSON('/auth/userinfo.json', function(result) {
       if (result.status != 'fail') {
         no = result.data.no
-        $('#header-li-login').text('logout')
+        $('#header-li-login').text('Logout')
         $('#header-li-login').click(() => {
-          location.href = '../main/main.html'
+        	if (Kakao.Auth == undefined) {
+        	     Kakao.Auth.logout(function() {
+        	      console.log('응 아니야');
+        	    }) 
+        	}
+        	    FB.logout(function(response){
+        	      console.log("로그아웃됬따")
+        	    })
+        	$.getJSON('/auth/logout.json', function(result) {
+        		console.log('로그아웃됨')
+        		location.href = '../main/main.html'
+        	})
         })
+      }else {
+    	  $('#header-li-login').click(() => {
+    		  location.href = '../auth/login.html'
+    	  })
       }
-
 
     })
   </script>
