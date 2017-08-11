@@ -41,7 +41,11 @@ $(document).ready(function() {
 
                   }, function(result) {
                     console.log('login')
-                    
+                    $.post('/auth/login.json', {
+                    	id: response.id,
+                    	pwd: '1111',
+                    	membertype: 1
+                    })
                     if(result.data == 'ok')
                       window.history.go(-1)
 
@@ -121,7 +125,25 @@ $('.send').on('click', function() {
 
   }, 'json')
 })
+window.fbAsyncInit = function() {
+      FB.init({
+        appId : '484853665195171',
+        cookie : true,
+        xfbml : true,
+        version : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+    };
 
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id))
+        return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
 
 

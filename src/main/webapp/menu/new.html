@@ -28,11 +28,28 @@
     var count = 0;
     var no = null;
     var index = 0;
-
     $(document).ready(function() {
-    	 Kakao.init('90a2de4be0ff30607f507187d5b8dcb0');
-      $('.header-menu-button').click(function() {
+    	
+    	window.fbAsyncInit = function() {
+    	      FB.init({
+    	        appId : '484853665195171',
+    	        cookie : true,
+    	        xfbml : true,
+    	        version : 'v2.8'
+    	      });
+    	      FB.AppEvents.logPageView();
+    	    };
 
+    	    (function(d, s, id) {
+    	      var js, fjs = d.getElementsByTagName(s)[0];
+    	      if (d.getElementById(id))
+    	        return;
+    	      js = d.createElement(s);
+    	      js.id = id;
+    	      js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
+    	      fjs.parentNode.insertBefore(js, fjs);
+    	    }(document, 'script', 'facebook-jssdk'));
+      $('.header-menu-button').click(function() {
         $(".header-menu-button").toggleClass('header-menu-button-open');
         $(".header-menu-items").toggleClass('header-menu-items-open');
         $('#header-search-bar').val('')
@@ -98,14 +115,14 @@
         no = result.data.no
         $('#header-li-login').text('Logout')
         $('#header-li-login').click(() => {
-        	if (Kakao.Auth == undefined) {
+        	if (Kakao.Auth != undefined) {
         	     Kakao.Auth.logout(function() {
         	      console.log('응 아니야');
         	    }) 
         	}
-        	    FB.logout(function(response){
+        	     FB.logout(function(response){
         	      console.log("로그아웃됬따")
-        	    })
+        	    }) 
         	$.getJSON('/auth/logout.json', function(result) {
         		console.log('로그아웃됨')
         		location.href = '../main/main.html'
