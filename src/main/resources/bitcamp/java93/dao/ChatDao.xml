@@ -12,13 +12,13 @@
         <result column="name" property="yourName" />
   </resultMap>
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
-		select mno, tno, date, msg, confirm
-		from chat
-		where mno = #{memberno};
+		select c.mno, c.tno, c.date, c.msg, c.confirm, m.name
+		from chat c  inner join memb m on c.tno = m.mno
+		where c.mno = #{memberno};
   </select>
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
 		select DISTINCT c.mno, c.tno, c.date, c.msg, c.confirm, m.name
 		from chat c inner join memb m on c.mno = m.mno
-		where tno = #{trainerno};
+		where c.tno = #{trainerno};
   </select>
 </mapper>
