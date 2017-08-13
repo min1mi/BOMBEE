@@ -29,12 +29,16 @@ public  class ScheduleServiceImpl implements ScheduleService {
   }
   
   public void remove(int no) throws Exception {
+//    int count = scheduleDao.delete(no);
+//    if (count < 1) {
+//      throw new Exception(no + "번 식단을 찾을 수 없습니다.");
+//    }
     scheduleDao.delete(no);
-    int count = scheduleDao.delete(no);
-    if (count < 1) {
-      throw new Exception(no + "번 강사을  스케줄을 찾을 수 없습니다.");
-    }
+//    try {
+//      count = scheduleDao.delete(no);
+//    } catch(Exception e) {}
   }
+
   
 }
 

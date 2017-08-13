@@ -27,8 +27,8 @@
 
   <insert id="insert" parameterType="schedule"
           useGeneratedKeys="true" keyColumn="schno" keyProperty="schno">
-    insert into schedule(tno, day, time)
-     values(#{tno}, #{day}, #{time});
+          insert into schedule(tno, day, time)
+          values(#{tno}, #{day}, #{time});
   </insert>
  
   

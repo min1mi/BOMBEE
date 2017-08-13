@@ -8,7 +8,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
 	// console.log(result)
 	no = result.data.no
   show();
-  getData();
+  getData(no);
 })
 
 
@@ -59,7 +59,9 @@ $('.body-day div').click(function() {
 
         // $(this).attr('id', "click")
 })
+
 var schedule = [];
+
 $(".h-time").click(function() {
   console.log(this)
   if (($(this).attr("value")) == "off") {
@@ -82,12 +84,13 @@ $(".h-time").click(function() {
   }
 })
 
-function getData() {
+function getData(no) {
 	$.getJSON('/schedule/detail.json', {no}, function(result) {
-    console.log(result)
-    console.log({no})
+    console.log(result.status)
+		// console.log({no})
+    // no = result.data.tno
 
-    if((result.data) != undefined) {
+    if((result.status) != "fail") {
       var bookNo = result.data.weeklist[0].day+result.data.weeklist[0].time,
       weeklist = result.data.weeklist
       console.log(weeklist.length)
@@ -100,7 +103,7 @@ function getData() {
         schedule.push(bookNo)
       }
     }
-    else if ((result.data) == undefined) {
+    else if ((result.status) == "fail") {
 
       console.log('인설트')
     }
@@ -110,31 +113,41 @@ function getData() {
 	})
 }
 
+
+
+
+
 $("#save_Btn").on('click',function() {
 
   console.log("클릭클릭")
   console.log(schedule)
+	console.log(no)
+	$.post('/schedule/delete.json', {no},	function(result) {
+		if(result.data == 'ok') {
 
+		console.log(result)
+		console.log(schedule)
   for (var time of schedule) {
+		$.post('/schedule/insert.json', {
+			'tno': no,
+			'day': time.slice(0,3),
+			'time':time.slice(3,5)
+		}, function(result) {
+		location.href = '/ekdma/tmdduf0.html'
+
+		}, 'json')
+		}
+
+	}
+		// location.href = '/ekdma/tmdduf0.html'
+	}, 'json')
+
+
     // console.log(time)
-    console.log(time.slice(0,3))
-    console.log(time.slice(3,5))
-    // $.post('/schedule/delete.json',{no}, function(result) {
-    //
-    // })
-		$.post('/schedule/delete.json', {
-			'tno': no
-	}, function(result) {
+    // console.log(time.slice(0,3))
+    // console.log(time.slice(3,5))
 
-	}, 'json')
-    $.post('/schedule/insert.json', {
-      'tno': no,
-      'day': time.slice(0,3),
-      'time':time.slice(3,5)
-  }, function(result) {
-	  location.href = '/ekdma/tmdduf0.html'
 
-	}, 'json')
 
   // console.log($)
   // var alist = $('.ok')
@@ -143,6 +156,6 @@ $("#save_Btn").on('click',function() {
   // $.getJSON('/schedule/update.json', {no}, function(result) {
 
 
-}
+
   // })
 })
