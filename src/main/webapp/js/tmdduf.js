@@ -85,7 +85,7 @@ $(".h-time").click(function() {
 function getData() {
 	$.getJSON('/schedule/detail.json', {no}, function(result) {
     console.log(result)
-    console.log(no)
+    console.log({no})
 
     if((result.data) != undefined) {
       var bookNo = result.data.weeklist[0].day+result.data.weeklist[0].time,
@@ -122,6 +122,11 @@ $("#save_Btn").on('click',function() {
     // $.post('/schedule/delete.json',{no}, function(result) {
     //
     // })
+		$.post('/schedule/delete.json', {
+			'tno': no
+	}, function(result) {
+
+	}, 'json')
     $.post('/schedule/insert.json', {
       'tno': no,
       'day': time.slice(0,3),
