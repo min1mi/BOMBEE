@@ -3,13 +3,42 @@
   html {
     font-size: 10px;
   }
+  .chat-line img{
+  	height: 100px;
+  	width: 100px;
+  }
 
 }
 /*iphone plus*/
-@media (min-device-width: 375px) and (max-device-width: 767px) {
+@media (min-device-width: 375px) and (max-device-width: 414px) {
   html {
     font-size: 14px;
   }
+  dl {
+    margin-bottom: 25px;
+  }
+  dd {
+    margin-top: 25px;
+  }
+  .chat-line img{
+    height: 56px;
+  }
+}
+
+@media (min-device-width: 415px) {
+  html {
+    font-size: 14px;
+  }
+  dl {
+    margin-bottom: 25px;
+  }
+  dd {
+    margin-top: 25px;
+  }
+  .chat-line img{
+    height: 62px;
+  }
+
 }
 body {
   margin: 0px;
@@ -18,7 +47,6 @@ body {
 
 dl {
   display: inline-block;
-  margin-left: 10px;
 }
 dt {
   position: absolute;
@@ -27,7 +55,6 @@ dt {
 dd {
   float: left;
   position: absolute;
-  margin-top: 20px;
 }
 
 .chat-container {
@@ -67,16 +94,13 @@ dd {
   border-bottom: 1px solid gray;
 }
 .chat-content img {
-  margin: 5px 0;
+  margin: 2%;
   display: inline;
 }
-.chat-line {
 
-}
 .chat-line img{
 	border-radius: 100px;
-	height: 100px;
-	width: 100px;
+	width: 15%auto;
 }
 
 .chat-detail {
