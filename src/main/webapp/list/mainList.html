@@ -88,9 +88,9 @@
         {{/isIndex}}
         <div class='img'>
          {{#titleImage @last this}}
-          value='{{pno}}' title="{{spono}}" class='img-{{pno}}' id='last-promotion'>
+          value='{{pno}}' title="{{spono}}" class='img-{{pno}}' id=
          {{else}}
-           <img src='../image/2.jpg' value='{{pno}}' title={{spono}} class='img-{{pno}}'>
+          value='{{pno}}' title="{{spono}}" class='img-{{pno}}'>
          {{/titleImage}}
         </div>
         <div class='span'>
@@ -150,10 +150,8 @@
     
     Handlebars.registerHelper('titleImage', function(last, promotion, options) {
         if (last) {
-        	console.log(options.fn(this))
-          return "<img src='../upload/"+promotion.photoList[0]+ '_titleMainList.png' +"' "+options.fn(this);
+          return "<img src='../upload/"+promotion.photoList[0]+ '_titleMainList.png' +"' "+options.fn(this) + "'last-promotion'>";
         } else {
-          console.log(options.inverse(this))
           return "<img src='../upload/"+promotion.photoList[0]+ '_titleMainList.png' +"' "+options.inverse(this);
         }
       });
