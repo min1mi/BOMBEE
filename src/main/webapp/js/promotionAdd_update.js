@@ -9,6 +9,7 @@
     $('.header').load('../menu/new.html')
     $('.projectAdd-textArea').css('height', textHeight+'px');
   });
+  
   var addrInput = $('.addressIn')
   var addrComp = $('.addressCompany')
   
@@ -28,6 +29,7 @@
   var storedFiles = [];
   var delImage = [];
   var pno
+  var count = 0
   
 // 다음맵: 주소 -> 위도, 경도 
   var geocoder = new daum.maps.services.Geocoder();
@@ -95,7 +97,6 @@
     }
     
 	$('#image_upload').fileupload({
-		
 		traditional : true,
 	  url: '/promotion/update.json',        // 서버에 요청할 URL
 	  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -103,13 +104,14 @@
 	  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.   
 	  add: function (e, data) {
 	    console.log('update()...');
-	    
+	    count = 1
 	    data.files = storedFiles
 	    $.each(data.files, function (index, file) {
 	        console.log('Added file: ' + file.name);
 	    });
 	    $('.save').click(function() {
-	        data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+	         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+	         count = 0
 	    });
 	  },
 	  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -132,10 +134,30 @@
 				  spono : spono,
 				  pno : pno,
 				  delImage:delImage
-				  
-	    };
+	    }; location.href = '../promotionControl/promotionControl.html'
 	  }
-	}); 
+	} 
+	); 
+	
+	  $('.save').click(function() {
+	    	if (count == 0) {
+	    		jQuery.ajaxSettings.traditional = true,
+	    		$.getJSON('/promotion/update.json', {
+	    			title : title.val(),
+					  pric : pric.val(),
+					  content : content.val(),
+					  sdt : sdt.val(),
+					  edt : edt.val(),
+					  tno : tno,
+					  lat : lat,
+					  lng : lng,
+					  spono : spono,
+					  pno : pno,
+					  delImage:delImage
+	    		},function(result) {}
+	    		), location.href = '../promotionControl/promotionControl.html'
+	    	} 
+})
 
 //swiper
   var swiper = new Swiper('.swiper-container', {
@@ -190,3 +212,22 @@
       
   	}
   )
+  
+// x alert 창  
+  $('.topClose').click(function(){
+    swal({
+    title: "프로모션등록을 취소?",
+    type: "warning",
+    showCancelButton: true,
+    cancelButtonText: "취 소",
+    confirmButtonText: "확 인",
+    confirmButtonColor: '#F7AC1A',
+    closeOnConfirm: true,
+          closeOnCancel: true,
+          animation: false,
+          preConfirm: function() {
+            location.href='../promotionControl/promotionControl.html'
+          }
+   }
+  );
+})

@@ -79,7 +79,7 @@ body {
 
 .image-areaPlus label {
   text-align: center;
-  /* line-height: 100%; */
+  line-height: 100%; 
   font-size: 60px;
   width: 60%;
   height: 75%;
@@ -135,9 +135,9 @@ body {
 
  .projectAdd-container > input {
   -webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	margin: 0;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 .projectAdd-date > .dateStart {
@@ -237,3 +237,25 @@ body {
      -webkit-align-items: center;
      align-items: center;
  }
+ 
+/* sweetAlert */
+  .swal2-container button {
+    margin-top: 8px;
+    width: 46%;
+    height: 25%;
+  }
+
+  .swal2-container .swal2-confirm {
+    margin: 0px 5px 0;
+    float:right;
+  }
+
+  .swal2-container .swal2-cancel {
+    margin: 0px 5px 0;
+    float:left;
+  }
+  
+  .swal2-icon {
+    margin: 20px auto 15px;
+  }
+  

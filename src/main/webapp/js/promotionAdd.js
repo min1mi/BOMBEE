@@ -127,7 +127,7 @@
 				  lat : lat,
 				  lng : lng,
 				  spono : spono
-	    };
+	    };location.href = '../promotionControl/promotionControl.html'
 	  }
 	}); 
 
@@ -159,5 +159,23 @@
 		}
 	})
 
+// x alert 창  
+  $('.topClose').click(function(){
+    swal({
+    title: "프로모션등록을 취소?",
+    type: "warning",
+    showCancelButton: true,
+    cancelButtonText: "취 소",
+    confirmButtonText: "확 인",
+    confirmButtonColor: '#F7AC1A',
+    closeOnConfirm: true,
+          closeOnCancel: true,
+          animation: false,
+          preConfirm: function() {
+            location.href='../promotionControl/promotionControl.html'
+          }
+   }
+  );
+})
 
 	

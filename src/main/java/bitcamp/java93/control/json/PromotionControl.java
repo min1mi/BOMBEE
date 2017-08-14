@@ -161,12 +161,17 @@ public class PromotionControl {
   public JsonResult addPromotion(Promotion promotion, MultipartFile[] files, String[] delImage) throws Exception {
   	System.out.println("update control!!");
   	System.out.println("promotion" + promotion);
+  	System.out.println("delImage:" + delImage);
     ArrayList<String> fileList = new ArrayList<>();
     
-  	for (String delI : delImage){
-  		promotionService.delAddImage(delI);
+  	if(delImage != null) {
+  		System.out.println("컨트롤~이미지 삭제!!!");
+  		for (String delI : delImage){
+    		promotionService.delAddImage(delI);
+    	}
   	}
   	
+  	if (files != null) {
   	 for (int i = 0; i < files.length; i++) {
        if (files[i].isEmpty()) 
          continue;
@@ -184,10 +189,11 @@ public class PromotionControl {
          
        fileList.add(newFilename);
      }
-  	 
+  	
   	 System.out.println("fileList:" + fileList);
      promotion.setPhotoList(fileList);
      System.out.println("promotion.getPhotoList()" + promotion.getPhotoList());
+  	}
      promotionService.updatePromotion(promotion);
      return new JsonResult(JsonResult.SUCCESS, "ok");
   }

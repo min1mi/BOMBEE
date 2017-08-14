@@ -51,12 +51,15 @@ public class PromotionServiceImpl implements PromotionService {
 	public void updatePromotion(Promotion promotion) {
 		System.out.println("implement updatePromotion");
 		promotionDao.updatePromotion(promotion);
-    for (int i = 0; i < promotion.getPhotoList().size(); i++) {
-      HashMap<String, Object> valueMap = new HashMap<>();
-      valueMap.put("no", promotion.getPno());
-      valueMap.put("pimg", promotion.getPhotoList().get(i));
-      promotionDao.insertImg(valueMap);
-    }
+		
+		if(promotion.getPhotoList() !=null){
+	    for (int i = 0; i < promotion.getPhotoList().size(); i++) {
+	      HashMap<String, Object> valueMap = new HashMap<>();
+	      valueMap.put("no", promotion.getPno());
+	      valueMap.put("pimg", promotion.getPhotoList().get(i));
+	      promotionDao.insertImg(valueMap);
+	    }
+		}
 		
 	}
   
