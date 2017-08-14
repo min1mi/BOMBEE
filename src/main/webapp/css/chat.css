@@ -1,45 +1,50 @@
 /*iphone5~6*/
-@media (min-device-width: 320px) and (max-device-width: 375px) {
-  html {
-    font-size: 10px;
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  body {
+    font-size: 12px;
+  }
+  dl {
+    margin-bottom: 27px;
+  }
+  dd {
+    margin-top: 19px;
   }
   .chat-line img{
-  	height: 100px;
-  	width: 100px;
+  	height: 50px;
   }
 
 }
 /*iphone plus*/
-@media (min-device-width: 375px) and (max-device-width: 414px) {
-  html {
-    font-size: 14px;
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  body {
+    font-size: 13px;
   }
   dl {
-    margin-bottom: 25px;
+    margin-bottom: 31px;
   }
   dd {
-    margin-top: 25px;
+    margin-top: 21px;
   }
   .chat-line img{
     height: 56px;
   }
 }
 
-@media (min-device-width: 415px) {
-  html {
+@media (min-device-width: 414px) and (max-device-width: 735px)  {
+  body {
     font-size: 14px;
   }
   dl {
-    margin-bottom: 25px;
+    margin-bottom: 33px;
   }
   dd {
-    margin-top: 25px;
+    margin-top: 22px;
   }
   .chat-line img{
     height: 62px;
   }
-
 }
+
 body {
   margin: 0px;
   padding: 0
@@ -91,7 +96,7 @@ dd {
   margin: 0;
 }
 .chat-content > div {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #ddd;
 }
 .chat-content img {
   margin: 2%;
