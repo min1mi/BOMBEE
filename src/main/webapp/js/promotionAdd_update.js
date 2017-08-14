@@ -216,7 +216,7 @@
 // x alert 창  
   $('.topClose').click(function(){
     swal({
-    title: "프로모션등록을 취소?",
+    text:"프로모션등록을 취소 하시겠습니까?",
     type: "warning",
     showCancelButton: true,
     cancelButtonText: "취 소",

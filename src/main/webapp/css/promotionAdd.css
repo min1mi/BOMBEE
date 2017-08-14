@@ -259,3 +259,7 @@ body {
     margin: 20px auto 15px;
   }
   
+  #swal2-content {
+     font-weight: 400;
+     font-size: 21px
+  }
