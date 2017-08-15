@@ -22,7 +22,6 @@ $(document).ready(function() {
               id: response.id,
               pwd: '1111',
               membertype: 1
-
             }, function(result) {
               console.log('login')
 

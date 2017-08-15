@@ -51,6 +51,10 @@ var chatLine
 var myNo
 var membertype
 
+/* var server = location.host + '/upload/' */
+var server = location.host + '/image/2.jpg';
+console.log(server)
+
 $.getJSON('/auth/userinfo.json', function(result) {
 	 console.log(result.data.name)
 	if (result.status != 'fail'){
@@ -115,9 +119,10 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
 	  chatLine = $('.chat-line')
 	  chatLine.click(function () {
 		console.log($(this).children('dl').children('dt').attr('value'))
-		location.href = 'http://172.20.10.5:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+		location.href = 'http://192.168.0.13:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
 				+ $(this).children('dl').children('dt').attr('value')+'&yourName='
-				+$(this).children('dl').children('dt').text()+'&membertype='+membertype
+				+$(this).children('dl').children('dt').text()+'&membertype='+membertype +
+				'&imagePath='+ server;
 	  })
   }
 
