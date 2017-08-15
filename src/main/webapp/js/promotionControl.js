@@ -5,6 +5,7 @@
   	var deleteCan = 0 //1일때는 삭제할때다. //삭제버튼을 눌럿을때는 1이다.
   	var deleteNo = new Array()
   	var selectVal = $('#select-container')
+  	var deleteX
   	var promotionAdd = $('#promotion-add')
   	$(function() {
   		deleteBtn.click(function() {
@@ -16,7 +17,7 @@
   				deleteBtn.removeClass('background')
   				$('.list-pro').removeClass('border')
   				if(deleteNo.length > 0)
-  				  ajax()
+  				  ajaxList()
   			}
   		})
   		selectVal.change(function() {
@@ -25,7 +26,6 @@
   				getData(json)
   			else
   				getData('/promotion/promotionTitle.json')
-  			
   		})
   		promotionAdd.click (function() {
   			location.href = '../promotionAdd/promotionAdd.html'
@@ -45,7 +45,7 @@
 })
 	function getData(json) {
 		$.getJSON(json, {'no' : no}, function(result) {
-		  	  console.log(result)
+		  	  console.log(result.data.list)
 		      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 		      var templateFn = Handlebars.compile($('#list-template').text())
 		      var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -57,30 +57,35 @@
   }
   	
   	function btnConect() {
-  		imgBtn = $('.pro-img')
-  		imgBtn.click(function() {
+  		imgBtn = $('.pro-img') 
+  		deleteX = $('.fa-times')
+  		deleteX.click(function() { // 엑스표 누르면 디비에서 지우는거 처리
+  			console.log($(this).parent().parent().attr('value'))
+  			ajax($(this).parent().parent().attr('value'))
+  		})
+  		imgBtn.click(function() { // 이미지클릭하면 화면넘어가는 거 처리
   			if (deleteCan != 0) {
   				if ($(this).attr('value') == 0) {
   					$(this).parent().parent().addClass('border')
   		      $(this).attr('value', 1)
-  		      deleteNo.push($(this).prop('title'))
+  		      deleteNo.push($(this).prop('value'))
   		      console.log(deleteNo)
   				}else {
   					$(this).parent().parent().removeClass('border')
   		      $(this).attr('value', 0)
-  		      deleteNo.splice(deleteNo.indexOf($(this).prop('title')), 1)
+  		      deleteNo.splice(deleteNo.indexOf($(this).prop('value')), 1)
   		      console.log(deleteNo)
   				}
   			}
   			else {
   				//디테일 정보로 가는거 구현
-  				location.href = '../promotionAdd/promotionAdd_update.html?no='+$(this).attr('title')
+  				location.href = '../promotionAdd/promotionAdd_update.html?no='+$(this).attr('value')
   			}
   		})
   	}
   	
   	
-  	function ajax() {
+  	function ajaxList() {
   	  $.ajax({
   	    type: 'post' ,
   	    url: '/promotion/deletePromotions.json' ,
@@ -95,3 +100,25 @@
   	     }
   	    })
   	}
+  	function ajax(no) {
+  		console.log(no)
+  		$.ajax({
+  	  	    type: 'post' ,
+  	  	    url: '/promotion/deletePromotionOne.json' ,
+  	  	    data:{'no':no},
+  	  	    dataType : 'json',
+  	  	    success: function(result) {
+  	  	    	console.log(result)
+  	  	    	$('.list-div').remove()
+  	  	    	getData(json)
+  	  	     }
+  	  	    })
+  	}
+  	
+  	Handlebars.registerHelper('index', function(index, path,options) {
+  		console.log(path)
+      if (index == 0) {
+    	  console.log(options.fn(this))
+        return options.fn(this);
+      } 
+    });

@@ -178,6 +178,11 @@ where p.pno = #{no};
     where pimg=#{delI}
   </delete>
   
+    <delete id="deletePromotionImg" parameterType="int">
+    delete from promotionimg
+    where pno = #{pno}
+  </delete>
+  
   <update id="updatePromotion" parameterType="promotion" >
     update promotion set
 	    titl=#{title},

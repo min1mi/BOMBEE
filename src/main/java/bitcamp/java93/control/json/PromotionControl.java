@@ -115,8 +115,16 @@ public class PromotionControl {
     ArrayList<Integer> arr = new ArrayList<Integer>();
     for (int i=0; i < arr1.length; i++) 
       arr.add(Integer.parseInt(arr1[i]));
+    promotionService.deltePromotionImg(arr);
     return promotionService.deletePromotions(arr);
   }
+  
+  @RequestMapping("deletePromotionOne")
+  public int deletePromotions(int no) throws Exception {
+    System.out.println(no);
+    return promotionService.deletePromotionOne(no);
+  }
+  
   @RequestMapping("promotionTitle")
   public JsonResult getPromotionTitle(int no) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();

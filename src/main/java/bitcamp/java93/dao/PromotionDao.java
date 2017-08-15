@@ -27,4 +27,5 @@ public interface PromotionDao {
  int deletePromotions(int no);
  int updatePromotion(Promotion Promotion);
  void delAddImage(String delI);
+ int deletePromotionImg(int pno);
 }

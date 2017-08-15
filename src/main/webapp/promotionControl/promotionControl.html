@@ -32,7 +32,7 @@
 </div>
   </div>
   <div id='two-line'><button type="button" id='promotion-add'>글쓰기<i class="fa fa-pencil fa1" aria-hidden="true"></i></button></div>
-  <div id='two-line'><button type="button" class='promotion-delete'>삭제하기<i class="fa fa-trash-o fa1" aria-hidden="true"></i></button></div>
+  <!--  <div id='two-line'><button type="button" class='promotion-delete'>삭제하기<i class="fa fa-trash-o fa1" aria-hidden="true"></i></button></div>-->
   <div id='list-container'></div>
 </div>
 
@@ -40,7 +40,7 @@
 	{{#each list}}
        <div class='list-pro list-div' value={{pno}}>
         <div class='img-div'>
-          <img class='pro-img' src='../image/3.jpg' title='{{pno}}' value=0>
+          <img class='pro-img' src='../upload/{{#each photoList}}{{#index @index this}}{{this}}{{/index}}{{/each}}.png' value='{{pno}}'><i class="fa fa-times" aria-hidden="true"></i>
         </div>
       <div id='list-title1'>{{title}}</div>
        <div id='list-height'>

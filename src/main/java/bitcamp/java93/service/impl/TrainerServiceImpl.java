@@ -27,6 +27,7 @@ public class TrainerServiceImpl implements TrainerService {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("id", id);
     valueMap.put("pwd", pwd);
+    System.out.println(valueMap);
     
     return trainerDao.selectOneByEmailPassword(valueMap);
   }

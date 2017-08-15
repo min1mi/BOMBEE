@@ -45,13 +45,14 @@ public class AuthControl {
 
     //      MemberService memberService = (MemberService)this.getServletContext().getAttribute("memberService");
     //      member = memberService.getByEmailPassword(email, password);
-    System.out.println("이프문 앞 + "+ member);
+    System.out.println("이프문 앞 멤버+ "+ member);
+    System.out.println("이프문 앞 트레이너+ "+ trainer);
     if (member != null || trainer != null) { // 로그인에 성공했다면
       System.out.println(" 멤버나 트레이너가 널이아니면 member:"+member);
       // HttpSession 보관소에 로그인 회원 정보를 저장한다.
       if (member != null ) {
         model.addAttribute("loginMember", member);
-        System.out.println("11");
+        System.out.println("11-");
       } else if (trainer != null) {
         model.addAttribute("loginMember", trainer);
       }

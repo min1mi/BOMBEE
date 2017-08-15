@@ -22,6 +22,8 @@ public interface PromotionService {
   int deletePromotions(ArrayList<Integer> arr) throws Exception;
   void delAddImage(String delI) throws Exception;
 	void updatePromotion(Promotion promotion) throws Exception;
+  int deltePromotionImg(ArrayList<Integer> arr);
+  int deletePromotionOne(int no) throws Exception;
 }
 
 

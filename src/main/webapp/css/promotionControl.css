@@ -76,8 +76,9 @@
   animation-iteration-count:infinite;
 }
 #list-container {
-  margin-top:3%;
+  margin-top:8%;
   width:100%;
+  text-align:left;
 }
 
 @-webkit-keyframes walk-cycle {
@@ -108,10 +109,21 @@
     border: 1px solid #cecece;
 }
 .list-pro {
+	position:relative;
+}
+.fa-times {
+	font-size: 3rem;
+	color: red;
+	top:5px;
+	right: 5px;
+	position: absolute;
+}
+.list-pro {
     margin: 10px 2.5%;
     width: 44%;
     height: 270px;
     display: inline-block;
+    z-index: 3;
 }
 #list-title1 {
   padding: 5px;
@@ -119,10 +131,6 @@
   text-align: center;
   margin: 0 10px;
   overflow:hidden;
-}
-#list-container {
-  width:100%;
-  text-align:left;
 }
 #list-height {
   height:40px;
