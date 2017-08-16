@@ -33,26 +33,17 @@
   z-index: 2;
   position: relative;
 }
-.user-login-left {
-
-  float : left;
-}
-.user-login-right {
-  float : right;
-}
 
 #user-login-Btn-img1 {
-  margin: 43% 0% 0% 2%;
+  margin: 34% 0% 0% 4%;
   z-index: 4;
-  width: 60%;
+  width: 55%;
 }
 #user-login-Btn-img2 {
-  margin: -19% 0% 0% 41%;
+  margin: -8% 0% 0% 41%;
   z-index: 3;
-  width: 60%;
+  width: 55%;
 }
-
-
 
 #bg-img {
 	content='';
