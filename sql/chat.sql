@@ -23,3 +23,13 @@ insert into chat(mno, tno, confirm, msg, date, whosend)
       values(1, 2, false, 'bbb4', '2017-08-16 15:45:21', 1);
 insert into chat(mno, tno, confirm, msg, date, whosend)
       values(1, 2, false, 'bbb5', '2017-08-16 15:45:22', 1);
+      
+
+      
+      
+      
+select cno, confirm, c.date, msg,
+      c.tno as opponent, c.mno as user, whosend
+      from chat c
+      inner join tcher t on c.tno = t.tno
+      where c.mno = 1 and c.tno = 2

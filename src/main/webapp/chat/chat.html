@@ -55,6 +55,10 @@ var membertype
 var server = location.host + '/image/2.jpg';
 console.log(server)
 
+$('.close-btn').on('click', function(){
+  window.history.go(-1)
+})
+
 $.getJSON('/auth/userinfo.json', function(result) {
 	 console.log(result.data.name)
 	if (result.status != 'fail'){
@@ -115,11 +119,11 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       return options.inverse(this);
   });
   
+		console.log(location.host)
   function chatDetailBtn() {
 	  chatLine = $('.chat-line')
 	  chatLine.click(function () {
-		console.log($(this).children('dl').children('dt').attr('value'))
-		location.href = 'http://192.168.0.5:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+		location.href = 'http://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
 				+ $(this).children('dl').children('dt').attr('value')+'&yourName='
 				+$(this).children('dl').children('dt').text()+'&membertype='+membertype +
 				'&imagePath='+ server;

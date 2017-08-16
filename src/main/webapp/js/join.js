@@ -48,7 +48,7 @@ $('#add-btn').on('click', function() {
         'membertype' : result.data.membertype
 
 
-      }, function(result2) {
+      }, function(success) {
         location.href = '../main/main.html'
 
       }, 'json')
@@ -73,7 +73,7 @@ $('#add-btn').on('click', function() {
         'membertype' : result.data.membertype
 
 
-      }, function(result2) {
+      }, function(success) {
         location.href = '../main/main.html'
 
       }, 'json')
