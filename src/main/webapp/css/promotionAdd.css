@@ -125,7 +125,7 @@ body {
 .title {
   /*border: purple 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 13px;
+  padding: 15px;
 }
 
 .titleInput {
@@ -133,10 +133,10 @@ body {
 }
 
 .date {
-  height: 55px;
+  height: 58px;
   /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 13px;
+  padding: 15px;
   padding-right: 0;
 }
 
@@ -156,7 +156,8 @@ body {
   /*border: 1px red solid;*/
   width: 50%;
   float: left;
-  padding-right: 15px;
+  padding-left: 5px;
+  padding-right: 10px;
   position: relative;
 }
 
@@ -171,7 +172,7 @@ body {
 .price {
   /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 13px;
+  padding: 15px;
 }
 
 .priceIn {
@@ -180,7 +181,7 @@ body {
 
 .company_address {
   border-bottom: 1px #ccc solid;
-  padding: 13px;
+  padding: 15px;
   /*height: 55px;*/
 }
 
