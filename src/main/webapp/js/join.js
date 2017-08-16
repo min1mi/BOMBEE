@@ -40,10 +40,18 @@ $('#add-btn').on('click', function() {
       'pwd': fiPassword.val(),
       'accounttype': joinType,
       'membertype': joinType
-      
+
     }, function(result) {
-      location.href = '../main/main.html'
-        
+      $.post('/auth/login.json', {
+        'id' : result.data.id,
+        'pwd': result.data.pwd,
+        'membertype' : result.data.membertype
+
+
+      }, function(result2) {
+        location.href = '../main/main.html'
+
+      }, 'json')
     }, 'json')
   } else if(joinType == 2) {
     $.post('/trainer/add.json', {
@@ -57,18 +65,25 @@ $('#add-btn').on('click', function() {
       'comdetailaddr': fiComdetailaddr.val(),
       'accounttype': joinType,
       'membertype': joinType
-      
+
     }, function(result) {
-      location.href = '../main/main.html'
-        
+      $.post('/auth/login.json', {
+        'id' : result.data.id,
+        'pwd': result.data.pwd,
+        'membertype' : result.data.membertype
+
+
+      }, function(result2) {
+        location.href = '../main/main.html'
+
+      }, 'json')
     }, 'json')
   }
-
 })
 
 
 //우편번호 찾기 화면을 넣을 element
-var path = document.getElementById('main-boxs');
+  var path = document.getElementById('main-boxs');
 var element_layer = document.getElementById('layer');
 function closeDaumPostcode() {
   // iframe을 넣은 element를 안보이게 한다.

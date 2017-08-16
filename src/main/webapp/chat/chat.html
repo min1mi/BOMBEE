@@ -119,7 +119,7 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
 	  chatLine = $('.chat-line')
 	  chatLine.click(function () {
 		console.log($(this).children('dl').children('dt').attr('value'))
-		location.href = 'http://192.168.0.13:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+		location.href = 'http://192.168.0.5:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
 				+ $(this).children('dl').children('dt').attr('value')+'&yourName='
 				+$(this).children('dl').children('dt').text()+'&membertype='+membertype +
 				'&imagePath='+ server;

@@ -16,7 +16,7 @@ public class MemberControl {
   @RequestMapping("add")
   public JsonResult add(Member member) throws Exception {
     memberService.add(member);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, member);
   }
   
 //  @RequestMapping("searchMusician")

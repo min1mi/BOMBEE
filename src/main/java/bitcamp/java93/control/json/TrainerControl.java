@@ -26,7 +26,7 @@ public class TrainerControl {
   @RequestMapping("add")
   public JsonResult add(Trainer trainer) throws Exception {
     trainerService.add(trainer);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, trainer);
   }
   @RequestMapping("get")
   public JsonResult get(int no, Model model) throws Exception {
