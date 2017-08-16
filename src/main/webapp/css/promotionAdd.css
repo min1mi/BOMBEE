@@ -2,15 +2,33 @@
 
 body {
   margin: 0px;
-  padding: 0
-
+  padding: 0;
 }
+
+/* 전체적인 구조
+.projectAdd-container
+  |- .projectAdd-top
+  |- .projectAdd-In
+*/
 
 .projectAdd-container {
   padding: 0;
 }
 
+.projectAdd-top *{
+  font-size: 2.5rem;
+}
 
+.projectAdd-In .title, .date, .price, .company_address, .contents {
+  font-size: 1.9rem;
+}
+
+.projectAdd-In {
+  margin: 15px;
+}
+
+
+/* projectAdd-top 시작*/
 .projectAdd-top {
   width: 100%;
   margin: 0;
@@ -22,193 +40,183 @@ body {
   color: white;
 }
 
-.projectAdd-date, .projectAdd-input {
-  width: 100%;
-  margin: 0;
-  font-size: 1.6rem;
-  height: 40px;
-
-  /*border-bottom: 1px #ccc solid;*/
-}
-
-.projectAdd-imageInput input[type="file"] {
-    display: none;
-  }
-
-.projectAdd-imageInput{
-  /*border: green 1px solid;*/
-  margin: 0;
-  font-size: 1.6rem;
-  width: 100%;
-  height: 110px;
-}
-
-.projectAdd-imageText {
-  margin: 3px 10px;
-}
-
-.image-area {
-  /* border: 1px solid black; */
-  height: 95px;
-  width: 95%;
-  margin: 3px 10px;
+.topClose {
+  width: 15%;
   float:left;
 }
 
-.image-area img {
+.save {
+  width: 20%;
+  float:right;
+}
+/* projectAdd-top 끝*/
+
+/* imageAdd 시작*/
+.imageAdd {
+  width: 100%;
+  height: 125px;
+  /*border: green 1px solid;*/
+}
+
+.imageAdd input[type="file"] {
+    display: none;
+  }
+
+.imageAdd-plus {
+  text-align: center;
+  width: 30%;
+  height: 80%;
+  border: black 3px dashed;
+  margin: 10px 10px 10px 0px;
+  /*background-color: yellow;*/
+  float: left;
+}
+
+.imageAdd-image {
+  width: 30%;
+  height: 80%;
+  /*border: black 3px solid;*/
+  margin: 10px 10px 10px 0px;
+  /*background-color: yellow;*/
+  position: relative;
+  float: left;
+}
+
+.AddCamera {
+  padding: 25%;
+}
+
+.imageAdd img {
   height: 100%;
   width: 100%;
   position:relative;
 }
 
-.selFile {
-  /* border: 1px red solid; */
-  position:absolute;
-  top:0;
-  right:0;
-  font-size: 4.0rem;
+.AddRemove, .selFile {
+  position: absolute;
+  right: 5%;
+  top: 5%;
 }
 
-.image-areaPlus {
-  width: 23%;
-  height: 100%;
-  border: 1px solid #ccc;
-  float:left;
-  margin-right: 3px;
+.imageAdd p{
+  font-size: 30px;
+  text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+	-moz-text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+	-webkit-text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+}
+/* imageAdd 끝*/
+
+
+.promotion-icon {
+  width: 10%;
+  float: left;
 }
 
-.image-areaPlus label {
-  text-align: center;
-  line-height: 100%; 
-  font-size: 60px;
-  width: 60%;
-  height: 75%;
-  margin: 8px 18px;
+.date .promotion-icon {
+  width: 21%;
+  float: left;
 }
 
-.projectAdd-input label {
-  font-weight:normal;
-}
-
-.projectAdd-top div:hover {
-   cursor:pointer;
-}
-
-.projectAdd-top > div {
-  height: 100%;
-  /*border:green solid 1px;*/
-}
-
-.projectAdd-top > .topClose {
-  width: 15%;
-  float:left;
-  font-size: 3rem;
-  padding: 1px;
-}
-
-.projectAdd-top > .temp {
-  width: 35%;
-  float:left;
-}
-
-.projectAdd-top > .tempSave {
-  width: 25%;
-  float:right;
-}
-
-.projectAdd-top > .save {
-  width: 15%;
-  float:right;
-}
-
-.temp > .tempText {
-  background-color:rgba(255,255,255,0);
-  border: 2px white solid;
-  /*border: 2px black solid;*/
-  padding: 1px 10px;
-  border-radius: 2.5rem;
-  line-height: 25px;
-  color: white;
-}
-
-
-
- .projectAdd-container > input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
-}
-
-.projectAdd-date > .dateStart {
+.projectAdd-container input {
   border: 0;
+  padding: 0;
+}
+
+.title {
+  /*border: purple 1px solid;*/
   border-bottom: 1px #ccc solid;
-  width: 43.5%;
-  height: 85%;
-  float: left;
-  margin: 3px 10px;
-  /*margin-left: 5px;*/
-  padding: 6px 6px;
-  border-radius: 0;
-
+  padding: 13px;
 }
 
-.projectAdd-date > .dateEnd {
-  border: 0;
+.titleInput {
+  width: 90%;
+}
+
+.date {
+  height: 55px;
+  /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  width: 43.5%;
-  height: 85%;
-  float: left;
-  margin: 3px 10px;
-  padding: 6px 6px;
-  border-radius: 0;
+  padding: 13px;
+  padding-right: 0;
 }
 
-.projectAdd-input > .priceIn, .titleIn, .addressCompany, .addressIn, .imageIn{
-  border-radius: 0;
-  border: 0;
+.dateStart, .dateEnd {
+  width: 78%;
+}
+
+.start-date {
+  /*border: 1px red solid;*/
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+  position: relative;
+}
+
+.end-date {
+  /*border: 1px red solid;*/
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+  position: relative;
+}
+
+.arrowStart, .arrowEnd {
+  font-size: 2.5rem;
+  right: 20px;
+  top: -3px;
+  float: right;
+  position: absolute;
+}
+
+.price {
+  /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  width: 93%;
-  height: 85%;
-  float: left;
-  margin: 3px 10px;
-  /*margin-left: 5px;*/
-  padding: 6px 6px;
-  padding-top: 8px;
-  text-align: left;
+  padding: 13px;
 }
 
-/*.projectAdd-title > .titleIn {
-  border: 0;
-  width: 97%;
-  height: 85%;
-  float: left;
-  margin: 3px 3px;
-  margin-left: 5px;
-  padding: 6px 12px;
-}*/
-
-.projectAdd-textArea {
-  padding: 10px;
-  height: 550px;
-  width: 100%;
-  float:left;
+.priceIn {
+  width: 90%;
 }
 
-.projectAdd-textArea > textarea {
+.company_address {
+  border-bottom: 1px #ccc solid;
+  padding: 13px;
+  /*height: 55px;*/
+}
+
+.company {
+  font-weight: 600;
+  width: auto;
+  float: left;
+  margin-right: 5%;
+}
+
+.address {
+  font-size: 1.7rem;
+}
+
+.contents {
+  height: 200px;
+  padding: 12px;
+}
+
+textarea {
   /*background-color: #F0F0F0;*/
   border: white;
   border-radius: 5px;
   width: 100%;
   height: 100%;
   resize: none;
-  font-size: 1.5rem;
 }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-thumb { background: #a9a9a9; }
-
-.ui-datepicker{ z-index: 9999 !important;}
+.titleInput-updateColor,
+.dateStart-updateColor,
+.dateEnd-updateColor,
+.priceIn-updateColor,
+.promotionText-updateColor
+ {
+  color: #a9a9a9;
+}
 
 /* swiper */
  .swiper-container {
@@ -237,8 +245,14 @@ body {
      -webkit-align-items: center;
      align-items: center;
  }
- 
-/* sweetAlert */
+
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: #a9a9a9; }
+
+.ui-datepicker{ z-index: 9999 !important;}
+
+/* sweetAlert2 시작 */
   .swal2-container button {
     margin-top: 8px;
     width: 46%;
@@ -254,12 +268,13 @@ body {
     margin: 0px 5px 0;
     float:left;
   }
-  
+
   .swal2-icon {
     margin: 20px auto 15px;
   }
-  
+
   #swal2-content {
      font-weight: 400;
      font-size: 21px
   }
+/* sweetAlert2 끝 */

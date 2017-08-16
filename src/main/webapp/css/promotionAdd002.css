@@ -1,0 +1,266 @@
+
+
+body {
+  margin: 0px;
+  padding: 0
+
+}
+
+.projectAdd-container {
+  padding: 0;
+}
+
+
+.projectAdd-top {
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 45px;
+  background-color: #3f3f3f;
+  height: 45px;
+  color: white;
+}
+
+.projectAdd-date, .projectAdd-input {
+  width: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  height: 40px;
+
+  /*border-bottom: 1px #ccc solid;*/
+}
+
+.projectAdd-imageInput input[type="file"] {
+    display: none;
+  }
+
+.projectAdd-imageInput{
+  /*border: green 1px solid;*/
+  margin: 0;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 110px;
+}
+
+.projectAdd-imageText {
+  margin: 3px 10px;
+}
+
+.image-area {
+  /* border: 1px solid black; */
+  height: 95px;
+  width: 95%;
+  margin: 3px 10px;
+  float:left;
+}
+
+.image-area img {
+  height: 100%;
+  width: 100%;
+  position:relative;
+}
+
+.selFile {
+  /* border: 1px red solid; */
+  position:absolute;
+  top:0;
+  right:0;
+  font-size: 4.0rem;
+}
+
+.image-areaPlus {
+  width: 23%;
+  height: 100%;
+  border: 1px solid #ccc;
+  float:left;
+  margin-right: 3px;
+}
+
+.image-areaPlus label {
+  text-align: center;
+  line-height: 100%;
+  font-size: 60px;
+  width: 60%;
+  height: 75%;
+  margin: 8px 18px;
+}
+
+.projectAdd-input label {
+  font-weight:normal;
+}
+
+.projectAdd-top div:hover {
+   cursor:pointer;
+}
+
+.projectAdd-top > div {
+  height: 100%;
+  /*border:green solid 1px;*/
+}
+
+.projectAdd-top > .topClose {
+  width: 15%;
+  float:left;
+  font-size: 3rem;
+  padding: 1px;
+}
+
+.projectAdd-top > .temp {
+  width: 35%;
+  float:left;
+}
+
+.projectAdd-top > .tempSave {
+  width: 25%;
+  float:right;
+}
+
+.projectAdd-top > .save {
+  width: 15%;
+  float:right;
+}
+
+.temp > .tempText {
+  background-color:rgba(255,255,255,0);
+  border: 2px white solid;
+  /*border: 2px black solid;*/
+  padding: 1px 10px;
+  border-radius: 2.5rem;
+  line-height: 25px;
+  color: white;
+}
+
+
+
+ .projectAdd-container > input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.projectAdd-date > .dateStart {
+  border: 0;
+  border-bottom: 1px #ccc solid;
+  width: 43.5%;
+  height: 85%;
+  float: left;
+  margin: 3px 10px;
+  /*margin-left: 5px;*/
+  padding: 6px 6px;
+  border-radius: 0;
+
+}
+
+.projectAdd-date > .dateEnd {
+  border: 0;
+  border-bottom: 1px #ccc solid;
+  width: 43.5%;
+  height: 85%;
+  float: left;
+  margin: 3px 10px;
+  padding: 6px 6px;
+  border-radius: 0;
+}
+
+.projectAdd-input > .priceIn, .titleIn, .addressCompany, .addressIn, .imageIn{
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px #ccc solid;
+  width: 93%;
+  height: 85%;
+  float: left;
+  margin: 3px 10px;
+  /*margin-left: 5px;*/
+  padding: 6px 6px;
+  padding-top: 8px;
+  text-align: left;
+}
+
+/*.projectAdd-title > .titleIn {
+  border: 0;
+  width: 97%;
+  height: 85%;
+  float: left;
+  margin: 3px 3px;
+  margin-left: 5px;
+  padding: 6px 12px;
+}*/
+
+.projectAdd-textArea {
+  padding: 10px;
+  height: 550px;
+  width: 100%;
+  float:left;
+}
+
+.projectAdd-textArea > textarea {
+  /*background-color: #F0F0F0;*/
+  border: white;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  font-size: 1.5rem;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: #a9a9a9; }
+
+.ui-datepicker{ z-index: 9999 !important;}
+
+/* swiper */
+ .swiper-container {
+        width: 100%;
+        height: 100%;
+       /*  margin: 20px auto; */
+        float:left;
+    }
+ .swiper-slide {
+/*      border: 1px red solid; */
+     text-align: center;
+     font-size: 18px;
+     background: #fff;
+     width: 33%;
+     /* Center slide text vertically */
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+     -webkit-box-pack: center;
+     -ms-flex-pack: center;
+     -webkit-justify-content: center;
+     justify-content: center;
+     -webkit-box-align: center;
+     -ms-flex-align: center;
+     -webkit-align-items: center;
+     align-items: center;
+ }
+
+/* sweetAlert2 시작 */
+  .swal2-container button {
+    margin-top: 8px;
+    width: 46%;
+    height: 25%;
+  }
+
+  .swal2-container .swal2-confirm {
+    margin: 0px 5px 0;
+    float:right;
+  }
+
+  .swal2-container .swal2-cancel {
+    margin: 0px 5px 0;
+    float:left;
+  }
+
+  .swal2-icon {
+    margin: 20px auto 15px;
+  }
+
+  #swal2-content {
+     font-weight: 400;
+     font-size: 21px
+  }
+/* sweetAlert2 끝 */
