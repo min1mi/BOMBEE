@@ -18,6 +18,7 @@ public class ChatControl {
   }
   @RequestMapping("trainerList")
   public JsonResult selectTrainerAll(int no) throws Exception {
+    System.out.println(chatService.trainerlist(no));
     return new JsonResult(JsonResult.SUCCESS, chatService.trainerlist(no));
   }
 
