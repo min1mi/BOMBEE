@@ -112,6 +112,11 @@ body {
   float: left;
 }
 
+.company_address .promotion-icon{
+  margin-right: -3px;
+  margin-left: 3px;
+}
+
 .date .promotion-icon {
   width: 21%;
   float: left;
