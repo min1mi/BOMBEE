@@ -1,13 +1,18 @@
 
-@media (min-device-width: 310px) and (max-device-width: 350px) {
-  html {
-    font-size: 0.5rem;
+@media (min-device-width: 310px) and (max-device-width: 374px) {
+  body {
+    font-size: 10px;
   }
 }
 
-@media (min-device-width: 350px) and (max-device-width: 400px) {
-  html {
-    font-size: 0.6rem;
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (min-device-width: 414px) and (max-device-width: 735px)  {
+	  body {
+    font-size: 14px;
   }
 }
 
@@ -17,12 +22,19 @@
   |- .projectAdd-In
 */
 
+div > input {
+	font-size: 1.5rem;
+}
+
+.fa-fontsize {
+	font-size: 1.6rem;
+}
 .projectAdd-container {
   padding: 0;
 }
 
 .projectAdd-top *{
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .projectAdd-In .title, .date, .price, .company_address, .contents {
@@ -117,7 +129,7 @@
 
 
 .promotion-icon {
-  width: 10%;
+  width: 8%;
   float: left;
 }
 
@@ -127,7 +139,7 @@
 }
 
 .date .promotion-icon {
-  width: 21%;
+  width: 17%;
   float: left;
 }
 
@@ -211,7 +223,7 @@
 }
 
 .address {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .contents {
@@ -221,6 +233,7 @@
 
 textarea {
   /*background-color: #F0F0F0;*/
+  font-size: 1.5rem;
   border: white;
   border-radius: 5px;
   width: 100%;
