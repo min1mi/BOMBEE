@@ -19,67 +19,130 @@
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      overflow: hidden;
   }
+/* 여기까지 swiper */
+
 .promotionDetail_container {
   font-size: 1.8rem;
-
+  /*border: 1px blue solid;*/
 }
 
-.promotionDetail_title {
-  /*border: 1px solid black;*/
-  width: 99%;
-  height: 45px;
-  font-size: 2.3rem;
-  text-align: center;
-  font-weight: bold;
+.promotion-icon {
+  width: 10%;
+  height: 100%;
+  float: left;
+}
+
+.promotionDetail_companyAdress .promotion-icon  {
+  margin-right: -3px;
+  margin-left: 3px;
 }
 
 .promotionDetail_image {
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 13px;
+}
+
+.promotionDetail_In {
+  /*border: 1px green solid;*/
+  margin: 0px 15px 15px 15px;
+  font-size: 1.3rem;
+}
+
+
+
+.promotionDetail_image img {
+  height: 100%;
+}
+
+.promotionDetail_title {
+  /*border-bottom: 1px #ccc solid;*/
+  padding: 10px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.promotionDetail_Date{
+  border-bottom: 1px #ccc solid;
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+
+.date-start-end {
+  font-size: 1.6rem;
+  float: left;
   /*border: 1px solid black;*/
   width: 100%;
-  height: 350px;
+  position: relative;
 }
 
-.promotionDetail_DatePrice, .promotionDetail_address, .promotionDetail_company {
-  /*border: 1px solid red;*/
-  width: 99%;
-  height: 43px;
+.date-start-end .promotion-icon {
+  width: 26%;
 }
 
-.promotionDetail_container p {
-  margin: 0 10px 0 10px;
-  box-sizing: border-box;
-  padding: 10px 0 0 0;
-  vertical-align: middle;
-  border-bottom: 1px #ccc solid;
-}
-
-.promotionDetail_date {
-  /*border: 1px solid black;*/
-  width: 71%;
-  height: 40px;
+.date-slash {
+  font-size: 4rem;
+  text-align: center;
   float: left;
-  /*clear: both;*/
+  width: 10%;
+  position: absolute;
+  left: 47%;
+  top: -65%;
+  color: #ccc;
+  font-weight: 100;
+
 }
 
-.promotionDetail_price {
+.date-start {
   /*border: 1px solid black;*/
-  width: 29%;
-  height: 40px;
-  float: right;
+  font-weight: 200;
+  float: left;
+  width: 50%;
+}
 
+.date-end {
+  font-weight: 200;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.map-icon {
+  font-size: 1.5rem;
+}
+
+.promotionDetail_companyAdress {
+  /*border: 1px black solid;*/
+  border-bottom: 1px #ccc solid;
+  padding: 15px;
+  width: 100%;
+  float: left;
+}
+
+.promotionDetail_Adress {
+  /*border: 1px red solid;*/
+  width: 79%;
+  float: left;
+}
+.promotionDetail_Adress_Arrow {
+  /*border: 1px black solid;*/
+  color: blue;
+  margin: 2% 0 0 0;
+  float: right;
+  width: 8%;
 }
 
 .promotionDetail_contents {
   /*border: 1px solid black;*/
   width: 100%;
   height: 100%;
+  padding: 15px;
   margin-bottom: 14%;
-  padding-right: 10px;
-}
 
-.promotionDetail_contents > p {
-  border: 0;
 }
 
 .promotionDetail_container > .footer {
@@ -89,22 +152,39 @@
   bottom: 0;
   width: 100%;
   height: 8%;
-
   font-weight: bold;
   text-align: center;
   background-color: #3f3f3f;
   color: white;
 }
 
-.footer > p {
-  padding-top: 2.5%;
-  font-size: 2.5rem;
+.footer-price {
+  padding-left: 15px;
+  padding-top: 3%;
+  width: 35%;
+  float:left;
+  color: black;
+}
+.footer-price {
+  text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
+	-moz-text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
+	-webkit-text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
+}
+
+.footer-click {
+  width: 65%;
+  float:left;
+}
+
+.footer-click > p{
+  padding-top: 2.8%;
+  font-size: 2.3rem;
   border: 0;
 }
 
 .promotionDetail_container .addressPanel {
     margin: 0;
-    padding: 0 10px;
+    padding: 0 1px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
