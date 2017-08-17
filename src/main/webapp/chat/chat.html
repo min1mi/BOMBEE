@@ -56,7 +56,7 @@ var myNo
 var membertype
 
 /* var server = location.host + '/upload/' */
-var server = location.host + '/image/2.jpg';
+var server = 'http://'+location.host
 console.log(server)
 
 $('.close-btn').on('click', function(){
@@ -111,12 +111,17 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       console.log('강사로그인')
       if (tno == chatInfo.trainerno){
         yourNo = chatInfo.memberno
+        server += '/image/user'
+        console.log(server)
         return options.fn(this);
       }
     }else if (tno == -1) {
       console.log('멤버로그인')
       if (no == chatInfo.memberno) {
         yourNo = chatInfo.trainerno
+        server += '/upload/1111'
+        console.log(server)
+        
       }
     }
       
