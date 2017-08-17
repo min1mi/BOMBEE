@@ -3,16 +3,29 @@
   body {
     font-size: 10px;
   }
+    .date {
+ 		 height: 53px;
+  }
+      .date {
+ 		 height: 49px;
+  }
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
   body {
-    font-size: 13px;
+    font-size: 11px;
   }
+      .date {
+ 		 height: 53px;
+  }
+
 }
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
 	  body {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .date {
+ 		 height: 57px;
   }
 }
 
@@ -23,18 +36,18 @@
 */
 
 div > input {
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 }
 
 .fa-fontsize {
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 }
 .projectAdd-container {
   padding: 0;
 }
 
 .projectAdd-top *{
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .projectAdd-In .title, .date, .price, .company_address, .contents {
@@ -151,7 +164,7 @@ div > input {
 .title {
   /*border: purple 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 15px;
+  padding: 2% 4%;
 }
 
 .titleInput {
@@ -159,10 +172,9 @@ div > input {
 }
 
 .date {
-  height: 58px;
   /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 15px;
+  padding: 1% 4%;
   padding-right: 0;
 }
 
@@ -189,8 +201,8 @@ div > input {
 
 .arrowStart, .arrowEnd {
   font-size: 2.5rem;
-  right: 20px;
-  top: -3px;
+  right: 12%;
+  top: -20%;
   float: right;
   position: absolute;
 }
@@ -198,7 +210,7 @@ div > input {
 .price {
   /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
-  padding: 15px;
+  padding: 2% 4%;
 }
 
 .priceIn {
@@ -208,6 +220,7 @@ div > input {
 .company_address {
   border-bottom: 1px #ccc solid;
   padding: 15px;
+  font-size: 1.4rem;
   /*height: 55px;*/
 }
 
@@ -223,7 +236,7 @@ div > input {
 }
 
 .address {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .contents {
@@ -233,7 +246,7 @@ div > input {
 
 textarea {
   /*background-color: #F0F0F0;*/
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border: white;
   border-radius: 5px;
   width: 100%;
@@ -241,6 +254,9 @@ textarea {
   resize: none;
 }
 
+textarea::placeholder {
+	font-size: 1.2rem;
+	}
 .titleInput-updateColor,
 .dateStart-updateColor,
 .dateEnd-updateColor,
