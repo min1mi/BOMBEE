@@ -28,7 +28,7 @@
   {{#each data}}
   <div class='chat-line'>
       {{#if tPath}}
-    <div><img src='../upload/{{tPath}}' id='chat-user'/></div>
+    <div><img src='..{{tPath}}' id='chat-user'/></div>
       {{else}}
     <div><img src='../image/user' id='chat-user'/></div>
       {{/if}}
@@ -119,7 +119,7 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       console.log('멤버로그인')
       if (no == chatInfo.memberno) {
         yourNo = chatInfo.trainerno
-        server += '/upload/1111'
+        server += chatInfo.tPath
         console.log(server)
         
       }
