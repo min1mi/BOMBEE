@@ -1,11 +1,16 @@
 var  mno
 var no
 var tno
+var boool
+var mname
+
 $.getJSON('/auth/userinfo.json', function(result) {
 	console.log(result)
 	mno = result.data.no
+	mname = result.data.name
+	console.log(result.data.name)
 	console.log(result.data.no)
-	no = 0
+	// no = 0
 	try {
 			no = location.href.split('?')[1].split('=')[1]
 	} catch (err) {
@@ -14,7 +19,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
 	}
   generateTemplate();
 	getData();
-
+	getLike();
 })
 function generateTemplate() {
   $.getJSON('/trainer/detail.json', {no}, function(result) {
@@ -47,7 +52,6 @@ function generateTemplate() {
 }
 function getData() {
 	$.getJSON('/schedule/detail.json', {no}, function(result) {
-
 		console.log(result.data.weeklist.day+result.data.weeklist.time)
 
 		var bookNo = result.data.weeklist.day+result.data.weeklist.time,
@@ -63,6 +67,17 @@ function getData() {
 
 	})
 }
+function getLike() {
+	$.getJSON('/friend/detail.json', {no}, function(result) {
+		console.log(result.data.weeklist.day+result.data.weeklist.time)
+
+
+			$('i[data-likeno=' + likeno + ']').addClass('fa-star-o')
+
+
+
+	})
+}
 
 jQuery(document).ready(function($){
 
@@ -72,9 +87,46 @@ $(".t-t-table").slideToggle(400);
 })
 
 $('.pro-add-Btn').on('click', function() {
-
+	boool = false;
 	console.log(mno)
 	console.log(tno)
+	console.log(boool)
+	console.log(status)
+	// console.log(status.data.name)
+	// console.log(status.data.name)
+	$.getJSON('/friend/add.json', {
+		'mno':mno,
+		'tno': tno,
+		'confirm': boool
+		}, function(result) {
 
+	})
+})
 
+// $('.pro-qa-Btn').on('click', function() {
+//
+//
+// 	$.getJSON('/friend/chat.json', {
+// 		'mno':mno,
+// 		'tno': tno,
+// 		'tname'
+// 		'mname':
+// 		'tcherpic':
+//
+// 		}, function(result) {
+//
+// 	})
+// })
+
+$('.likeBtn').click(function() {
+	console.log(mno)
+	console.log(tno)
+	// console.log(boool)
+	// $.getJSON('/friend/add.json', {
+	// 	'mno':mno,
+	// 	'tno': tno,
+	// 	'confirm': boool
+	// 	}, function(result) {
+	//
+	// })
 })

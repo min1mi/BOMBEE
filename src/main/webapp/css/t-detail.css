@@ -40,7 +40,7 @@
 
 .info {
   width : 80%;
-  margin: -30% 0% 0% 10%;
+  margin: 0% 0% 0% 10%;
   height: 400px;
   overflow:visible;
   /*border: 1px brown solid;*/
@@ -211,4 +211,10 @@ td {
     /*border: 1px solid red;*/
     margin : -45% 5% 0% 0%;
     float: right;
+  }
+  #detail-container {
+    min-height: 300px;
+  }
+  .fa-star-o {
+    font-size: 4rem !important;
   }
