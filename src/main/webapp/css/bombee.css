@@ -1,46 +1,55 @@
-/*iphone5~6*/
-/*@media (min-device-width: 320px) and (max-device-width: 414px) {
-  html {
-    font-size: 12px;
-    height: 100%;
-  }
-  .container {
-    min-width: 320px;
-    max-width: 414px;
-    padding: 0;
-  }
-}*/
-/*iphone plus*/
-/*@media (min-device-width: 415px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
-  .container {
-    min-width: 415px;
-    max-width: 767px;
-    padding: 0;
-  }
-}*/
-/*ipad*/
-/*@media (min-device-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-  .container {
-    max-width: 768px;
-    padding: 0;
-  }
-}*/
+/*iphone5*/
 
-.container {
-    padding: 0;
-  }
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-html {
-  font-family: ‘Noto Sans KR’ ;
+@media ( min-device-width : 320px) and (max-device-width: 374px) {
+	html {
+		font-size: 13px;
+		height: 100%;
+	}
+	.container {
+		min-width: 320px;
+		max-width: 374px;
+		padding: 0;
+	}
 }
 
+
+/*iphone6*/
+
+
+@media ( min-device-width : 375px) and (max-device-width: 413px) {
+	html {
+		font-size: 14px;
+	}
+	.container {
+		min-width: 375;
+		max-width: 413;
+		padding: 0;
+	}
+
+}
+
+
+/*iphone6 plus*/
+@media ( min-device-width : 414px) and (max-device-width: 735px) {
+	html {
+		font-size: 15px;
+	}
+	.container {
+		max-width: 768px;
+		padding: 0;
+	}
+
+}
+
+.container {
+  padding: 0;
+}
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+html {
+  font-family: ‘Noto Sans KR’;
+}
 
 body {
   margin: 0px;
@@ -49,8 +58,8 @@ body {
 }
 
 
-
 /* float 시 div 높이 만들어 주기*/
+
 .clearfix::after {
   display: block;
   content: '';
@@ -68,6 +77,7 @@ body {
   vertical-align: middle;
   text-align: center;
 }
+
 .centered {
   position: relative;
   display: inline-block;
@@ -87,32 +97,35 @@ body {
 }
 
 .main-container #footer-last-tomato {
-  margin:0%;
+  margin: 0%;
 }
+
 .mobile-container * {
   box-sizing: border-box;
 }
+
 .main-container .mobile-container {
   width: 100%;
   height: 100%;
   margin: 0px auto;
   background: white;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
   z-index: 5;
 }
 
 .mobile-container .header-menu-bar {
   width: 100%;
   height: 60px;
-  background:#F7AC1A;
+  background: #F7AC1A;
   z-index: 5;
-  text-align:center;
+  text-align: center;
   position: relative;
 }
+
 .header-menu-bar img {
   margin-top: 5px;
-width: 200px;
-height: 50px;
+  width: 200px;
+  height: 50px;
 }
 
 .header-menu-button {
@@ -123,6 +136,7 @@ height: 50px;
   left: 15px;
   position: absolute;
 }
+
 .header-menu-button:hover {
   cursor: pointer;
 }
@@ -156,11 +170,11 @@ height: 50px;
 
 .header-menu-items {
   position: absolute;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   width: 100%;
   padding-top: 20px;
   padding-right: 55px;
-  padding-left:55px;
+  padding-left: 55px;
   padding-bottom: 53%;
   top: 60px;
   font-size: 1.5em;
@@ -172,7 +186,7 @@ height: 50px;
   opacity: 0;
 }
 
-.header-menu-items-open{
+.header-menu-items-open {
   opacity: 1;
   max-height: 3000px;
   transition: all .5s ease-in-out;
@@ -186,17 +200,23 @@ height: 50px;
   transform: translateX(-100px);
 }
 
-
-.header-menu-items ul li: hover{
+.header-menu-items ul li: hover {
   border-bottom: solid 2px #F7AC1A;
 }
+
 .indexUp {
   z-index: 6;
 }
 
 @keyframes header-menu-item-animation {
-  0% {transform: translate(-300px, 0px); opacity: 0; }
-  100% {transform: translate(0px, 0px); opacity: 1; }
+  0% {
+    transform: translate(-300px, 0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
 }
 
 .header-menu-items-open ul li:nth-of-type(0) {
@@ -222,11 +242,13 @@ height: 50px;
 .header-menu-items-open ul li:nth-of-type(5) {
   animation: .3s ease-in-out .5s forwards header-menu-item-animation;
 }
+
 .header-menu-items-open ul li:nth-of-type(6) {
   animation: .2s ease-in-out .6s forwards header-menu-item-animation;
 }
+
 .header-up {
-  color:white;
+  color: white;
   font-size: 40px;
   position: fixed;
   left: 48%;
@@ -235,23 +257,26 @@ height: 50px;
 .header-menu-ul {
   padding: 0;
 }
+
 #header-search-bar {
   font-size: 1.5em;
-  width:100%;
+  width: 100%;
   background-color: black;
   color: white;
   border: 0px;
   border-bottom: 2px white solid;
 }
+
 #header-search-bar:focus {
   border-color: inherit;
--webkit-box-shadow: none;
-box-shadow: none;
-outline:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
 }
+
 .header-logo-bee {
   position: absolute;
-  right: 15px;
-  top:3px;
-  line-height:60px;
+  right: 5%;
+  top: 10%;
+  line-height: 60px;
 }

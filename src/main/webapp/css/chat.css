@@ -81,10 +81,9 @@ dd {
 .chat-header > .close-btn {
   position: absolute;
   right: 5%;
-  bottom: 8%;
+	top: 24%;
   font-size: 2rem;
   font-weight: normal;
-  line-height:2.5;
 }
 
 

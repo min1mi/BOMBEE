@@ -2,17 +2,12 @@
 	body {
 		font-size: 12px;
 	}
-	dl {
-		margin-bottom: 27px;
-	}
-	dd {
-		margin-top: 19px;
-	}
-	.chat-line img {
-		height: 50px;
-	}
 	.btn {
+		padding: 8px 8px 0 8px;
 		height: 30px;
+	}
+	.btn-group {
+    margin-left: 5%;
 	}
 }
 /*iphone plus*/
@@ -20,38 +15,25 @@
 	body {
 		font-size: 13px;
 	}
-	dl {
-		margin-bottom: 31px;
-	}
-	dd {
-		margin-top: 21px;
-	}
-	.chat-line img {
-		height: 56px;
-	}
 	.btn {
-		height: 35px;
+		padding: 8px 12px 0 12px;
+		height: 30px;
+	}
+	.btn-group {
+    margin-left: 3%;
 	}
 }
 
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
 	body {
-		font-size: 14px;
-	}
-	dl {
-		margin-bottom: 33px;
-	}
-	dd {
-		margin-top: 22px;
-	}
-	.btn-group {
-		padding-left: 15px;
-	}
-	.chat-line img {
-		height: 62px;
+		font-size: 15px;
 	}
 	.btn {
-		height: 40px;
+		padding: 8px 14px 0 14px;
+		height: 35px;
+	}
+	.btn-group {
+    margin-left: 3%;
 	}
 }
 
@@ -85,9 +67,9 @@ body {
 
 .btn {
 	padding-top: 8px;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	background-color: white;
-	padding: 8px 12px 0 12px;
+	border: none;
 }
 
 .btn-group>.btn {
@@ -96,11 +78,10 @@ body {
 
 .btn-group {
 	display: inline;
-	margin-top: 20px;
 }
 
 .pin {
-	font-size: 1.8rem;
+	font-size: 1.4rem;
 }
 
 .wrap {
