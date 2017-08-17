@@ -176,17 +176,19 @@
 
     <div class='promotionDetail_contents'>
       <p>
-        {{content}}
+        안녕하세요~
       </p>
     </div>
 
   </script>
 
   <script id = 'swiper-template' type='text/x-handlebars-template'>
-    {{#each photoList}}
+    {{#each promotionList}}
+        {{#each photoList}}
       <div class="swiper-slide">
          <img src="/upload/{{this}}_promotion.png" width="100%" >
       </div>
+       {{/each}}
     {{/each}}
   </script>
 

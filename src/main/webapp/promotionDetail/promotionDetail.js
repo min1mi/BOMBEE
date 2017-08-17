@@ -67,7 +67,6 @@ var swiper = new Swiper('.swiper-container', {
 
 $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
     console.log(result.data.promotion)
-    console.log(result.data.promotion.photoList)
     lat = result.data.promotion.lat
     lon = result.data.promotion.lng
     console.log(lat)
