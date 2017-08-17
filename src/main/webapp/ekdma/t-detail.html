@@ -7,6 +7,7 @@
   <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/t-detail.css'>
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
   <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
   <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
@@ -27,7 +28,28 @@
     </div>
     <div>
 
-
+  <div class="like"><i class="likeBtn fa fa-star-o" aria-hidden="true" value="off"></i></div>
+  <!-- <div class="t-review">
+    <div class="ratingCard">
+    <h2>강사 리뷰?</h2>
+    <form method="post">
+       <p class="p_class">
+          <input id="radio1" type="radio" name="radio_rate" value="5">
+            <label for="radio1">&#9786;</label>
+          <input id="radio2" type="radio" name="radio_rate" value="4">
+            <label for="radio2">&#9786;</label>
+          <input id="radio3" type="radio" name="radio_rate" value="3">
+            <label for="radio3">&#9786;</label>
+          <input id="radio4" type="radio" name="radio_rate" value="2">
+            <label for="radio4">&#9786;</label>
+          <input id="radio5" type="radio" name="radio_rate" value="1">
+            <label for="radio5">&#9786;</label>
+      </p>
+        <textarea name="rate_comment" class="comment_area" placeholder="Leave your comment here"></textarea><br>
+          <input type="submit" name="rating_submit" value="Post!">
+    </form>
+  </div>
+</div> -->
       <div id="detail-container">
       </div>
 
@@ -208,9 +230,9 @@
 
 
 <div class="d-bottom-Btn">
-  <img class="pro-qa-Btn" src="QA2.png">
+  <img class="pro-fa-Btn" src="F_add.png" value="off">
   <img class="pro-t-Btn" src="schedule.png">
-  <img class="pro-add-Btn" src="ADD1.png">
+  <img class="pro-add-Btn" src="oneone.png">
 </div>
 
 
@@ -218,7 +240,7 @@
 
 
 <script id="detail-template" type="text/x-handlebars-template">
-  <div class="skql"></div>
+
   <div class="proro-pic"><image class="proro-pic1" style="width : 100%" src="{{tcherpic}}_140.png"></div>
   <div class="cont-box">
   </div>
