@@ -10,6 +10,7 @@ public class Chat {
   String arrivedate;
   String message;
   String yourName;
+  String tPath;
 
   boolean confirm;
 
@@ -69,6 +70,14 @@ public class Chat {
     this.yourName = yourName;
   }
 
+  public String gettPath() {
+    return tPath;
+  }
+
+  public void settPath(String tPath) {
+    this.tPath = tPath;
+  }
+
   public boolean isConfirm() {
     return confirm;
   }
@@ -80,9 +89,9 @@ public class Chat {
   @Override
   public String toString() {
     return "Chat [noList=" + noList + ", tnoList=" + tnoList + ", memberno=" + memberno + ", trainerno=" + trainerno
-        + ", arrivedate=" + arrivedate + ", message=" + message + ", yourName=" + yourName + ", confirm=" + confirm
-        + "]";
+        + ", arrivedate=" + arrivedate + ", message=" + message + ", yourName=" + yourName + ", tPath=" + tPath
+        + ", confirm=" + confirm + "]";
   }
-  
+
 
 }

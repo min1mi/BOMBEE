@@ -10,6 +10,7 @@
         <result column="msg" property="message" />
         <result column="confirm" property="confirm" />
         <result column="name" property="yourName" />
+        <result column="img" property="tPath"/>
         <collection property="noList" ofType="string">
           <result column="mno"/>
         </collection>
@@ -18,8 +19,9 @@
         </collection>
   </resultMap>
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
-		select DISTINCT c.tno, c.mno, c.date, c.msg, c.confirm, m.name
+		select DISTINCT c.tno, c.mno, c.date, c.msg, c.confirm, m.name, t.img
 		from chat c  inner join memb m on c.tno = m.mno
+		                inner join tcher t on c.tno = t.tno
 		where c.mno = #{memberno}
 		order by date desc;
   </select>

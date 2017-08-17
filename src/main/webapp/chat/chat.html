@@ -27,7 +27,11 @@
 <script id="chat-template" type="text/x-handlebars-template">
   {{#each data}}
   <div class='chat-line'>
-    <div><img src='../image/2.jpg' id='chat-user'/></div>
+      {{#if tPath}}
+    <div><img src='../upload/{{tPath}}' id='chat-user'/></div>
+      {{else}}
+    <div><img src='../image/user' id='chat-user'/></div>
+      {{/if}}
     <dl>
        {{#youAndMe this}}
       <dt id='youAndMe' value='{{memberno}}'>{{yourName}}</dt>
