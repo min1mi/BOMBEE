@@ -10,7 +10,7 @@ public interface PromotionService {
   List<Promotion> list(Location local) throws Exception;
   List<Promotion> trainerList(Location local) throws Exception;
   Promotion get(int no) throws Exception;
-  void add(Promotion promotion) throws Exception;
+  void add(Promotion promotion, int titleNo) throws Exception;
   void remove(int no) throws Exception;
   List<Promotion>  LatLonList(Location local) throws Exception;
   List<Promotion> nextList(int lastNo) throws Exception;

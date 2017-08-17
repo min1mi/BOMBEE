@@ -21,9 +21,7 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
-        <collection property="photoList" ofType="string">
-          <result column="pimg"/>
-        </collection>
+        <result column="pimg" property="titlePic"/>
     <collection property="promotionList" ofType="Trainning">
         <id column="pno" property="pno" />
         <result column="titl" property="title" />
@@ -54,6 +52,7 @@
   AS meter, i.pimg
   from promotion p inner join tcher t on p.tno = t.tno
   left outer join promotionimg i on p.pno = i.pno
+  where i.titlepic = 1
   having meter <  3000
   ORDER BY meter 
   LIMIT 0,3000 ]]>
@@ -66,6 +65,7 @@
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
+         where i.titlepic = 1
          GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
@@ -79,6 +79,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
+         where i.titlepic = 1
          GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
@@ -91,8 +92,8 @@ FROM memb m left join tcher t  on t.tno = m.mno
   </insert>
   
   <insert id="insertImg" parameterType="map">
-    insert into promotionimg(pno, pimg)
-    values( #{no}, #{pimg} ) 
+    insert into promotionimg(pno, pimg, titlePic)
+    values( #{no}, #{pimg}, #{title}) 
   </insert>
   
   
@@ -104,7 +105,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno < #{lastNo}
   and p.pno > #{lastNo}-6
-  and p.pno > 0
+  and p.pno > 0 and i.titlepic = 1
   order by p.pno desc
   ]]>
   </select>
@@ -115,7 +116,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno > 0
+  where p.pno > 0 and i.titlepic = 1
   order by p.pno desc
   limit 0, 6;
   ]]>
@@ -127,7 +128,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno > 0 and t.spono = #{typeNo}
+  where p.pno > 0 and t.spono = #{typeNo} and i.titlepic = 1
   order by p.pno desc
   limit 0, 6;
   ]]>
@@ -139,7 +140,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno <= #{lastNo} 
+  where p.pno <= #{lastNo}  and i.titlepic = 1
   and p.pno > #{lastNo}-6
   and p.pno > 0  and t.spono = #{typeNo}
  
@@ -161,7 +162,8 @@ where p.pno = #{no};
     select  p.*, t.*, i.pimg
     from promotion p inner join tcher t  on p.tno=t.tno
                             left outer join promotionimg i on p.pno = i.pno
-     where t.tno = #{no}
+                            
+     where t.tno = #{no} and i.titlepic = 1
     order by p.pno desc
   </select>
   

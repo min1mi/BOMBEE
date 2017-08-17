@@ -206,6 +206,10 @@
   margin-right: 5%;
 }
 
+.title-select {
+	border: 3px solid #F7AC1A;
+}
+
 .address {
   font-size: 1.7rem;
 }

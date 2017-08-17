@@ -18,6 +18,8 @@ $(function() {
   $('#datepicker-end').on("change", function(){
     $('.arrowEnd').css('display','none')
   });
+  
+  
 });
 
 var addrInput = $('.address')
@@ -35,6 +37,8 @@ var lng = 0
 var spono = 0
 var selDiv = "";
 var storedFiles = [];
+var titlePic
+var titleSelectPic
 
 // 다음맵: 주소 -> 위도, 경도
 var geocoder = new daum.maps.services.Geocoder();
@@ -77,11 +81,16 @@ function handleFileSelect(e) {
       reader.onload = function (e) {
 
         var html = "<div class='imageAdd-image swiper-slide'>" +
-            "<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
+            "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' value='"+f.name+"' class='title'  title='Click to remove'>" +
             "<p><i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i></p>" +
             "</div>";
 
         selDiv.append(html);
+        titlePic = $('.title')
+        titlePic.click(function() {
+        	titlePic.removeClass('title-select')
+        	$(this).addClass('title-select')
+        })
         // $(html).replaceAll('.ImageBtn');
       }
       reader.readAsDataURL(f);
@@ -115,6 +124,7 @@ $('#image_upload').fileupload({
         console.log('Added file: ' + file.name);
     });
     $('.save').click(function() {
+    	titleSelectPic = $('.title-select').attr('value')
         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
     });
   },
@@ -125,6 +135,7 @@ $('#image_upload').fileupload({
   },
   submit: function (e, data) {
     console.log('submit()...');
+    console.log(titleSelectPic)
     // data 객체의 formData 프로퍼티에 일반 파라미터 값을 설정한다.
     data.formData = {
           title : title.val(),
@@ -135,7 +146,8 @@ $('#image_upload').fileupload({
         tno : tno,
         lat : lat,
         lng : lng,
-        spono : spono
+        spono : spono,
+        titlePic: titleSelectPic
     };location.href = '../promotionControl/promotionControl.html'
   }
 });
