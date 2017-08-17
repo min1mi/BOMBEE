@@ -4,19 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../node_modules/jquery-ui-dist/jquery-ui.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/menu.css'>
   <link rel='stylesheet' href='promotionDetail.css'>
-  <link rel='stylesheet' href="../node_modules/swiper/dist/css/swiper.min.css">
-  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
-  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+
 </head>
 
 <body>
-  <div class='container promotionDetail_container'>
+  <!-- <h1>sdfdsf</h1> -->
+  <div class=' promotionDetail_container'>
 
     <div class='header'></div>
     <!-- header -->
@@ -24,57 +24,125 @@
     <div class='promotionDetail_image'>
 
       <div class="swiper-container">
-      
+
           <div id='swiper-detail' class="swiper-wrapper">
+              <!-- <div class="swiper-slide">
+                <img src="1212.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img src="11.jpg">
+              </div> -->
           </div>
 
           <div class="swiper-pagination"></div>
-
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+
+    <div class='promotionDetail_In' id='handlebars-pro-detail'>
+
+      <!-- <div class='promotionDetail_title'>
+        <span>휘트니스피플 팔 살빼기</span>
+      </div>
+
+      <div class='promotionDetail_companyAdress accordion'>
+        <div class='promotion-icon map-icon'>
+          <span>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div class='promotionDetail_Adress'>
+          <span id='company' style="font-weight:500; font-size:1.5rem;">
+            휘트니스피플서울대</span><br>
+          <span id='address' style='font-weight:300;'>서울 관악구 관악로 199 상준빌딩 3층 </span>
+        </div>
+        <div class='promotionDetail_Adress_Arrow '>
+          <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="addressPanel">
+        <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
       </div>
 
 
 
+      <div class='promotionDetail_Date'>
+        <div class='date-start-end'>
+          <div class='date-start'>
+            <div class='promotion-icon'>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </div>
+            <span>2017-8-20</span>
+          </div>
+          <div class='date-slash'>
+            /
+          </div>
+          <div class='date-end'>
+            <div class='promotion-icon'>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </div>
+            <span>2017-9-20</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="addressPanel">
+        <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
+      </div>
+
+      <div class='promotionDetail_contents'>
+        <p>
+          안녕하세요~
+        </p>
+      </div> -->
+
+
     </div>
-    <div id='handlebars-pro-detail'></div>
-    
+    <!-- promotionDetail_In 끝 -->
 
     <div class='footer'>
-      <p>COACHING</p>
+      <div class='footer-price'>
+        <i class="fa fa-krw" aria-hidden="true"></i>
+        <span>50000</span>
+      </div>
+      <div class='footer-click'>
+        <p>COACHING</p>
+      </div>
     </div>
 
   </div>
   <!-- container -->
 
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='../node_modules/jquery-ui-dist/jquery-ui.js'></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e93af6b0f8e2ad445bda7e9b6a416ad1&libraries=services"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+  <script src="promotionDetail.js"></script>
+
 
   <script id = 'detail-template' type='text/x-handlebars-template'>
- <div class='promotionDetail_title'>
-      <p>{{title}}</p>
+    <div class='promotionDetail_title'>
+      <span>{{title}}</span>
     </div>
 
-    <div class='promotionDetail_DatePrice'>
-      <div class='promotionDetail_date'>
-        <p>{{sdt}} ~ {{edt}}</p>
+    <div class='promotionDetail_companyAdress accordion'>
+      <div class='promotion-icon map-icon'>
+        <span>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </span>
       </div>
-
-      <div class='promotionDetail_price'>
-        <p>{{pric}}&#8361;</p>
+      <div class='promotionDetail_Adress'>
+        <span id='company' style="font-weight:500; font-size:1.5rem;">
+          {{comname}}</span><br>
+        <span id='address' style='font-weight:300;'>{{comaddr}}</span>
       </div>
-    </div>
-
-    <div class='promotionDetail_company '>
-      <p>
-        {{comname}}
-      </p>
-    </div>
-
-
-    <div class='promotionDetail_address accordion' >
-      <p>
-        {{comaddr}} {{comdetailaddr}}&nbsp;
-        <i style="color:blue;"class="fa fa-map-marker" aria-hidden="true"></i>
-      </p>
+      <div class='promotionDetail_Adress_Arrow '>
+        <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+      </div>
     </div>
 
     <div class="addressPanel">
@@ -82,118 +150,47 @@
     </div>
 
 
+    <div class='promotionDetail_Date'>
+      <div class='date-start-end'>
+        <div class='date-start'>
+          <div class='promotion-icon'>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </div>
+          <span>{{sdt}}</span>
+        </div>
+        <div class='date-slash'>
+          /
+        </div>
+        <div class='date-end'>
+          <div class='promotion-icon'>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </div>
+          <span>{{edt}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="addressPanel">
+      <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
+    </div>
+
     <div class='promotionDetail_contents'>
       <p>
-        {{content}}
+        안녕하세요~
       </p>
     </div>
-</script>
-
-<script id = 'swiper-template' type='text/x-handlebars-template'>
-  {{#each photoList}}
-    <div class="swiper-slide">
-       <img src="/upload/{{this}}_promotion.png" width="100%" >
-    </div>
-  {{/each}}
-</script>
-  
-
-  <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e93af6b0f8e2ad445bda7e9b6a416ad1&libraries=services"></script>
-
-  <script>
-  $(document).ready(function() {
-    $('.header').load('../menu/new.html')
-  })
-  </script>
-
-  
-  <script>
-  var no = 0
-  var lat
-  var lon
-  try {
-     no = location.href.split('?')[1].substring(3)
-     console.log('no:' + no)
-  } catch (err) {
-
-  }
-  var swiper = new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      paginationClickable: true,
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      observer:true
-  });
-  
-  
-  $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
-      console.log(result.data.promotion)
-      console.log(result.data.promotion.photoList)
-      console.log(result.data.promotion.photoList[0])
-      var ii = '/upload/' + result.data.promotion.photoList[0]
-      console.log('ii:' + ii)
-      
-      lat = result.data.promotion.lat
-      lon = result.data.promotion.lng
-      console.log(lat)
-      console.log(lon)
-      // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-      var templateFn = Handlebars.compile($('#detail-template').text())
-      var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-      var container = $('#handlebars-pro-detail')
-      var html = container.html()
-      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다. 
-       var acc = document.getElementsByClassName("accordion");
-      
-      // 이미지 템플릿 처리
-      var templateFn2 = Handlebars.compile($('#swiper-template').text())
-      var generatedHTML2 = templateFn2(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-      var container2 = $('#swiper-detail')
-      var html2 = container2.html()
-      container2.html(html2 + generatedHTML2) // 새 tr 태그들로 설정한다. 
-      // 이미지 템플릿 끝 
-
-       
-     mapCreate()
-      
-      acc[0].onclick = function() {
-          this.classList.toggle("active");
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight){
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-
-        } 
-
-    })
-    
-     function mapCreate() {
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-      mapOption = {
-          center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
-          level: 5 // 지도의 확대 레벨
-      };
-
-      var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-      //// 여기 까지 기본 맵
-
-      // 마커가 표시될 위치입니다
-      var markerPosition  = new daum.maps.LatLng(lat, lon);
-
-      // 마커를 생성합니다
-      var marker = new daum.maps.Marker({
-          position: markerPosition
-      });
-      
-   // 마커가 지도 위에 표시되도록 설정합니다
-      marker.setMap(map);
-      ////여기까지 마커 */ 
-  }
 
   </script>
 
+  <script id = 'swiper-template' type='text/x-handlebars-template'>
+    {{#each promotionList}}
+        {{#each photoList}}
+      <div class="swiper-slide">
+         <img src="/upload/{{this}}_promotion.png" width="100%" >
+      </div>
+       {{/each}}
+    {{/each}}
+  </script>
 
 </body>
 </html>

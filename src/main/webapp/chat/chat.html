@@ -27,7 +27,11 @@
 <script id="chat-template" type="text/x-handlebars-template">
   {{#each data}}
   <div class='chat-line'>
-    <div><img src='../image/2.jpg' id='chat-user'/></div>
+      {{#if tPath}}
+    <div><img src='..{{tPath}}' id='chat-user'/></div>
+      {{else}}
+    <div><img src='../image/user' id='chat-user'/></div>
+      {{/if}}
     <dl>
        {{#youAndMe this}}
       <dt id='youAndMe' value='{{memberno}}'>{{yourName}}</dt>
@@ -52,8 +56,12 @@ var myNo
 var membertype
 
 /* var server = location.host + '/upload/' */
-var server = location.host + '/image/2.jpg';
+var server = 'http://'+location.host
 console.log(server)
+
+$('.close-btn').on('click', function(){
+  window.history.go(-1)
+})
 
 $.getJSON('/auth/userinfo.json', function(result) {
 	 console.log(result.data.name)
@@ -103,23 +111,28 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       console.log('강사로그인')
       if (tno == chatInfo.trainerno){
         yourNo = chatInfo.memberno
+        server += '/image/user'
+        console.log(server)
         return options.fn(this);
       }
     }else if (tno == -1) {
       console.log('멤버로그인')
       if (no == chatInfo.memberno) {
         yourNo = chatInfo.trainerno
+        server += chatInfo.tPath
+        console.log(server)
+        
       }
     }
       
       return options.inverse(this);
   });
   
+		console.log(location.host)
   function chatDetailBtn() {
 	  chatLine = $('.chat-line')
 	  chatLine.click(function () {
-		console.log($(this).children('dl').children('dt').attr('value'))
-		location.href = 'http://192.168.0.13:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+		location.href = 'http://192.168.0.71:8888/detail-chat.html?myNo=' + myNo + '&yourNo='
 				+ $(this).children('dl').children('dt').attr('value')+'&yourName='
 				+$(this).children('dl').children('dt').text()+'&membertype='+membertype +
 				'&imagePath='+ server;

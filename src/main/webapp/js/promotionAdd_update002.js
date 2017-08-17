@@ -8,45 +8,14 @@
     });
     $('.header').load('../menu/new.html')
     $('.projectAdd-textArea').css('height', textHeight+'px');
-
-    var textHeight = screen.availHeight-355-100;
-
-    $('#datepicker-start').on("change", function(){
-      $('.arrowStart').css('display','none')
-    });
-
-    $('#datepicker-end').on("change", function(){
-      $('.arrowEnd').css('display','none')
-    });
-
-    // 업데이트 색상 변경
-    $('.titleInput-updateColor').on('click', function(){
-      $(this).css('color', 'black')
-    })
-
-    $('.dateStart-updateColor').on('change', function(){
-      $(this).css('color', 'black')
-    })
-
-    $('.dateEnd-updateColor').on('change', function(){
-      $(this).css('color', 'black')
-    })
-
-    $('.priceIn-updateColor').on('click', function(){
-      $(this).css('color', 'black')
-    })
-
-    $('.promotionText-updateColor').on('click', function(){
-      $(this).css('color', 'black')
-    })
-
   });
-
-  var addrInput = $('.address')
-  var addrComp = $('.company span')
-
+  
+  var addrInput = $('.addressIn')
+  var addrComp = $('.addressCompany')
+  
+  var address = $('.addressIn').text()
   var textHeight = screen.availHeight-355-100;
-  var title = $('.titleInput')
+  var title = $('.titleIn')
   var pric = $('.priceIn')
   var content = $('.promotionText')
   var sdt = $('.dateStart')
@@ -55,13 +24,14 @@
   var lat = 0
   var lng = 0
   var spono = 0
+  var fiFilenames = $('#fi-filenames')
   var selDiv = "";
   var storedFiles = [];
   var delImage = [];
   var pno
   var count = 0
-
-// 다음맵: 주소 -> 위도, 경도
+  
+// 다음맵: 주소 -> 위도, 경도 
   var geocoder = new daum.maps.services.Geocoder();
   var callback = function(result, status) {
     if (status === daum.maps.services.Status.OK) {
@@ -69,9 +39,9 @@
         lng = result[0].x
     }
   };
+  
 
-
-  $(document).ready(function() {
+  $(document).ready(function() {	  
 	  $('.priceIn').on('keyup', function() {
 	        if($(this).val().length >= 11) {
 	            $(this).val($(this).val().substring(0, 11));
@@ -100,12 +70,10 @@
         var reader = new FileReader();
 
         reader.onload = function (e) {
-
-          var html = "<div class='imageAdd-image swiper-slide'>" +
-              "<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
-              "<p><i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i></p>" +
-              "</div>";
-
+          var html = "<div class='swiper-slide'>" +
+          		"<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
+          		"<i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i>" +
+          		"</div>";
           selDiv.append(html);
         }
         reader.readAsDataURL(f);
@@ -125,15 +93,15 @@
       }
       console.log(storedFiles)
       console.log('delImage:' + delImage)
-      $(this).parent().parent().remove();
+      $(this).parent().remove();
     }
-
+    
 	$('#image_upload').fileupload({
 		traditional : true,
 	  url: '/promotion/update.json',        // 서버에 요청할 URL
 	  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 	  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-	  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+	  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.   
 	  add: function (e, data) {
 	    console.log('update()...');
 	    count = 1
@@ -168,9 +136,9 @@
 				  delImage:delImage
 	    }; location.href = '../promotionControl/promotionControl.html'
 	  }
-	}
-	);
-
+	} 
+	); 
+	
 	  $('.save').click(function() {
 	    	if (count == 0) {
 	    		jQuery.ajaxSettings.traditional = true,
@@ -188,7 +156,7 @@
 					  delImage:delImage
 	    		},function(result) {}
 	    		), location.href = '../promotionControl/promotionControl.html'
-	    	}
+	    	} 
 })
 
 //swiper
@@ -201,9 +169,9 @@
       grabCursor: true,
       observer:true
 //      onSlideChangeEnd: function(){alert("onSlideChangeEnd")}
-
+      
   });
-
+  
   $.getJSON('/auth/userinfo.json', function(result) {
 	  console.log('membertype:' + result.data.membertype)
 	  if(result.data.membertype == 1){
@@ -217,7 +185,7 @@
 			spono = result.data.spono
 		}
 	})
-
+	
   var no = 0
 
   try {
@@ -225,30 +193,30 @@
      pno = no
      console.log('no:' + no)
   } catch (err) {}
-
+  
   $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
 	  console.log(result.data.promotion)
 	  console.log('photolist:' + result.data.promotion.photoList)
-
-	  $('.titleInput').val(result.data.promotion.title)
+	  
+	  $('.titleIn').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
       $('.dateEnd').val(result.data.promotion.edt)
       $('.priceIn').val(result.data.promotion.pric)
       $('.promotionText').text(result.data.promotion.content)
-
+      
       var templateFn = Handlebars.compile($('#update-template').text())
       var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#selectedFiles')
       var html = container.html()
-      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
-
+      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다. 
+      
   	}
   )
-
-// x alert 창
+  
+// x alert 창  
   $('.topClose').click(function(){
     swal({
-    text:"프로모션수정을 취소 하시겠습니까?",
+    text:"프로모션등록을 취소 하시겠습니까?",
     type: "warning",
     showCancelButton: true,
     cancelButtonText: "취 소",

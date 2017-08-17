@@ -43,10 +43,14 @@ public class PromotionControl {
   
   @RequestMapping("gps")
   public JsonResult gps(Location local) throws Exception {
+    System.out.println(local.getLat());
+    System.out.println(local.getLon());
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", promotionService.LatLonList(local));
+    
    if(local.getTeacherOrPromotion() == 0) {
-     
+     dataMap.put("list", promotionService.list(local));
+   }else {
+     dataMap.put("list", promotionService.trainerList(local));
    }
    return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
@@ -136,6 +140,9 @@ public class PromotionControl {
   @RequestMapping("add")
   public JsonResult addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
     System.out.println(promotion);
+    String titleName = promotion.getTitlePic();
+    int titleNo = -1;
+    
     
     ArrayList<String> fileList = new ArrayList<>();
     
@@ -147,21 +154,24 @@ public class PromotionControl {
         File file = new File(ctx.getRealPath("/upload/" + newFilename));
         System.out.println(ctx.getRealPath("/upload/" + newFilename));
         files[i].transferTo(file);
-        if (i == 0) {
+        if (files[i].getOriginalFilename().equals(promotion.getTitlePic()) ) {
+          System.out.println("들어옴11");
           File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_titleMainList"));
           Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
         }
-        
         File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
         Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
           
         fileList.add(newFilename);
       }
-    System.out.println(fileList);
+    if (titleName != null) {
+      for (int i = 0; i < files.length; i++) {
+        if (files[i].getOriginalFilename().equals(titleName))
+          titleNo = i;
+      }
+    }
     promotion.setPhotoList(fileList);
-    System.out.println(promotion.getPhotoList());
-    promotionService.add(promotion);
-    System.out.println(promotion);
+    promotionService.add(promotion, titleNo);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   

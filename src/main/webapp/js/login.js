@@ -7,6 +7,75 @@ $(document).ready(function() {
     });
   })
 
+  function firstLogin(response) {
+    console.log('firstLogin')
+    $.post('/auth/login.json', {
+      id : response.id,
+      pwd : '1111',
+      membertype: 1
+
+    }, function(result) {
+      console.log(result)
+      if(result.data == 'ok')
+        window.history.go(-1)
+
+        else {
+          console.log(response)
+          if(response.kaccount_email)
+            kakaoadd(response)
+          else
+            facebookadd(response)
+        }
+    }, 'json'); // login.json
+  }
+
+  function kakaoadd(response) {
+    console.log('add')
+    $.post('/member/add.json', {
+      id: response.id,
+      pwd: '1111',
+      name: response.properties.nickname,
+      email: response.kaccount_email,
+      accounttype: 2,
+      membertype: 1
+
+    }, function(result) {
+      console.log('login')
+      login(result)
+
+    }, 'json') // kakaoadd.json
+  }
+  
+  function facebookadd(response) {
+    console.log('add')
+    $.post('/member/add.json', {
+      id: response.id,
+      pwd: '1111',
+      name: response.name,
+      email: response.email,
+      accounttype: 1,
+      membertype: 1
+      
+    }, function(result) {
+      console.log('login')
+      login(result)
+      
+    }, 'json') // facebookadd.json
+  }
+
+  function login(result) {
+    console.log('login')
+    $.post('/auth/login.json', {
+      id: result.data.id,
+      pwd: result.data.pwd,
+      membertype: result.data.membertype
+
+    }, function(success) {
+      location.href = '../main/main.html'
+
+    }, 'json') // login.json
+  }
+
   $('#kakao').on('click', function() {
     Kakao.Auth.login({
       success: function(authObj) {/*
@@ -15,43 +84,8 @@ $(document).ready(function() {
         Kakao.API.request({
           url: '/v1/user/me',
           success: function(response) {
-            console.log(JSON.stringify(response));
-            console.log(response.id)
-
-            $.post('/auth/login.json', {
-              id: response.id,
-              pwd: '1111',
-              membertype: 1
-            }, function(result) {
-              console.log('login')
-
-              if (result.data == 'ok')
-                window.history.go(-1)
-
-                else {
-                  $.post('/member/add.json', {
-                    id: response.id,
-                    pwd: '1111',
-                    email: response.email,
-                    name: response.properties.nickname,
-                    email: response.kaccount_email,
-                    accounttype: 2,
-                    membertype: 1
-
-                  }, function(result) {
-                    console.log('login')
-                    $.post('/auth/login.json', {
-                    	id: response.id,
-                    	pwd: '1111',
-                    	membertype: 1
-                    })
-                    if(result.data == 'ok')
-                      window.history.go(-1)
-
-                  }, 'json') // add.json
-                }
-
-            }, 'json'); // login.json
+            console.log(response)
+            firstLogin(response)
 
           },
           fail: function(err) {
@@ -63,41 +97,14 @@ $(document).ready(function() {
   })
 
 
+
   $('#facebook').on('click', function() {/*
   location.href='../ekdma/t-login.html' */
     FB.login(function(response) {
       FB.api('/me?fields=id,name,email', function (response) {
         console.log(JSON.stringify(response));
+        firstLogin(response)
 
-        $.post('/auth/login.json', {
-          id : response.id,
-          pwd : '1111',
-          membertype: 1
-
-        }, function(result) {
-          console.log('login')
-          console.log(result)
-          if(result.data == 'ok')
-            window.history.go(-1)
-
-            else {
-              $.post('/member/add.json', {
-                id: response.id,
-                pwd: '1111',
-                email: response.email,
-                name: response.name,
-                membertype: 1,
-                accounttype: 1
-
-              }, function(result) {
-                console.log('login')
-
-                if(result.data == 'ok')
-                  window.history.go(-1)
-
-              }, 'json') // add.json
-            }
-        }, 'json'); // login.json
       }, {scope: 'public_profile,email'});
     })
   })
@@ -125,29 +132,21 @@ $('.send').on('click', function() {
   }, 'json')
 })
 window.fbAsyncInit = function() {
-      FB.init({
-        appId : '484853665195171',
-        cookie : true,
-        xfbml : true,
-        version : 'v2.8'
-      });
-      FB.AppEvents.logPageView();
-    };
+  FB.init({
+    appId : '484853665195171',
+    cookie : true,
+    xfbml : true,
+    version : 'v2.8'
+  });
+  FB.AppEvents.logPageView();
+};
 
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id))
-        return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-
-
-
-
-
-
-/**/
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id))
+    return;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
