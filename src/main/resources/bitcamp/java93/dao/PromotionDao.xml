@@ -48,15 +48,15 @@
   </resultMap>
   
   <select id="selectList" resultMap="promotionMap" parameterType="map">
-    select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, t.spono, t.comaddr, p.lat, p.lng,
+   <![CDATA[  select  p.pno, p.titl, p.pric, p.content, p.sdt, p.edt, p.tno, t.spono, t.comaddr, p.lat, p.lng,
     (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter, i.pimg
   from promotion p inner join tcher t on p.tno = t.tno
   left outer join promotionimg i on p.pno = i.pno
-  having meter <![CDATA[ < ]]> 3000
+  having meter <  3000
   ORDER BY meter 
-  LIMIT 0,3000
+  LIMIT 0,3000 ]]>
   </select>
   <select id="trainerList" resultMap="promotionMap" parameterType="map">
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
@@ -64,8 +64,9 @@
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter , i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
-         left join promotion p on p.tno = t.tno GROUP BY m.id
+         left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
+         GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000
@@ -76,8 +77,9 @@ FROM memb m left join tcher t  on t.tno = m.mno
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
   AS meter, i.pimg
 FROM memb m left join tcher t  on t.tno = m.mno 
-         left join promotion p on p.tno = t.tno GROUP BY m.id
+         left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
+         GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
   LIMIT 0,3000

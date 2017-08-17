@@ -43,10 +43,14 @@ public class PromotionControl {
   
   @RequestMapping("gps")
   public JsonResult gps(Location local) throws Exception {
+    System.out.println(local.getLat());
+    System.out.println(local.getLon());
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", promotionService.LatLonList(local));
+    
    if(local.getTeacherOrPromotion() == 0) {
-     
+     dataMap.put("list", promotionService.list(local));
+   }else {
+     dataMap.put("list", promotionService.trainerList(local));
    }
    return new JsonResult(JsonResult.SUCCESS ,dataMap);
   }
