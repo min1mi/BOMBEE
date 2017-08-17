@@ -19,6 +19,9 @@ alreadymealkcal = $('.already-food-kcal'),
 mealtype,
 mealno;
 
+
+
+
 $('#files').fileupload({
 	url: '/management/usermeal-add.json',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -125,6 +128,10 @@ $('#foodUpdateBtn').on('click', function() {
 
 var startDate,
 endDate, totalKcal = 0;
+
+$.getJSON('/auth/userinfo.json', function(result) {
+    $('.user').text(result.data.name)
+     })
 
 function generateTemplate() {
 	startDate = current.startOf('week').format("YYYY-MM-DD")

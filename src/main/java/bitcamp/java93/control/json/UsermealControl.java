@@ -86,6 +86,12 @@ public class UsermealControl {
     usermealService.remove(mealno);
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+  @RequestMapping("trainingList")
+  public JsonResult trainingList(int no) throws Exception {
+    System.out.println(no);
+    return new JsonResult(JsonResult.SUCCESS, usermealService.traingList(no));
+  }
 
   int count = 0;
   synchronized private String getNewFilename() {
@@ -94,4 +100,6 @@ public class UsermealControl {
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
   }
+  
+  
 }

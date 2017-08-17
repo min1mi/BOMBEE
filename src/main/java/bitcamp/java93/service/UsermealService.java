@@ -11,4 +11,5 @@ public interface UsermealService {
   void update(Usermeal usermeal) throws Exception;
   void nopicUpdate(Usermeal usermeal) throws Exception;
   void remove(int mealno) throws Exception;
+  List<Usermeal> traingList(int no) throws Exception;
 }

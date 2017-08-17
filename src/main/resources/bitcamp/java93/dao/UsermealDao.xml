@@ -23,6 +23,15 @@
 				<result column="mealtype" property="mealtype" />
 		</collection>
 	</resultMap>
+	
+	<resultMap type="usermealList" id="usermealMap2">
+		<result column="trano" property="trano"/>
+		<result column="sdt" property="sdt"/>
+		<result column="edt" property="edt"/>
+		<result column="confirm" property="confirm"/>
+		<result column="mno" property="mno"/>
+		<result column="tno" property="tno"/>
+	</resultMap>
 
 	<select id="selectWeeklist" resultMap="usermealMap"
 		parameterType="map">
@@ -57,5 +66,13 @@
 	<delete id="delete" parameterType="int">
     delete from memb_manage where mealno=#{mealno}
   </delete>
+  
+  
+  <select id="trainingList" resultMap="usermealMap2" parameterType="int">
+		select * 
+		from tcher_trainer
+		where mno = #{no}
+	</select>
+  
 
 </mapper>

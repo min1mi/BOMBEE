@@ -47,5 +47,11 @@ public class UsermealServiceImpl implements UsermealService {
       count = usermealDao.delete(mealno);
     } catch(Exception e) {}
   }
+
+  @Override
+  public List<Usermeal> traingList(int no) throws Exception {
+    
+    return usermealDao.trainingList(no);
+  }
   
 }

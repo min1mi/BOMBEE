@@ -25,7 +25,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
   generateTemplate();
 	getData();
 	// getLike();
-	getLike();
+	// getLike();
 })
 function generateTemplate() {
   $.getJSON('/trainer/detail.json', {no}, function(result) {
@@ -94,8 +94,8 @@ function getAdd() {
 
 
 	})
+})
 }
-
 jQuery(document).ready(function($){
 
 $(".pro-t-Btn").click(function(){
