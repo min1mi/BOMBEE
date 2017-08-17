@@ -12,4 +12,5 @@ public interface FriendService {
   void remove(Friend friend) throws Exception;
   void add2(Friend friend) throws Exception;
   void remove2(Friend friend) throws Exception;
+
 }

@@ -31,22 +31,22 @@ public class FriendControl {
 
   @RequestMapping("detail")
   public JsonResult detail(Friend friend) throws Exception {
-    
+
     friendService.get(friend);
-    
+
     return new JsonResult(JsonResult.SUCCESS, friend);
   } // service()
-  
+
   @RequestMapping("delete")
   public JsonResult delete(Friend friend) throws Exception {
     friendService.remove(friend);
-    
+
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   @RequestMapping("delete2")
   public JsonResult delete2(Friend friend) throws Exception {
     friendService.remove2(friend);
-    
+
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 

@@ -5,16 +5,12 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.FriendDao;
 import bitcamp.java93.domain.Friend;
-import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.FriendService;
 
 @Service
 public  class FriendServiceImpl implements FriendService {
   @Autowired
   FriendDao friendDao;
-
-
-
 
   
   public void get(Friend friend) throws Exception {

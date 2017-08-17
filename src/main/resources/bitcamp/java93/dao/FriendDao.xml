@@ -14,10 +14,8 @@
     <result column="confirm" property="confirm"/>
 
   </resultMap>
-
-
-
-
+  
+  
 
   <insert id="insert" parameterType="friend">
           insert into tcher_trainer(mno, tno, confirm)
@@ -46,3 +44,4 @@
 
 
 </mapper>
+

@@ -3,16 +3,19 @@ var no
 var tno
 var boool
 var mname
+
 var tname
 var tpic
 var realpic
 var islike
+
 $.getJSON('/auth/userinfo.json', function(result) {
 	console.log(result)
 	mno = result.data.no
 	mname = result.data.name
 	console.log(result.data.name)
 	console.log(result.data.no)
+	// no = 0
 	try {
 			no = location.href.split('?')[1].split('=')[1]
 	} catch (err) {
@@ -22,6 +25,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
   generateTemplate();
 	getData();
 	// getLike();
+	getLike();
 })
 function generateTemplate() {
   $.getJSON('/trainer/detail.json', {no}, function(result) {
@@ -81,6 +85,11 @@ function getAdd() {
 	$.getJSON('/friend/detail.json', {'mno' : mno, 'tno': tno}, function(result) {
 		console.log(result)
 			// islike =
+	$.getJSON('/friend/detail.json', {no}, function(result) {
+		console.log(result.data.weeklist.day+result.data.weeklist.time)
+
+
+			$('i[data-likeno=' + likeno + ']').addClass('fa-star-o')
 
 
 
@@ -183,4 +192,45 @@ $('.likeBtn').click(function() {
 				console.log("취소 완료")
 			})
 	}
+	console.log(mno)
+	console.log(tno)
+	console.log(boool)
+	console.log(status)
+	// console.log(status.data.name)
+	// console.log(status.data.name)
+	$.getJSON('/friend/add.json', {
+		'mno':mno,
+		'tno': tno,
+		'confirm': boool
+		}, function(result) {
+
+	})
+})
+
+// $('.pro-qa-Btn').on('click', function() {
+//
+//
+// 	$.getJSON('/friend/chat.json', {
+// 		'mno':mno,
+// 		'tno': tno,
+// 		'tname'
+// 		'mname':
+// 		'tcherpic':
+//
+// 		}, function(result) {
+//
+// 	})
+// })
+
+$('.likeBtn').click(function() {
+	console.log(mno)
+	console.log(tno)
+	// console.log(boool)
+	// $.getJSON('/friend/add.json', {
+	// 	'mno':mno,
+	// 	'tno': tno,
+	// 	'confirm': boool
+	// 	}, function(result) {
+	//
+	// })
 })

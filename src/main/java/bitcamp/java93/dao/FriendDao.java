@@ -9,4 +9,5 @@ public interface FriendDao {
   int delete(Friend friend);
   int insert2(Friend friend);
   int delete2(Friend friend);
+
 }
