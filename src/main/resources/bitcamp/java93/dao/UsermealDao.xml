@@ -76,7 +76,8 @@
 		select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join memb m on t.tno = m.mno
                                     inner join promotion p on t.pno = p.pno
                                                                           inner join promotionimg i on t.pno = i.pno
-                                                                          where t.mno = #{no} and i.titlepic = 1;
+                                                                          where t.mno = #{no} and i.titlepic = 1
+                                                                          order by t.sdt desc;
 	</select>
   
 
