@@ -104,14 +104,14 @@
         reader.onload = function (e) {
 
           var html = "<div class='imageAdd-image swiper-slide'>" +
-              "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='title-image' title='Click to remove'>" +
+              "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' value='"+f.name+"' class='title-image' title='Click to remove'>" +
               "<p><i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i></p>" +
               "</div>";
-
+          
           selDiv.append(html);
          
           titlePic = $('.title-image')
-          aa()
+          titlePicF()
           
         }
         reader.readAsDataURL(f);
@@ -119,11 +119,13 @@
     }
   
   
- function aa() {
+ function titlePicF() {
 	  titlePic.click(function() {
 		console.log('!!타이틀이미지')
 	  	titlePic.parent().removeClass('title-select')
 	  	$(this).parent().addClass('title-select')
+	  	titleSelectPic = $('.title-select').children().attr('value')
+        console.log('titleSelectPic:' + titleSelectPic)
 	  })
  }
 
@@ -156,7 +158,7 @@
 	        console.log('Added file: ' + file.name);
 	    });
 	    $('.save').click(function() {
-	    	 titleSelectPic = $('.title-select')
+	    	 titleSelectPic = $('.title-select').children().attr('value')
 	         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
 	         count = 0
 	    });
@@ -166,6 +168,7 @@
 	    console.log(data.result);
 	    console.log(titleSelectPic)
 	    console.log('서버갔다옴.')
+	    location.href = '../promotionControl/promotionControl.html'
 	  },
 	  submit: function (e, data) {
 	    console.log('submit()...');
@@ -183,7 +186,8 @@
 				  pno : pno,
 				  delImage:delImage,
 				  titlePic: titleSelectPic
-	    }; location.href = '../promotionControl/promotionControl.html'
+	    }; 
+	    
 	  }
 	}
 	);
@@ -202,7 +206,8 @@
 					  lng : lng,
 					  spono : spono,
 					  pno : pno,
-					  delImage:delImage
+					  delImage:delImage,
+					  titlePic: $('.title-select').children().attr('value')
 	    		},function(result) {}
 	    		), location.href = '../promotionControl/promotionControl.html'
 	    	}
@@ -246,8 +251,8 @@
   $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
 	  console.log(result.data.promotion)
 	  console.log(result.data.promotion.promotionList)
-	  console.log(result.data.promotion.titlePic)
-	  var currentTitle = result.data.promotion.titlePic
+	  console.log(result.data.promotion.tiPic)
+	  var currentTitle = result.data.promotion.tiPic
 
 	  $('.titleInput').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
@@ -262,7 +267,7 @@
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
       
        titlePic = $('.title-image')
-       aa()
+       titlePicF()
       
       $('#' + currentTitle).parent().addClass('title-select')
 

@@ -124,7 +124,7 @@
   {{#each promotionList}}
     {{#each photoList}}
       <div class='imageAdd-image swiper-slide '>
-        <img src='/upload/{{this}}_promotion.png' id={{this}} data-file='' class='title-image' title='Click to remove'>
+        <img src='/upload/{{this}}_promotion.png' id={{this}} data-file={{this}} value={{this}} class='title-image' title='Click to remove'>
         <p>
           <i class='fa fa-times selFile' aria-hidden='true' value='{{this}}'></i>
         </p>

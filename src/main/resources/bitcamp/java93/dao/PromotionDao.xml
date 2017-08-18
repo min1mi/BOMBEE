@@ -97,6 +97,12 @@ FROM memb m left join tcher t  on t.tno = m.mno
     values( #{no}, #{pimg}, #{title}) 
   </insert>
   
+ <!--  <update id="" parameterType="">
+    update promotionimg set
+          titlePic=1
+          where PIMG = 
+  </update> -->
+  
   
   <select id="nextList" resultMap="promotionMap" parameterType="int">
   <![CDATA[
@@ -198,5 +204,25 @@ where p.pno = #{no};
 	    content=#{content}
 	  where pno=#{pno}
   </update>
+  
+  <update id="titleImageInit" parameterType="promotion"  >
+    update promotionimg set
+          titlePic=0
+          where pno =#{pno}
+  </update>
+  
+  <!-- update promotionimg set
+          titlePic=1
+          where PIMG = '1503053199953_18'
+      
+        -->
+        
+  <!-- 
+    update promotionimg set
+          titlePic=0
+          where pno = '23';
+    
+  
+   -->
   
 </mapper>

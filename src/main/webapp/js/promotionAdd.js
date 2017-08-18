@@ -90,8 +90,10 @@ function handleFileSelect(e) {
         titlePic.click(function() {
         	titlePic.parent().removeClass('title-select')
         	$(this).parent().addClass('title-select')
+        	titleSelectPic = $('.title-select').children().attr('value')
+        	console.log('titleSelectPic:' + titleSelectPic)
         })
-        // $(html).replaceAll('.ImageBtn');
+      
       }
       reader.readAsDataURL(f);
     });
@@ -124,8 +126,39 @@ $('#image_upload').fileupload({
         console.log('Added file: ' + file.name);
     });
     $('.save').click(function() {
-    	titleSelectPic = $('.title-select').children().attr('value')
-        data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+    	
+    		if(title.val() == '' ||
+    				pric.val() =='' ||
+    				content.val() =='' || 
+    				sdt.val() =='' || 
+    				edt.val() =='' ||
+    				storedFiles.length == 0){
+    			console.log("모든 입력 값 필요")
+    			swal({
+    				    title:"필수 입력란이 비었습니다.",
+    				    type: "warning",
+    				    animation: false,
+    				    showConfirmButton:false,
+    				    timer: 1500
+    			  	  }
+    				);
+    		} else {
+    			console.log("모든 입력값 있음.")
+    			titleSelectPic = $('.title-select').children().attr('value')
+    			if(titleSelectPic == undefined){
+    				swal({
+    				    title:"대표 이미지를 선택해주세요.",
+    				    type: "warning",
+    				    animation: false,
+    				    showConfirmButton:false,
+    				    timer: 1500
+    			  	  })
+    			} else
+    				data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+    		}
+    	  
+    	
+    	
     });
   },
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -154,30 +187,25 @@ $('#image_upload').fileupload({
 });
 
 
-//$('.save').click(function() {
-//	console.log('!!save!!')
-//	  swal({
-//		  title:"필수 입력란이 비었습니다.",
-//		  type: "warning",
-//		  animation: false,
-//		  showConfirmButton:false,
-//		  timer: 1500
-//	  	}
-//	);
-//  }
-//);
-
-
 $('.save').click(function() {
-//title 
-//pric 
-//content 
-//sdt 
-//edt 
-	if(title.val == 0){
-		console.log("비었음")
+
+	if(title.val() == '' ||
+			pric.val() =='' ||
+			content.val() =='' || 
+			sdt.val() =='' || 
+			edt.val() =='' ||
+			storedFiles.length == 0){
+		console.log("모든 입력 값 필요")
+		swal({
+			    title:"필수 입력란이 비었습니다.",
+			    type: "warning",
+			    animation: false,
+			    showConfirmButton:false,
+			    timer: 1500
+		  	  }
+			);
 	} else {
-		console.log("")
+		console.log("모든 입력값 있음.")
 	}
   }
 );

@@ -176,44 +176,63 @@ public class PromotionControl {
   }
   
   @RequestMapping("update")
-  public JsonResult addPromotion(Promotion promotion, MultipartFile[] files, String[] delImage) throws Exception {
+  public void addPromotion(Promotion promotion, MultipartFile[] files, String[] delImage) throws Exception {
   	System.out.println("update control!!");
   	System.out.println("promotion" + promotion);
   	System.out.println("delImage:" + delImage);
-    ArrayList<String> fileList = new ArrayList<>();
-    
-  	if(delImage != null) {
-  		System.out.println("컨트롤~이미지 삭제!!!");
-  		for (String delI : delImage){
-    		promotionService.delAddImage(delI);
-    	}
-  	}
   	
-  	if (files != null) {
-  	 for (int i = 0; i < files.length; i++) {
-       if (files[i].isEmpty()) 
-         continue;
-
-       String newFilename = this.getNewFilename();
-       File file = new File(ctx.getRealPath("/upload/" + newFilename));
-       System.out.println(ctx.getRealPath("/upload/" + newFilename));
-       files[i].transferTo(file);
-       
-       File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_mainList"));
-       Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
-       
-       thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
-       Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
-         
-       fileList.add(newFilename);
-     }
-  	
-  	 System.out.println("fileList:" + fileList);
-     promotion.setPhotoList(fileList);
-     System.out.println("promotion.getPhotoList()" + promotion.getPhotoList());
-  	}
-     promotionService.updatePromotion(promotion);
-     return new JsonResult(JsonResult.SUCCESS, "ok");
+//  	String titleName = promotion.getTitlePic();
+//    int titleNo = -1;
+//    
+//    ArrayList<String> fileList = new ArrayList<>();
+//    
+//    // 대표 이미지 초기화    
+//    promotionService.titleImageInit(promotion);
+//    
+//  	if(delImage != null) {
+//  		System.out.println("컨트롤~이미지 삭제!!!");
+//  		for (String delI : delImage){
+//    		promotionService.delAddImage(delI);
+//    	}
+//  	}
+//  	
+//  	if (files != null) {
+//  	 for (int i = 0; i < files.length; i++) {
+//       if (files[i].isEmpty()) 
+//         continue;
+//
+//       String newFilename = this.getNewFilename();
+//       File file = new File(ctx.getRealPath("/upload/" + newFilename));
+//       System.out.println(ctx.getRealPath("/upload/" + newFilename));
+//       files[i].transferTo(file);
+//       
+//       if (files[i].getOriginalFilename().equals(promotion.getTitlePic()) ) {
+//         System.out.println("들어옴11");
+//         File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_titleMainList"));
+//         Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
+//       }
+//       
+//       File thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
+//       Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
+//         
+//       fileList.add(newFilename);
+//     }
+//  	 
+//  	 if (titleName != null) {
+//       for (int i = 0; i < files.length; i++) {
+//         if (files[i].getOriginalFilename().equals(titleName))
+//           titleNo = i;
+//       }
+//     }
+//  	
+//  	 System.out.println("fileList:" + fileList);
+//     promotion.setPhotoList(fileList);
+//     System.out.println("promotion.getPhotoList()" + promotion.getPhotoList());
+//  	}
+//  	
+//  	
+//     promotionService.updatePromotion(promotion, titleNo);
+//     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
   int count = 0;
