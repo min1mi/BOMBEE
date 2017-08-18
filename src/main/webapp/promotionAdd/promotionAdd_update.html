@@ -35,7 +35,7 @@
       </div>
 
       <div class='save' >
-        수&nbsp;정&nbsp;
+        Save
       </div>
 
     </div>
@@ -100,12 +100,14 @@
 
       <div class='company_address'>
         <div class='promotion-icon'>
-          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <i class="fa fa-map-marker fa-fontsize" aria-hidden="true"></i>
         </div>
-        <div class='company'>
-          <span style="font-weight: 800;"></sapn>
+        
+        <div class='companyAddress'>
+          <p id='company' style="font-weight: 600; font-size: 1.4rem; margin: 0px;"></p>
+          <p id='address' style="margin: 0px;"></p>
         </div>
-        <span class='address'>address</span>
+       
       </div>
 
       <div class='contents'>
@@ -120,13 +122,15 @@
 </body>
 
  <script id = 'update-template' type='text/x-handlebars-template'>
-  {{#each photoList}}
-    <div class='imageAdd-image swiper-slide'>
-      <img src='/upload/{{this}}_promotion.png' data-file='' title='Click to remove'>
-      <p>
-        <i class='fa fa-times selFile' aria-hidden='true' value='{{this}}'></i>
-      </p>
-    </div>
+  {{#each promotionList}}
+    {{#each photoList}}
+      <div class='imageAdd-image swiper-slide'>
+        <img src='/upload/{{this}}_promotion.png' data-file='' title='Click to remove'>
+        <p>
+          <i class='fa fa-times selFile' aria-hidden='true' value='{{this}}'></i>
+        </p>
+      </div>
+    {{/each}}
   {{/each}}
 </script>
 </html>

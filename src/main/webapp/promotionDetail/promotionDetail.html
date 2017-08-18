@@ -42,63 +42,6 @@
 
     <div class='promotionDetail_In' id='handlebars-pro-detail'>
 
-      <!-- <div class='promotionDetail_title'>
-        <span>휘트니스피플 팔 살빼기</span>
-      </div>
-
-      <div class='promotionDetail_companyAdress accordion'>
-        <div class='promotion-icon map-icon'>
-          <span>
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-          </span>
-        </div>
-        <div class='promotionDetail_Adress'>
-          <span id='company' style="font-weight:500; font-size:1.5rem;">
-            휘트니스피플서울대</span><br>
-          <span id='address' style='font-weight:300;'>서울 관악구 관악로 199 상준빌딩 3층 </span>
-        </div>
-        <div class='promotionDetail_Adress_Arrow '>
-          <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div class="addressPanel">
-        <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
-      </div>
-
-
-
-      <div class='promotionDetail_Date'>
-        <div class='date-start-end'>
-          <div class='date-start'>
-            <div class='promotion-icon'>
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-            </div>
-            <span>2017-8-20</span>
-          </div>
-          <div class='date-slash'>
-            /
-          </div>
-          <div class='date-end'>
-            <div class='promotion-icon'>
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-            </div>
-            <span>2017-9-20</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="addressPanel">
-        <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
-      </div>
-
-      <div class='promotionDetail_contents'>
-        <p>
-          안녕하세요~
-        </p>
-      </div> -->
-
-
     </div>
     <!-- promotionDetail_In 끝 -->
 
@@ -184,11 +127,11 @@
 
   <script id = 'swiper-template' type='text/x-handlebars-template'>
     {{#each promotionList}}
-        {{#each photoList}}
-      <div class="swiper-slide">
-         <img src="/upload/{{this}}_promotion.png" width="100%" >
-      </div>
-       {{/each}}
+      {{#each photoList}}
+        <div class="swiper-slide">
+          <img src="/upload/{{this}}_promotion.png" width="100%" >
+        </div>
+      {{/each}}
     {{/each}}
   </script>
 

@@ -22,8 +22,8 @@ $(function() {
   
 });
 
-var addrInput = $('.address')
-var addrComp = $('.company span')
+var addrInput = $('#address')
+var addrComp = $('#company')
 
 var textHeight = screen.availHeight-355-100;
 var title = $('.titleInput')
