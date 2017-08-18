@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"  user-scalable=no>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="apple-touch-icon" href="/img/favicon.ico">
-  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel='stylesheet' href="../css/bombee.css">
-  <link rel='stylesheet' href="../css/trainingList.css">
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1"
+	user-scalable=no>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="/img/favicon.ico">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href="../css/bombee.css">
+<link rel='stylesheet' href="../css/trainingList.css">
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 </head>
-  <body>
-    <div class="trainingList-container">
-      <div class='header'></div>
+<body>
+	<div class="trainingList-container">
+		<div class='header'></div>
 
-      <div class='training'>
-        <div class='list'>
+		<div class='training'>
+			<div class='list clearfix'>
+				<img src='../image/lunch.jpg'> <span class='promotionName'>여름방학
+					빼빼로 프로젝트</span> <span class='startDate'>2017-08-31 <span>~</span></span> <span
+					class='endDate'>2017-09-31</span> <span class='trainerName'>권봉수</span>
+				<span class='trainer'>강사</span>
+				<div class='btn mealBtn'>Check My Meal</div>
+			</div>
+		</div>
 
-        </div>
-      </div>
+	</div>
 
-    </div>
-
-    <!-- <script id="user-template" type="text/x-handlebars-template">
+	<script id="user-template" type="text/x-handlebars-template">
       {{#each mealList}}
-      <div id='{{day}}' class='tab-slider-body kcal-body'>
-        <div class='kcal-info'>
-          <span class='total'>total</span>
-          <div class='kcal-total'>{{totalKcal}}</div>
-          <span class='kcal'>kcal</span>
+      <div class='list clearfix'>
+          <img src='../image/lunch.jpg'>
+          <span class='promotionName'>여름방학 빼빼로 프로젝트</span>
+          <span class='startDate'>2017-08-31 <span>~</span></span>
+          <span class='endDate'>2017-09-31</span>
+          <span class='trainerName'>권봉수</span>
+          <span class='trainer'>강사</span>
+          <div class='btn mealBtn'>Check My Meal</div>
         </div>
-        {{#each sortedMeals}} {{#if mealpicture}}
-        <div class='meal' value='{{mealno}}'>
-          <div class='img-fix'>
-            <img src='{{mealpicture}}_350.png'>
-          </div>
-          <p class='meal-type'>{{mealtype}}</p>
-          <p class='meal-name'>{{mealname}}</p>
-          <p class='meal-kcal' value='{{mealkcal}}'>{{mealkcal}} kcal</p>
-        </div>
-        {{else}}
-        <div class='input-meal' value='{{index}}'>
-          <center>
-            <div class="fa fa-camera camera-size"></div>
-          </center>
-        </div>
-        {{/if}} {{/each}}
       </div>
       {{/each}}
-    </script> -->
+    </script>
 
-  <script type="text/javascript" src="../js/trainingList.js"></script>
-  </body>
+	<script type="text/javascript" src="../js/trainingList.js"></script>
+</body>
 </html>

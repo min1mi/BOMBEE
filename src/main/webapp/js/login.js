@@ -71,7 +71,7 @@ $(document).ready(function() {
       membertype: result.data.membertype
 
     }, function(success) {
-      location.href = '../main/main.html'
+      window.history.go(-1)
 
     }, 'json') // login.json
   }
@@ -127,7 +127,7 @@ $('.send').on('click', function() {
     'membertype' : loginType
 
   }, function(result) {
-    location.href = '../main/main.html'
+    window.history.go(-1)
 
   }, 'json')
 })
