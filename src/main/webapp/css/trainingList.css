@@ -1,0 +1,37 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

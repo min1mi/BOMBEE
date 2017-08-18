@@ -8,37 +8,50 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel='stylesheet' href="../css/bombee.css">
+  <link rel='stylesheet' href="../css/trainingList.css">
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 </head>
   <body>
     <div class="trainingList-container">
       <div class='header'></div>
+
+      <div class='training'>
+        <div class='list'>
+
+        </div>
+      </div>
+
     </div>
 
-    <script type="text/javascript">
-    var json = '/auth/userinfo.json'
-    var no = 0
-      $(document).ready(function() {
-        $('.header').load('../menu/new.html')
-      })
-      getData(json, no)
-      
-      
-      
-      function getData(jsonType, no) {
-        $.getJSON(jsonType,{
-          no: no
-        }, function(result) {
-          console.log(result)
-          if(json == '/auth/userinfo.json') {
-            no = result.data.no
-            getData('/management/trainingList.json', no)
-          }else if(json == '/management/trainingList.json') {
-        	  // 여기서 엘리먼트 생성하세요
-          }
-        })
-      }
-  </script>
+    <!-- <script id="user-template" type="text/x-handlebars-template">
+      {{#each mealList}}
+      <div id='{{day}}' class='tab-slider-body kcal-body'>
+        <div class='kcal-info'>
+          <span class='total'>total</span>
+          <div class='kcal-total'>{{totalKcal}}</div>
+          <span class='kcal'>kcal</span>
+        </div>
+        {{#each sortedMeals}} {{#if mealpicture}}
+        <div class='meal' value='{{mealno}}'>
+          <div class='img-fix'>
+            <img src='{{mealpicture}}_350.png'>
+          </div>
+          <p class='meal-type'>{{mealtype}}</p>
+          <p class='meal-name'>{{mealname}}</p>
+          <p class='meal-kcal' value='{{mealkcal}}'>{{mealkcal}} kcal</p>
+        </div>
+        {{else}}
+        <div class='input-meal' value='{{index}}'>
+          <center>
+            <div class="fa fa-camera camera-size"></div>
+          </center>
+        </div>
+        {{/if}} {{/each}}
+      </div>
+      {{/each}}
+    </script> -->
+
+  <script type="text/javascript" src="../js/trainingList.js"></script>
   </body>
 </html>

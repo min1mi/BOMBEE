@@ -2,34 +2,25 @@
 <html>
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel='stylesheet'
-	href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
-<link rel='stylesheet' href='../css/bombee.css'>
-<link rel='stylesheet' href='../css/user.css'>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-<script src="../node_modules/moment/min/moment.min.js"></script>
-<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
-<script
-	src="../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script
-	src="../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
-<script
-	src="../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script
-	src="../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-<script
-	src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script
-	src="../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
-<script
-	src="../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
+	<link rel='stylesheet' href='../css/bombee.css'>
+	<link rel='stylesheet' href='../css/user.css'>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+	<script src="../node_modules/moment/min/moment.min.js"></script>
+	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+	<script src="../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+	<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+	<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 </head>
 
 <body>
@@ -41,7 +32,7 @@
 				<div class='info'>
 					<div class='username'>
 						<div class='fa fa-user user'></div>
-						
+
 					</div>
 					<div class='year-month'>
 						<div class='year'></div>
@@ -50,75 +41,79 @@
 				</div>
 
 				<div class="tab-slider--tabs">
-					<div class="weekly tab-slider--trigger" rel='day0'
-						style="color: #e04c4c">
-						SUN <a href='#' style="color: #e04c4c">
+					<div class="weekly tab-slider--trigger" rel='day0' style="color: #e04c4c">
+						SUN
+						<a href='#' style="color: #e04c4c">
 							<div class='sun day day0'></div>
 						</a>
 					</div>
 					<div class="weekly tab-slider--trigger" rel='day1'>
-						MON <a href='#'>
+						MON
+						<a href='#'>
 							<div class='mon day day1'></div>
 						</a>
 					</div>
 					<div class="weekly tab-slider--trigger" rel='day2'>
-						TUE <a href='#'>
+						TUE
+						<a href='#'>
 							<div class='tue day day2'></div>
 						</a>
 					</div>
 					<div class="weekly tab-slider--trigger" rel='day3'>
-						WED <a href='#'>
+						WED
+						<a href='#'>
 							<div class='wed day day3'></div>
 						</a>
 					</div>
 					<div class="weekly tab-slider--trigger" rel='day4'>
-						THU <a href='#'>
+						THU
+						<a href='#'>
 							<div class='thu day day4'></div>
 						</a>
 					</div>
 					<div class="weekly tab-slider--trigger" rel='day5'>
-						FRI <a href='#'>
+						FRI
+						<a href='#'>
 							<div class='fri day day5'></div>
 						</a>
 					</div>
-					<div class="weekly tab-slider--trigger" rel='day6'
-						style="color: #4c48ce">
-						SAT <a href='#' style="color: #4c48ce">
+					<div class="weekly tab-slider--trigger" rel='day6' style="color: #4c48ce">
+						SAT
+						<a href='#' style="color: #4c48ce">
 							<div class='sat day day6'></div>
 						</a>
 					</div>
 				</div>
 			</div>
 			<!--날짜 끝-->
-			<div id='meal-container'
-				class='clearfix tab-slider--container info-container'></div>
+			<div id='meal-container' class='clearfix tab-slider--container info-container'></div>
 
 		</div>
 	</div>
 
 	<!-- 토글 -->
 	<div class='backscreen'></div>
-	
-<div class='already-meal input-food-container' data-open='close'>
+
+	<div class='already-meal input-food-container' data-open='close'>
 		<div class='already-food input-food'>
 			<div id='updatefiles'></div>
 			<input id="already-files" class='food-img' type="file" name='files' multiple />
 			<input id="filenames" class='food-img' type="hidden" name="filenames" />
-			<label class='food-img-form' for="files"></label> 
+			<label class='food-img-form' for="files"></label>
 			<input class='already-food-name' type="text" placeholder='Food Name'>
 			<input class='already-food-kcal' type='text' placeholder='Food Kcal'>
 			<button id='foodUpdateBtn' type='button' class='foodUpdateBtn btn'>Update</button>
 			<button id='foodDeleteBtn' type='button' class='foodDeleteBtn btn'>Delete</button>
 		</div>
 	</div>
-<div class='add-meal input-food-container' data-open='close'>
+	<div class='add-meal input-food-container' data-open='close'>
 		<div class='add-food input-food'>
 			<div id='inputfiles'></div>
 			<input id="files" class='food-img' type="file" name='files' multiple />
 			<input id="filenames" class='food-img' type="hidden" name="filenames" />
-			<label class='food-img-form' for="files"> 
+			<label class='food-img-form' for="files">
 			<span class="add-image"> Add <br> Image
-			</span></label> 
+			</span></label>
 			<input class='food-name' type="text" placeholder='Food Name'>
 			<input class='food-kcal' type='text' placeholder='Food Kcal'>
 			<button id='foodAddBtn' type='button' class='foodAddBtn btn'>Add
@@ -148,9 +143,9 @@
 					<div class="fa fa-camera camera-size"></div>
 				</center>
 			</div>
-		{{/if}} {{/each}}
-	</div>
-	{{/each}}
+			{{/if}} {{/each}}
+		</div>
+		{{/each}}
 	</script>
 
 	<script type="text/javascript" src="../js/user.js"></script>
