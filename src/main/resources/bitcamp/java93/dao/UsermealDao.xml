@@ -26,6 +26,7 @@
 	
 	<resultMap type="usermealList" id="usermealMap2">
 		<result column="trano" property="trano"/>
+		<result column="pno" property="pno"/>
 		<result column="sdt" property="sdt"/>
 		<result column="edt" property="edt"/>
 		<result column="confirm" property="confirm"/>

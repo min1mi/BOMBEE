@@ -2,6 +2,7 @@ package bitcamp.java93.domain;
 
 public class usermealList {
   int trano;
+  int pno;
   String sdt;
   String edt;
   String tName;
@@ -15,6 +16,12 @@ public class usermealList {
   }
   public void setTrano(int trano) {
     this.trano = trano;
+  }
+  public int getPno() {
+    return pno;
+  }
+  public void setPno(int pno) {
+    this.pno = pno;
   }
   public String getSdt() {
     return sdt;
@@ -66,14 +73,9 @@ public class usermealList {
   }
   @Override
   public String toString() {
-    return "usermealList [trano=" + trano + ", sdt=" + sdt + ", edt=" + edt + ", tName=" + tName + ", promotionTitle="
-        + promotionTitle + ", proImg=" + proImg + ", confirm=" + confirm + ", mno=" + mno + ", tno=" + tno + "]";
+    return "usermealList [trano=" + trano + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", tName=" + tName
+        + ", promotionTitle=" + promotionTitle + ", proImg=" + proImg + ", confirm=" + confirm + ", mno=" + mno
+        + ", tno=" + tno + "]";
   }
-  
-  
-  
-  
-  
-  
   
 }

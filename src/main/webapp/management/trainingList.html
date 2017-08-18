@@ -33,8 +33,9 @@
           console.log(result)
           if(json == '/auth/userinfo.json') {
             no = result.data.no
-            json = '/management/trainingList.json'
-            getData(json, no)
+            getData('/management/trainingList.json', no)
+          }else if(json == '/management/trainingList.json') {
+        	  // 여기서 엘리먼트 생성하세요
           }
         })
       }
