@@ -60,6 +60,8 @@
   var delImage = [];
   var pno
   var count = 0
+  var titlePic
+  var titleSelectPic
 
 // 다음맵: 주소 -> 위도, 경도
   var geocoder = new daum.maps.services.Geocoder();
@@ -102,16 +104,28 @@
         reader.onload = function (e) {
 
           var html = "<div class='imageAdd-image swiper-slide'>" +
-              "<img src=\"" + e.target.result + "\" data-file='"+f.name+"'  title='Click to remove'>" +
+              "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='title-image' title='Click to remove'>" +
               "<p><i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i></p>" +
               "</div>";
 
           selDiv.append(html);
+         
+          titlePic = $('.title-image')
+          aa()
+          
         }
         reader.readAsDataURL(f);
       });
-
     }
+  
+  
+ function aa() {
+	  titlePic.click(function() {
+		console.log('!!타이틀이미지')
+	  	titlePic.parent().removeClass('title-select')
+	  	$(this).parent().addClass('title-select')
+	  })
+ }
 
     function removeFile(e) {
       e.preventDefault();
@@ -142,6 +156,7 @@
 	        console.log('Added file: ' + file.name);
 	    });
 	    $('.save').click(function() {
+	    	 titleSelectPic = $('.title-select')
 	         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
 	         count = 0
 	    });
@@ -149,6 +164,7 @@
 	  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 	    console.log('done()...');
 	    console.log(data.result);
+	    console.log(titleSelectPic)
 	    console.log('서버갔다옴.')
 	  },
 	  submit: function (e, data) {
@@ -165,7 +181,8 @@
 				  lng : lng,
 				  spono : spono,
 				  pno : pno,
-				  delImage:delImage
+				  delImage:delImage,
+				  titlePic: titleSelectPic
 	    }; location.href = '../promotionControl/promotionControl.html'
 	  }
 	}
@@ -228,7 +245,9 @@
 
   $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
 	  console.log(result.data.promotion)
-	  console.log('photolist:' + result.data.promotion.photoList)
+	  console.log(result.data.promotion.promotionList)
+	  console.log(result.data.promotion.titlePic)
+	  var currentTitle = result.data.promotion.titlePic
 
 	  $('.titleInput').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
@@ -241,6 +260,12 @@
       var container = $('#selectedFiles')
       var html = container.html()
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+      
+       titlePic = $('.title-image')
+       aa()
+      
+      $('#' + currentTitle).parent().addClass('title-select')
+
 
   	}
   )

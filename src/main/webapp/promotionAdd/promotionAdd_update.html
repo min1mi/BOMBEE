@@ -30,7 +30,6 @@
 
     <div class='projectAdd-top'>
       <div class='topClose' >
-        &nbsp;
         <i class="fa fa-times" aria-hidden="true"></i>
       </div>
 
@@ -124,8 +123,8 @@
  <script id = 'update-template' type='text/x-handlebars-template'>
   {{#each promotionList}}
     {{#each photoList}}
-      <div class='imageAdd-image swiper-slide'>
-        <img src='/upload/{{this}}_promotion.png' data-file='' title='Click to remove'>
+      <div class='imageAdd-image swiper-slide '>
+        <img src='/upload/{{this}}_promotion.png' id={{this}} data-file='' class='title-image' title='Click to remove'>
         <p>
           <i class='fa fa-times selFile' aria-hidden='true' value='{{this}}'></i>
         </p>

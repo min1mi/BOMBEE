@@ -153,6 +153,35 @@ $('#image_upload').fileupload({
   }
 });
 
+
+//$('.save').click(function() {
+//	console.log('!!save!!')
+//	  swal({
+//		  title:"필수 입력란이 비었습니다.",
+//		  type: "warning",
+//		  animation: false,
+//		  showConfirmButton:false,
+//		  timer: 1500
+//	  	}
+//	);
+//  }
+//);
+
+
+$('.save').click(function() {
+//title 
+//pric 
+//content 
+//sdt 
+//edt 
+	if(title.val == 0){
+		console.log("비었음")
+	} else {
+		console.log("")
+	}
+  }
+);
+
 // swiper
 var swiper = new Swiper('.swiper-container', {
     scrollbar: '.swiper-scrollbar',
