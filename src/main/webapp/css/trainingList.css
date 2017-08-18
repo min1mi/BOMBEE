@@ -1,16 +1,16 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  body {
-    font-size: 10px;
+  html {
+    font-size: 11px;
   }
   .list {
-		height: 
+		height: 139px;
 	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  body {
-    font-size: 12px;
+  html {
+    font-size: 13px;
   }
   .list {
 		height: 150px;
@@ -18,11 +18,11 @@
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  body {
+  html {
     font-size: 14px;
   }
   .list {
-		height: 
+		height: 155px;
 	}
 }
 
@@ -46,13 +46,13 @@
 .trainer,
 .mealBtn {
   position: absolute;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-left: 1%;
 }
 
 .promotionName {
   top: 10%;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 800;
 }
 .startDate,
@@ -72,9 +72,9 @@
 }
 
 .mealBtn {
-	bottom: 5%;
+	bottom: 6.5%;
 	right: 3%;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	font-weight: 600;
 	box-shadow: 2px 2px 2px 1px;
 }
