@@ -14,43 +14,43 @@
     </script>
 </head>
 <body>
-  <div class="menagement-container"><!--ekdma-container 맨 밖 컨테이너 -->
+  <div class="management-container"><!--ekdma-container 맨 밖 컨테이너 -->
     <div id='bg-img'></div>
 
     <div class="header"><!-- header-form 헤더-->
     </div>  <!-- header-form 헤더-->
-    <div class="menagement-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
-      <div class="menagement-left" id="menagement-Btn1"><!--ekdma-lefe-Btn1 맨위꺼-->
-        <img class="menagement-img"id="menagement-Btn-img1" src="../image/PROMOTION2.png">
+    <div class="management-all-menu"><!-- ekdma-all-menu 메뉴 모음 div-->
+      <div class="promotion" id="promotion-Btn"><!--ekdma-lefe-Btn1 맨위꺼-->
+        <img class="promotion-img"id="promotion-Btn-img1" src="../image/PROMOTION2.png"/>
       </div><!--ekdma-lefe-Btn1 맨위꺼-->
-      <div class="menagement-right" id="menagement-Btn2"><!--ekdma-lefe-Btn2 맨위꺼-->
-        <img class="menagement-img"id="menagement-Btn-img2" src="../image/PROFILE3.png">
+      <div class="profile" id="profile-Btn"><!--ekdma-lefe-Btn2 맨위꺼-->
+        <img class="profile-img"id="profile-Btn-img2" src="../image/PROFILE3.png"/>
       </div><!--ekdma-lefe-Btn2 맨위꺼-->
-      <div class="menagement-left" id="menagement-Btn3"><!--ekdma-lefe-Btn3 맨위꺼-->
-        <img class="menagement-img" id="menagement-Btn-img3" src="../image/ACCOUNT3.png">
+      <div class="account" id="account-Btn"><!--ekdma-lefe-Btn3 맨위꺼-->
+        <img class="account-img" id="account-Btn-img3" src="../image/ACCOUNT3.png"/>
       </div><!--ekdma-lefe-Btn3 맨위꺼-->
-      <div class="menagement-right" id="menagement-Btn4"><!--ekdma-lefe-Btn4 맨위꺼-->
-        <img class="menagement-img"  id="menagement-Btn-img4" src="../image/MANAGEMENT2.png">
+      <div class="management" id="management-Btn"><!--ekdma-lefe-Btn4 맨위꺼-->
+        <img class="management-img"  id="management-Btn-img4" src="../image/MANAGEMENT2.png"/>
       </div><!--ekdma-lefe-Btn4 맨위꺼-->
     </div> <!-- ekdma-all-menu 메뉴 모은 div-->
 
 
   </div> <!--ekdma-container 맨 밖 컨테이너 -->
   <script>
-  var menagementBtn1 = $('#menagement-Btn1'),
-      menagementBtn2 = $('#menagement-Btn2'),
-      menagementBtn3 = $('#menagement-Btn3'),
-      menagementBtn4 = $('#menagement-Btn4')
-    menagementBtn1.click(function() {
+  var promotionBtn = $('#promotion-Btn'),
+		  profileBtn = $('#profile-Btn'),
+		  accountBtn = $('#account-Btn'),
+      menagementBtn = $('#management-Btn')
+    promotionBtn.click(function() {
       location.href = '../promotionControl/promotionControl.html'
     })
-    menagementBtn2.click(function() {
+    profileBtn.click(function() {
       $(location).attr('href', url="../profile/t-profile.html");
     })
-    menagementBtn3.click(function() {
+    accountBtn.click(function() {
       $(location).attr('href', url="../mypage/mypage.html");
     })
-    menagementBtn4.click(function() {
+    menagementBtn.click(function() {
       console.log('매니지먼트3번')
     })
   </script>

@@ -1,14 +1,46 @@
-.menagement-container {
-  /*height: 1000px;*/
-  /*background-color: silver;*/
-  /*background-image: url("../image/M-Image/m-t09.jpg");*/
-  /*border: 5px solid red;*/
-  height: 736px;
-  position: relative;
-
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+  .management-container .promotion-img,
+  .management-container .management-img {
+    width: 177px;
+  }
+  .management-container .profile-img,
+  .management-container .account-img {
+    width: 109px;
+  }
 }
-
-.menagement-container:before {
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+  .management-container .promotion-img,
+  .management-container .management-img {
+    width: 210px;
+  }
+  .management-container .profile-img,
+  .management-container .account-img {
+    width: 130px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .management-container .promotion-img,
+  .management-container .management-img {
+    width: 230px;
+  }
+  .management-container .profile-img,
+  .management-container .account-img{
+    width: 140px;
+  }
+}
+.management-container:before {
     content: ' ';
     display: block;
     position: absolute;
@@ -28,40 +60,34 @@
     -webkit-background-size: cover;
     background-size: cover;
 }
-.menagement-all-menu {
+
+.management-all-menu {
   position: relative;
   z-index: 2;
   /*float: inherit;*/
   margin-top: 45%;
 
 }
-.menagement-left {
 
-  float : left;
-}
-.menagement-right {
-
-  float : right;
-}
-#menagement-Btn-img1 {
-margin: -27% 0% 0% 4%;
+.promotion {
+	position: absolute;
+	margin: -29% 0% 0% 4%;
   z-index: 4;
-  width: 55%;
 }
-#menagement-Btn-img2 {
-  margin: -16% 0% 0% 55%;
+.profile {
+	position: absolute;
+  margin: 0% 0% 0% 56%;
   z-index: 3;
-  width: 35%;
 }
-#menagement-Btn-img3 {
-  margin: -8% 0% 0% 15%;
+.account {
+	position: absolute;
+  margin: 25.5% 0% 0% 11%;
   z-index: 2;
-  width: 35%;
 }
-#menagement-Btn-img4 {
-  margin: -16% 0% 0% 47%;
+.management {
+	position: absolute;
+  margin: 35.5% 0% 0% 41%;
   z-index: 1;
-  width: 53%;
 }
 
 #bg-img {
