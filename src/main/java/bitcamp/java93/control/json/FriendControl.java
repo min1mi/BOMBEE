@@ -1,7 +1,11 @@
 package bitcamp.java93.control.json;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java93.domain.Friend;
@@ -29,14 +33,21 @@ public class FriendControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
+  
   @RequestMapping("detail")
   public JsonResult detail(Friend friend) throws Exception {
+    friendService.detail(friend);
 
-    friendService.get(friend);
-
+   return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  @RequestMapping("detail2")
+  public JsonResult detail2(int mno, int tno) throws Exception {
+    
+    Friend friend = friendService.get2(mno, tno);
+ 
     return new JsonResult(JsonResult.SUCCESS, friend);
-  } // service()
-
+  } // service()friend
+  
   @RequestMapping("delete")
   public JsonResult delete(Friend friend) throws Exception {
     friendService.remove(friend);

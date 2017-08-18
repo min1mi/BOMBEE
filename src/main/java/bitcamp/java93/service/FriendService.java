@@ -7,10 +7,11 @@ public interface FriendService {
   /*read-only : list, get*/
 
 
-  void get(Friend friend) throws Exception;
+  Friend get2(int mno, int tno) throws Exception;
   void add(Friend friend) throws Exception;
   void remove(Friend friend) throws Exception;
   void add2(Friend friend) throws Exception;
   void remove2(Friend friend) throws Exception;
+  void detail(Friend friend) throws Exception;
 
 }

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html> <!-- root element -->
+<head> <!-- HTML 문서에 대한 설명 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <title>스케줄관리</title> <!-- 웹브라우저 탭 또는 타이틀바에 출력될 제목 -->
+  <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='../css/bombee.css'>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+  <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+    <style>
+    .pro-container {
+      width: 415px;
+    }
+    .sche-top {
+      width : 100%;
+      /*border : 1px solid red;*/
+      height : 50px;
+      background-color: grey;
+      size : 50px;
+      color: white;
+      font-size: 3.3rem;
+    }
+    .sche-body {
+      padding: 2% 0% 0% 2%;
+      /*border : 1px solid blue;*/
+      background-color: white;
+      height : 600px;
+    }
+    .body-day {
+        margin : 0% 0% 0% 0%;
+      /*background-color: yellow;*/
+      width: 80px;
+      height : 580px;
+      display: inline-block;
+    }
+    .body-day > div {
+      background-color: silver;
+      width: 80px;
+      height : 80px;
+      display: inline-block;
+      margin-top : 3%;
+      padding-top: 25%;
+      font-size : 2.7rem;
+      text-align: center;
+    }
+    .body-t-text {
+      margin-top: -98%;
+      font-size : 2.9rem;
+      /*background-color: orange;*/
+      width: 40px;
+      height : 490;
+      left : 25%;
+      top : 64%;
+      position: absolute;
+      text-align: center;
+
+    }
+
+    .body-time {
+      margin-top: -200px;
+      background-color: lightgreen;
+      width: 57%;
+      height : 575px;
+      /*display: inline-block;*/
+      /*border: 1px solid red;*/
+      position: absolute;
+      left : 40%;
+      top : 36%;
+
+    }
+    .body-time2 {
+      margin-top: -200px;
+      background-color: green;
+      width: 57%;
+      height : 575px;
+      /*display: inline-block;*/
+      /*border: 1px solid red;*/
+      position: absolute;
+      left : 40%;
+      top : 36%;
+    }
+
+    .h-time {
+      margin-top: 1%;
+        color: white;
+        background-color: white;
+        /*border : 1px solid red;*/
+        height : 38.5px;
+
+    }
+    #time-thu {
+       display: show;
+    }
+    .h-time2 {
+      background-color: pink;
+      margin-top: 1%;
+height : 38.5px;
+display:
+
+    }
+    .h-time3 {
+      background-color: purple;
+      margin-top: 1%;
+height : 38.5px;
+
+    }
+    </style>
+</head>
+
+<body>
+  <div class="pro-container"><!--ekdma-container 맨 밖 컨테이너 -->
+    <div class="header"></div>
+
+    <div class="sche-top"><center>Schedule</center></div>
+    <div class="sche-body">
+      <div class="body-day">
+        <div class="day" value="1">MON</div>
+        <div class="day" value="2">TUE</div>
+        <div class="day" value="3">WEB</div>
+        <div class="day" value="4">THU</div>
+        <div class="day" value="5">FRI</div>
+        <div class="day" value="6">SAT</div>
+        <div class="day" value="7">SUN</div>
+      </div>
+
+      <div class="body-t-text">
+       <div class="h-text" >09</div>
+       <div class="h-text" >10</div>
+       <div class="h-text" >11</div>
+       <div class="h-text" >12</div>
+       <div class="h-text" >13</div>
+       <div class="h-text" >14</div>
+       <div class="h-text" >15</div>
+       <div class="h-text" >16</div>
+       <div class="h-text" >17</div>
+       <div class="h-text" >18</div>
+       <div class="h-text" >19</div>
+       <div class="h-text" >20</div>
+       <div class="h-text" >21</div>
+       <div class="h-text" >22</div>
+     </div>
+
+
+
+      <div class="body-time" id="time-mon">
+           <div class="h-time" data-bookno="MON07" style="background-color: red;">09</div>
+           <div class="h-time" data-bookno="MON07">10</div>
+           <div class="h-time" data-bookno="MON07">11</div>
+           <div class="h-time" data-bookno="MON07">12</div>
+           <div class="h-time" data-bookno="MON07">13</div>
+           <div class="h-time" data-bookno="MON07">14</div>
+           <div class="h-time" data-bookno="MON07">15</div>
+           <div class="h-time" data-bookno="MON07">16</div>
+           <div class="h-time" data-bookno="MON07">17</div>
+           <div class="h-time" data-bookno="MON07">18</div>
+           <div class="h-time" data-bookno="MON07">19</div>
+           <div class="h-time" data-bookno="MON07">20</div>
+           <div class="h-time" data-bookno="MON07">21</div>
+           <div class="h-time" data-bookno="MON07">22</div>
+      </div>
+      <div class="body-time" id="time-tue">
+           <div class="h-time" data-bookno="TUE07" style="background-color: orange;">09</div>
+           <div class="h-time" data-bookno="TUE07">10</div>
+           <div class="h-time" data-bookno="TUE07">11</div>
+           <div class="h-time" data-bookno="TUE07">12</div>
+           <div class="h-time" data-bookno="TUE07">13</div>
+           <div class="h-time" data-bookno="TUE07">14</div>
+           <div class="h-time" data-bookno="TUE07">15</div>
+           <div class="h-time" data-bookno="TUE07">16</div>
+           <div class="h-time" data-bookno="TUE07">17</div>
+           <div class="h-time" data-bookno="TUE07">18</div>
+           <div class="h-time" data-bookno="TUE07">19</div>
+           <div class="h-time" data-bookno="TUE07">20</div>
+           <div class="h-time" data-bookno="TUE07">21</div>
+           <div class="h-time" data-bookno="TUE07">22</div>
+      </div>
+      <div class="body-time" id="time-web">
+           <div class="h-time" data-bookno="WEB07" style="background-color: yellow;">09</div>
+           <div class="h-time" data-bookno="WEB07">10</div>
+           <div class="h-time" data-bookno="WEB07">11</div>
+           <div class="h-time" data-bookno="WEB07">12</div>
+           <div class="h-time" data-bookno="WEB07">13</div>
+           <div class="h-time" data-bookno="WEB07">14</div>
+           <div class="h-time" data-bookno="WEB07">15</div>
+           <div class="h-time" data-bookno="WEB07">16</div>
+           <div class="h-time" data-bookno="WEB07">17</div>
+           <div class="h-time" data-bookno="WEB07">18</div>
+           <div class="h-time" data-bookno="WEB07">19</div>
+           <div class="h-time" data-bookno="WEB07">20</div>
+           <div class="h-time" data-bookno="WEB07">21</div>
+           <div class="h-time" data-bookno="WEB07">22</div>
+      </div>
+      <div class="body-time" id="time-thu">
+           <div class="h-time" data-bookno="THU07" style="background-color: green;">09</div>
+           <div class="h-time" data-bookno="THU07">10</div>
+           <div class="h-time" data-bookno="THU07">11</div>
+           <div class="h-time" data-bookno="THU07">12</div>
+           <div class="h-time" data-bookno="THU07">13</div>
+           <div class="h-time" data-bookno="THU07">14</div>
+           <div class="h-time" data-bookno="THU07">15</div>
+           <div class="h-time" data-bookno="THU07">16</div>
+           <div class="h-time" data-bookno="THU07">17</div>
+           <div class="h-time" data-bookno="THU07">18</div>
+           <div class="h-time" data-bookno="THU07">19</div>
+           <div class="h-time" data-bookno="THU07">20</div>
+           <div class="h-time" data-bookno="THU07">21</div>
+           <div class="h-time" data-bookno="THU07">22</div>
+      </div>
+      <div class="body-time" id="time-fri">
+           <div class="h-time" data-bookno="FRI07" style="background-color: blue;">09</div>
+           <div class="h-time" data-bookno="FRI07">10</div>
+           <div class="h-time" data-bookno="FRI07">11</div>
+           <div class="h-time" data-bookno="FRI07">12</div>
+           <div class="h-time" data-bookno="FRI07">13</div>
+           <div class="h-time" data-bookno="FRI07">14</div>
+           <div class="h-time" data-bookno="FRI07">15</div>
+           <div class="h-time" data-bookno="FRI07">16</div>
+           <div class="h-time" data-bookno="FRI07">17</div>
+           <div class="h-time" data-bookno="FRI07">18</div>
+           <div class="h-time" data-bookno="FRI07">19</div>
+           <div class="h-time" data-bookno="FRI07">20</div>
+           <div class="h-time" data-bookno="FRI07">21</div>
+           <div class="h-time" data-bookno="FRI07">22</div>
+      </div>
+      <div class="body-time" id="time-sat">
+           <div class="h-time" data-bookno="SAT07" style="background-color: navy;">09</div>
+           <div class="h-time" data-bookno="SAT07">10</div>
+           <div class="h-time" data-bookno="SAT07">11</div>
+           <div class="h-time" data-bookno="SAT07">12</div>
+           <div class="h-time" data-bookno="SAT07">13</div>
+           <div class="h-time" data-bookno="SAT07">14</div>
+           <div class="h-time" data-bookno="SAT07">15</div>
+           <div class="h-time" data-bookno="SAT07">16</div>
+           <div class="h-time" data-bookno="SAT07">17</div>
+           <div class="h-time" data-bookno="SAT07">18</div>
+           <div class="h-time" data-bookno="SAT07">19</div>
+           <div class="h-time" data-bookno="SAT07">20</div>
+           <div class="h-time" data-bookno="SAT07">21</div>
+           <div class="h-time" data-bookno="SAT07">22</div>
+      </div>
+      <div class="body-time" id="time-sun">
+           <div class="h-time" data-bookno="SUN07" style="background-color: purple;">09</div>
+           <div class="h-time" data-bookno="SUN07">10</div>
+           <div class="h-time" data-bookno="SUN07">11</div>
+           <div class="h-time" data-bookno="SUN07">12</div>
+           <div class="h-time" data-bookno="SUN07">13</div>
+           <div class="h-time" data-bookno="SUN07">14</div>
+           <div class="h-time" data-bookno="SUN07">15</div>
+           <div class="h-time" data-bookno="SUN07">16</div>
+           <div class="h-time" data-bookno="SUN07">17</div>
+           <div class="h-time" data-bookno="SUN07">18</div>
+           <div class="h-time" data-bookno="SUN07">19</div>
+           <div class="h-time" data-bookno="SUN07">20</div>
+           <div class="h-time" data-bookno="SUN07">21</div>
+           <div class="h-time" data-bookno="SUN07">22</div>
+      </div>
+
+
+    </div>
+</div>
+
+
+  <script>
+  $('.body-day div').click(function() {
+          $('.day').css('background-color', "silver")
+          $(this).css('background-color', "orange")
+          switch ($(this).text()) {
+            case "MON" :
+             $('.body-time').hide()
+             $('#time-mon').show()
+            break;
+            case "TUE" :
+              $('.body-time').hide()
+              $('#time-tue').show()
+            break;
+            case "WEB" :
+              $('.body-time').hide()
+              $('#time-web').show()
+            break;
+            case "THU" :
+              $('.body-time').hide()
+              $('#time-thu').show()
+            break;
+            case "FRI" :
+              $('.body-time').hide()
+              $('#time-fri').show()
+            break;
+            case "SAT" :
+              $('.body-time').hide()
+              $('#time-sat').show()
+            break;
+            case "SUN" :
+              $('.body-time').hide()
+              $('#time-sun').show()
+            break;
+            default:
+           $('.body-time').attr('display: none')
+          }
+
+          // $(this).attr('id', "click")
+      })
+      $(".h-time").click(function() {
+        console.log(this)
+        if ($(this).css('background-color', 'white')) {
+          $(this).css('background-color', 'black')
+          console.log(this)
+          console.log("11")
+        } else if ($(this).css('background-color', 'black')) {
+          ($(this).css('background-color', 'white'))
+          console.log(this)
+          console.log("2")
+        }
+      })
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

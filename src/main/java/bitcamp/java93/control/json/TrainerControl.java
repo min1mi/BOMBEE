@@ -50,6 +50,16 @@ public class TrainerControl {
     return new JsonResult(JsonResult.SUCCESS, trainer);
   } // service()
   
+  @RequestMapping("detail2")
+  public JsonResult detail2(int no) throws Exception {
+    
+    Trainer trainer = trainerService.get(no);
+    if (trainer == null) {
+      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
+    }
+    return new JsonResult(JsonResult.SUCCESS, trainer);
+  } // service()
+  
   
   @RequestMapping("update")
   public JsonResult update(Trainer trainer, MultipartFile[] files) throws Exception {

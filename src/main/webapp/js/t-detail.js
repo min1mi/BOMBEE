@@ -23,9 +23,9 @@ $.getJSON('/auth/userinfo.json', function(result) {
 
 	}
   generateTemplate();
+	generateTemplate2();
 	getData();
-	// getLike();
-	// getLike();
+
 })
 function generateTemplate() {
   $.getJSON('/trainer/detail.json', {no}, function(result) {
@@ -54,9 +54,21 @@ function generateTemplate() {
       default :
       console.log("선택하세요")
     }
-		return tno,tname;
+		return tno, tname;
   })
 }
+
+function generateTemplate2() {
+  $.getJSON('/friend/detail2.json', {mno, tno}, function(result) {
+    console.log("값가져옴")
+		console.log(mno)
+		console.log(tno)
+		console.log(result)
+    }
+  )}
+
+
+
 function getData() {
 	$.getJSON('/schedule/detail.json', {no}, function(result) {
 		console.log(result.data.weeklist.day+result.data.weeklist.time)
@@ -73,8 +85,10 @@ function getData() {
 	})
 }
 function getLike() {
-	$.getJSON('/friend/detail.json', {'mno' : mno, 'tno': tno}, function(result) {
-		console.log(result)
+	console.log(tno,"트레이너 넘")
+	console.log(mno,"member 넘")
+	$.getJSON('/friend/detail.json', {'tmno' : mno, 'tno': tno}, function(result) {
+		console.log(result, "요기")
 			// islike =
 
 
@@ -94,8 +108,8 @@ function getAdd() {
 
 
 	})
-})
-}
+})}
+
 jQuery(document).ready(function($){
 
 $(".pro-t-Btn").click(function(){
@@ -176,9 +190,12 @@ $('.likeBtn').click(function() {
 			$(this).removeClass("fa-star-o")
 			$(this).addClass("fa-star")
 			$.getJSON('/friend/add2.json', {
-				'mno':mno,
+				'mno': mno,
 				'tno': tno,
 				}, function(result) {
+					console.log(result)
+					console.log(tno)
+					console.log(mno)
 					console.log("좋음 완료")
 			})
 	} else if (($(this).attr("value") == "on")){
@@ -192,45 +209,4 @@ $('.likeBtn').click(function() {
 				console.log("취소 완료")
 			})
 	}
-	console.log(mno)
-	console.log(tno)
-	console.log(boool)
-	console.log(status)
-	// console.log(status.data.name)
-	// console.log(status.data.name)
-	$.getJSON('/friend/add.json', {
-		'mno':mno,
-		'tno': tno,
-		'confirm': boool
-		}, function(result) {
-
-	})
-})
-
-// $('.pro-qa-Btn').on('click', function() {
-//
-//
-// 	$.getJSON('/friend/chat.json', {
-// 		'mno':mno,
-// 		'tno': tno,
-// 		'tname'
-// 		'mname':
-// 		'tcherpic':
-//
-// 		}, function(result) {
-//
-// 	})
-// })
-
-$('.likeBtn').click(function() {
-	console.log(mno)
-	console.log(tno)
-	// console.log(boool)
-	// $.getJSON('/friend/add.json', {
-	// 	'mno':mno,
-	// 	'tno': tno,
-	// 	'confirm': boool
-	// 	}, function(result) {
-	//
-	// })
 })

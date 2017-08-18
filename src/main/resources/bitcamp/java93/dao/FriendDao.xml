@@ -27,8 +27,13 @@
   </insert>
   
 
-  <select id="selectOne" parameterType="int">
+  <select id="detail"  parameterType="int">
     select mno, tno from tcher_trainer
+     where mno=#{mno} and tno=#{tno}
+  </select>
+  
+  <select id="detail2" resultMap="friendMap" parameterType="int">
+   select mno, tno from f_like
      where mno=#{mno} and tno=#{tno}
   </select>
   
