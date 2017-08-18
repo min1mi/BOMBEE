@@ -81,12 +81,12 @@ function handleFileSelect(e) {
       reader.onload = function (e) {
 
         var html = "<div class='imageAdd-image swiper-slide'>" +
-            "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' value='"+f.name+"' class='title'  title='Click to remove'>" +
+            "<img src=\"" + e.target.result + "\" data-file='"+f.name+"' value='"+f.name+"' class='title-image'  title='Click to remove'>" +
             "<p><i class='fa fa-times selFile' aria-hidden='true' value="+ f.name +"></i></p>" +
             "</div>";
 
         selDiv.append(html);
-        titlePic = $('.title')
+        titlePic = $('.title-image')
         titlePic.click(function() {
         	titlePic.removeClass('title-select')
         	$(this).addClass('title-select')
@@ -148,7 +148,10 @@ $('#image_upload').fileupload({
         lng : lng,
         spono : spono,
         titlePic: titleSelectPic
-    };location.href = '../promotionControl/promotionControl.html'
+    };
+  },function(result) {
+	  console.log('11')
+	  location.href = '../promotionControl/promotionControl.html'
   }
 });
 
