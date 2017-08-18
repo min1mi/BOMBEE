@@ -1,5 +1,6 @@
 var json = '/auth/userinfo.json'
 var no = 0
+var mealBtn
   $(document).ready(function() {
     $('.header').load('../menu/new.html')
   })
@@ -14,9 +15,21 @@ var no = 0
       console.log(result)
       if(json == '/auth/userinfo.json') {
         no = result.data.no
-        getData('/management/trainingList.json', no)
+        json = '/management/trainingList.json'
+        getData(json, no)
       }else if(json == '/management/trainingList.json') {
-        // 여기서 엘리먼트 생성하세요
+    	  var templateFn = Handlebars.compile($('#training-template').text())
+	      var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+	      var container = $('.training')
+	      var html = container.html()
+	      container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+	      mealBtn()
       }
     })
   }
+function mealBtn() {
+	mealBtn = $('.mealBtn')
+	mealBtn.click(function() {
+		location.href = 'user.html?no='+$(this).attr('value')
+	})
+}

@@ -8,7 +8,7 @@ $(function() {
 	slideDate();
 
 });
-
+var trano = (location.href).split('=')[1]
 var filenames = $('#filenames');
 
 var today,
@@ -53,7 +53,8 @@ $('#files').fileupload({
 				'mealkcal': mealkcal.val(), 
 				'mealname': mealname.val(), 
 				'mealtype': mealtype,
-				'day': today
+				'day': today,
+				'traningNo': trano
 		}
 		console.log('submit()...');
 	}, 

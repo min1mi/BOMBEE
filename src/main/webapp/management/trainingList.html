@@ -20,27 +20,20 @@
 		<div class='header'></div>
 
 		<div class='training'>
-			<div class='list clearfix'>
-				<img src='../image/lunch.jpg'> <span class='promotionName'>여름방학
-					빼빼로 프로젝트</span> <span class='startDate'>2017-08-31 <span>~</span></span> <span
-					class='endDate'>2017-09-31</span> <span class='trainerName'>권봉수</span>
-				<span class='trainer'>강사</span>
-				<div class='btn mealBtn'>Check My Meal</div>
-			</div>
 		</div>
 
 	</div>
 
-	<script id="user-template" type="text/x-handlebars-template">
-      {{#each mealList}}
-      <div class='list clearfix'>
-          <img src='../image/lunch.jpg'>
-          <span class='promotionName'>여름방학 빼빼로 프로젝트</span>
-          <span class='startDate'>2017-08-31 <span>~</span></span>
-          <span class='endDate'>2017-09-31</span>
-          <span class='trainerName'>권봉수</span>
+	<script id="training-template" type="text/x-handlebars-template">
+      {{#each data}}
+      <div class='list'>
+          <img src='../upload/{{proImg}}'>
+          <span class='promotionName'>{{promotionTitle}}</span>
+          <span class='startDate'>{{sdt}} <span>~</span></span>
+          <span class='endDate'>{{edt}}</span>
+          <span class='trainerName'>{{tName}}</span>
           <span class='trainer'>강사</span>
-          <div class='btn mealBtn'>Check My Meal</div>
+          <div class='btn mealBtn' value={{trano}}>Check My Meal</div>
         </div>
       </div>
       {{/each}}
