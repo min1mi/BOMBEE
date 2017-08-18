@@ -62,6 +62,9 @@
   var count = 0
   var titlePic
   var titleSelectPic
+  var beforeTitle
+  var beforePic = []
+  var changeTitle
 
 // 다음맵: 주소 -> 위도, 경도
   var geocoder = new daum.maps.services.Geocoder();
@@ -125,6 +128,7 @@
 	  	titlePic.parent().removeClass('title-select')
 	  	$(this).parent().addClass('title-select')
 	  	titleSelectPic = $('.title-select').children().attr('value')
+	  	chageTitle = $('.title-select').children().attr('value')
         console.log('titleSelectPic:' + titleSelectPic)
 	  })
  }
@@ -158,9 +162,16 @@
 	        console.log('Added file: ' + file.name);
 	    });
 	    $('.save').click(function() {
-	    	 titleSelectPic = $('.title-select').children().attr('value')
-	         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
-	         count = 0
+	    	if(count != 0){
+	    		if (beforeTitle == changeTitle) {
+	    	    	
+	    	    }else if(beforeTitle != changeTitle) {
+	    	    	titleSelectPic = $('.title-select').children().attr('value')
+	    	    }
+		    	 
+		         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+		         count = 0
+	    	}
 	    });
 	  },
 	  done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -168,11 +179,13 @@
 	    console.log(data.result);
 	    console.log(titleSelectPic)
 	    console.log('서버갔다옴.')
-	    location.href = '../promotionControl/promotionControl.html'
+//	    location.href = '../promotionControl/promotionControl.html'
 	  },
 	  submit: function (e, data) {
 	    console.log('submit()...');
 	    // data 객체의 formData 프로퍼티에 일반 파라미터 값을 설정한다.
+	    
+	    
 	    data.formData = {
 	    		  title : title.val(),
 				  pric : pric.val(),
@@ -209,7 +222,8 @@
 					  delImage:delImage,
 					  titlePic: $('.title-select').children().attr('value')
 	    		},function(result) {}
-	    		), location.href = '../promotionControl/promotionControl.html'
+	    		)
+//	    		location.href = '../promotionControl/promotionControl.html'
 	    	}
 })
 
@@ -253,7 +267,9 @@
 	  console.log(result.data.promotion.promotionList)
 	  console.log(result.data.promotion.tiPic)
 	  var currentTitle = result.data.promotion.tiPic
-
+	  beforeTitle = result.data.promotion.tiPic
+	  beforePic = result.data.promotion.promotionList[0].photoList
+	  console.log(beforePic)
 	  $('.titleInput').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
       $('.dateEnd').val(result.data.promotion.edt)

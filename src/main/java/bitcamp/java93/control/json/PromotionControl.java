@@ -97,6 +97,7 @@ public class PromotionControl {
   public JsonResult detail(int no) throws Exception {
     System.out.println(no);
     Promotion promotion = promotionService.get(no);
+    System.out.println(promotion);
     if (promotion == null)
         return new JsonResult(JsonResult.FAIL, no+"번 강사가 없습니다.");
     HashMap<String,Object> dataMap = new HashMap<>();
