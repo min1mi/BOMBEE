@@ -88,8 +88,8 @@ function handleFileSelect(e) {
         selDiv.append(html);
         titlePic = $('.title-image')
         titlePic.click(function() {
-        	titlePic.removeClass('title-select')
-        	$(this).addClass('title-select')
+        	titlePic.parent().removeClass('title-select')
+        	$(this).parent().addClass('title-select')
         })
         // $(html).replaceAll('.ImageBtn');
       }
@@ -124,7 +124,7 @@ $('#image_upload').fileupload({
         console.log('Added file: ' + file.name);
     });
     $('.save').click(function() {
-    	titleSelectPic = $('.title-select').attr('value')
+    	titleSelectPic = $('.title-select').children().attr('value')
         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
     });
   },
