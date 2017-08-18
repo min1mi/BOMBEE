@@ -131,6 +131,7 @@ $('#image_upload').fileupload({
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
     console.log(data.result);
+    location.href = '../promotionControl/promotionControl.html'
     console.log('서버갔다옴.')
   },
   submit: function (e, data) {
@@ -149,9 +150,6 @@ $('#image_upload').fileupload({
         spono : spono,
         titlePic: titleSelectPic
     };
-  },function(result) {
-	  console.log('11')
-	  location.href = '../promotionControl/promotionControl.html'
   }
 });
 
