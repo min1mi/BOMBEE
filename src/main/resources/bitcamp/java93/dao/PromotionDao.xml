@@ -22,6 +22,7 @@
         <result column="name" property="name"/>
         <result column="introduction" property="introduction"/>
         <result column="pimg" property="titlePic"/>
+        <result column="tipic" property="tiPic"/>
     <collection property="promotionList" ofType="Trainning">
         <id column="pno" property="pno" />
         <result column="titl" property="title" />
@@ -150,7 +151,8 @@ from tcher t left outer join promotion p on t.tno = p.tno
   
     <select id="selectOne" resultMap="promotionMap" parameterType="int">
 select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailaddr, p.content,
-          p.tno, p.lat, p.lng, i.pimg
+          p.tno, p.lat, p.lng, i.pimg, (select pimg from promotionimg
+          where pno = #{no} and titlepic = 1) as tipic
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
 where p.pno = #{no};
