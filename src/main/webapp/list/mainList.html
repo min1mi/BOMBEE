@@ -87,11 +87,11 @@
       <div class='left-promotion main-promotion-height promotion'>
         {{/isIndex}}
         <div class='img'>
+             <img value='{{pno}}' title='{{spono}}' class='img-{{pno}}'
          {{#if @last}}
-          <img src='../upload/{{titlePic}}_titleMainList.png'" value='{{pno}}' title="{{spono}}" class='img-{{pno}}' id='last-promotion'>
+           id='last-promotion'
          {{else}}
-          <img src='../upload/{{titlePic}}_titleMainList.png'" value='{{pno}}' title="{{spono}}" class='img-{{pno}}'>
-         {{/if}}
+         {{/if}}>
         </div>
         <div class='span'>
           <span>{{title}}</span>
@@ -136,6 +136,8 @@
     })
 
     Handlebars.registerHelper('isIndex', function(index, promotion ,options) {
+    	imgTag.push('img-'+promotion.pno)
+    	titleImage.push(promotion.titlePic)
       if (index % 2 == 0) {
     	  console.log(options.fn(this))
         return options.fn(this);
@@ -146,14 +148,6 @@
     });
     
     
-    Handlebars.registerHelper('titleImage', function(last, promotion, options) {
-        if (last) {
-          return "<img src='../upload/"+promotion.photoList[0]+ '_titleMainList.png' +"' "+options.fn(this) + "'last-promotion'>";
-        } else {
-          return "<img src='../upload/"+promotion.photoList[0]+ '_titleMainList.png' +"' "+options.inverse(this);
-        }
-      });
-
     getData(json, 0);
 
     function getData(json, typeNo) {
@@ -180,12 +174,10 @@
         console.log(titleImage)
         btnClick()
         for (var i = 0; i < imgTag.length; i++) {
-          $(imgTag[i]).attr('src', '../upload/'+titleImage[i])
+          $('.'+imgTag[i]).attr('src', '../upload/'+titleImage[i]+'_titleMainList.png')
           console.log(imgTag[i])
           console.log(titleImage[i])
         }
-    	  console.log($('.img-3'))
-    	  $('.img-2').attr('src', '../upload/'+titleImage[1])
         imgTag= []
         titleImage = []
       		})
