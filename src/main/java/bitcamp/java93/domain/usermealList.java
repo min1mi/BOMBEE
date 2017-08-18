@@ -4,6 +4,9 @@ public class usermealList {
   int trano;
   String sdt;
   String edt;
+  String tName;
+  String promotionTitle;
+  String proImg;
   boolean confirm;
   int mno;
   int tno;
@@ -25,6 +28,24 @@ public class usermealList {
   public void setEdt(String edt) {
     this.edt = edt;
   }
+  public String gettName() {
+    return tName;
+  }
+  public void settName(String tName) {
+    this.tName = tName;
+  }
+  public String getPromotionTitle() {
+    return promotionTitle;
+  }
+  public void setPromotionTitle(String promotionTitle) {
+    this.promotionTitle = promotionTitle;
+  }
+  public String getProImg() {
+    return proImg;
+  }
+  public void setProImg(String proImg) {
+    this.proImg = proImg;
+  }
   public boolean isConfirm() {
     return confirm;
   }
@@ -45,9 +66,11 @@ public class usermealList {
   }
   @Override
   public String toString() {
-    return "usermealList [trano=" + trano + ", sdt=" + sdt + ", edt=" + edt + ", confirm=" + confirm + ", mno=" + mno
-        + ", tno=" + tno + "]";
+    return "usermealList [trano=" + trano + ", sdt=" + sdt + ", edt=" + edt + ", tName=" + tName + ", promotionTitle="
+        + promotionTitle + ", proImg=" + proImg + ", confirm=" + confirm + ", mno=" + mno + ", tno=" + tno + "]";
   }
+  
+  
   
   
   

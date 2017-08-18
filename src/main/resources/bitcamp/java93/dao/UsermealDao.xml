@@ -31,6 +31,9 @@
 		<result column="confirm" property="confirm"/>
 		<result column="mno" property="mno"/>
 		<result column="tno" property="tno"/>
+		<result column="name" property="tName"/>
+		<result column="titl" property="promotionTitle"/>
+		<result column="pimg" property="proImg"/>
 	</resultMap>
 
 	<select id="selectWeeklist" resultMap="usermealMap"
@@ -69,9 +72,10 @@
   
   
   <select id="trainingList" resultMap="usermealMap2" parameterType="int">
-		select * 
-		from tcher_trainer
-		where mno = #{no}
+		select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join memb m on t.tno = m.mno
+                                    inner join promotion p on t.pno = p.pno
+                                                                          inner join promotionimg i on t.pno = i.pno
+                                                                          where t.mno = #{no} and i.titlepic = 1;
 	</select>
   
 
