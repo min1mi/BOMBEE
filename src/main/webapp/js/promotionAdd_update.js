@@ -64,7 +64,6 @@
   var titleSelectPic
   var beforeTitle
   var beforePic = []
-  var changeTitle
   var titleIndex = -1
   var index_pic // 1 =  업로드 안했지만 전타이틀 사진과 같을 때  
 					// 2 = 업로드 안했지만 타이틀이 바뀜 
@@ -131,11 +130,8 @@
   
  function titlePicF() {
 	  titlePic.click(function() {
-		console.log('!!타이틀이미지')
 	  	titlePic.parent().removeClass('title-select')
 	  	$(this).parent().addClass('title-select')
-	  	changeTitle = $('.title-select').children().attr('value')
-        console.log('changeTitle:' + changeTitle)
 	  })
  }
 
@@ -149,8 +145,6 @@
           break;
         }
       }
-      console.log(storedFiles)
-      console.log('delImage:' + delImage)
       $(this).parent().parent().remove();
     }
 
@@ -175,25 +169,31 @@
         // 5 = 새로 업로드 됬지만 전타이틀 사진과 다르고, 전에 올린사진 중에 하나가 타이틀 일때.
 	    $('.save').click(function() {
 	    	if(count != 0){
-	    		if (beforeTitle == changeTitle) {
-	    	    	titleSelectPic = changeTitle
+	    		if (beforeTitle == $('.title-select').children().attr('value')) 
 	    	    	index_pic = 4
-	    	    }else {
+	    	    else {
 	    	    	for (var i = 0; i < beforePic.length; i++) {
-	    	    		console.log(changeTitle + " =" + beforePic[i])
-	    	    		if(beforePic[i] === changeTitle) {
+	    	    		if(beforePic[i] === $('.title-select').children().attr('value')) {
 	    	    			index_pic = 5
-	    	    			titleSelecPic = beforePic
 	    	    			break;
-	    	    		}else {
+	    	    		}else 
 	    	    			index_pic = 3
-	    	    			titleSelectPic = $('.title-select').children().attr('value')
-	    	    		}
+	    	    		
 	    	    	}
 	    	    }
 		    	 console.log(index_pic)
-		    	 console.log(titleSelectPic)
-		         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
+		    	 console.log($('.title-select').children().attr('value'))
+		    	 titleSelectPic = $('.title-select').children().attr('value')
+		    	 if(titleSelectPic == undefined){
+	    				swal({
+	    				    title:"대표 이미지를 선택해주세요.",
+	    				    type: "warning",
+	    				    animation: false,
+	    				    showConfirmButton:false,
+	    				    timer: 1500
+	    			  	  })
+	    			} else
+	    				data.submit();
 		         
 	    	}
 	    });
@@ -234,35 +234,43 @@
 	// 2 = 업로드 안했지만 타이틀이 바뀜 
 	  $('.save').click(function() {
 	    	if (count == 0) {
-	    		if (beforeTitle == changeTitle) {
+	    		if (beforeTitle == $('.title-select').children().attr('value')) 
 	    			index_pic = 1
-	    		}else {
+	    		else {
 	    			for (var i = 0; i < beforePic.length; i++) {
-	    	    		if(beforePic[i] == changeTitle) {
+	    	    		if(beforePic[i] == $('.title-select').children().attr('value')) 
 	    	    			index_pic = 2
-	    	    		}
 	    	    	}
 	    		}
-	    		console.log("count:" + count)
-	    		console.log(index_pic)
-	    		jQuery.ajaxSettings.traditional = true,
-	    		$.getJSON('/promotion/update.json', {
-	    			title : title.val(),
-					  pric : pric.val(),
-					  content : content.val(),
-					  sdt : sdt.val(),
-					  edt : edt.val(),
-					  tno : tno,
-					  lat : lat,
-					  lng : lng,
-					  spono : spono,
-					  pno : pno,
-					  delImage:delImage,
-					  titlePic: $('.title-select').children().attr('value'),
-					  indexPic: index_pic
-	    		},function(result) {}
-	    		)
-	    		location.href = '../promotionControl/promotionControl.html'
+	    		if($('.title-select').children().attr('value') == undefined){
+    				swal({
+    				    title:"대표 이미지를 선택해주세요.",
+    				    type: "warning",
+    				    animation: false,
+    				    showConfirmButton:false,
+    				    timer: 1500
+    			  	  })
+    			} else {
+    				jQuery.ajaxSettings.traditional = true,
+    				$.getJSON('/promotion/update.json', {
+	    					title : title.val(),
+	    					pric : pric.val(),
+	    					content : content.val(),
+	    					sdt : sdt.val(),
+	    					edt : edt.val(),
+	    					tno : tno,
+	    					lat : lat,
+	    					lng : lng,
+	    					spono : spono,
+	    					pno : pno,
+	    					delImage:delImage,
+	    					titlePic: $('.title-select').children().attr('value'),
+    					indexPic: index_pic
+    					},function(result) {
+    						location.href = '../promotionControl/promotionControl.html'
+    					}
+    				)
+    			}
 	    	}
 })
 
@@ -280,11 +288,9 @@
   });
 
   $.getJSON('/auth/userinfo.json', function(result) {
-	  console.log('membertype:' + result.data.membertype)
 	  if(result.data.membertype == 1){
 		  location.href = '../auth/login.html'
 	  }else {
-			console.log(result.data)
 			addrInput.text(result.data.comaddr)
 			addrComp.text(result.data.comname)
 			geocoder.addressSearch(result.data.comaddr, callback);
@@ -298,20 +304,12 @@
   try {
      no = location.href.split('?')[1].substring(3)
      pno = no
-     console.log('no:' + no)
   } catch (err) {}
 
   $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
-	  console.log(result.data.promotion)
-	  console.log(result.data.promotion.promotionList)
-	  console.log(result.data.promotion.tiPic)
 	  var currentTitle = result.data.promotion.tiPic
 	  beforeTitle = result.data.promotion.tiPic
-	  changeTitle =result.data.promotion.tiPic
 	  beforePic = result.data.promotion.promotionList[0].photoList
-	  console.log(beforeTitle)
-	  console.log(beforePic)
-	  console.log(changeTitle)
 	  $('.titleInput').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
       $('.dateEnd').val(result.data.promotion.edt)
