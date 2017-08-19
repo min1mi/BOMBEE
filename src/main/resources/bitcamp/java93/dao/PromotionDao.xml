@@ -205,10 +205,15 @@ where p.pno = #{no};
 	  where pno=#{pno}
   </update>
   
-  <update id="titleImageInit" parameterType="promotion"  >
+  <update id="titleImageInit" parameterType="int"  >
     update promotionimg set
           titlePic=0
           where pno =#{pno}
+  </update>
+  <update id="updateTitlePic" parameterType="string" >
+    update promotionimg set
+      titlePic = 1
+      where pimg = #{titleName}
   </update>
   
   <!-- update promotionimg set

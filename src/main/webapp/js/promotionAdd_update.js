@@ -65,6 +65,13 @@
   var beforeTitle
   var beforePic = []
   var changeTitle
+  var titleIndex = -1
+  var index_pic // 1 =  업로드 안했지만 전타이틀 사진과 같을 때  
+					// 2 = 업로드 안했지만 타이틀이 바뀜 
+  					// 3 = 새로 업로드된 사진이 타이틀 사진일때
+  					// 4 = 새로 업로드 됬지만 전타이틀 사진과 같을때 
+                    // 5 = 새로 업로드 됬지만 전타이틀 사진과 다르고, 전에 올린사진 중에 하나가 타이틀 일때.
+
 
 // 다음맵: 주소 -> 위도, 경도
   var geocoder = new daum.maps.services.Geocoder();
@@ -127,9 +134,8 @@
 		console.log('!!타이틀이미지')
 	  	titlePic.parent().removeClass('title-select')
 	  	$(this).parent().addClass('title-select')
-	  	titleSelectPic = $('.title-select').children().attr('value')
-	  	chageTitle = $('.title-select').children().attr('value')
-        console.log('titleSelectPic:' + titleSelectPic)
+	  	changeTitle = $('.title-select').children().attr('value')
+        console.log('changeTitle:' + changeTitle)
 	  })
  }
 
@@ -161,16 +167,34 @@
 	    $.each(data.files, function (index, file) {
 	        console.log('Added file: ' + file.name);
 	    });
+	    
+	 // 1 =  업로드 안했지만 전타이틀 사진과 같을 때  
+		// 2 = 업로드 안했지만 타이틀이 바뀜 
+			// 3 = 새로 업로드된 사진이 타이틀 사진일때
+			// 4 = 새로 업로드 됬지만 전의 사진이 타이틀 일때
+        // 5 = 새로 업로드 됬지만 전타이틀 사진과 다르고, 전에 올린사진 중에 하나가 타이틀 일때.
 	    $('.save').click(function() {
 	    	if(count != 0){
 	    		if (beforeTitle == changeTitle) {
-	    	    	
-	    	    }else if(beforeTitle != changeTitle) {
-	    	    	titleSelectPic = $('.title-select').children().attr('value')
+	    	    	titleSelectPic = changeTitle
+	    	    	index_pic = 4
+	    	    }else {
+	    	    	for (var i = 0; i < beforePic.length; i++) {
+	    	    		console.log(changeTitle + " =" + beforePic[i])
+	    	    		if(beforePic[i] === changeTitle) {
+	    	    			index_pic = 5
+	    	    			titleSelecPic = beforePic
+	    	    			break;
+	    	    		}else {
+	    	    			index_pic = 3
+	    	    			titleSelectPic = $('.title-select').children().attr('value')
+	    	    		}
+	    	    	}
 	    	    }
-		    	 
+		    	 console.log(index_pic)
+		    	 console.log(titleSelectPic)
 		         data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
-		         count = 0
+		         
 	    	}
 	    });
 	  },
@@ -179,13 +203,14 @@
 	    console.log(data.result);
 	    console.log(titleSelectPic)
 	    console.log('서버갔다옴.')
-//	    location.href = '../promotionControl/promotionControl.html'
+	    location.href = '../promotionControl/promotionControl.html'
+	    count = 0
 	  },
 	  submit: function (e, data) {
 	    console.log('submit()...');
 	    // data 객체의 formData 프로퍼티에 일반 파라미터 값을 설정한다.
 	    
-	    
+	    console.log(titleSelectPic)
 	    data.formData = {
 	    		  title : title.val(),
 				  pric : pric.val(),
@@ -198,15 +223,28 @@
 				  spono : spono,
 				  pno : pno,
 				  delImage:delImage,
-				  titlePic: titleSelectPic
+				  titlePic: titleSelectPic,
+				  indexPic: index_pic
 	    }; 
 	    
 	  }
 	}
 	);
-
+	 // 1 =  업로드 안했지만 전타이틀 사진과 같을 때  
+	// 2 = 업로드 안했지만 타이틀이 바뀜 
 	  $('.save').click(function() {
 	    	if (count == 0) {
+	    		if (beforeTitle == changeTitle) {
+	    			index_pic = 1
+	    		}else {
+	    			for (var i = 0; i < beforePic.length; i++) {
+	    	    		if(beforePic[i] == changeTitle) {
+	    	    			index_pic = 2
+	    	    		}
+	    	    	}
+	    		}
+	    		console.log("count:" + count)
+	    		console.log(index_pic)
 	    		jQuery.ajaxSettings.traditional = true,
 	    		$.getJSON('/promotion/update.json', {
 	    			title : title.val(),
@@ -220,10 +258,11 @@
 					  spono : spono,
 					  pno : pno,
 					  delImage:delImage,
-					  titlePic: $('.title-select').children().attr('value')
+					  titlePic: $('.title-select').children().attr('value'),
+					  indexPic: index_pic
 	    		},function(result) {}
 	    		)
-//	    		location.href = '../promotionControl/promotionControl.html'
+	    		location.href = '../promotionControl/promotionControl.html'
 	    	}
 })
 
@@ -268,8 +307,11 @@
 	  console.log(result.data.promotion.tiPic)
 	  var currentTitle = result.data.promotion.tiPic
 	  beforeTitle = result.data.promotion.tiPic
+	  changeTitle =result.data.promotion.tiPic
 	  beforePic = result.data.promotion.promotionList[0].photoList
+	  console.log(beforeTitle)
 	  console.log(beforePic)
+	  console.log(changeTitle)
 	  $('.titleInput').val(result.data.promotion.title)
       $('.dateStart').val(result.data.promotion.sdt)
       $('.dateEnd').val(result.data.promotion.edt)
@@ -284,6 +326,7 @@
       
        titlePic = $('.title-image')
        titlePicF()
+       
       
       $('#' + currentTitle).parent().addClass('title-select')
 

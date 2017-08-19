@@ -70,8 +70,8 @@ public class PromotionServiceImpl implements PromotionService {
 		}
 	}
   
-  public void titleImageInit(Promotion promotion) {
-  	promotionDao.titleImageInit(promotion);
+  public void titleImageInit(int pno) {
+  	promotionDao.titleImageInit(pno);
   }
   
   //XML 태그로 트랜잭션을 설정하게 되면 @Transactional 애노테이션은 필요없다.
@@ -174,6 +174,12 @@ public class PromotionServiceImpl implements PromotionService {
   public int deletePromotionOne(int pno) throws Exception {
     promotionDao.deletePromotionImg(pno);
     return promotionDao.deletePromotions(pno);
+  }
+
+  @Override
+  public void updateTitlePic(String titleName) {
+    promotionDao.updateTitlePic(titleName);
+    
   }
   
 }

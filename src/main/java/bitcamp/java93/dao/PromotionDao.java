@@ -28,5 +28,6 @@ public interface PromotionDao {
  int updatePromotion(Promotion Promotion);
  void delAddImage(String delI);
  int deletePromotionImg(int pno);
- void titleImageInit(Promotion Promotion);
+ void titleImageInit(int pno);
+ void updateTitlePic(String titleName);
 }

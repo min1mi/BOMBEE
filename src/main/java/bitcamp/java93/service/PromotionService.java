@@ -24,7 +24,8 @@ public interface PromotionService {
 	void updatePromotion(Promotion promotion, int titleNo) throws Exception;
   int deltePromotionImg(ArrayList<Integer> arr);
   int deletePromotionOne(int no) throws Exception;
-	void titleImageInit(Promotion promotion);
+	void titleImageInit(int pno);
+	void updateTitlePic(String titleName);
 }
 
 
