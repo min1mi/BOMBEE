@@ -89,8 +89,12 @@ public class UsermealControl {
   
   @RequestMapping("trainingList")
   public JsonResult trainingList(int no) throws Exception {
-    System.out.println(no);
     return new JsonResult(JsonResult.SUCCESS, usermealService.traingList(no));
+  }
+  
+  @RequestMapping("usersList")
+  public JsonResult usersList(int no) throws Exception {
+    return new JsonResult(JsonResult.SUCCESS, usermealService.usersList(no));
   }
 
   int count = 0;

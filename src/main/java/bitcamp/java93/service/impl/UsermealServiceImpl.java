@@ -50,8 +50,12 @@ public class UsermealServiceImpl implements UsermealService {
 
   @Override
   public List<Usermeal> traingList(int no) throws Exception {
-    
     return usermealDao.trainingList(no);
+  }
+  
+  @Override
+  public List<Usermeal> usersList(int no) throws Exception {
+    return usermealDao.usersList(no);
   }
   
 }

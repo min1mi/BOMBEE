@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1"
+	user-scalable=no>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="/img/favicon.ico">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href="../css/bombee.css">
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+ <style>
+  /*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 11px;
+  }
+  .list {
+    height: 139px;
+  }
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 13px;
+  }
+  .list {
+    height: 150px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .list {
+    height: 155px;
+  }
+}
+
+.list {
+  position: relative;
+  border-bottom: 1px solid silver;
+}
+.training:first-child[.list] {
+  margin-top: 3%;
+}
+.list img {
+  margin: 2%;
+  width: 35%;
+  height: 90%;
+}
+
+.promotionName,
+.startDate,
+.endDate,
+.trainerName,
+.trainer,
+.mealBtn {
+  position: absolute;
+  font-size: 1.1rem;
+  margin-left: 1%;
+}
+
+.promotionName {
+  top: 10%;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+.startDate,
+.endDate  {
+  top: 32%;
+}
+.endDate {
+  left: 63%;
+}
+.trainerName {
+  top: 47%;
+  font-weight: 600;
+}
+.trainer {
+  top: 47%;
+  left: 51%
+}
+
+.mealBtn {
+  bottom: 6.5%;
+  right: 3%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  box-shadow: 2px 2px 2px 1px;
+}
+  
+ </style>
+</head>
+<body>
+	<div class="trainingList-container">
+		<div class='header'></div>
+
+		<div class='training'>
+		</div>
+
+	</div>
+
+	<script id="training-template" type="text/x-handlebars-template">
+      {{#each data}}
+      <div class='list'>
+          <img src='../upload/{{proImg}}'>
+          <span class='promotionName'>{{promotionTitle}}</span>
+          <span class='startDate'>{{sdt}} <span>~</span></span>
+          <span class='endDate'>{{edt}}</span>
+          <span class='trainerName'>{{tName}}</span>
+          <span class='trainer'>강사</span>
+          <div class='btn mealBtn' value={{trano}}>Check My Meal</div>
+        </div>
+      </div>
+      {{/each}}
+    </script>
+
+	<script>
+	var json = '/auth/userinfo.json'
+		var no = 0
+		var mealBtn
+		  $(document).ready(function() {
+		    $('.header').load('../menu/new.html')
+		  })
+		  getData(json, no)
+		  function getData(jsonType, no) {
+		    $.getJSON(jsonType,{
+		      no: no
+		    }, function(result) {
+		      console.log(result)
+		      if(json == '/auth/userinfo.json') {
+		        no = result.data.no
+		        json = '/management/trainingList.json'
+		        getData(json, no)
+		      }else if(json == '/management/trainingList.json') {
+		        var templateFn = Handlebars.compile($('#training-template').text())
+		        var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+		        var container = $('.training')
+		        var html = container.html()
+		        container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+		        mealBtn()
+		      }
+		    })
+		  }
+		function mealBtn() {
+		  mealBtn = $('.mealBtn')
+		  mealBtn.click(function() {
+		    location.href = 'user.html?no='+$(this).attr('value')
+		  })
+		}
+	</script>
+</body>
+</html>
