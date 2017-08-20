@@ -3,16 +3,48 @@
   .projectAdd-In {
     font-size: 8px;
   }
+  #swal2-content {
+     font-weight: 400;
+     font-size: 17px
+  }
+  #swal2-title {
+    font-size: 23px;
+  }
+  .arrowStart, .arrowEnd{
+    right: 8px;
+  }
+  
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
   .projectAdd-In {
     font-size: 10px;
   }
+  #swal2-content {
+     font-weight: 400;
+     font-size: 19px
+  }
+   #swal2-title {
+    font-size: 25px;
+  }
+  .arrowStart, .arrowEnd {
+    right: 16px;
+  }
 }
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
-    .projectAdd-In {
+  .projectAdd-In {
     font-size: 11px;
+  }
+  #swal2-content {
+     font-weight: 400;
+     font-size: 21px
+  }
+   #swal2-title {
+    font-size: 30px;
+  }
+  
+  .arrowStart, .arrowEnd {
+    right: 20px;
   }
 }
 
@@ -185,21 +217,18 @@ div > input {
   /*border: 1px red solid;*/
   width: 50%;
   float: left;
-  padding-left: 5px;
-  padding-right: 10px;
+  padding-right: 15px;
   position: relative;
 }
 
 .arrowStart, .arrowEnd {
   font-size: 1.7rem;
-  right: 20px;
   top: -20%;
   float: right;
   position: absolute;
 }
 
 .price {
-  /*border: red 1px solid;*/
   border-bottom: 1px #ccc solid;
   padding: 15px;
 }
@@ -214,11 +243,6 @@ div > input {
   float: left;
   width: 100%;
 }
-
-/* .company_address > .promotion-icon {
-  width: 15%;
-  float: left;
-} */
 
 .companyAddress {
   font-weight: 200;
@@ -317,8 +341,4 @@ textarea {
     margin: 20px auto 15px;
   }
 
-  #swal2-content {
-     font-weight: 400;
-     font-size: 21px
-  }
 /* sweetAlert2 끝 */
