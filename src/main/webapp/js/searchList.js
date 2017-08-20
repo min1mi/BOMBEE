@@ -244,8 +244,6 @@ function setMarkers(map) {
               }
             }
           }
-      console.log(proObject)
-      
       for (var key of proObject) {
              if (key.check > 0) {
                imageSize = new daum.maps.Size(75, 100)
@@ -275,7 +273,6 @@ function setMarkers(map) {
       for (var i=0; i < proAllObject.length; i++) {
              for(var j=1;  j < proAllObject.length; j++) {
                if (i != j) {
-
                  if(proAllObject[i].spono == proAllObject[j].spono && proAllObject[i].comaddr == proAllObject[j].comaddr) {
                    if (proAllObject[i].spono == spoNo) {
                     proAllObject[i].check++ 
