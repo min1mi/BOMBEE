@@ -23,15 +23,8 @@ mealno;
 
 
 $('#foodConfirmBtn').on('click', function() {
-	$.post('/management/confirm-update.json', {
-		'mealpicture': $('#updatefiles img').attr('src').split('_350.png')[0],
-		'mealno' : mealno,
-		'mealkcal': alreadymealkcal.val(), 
-		'mealname': alreadymealname.val(), 
-		'mealtype': mealtype,
-		'day': today,
-		'trainingNo': trano,
-		'confirm': 1
+	$.post('/management/confirm.json', {
+		'mealno' : mealno
 		
 	}, function(result) {
 	  location.reload()

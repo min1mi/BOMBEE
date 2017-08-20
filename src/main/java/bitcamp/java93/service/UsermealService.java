@@ -10,7 +10,7 @@ public interface UsermealService {
   void add(Usermeal usermeal) throws Exception;
   void update(Usermeal usermeal) throws Exception;
   void nopicUpdate(Usermeal usermeal) throws Exception;
-  void confirm(Usermeal usermeal) throws Exception;
+  void confirm(int mealno) throws Exception;
   void remove(int mealno) throws Exception;
   List<Usermeal> traingList(int no) throws Exception;
   List<Usermeal> usersList(int no) throws Exception;

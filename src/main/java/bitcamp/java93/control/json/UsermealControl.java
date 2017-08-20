@@ -83,9 +83,8 @@ public class UsermealControl {
   }
 
   @RequestMapping("confirm")
-  public JsonResult confirm(Usermeal usermeal) throws Exception {
-    System.out.println(usermeal);
-    usermealService.update(usermeal);
+  public JsonResult confirm(int mealno) throws Exception {
+    usermealService.confirm(mealno);
 
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }

@@ -71,12 +71,8 @@
     where mealno=#{mealno}
   </update>
   
- 	<update id="confirm" parameterType="usermeal">
-    update memb_manage set 
-      mealpic=#{mealpicture}, 
-      mealkcal=#{mealkcal}, 
-      mealname=#{mealname},
-      trano=#{trainingNo},
+ 	<update id="confirm" parameterType="int">
+    update memb_manage set
       confirm=1
     where mealno=#{mealno}
   </update>

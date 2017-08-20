@@ -39,8 +39,8 @@ public class UsermealServiceImpl implements UsermealService {
   }
   
   @Override
-  public void confirm(Usermeal usermeal) throws Exception {
-    usermealDao.confirm(usermeal);
+  public void confirm(int mealno) throws Exception {
+    usermealDao.confirm(mealno);
   }
   
   public void remove(int mealno) throws Exception {
