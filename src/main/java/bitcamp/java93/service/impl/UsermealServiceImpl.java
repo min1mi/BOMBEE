@@ -38,6 +38,11 @@ public class UsermealServiceImpl implements UsermealService {
     usermealDao.nopicUpdate(usermeal);
   }
   
+  @Override
+  public void confirm(Usermeal usermeal) throws Exception {
+    usermealDao.confirm(usermeal);
+  }
+  
   public void remove(int mealno) throws Exception {
     int count = usermealDao.delete(mealno);
     if (count < 1) {
@@ -58,5 +63,7 @@ public class UsermealServiceImpl implements UsermealService {
   public List<Usermeal> usersList(int no) throws Exception {
     return usermealDao.usersList(no);
   }
+
+
   
 }

@@ -61,12 +61,23 @@
       trano=#{trainingNo}
     where mealno=#{mealno}
   </update>
+  
  	<update id="nopicUpdate" parameterType="usermeal">
     update memb_manage set 
       mealpic=#{mealpicture}, 
       mealkcal=#{mealkcal}, 
       mealname=#{mealname},
       trano=#{trainingNo}
+    where mealno=#{mealno}
+  </update>
+  
+ 	<update id="confirm" parameterType="usermeal">
+    update memb_manage set 
+      mealpic=#{mealpicture}, 
+      mealkcal=#{mealkcal}, 
+      mealname=#{mealname},
+      trano=#{trainingNo},
+      confirm=1
     where mealno=#{mealno}
   </update>
   

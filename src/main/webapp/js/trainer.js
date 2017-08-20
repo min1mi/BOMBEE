@@ -207,8 +207,7 @@ function prevCalendar() {
 	generateTemplate()
 }
 
-var alreadymeal = $('.already-meal'),
-addmeal = $('.add-meal'),
+var confirmmeal = $('.confirm-meal'),
 backscreen = $('.backscreen');
 
 function inputMeal() {
@@ -221,35 +220,17 @@ function inputMeal() {
 		$('.already-food-name').val($(this).children('.meal-name').text())
 		$('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
 
-		if(alreadymeal.attr('data-open') == 'close') {
+		if(confirmmeal.attr('data-open') == 'close') {
 			backscreen.show()
-			alreadymeal.show()
-			alreadymeal.attr('data-open', 'open')
+			confirmmeal.show()
+			confirmmeal.attr('data-open', 'open')
 		}
 	})
-
-	$('.add').on('click', function() {
-		console.log($('.add-meal').children('.already-food'))
-		today = $(this).parent().attr('id')
-		if($(this).attr('value') == 0) {
-			mealtype = 'breakfast'
-		} else if ($(this).attr('value') == 1) {
-			mealtype = 'lunch'
-		} else if ($(this).attr('value') == 2) {
-			mealtype = 'dinner'
-		}
-		if(addmeal.attr('data-open') == 'close') {
-			backscreen.show()
-			addmeal.show()
-			addmeal.attr('data-open', 'open')
-		}
-	})
+	
 	backscreen.on('click', function() {
 		backscreen.hide()
-		alreadymeal.hide()
-		addmeal.hide()
-		alreadymeal.attr('data-open', 'close')
-		addmeal.attr('data-open', 'close')
+		confirmmeal.hide()
+		confirmmeal.attr('data-open', 'close')
 	})
 }
 

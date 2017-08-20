@@ -12,5 +12,6 @@ public interface UsermealDao {
   int insert(Usermeal usermeal);
   int update(Usermeal usermeal);
   int nopicUpdate(Usermeal usermeal);
+  int confirm(Usermeal usermeal);
   int delete(int mealno);
 }
