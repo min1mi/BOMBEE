@@ -239,11 +239,12 @@ function setMarkers(map) {
               if ( j != i) {
                 if (proObject[j].comaddr == proObject[i].comaddr) {
                         proObject[j].check++
-                        proObject.slice(i, 1)
+                        proObject.splice(i, 1)
                       }
               }
             }
           }
+      console.log(proObject)
       
       for (var key of proObject) {
              if (key.check > 0) {
@@ -262,7 +263,7 @@ function setMarkers(map) {
                     imageSrc = '../image/spinning_marker.PNG'
                   }else if (key.spono == '3') {
                     imageSrc = '../image/yoga_marker.PNG'
-                  }else 
+                  }else if (key.spono == '4')
                     imageSrc = '../image/pilates_marker.PNG'
                   if(teacherOrPromotion == 0)
                 	  mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
@@ -284,7 +285,9 @@ function setMarkers(map) {
              }
          }
       for (var key of proAllObject) {
+    	  var manyPin
                if (key.check > 0) {
+            	 manyPin = key.spono
                  imageSize = new daum.maps.Size(75, 100)
                  // 여기부터 
                  imageSrc = '../image/multi-marker.png'
@@ -311,6 +314,7 @@ function setMarkers(map) {
                  
                }else {
                  imageSize = new daum.maps.Size(42, 50)
+                 if(manyPin != key.spono) {
                    if(key.spono == '1') {
                         imageSrc = '../image/health_marker.PNG'
                       }else if (key.spono == '2') {
@@ -327,6 +331,7 @@ function setMarkers(map) {
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
                            else if (spoNo == 4 && key.spono == spoNo) 
                                 mapMarker(key.comaddr, imageSrc, imageSize, key.pno, key.check)
+                 }
                }
              }
     }
