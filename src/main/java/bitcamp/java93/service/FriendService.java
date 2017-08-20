@@ -1,7 +1,9 @@
 package bitcamp.java93.service;
 
+
+import java.util.List;
+
 import bitcamp.java93.domain.Friend;
-import bitcamp.java93.domain.Trainer;
 
 public interface FriendService {
   /*read-only : list, get*/
@@ -13,5 +15,7 @@ public interface FriendService {
   void add2(Friend friend) throws Exception;
   void remove2(Friend friend) throws Exception;
   void detail(Friend friend) throws Exception;
+  List<Friend> addList(int no) throws Exception;
+  int friendDelete(int no, int mno) throws Exception;
 
 }

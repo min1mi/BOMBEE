@@ -12,7 +12,8 @@
     <result column="mno" property="mno"/>
     <result column="tno" property="tno"/>
     <result column="confirm" property="confirm"/>
-
+    <result column="pno" property="pno"/>
+    <result column="sdt" property="sdt"/>
   </resultMap>
   
   
@@ -32,6 +33,12 @@
      where mno=#{mno} and tno=#{tno}
   </select>
   
+    <select id="addList"  resultMap="friendMap" parameterType="int">
+    select t.*, m.name from tcher_trainer t 
+    inner join memb m on t.mno = m.mno
+    where t.tno = #{no} and t.confirm = 0
+  </select>
+  
   <select id="detail2" resultMap="friendMap" parameterType="int">
    select mno, tno from f_like
      where mno=#{mno} and tno=#{tno}
@@ -44,6 +51,10 @@
   
   <delete id="delete2" parameterType="int">
     delete from f_like where mno=#{mno} and tno=#{tno}
+  </delete>
+  
+  <delete id="friendDelete" parameterType="int">
+    delete from tcher_trainer where mno=#{mno} and tno=#{no}
   </delete>
 
 

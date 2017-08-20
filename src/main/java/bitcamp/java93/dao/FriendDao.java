@@ -1,9 +1,8 @@
 package bitcamp.java93.dao;
 
-import java.util.HashMap;
+import java.util.List;
 
 import bitcamp.java93.domain.Friend;
-import bitcamp.java93.domain.Trainer;
 public interface FriendDao {
 
   int insert(Friend friend);
@@ -12,5 +11,6 @@ public interface FriendDao {
   int delete2(Friend friend);
   int detail(Friend friend);
   Friend selectOne(int mno, int tno);
-
+  List<Friend> addList(int no);
+  void friendDelete(int no, int mno);
 }

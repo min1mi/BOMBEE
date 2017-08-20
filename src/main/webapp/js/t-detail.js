@@ -18,6 +18,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
 	// no = 0
 	try {
 			no = location.href.split('?')[1].split('=')[1]
+			console.log(no)
 	} catch (err) {
 		console.log(no)
 

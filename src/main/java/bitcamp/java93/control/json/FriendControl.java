@@ -60,6 +60,16 @@ public class FriendControl {
 
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+  @RequestMapping("addList")
+  public JsonResult addList(int no) throws Exception {
+   return new JsonResult(JsonResult.SUCCESS, friendService.addList(no));
+  }
+  
+  @RequestMapping("friendDelete") // 친구 수락 거절했을때 tcher_trainer 삭제하는 요청
+  public JsonResult friendDelete(int no, int mno) throws Exception {
+   return new JsonResult(JsonResult.SUCCESS, friendService.friendDelete(no, mno));
+  }
 
 
 }

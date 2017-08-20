@@ -1,13 +1,12 @@
 package bitcamp.java93.service.impl;
 
-import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.FriendDao;
 import bitcamp.java93.domain.Friend;
-import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.FriendService;
 
 @Service
@@ -32,6 +31,15 @@ public  class FriendServiceImpl implements FriendService {
   }
   public Friend get2(int mno, int tno) throws Exception {
     return friendDao.selectOne(mno, tno);
+  }
+  @Override
+  public List<Friend> addList(int no) throws Exception {
+    return friendDao.addList(no);
+  }
+  @Override
+  public int friendDelete(int no, int mno) throws Exception { //친구 신청 거부했을때 프로모션신청거부했을떄임
+    friendDao.friendDelete(no, mno);
+    return 1;// 성공시 1반환
   }
 
   
