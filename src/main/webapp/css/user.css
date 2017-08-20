@@ -260,9 +260,6 @@ input:focus {
   font-size: 1.5rem;
 }
 
-.tab-slider--body img {
-  width: 150%;
-}
 
 .tab-slider--body > div {
   width: 100%;

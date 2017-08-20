@@ -19,6 +19,7 @@ alreadymealkcal = $('.already-food-kcal'),
 mealtype,
 mealno;
 
+console.log($(window))
 
 
 
@@ -196,6 +197,12 @@ function arrayData(data) {
 			case "lunch": sortedMeals[1] = meal; break;
 			case "dinner": sortedMeals[2] = meal; break;
 			}
+			if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+				meal.width = 6
+			else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+				meal.width = 5
+			else if($(window)[0].innerWidth <= 320)
+				meal.width = 4
 		}
 
 		for (var i = 0; i < 3; i++) {
@@ -203,7 +210,9 @@ function arrayData(data) {
 				sortedMeals[i] = {index: i};
 			}
 		}
+		
 		dayMeal.sortedMeals = sortedMeals;
+		console.log(dayMeal.sortedMeals)
 	}
 
 	for (var i = 0; i < 7; i++) {
@@ -308,8 +317,8 @@ function inputMeal() {
 		today = $(this).parent().attr('id')
 		mealtype = $(this).children('.meal-type').text()
 		mealno = $(this).attr('value')
-
-		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).addClass("img-size").appendTo($('#updatefiles'));
+		var split = $("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_')[2]) //원본을 위해만든 개잔머리
+		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_'+split.attr('src'))[0]).addClass("img-size").appendTo($('#updatefiles'));
 		$('.already-food-name').val($(this).children('.meal-name').text())
 		$('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
 
@@ -375,3 +384,18 @@ function slideDate() {
 
 	});
 }
+
+Handlebars.registerHelper('iphonesix', function(meal ,options) {
+	if(meal.width == 6) 
+		return options.fn(this);
+});
+
+Handlebars.registerHelper('iphonesixs', function(meal ,options) {
+	if(meal.width == 5) 
+		return options.fn(this);
+});
+
+Handlebars.registerHelper('iphonefive', function(meal ,options) {
+	if(meal.width == 4) 
+		return options.fn(this);
+});
