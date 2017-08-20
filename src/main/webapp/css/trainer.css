@@ -1,0 +1,118 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+  .tab-slider--tabs:after{
+    height: 30px;
+    top: 14.5px;
+    left: 1px;
+  }
+  .week-container .info {
+    height: 27px;
+  }
+  .tab-slider--body > div {
+    height: 109px;
+  }
+  .input-food .food-img-form {
+  	height: 235px;
+	}
+	.input-food-container {
+		height: 343px;
+	}
+  .input-food .food-img {
+	  height: 235px;
+	}
+	.input-food-container {
+		margin-top: 50%;
+	}
+	#inputfiles, #updatefiles {
+		width: 93%;
+		height: 64%;
+		top: 2.5%;
+		left: 3.5%;
+	}
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+  .tab-slider--tabs:after{
+    height: 35.250px;
+    top: 16px;
+    left: 2px;
+  }
+  .week-container .info {
+    height: 28.5px;
+  }
+  .tab-slider--body > div {
+    height: 133px;
+  }
+  .input-food .food-img-form {
+  	height: 299px;
+	}
+	.input-food-container {
+		height: 425px;
+	}
+	.input-food .food-img {
+	  height: 299px;
+	}
+	.input-food-container {
+		margin-top: 46%;
+	}
+	#inputfiles, #updatefiles {
+		width: 94%;
+		height: 70%;
+		top: 2.3%;
+		left: 3%;
+	}
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .tab-slider--tabs:after{
+    height: 38.9px;
+    top: 15px;
+    left: 2.5px;
+  }
+  .week-container .info {
+    height: 30px;
+  }
+  .tab-slider--body > div {
+    height: 150px;
+  }
+  .input-food .food-img-form {
+  	height: 312px;
+	}
+	.input-food-container {
+		height: 460px;
+	}
+	.input-food .food-img {
+	  height: 312px;
+	}
+	.input-food-container {
+		margin-top: 44%;
+	}
+	#inputfiles, #updatefiles {
+		width: 94%;
+		height: 66%;
+		top: 2.3%;
+		left: 3%;
+	}
+}
+
+.foodConfirmBtn {
+	position: absolute;
+	width: 50%;
+	font-size: 1.4rem;
+	font-weight: bold;
+	background-color: #f7ac1a;
+	border-radius: 10px;
+	bottom:3.5%;
+	left: 25%;
+}
+
+/**/

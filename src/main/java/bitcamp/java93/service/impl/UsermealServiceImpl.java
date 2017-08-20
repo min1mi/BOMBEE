@@ -15,10 +15,11 @@ public class UsermealServiceImpl implements UsermealService {
   @Autowired
   UsermealDao usermealDao;
   
-  public List<Usermeal> list(String startDate, String endDate) throws Exception {
+  public List<Usermeal> list(String startDate, String endDate, int trainingNo) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("startDate", startDate);
     valueMap.put("endDate", endDate);
+    valueMap.put("trainingNo", trainingNo);
     
     return usermealDao.selectWeeklist(valueMap);
   }

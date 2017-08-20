@@ -23,10 +23,10 @@ public class UsermealControl {
   ServletContext ctx;
   
   @RequestMapping("usermeal-list")
-  public JsonResult list(String startDate, String endDate) throws Exception {
+  public JsonResult list(String startDate, String endDate, int trainingNo) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("mealList", usermealService.list(startDate, endDate));
+    dataMap.put("mealList", usermealService.list(startDate, endDate, trainingNo));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
@@ -34,6 +34,7 @@ public class UsermealControl {
   @RequestMapping("usermeal-add")
   public JsonResult add(Usermeal usermeal, MultipartFile[] files) throws Exception {
     
+    System.out.println(usermeal);
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));
     files[0].transferTo(file);
