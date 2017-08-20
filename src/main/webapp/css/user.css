@@ -19,12 +19,11 @@
 	}
 	.input-food-container {
 		height: 343px;
+    margin-top: 50%;
+
 	}
   .input-food .food-img {
 	  height: 235px;
-	}
-	.input-food-container {
-		margin-top: 50%;
 	}
 	#inputfiles, #updatefiles {
 		width: 93%;
@@ -54,12 +53,11 @@
 	}
 	.input-food-container {
 		height: 425px;
+    margin-top: 46%;
+
 	}
 	.input-food .food-img {
 	  height: 299px;
-	}
-	.input-food-container {
-		margin-top: 46%;
 	}
 	#inputfiles, #updatefiles {
 		width: 94%;
@@ -89,12 +87,11 @@
 	}
 	.input-food-container {
 		height: 460px;
+    margin-top: 44%;
+
 	}
 	.input-food .food-img {
 	  height: 312px;
-	}
-	.input-food-container {
-		margin-top: 44%;
 	}
 	#inputfiles, #updatefiles {
 		width: 94%;
@@ -260,6 +257,9 @@ input:focus {
   font-size: 1.5rem;
 }
 
+.tab-slider--body img {
+  width: 150%;
+}
 
 .tab-slider--body > div {
   width: 100%;
@@ -384,8 +384,8 @@ input:focus {
   font-size: 1.5rem;
 }
 
-.food-name, .food-kcal, 
-.already-food-name, 
+.food-name, .food-kcal,
+.already-food-name,
 .already-food-kcal {
 	padding: 2% 0 2% 2%;
 	position: absolute;
@@ -437,7 +437,7 @@ input:focus {
 	bottom:3.5%;
 	right: 7%;
 }
-	
+
 .camera-size {
 	width: 100%;
 	font-size: 5rem;

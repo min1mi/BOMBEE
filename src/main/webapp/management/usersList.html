@@ -11,103 +11,25 @@
 <link rel="stylesheet"
 	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel='stylesheet' href="../css/bombee.css">
+<link rel='stylesheet' href="../css/userlist.css">
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
-
- <style>
-  /*iphone5*/
-@media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 11px;
-  }
-  .list {
-    height: 139px;
-  }
-}
-/*iphone6*/
-@media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 13px;
-  }
-  .list {
-    height: 150px;
-  }
-}
-/*iphone6 plus*/
-@media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
-  .list {
-    height: 155px;
-  }
-}
-
-.list {
-  position: relative;
-  border-bottom: 1px solid silver;
-}
-.training:first-child[.list] {
-  margin-top: 3%;
-}
-.list img {
-  margin: 2%;
-  width: 35%;
-  height: 90%;
-}
-
-.promotionName,
-.startDate,
-.endDate,
-.trainerName,
-.trainer,
-.mealBtn {
-  position: absolute;
-  font-size: 1.1rem;
-  margin-left: 1%;
-}
-
-.trainerName {
-  top: 10%;
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-.startDate,
-.endDate  {
-  top: 47%;
-}
-.endDate {
-  left: 63%;
-}
-.promotionName {
-  top: 32%;
-  font-weight: 600;
-}
-
-.mealBtn {
-  bottom: 6.5%;
-  right: 3%;
-  font-size: 1.3rem;
-  font-weight: 600;
-  box-shadow: 2px 2px 2px 1px;
-}
-  
- </style>
+<script src='../js/userlist.js'></script>
 </head>
 <body>
-	<div class="trainingList-container">
+	<div class="userList-container">
 		<div class='header'></div>
 
-		<div class='training'>
+		<div class='user'>
 		</div>
 
 	</div>
 
-	<script id="training-template" type="text/x-handlebars-template">
+	<script id="user-template" type="text/x-handlebars-template">
       {{#each data}}
       <div class='list'>
           <img src='../upload/{{proImg}}'>
-          <span class='trainerName'>{{name}} 회원</span>
+          <span class='userName'>{{name}} 회원</span>
           <span class='startDate'>{{sdt}} <span>~</span></span>
           <span class='endDate'>{{edt}}</span>
           <span class='promotionName'>{{promotionTitle}}</span>
@@ -117,39 +39,5 @@
       {{/each}}
     </script>
 
-	<script>
-	var json = '/auth/userinfo.json'
-		var no = 0
-		var mealBtn
-		  $(document).ready(function() {
-		    $('.header').load('../menu/new.html')
-		  })
-		  getData(json, no)
-		  function getData(jsonType, no) {
-		    $.getJSON(jsonType,{
-		      no: no
-		    }, function(result) {
-		      console.log(result)
-		      if(json == '/auth/userinfo.json') {
-		        no = result.data.no
-		        json = '/management/usersList.json'
-		        getData(json, no)
-		      }else if(json == '/management/usersList.json') {
-		        var templateFn = Handlebars.compile($('#training-template').text())
-		        var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-		        var container = $('.training')
-		        var html = container.html()
-		        container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
-		        mealBtn()
-		      }
-		    })
-		  }
-		function mealBtn() {
-		  mealBtn = $('.mealBtn')
-		  mealBtn.click(function() {
-		    location.href = 'trainer.html?no='+$(this).attr('value')
-		  })
-		}
-	</script>
 </body>
 </html>

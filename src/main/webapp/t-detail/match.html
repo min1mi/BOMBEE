@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
+  <link rel='stylesheet' href='../css/bombee.css'>
+  <link rel='stylesheet' href='../css/match.css'>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class='btn matchBtn'>보여라 얍!</div>
+
+  <div class='backscreen'></div>
+  <div class='matching-container' data-open='close'>
+    <div class='matching'>
+      <div class='promotion-container'>
+        <div class='promotion-list'>
+          <div class='promotion-img'>
+            <img src='../image/breakfast.jpg'>
+          </div>
+          <span class='promotion-name'>sal</span>
+          <span class='promotion-startDate'>2017-08-20 ~</span>
+          <span class='promotion-endDate'>2017-08-31</span>
+        </div>
+        <div class='promotion-list'>
+          <div class='promotion-img'>
+            <img src='../image/breakfast.jpg'>
+          </div>
+          <span class='promotion-name'>sal</span>
+          <span class='promotion-startDate'>2017-08-20 ~</span>
+          <span class='promotion-endDate'>2017-08-31</span>
+        </div>
+        <div class='promotion-list'>
+          <div class='promotion-img'>
+            <img src='../image/breakfast.jpg'>
+          </div>
+          <span class='promotion-name'>sal</span>
+          <span class='promotion-startDate'>2017-08-20 ~</span>
+          <span class='promotion-endDate'>2017-08-31</span>
+        </div>
+        <div class='promotion-list'>
+          <div class='promotion-img'>
+            <img src='../image/breakfast.jpg'>
+          </div>
+          <span class='promotion-name'>sal</span>
+          <span class='promotion-startDate'>2017-08-20 ~</span>
+          <span class='promotion-endDate'>2017-08-31</span>
+        </div>
+
+        <div class='matching-date'>
+          <div class='start-date'>
+            <div class='promotion-icon'>
+              <i class="fa fa-calendar " aria-hidden="true"></i>
+            </div>
+            <input class='dateStart' type="text" id="datepicker-start" placeholder="Start-Date ">
+            <div class='arrowStart'>
+              <i class="fa fa-angle-down " aria-hidden="true"></i>
+            </div>
+        </div>
+        <div>
+          <button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
+        </div>
+      </div>
+</body>
+<script>
+  var matchingContainer = $('.matching-container'),
+    backscreen = $('.backscreen');
+
+  $('.matchBtn').on('click', function() {
+    if (matchingContainer.attr('data-open') == 'close') {
+      backscreen.show()
+      matchingContainer.show()
+      matchingContainer.attr('data-open', 'open')
+    }
+    backscreen.on('click', function() {
+      backscreen.hide()
+      matchingContainer.hide()
+      matchingContainer.attr('data-open', 'close')
+    })
+  })
+</script>
+
+</html>
