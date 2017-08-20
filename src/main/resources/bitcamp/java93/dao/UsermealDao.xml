@@ -15,90 +15,96 @@
 		<result column="mealkcal" property="mealkcal" />
 		<result column="mealname" property="mealname" />
 		<result column="mealtype" property="mealtype" />
-		<result column="trano" property="trainingNo"/>
+		<result column="trano" property="trainingNo" />
 		<collection property="meal" ofType="Meal">
-				<result column="mealno" property="mealno" />
-				<result column="mealpic" property="mealpicture" />
-				<result column="mealkcal" property="mealkcal" />
-				<result column="mealname" property="mealname" />
-				<result column="mealtype" property="mealtype" />
+			<result column="mealno" property="mealno" />
+			<result column="mealpic" property="mealpicture" />
+			<result column="mealkcal" property="mealkcal" />
+			<result column="mealname" property="mealname" />
+			<result column="mealtype" property="mealtype" />
 		</collection>
 	</resultMap>
-	
+
 	<resultMap type="usermealList" id="usermealMap2">
-		<id column="trano" property="trano"/>
-		<result column="pno" property="pno"/>
-		<result column="sdt" property="sdt"/>
-		<result column="edt" property="edt"/>
-		<result column="confirm" property="confirm"/>
-		<result column="mno" property="mno"/>
-		<result column="tno" property="tno"/>
-		<result column="name" property="name"/>
-		<result column="titl" property="promotionTitle"/>
-		<result column="pimg" property="proImg"/>
+		<id column="trano" property="trano" />
+		<result column="pno" property="pno" />
+		<result column="sdt" property="sdt" />
+		<result column="edt" property="edt" />
+		<result column="confirm" property="confirm" />
+		<result column="mno" property="mno" />
+		<result column="tno" property="tno" />
+		<result column="name" property="name" />
+		<result column="titl" property="promotionTitle" />
+		<result column="pimg" property="proImg" />
 	</resultMap>
 
 	<select id="selectWeeklist" resultMap="usermealMap"
 		parameterType="map">
-		select mealno, mealpic, mealkcal, mealname, mealtype, date, confirm, day
-		from memb_manage
+		select mm.mealno, mm.mealpic, mm.mealkcal, mm.mealname,
+		mm.mealtype, mm.date, mm.confirm, mm.day, m.name
+		from memb_manage mm
+		inner join tcher_trainer tt on mm.trano = tt.trano
+		inner join memb m on tt.mno = m.mno
 		where date between #{startDate} and #{endDate} and trano=#{trainingNo}
 	</select>
 
-	<insert id="insert" parameterType="usermeal" 
-					useGeneratedKeys="true" keyColumn="mealno" keyProperty="mealno">
+	<insert id="insert" parameterType="usermeal" useGeneratedKeys="true"
+		keyColumn="mealno" keyProperty="mealno">
 		insert into
-		memb_manage(mealtype, mealpic, mealkcal, mealname, date, day, confirm, trano)
-		values(#{mealtype}, #{mealpicture}, #{mealkcal}, 
-					 #{mealname}, curdate(), #{day}, 0, #{trainingNo})
+		memb_manage(mealtype,
+		mealpic, mealkcal, mealname, date, day, confirm, trano)
+		values(#{mealtype}, #{mealpicture}, #{mealkcal},
+		#{mealname}, curdate(), #{day}, 0, #{trainingNo})
 	</insert>
 
- 	<update id="update" parameterType="usermeal">
-    update memb_manage set 
-      mealpic=#{mealpicture}, 
-      mealkcal=#{mealkcal}, 
-      mealname=#{mealname},
-      trano=#{trainingNo}
-    where mealno=#{mealno}
-  </update>
-  
- 	<update id="nopicUpdate" parameterType="usermeal">
-    update memb_manage set 
-      mealpic=#{mealpicture}, 
-      mealkcal=#{mealkcal}, 
-      mealname=#{mealname},
-      trano=#{trainingNo}
-    where mealno=#{mealno}
-  </update>
-  
- 	<update id="confirm" parameterType="int">
-    update memb_manage set
-      confirm=1
-    where mealno=#{mealno}
-  </update>
-  
+	<update id="update" parameterType="usermeal">
+		update memb_manage set
+		mealpic=#{mealpicture},
+		mealkcal=#{mealkcal},
+		mealname=#{mealname},
+		trano=#{trainingNo}
+		where mealno=#{mealno}
+	</update>
+
+	<update id="nopicUpdate" parameterType="usermeal">
+		update memb_manage set
+		mealpic=#{mealpicture},
+		mealkcal=#{mealkcal},
+		mealname=#{mealname},
+		trano=#{trainingNo}
+		where mealno=#{mealno}
+	</update>
+
+	<update id="confirm" parameterType="int">
+		update memb_manage set
+		confirm=1
+		where mealno=#{mealno}
+	</update>
+
 	<delete id="delete" parameterType="int">
-    delete from memb_manage where mealno=#{mealno}
-  </delete>
-  
-  
-  <select id="trainingList" resultMap="usermealMap2" parameterType="int">
-	select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join memb
-	m on t.tno = m.mno
-	inner join promotion p on t.pno = p.pno
-	inner join promotionimg i on t.pno = i.pno
-	where t.mno = #{no} and i.titlepic = 1
-	order by t.sdt desc;
+		delete from memb_manage where mealno=#{mealno}
+	</delete>
+
+
+	<select id="trainingList" resultMap="usermealMap2"
+		parameterType="int">
+		select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join memb
+		m on t.tno = m.mno
+		inner join promotion p on t.pno = p.pno
+		inner join promotionimg i on t.pno = i.pno
+		where t.mno = #{no} and i.titlepic = 1
+		order by t.sdt desc;
 	</select>
-  
-  
-  <select id="usersList" resultMap="usermealMap2" parameterType="int">
-	select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join memb
-	m on t.mno = m.mno
-	inner join promotion p on t.pno = p.pno
-	inner join promotionimg i on t.pno = i.pno
-	where t.tno = #{no} and i.titlepic = 1
-	order by t.sdt desc;
-  </select>
+
+
+	<select id="usersList" resultMap="usermealMap2" parameterType="int">
+		select t.*, m.name, p.titl, i.pimg from tcher_trainer t inner join
+		memb
+		m on t.mno = m.mno
+		inner join promotion p on t.pno = p.pno
+		inner join promotionimg i on t.pno = i.pno
+		where t.tno = #{no} and i.titlepic = 1
+		order by t.sdt desc;
+	</select>
 
 </mapper>
