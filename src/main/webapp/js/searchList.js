@@ -148,13 +148,10 @@ function GPSFind(){
 	    var locPosition = new daum.maps.LatLng(37.494533687556945, 127.02810003919578),    
 	        message = 'geolocation을 사용할수 없어요..'
 	}
-	
-		
 }
 
 function mapMarker(address, imageSrc , size, no, check) {
 	// 주소로 좌표를 검색합니다
-
 	geocoder.addressSearch(address, function(result, status) {
 		//마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 
@@ -171,14 +168,11 @@ function mapMarker(address, imageSrc , size, no, check) {
 	 	            clickable: true,
 	 	            title: address
 	 	        });
-
 	 	     // 생성된 마커를 배열에 추가합니다
 	 	        markers.push(marker);
 
 	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	 	        /* map.setCenter(coords); */
-	 	        
-	 	        
 	 	    } 
 	     }else {
 	    	 if (status === daum.maps.services.Status.OK) {
@@ -191,14 +185,10 @@ function mapMarker(address, imageSrc , size, no, check) {
 	 	            clickable: true,
 	 	            title: no
 	 	        });
-
 	 	     // 생성된 마커를 배열에 추가합니다
 	 	        markers.push(marker);
-
 	 	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 	 	        /* map.setCenter(coords); */
-	 	        
-	 	        
 	 	    } 
 	     }
         daum.maps.event.addListener(marker, 'click', function() {
@@ -227,7 +217,6 @@ function setMarkers(map) {
     }
     markers = [];
 }
-  
   Handlebars.registerHelper('marker', function(promotionList, last, options) {
 	  promotionList[0].check = 0
 	  proObject.push(promotionList[0])
