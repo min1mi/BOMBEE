@@ -1,17 +1,17 @@
 
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  body {
+  .projectAdd-In {
     font-size: 8px;
   }
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  body {
+  .projectAdd-In {
     font-size: 10px;
   }
 }
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
-    body {
+    .projectAdd-In {
     font-size: 11px;
   }
 }

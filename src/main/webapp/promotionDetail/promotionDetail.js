@@ -2,6 +2,7 @@
 var no = 0
 var lat
 var lon
+var price = $('#promotion_price')
 
 try {
    no = location.href.split('?')[1].substring(3)
@@ -12,19 +13,6 @@ try {
 $(document).ready(function() {
   $('.header').load('../menu/new.html')
 })
-
-// 토글
-// var acc = document.getElementsByClassName("accordion");
-//
-//   acc[0].onclick = function() {
-//     this.classList.toggle("active");
-//     var panel = this.nextElementSibling;
-//     if (panel.style.maxHeight){
-//       panel.style.maxHeight = null;
-//     } else {
-//       panel.style.maxHeight = panel.scrollHeight + "px";
-//     }
-//   }
 
 // 맵 마커 시작
 
@@ -71,7 +59,8 @@ $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
     lon = result.data.promotion.lng
     console.log(lat)
     console.log(lon)
-
+    price.text(result.data.promotion.pric)
+    
     var templateFn = Handlebars.compile($('#detail-template').text())
     var generatedHTML = templateFn(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
     var container = $('#handlebars-pro-detail')
