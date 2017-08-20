@@ -82,7 +82,7 @@ public class UsermealControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
-  @RequestMapping("trainer-update")
+  @RequestMapping("confirm")
   public JsonResult confirm(Usermeal usermeal) throws Exception {
     System.out.println(usermeal);
     usermealService.update(usermeal);

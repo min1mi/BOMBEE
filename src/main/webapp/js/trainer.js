@@ -23,7 +23,7 @@ mealno;
 
 
 $('#foodConfirmBtn').on('click', function() {
-	$.post('/management/nopicmeal-update.json', {
+	$.post('/management/confirm-update.json', {
 		'mealpicture': $('#updatefiles img').attr('src').split('_350.png')[0],
 		'mealno' : mealno,
 		'mealkcal': alreadymealkcal.val(), 
