@@ -5,12 +5,13 @@ public class usermealList {
   int pno;
   String sdt;
   String edt;
-  String tName;
+  String name;
   String promotionTitle;
   String proImg;
   boolean confirm;
   int mno;
   int tno;
+  
   public int getTrano() {
     return trano;
   }
@@ -35,11 +36,11 @@ public class usermealList {
   public void setEdt(String edt) {
     this.edt = edt;
   }
-  public String gettName() {
-    return tName;
+  public String getName() {
+    return name;
   }
-  public void settName(String tName) {
-    this.tName = tName;
+  public void setName(String name) {
+    this.name = name;
   }
   public String getPromotionTitle() {
     return promotionTitle;
@@ -73,7 +74,7 @@ public class usermealList {
   }
   @Override
   public String toString() {
-    return "usermealList [trano=" + trano + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", tName=" + tName
+    return "usermealList [trano=" + trano + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", name=" + name
         + ", promotionTitle=" + promotionTitle + ", proImg=" + proImg + ", confirm=" + confirm + ", mno=" + mno
         + ", tno=" + tno + "]";
   }

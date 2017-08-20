@@ -67,25 +67,21 @@
   margin-left: 1%;
 }
 
-.promotionName {
+.trainerName {
   top: 10%;
   font-size: 1.4rem;
   font-weight: 800;
 }
 .startDate,
 .endDate  {
-  top: 32%;
+  top: 47%;
 }
 .endDate {
   left: 63%;
 }
-.trainerName {
-  top: 47%;
+.promotionName {
+  top: 32%;
   font-weight: 600;
-}
-.trainer {
-  top: 47%;
-  left: 51%
 }
 
 .mealBtn {
@@ -111,11 +107,10 @@
       {{#each data}}
       <div class='list'>
           <img src='../upload/{{proImg}}'>
-          <span class='promotionName'>{{promotionTitle}}</span>
+          <span class='trainerName'>{{name}} 회원</span>
           <span class='startDate'>{{sdt}} <span>~</span></span>
           <span class='endDate'>{{edt}}</span>
-          <span class='trainerName'>{{tName}}</span>
-          <span class='trainer'>강사</span>
+          <span class='promotionName'>{{promotionTitle}}</span>
           <div class='btn mealBtn' value={{trano}}>Check My Meal</div>
         </div>
       </div>
@@ -137,9 +132,9 @@
 		      console.log(result)
 		      if(json == '/auth/userinfo.json') {
 		        no = result.data.no
-		        json = '/management/trainingList.json'
+		        json = '/management/usersList.json'
 		        getData(json, no)
-		      }else if(json == '/management/trainingList.json') {
+		      }else if(json == '/management/usersList.json') {
 		        var templateFn = Handlebars.compile($('#training-template').text())
 		        var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 		        var container = $('.training')
