@@ -2,6 +2,7 @@ $(function() {
 	moment().format();
 	$('.header').load('../menu/new.html')
 
+	getUsername(trano);
 	generateTemplate();
 	date(current);
 	dateClick();
@@ -34,11 +35,13 @@ $('#foodConfirmBtn').on('click', function() {
 var startDate,
 endDate, totalKcal = 0;
 
-
+function getUsername(no) {
+  $.getJSON('promotion-user-name.json', {'trainingNo': no}, function(result) {
+    $('.user').text(result.data.name)
+  })
+}
 
 function generateTemplate() {
-
-  $('.user').text(result.data.name)
 	startDate = current.startOf('week').format("YYYY-MM-DD")
 	endDate = current.endOf('week').format("YYYY-MM-DD")
 	$.getJSON('usermeal-list.json', {"startDate": startDate,
@@ -46,8 +49,6 @@ function generateTemplate() {
 			var data = result.data
 			// 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 			arrayData(data)
-			console.log(result)
-			console.log(data.mealList)
 			var templateFn = Handlebars.compile($('#user-template').text())
 			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 			var container = $('#meal-container')

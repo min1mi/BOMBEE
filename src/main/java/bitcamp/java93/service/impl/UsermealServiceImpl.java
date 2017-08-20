@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.UsermealDao;
 import bitcamp.java93.domain.Usermeal;
+import bitcamp.java93.domain.usermealList;
 import bitcamp.java93.service.UsermealService;
 
 @Service
@@ -22,6 +23,10 @@ public class UsermealServiceImpl implements UsermealService {
     valueMap.put("trainingNo", trainingNo);
     
     return usermealDao.selectWeeklist(valueMap);
+  }
+  
+  public usermealList getName(int trainingNo) throws Exception {
+    return usermealDao.selectPromotionUsername(trainingNo);
   }
 
   public void add(Usermeal usermeal) throws Exception {

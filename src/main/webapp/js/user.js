@@ -2,6 +2,7 @@ $(function() {
 	moment().format();
 	$('.header').load('../menu/new.html')
 
+	getPromotionName(trano)
 	generateTemplate();
 	date(current);
 	dateClick();
@@ -22,6 +23,12 @@ mealno;
 console.log($(window))
 
 
+function getPromotionName(no) {
+  $.getJSON('promotion-user-name.json', {'trainingNo': no}, function(result) {
+    console.log(result)
+    $('.user').text(result.data.promotionTitle)
+  })
+}
 
 $('#files').fileupload({
 	url: '/management/usermeal-add.json',        // 서버에 요청할 URL

@@ -22,37 +22,45 @@ public class Usermeal extends Meal {
         + trainingNo + ", mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname
         + ", mealkcal=" + mealkcal + ", mealno=" + mealno + "]";
   }
+
   public List<Meal> getMeal() {
     return meal;
   }
+
   public void setMeal(List<Meal> meal) {
     this.meal = meal;
   }
+
   public String getDate() {
     return date;
   }
+
   public void setDate(String date) {
     this.date = date;
   }
+
   public String getDay() {
     return day;
   }
+
   public void setDay(String day) {
     this.day = day;
   }
+
   public Boolean getConfirm() {
     return confirm;
   }
+
   public void setConfirm(Boolean confirm) {
     this.confirm = confirm;
   }
+
   public int getTrainingNo() {
     return trainingNo;
   }
+
   public void setTrainingNo(int trainingNo) {
     this.trainingNo = trainingNo;
   }
 
-  
-  
 }

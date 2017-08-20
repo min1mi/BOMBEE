@@ -29,6 +29,10 @@ public class UsermealControl {
     dataMap.put("mealList", usermealService.list(startDate, endDate, trainingNo));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
+  @RequestMapping("promotion-user-name")
+  public JsonResult getName(int trainingNo) throws Exception {
+    return new JsonResult(JsonResult.SUCCESS,  usermealService.getName(trainingNo));
+  }
 
 
   @RequestMapping("usermeal-add")
