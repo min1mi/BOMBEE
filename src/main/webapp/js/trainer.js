@@ -14,8 +14,8 @@ var filenames = $('#filenames');
 var today,
 mealkcal = $('.food-kcal'),
 mealname = $('.food-name'),
-alreadymealname = $('.already-food-name'),
-alreadymealkcal = $('.already-food-kcal'),
+confirmmealname = $('.confirm-food-name'),
+confirmmealkcal = $('.confirm-food-kcal'),
 mealtype,
 mealno;
 
@@ -34,11 +34,11 @@ $('#foodConfirmBtn').on('click', function() {
 var startDate,
 endDate, totalKcal = 0;
 
-$.getJSON('/auth/userinfo.json', function(result) {
-    $('.user').text(result.data.name)
-     })
+
 
 function generateTemplate() {
+
+  $('.user').text(result.data.name)
 	startDate = current.startOf('week').format("YYYY-MM-DD")
 	endDate = current.endOf('week').format("YYYY-MM-DD")
 	$.getJSON('usermeal-list.json', {"startDate": startDate,
@@ -46,6 +46,7 @@ function generateTemplate() {
 			var data = result.data
 			// 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 			arrayData(data)
+			console.log(result)
 			console.log(data.mealList)
 			var templateFn = Handlebars.compile($('#user-template').text())
 			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -210,9 +211,9 @@ function inputMeal() {
 		mealno = $(this).attr('value')
 
 		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).addClass("img-size").appendTo($('#updatefiles'));
-		$('.already-food-name').val($(this).children('.meal-name').text())
-		$('.already-food-kcal').val($(this).children('.meal-kcal').attr('value'))
-
+		$('.comfirm-food-name').val($(this).children('.meal-name').text())
+		$('.confirm-food-kcal').val($(this).children('.meal-kcal').attr('value'))
+    
 		if(confirmmeal.attr('data-open') == 'close') {
 			backscreen.show()
 			confirmmeal.show()
