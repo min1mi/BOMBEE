@@ -49,15 +49,14 @@
     				  time.splice(i--, 1)
     		  }
     	  }
-    	  
         var templateFn = Handlebars.compile($('#match-time-template').text())
         var generatedHTML = templateFn(time)
         var container = $('.times')
         container.html('')
         container.html(generatedHTML)
-        
+        $('.times').slideToggle()
+        connectBtn()
       }
-
     })
   }
 
@@ -105,12 +104,18 @@
   })
   
   $('.dateStart').change(function () {
+	  $('.times').css('display','none')
       startDay = $('.dateStart').val().split(' ')[1]
       console.log(tno)
       getData('/schedule/tcherSelectSchedule.json', tno, startDay)
   })
   
-  
+  function connectBtn() {
+	  $('.time-box').click(function() {
+		  $('.time-box').removeClass('click')
+		  $(this).addClass('click')
+	  })
+  }
   
   
   
