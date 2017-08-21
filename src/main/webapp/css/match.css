@@ -4,8 +4,13 @@
     font-size: 10px;
   }
 	.matching-container {
-		height: 343px;
     margin-top: 30%;
+	}
+	.promotion-container {
+		height: 210px;
+	}
+	.period {
+	  height: 24px;
 	}
 }
 /*iphone6*/
@@ -14,12 +19,17 @@
     font-size: 12px;
   }
 	.matching-container {
-		height: 425px;
     margin-top: 26%;
 	}
   .dateStart {
     height: 32px;
   }
+  .promotion-container {
+		height: 250px;
+	}
+	.period {
+	  height: 31.5px;
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
@@ -27,12 +37,17 @@
     font-size: 14px;
   }
 	.matching-container {
-		height: 460px;
     margin-top: 24%;
 	}
   .dateStart {
     height: 34px;
   }
+  .promotion-container {
+		height: 290px;
+	}
+	.period {
+	  height: 34px;
+	}
 }
 
 .matchBtn {
@@ -43,7 +58,7 @@
 	position: absolute;
 	background-color: #f3f3f3;
 	width: 85.5%;
-	height: 75%;
+	height: auto;
 	top: 0;
 	left: 7.25%;
 	border-radius: 10px;
@@ -67,7 +82,6 @@
   overflow-x:hidden;
   overflow-y:auto;
   width: 100%;
-  height: 52%;
   top: 0;
   border-radius: 10px;
 }
@@ -125,44 +139,58 @@
   left: 69%;
 }
 
-.matchingBtn {
-	position: absolute;
+.btn-form {
 	width: 50%;
+  margin: 2% auto;
+  margin-bottom: 4%;
+}
+.matchingBtn {
+	width: 100%;
 	font-size: 1.4rem;
 	font-weight: bold;
 	background-color: #f7ac1a;
 	border-radius: 10px;
-	bottom:3.5%;
-	left: 25%;
+	margin: 0 auto;
 }
 
 .matching-start-date {
+	float: left;
+	margin-top: 3%;
+	margin-left: 6%;
   width: 55%;
   display: inline-block;
 }
 
 .calendar {
   left: 11%;
-  margin-top: 9%;
   font-size: 1.4rem;
 }
 
 .dateStart {
   left: 24.5%;
-  margin-top: 5.8%;
-  width: 90%;
+  width: 88%;
   padding-left: 2%;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.period {
-  width: 30%;
-  right: 5.5%;
-  margin-top: 3%;
-  display: inline-block;
+.period-form {
+	float: left;
+	margin-left: 2%;
+	margin-top: 3%;
+	display: inline-block;
+	width: 31%;
 }
 
+.period {
+  width: 100%;
+  right: 5.5%;
+  display: inline-block;
+  font-size: 1.3rem;
+  padding: 0 3% 1% 3%;
+  border: 1px solid #ccc; 
+}
+  
 .times {
 	width: 96%;
 	top: 61%;

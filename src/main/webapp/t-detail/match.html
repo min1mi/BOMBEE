@@ -21,35 +21,36 @@
 
 	<div class='backscreen'></div>
 	<div class='matching-container' data-open='close'>
-		<div class='matching'>
+		<div class='matching clearfix'>
 			<div class='promotion-container'></div>
-			
-			<div class='matching-date'>
+
+			<div class='matching-date clearfix'>
 				<div class='matching-start-date'>
 					<i class="fa fa-calendar calendar" aria-hidden="true"></i> <input
 						class='dateStart' type="text" id="datepicker-start"
 						placeholder="Start-Date ">
 				</div>
 
-				<select class='period form-control'>
-					<option selected>1개월</option>
-					<option>2개월</option>
-					<option>3개월</option>
-					<option>4개월</option>
-					<option>5개월</option>
-					<option>6개월</option>
-					<option>7개월</option>
-					<option>8개월</option>
-					<option>9개월</option>
-					<option>10개월</option>
-					<option>11개월</option>
-					<option>12개월</option>
-				</select>
-
+				<div class='period-form'>
+					<select class='period form-control'>
+						<option selected>1개월</option>
+						<option>2개월</option>
+						<option>3개월</option>
+						<option>4개월</option>
+						<option>5개월</option>
+						<option>6개월</option>
+						<option>7개월</option>
+						<option>8개월</option>
+						<option>9개월</option>
+						<option>10개월</option>
+						<option>11개월</option>
+						<option>12개월</option>
+					</select>
+				</div>
 			</div>
-			<div class='times'></div>
-			
-			<div>
+			<div class='times clearfix'></div>
+
+			<div class='btn-form'>
 				<button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
 			</div>
 		</div>
@@ -67,7 +68,7 @@
       </div>
       {{/each}}
   </script>
-  
+
 	<script id="match-time-template" type="text/x-handlebars-template">
       {{#this}}
     	  <div class='time-box btn'>{{this}}시</div>
