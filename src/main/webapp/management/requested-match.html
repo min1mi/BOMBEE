@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  	<link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
+  	<link rel='stylesheet' href='../css/bombee.css'>
+  	<link rel='stylesheet' href='../css/requested-match.css'>
+  	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  	<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+  	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <title>Requested Match</title>
+  </head>
+  <body>
+    <div class='header'></div>
+
+  </body>
+  <script>
+  $(function() {
+  	$('.header').load('../menu/new.html')
+  })
+
+  var json = '/auth/userinfo.json'
+  var no = -1
+  getData(json, no)
+  function getData(json, no) {
+      $.getJSON(json, {'no' : no}, function(result) {
+      	if(json == '/auth/userinfo.json') {
+      		if(result.data.membertype == 2)
+      		     no = result.data.no
+      		else
+      			 location.href = '../auth/login.html'
+      		console.log()
+      		getData('/friend/addList.json', no)
+      	} else if (json == '/friend/addList.json') {
+      		console.log(result)
+      		//코딩
+      	} else if(json == '/freind/friendDelete') {
+      		//거절 버튼을 눌렀을대 실행하면 되는 요청
+      		console.log(result)
+      	} else if(json == 'friend/friendAdd') {
+      		// 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
+      		// mno 도 날려야함 no는 tno
+      		console.log(result)
+      	}
+    })
+    }
+  </script>
+</html>
