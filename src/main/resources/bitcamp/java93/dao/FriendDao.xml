@@ -19,6 +19,8 @@
     <result column="wishtime" property="wishtime"/>
     <result column="mname" property="mname"/>
     <result column="tname" property="tname"/>
+    <result column="date" property="date"/>
+    <result column='time' property="time"/>
   </resultMap>
 
 
@@ -50,7 +52,9 @@
   </select>
 
     <select id="addList"  resultMap="friendMap" parameterType="int">
-    select t.*, m.name as mname, mm.name as tname from tcher_trainer t
+    select t.*, date_format(t.reqdate, '%Y-%m-%d') as date, 
+    date_format(t.reqdate, '%r') as time,
+    m.name as mname, mm.name as tname from tcher_trainer t
     inner join memb m on t.mno = m.mno
     inner join memb mm on t.tno = mm.mno
     where t.tno = #{no} and t.confirm = 0

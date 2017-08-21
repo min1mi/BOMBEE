@@ -12,6 +12,8 @@ public class Friend {
   String edt;
   String mname;
   String tname;
+  String date;
+  String time;
   int wishtime;
   public int getTno() {
     return tno;
@@ -73,19 +75,32 @@ public class Friend {
   public void setTname(String tname) {
     this.tname = tname;
   }
+
+  public String getDate() {
+    return date;
+  }
+  public void setDate(String date) {
+    this.date = date;
+  }
   public int getWishtime() {
     return wishtime;
   }
   public void setWishtime(int wishtime) {
     this.wishtime = wishtime;
   }
+  public String getTime() {
+    return time;
+  }
+  public void setTime(String time) {
+    this.time = time;
+  }
   @Override
   public String toString() {
     return "Friend [tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno=" + pno
-        + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname
-        + ", wishtime=" + wishtime + "]";
+        + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname + ", date="
+        + date + ", time=" + time + ", wishtime=" + wishtime + "]";
   }
   
-  
+ 
   
 }
