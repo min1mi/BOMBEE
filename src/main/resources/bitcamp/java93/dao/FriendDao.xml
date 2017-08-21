@@ -14,6 +14,8 @@
     <result column="confirm" property="confirm"/>
     <result column="pno" property="pno"/>
     <result column="sdt" property="sdt"/>
+    <result column="mname" property="mname"/>
+    <result column="tname" property="tname"/>
   </resultMap>
 
 
@@ -39,8 +41,9 @@
   </select>
 
     <select id="addList"  resultMap="friendMap" parameterType="int">
-    select t.*, m.name from tcher_trainer t
+    select t.*, m.name as mname, mm.name as tname from tcher_trainer t
     inner join memb m on t.mno = m.mno
+    inner join memb mm on t.tno = mm.mno
     where t.tno = #{no} and t.confirm = 0
   </select>
 

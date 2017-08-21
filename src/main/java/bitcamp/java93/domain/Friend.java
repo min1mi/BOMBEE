@@ -8,7 +8,9 @@ public class Friend {
   int trano;
   int pno;
   String sdt;
-  String name;
+  String edt;
+  String mname;
+  String tname;
   public int getTno() {
     return tno;
   }
@@ -45,17 +47,30 @@ public class Friend {
   public void setSdt(String sdt) {
     this.sdt = sdt;
   }
-  public String getName() {
-    return name;
+  public String getEdt() {
+    return edt;
   }
-  public void setName(String name) {
-    this.name = name;
+  public void setEdt(String edt) {
+    this.edt = edt;
+  }
+  public String getMname() {
+    return mname;
+  }
+  public void setMname(String mname) {
+    this.mname = mname;
+  }
+  public String getTname() {
+    return tname;
+  }
+  public void setTname(String tname) {
+    this.tname = tname;
   }
   @Override
   public String toString() {
     return "Friend [tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno=" + pno
-        + ", sdt=" + sdt + ", name=" + name + "]";
+        + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname + "]";
   }
+ 
   
   
   
