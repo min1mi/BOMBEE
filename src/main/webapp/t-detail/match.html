@@ -11,6 +11,7 @@
 	href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
 <link rel='stylesheet' href='../css/bombee.css'>
 <link rel='stylesheet' href='../css/match.css'>
+<link rel="stylesheet" type="text/css" href="../node_modules/sweetalert2/dist/sweetalert2.css">
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
@@ -33,18 +34,18 @@
 
 				<div class='period-form'>
 					<select class='period form-control'>
-						<option selected>1개월</option>
-						<option>2개월</option>
-						<option>3개월</option>
-						<option>4개월</option>
-						<option>5개월</option>
-						<option>6개월</option>
-						<option>7개월</option>
-						<option>8개월</option>
-						<option>9개월</option>
-						<option>10개월</option>
-						<option>11개월</option>
-						<option>12개월</option>
+						<option selected value='1'>1개월</option>
+						<option value='2'>2개월</option>
+						<option value='3'>3개월</option>
+						<option value='4'>4개월</option>
+						<option value='5'>5개월</option>
+						<option value='6'>6개월</option>
+						<option value='7'>7개월</option>
+						<option value='8'>8개월</option>
+						<option value='9'>9개월</option>
+						<option value='10'>10개월</option>
+						<option value='11'>11개월</option>
+						<option value='12'>12개월</option>
 					</select>
 				</div>
 			</div>
@@ -71,11 +72,11 @@
 
 	<script id="match-time-template" type="text/x-handlebars-template">
       {{#this}}
-    	  <div class='time-box btn'>{{this}}시</div>
+    	  <div class='time-box btn' value={{this}}>{{this}}시</div>
       {{/this}}
   </script>
 </body>
-
+  <script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src='../js/match.js'></script>
 
 </html>

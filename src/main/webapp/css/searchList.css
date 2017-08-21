@@ -127,6 +127,7 @@ body {
     border: 1px solid #cecece;
 }
 .list-pro {
+	    overflow: hidden;
     margin: 10px 2.5%;
     width: 44%;
     height: 270px;

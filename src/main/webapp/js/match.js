@@ -9,8 +9,9 @@
     });
     
     getData(json, no, '')
+    $( "#accordion" ).accordion();
   })
-
+  var reqtime
   var json = '/auth/userinfo.json'
   var no = -1
   var tno = location.href.split('=')[1]
@@ -54,12 +55,11 @@
         var container = $('.times')
         container.html('')
         container.html(generatedHTML)
-        $('.times').slideToggle()
         connectBtn()
+        $('.times').toggle()
       }
     })
   }
-
 
   function selectPromotion() {
     $('.promotion-list').on('click', function() {
@@ -75,10 +75,21 @@
 
   $('.matchingBtn').on('click', function() {
 	  	startDate = $('.dateStart').val().split(' ')[0]
-        startDay = startDate.split(' ')[1]
+	  	startDay = $('.dateStart').val().split(' ')[1]
         period = $('.period').val().split('개월')[0]
-    
-    console.log(tno, pno, startDate, period, startDay)
+    if(tno == null || pno == null || startDate == null || period == null || startDay == null) {
+    	console.log('값을 못넣음')
+    	console.log(tno, pno, startDate, period, startDay)
+    	swal({
+		    title:"필수 입력란이 비었습니다.",
+		    type: "warning",
+		    animation: false,
+		    showConfirmButton:false,
+		    timer: 1500
+	  	  }
+		);
+    }else 
+    console.log("json 요청")
 //    $.post('', {
 //      'tno': tno, 
 //      'pno': pno, 
@@ -114,6 +125,8 @@
 	  $('.time-box').click(function() {
 		  $('.time-box').removeClass('click')
 		  $(this).addClass('click')
+		  reqtime= $('.click').attr('value')
+		  console.log(reqtime)
 	  })
   }
   

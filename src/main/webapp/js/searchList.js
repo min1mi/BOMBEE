@@ -202,8 +202,10 @@ function mapMarker(address, imageSrc , size, no, check) {
             	
             	
             }else {
-            	
+            	if(teacherOrPromotion == 0) {
             	 location.href = '../promotionDetail/promotionDetail.html?no='+$(this)[0].Vd
+            	}else if(teacherOrPromotion == 1)
+            		 location.href = '../profile/t-profile.html?no='+$(this)[0].Vd
             }
             
             
@@ -369,7 +371,10 @@ function getData(json, type, create) {
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.   
       if(create == '#addList' || create == '#list-container') {
     	  $('.list-div').click(function() {
-    	        location.href = '../ekdma/t-detail.html?no='+$(this).attr('value')
+    		  if(teacherOrPromotion == 1)
+    			  location.href = '../ekdma/t-detail.html?no='+$(this).attr('value')
+    		  else if(teacherOrPromotion == 0)
+    			  location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('value')
     	      })
       }
     })
