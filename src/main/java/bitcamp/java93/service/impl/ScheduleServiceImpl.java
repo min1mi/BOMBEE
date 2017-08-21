@@ -1,5 +1,8 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +40,13 @@ public  class ScheduleServiceImpl implements ScheduleService {
 //    try {
 //      count = scheduleDao.delete(no);
 //    } catch(Exception e) {}
+  }
+  @Override
+  public List<Schedule> tcherSelectSchedule(int no, String day) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("no", no);
+    dataMap.put("day", day);
+    return scheduleDao.tcherSelectSchedule(dataMap);
   }
 
   

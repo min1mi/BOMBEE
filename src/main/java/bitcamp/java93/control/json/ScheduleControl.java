@@ -53,6 +53,11 @@ public class ScheduleControl {
     scheduleService.remove(no);
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+  @RequestMapping("tcherSelectSchedule")
+  public JsonResult tcherSelectSchedule(int no, String day) throws Exception {
+   return new JsonResult(JsonResult.SUCCESS, scheduleService.tcherSelectSchedule(no, day));
+  }
     
   private Trainer getLoginTrainer(HttpSession session) {
     Trainer loginMember = (Trainer) session.getAttribute("loginMember");

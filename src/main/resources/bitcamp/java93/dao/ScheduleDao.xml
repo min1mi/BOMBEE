@@ -8,6 +8,7 @@
 <mapper namespace="bitcamp.java93.dao.ScheduleDao">
   <!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
   <resultMap type="schedule" id="scheduleMap">
+    <id column="schno" property="schno"/>
     <id column="tno" property="tno"/>
     <result column="day" property="day"/>
     <result column="time" property="time"/>
@@ -21,6 +22,12 @@
     select  tno, day, time
       from schedule
     where tno = #{no}
+  </select>
+  
+    <select id="tcherSelectSchedule" resultMap="scheduleMap" parameterType="map">
+    select  *
+      from schedule s
+    where s.tno = #{no} and day = #{day}
   </select>
   
 

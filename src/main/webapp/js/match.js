@@ -8,22 +8,28 @@
       minDate: 0
     });
     
-    getData(json, no)
+    getData(json, no, '')
   })
 
   var json = '/auth/userinfo.json'
   var no = -1
   var tno = location.href.split('=')[1]
   var pno
+  var startDate,
+  startDay,
+  period,
+  time = [9,10,11,12,13,14,15,16,17,18,19,20,21]
+ console.log(time)
 
-  function getData(json, no) {
+  function getData(json, no, day) {
     $.getJSON(json, {
-      'no': no
+      'no': no,
+      'day':day
     }, function(result) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
           no = result.data.no
-          getData('/promotion/promotion.json', tno)
+          getData('/promotion/promotion.json', tno, '')
         }
       } else if (json == '/promotion/promotion.json') {
         console.log(result.data.list)
@@ -35,6 +41,15 @@
         container.html(generatedHTML)
         
         selectPromotion()
+      } else if(json == '/schedule/tcherSelectSchedule.json') {
+    	  console.log(result.data)
+    	  for (var i = 0; i < time.length; i++) {
+    		  for (var j = 0; j < result.data.length; j++) {
+    			  if(time[i] == result.data[j].time)
+    				  time.splice(i--, 1)
+    		  }
+    	  }
+    	  console.log(time)
       }
 
     })
@@ -54,8 +69,8 @@
     backscreen = $('.backscreen');
 
   $('.matchingBtn').on('click', function() {
-    var startDate = $('.dateStart').val().split(' ')[0],
-        startDay = startDate.split(' ')[1],
+	  	startDate = $('.dateStart').val().split(' ')[0]
+        startDay = startDate.split(' ')[1]
         period = $('.period').val().split('개월')[0]
     
     console.log(tno, pno, startDate, period, startDay)
@@ -83,6 +98,11 @@
     })
   })
   
+  $('.dateStart').change(function () {
+      startDay = $('.dateStart').val().split(' ')[1]
+      console.log(tno)
+      getData('/schedule/tcherSelectSchedule.json', tno, startDay)
+  })
   
   
   
