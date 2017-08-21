@@ -25,22 +25,22 @@
 
 
 	<script id="request-template" type="text/x-handlebars-template">
-		{{#each mealList}}
+		{{#this}}
 		<div class='request-list'>
 			<div class='fa fa-smile-o smile-size'></div>
 			<div class='request-info'>
-				<span class='user-name'>이 윤민</span>
-				<span class='request-date'>오후 2:07</span>
+				<span class='user-name'>{{mname}}</span>
+				<span class='request-date'>오후 2:07 {{time}}</span>
 				<span class='request-content'>살빼기 프로모션</span>
-				<span class='wish-date'>2017-08-21 11시</span>
-				<span class='wish-period'>3개월</span>
+				<span class='wish-date'>{{sdt}} {{wishtime}}시</span>
+				<span class='wish-period'>{{period}}개월</span>
 			</div>
 			<div class='btn-form'>
-				<div class='accept btn'>수락</div>
-				<div class='refuse btn' data-trano=''>거절</div>
+				<div class='accept btn' data-trano='{{trano}}'>수락</div>
+				<div class='refuse btn' data-trano='{{trano}}'>거절</div>
 			</div>
 		</div>
-		{{/each}}
+		{{/this}}
 </script>
 </body>
 <script>
@@ -68,14 +68,14 @@
         console.log(result)
         var templateFn = Handlebars.compile($('#request-template').text())
   			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  			var container = $('#request-container')
+  			var container = $('.request-container')
   			container.html("")
   			container.html(generatedHTML) 
         
       } else if (json == '/freind/friendDelete.json') {
         //거절 버튼을 눌렀을대 실행하면 되는 요청
         console.log(result)
-      } else if (json == 'friend/friendUpdate.json') {
+      } else if (json == 'friend/friendUpdate.json') {no
         // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
         // mno 도 날려야함 no는 tno
         console.log(result)
