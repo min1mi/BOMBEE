@@ -1,9 +1,9 @@
  $(function() {
     $("#datepicker-start").datepicker({
-      dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
       monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
       monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-      dateFormat: "yy-mm-dd",
+      dateFormat: "yy-mm-dd D",
       buttonText: "달력",
       minDate: 0
     });
@@ -54,10 +54,11 @@
     backscreen = $('.backscreen');
 
   $('.matchingBtn').on('click', function() {
-    var startDate = $('.dateStart').val(),
+    var startDate = $('.dateStart').val().split(' ')[0],
+        startDay = startDate.split(' ')[1],
         period = $('.period').val().split('개월')[0]
     
-    console.log(tno, pno, startDate, period)
+    console.log(tno, pno, startDate, period, startDay)
 //    $.post('', {
 //      'tno': tno, 
 //      'pno': pno, 
