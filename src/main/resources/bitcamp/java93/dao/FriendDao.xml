@@ -55,7 +55,7 @@
   </delete>
 
   <delete id="friendDelete" parameterType="int">
-    delete from tcher_trainer where mno=#{mno} and tno=#{no}
+    delete from tcher_trainer where trano=#{no}
   </delete>
 
 

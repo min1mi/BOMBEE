@@ -13,5 +13,5 @@ public interface FriendDao {
   Friend detail2(Friend friend);
   Friend selectOne(int mno, int tno);
   List<Friend> addList(int no);
-  void friendDelete(int no, int mno);
+  void friendDelete(int no);
 }

@@ -42,8 +42,8 @@ public  class FriendServiceImpl implements FriendService {
     return friendDao.addList(no);
   }
   @Override
-  public int friendDelete(int no, int mno) throws Exception { //친구 신청 거부했을때 프로모션신청거부했을떄임
-    friendDao.friendDelete(no, mno);
+  public int friendDelete(int no) throws Exception { //친구 신청 거부했을때 프로모션신청거부했을떄임
+    friendDao.friendDelete(no);
     return 1;// 성공시 1반환
   }
 
