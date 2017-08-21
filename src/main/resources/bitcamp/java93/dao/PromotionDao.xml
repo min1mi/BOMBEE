@@ -181,7 +181,9 @@ where p.pno = #{no};
   </delete>
   <select id="selectPromotionListTitle" resultMap="promotionMap" parameterType="int">
     select  *
-    from promotion p inner join tcher t  on p.tno=t.tno where t.tno = #{no}
+    from promotion p inner join tcher t  on p.tno=t.tno
+    left outer join promotionimg i on p.pno = i.pno
+     where t.tno = #{no}
     order by p.titl asc
   </select>
   

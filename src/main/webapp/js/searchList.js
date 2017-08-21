@@ -369,7 +369,7 @@ function getData(json, type, create) {
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.   
       if(create == '#addList' || create == '#list-container') {
     	  $('.list-div').click(function() {
-    	        location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('value')
+    	        location.href = '../ekdma/t-detail.html?no='+$(this).attr('value')
     	      })
       }
     })
