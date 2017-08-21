@@ -14,6 +14,8 @@ public class Friend {
   String tname;
   String date;
   String time;
+  String pm;
+  String title;
   int wishtime;
   public int getTno() {
     return tno;
@@ -75,18 +77,11 @@ public class Friend {
   public void setTname(String tname) {
     this.tname = tname;
   }
-
   public String getDate() {
     return date;
   }
   public void setDate(String date) {
     this.date = date;
-  }
-  public int getWishtime() {
-    return wishtime;
-  }
-  public void setWishtime(int wishtime) {
-    this.wishtime = wishtime;
   }
   public String getTime() {
     return time;
@@ -94,13 +89,32 @@ public class Friend {
   public void setTime(String time) {
     this.time = time;
   }
-  @Override
-  public String toString() {
-    return "Friend [tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno=" + pno
-        + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname + ", date="
-        + date + ", time=" + time + ", wishtime=" + wishtime + "]";
+  
+  public String getPm() {
+    return pm;
+  }
+  public void setPm(String pm) {
+    this.pm = pm;
+  }
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
+  }
+  public int getWishtime() {
+    return wishtime;
+  }
+  public void setWishtime(int wishtime) {
+    this.wishtime = wishtime;
   }
   
- 
+  public void pmChange() {
+    if(this.pm.equals("PM")) {
+      pm = "오후";
+    }else if(this.pm.equals("AM")) {
+      pm = "오전";
+    }
+  }
   
 }

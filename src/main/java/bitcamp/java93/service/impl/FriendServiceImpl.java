@@ -40,7 +40,14 @@ public  class FriendServiceImpl implements FriendService {
 
   @Override
   public List<Friend> addList(int no) throws Exception {
-    return friendDao.addList(no);
+    List<Friend> arr = friendDao.addList(no);
+    for (int i = 0; i < arr.size(); i++) {
+      if(arr.get(i).getPm().equals("PM"))
+        arr.get(i).setPm("오후");
+      else if(arr.get(i).getPm().equals("PM"))
+        arr.get(i).setPm("오전");
+    }
+    return arr;
   }
   @Override
   public int friendDelete(int no) throws Exception { //친구 신청 거부했을때 프로모션신청거부했을떄임
@@ -49,14 +56,6 @@ public  class FriendServiceImpl implements FriendService {
   }
   @Override
   public int addReq(Friend friend) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("mno", friend.getMno());
-    valueMap.put("tno", friend.getTno());
-    valueMap.put("pno", friend.getPno());
-    valueMap.put("sdt", friend.getSdt());
-    valueMap.put("period", friend.getPeriod());
-    valueMap.put("wishtime", friend.getWishtime());
-    
     friendDao.addReq(friend);
     return 0;
   }
