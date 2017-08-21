@@ -106,9 +106,9 @@ CREATE TABLE `TCHER_TRAINER` (
 	`PNO`     INTEGER      NOT NULL COMMENT '프로모션 번호', -- 프로모션 번호
 	`SDT`     VARCHAR(255) NOT NULL COMMENT '시작일', -- 시작일
 	`EDT`     VARCHAR(255) NOT NULL COMMENT '종료일', -- 종료일
-	`COL2`    INTEGER      NOT NULL COMMENT '기간', -- 기간
+	`PERIOD`  INTEGER      NOT NULL COMMENT '기간', -- 기간
 	`CONFIRM` BOOLEAN      NOT NULL COMMENT '수락여부', -- 수락여부
-	`COL`     VARCHAR(255) NOT NULL COMMENT '요청날짜' -- 요청날짜
+	`REQDATE` VARCHAR(255) NOT NULL COMMENT '요청날짜' -- 요청날짜
 )
 COMMENT '개인트레이너';
 
