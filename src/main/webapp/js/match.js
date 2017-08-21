@@ -18,8 +18,7 @@
   var startDate,
   startDay,
   period,
-  time = [9,10,11,12,13,14,15,16,17,18,19,20,21]
- console.log(time)
+  time
 
   function getData(json, no, day) {
     $.getJSON(json, {
@@ -43,13 +42,20 @@
         selectPromotion()
       } else if(json == '/schedule/tcherSelectSchedule.json') {
     	  console.log(result.data)
+    	  time = [9,10,11,12,13,14,15,16,17,18,19,20,21]
     	  for (var i = 0; i < time.length; i++) {
     		  for (var j = 0; j < result.data.length; j++) {
     			  if(time[i] == result.data[j].time)
     				  time.splice(i--, 1)
     		  }
     	  }
-    	  console.log(time)
+    	  
+        var templateFn = Handlebars.compile($('#match-time-template').text())
+        var generatedHTML = templateFn(time)
+        var container = $('.times')
+        container.html('')
+        container.html(generatedHTML)
+        
       }
 
     })
