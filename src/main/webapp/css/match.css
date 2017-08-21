@@ -39,7 +39,7 @@
   border: 1px solid red;
 }
 .matching-container {
-	/*display: none;*/
+	display: none;
 	position: absolute;
 	background-color: #f3f3f3;
 	width: 85.5%;
@@ -133,25 +133,18 @@
 	left: 25%;
 }
 
-.matching-date {
-  position: relative;
-}
-
 .matching-start-date {
-  position: absolute;
   width: 55%;
   display: inline-block;
 }
 
 .calendar {
-  position: absolute;
   left: 11%;
   margin-top: 9%;
   font-size: 1.4rem;
 }
 
 .dateStart {
-  position: absolute;
   left: 24.5%;
   margin-top: 5.8%;
   width: 90%;
@@ -161,7 +154,6 @@
 }
 
 .period {
-  position: absolute;
   width: 30%;
   right: 5.5%;
   margin-top: 3%;
@@ -169,7 +161,6 @@
 }
 
 .times {
-	position: absolute;
 	width: 96%;
 	top: 61%;
 }
