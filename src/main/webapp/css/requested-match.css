@@ -1,0 +1,129 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .request-list {
+    height: 84px;
+  }
+}
+
+
+.smile-size {
+	float: left;
+  font-size: 3.5rem;
+  width: 13%;
+  padding: 1%;
+  margin: 2%;
+  box-sizing: border-box;
+  height: 73%;
+  text-align: center;
+  line-height: .95;
+  background-color: #f7ac1a;
+  color: white;
+  border-radius: 50%;
+}
+
+.request-list {
+  position: relative;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 65px;
+}
+
+.request-list:first-child {
+  width: 100%;
+  border: none;
+}
+
+.request-info {
+	position: relative;
+	height: 65px;
+	width: 52.5%;
+	left: 18%;
+  border-bottom: 1px solid #eee;
+}
+
+.user-name,
+.request-date,
+.request-content,
+.wish-date,
+.wish-period {
+	position: absolute;
+}
+
+.user-name {
+  top: 10%;
+  font-weight: 800;
+  left: 0;
+}
+
+.request-date {
+	top: 12%;
+  right: 5%;
+  color: #777;
+  font-size: .9rem;
+
+}
+.request-content {
+  top: 42%;
+  left: 0;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.wish-date {
+	color: #777;
+  top: 73%;
+  left: 0;
+  font-size: 1rem;
+}
+
+.wish-period {
+	color: #777;
+  top: 73%;
+  right: 5%;
+  font-size: .9rem;
+}
+
+.btn-form {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.accept,
+.refuse {
+  font-weight: 600;
+  width: 50%;
+  height: 100%;
+  line-height: 3.5;
+  float: left;
+  border-radius: 0;
+}
+
+.accept {
+  color: white;
+  background-color: #ddd;
+}
+
+.refuse {
+	background-color: #f7ac1a;
+	color: white;
+}
