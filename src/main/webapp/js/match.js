@@ -77,9 +77,9 @@
 	  	startDate = $('.dateStart').val().split(' ')[0]
 	  	startDay = $('.dateStart').val().split(' ')[1]
         period = $('.period').val().split('개월')[0]
-    if(tno == null || pno == null || startDate == null || period == null || startDay == null) {
+    if(tno == null || pno == null || startDate == null || period == null || startDay == null || reqtime == undefined) {
     	console.log('값을 못넣음')
-    	console.log(tno, pno, startDate, period, startDay)
+    	console.log(tno, pno, startDate, period, startDay, reqtime)
     	swal({
 		    title:"필수 입력란이 비었습니다.",
 		    type: "warning",
@@ -88,8 +88,10 @@
 		    timer: 1500
 	  	  }
 		);
-    }else 
+    }else {
     console.log("json 요청")
+    console.log(tno, pno, startDate, period, startDay, reqtime)
+    }
 //    $.post('', {
 //      'tno': tno, 
 //      'pno': pno, 
