@@ -29,9 +29,14 @@ public  class FriendServiceImpl implements FriendService {
   public void detail(Friend friend) throws Exception {
     friendDao.detail(friend);
   }
-  public Friend get2(int mno, int tno) throws Exception {
-    return friendDao.selectOne(mno, tno);
+  public Friend get(Friend friend) throws Exception {
+    return friendDao.detail(friend);
   }
+
+  public Friend get2(Friend friend) throws Exception {
+    return friendDao.detail2(friend);
+  }
+
   @Override
   public List<Friend> addList(int no) throws Exception {
     return friendDao.addList(no);
@@ -42,6 +47,6 @@ public  class FriendServiceImpl implements FriendService {
     return 1;// 성공시 1반환
   }
 
-  
+
 
 }

@@ -4,7 +4,7 @@ $(document).ready(function() {
   })
 
 // 우편번호 찾기 화면을 넣을 element
-var element_layer = document.getElementById('layer');
+var element_layer
 
 function closeDaumPostcode() {
     // iframe을 넣은 element를 안보이게 한다.
@@ -12,6 +12,8 @@ function closeDaumPostcode() {
 }
 
 function sample2_execDaumPostcode() {
+	element_layer = document.getElementById('layer');
+    console.log(element_layer.style)
     new daum.Postcode({
         oncomplete: function(data) {
             // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -49,6 +51,8 @@ function sample2_execDaumPostcode() {
     }).embed(element_layer);
 
     // iframe을 넣은 element를 보이게 한다.
+//    element_layer = document.getElementById('layer');
+//    console.log(element_layer.style)
     element_layer.style.display = 'block';
 
     // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
@@ -213,7 +217,7 @@ $('.pro-save-Btn').on('click', function() {
 	'introduction': fiIntroduction.val(),
 	'tno': no
 	}, function(result) {
-	  location.href = '../profile/t-profile.html'
+	  location.href = '../ekdma/tmdduf0.html'
 
 	}, 'json')
 

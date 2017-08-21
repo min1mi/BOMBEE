@@ -54,21 +54,12 @@
       </div>
 
 
-      <center><h3>진행중 프로모션<h3></center>
-      <div class="sl">
-        <div class="sl1">
-          <div class="sl-pic"><image src="../image/main_1.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_2.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_3.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_4.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_5.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_6.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_7.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_8.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_9.jpg"></div>
-          <div class="sl-pic"><image src="../image/main_10.jpg"></div>
-        </div>
-      </div>
+
+
+      <div class="sl">  </div>
+
+
+
       <table class="t-t-table">
         <thead>
           <th style="width: 30px"></th>
@@ -238,6 +229,17 @@
 
 </div>
 
+
+<script id='list-template' type="text/x-handlebars-template">
+  <div class="sl1">
+  {{#each list}}
+        <div class="sl-pic" value={{pno}}>
+          <img class="pro-pic" src='../upload/{{titlePic}}_titleMainList.png' value='{{pno}}'>
+          <div id='list-title1'>{{title}}</div>
+        </div>
+  {{/each}}
+</div>
+</script>
 
 <script id="detail-template" type="text/x-handlebars-template">
 

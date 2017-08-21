@@ -9,12 +9,12 @@ public interface FriendService {
   /*read-only : list, get*/
 
 
-  Friend get2(int mno, int tno) throws Exception;
+  Friend get2(Friend friend) throws Exception;
+  Friend get(Friend friend) throws Exception;
   void add(Friend friend) throws Exception;
   void remove(Friend friend) throws Exception;
   void add2(Friend friend) throws Exception;
   void remove2(Friend friend) throws Exception;
-  void detail(Friend friend) throws Exception;
   List<Friend> addList(int no) throws Exception;
   int friendDelete(int no, int mno) throws Exception;
 

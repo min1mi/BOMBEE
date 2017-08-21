@@ -15,8 +15,8 @@
     <result column="pno" property="pno"/>
     <result column="sdt" property="sdt"/>
   </resultMap>
-  
-  
+
+
 
   <insert id="insert" parameterType="friend">
           insert into tcher_trainer(mno, tno, confirm)
@@ -26,33 +26,34 @@
           insert into f_like(mno, tno)
           values(#{mno}, #{tno});
   </insert>
-  
 
-  <select id="detail"  parameterType="int">
+
+  <select id="detail" resultMap="friendMap" parameterType="friend">
     select mno, tno from tcher_trainer
      where mno=#{mno} and tno=#{tno}
   </select>
-  
-    <select id="addList"  resultMap="friendMap" parameterType="int">
-    select t.*, m.name from tcher_trainer t 
-    inner join memb m on t.mno = m.mno
-    where t.tno = #{no} and t.confirm = 0
-  </select>
-  
-  <select id="detail2" resultMap="friendMap" parameterType="int">
+
+  <select id="detail2" resultMap="friendMap" parameterType="friend">
    select mno, tno from f_like
      where mno=#{mno} and tno=#{tno}
   </select>
-  
-  
+
+    <select id="addList"  resultMap="friendMap" parameterType="int">
+    select t.*, m.name from tcher_trainer t
+    inner join memb m on t.mno = m.mno
+    where t.tno = #{no} and t.confirm = 0
+  </select>
+
+
+
   <delete id="delete" parameterType="int">
     delete from tcher_trainer where mno=#{mno} and tno=#{tno}
   </delete>
-  
+
   <delete id="delete2" parameterType="int">
     delete from f_like where mno=#{mno} and tno=#{tno}
   </delete>
-  
+
   <delete id="friendDelete" parameterType="int">
     delete from tcher_trainer where mno=#{mno} and tno=#{no}
   </delete>
@@ -60,4 +61,3 @@
 
 
 </mapper>
-

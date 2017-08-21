@@ -33,21 +33,27 @@ public class FriendControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
-  
+
   @RequestMapping("detail")
   public JsonResult detail(Friend friend) throws Exception {
-    friendService.detail(friend);
-
-   return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
-  @RequestMapping("detail2")
-  public JsonResult detail2(int mno, int tno) throws Exception {
-    
-    Friend friend = friendService.get2(mno, tno);
- 
-    return new JsonResult(JsonResult.SUCCESS, friend);
+    Friend friend3 = friendService.get(friend);
+    if(friend3 != null){
+      return new JsonResult(JsonResult.SUCCESS, friend3);
+    }else{
+      return new JsonResult(JsonResult.FAIL, friend3);
+    }
   } // service()friend
-  
+
+  @RequestMapping("detail2")
+  public JsonResult detail2(Friend friend) throws Exception {
+    Friend friend2 = friendService.get2(friend);
+    if(friend2!=null){
+      return new JsonResult(JsonResult.SUCCESS, friend2);
+    }else{
+      return new JsonResult(JsonResult.FAIL, friend2);
+    }
+  } // service()friend
+
   @RequestMapping("delete")
   public JsonResult delete(Friend friend) throws Exception {
     friendService.remove(friend);
@@ -60,12 +66,12 @@ public class FriendControl {
 
    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
-  
+
   @RequestMapping("addList")
   public JsonResult addList(int no) throws Exception {
    return new JsonResult(JsonResult.SUCCESS, friendService.addList(no));
   }
-  
+
   @RequestMapping("friendDelete") // 친구 수락 거절했을때 tcher_trainer 삭제하는 요청
   public JsonResult friendDelete(int no, int mno) throws Exception {
    return new JsonResult(JsonResult.SUCCESS, friendService.friendDelete(no, mno));
