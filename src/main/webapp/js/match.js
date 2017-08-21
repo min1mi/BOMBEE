@@ -54,7 +54,8 @@
         var container = $('.times')
         container.html('')
         container.html(generatedHTML)
-        $('.times').toggle()
+        $('.times').slideToggle()
+        connectBtn()
       }
     })
   }
@@ -109,7 +110,12 @@
       getData('/schedule/tcherSelectSchedule.json', tno, startDay)
   })
   
-  
+  function connectBtn() {
+	  $('.time-box').click(function() {
+		  $('.time-box').removeClass('click')
+		  $(this).addClass('click')
+	  })
+  }
   
   
   
