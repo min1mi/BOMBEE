@@ -26,8 +26,11 @@ $.getJSON('/auth/userinfo.json', function(result) {
 
 	}
   generateTemplate();
+  console.log("이")
 	generateTemplate2('/promotion/promotionTitle.json');
-	getData();
+	console.log("윤")
+	getCalData(no);
+	console.log("민")
 // getData1('/promotion/promotionTitle.json');
 })
 
@@ -117,7 +120,8 @@ function f_btn(){
 }
 
 //스케줄에 표시
-function getData() {
+function getCalData(no) {
+	console.log("윤민이")
 	$.getJSON('/schedule/detail.json', {no}, function(result) {
 		console.log(result.data.weeklist.day+result.data.weeklist.time)
 		var bookNo = result.data.weeklist.day+result.data.weeklist.time,
@@ -171,24 +175,11 @@ $('.pro-fa-Btn').on('click', function() {
 			pno = 1
 			$(this).attr("value","on")
 			$(this).attr("src","addd.png")
-			$.getJSON('/friend/add.json', {
-				'mno':mno,
-				'tno': tno,
-				'pno' : pno,
-				'confirm': boool
-
-				}, function(result) {
-					console.log("친구추가 완료")
-			})
+			console.log("친구추가 완료")
 	} else if (($(this).attr("value") == "on")){
 			$(this).attr("value","off")
 			$(this).attr("src","F_add.png")
-			$.getJSON('/friend/delete.json', {
-				'mno':mno,
-				'tno': tno
-			}, function(result) {
-				console.log("친구삭제 완료")
-			})
+			console.log("친구삭제 완료")
 	}
 
 

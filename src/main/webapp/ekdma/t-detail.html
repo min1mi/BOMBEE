@@ -7,12 +7,15 @@
   <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/t-detail.css'>
+  <link rel='stylesheet' href='../css/match.css'>
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <link rel='stylesheet' href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
   <script src='../node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
   <!-- <script src='../node_modules/jquery/dist/jquery.min.js'></script> -->
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="../js/jquery.twbs-toggle-buttons.min.js"></script>
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
   <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -29,7 +32,8 @@
     <div class="vytl">
 
   <div class="like"><i class="likeBtn fa fa-star-o" aria-hidden="true" value="off"></i></div>
-  <!-- <div class="t-review">
+  <!-- 
+   <div class="t-review">
     <div class="ratingCard">
     <h2>강사 리뷰?</h2>
     <form method="post">
@@ -49,7 +53,8 @@
           <input type="submit" name="rating_submit" value="Post!">
     </form>
   </div>
-</div> -->
+</div>
+   -->
       <div id="detail-container">
       </div>
 
@@ -228,6 +233,62 @@
 
 </div>
 
+<div class='backscreen'></div>
+  <div class='matching-container' data-open='close'>
+    <div class='matching clearfix'>
+      <div class='promotion-container'></div>
+
+      <div class='matching-date clearfix'>
+        <div class='matching-start-date'>
+          <i class="fa fa-calendar calendar" aria-hidden="true"></i> <input
+            class='dateStart' type="text" id="datepicker-start"
+            placeholder="Start-Date ">
+        </div>
+
+        <div class='period-form'>
+          <select class='period form-control'>
+            <option selected value='1'>1개월</option>
+            <option value='2'>2개월</option>
+            <option value='3'>3개월</option>
+            <option value='4'>4개월</option>
+            <option value='5'>5개월</option>
+            <option value='6'>6개월</option>
+            <option value='7'>7개월</option>
+            <option value='8'>8개월</option>
+            <option value='9'>9개월</option>
+            <option value='10'>10개월</option>
+            <option value='11'>11개월</option>
+            <option value='12'>12개월</option>
+          </select>
+        </div>
+      </div>
+      <div class='times clearfix'></div>
+
+      <div class='btn-form'>
+        <button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
+      </div>
+    </div>
+  </div>
+
+  <script id="match-template" type="text/x-handlebars-template">
+      {{#each list}}
+      <div class='promotion-list' data-pno='{{pno}}'>
+        <div class='promotion-img'>
+          <img src='../upload/{{titlePic}}_titleMainList.png'>
+        </div>
+        <span class='promotion-name'>{{title}}</span>
+        <span class='promotion-startDate'>{{sdt}} ~</span>
+        <span class='promotion-endDate'>{{edt}}</span>
+      </div>
+      {{/each}}
+  </script>
+
+  <script id="match-time-template" type="text/x-handlebars-template">
+      {{#this}}
+        <div class='time-box btn' value={{this}}>{{this}}시</div>
+      {{/this}}
+  </script>
+  
 
 <script id='list-template' type="text/x-handlebars-template">
   <div class="sl1">
@@ -259,6 +320,7 @@
 </script>
 
 <script type="text/javascript" src="../js/t-detail.js"></script>
+<script src='../js/match.js'></script>
 
 
 </body>

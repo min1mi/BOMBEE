@@ -106,7 +106,7 @@
 //    })
   })
   
-  $('.matchBtn').on('click', function() {
+  $('.pro-fa-Btn').on('click', function() {
     if (matchingContainer.attr('data-open') == 'close') {
       backscreen.show()
       matchingContainer.show()
