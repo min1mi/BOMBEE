@@ -15,15 +15,25 @@ $.getJSON('/auth/userinfo.json', function(result) {
 
 function show() {
   $('.body-time').hide();
-  // $('.day').css('background-color', "orange")
   $('#time-mon').show();
 
 
 }
 
 $('.body-day div').click(function() {
-        $('.day').css('background-color', "silver")
-        $(this).css('background-color', "orange")
+//	$('.day').removeClass('select_day')
+//	$(this).addClass('select_day')
+        $('.day').css('background-color', "white")
+        $('.day').css("font-size", "1.2rem")
+        $('.day').css("color", "silver");
+        $('.day').css("padding-top", "34%");
+        $('.day').css("font-weight", "normal");
+        $(this).css('background-color', "#F7AC1A")
+        $(this).css("font-size", "2rem");
+        $(this).css("padding-top", "25%");
+        $(this).css("color", "white");
+        $(this).css("font-weight", "bold");
+        $(this).css("border-radius", "50%");
         switch ($(this).text()) {
           case "MON" :
            $('.body-time').hide()
@@ -66,12 +76,16 @@ $(".h-time").click(function() {
   console.log(this)
   if (($(this).attr("value")) == "off") {
     $(this).addClass('ok')
+    $(this).css('color', "white")
     $(this).attr("value","on")
+    $(this).css('font-weight', "bold")
     schedule.push($(this).attr('data-bookno'))
     console.log($(this).attr('data-bookno'))
     console.log(schedule)
   } else if (($(this).attr("value")) == "on") {
     $(this).removeClass('ok')
+    $(this).css('color', "#dfdfdf")
+    $(this).css('font-weight', "normal")
     $(this).attr("value","off")
     // schedule.pop()
     console.log(schedule)
@@ -100,6 +114,8 @@ function getData(no) {
         bookNo = week.day+week.time
         $('div[data-bookno=' + bookNo + ']').addClass('ok')
         $('div[data-bookno=' + bookNo + ']').attr('value', 'on')
+        $('div[data-bookno=' + bookNo + ']').css('color', 'white')
+        $('div[data-bookno=' + bookNo + ']').css('font-weight', 'bold')
         schedule.push(bookNo)
       }
     }

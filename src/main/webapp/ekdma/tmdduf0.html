@@ -26,9 +26,19 @@
     <div class="header"></div>
 
     <div class="sche-top"><center>Schedule</center></div>
+    <div class="sche-info">
+	    <div class="ingtime colordiv"></div><div class="usetime colordiv"></div>
+	    <div class="ingline textdiv">진행중</div><div class="useline textdiv"> 가능시간</div>
+    </div>    
     <div class="sche-body">
       <div class="body-day">
-        <div class="day" value="1" style="background-color:orange">MON</div>
+        <div class="day" value="1"
+        style="background-color: #F7AC1A;
+               color : white;
+               font-size: 2rem;
+               padding-top:25%;
+               font-weight : bold;
+               border-radius: 50%;">MON</div>
         <div class="day" value="2">TUE</div>
         <div class="day" value="3">WEB</div>
         <div class="day" value="4">THU</div>
@@ -171,34 +181,15 @@
 
 
     </form>
-  </div>
-
-  <div class="sche-foot">
-    <img class="sche-btn" id="view_Btn" src="VIEW1.png">
-    <img class="sche-btn" id="save_Btn" src="SAVE1.png">
-  </div>
-
 </div>
 
 
-
-
-
-
-
-
-    </script>
-  	<script type="text/javascript" src="../js/tmdduf.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+	  <div class="sche-foot">
+	    <!-- <img class="sche-btn" id="view_Btn" src="VIEW1.png"> -->
+	    <!--<img class="sche-btn" id="save_Btn" src="SAVE1.png"> -->
+	    <div class="emdfhr" id="save_Btn">등록</div>
+    </div>
+   </div><!-- 가장밖 -->
 </body>
+<script type="text/javascript" src="../js/tmdduf.js"></script>
 </html>
