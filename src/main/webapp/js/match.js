@@ -8,12 +8,12 @@
       minDate: 0
     });
     
-    getData(json, no, '')
+    getData(json, mno, '')
     $( "#accordion" ).accordion();
   })
-  var reqtime
+  var wishtime
   var json = '/auth/userinfo.json'
-  var no = -1
+  var mno = -1
   var tno = location.href.split('=')[1]
   var pno
   var startDate,
@@ -28,7 +28,8 @@
     }, function(result) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
-          no = result.data.no
+          mno = result.data.no
+          console.log(mno)
           getData('/promotion/promotion.json', tno, '')
         }
       } else if (json == '/promotion/promotion.json') {
@@ -77,9 +78,10 @@
 	  	startDate = $('.dateStart').val().split(' ')[0]
 	  	startDay = $('.dateStart').val().split(' ')[1]
         period = $('.period').val().split('개월')[0]
-    if(tno == null || pno == null || startDate == null || period == null || startDay == null || reqtime == undefined) {
+    if(tno == null || pno == null || startDate == null || period == null || startDay == null || wishtime == undefined || mno == -1) {
     	console.log('값을 못넣음')
-    	console.log(tno, pno, startDate, period, startDay, reqtime)
+    	console.log(no)
+    	console.log(no ,tno, pno, startDate, period, startDay, wishtime)
     	swal({
 		    title:"필수 입력란이 비었습니다.",
 		    type: "warning",
@@ -90,7 +92,9 @@
 		);
     }else {
     console.log("json 요청")
-    console.log(tno, pno, startDate, period, startDay, reqtime)
+    console.log(mno)
+    console.log(mno ,tno, pno, startDate, period, startDay, wishtime)
+    insertTcher_trainer('/friend/addReq.json',mno,tno, pno, startDate, period, wishtime)
     }
 //    $.post('', {
 //      'tno': tno, 
@@ -127,8 +131,21 @@
 	  $('.time-box').click(function() {
 		  $('.time-box').removeClass('click')
 		  $(this).addClass('click')
-		  reqtime= $('.click').attr('value')
-		  console.log(reqtime)
+		  wishtime= $('.click').attr('value')
+		  console.log(wishtime)
+	  })
+  }
+  
+  function insertTcher_trainer(json, mno, tno, pno, sdt, period, wishtime) {
+	  $.getJSON(json, {
+		  'mno':mno,
+		  'tno':tno,
+		  'pno':pno,
+		  'sdt':sdt,
+		  'period':period,
+		  'wishtime':wishtime
+	  }, function(result) {
+		  
 	  })
   }
   

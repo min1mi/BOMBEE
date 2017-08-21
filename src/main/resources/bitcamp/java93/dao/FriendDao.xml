@@ -14,6 +14,9 @@
     <result column="confirm" property="confirm"/>
     <result column="pno" property="pno"/>
     <result column="sdt" property="sdt"/>
+    <result column="edt" property="edt"/>
+    <result column="period" property="period"/>
+    <result column="wishtime" property="wishtime"/>
     <result column="mname" property="mname"/>
     <result column="tname" property="tname"/>
   </resultMap>
@@ -27,6 +30,12 @@
   <insert id="insert2" parameterType="friend">
           insert into f_like(mno, tno)
           values(#{mno}, #{tno});
+  </insert>
+
+<insert id="addReq" parameterType="friend">
+          insert into tcher_trainer(mno, tno, pno, sdt, edt, period, reqdate, wishtime, confirm)
+          values(#{mno}, #{tno}, #{pno}, #{sdt}, date_add(#{sdt}, interval 30 day),
+          #{period}, now(), #{wishtime}, 0)
   </insert>
 
 

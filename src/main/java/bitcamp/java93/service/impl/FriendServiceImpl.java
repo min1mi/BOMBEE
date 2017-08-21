@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,19 @@ public  class FriendServiceImpl implements FriendService {
   public int friendDelete(int no) throws Exception { //친구 신청 거부했을때 프로모션신청거부했을떄임
     friendDao.friendDelete(no);
     return 1;// 성공시 1반환
+  }
+  @Override
+  public int addReq(Friend friend) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("mno", friend.getMno());
+    valueMap.put("tno", friend.getTno());
+    valueMap.put("pno", friend.getPno());
+    valueMap.put("sdt", friend.getSdt());
+    valueMap.put("period", friend.getPeriod());
+    valueMap.put("wishtime", friend.getWishtime());
+    
+    friendDao.addReq(friend);
+    return 0;
   }
 
 
