@@ -14,24 +14,24 @@
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
-<title>Requested Match</title>
+<title>Request Match</title>
 </head>
 
 <body>
-	<div class='requested-match-container'>
+	<div class='request-match-container'>
 		<div class='header'></div>
-		<div class='requested-container'></div>
+		<div class='request-container'></div>
 	</div>
 
 
-	<script id="requested-template" type="text/x-handlebars-template">
+	<script id="request-template" type="text/x-handlebars-template">
 		{{#this}}
-		<div class='requested-list'>
+		<div class='request-list'>
 			<div class='fa fa-smile-o smile-size'></div>
-			<div class='requested-info'>
+			<div class='request-info'>
 				<span class='user-name'>{{mname}}</span>
-				<span class='requested-date'>{{pm}} {{time}}</span>
-				<span class='requested-content'>{{title}}</span>
+				<span class='request-date'>{{pm}} {{time}}</span>
+				<span class='request-content'>{{title}}</span>
 				<span class='wish-date' value={{sdt}}>{{sdt}} {{wishtime}}시</span>
 				<span class='wish-period' value={{period}}>{{period}}개월</span>
 			</div>
@@ -70,20 +70,19 @@
         getData('/friend/addList.json', no)
       } else if (json == '/friend/addList.json') {
         console.log(result)
-        var templateFn = Handlebars.compile($('#requested-template').text())
+        var templateFn = Handlebars.compile($('#request-template').text())
   			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  			var container = $('.requested-container')
+  			var container = $('.request-container')
   			container.html("")
   			container.html(generatedHTML) 
         
   			btnConnect()
       } else if (json == '/friend/friendDelete.json') {
         console.log(result)
-        location.reload()
       } else if (json == '/friend/friendUpdate.json') {
         // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
         // mno 도 날려야함 no는 tno
-        location.reload()
+        
         console.log(result)
       }
     })
@@ -95,8 +94,8 @@
     })
     $('.accept').click(function() {
     	trano = $(this).attr('data-trano')
-    	period=$(this).parent().parent().children('.requested-info').children('.wish-period').attr('value')
-    	sdt = $(this).parent().parent().children('.requested-info').children('.wish-date').attr('value')
+    	period=$(this).parent().parent().children('.request-info').children('.wish-period').attr('value')
+    	sdt = $(this).parent().parent().children('.request-info').children('.wish-date').attr('value')
     	if(period != -1 || sdt != -1)
     		getData('/friend/friendUpdate.json', trano)
     	else

@@ -102,10 +102,6 @@
   border-radius: 10px 10px 0 0;
 }
 
-.promotion-list:last-child {
-  border-radius: 0 0 10px 10px;
-}
-
 .promotion-img {
   display: inline-block;
   width: 40%;

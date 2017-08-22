@@ -145,6 +145,7 @@
 		  'period':period,
 		  'wishtime':wishtime
 	  }, function(result) {
+	    window.history.go(-1)
 		  
 	  })
   }

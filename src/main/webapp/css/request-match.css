@@ -21,7 +21,7 @@
 }
 
 
-.requested-list .smile-size {
+.smile-size {
 	float: left;
   font-size: 3.5rem;
   width: 13%;
@@ -36,19 +36,19 @@
   border-radius: 50%;
 }
 
-.requested-list {
+.request-list {
   position: relative;
   font-size: 1.1rem;
   width: 100%;
   height: 65px;
 }
 
-.requested-list:first-child {
+.request-list:first-child {
   width: 100%;
   border: none;
 }
 
-.requested-info {
+.request-info {
 	position: relative;
 	height: 65px;
 	width: 52.5%;
@@ -56,49 +56,49 @@
   border-bottom: 1px solid #eee;
 }
 
-.requested-list .user-name,
-.requested-list .requested-date,
-.requested-list .requested-content,
-.requested-list .wish-date,
-.requested-list .wish-period {
+.user-name,
+.request-date,
+.request-content,
+.wish-date,
+.wish-period {
 	position: absolute;
 }
 
-.requested-info .user-name {
+.user-name {
   top: 10%;
   font-weight: 800;
   left: 0;
 }
 
-.requested-list .requested-date {
+.request-date {
 	top: 12%;
   right: 5%;
   color: #777;
   font-size: .9rem;
 
 }
-.requested-list .requested-content {
+.request-content {
   top: 42%;
   left: 0;
   font-size: 1.1rem;
   color: #777;
 }
 
-.requested-list .wish-date {
+.wish-date {
 	color: #777;
   top: 73%;
   left: 0;
   font-size: 1rem;
 }
 
-.requested-list .wish-period {
+.wish-period {
 	color: #777;
   top: 73%;
   right: 5%;
   font-size: .9rem;
 }
 
-.requested-list .btn-form {
+.btn-form {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -108,8 +108,8 @@
   border-bottom: 1px solid #eee;
 }
 
-.requested-list .accept,
-.requested-list .refuse {
+.accept,
+.refuse {
   font-weight: 600;
   width: 50%;
   height: 100%;
@@ -118,12 +118,12 @@
   border-radius: 0;
 }
 
-.requested-list .accept {
+.accept {
   color: white;
   background-color: #ddd;
 }
 
-.requested-list .refuse {
+.refuse {
 	background-color: #f7ac1a;
 	color: white;
 }

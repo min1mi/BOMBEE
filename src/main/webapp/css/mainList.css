@@ -67,7 +67,7 @@ body {
 
 .btn {
 	padding-top: 8px;
-	font-size: 0.9rem;
+	font-size: 1.4rem;
 	background-color: white;
 	border: none;
 }
@@ -81,7 +81,7 @@ body {
 }
 
 .pin {
-	font-size: 1.4rem;
+	font-size: 2.4rem;
 }
 
 .wrap {
@@ -92,6 +92,7 @@ body {
 	display: inline;
 	height: 50px;
 	background-color: white;
+	font
 }
 
 .scrollBlind {
