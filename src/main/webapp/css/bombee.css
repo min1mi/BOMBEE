@@ -68,6 +68,9 @@
     top: 80px;
     right: 0;
 	}
+	.header-profile {
+    height: 137px;
+	}
 }
 
 .container {
@@ -114,7 +117,7 @@ body {
   color: white;
 }
 
-.header-font {
+.header-logo-bee .header-font {
   font-size: 2.5rem;
   color: white;
 }
@@ -308,8 +311,10 @@ body {
   line-height: 60px;
 }
 
-.profile {
+.header-menu-ul .profile {
   position: relative;
+  margin: 0;
+  z-index: 3;
 }
 
 .header-profile {
@@ -326,7 +331,7 @@ body {
   height: 100%;
 }
 
-.header-edit {
+.header-menu-ul .header-edit {
 	position: absolute;
   top: 64%;
   right: 22%;
@@ -340,24 +345,24 @@ body {
   color: black;
 }
 
-.profile-bell {
+.header-menu-ul .profile-bell {
     position: absolute;
     top: 34%;
     left: 3%;
 } 
 
-.profile-user {
+.header-menu-ul .profile-user {
     position: absolute;
     top: 34%;
     right: 0;
 }
 
-.user-name {
+.header-menu-ul .user-name {
     font-size: 1.4rem;
     margin-top: 3%;
 }
 
-.header-login {
+.header-menu-ul .header-login {
     display: inline-block;
     margin-top: 4%;
     border: 2px solid white;
@@ -382,6 +387,10 @@ body {
 	display: none;
 }
 
+.header-menu-ul .header-font-size {
+	font-size: 2.5rem;
+	color: white;
+}
 
 
 
