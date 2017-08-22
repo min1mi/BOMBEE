@@ -136,23 +136,27 @@
     	console.log(result)
       if (result.status != 'fail') {
         no = result.data.no
+        
         $('.user-name').text(result.data.name)
         $('.header-profile').addClass('file')
         $('#header-li-login').text('Logout')
+        
         $('#header-li-login').click(() => {
         	if (Kakao.Auth != undefined) {
         	     Kakao.Auth.logout(function() {
         	      console.log('응 아니야');
         	    }) 
         	}
-        	     FB.logout(function(response){
-        	      console.log("로그아웃됬따")
-        	    }) 
+    	     FB.logout(function(response){
+    	      console.log("로그아웃됬따")
+    	    }) 
         	$.getJSON('/auth/logout.json', function(result) {
         		console.log('로그아웃됨')
         		location.href = '../main/main.html'
-          $('.user-name').text('')
-          $('.header-profile').removeClass('file')
+        		
+        	  $('.user-name').text('')
+         	 $('.header-profile').removeClass('file')
+          
         	})
         })
       }else {
