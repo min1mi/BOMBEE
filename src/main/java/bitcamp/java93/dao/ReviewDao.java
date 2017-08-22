@@ -7,5 +7,6 @@ public interface ReviewDao {
 
   int insert(Review review);
   List<Review> detail(int no);
+  Review detail2(Review review);
  
 }

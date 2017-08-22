@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.ReviewDao;
+import bitcamp.java93.domain.Friend;
 import bitcamp.java93.domain.Review;
 import bitcamp.java93.service.ReviewService;
 
@@ -20,6 +21,10 @@ public  class ReviewServiceImpl implements ReviewService {
   
   public List<Review> get(int no) throws Exception {
     return reviewDao.detail(no);
+  }
+  
+  public Review get2(Review review) throws Exception {
+    return reviewDao.detail2(review);
   }
 
 

@@ -14,16 +14,18 @@
     <result column="name" property="name"/>
     <result column="mno" property="mno"/>
     <result column="trano" property="trano"/>
-  
+    <result column="tno" property="tno"/>
+    <result column="writerev" property="writerev"/>
   
   </resultMap>
 
 
 <insert id="insert" parameterType="review" 
           useGeneratedKeys="true" keyColumn="reviewno" keyProperty="reviewno">
-    insert into tcher_review(score, Trano, review) 
+    insert into tcher_review(score, trano, review) 
     values(#{score}, #{trano}, #{review})
   </insert>
+  
 
 
   <select id="detail" resultMap="reviewMap" parameterType="int">
@@ -32,6 +34,13 @@
    inner join memb m on tt.mno=m.mno 
     where tt.tno=#{tno}
   </select>
+    
+    <select id="detail2" resultMap="reviewMap" parameterType="review">
+       select * 
+   tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+    where tt.tno=#{tno}
+  </select>
+  
 
 
 

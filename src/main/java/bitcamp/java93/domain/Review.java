@@ -8,6 +8,8 @@ public class Review{
   String name;
   int mno;
   int trano;
+  int tno;
+  boolean writerev;
   public int getScore() {
     return score;
   }
@@ -38,17 +40,30 @@ public class Review{
   public void setMno(int mno) {
     this.mno = mno;
   }
+  public int getTno() {
+    return tno;
+  }
+  public void setTno(int tno) {
+    this.tno = tno;
+  }
   public int getTrano() {
     return trano;
   }
   public void setTrano(int trano) {
     this.trano = trano;
   }
+  public boolean isWriterev() {
+    return writerev;
+  }
+  public void setWriterev(boolean writerev) {
+    this.writerev = writerev;
+  }
   @Override
   public String toString() {
     return "Review [score=" + score + ", reviewno=" + reviewno + ", review=" + review + ", name=" + name + ", mno="
-        + mno + ", trano=" + trano + "]";
+        + mno + ", tno=" + tno + ", trano=" + trano + ", writerev=" + writerev + "]";
   }
+
   
   
   
