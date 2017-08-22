@@ -30,7 +30,7 @@
     select  m.mno, m.name, m.email, m.mtype, m.id, m.img,
             t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
     from tcher t inner join memb m on t.tno=m.mno
-    where id=#{id} and pwd=password(#{pwd})
+    where id=#{id} and pwd=password(#{pwd}) and mtype = 2
   </select>
 
   <select id="selectOne" resultMap="trainerMap" parameterType="int">

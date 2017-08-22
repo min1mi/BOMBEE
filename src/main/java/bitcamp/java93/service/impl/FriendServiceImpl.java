@@ -63,7 +63,18 @@ public  class FriendServiceImpl implements FriendService {
   public void friendUpdate(Friend friend) throws Exception {
     friendDao.friendUpdate(friend);
   }
-
+  
+  @Override
+  public List<Friend> addMlist(int no) throws Exception {
+    List<Friend> arr = friendDao.addList(no);
+    for (int i = 0; i < arr.size(); i++) {
+      if(arr.get(i).getPm().equals("PM"))
+        arr.get(i).setPm("오후");
+      else if(arr.get(i).getPm().equals("PM"))
+        arr.get(i).setPm("오전");
+    }
+    return arr;
+  }
 
 
 }

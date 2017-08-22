@@ -22,7 +22,7 @@
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
     select accounttype, email, id, mtype, name, mno, img
     from memb
-    where id=#{id} and pwd=password(#{pwd})
+    where id=#{id} and pwd=password(#{pwd}) and mtype = 1
   </select>
   
   <insert id="insert" parameterType="member" 
