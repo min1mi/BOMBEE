@@ -27,15 +27,15 @@
   </resultMap>
   
    <select id="selectOneByEmailPassword" resultMap="trainerMap" parameterType="map">
-    select  m.mno, m.name, m.email, m.mtype, m.id,
-            t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.img
+    select  m.mno, m.name, m.email, m.mtype, m.id, m.img,
+            t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono
     from tcher t inner join memb m on t.tno=m.mno
     where id=#{id} and pwd=password(#{pwd})
   </select>
 
   <select id="selectOne" resultMap="trainerMap" parameterType="int">
-    select  m.mno,t.tno, m.name, m.mtype,
-              t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction, t.img
+    select  m.mno,t.tno, m.name, m.mtype, m.img,
+              t.company, t.zipcode, t.comaddr, t.comdetailaddr, t.spono, t.introduction
       from tcher t inner join memb m on t.tno=m.mno
       where t.tno = #{no}
   </select>
