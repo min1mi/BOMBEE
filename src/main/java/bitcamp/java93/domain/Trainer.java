@@ -14,72 +14,69 @@ public class Trainer extends Member {
   String spono;
   String introduction;
   int tno;
-  String tcherpic;
-  
-  
-  
-  
   
   @Override
   public String toString() {
     return "Trainer [comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="
-        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", tcherpic="
-        + tcherpic + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd
+        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no
+        + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", profilePicture=" + profilePicture
         + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
+
   public String getComname() {
     return comname;
   }
+
   public void setComname(String comname) {
     this.comname = comname;
   }
+
   public String getZipcode() {
     return zipcode;
   }
+
   public void setZipcode(String zipcode) {
     this.zipcode = zipcode;
   }
+
   public String getComaddr() {
     return comaddr;
   }
+
   public void setComaddr(String comaddr) {
     this.comaddr = comaddr;
   }
+
   public String getComdetailaddr() {
     return comdetailaddr;
   }
+
   public void setComdetailaddr(String comdetailaddr) {
     this.comdetailaddr = comdetailaddr;
   }
+
   public String getSpono() {
     return spono;
   }
+
   public void setSpono(String spono) {
     this.spono = spono;
   }
+
   public String getIntroduction() {
     return introduction;
   }
+
   public void setIntroduction(String introduction) {
     this.introduction = introduction;
   }
+
   public int getTno() {
     return tno;
   }
+
   public void setTno(int tno) {
     this.tno = tno;
   }
-  public String getTcherpic() {
-    return tcherpic;
-  }
-  public void setTcherpic(String tcherpic) {
-    this.tcherpic = tcherpic;
-  }
-  
-  
-  
-  
- 
-  
-  
+
 }

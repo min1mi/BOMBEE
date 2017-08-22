@@ -1,48 +1,73 @@
 /*iphone5*/
 @media ( min-device-width : 320px) and (max-device-width: 374px) {
-   html {
-      font-size: 13px;
-      height: 100%;
-   }
-   .container {
-      min-width: 320px;
-      max-width: 374px;
-      padding: 0;
-   }
-   .header-menu-items ul #userInfo {
-   height:230px;
-}
+  body {
+    font-size: 13px;
+    height: 100%;
+  }
+  .container { 
+    min-width: 320px;
+    max-width: 374px;
+    padding: 0;
+  }
+  .header-edit {
+		height: 28.8px;
+	  line-height: 1.3;
+	}
+	.profile-bell {
+    top: 55px;
+    left: 4px;
+	}
+	.profile-user {
+    top: 55px;
+    right: 0;
+	}
 }
 
 /*iphone6*/
 @media ( min-device-width : 375px) and (max-device-width: 413px) {
-   html {
-      font-size: 14px;
-   }
-   .container {
-      min-width: 375;
-      max-width: 413;
-      padding: 0;
-   }
-   .header-menu-items ul #userInfo {
-   height:230px;
-}
-
+  body {
+    font-size: 14px;
+  }
+  .container {
+    min-width: 375;
+    max-width: 413;
+    padding: 0;
+  }
+	.header-edit {
+		height: 37.954px;
+	  line-height: 1.6;
+	}
+	.profile-bell {
+    top: 75px;
+    left: 8px;
+	}
+	.profile-user {
+    top: 75px;
+    right: 0;
+	}
 }
 
 /*iphone6 plus*/
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
-   html {
-      font-size: 15px;
-   }
-   .container {
-      max-width: 768px;
-      padding: 0;
-   }
-   
-	.header-menu-items ul #userInfo {
-   height:230px;
-}
+  body {
+    font-size: 15px;
+  }
+  .container {
+    max-width: 768px;
+    padding: 0;
+  }
+	.header-edit {
+		height: 43.797px;
+	  line-height: 1.6;
+	}
+	.profile-bell {
+    top: 80px;
+    left: 10px;
+	}
+	.profile-user {
+    top: 80px;
+    right: 0;
+	}
 }
 
 .container {
@@ -283,13 +308,62 @@ body {
   line-height: 60px;
 }
 
+.profile {
+  position: relative;
+}
+
 .header-profile {
-	background-color: white;
-  border: 1px solid red;
-  height: 181.719px;
-  width: 67%;
+  background-color: white;
+  width: 50%;
   margin: 0 auto;
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.header-profile .header-user, .header-edit .user-edit {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-edit {
+	position: absolute;
+  top: 64%;
+  right: 22%;
+  width: 16%;
+  border-radius: 50%;
+  border: 4px solid white;
+  overflow: hidden;
+  font-size: 1.6rem;
+	text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.profile-bell {
+    position: absolute;
+    top: 34%;
+    left: 3%;
+} 
+
+.profile-user {
+    position: absolute;
+    top: 34%;
+    right: 0;
+}
+
+.user-name {
+    font-size: 1.4rem;
+    margin-top: 3%;
+}
+
+.header-login {
+    display: inline-block;
+    margin-top: 4%;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 0 4%;
+    font-size: 1.4rem
 }
 
 
@@ -304,13 +378,7 @@ body {
 
 
 
-
-
-
-
-
 /**/
-
 
 
 

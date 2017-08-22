@@ -8,17 +8,19 @@ $(document).ready(function() {
   })
 
   function firstLogin(response) {
-    console.log('firstLogin')
-    $.post('/auth/login.json', {
-      id : response.id,
-      pwd : '1111',
-      membertype: 1
+  console.log('firstLogin')
+  $.post('/auth/login.json', {
+    id : response.id,
+    pwd : '1111',
+    membertype: 1
 
-    }, function(result) {
-      console.log(result)
-      if(result.data == 'ok')
-        window.history.go(-1)
-
+  }, function(result) {
+    console.log(result)
+    if ( navigator.platform ) { 
+      if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
+        if(result.data == 'ok')
+          window.history.go(-2)
+        
         else {
           console.log(response)
           if(response.kaccount_email)
@@ -26,91 +28,112 @@ $(document).ready(function() {
           else
             facebookadd(response)
         }
-    }, 'json'); // login.json
-  }
+      } else { 
+        if(result.data == 'ok')
+          window.history.go(-1)
+        else {
+          console.log(response)
+          if(response.kaccount_email)
+            kakaoadd(response)
+          else
+            facebookadd(response)
+        }
+      } 
+    }
 
-  function kakaoadd(response) {
-    console.log('add')
-    $.post('/member/add.json', {
-      id: response.id,
-      pwd: '1111',
-      name: response.properties.nickname,
-      email: response.kaccount_email,
-      accounttype: 2,
-      membertype: 1
+  }, 'json'); // login.json
+}
 
-    }, function(result) {
-      console.log('login')
-      login(result)
+function kakaoadd(response) {
+  console.log('add')
+  $.post('/member/add.json', {
+    id: response.id,
+    pwd: '1111',
+    name: response.properties.nickname,
+    email: response.kaccount_email,
+    accounttype: 2,
+    membertype: 1
 
-    }, 'json') // kakaoadd.json
-  }
-  
-  function facebookadd(response) {
-    console.log('add')
-    $.post('/member/add.json', {
-      id: response.id,
-      pwd: '1111',
-      name: response.name,
-      email: response.email,
-      accounttype: 1,
-      membertype: 1
-      
-    }, function(result) {
-      console.log('login')
-      login(result)
-      
-    }, 'json') // facebookadd.json
-  }
-
-  function login(result) {
+  }, function(result) {
     console.log('login')
-    $.post('/auth/login.json', {
-      id: result.data.id,
-      pwd: result.data.pwd,
-      membertype: result.data.membertype
+    login(result)
 
-    }, function(success) {
-      window.history.go(-1)
+  }, 'json') // kakaoadd.json
+}
 
-    }, 'json') // login.json
-  }
+function facebookadd(response) {
+  console.log('add')
+  $.post('/member/add.json', {
+    id: response.id,
+    pwd: '1111',
+    name: response.name,
+    email: response.email,
+    accounttype: 1,
+    membertype: 1
 
-  $('#kakao').on('click', function() {
-    Kakao.Auth.login({
-      success: function(authObj) {/*
+  }, function(result) {
+    console.log('login')
+    login(result)
+
+  }, 'json') // facebookadd.json
+}
+
+function login(result) {
+  console.log('login')
+  $.post('/auth/login.json', {
+    id: result.data.id,
+    pwd: result.data.pwd,
+    membertype: result.data.membertype
+
+  }, function(result) {
+    console.log(result)
+    if ( navigator.platform ) { 
+      if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
+        if(result.data == 'ok')
+          window.history.go(-2)
+      } else { 
+        if(result.data == 'ok')
+          window.history.go(-1)
+      } 
+    }
+  }, 'json') // login.json
+}
+
+$('#kakao').on('click', function() {
+  Kakao.Auth.login({
+    success: function(authObj) {/*
     location.href='../ekdma/u-login.html'; */
-        console.log(JSON.stringify(authObj));
-        Kakao.API.request({
-          url: '/v1/user/me',
-          success: function(response) {
-            console.log(response)
-            firstLogin(response)
+      console.log(JSON.stringify(authObj));
+      Kakao.API.request({
+        url: '/v1/user/me',
+        success: function(response) {
+          console.log(response)
+          firstLogin(response)
 
-          },
-          fail: function(err) {
-            alert(JSON.stringify(err));
-          }
-        })
-      }
-    })
+        },
+        fail: function(err) {
+          alert(JSON.stringify(err));
+        }
+      })
+    }
   })
+})
 
 
 
-  $('#facebook').on('click', function() {/*
+$('#facebook').on('click', function() {/*
   location.href='../ekdma/t-login.html' */
-    FB.login(function(response) {
-      FB.api('/me?fields=id,name,email', function (response) {
-        console.log(JSON.stringify(response));
-        firstLogin(response)
+  FB.login(function(response) {
+    FB.api('/me?fields=id,name,email', function (response) {
+      console.log(JSON.stringify(response));
+      firstLogin(response)
 
-      }, {scope: 'public_profile,email'});
-    })
+    }, {scope: 'public_profile,email'});
   })
+})
 
 
-  var loginType = 1;
+var loginType = 1;
 
 $('#usertype').click(function() {
   loginType = $(this).val()
@@ -120,6 +143,9 @@ $('#trainertype').click(function() {
   loginType = $(this).val()
 })
 
+var filter = "win16|win32|win64|mac|macintel"; 
+
+
 $('.send').on('click', function() {
   $.post('/auth/login.json', {
     'id' : $('.id').val(),
@@ -127,8 +153,15 @@ $('.send').on('click', function() {
     'membertype' : loginType
 
   }, function(result) {
-    window.history.go(-1)
-
+    if ( navigator.platform ) { 
+      if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
+        if(result.data == 'ok')
+          window.history.go(-2)
+      } else { 
+        if(result.data == 'ok')
+          window.history.go(-1)
+      } 
+    }
   }, 'json')
 })
 window.fbAsyncInit = function() {
