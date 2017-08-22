@@ -58,13 +58,14 @@
   
   
   <update id="update" parameterType="trainer">
-    update tcher set
+    update
+     tcher t inner join memb m on t.tno = m.mno set
       introduction=#{introduction},
       company=#{comname},
       zipcode=#{zipcode},  
       comaddr=#{comaddr},
       spono=#{spono},
-      img=#{tcherpic},
+      m.img=#{tcherpic},
       comdetailaddr=#{comdetailaddr}
     where tno=#{tno}
   </update>
