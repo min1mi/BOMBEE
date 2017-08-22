@@ -116,9 +116,9 @@ $(document).ready(function() {
 	  if(membertype == -1)
 		  location.href = '../auth/login.html'
 	  else if(membertype == 1)
-		  location.href = '../management/trainingList.html'
+		  location.href = '../main/u-login.html'
 	  else if(membertype == 2)
-		  location.href= '../management/usersList.html'
+		  location.href= '../main/t-login.html'
 		  })
 
 
