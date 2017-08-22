@@ -109,7 +109,8 @@ CREATE TABLE `TCHER_TRAINER` (
 	`PERIOD`   INTEGER      NOT NULL COMMENT '기간', -- 기간
 	`CONFIRM`  BOOLEAN      NOT NULL COMMENT '수락여부', -- 수락여부
 	`REQDATE`  VARCHAR(255) NOT NULL COMMENT '요청날짜', -- 요청날짜
-	`WISHTIME` INTEGER      NOT NULL COMMENT '원하는타임' -- 원하는타임
+	`WISHTIME` INTEGER      NOT NULL COMMENT '원하는타임', -- 원하는타임
+	`WRITEREV` BOOLEAN      NOT NULL COMMENT '리뷰작성' -- 리뷰작성
 )
 COMMENT '개인트레이너';
 
@@ -201,11 +202,9 @@ ALTER TABLE `MEMB_MANAGE`
 -- 강사리뷰
 CREATE TABLE `TCHER_REVIEW` (
 	`REVIEWNO` INTEGER NOT NULL COMMENT '강사리뷰번호', -- 강사리뷰번호
-	`SCORE`    INTEGER NOT NULL COMMENT '평점', -- 평점
 	`TRANO`    INTEGER NOT NULL COMMENT '개인트레이너일련번호', -- 개인트레이너일련번호
-	`REVIEW`   TEXT    NULL     COMMENT '코멘트', -- 코멘트
-	`MNO`      INTEGER NOT NULL COMMENT '회원번호', -- 회원번호
-	`TNO`      INTEGER NOT NULL COMMENT '강사회원번호' -- 강사회원번호
+	`SCORE`    INTEGER NOT NULL COMMENT '평점', -- 평점
+	`REVIEW`   TEXT    NULL     COMMENT '코멘트' -- 코멘트
 )
 COMMENT '강사리뷰';
 
@@ -245,6 +244,28 @@ COMMENT '친구';
 
 ALTER TABLE `TABLE`
 	MODIFY COLUMN `COL2` <데이터 타입 없음> NULL AUTO_INCREMENT COMMENT '친구번호';
+
+-- 알람
+CREATE TABLE `ALERT` (
+	`ALNO`      INTEGER      NOT NULL COMMENT '알람일련번호', -- 알람일련번호
+	`OTHERNAME` VARCHAR(50)  NOT NULL COMMENT '누가', -- 누가
+	`MYMNO`     INTEGER      NOT NULL COMMENT '누구한테', -- 누구한테
+	`KINDS`     VARCHAR(255) NOT NULL COMMENT '무엇을', -- 무엇을
+	`DATE`      VARCHAR(50)  NOT NULL COMMENT '시간', -- 시간
+	`CONFIRM`   BOOLEAN      NOT NULL COMMENT '확인여부', -- 확인여부
+	`TYPE`      INTEGER      NOT NULL COMMENT '유형' -- 유형
+)
+COMMENT '알람';
+
+-- 알람
+ALTER TABLE `ALERT`
+	ADD CONSTRAINT `PK_ALERT` -- 알람 기본키
+		PRIMARY KEY (
+			`ALNO` -- 알람일련번호
+		);
+
+ALTER TABLE `ALERT`
+	MODIFY COLUMN `ALNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '알람일련번호';
 
 -- 강사
 ALTER TABLE `TCHER`

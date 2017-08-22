@@ -15,6 +15,7 @@
     <result column="pwd" property="pwd"/>
     <result column="accounttype" property="accounttype"/>
     <result column="mtype" property="membertype"/>
+    <result column="img" property="profilePicture"/>
   </resultMap>
   
   
@@ -29,6 +30,13 @@
     insert into memb(name, id, email, pwd, accounttype, mtype) 
     values(#{name}, #{id}, #{email}, password(#{pwd}), #{accounttype}, #{membertype})
   </insert>
+  
+  <update id="profileUpdate" parameterType="member">
+		update memb set
+		img=#{profilePicture}
+		where mno=#{no}
+  </update>
+  
   
   
 </mapper>

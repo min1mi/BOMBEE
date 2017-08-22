@@ -2,11 +2,12 @@ package bitcamp.java93.domain;
 
 import java.util.List;
 
-public class Promotion extends Trainning{
+public class Promotion extends Trainning {
   String titlePic;
   String tiPic;
 	List <Trainning> promotionList;
 	String titlePhoto;
+	
   public String getTitlePic() {
     return titlePic;
   }
@@ -37,10 +38,11 @@ public class Promotion extends Trainning{
         + titlePhoto + ", pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
         + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList
         + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr=" + comdetailaddr
-        + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", tcherpic=" + tcherpic + ", no="
-        + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", membertype=" + membertype
-        + ", accounttype=" + accounttype + "]";
+        + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no + ", id=" + id
+        + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", profilePicture=" + profilePicture
+        + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
+
   
 	
 	

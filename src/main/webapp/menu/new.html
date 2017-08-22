@@ -1,4 +1,13 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script src='../js/new.js'></script>
+
 <div class='container main-container'>
 	<div class="mobile-container">
 		<!-- 새로운 헤더 -->
@@ -17,6 +26,9 @@
 							<div class='profile'>
 								<div class='header-profile'>
 									<img class='header-user' src='../image/header-user.png'>
+								</div>
+								<div class='file'>
+									<input id="profile-files" class='profile-img' name='files' multiple/>
 								</div>
 								<div class='header-edit'><i class=' fa fa-camera'></i></div>
 							</div>
@@ -39,132 +51,5 @@
 </div>
 <!-- 새로운 헤더 끝 -->
 <!-- 헤더스크립트 시작 -->
-<script>
 
-  	var management = $('#header-management'),
-  			meeting = $('#header-meeting'),
-  			mypage = $('#header-mypage'),
-  			search = $('#header-search'),
-  			membertype
-  			
-    var count = 0;
-    var no = null;
-    var index = 0;
-    $(document).ready(function() {
-    	
-    	window.fbAsyncInit = function() {
-    	      FB.init({
-    	        appId : '484853665195171',
-    	        cookie : true,
-    	        xfbml : true,
-    	        version : 'v2.8'
-    	      });
-    	      FB.AppEvents.logPageView();
-    	    };
-
-    	    (function(d, s, id) {
-    	      var js, fjs = d.getElementsByTagName(s)[0];
-    	      if (d.getElementById(id))
-    	        return;
-    	      js = d.createElement(s);
-    	      js.id = id;
-    	      js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
-    	      fjs.parentNode.insertBefore(js, fjs);
-    	    }(document, 'script', 'facebook-jssdk'));
-      $('.header-menu-button').click(function() {
-        $(".header-menu-button").toggleClass('header-menu-button-open');
-        $(".header-menu-items").toggleClass('header-menu-items-open');
-        $('#header-search-bar').val('')
-
-        //메뉴바는 기본적으로 z인덱스가 5
-        //화면의 클릭이벤트 z인덱스는 기본적으로 6이다.
-        if (index == 0) {
-          $('.indexUp').css('z-index', '2') //메뉴바 클릭했을때 화면중앙의 z인덱스 낮춤으로써
-          //헤더를 클릭할수 있게 만듬
-          index = 1;
-          $('.header-menu-items').css('display', '');
-          $('.header-menu-items *').css('display', '');
-          $('#header-search-bar').css('display', 'none');
-        } else if (index == 1) {
-          $('.indexUp').css('z-index', '6') //메뉴바를 끌때 화면클릭이벤트는 z인덱스가 2임으로
-          //z인덱스를 다시 올려줘야 클릭이 가능하다.
-          index = 0;
-          $('.header-menu-items').css('display', 'none');
-          $('.header-menu-items *').css('display', 'none');
-          $('#header-search-bar').css('display', '');
-        }
-
-        if (count == 1) {
-          $('#header-search-bar').css('display', 'none')
-          $('.header-up').css('display', 'none')
-          $('.header-none').css('display', 'block')
-          $('#header-logo').slideToggle()
-          count = 0;
-        }
-      });
-
-      $('.header-menu-search').click(() => {
-        $('.header-none').slideToggle();
-        $('.header-up').slideToggle()
-        $('#header-logo').slideToggle()
-
-        $('#header-search-bar').slideToggle()
-
-        $('#header-search-bar').focus()
-        count = 1;
-      })
-      $('.header-up').click(() => {
-        $('.header-up').slideToggle()
-        $('#header-search-bar').val('')
-        $('.header-none').slideToggle()
-        $('#header-search-bar').slideToggle()
-        $('#header-logo').slideToggle()
-        count = 0;
-      })
-
-
-      $('.header-logo-bee').click(function() {
-        if (no != null)
-          location.href = '../chat/chat.html'
-        else if (no == null)
-          location.href = '../auth/login.html'
-      })
-
-    });
-
-    $.getJSON('/auth/userinfo.json', function(result) {
-    	console.log(result)
-      if (result.status != 'fail') {
-        no = result.data.no
-        
-        $('.user-name').text(result.data.name)
-        $('.header-profile').addClass('file')
-        $('#header-li-login').text('Logout')
-        
-        $('#header-li-login').click(() => {
-        	if (Kakao.Auth != undefined) {
-        	     Kakao.Auth.logout(function() {
-        	      console.log('응 아니야');
-        	    }) 
-        	}
-    	     FB.logout(function(response){
-    	      console.log("로그아웃됬따")
-    	    }) 
-        	$.getJSON('/auth/logout.json', function(result) {
-        		console.log('로그아웃됨')
-        		location.href = '../main/main.html'
-        		
-        	  $('.user-name').text('')
-         	 $('.header-profile').removeClass('file')
-          
-        	})
-        })
-      }else {
-         $('#header-li-login').click(() => {
-            location.href = '../auth/login.html'
-         })
-      }
-
-    })
-  </script>
 <!--  헤더스크립트 끝 -->

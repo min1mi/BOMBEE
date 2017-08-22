@@ -13,14 +13,15 @@ public class Trainer extends Member {
   String comdetailaddr;
   String spono;
   String introduction;
+  String tcherpic;
   int tno;
   
   @Override
   public String toString() {
     return "Trainer [comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr="
-        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no
-        + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", profilePicture=" + profilePicture
-        + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
+        + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tcherpic=" + tcherpic + ", tno="
+        + tno + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd
+        + ", profilePicture=" + profilePicture + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
 
   public String getComname() {
@@ -71,6 +72,14 @@ public class Trainer extends Member {
     this.introduction = introduction;
   }
 
+  public String getTcherpic() {
+    return tcherpic;
+  }
+
+  public void setTcherpic(String tcherpic) {
+    this.tcherpic = tcherpic;
+  }
+
   public int getTno() {
     return tno;
   }
@@ -78,5 +87,7 @@ public class Trainer extends Member {
   public void setTno(int tno) {
     this.tno = tno;
   }
-
+  
+  
+  
 }

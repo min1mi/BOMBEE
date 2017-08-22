@@ -2,7 +2,7 @@ package bitcamp.java93.domain;
 
 import java.util.List;
 
-public class Trainning extends Trainer{
+public class Trainning extends Trainer {
   int pno;
   String title;
   int pric;
@@ -78,10 +78,11 @@ public class Trainning extends Trainer{
     return "Trainning [pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
         + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList
         + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr=" + comdetailaddr
-        + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", tcherpic=" + tcherpic + ", no="
-        + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", membertype=" + membertype
-        + ", accounttype=" + accounttype + "]";
+        + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no + ", id=" + id
+        + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", profilePicture=" + profilePicture
+        + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
   }
+  
 
   
   

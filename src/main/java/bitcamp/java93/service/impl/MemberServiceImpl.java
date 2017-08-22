@@ -27,6 +27,11 @@ public class MemberServiceImpl implements MemberService {
     System.out.println(memberDao.selectOneByEmailPassword(valueMap));
     return memberDao.selectOneByEmailPassword(valueMap);
   }
+
+  @Override
+  public void profileUpdate(Member member) throws Exception {
+    memberDao.profileUpdate(member);
+  }
   
 }
 

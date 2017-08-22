@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java93.domain.Member;
-import bitcamp.java93.domain.Usermeal;
 import bitcamp.java93.service.MemberService;
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -28,8 +27,8 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, member);
   }
   
-  @RequestMapping("member-update")
-  public JsonResult upload(Member member, MultipartFile[] files) throws Exception {
+  @RequestMapping("profile-upload")
+  public JsonResult profileUpload(Member member, MultipartFile[] files) throws Exception {
 
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));

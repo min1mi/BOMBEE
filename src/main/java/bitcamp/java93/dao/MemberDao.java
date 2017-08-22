@@ -9,4 +9,5 @@ public interface MemberDao {
   Member selectOneByEmailPassword(Map<String,Object> valueMap);
   int update(Member member);
   int list(Member member);
+  int profileUpdate(Member member);
 }
