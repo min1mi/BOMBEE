@@ -175,7 +175,7 @@ body {
   padding-top: 20px;
   padding-right: 55px;
   padding-left: 55px;
-  padding-bottom: 53%;
+  padding-bottom: 32%;
   top: 60px;
   font-size: 1.5em;
   color: white;
@@ -279,4 +279,8 @@ body {
   right: 5%;
   top: 11%;
   line-height: 60px;
+}
+
+.header-menu-items ul #userInfo {
+	height:230px;
 }
