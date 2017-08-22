@@ -41,8 +41,8 @@
   </select>
 
   <insert id="insert" parameterType="trainer">
-    insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono, introduction, img)
-    values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction}, #{tcherpic})
+    insert into tcher(tno, company, zipcode, comaddr, comdetailaddr, spono, introduction)
+    values(#{no}, #{comname}, #{zipcode}, #{comaddr}, #{comdetailaddr}, #{spono}, #{introduction})
   </insert>
 
   

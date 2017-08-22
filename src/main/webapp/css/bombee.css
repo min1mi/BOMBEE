@@ -1,45 +1,48 @@
 /*iphone5*/
-
-
 @media ( min-device-width : 320px) and (max-device-width: 374px) {
-	html {
-		font-size: 13px;
-		height: 100%;
-	}
-	.container {
-		min-width: 320px;
-		max-width: 374px;
-		padding: 0;
-	}
+   html {
+      font-size: 13px;
+      height: 100%;
+   }
+   .container {
+      min-width: 320px;
+      max-width: 374px;
+      padding: 0;
+   }
+   .header-menu-items ul #userInfo {
+   height:230px;
 }
-
+}
 
 /*iphone6*/
-
-
 @media ( min-device-width : 375px) and (max-device-width: 413px) {
-	html {
-		font-size: 14px;
-	}
-	.container {
-		min-width: 375;
-		max-width: 413;
-		padding: 0;
-	}
-
+   html {
+      font-size: 14px;
+   }
+   .container {
+      min-width: 375;
+      max-width: 413;
+      padding: 0;
+   }
+   .header-menu-items ul #userInfo {
+   height:230px;
 }
 
+}
 
 /*iphone6 plus*/
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
-	html {
-		font-size: 15px;
-	}
-	.container {
-		max-width: 768px;
-		padding: 0;
-	}
-
+   html {
+      font-size: 15px;
+   }
+   .container {
+      max-width: 768px;
+      padding: 0;
+   }
+   
+	.header-menu-items ul #userInfo {
+   height:230px;
+}
 }
 
 .container {
@@ -281,6 +284,3 @@ body {
   line-height: 60px;
 }
 
-.header-menu-items ul #userInfo {
-	height:230px;
-}
