@@ -2,7 +2,7 @@ var management = $('#header-management'),
 meeting = $('#header-meeting'),
 mypage = $('#header-mypage'),
 search = $('#header-search'),
-membertype
+membertype = -1
 
 var count = 0;
 var no = null;
@@ -108,6 +108,18 @@ $(document).ready(function() {
     $('#header-logo').slideToggle()
     count = 0;
   })
+  $('#header-meeting').click(function() {
+	  location.href = '../main/main.html'
+  })
+  
+  $('#header-management').click(function() {
+	  if(membertype == -1)
+		  location.href = '../auth/login.html'
+	  else if(membertype == 1)
+		  location.href = '../management/trainingList.html'
+	  else if(membertype == 2)
+		  location.href= '../management/usersList.html'
+		  })
 
 
   $('.header-logo-bee').click(function() {
@@ -123,6 +135,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
   console.log(result)
   if (result.status != 'fail') {
     no = result.data.no
+    membertype = result.data.membertype
 
     if (result.data.profilePicture)
       $('.header-user').attr('src', result.data.profilePicture)
