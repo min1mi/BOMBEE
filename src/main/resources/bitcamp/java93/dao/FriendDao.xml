@@ -77,6 +77,12 @@
   <delete id="friendDelete" parameterType="int">
     delete from tcher_trainer where trano=#{no}
   </delete>
+  
+  <update id="friendUpdate"  parameterType="friend">
+    update tcher_trainer set confirm=1 , sdt=#{sdt}, 
+    edt=date_add(#{sdt}, interval #{period} month)
+    where trano = #{no}
+  </update>
 
 
 

@@ -18,4 +18,5 @@ public interface FriendService {
   List<Friend> addList(int no) throws Exception;
   int friendDelete(int no) throws Exception;
   int addReq(Friend friend) throws Exception;
+  void friendUpdate(Friend friend) throws Exception;
 }

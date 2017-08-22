@@ -1,7 +1,7 @@
 package bitcamp.java93.domain;
 
 public class Friend {
-  
+  int no; // friendUpdate 요청시 trano를 담는 프로퍼티
   int tno;
   int mno;
   boolean confirm;
@@ -17,6 +17,12 @@ public class Friend {
   String pm;
   String title;
   int wishtime;
+  public int getNo() {
+    return no;
+  }
+  public void setNo(int no) {
+    this.no = no;
+  }
   public int getTno() {
     return tno;
   }
@@ -89,7 +95,6 @@ public class Friend {
   public void setTime(String time) {
     this.time = time;
   }
-  
   public String getPm() {
     return pm;
   }
@@ -108,13 +113,12 @@ public class Friend {
   public void setWishtime(int wishtime) {
     this.wishtime = wishtime;
   }
-  
-  public void pmChange() {
-    if(this.pm.equals("PM")) {
-      pm = "오후";
-    }else if(this.pm.equals("AM")) {
-      pm = "오전";
-    }
+  @Override
+  public String toString() {
+    return "Friend [no=" + no + ", tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno="
+        + pno + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname
+        + ", date=" + date + ", time=" + time + ", pm=" + pm + ", title=" + title + ", wishtime=" + wishtime + "]";
   }
+  
   
 }

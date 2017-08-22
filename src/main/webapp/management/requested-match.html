@@ -32,8 +32,8 @@
 				<span class='user-name'>{{mname}}</span>
 				<span class='request-date'>{{pm}} {{time}}</span>
 				<span class='request-content'>{{title}}</span>
-				<span class='wish-date'>{{sdt}} {{wishtime}}시</span>
-				<span class='wish-period'>{{period}}개월</span>
+				<span class='wish-date' value={{sdt}}>{{sdt}} {{wishtime}}시</span>
+				<span class='wish-period' value={{period}}>{{period}}개월</span>
 			</div>
 			<div class='btn-form'>
 				<div class='accept btn' data-trano='{{trano}}'>수락</div>
@@ -52,10 +52,14 @@
   var no = -1
   var trano = -1
   getData(json, no)
+  var sdt =-1
+  var period = -1
 
   function getData(json, no) {
     $.getJSON(json, {
-      'no' : no
+      'no' : no,
+      'sdt':sdt,
+      'period':period
     }, function(result) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 2)
@@ -74,25 +78,30 @@
         
   			btnConnect()
       } else if (json == '/friend/friendDelete.json') {
-        //거절 버튼을 눌렀을대 실행하면 되는 요청
         console.log(result)
-      } else if (json == 'friend/friendUpdate.json') {no
+      } else if (json == '/friend/friendUpdate.json') {
         // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
         // mno 도 날려야함 no는 tno
+        
         console.log(result)
       }
     })
   }
   function btnConnect() {
     $('.refuse').click(function() {
-      trano = $(this).attr('data-trano')
-      console.log(trano)
+    	trano = $(this).attr('data-trano')
       getData('/friend/friendDelete.json', trano)
-      //연결되면 하면됨
     })
     $('.accept').click(function() {
-      // 수락하면 업데이트 해야함
+    	trano = $(this).attr('data-trano')
+    	period=$(this).parent().parent().children('.request-info').children('.wish-period').attr('value')
+    	sdt = $(this).parent().parent().children('.request-info').children('.wish-date').attr('value')
+    	if(period != -1 || sdt != -1)
+    		getData('/friend/friendUpdate.json', trano)
+    	else
+    		console.log('잘못됨')
     })
+    console.log(trano)
   }
 </script>
 

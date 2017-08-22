@@ -59,6 +59,10 @@ public  class FriendServiceImpl implements FriendService {
     friendDao.addReq(friend);
     return 0;
   }
+  @Override
+  public void friendUpdate(Friend friend) throws Exception {
+    friendDao.friendUpdate(friend);
+  }
 
 
 
