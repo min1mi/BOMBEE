@@ -12,12 +12,9 @@ var membertype
 
 //로그인정보 담는 유저인포
 $.getJSON('/auth/userinfo.json', function(result) {
-	console.log(result)
 	mno = result.data.no
 	mname = result.data.name
 	membertype = result.data.membertype
-	console.log(result.data.name)
-	console.log(result.data.no)
 	// no = 0
 	try {
 			no = location.href.split('?')[1].split('=')[1]
@@ -26,11 +23,9 @@ $.getJSON('/auth/userinfo.json', function(result) {
 
 	}
   generateTemplate();
-  console.log("이")
 	generateTemplate2('/promotion/promotionTitle.json');
-	console.log("윤")
+	generateTemplate3()
 	getCalData(no);
-	console.log("민")
 // getData1('/promotion/promotionTitle.json');
 })
 
@@ -73,10 +68,8 @@ function generateTemplate() {
 
 //프로모션 뿌려주는 핸들바스탬플릿
 function generateTemplate2(json) {
-	console.log(no)
 	$.getJSON(json, {'no' : no}, function(result) {
 				// console.log(result.data.list)
-				console.log("승열")
 				// 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
 				var templateFn = Handlebars.compile($('#list-template').text())
 				var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -84,6 +77,20 @@ function generateTemplate2(json) {
 				var html = container.html()
 				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
 				btnConect()
+			})
+}
+function generateTemplate3() {
+	console.log("리뷰 nononono=" + no)
+	$.getJSON('/review/detail.json', {no}, function(result) {
+		console.log("승열11")
+				 console.log(result)
+				console.log("승열22")
+				// 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
+				var templateFn = Handlebars.compile($('#review-template').text())
+				var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+				var container = $('.r-r-inner')
+				var html = container.html()
+				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
 			})
 }
 
@@ -98,8 +105,6 @@ function f_like(){
 			$('.likeBtn').removeClass("fa-star-o")
 			$('.likeBtn').addClass("fa-star")
 		}
-
-		console.log(result)
 	})
 }
 
@@ -109,13 +114,10 @@ function f_btn(){
 		'mno':mno,
 		'tno':tno
 	}, function(result) {
-		console.log(result)
 		if(result.status=="success"){
 			$('.pro-fa-Btn').attr("value","on")
 			$('.pro-fa-Btn').attr("src","addd.png")
 		}
-
-		console.log(result)
 	})
 }
 
@@ -139,9 +141,17 @@ function getCalData(no) {
 jQuery(document).ready(function($){
 
 $(".pro-t-Btn").click(function(){
-$(".t-t-table").slideToggle(400);
+	$(".r-r-table").hide();
+$(".t-t-table").show();
+});
+$(".pro-r-Btn").click(function(){
+	$(".t-t-table").hide();
+	$(".r-r-table").show();
 });
 })
+
+
+
 
 $('.pro-add-Btn').on('click', function() {
 	boool = false;

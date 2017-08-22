@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mybatis에서 DAO 구현체를 자동으로 만들 때는,
+     SQL 맵퍼 파일의 namespace 값이 DAO 인터페이스와 같아야 한다. -->
+<mapper namespace="bitcamp.java93.dao.ReviewDao">
+  <!-- DB 컬럼과 자바 객체의 프로퍼티를 연결하는 정보 -->
+  <resultMap type="review" id="reviewMap">
+    <id column="reviewno" property="reviewno"/>
+    <result column="review" property="review"/>
+    <result column="score" property="score"/>
+    <result column="name" property="name"/>
+    <result column="mno" property="mno"/>
+    <result column="trano" property="trano"/>
+  
+  
+  </resultMap>
+
+
+<insert id="insert" parameterType="review" 
+          useGeneratedKeys="true" keyColumn="reviewno" keyProperty="reviewno">
+    insert into tcher_review(score, Trano, review) 
+    values(#{score}, #{trano}, #{review})
+  </insert>
+
+
+  <select id="detail" resultMap="reviewMap" parameterType="int">
+   select tr.score, tr.review, m.name from 
+   tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano
+   inner join memb m on tt.mno=m.mno 
+    where tt.tno=#{tno}
+  </select>
+
+
+
+</mapper>

@@ -32,7 +32,7 @@
     <div class="vytl">
 
   <div class="like"><i class="likeBtn fa fa-star-o" aria-hidden="true" value="off"></i></div>
-  <!-- 
+  
    <div class="t-review">
     <div class="ratingCard">
     <h2>강사 리뷰?</h2>
@@ -54,7 +54,6 @@
     </form>
   </div>
 </div>
-   -->
       <div id="detail-container">
       </div>
 
@@ -64,7 +63,8 @@
       <div class="sl">  </div>
 
 
-      <div class="pro-t-Btn">시간확인</div>
+      <div class="pro-tt pro-t-Btn">시간확인</div>
+      <div class="pro-tt pro-r-Btn">리뷰</div>
       <table class="t-t-table">
         <thead>
           <th style="width: 30px"></th>
@@ -223,6 +223,37 @@
         <!-- {{/users}} -->
         </tbody>
       </table>
+      <div class="r-r-table">
+        <div class="r-r-inner">
+		      <!--<div class="xmf">
+	          <div class="r-mno">양승열</div>
+	          <img class="r-score" src="../image/score1.png">
+	          <div class="r-info">김사장님 대박이에요</div>
+		      </div>
+		      <div class="xmf">
+	          <div class="r-mno">양송열</div>
+	          <img class="r-score" src="../image/score2.png">
+	          <div class="r-info">이사장님 대박이에요</div>
+	        </div>
+	        <div class="xmf">
+	          <div class="r-mno">양숭열</div>
+	          <img class="r-score" src="../image/score3.png">
+	          <div class="r-info">홍사장님 대박이에요</div>
+	        </div>
+	        <div class="xmf">
+	          <div class="r-mno">양슝열</div>
+	          <img class="r-score" src="../image/score4.png">
+	          <div class="r-info">박사장님 대박이에요</div>
+	        </div>
+	        <div class="xmf">
+	          <div class="r-mno">양숑열</div>
+	          <img class="r-score" src="../image/score5.png">
+	          <div class="r-info">여기사장님 대박이에요</div>
+	        </div> -->
+        </div>
+      </div>
+
+
 <div class="bottomdiv"></div>
 
 <div class="d-bottom-Btn">
@@ -269,6 +300,16 @@
       </div>
     </div>
   </div>
+  
+  <script id="review-template" type="text/x-handlebars-template">
+      {{#this}}
+       <div class="xmf">
+          <div class="r-mno">{{name}}</div>
+          <img class="r-score" src="../image/score{{score}}.png">
+          <div class="r-info">{{review}}</div>
+        </div>
+      {{/this}}
+  </script>
 
   <script id="match-template" type="text/x-handlebars-template">
       {{#each list}}
@@ -309,8 +350,10 @@
   <div><h1 class="t-name">{{name}}</h1>
     <h3 class="t-spono"></h3></div>
   <div class="info">{{introduction}}</div>
+  <div class="info-b"></div>
   <div>
-    <div class="t-text">위치 : {{comname}}</div>
+    <div class="t-text">장소 : {{comname}}</div>
+    <div class="t-textaddr">{{comaddr}}</div>
     <div class="t-map">
         <image class="t-map-pic" src="../image/t-map.png">
     </div>

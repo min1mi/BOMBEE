@@ -1,8 +1,7 @@
 .container {
   width: 414px;
   border: 1px solid blue;
-  overflow: hidden;
-  overflow-x: scroll;
+ 
 }
 .skql {
   border: 1px solid #ddd;
@@ -19,8 +18,56 @@
   left: 0px;
   top : 0px;
 }
-
-
+.pro-tt {
+	display : inline-block;
+}
+.r-r-table {
+	/*border: 1px solid green;*/
+	height : auto;
+	display:none;
+	padding : 2%;
+	background-color : #f2f2f2; 
+	
+}
+.r-r-inner {
+	overflow:hidden;
+	overflow-y:scroll;
+	width : 100%;
+	max-height : 453px;
+  
+}
+.xmf {
+	width : 100%;
+	height : 162px;
+	margin : 0% 0% 1% 0%;
+	border: 1px solid silver;
+	padding : 3%;
+	background-color : white;
+	border-radius: 5px;
+}
+.r-mno {
+	display : inline-block;
+	width : 23%;
+	height : 38px;
+	font-size : 2rem;
+	
+}
+.r-score {
+	display : inline-block;
+  width : 50%;
+  height : 38px;
+  margin : -5% 0% 0% 11%;
+  
+}
+.r-info {
+  width : 100%;
+  height : 80px;
+  margin : 3% 0% 0% 0%;
+  border: 1px solid silver;
+  border-radius: 10px;
+  padding: 2%;
+  
+}
 .sl {
   margin-left: 2%;
   width: 97%;
@@ -52,11 +99,12 @@
 .ok {
   background-color: #eddfba;
 }
-
+.info-b {
+	height: 110px;
+}
 .info {
   width : 80%;
-  margin: 0% 0% 0% 10%;
-  height: 400px;
+  margin: 46% 0% 0% 10%;
   overflow:visible;
   /*border: 1px brown solid;*/
 }
@@ -75,13 +123,13 @@
 }
 .cont-box{
 	margin-top: -2%;
-width:390px;height:0px;
+width:100%;height:0px;
 border-right:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
 border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
 float: left;
 }
 .cont-box1{
-width:390px;height:0px;
+width:100%;height:0px;
 border-left:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
 border-bottom:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
 margin-top: -40%;
@@ -164,10 +212,11 @@ margin-top: -40%;
 	display: block;
 }
 .d-bottom-Btn {
+	display:none;
   padding-bottom: 6%;
   top: 83%;
   width: 100%;
-  position : fixed;
+
   background-color : white;
 }
 .vytl {
@@ -218,7 +267,15 @@ td {
   width : 58%;
   font-weight: bold;
   display: inline-block;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  margin: 0% 0% 0% 5%;
+}
+.t-textaddr {
+  /*border: 1px solid red;*/
+  width : 58%;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1.2rem;
   margin: 0% 0% 0% 5%;
 }
 .t-map {
