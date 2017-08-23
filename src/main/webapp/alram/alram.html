@@ -18,24 +18,13 @@
 <body>
 	<div class='alram-container'>
 		<div class='header'></div>
-		<div class='alram-container'>
-			<div class='alram-list'>
-				<div class='fa fa-smile-o smile-size'></div>
-				<div class='alram-info'>
-					<div class='alram-content'>홍길동님이 친구 신청 하셨습니다.홍길동님이 친구 신청 하셨습니다.</div>
-					<div class='alram-date'>오후 04:55</div>
-					<div class='cancle-btn-form'>
-						<span class='cancle fa fa-times-circle'></span>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class='alram-container'></div>
 	</div>
 
-	<!-- <script id="alram-template" type="text/x-handlebars-template">
+	<script id="alram-template" type="text/x-handlebars-template">
 		{{#this}}
 		<div class='alram-list'>
-			{{#if tPic}}
+			{{#if profilePicture}}
 			<div class='trainer-img-size'>
 				<img class='' src='{{tPic}}'>
 			</div>
@@ -43,18 +32,15 @@
 			<div class='fa fa-smile-o smile-size'></div>
 			{{/if}}
 			<div class='alram-info'>
-				<span class='trainer-name'>{{tname}}</span>
-				<span class='alram-date'>{{pm}} {{time}}</span>
-				<span class='alram-content'>{{title}}</span>
-				<span class='wish-date'>{{sdt}} {{wishtime}}시</span>
-				<span class='wish-period'>{{period}}개월</span>
-			</div>
-			<div class='btn-form'>
-				<div class='cancle btn' data-trano='{{trano}}'>요청취소</div>
+				<div class='alram-content'>홍길동님이 친구 신청 하셨습니다.홍길동님이 친구 신청 하셨습니다.</div>
+				<div class='alram-date'>오후 04:55</div>
+				<div class='cancle-btn-form'>
+					<span class='cancle fa fa-times-circle'></span>
+				</div>
 			</div>
 		</div>
 		{{/this}}
-	</script> -->
+	</script>
 </body>
 
 <script src='../js/alram.js'></script>
