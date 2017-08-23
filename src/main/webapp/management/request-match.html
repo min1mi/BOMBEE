@@ -84,7 +84,7 @@
     $('.header').load('../menu/new.html')
   })
   
-  /* 
+  
   var json = '/auth/userinfo.json'
   var no = -1
   var trano = -1
@@ -98,19 +98,19 @@
       'period':period
     }, function(result) {
       if (json == '/auth/userinfo.json') {
-        if (result.data.membertype == 2)
+        if (result.data.membertype == 1)
           no = result.data.no
         else
           location.href = '../auth/login.html'
-        console.log()
-        getData('/friend/addList.json', no)
-      } else if (json == '/friend/addList.json') {
+        console.log(no)
+        getData('/friend/addMlist.json', no)
+      } else if (json == '/friend/addMlist.json') {
         console.log(result)
-        var templateFn = Handlebars.compile($('#request-template').text())
-  			var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  			var container = $('.request-container')
-  			container.html("")
-  			container.html(generatedHTML)
+        //var templateFn = Handlebars.compile($('#request-template').text())
+  			//var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+  			//var container = $('.request-container')
+  			//container.html("")
+  			//container.html(generatedHTML)
 
   			btnConnect()
       } else if (json == '/friend/friendDelete.json') {
@@ -132,13 +132,13 @@
     	trano = $(this).attr('data-trano')
     	period=$(this).parent().parent().children('.request-info').children('.wish-period').attr('value')
     	sdt = $(this).parent().parent().children('.request-info').children('.wish-date').attr('value')
-    	if(period != -1 || sdt != -1)
-    		getData('/friend/friendUpdate.json', trano)
+    	if(period != -1 || sdt != -1);
+    		//getData('/friend/friendUpdate.json', trano)
     	else
     		console.log('잘못됨')
     })
     console.log(trano)
-  } */
+  } 
 </script>
 
 </html>

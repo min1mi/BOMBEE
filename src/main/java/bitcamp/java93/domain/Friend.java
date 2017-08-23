@@ -16,6 +16,8 @@ public class Friend {
   String time;
   String pm;
   String title;
+  String mPic;
+  String tPic;
   int wishtime;
   public int getNo() {
     return no;
@@ -107,6 +109,18 @@ public class Friend {
   public void setTitle(String title) {
     this.title = title;
   }
+  public String getmPic() {
+    return mPic;
+  }
+  public void setmPic(String mPic) {
+    this.mPic = mPic;
+  }
+  public String gettPic() {
+    return tPic;
+  }
+  public void settPic(String tPic) {
+    this.tPic = tPic;
+  }
   public int getWishtime() {
     return wishtime;
   }
@@ -117,8 +131,8 @@ public class Friend {
   public String toString() {
     return "Friend [no=" + no + ", tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno="
         + pno + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname
-        + ", date=" + date + ", time=" + time + ", pm=" + pm + ", title=" + title + ", wishtime=" + wishtime + "]";
+        + ", date=" + date + ", time=" + time + ", pm=" + pm + ", title=" + title + ", mPic=" + mPic + ", tPic=" + tPic
+        + ", wishtime=" + wishtime + "]";
   }
-  
   
 }

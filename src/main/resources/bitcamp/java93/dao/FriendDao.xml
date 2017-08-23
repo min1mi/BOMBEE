@@ -23,6 +23,8 @@
     <result column='time' property="time"/>
     <result column='pm' property='pm'/>
     <result column='titl' property='title'/>
+    <result column='tpic' property='tPic'/>
+    <result column='mpic' property='mPic'/>
   </resultMap>
 
 
@@ -57,7 +59,8 @@
     select t.*, date_format(t.reqdate, '%Y-%m-%d') as date, 
     date_format(t.reqdate, '%h:%i') as time, p.titl,
     date_format(t.reqdate, '%p') as pm,
-    m.name as mname, mm.name as tname from tcher_trainer t
+    m.name as mname, mm.name as tname,
+    mm.img as tpic, m.img as mpic from tcher_trainer t
     inner join memb m on t.mno = m.mno
     inner join memb mm on t.tno = mm.mno
     inner join promotion p on t.pno = p.pno
@@ -68,7 +71,8 @@
   	select t.*, date_format(t.reqdate, '%Y-%m-%d') as date, 
     date_format(t.reqdate, '%h:%i') as time, p.titl,
     date_format(t.reqdate, '%p') as pm,
-    m.name as mname, mm.name as tname from tcher_trainer t
+    m.name as mname, mm.name as tname,
+    mm.img as tpic, m.img as mpic from tcher_trainer t
     inner join memb m on t.mno = m.mno
     inner join memb mm on t.tno = mm.mno
     inner join promotion p on t.pno = p.pno
