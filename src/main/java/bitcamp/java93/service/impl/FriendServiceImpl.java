@@ -1,4 +1,4 @@
-package bitcamp.java93.service.impl;
+﻿package bitcamp.java93.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +36,10 @@ public  class FriendServiceImpl implements FriendService {
 
   public Friend get2(Friend friend) throws Exception {
     return friendDao.detail2(friend);
+  }
+
+public Friend get3(Friend friend) throws Exception {
+    return friendDao.detail3(friend);
   }
 
   @Override

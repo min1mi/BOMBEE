@@ -29,6 +29,9 @@
 	background-color : #f2f2f2; 
 	
 }
+.pro-rc-Btn {
+	margin : 0% 0% 0% 20%;
+}
 .r-r-inner {
 	overflow:hidden;
 	overflow-y:scroll;

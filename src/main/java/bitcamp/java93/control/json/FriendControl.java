@@ -48,6 +48,16 @@ public class FriendControl {
       return new JsonResult(JsonResult.FAIL, friend2);
     }
   } // service()friend
+  
+  @RequestMapping("detail3")
+  public JsonResult detail3(Friend friend) throws Exception {
+    Friend friend4 = friendService.get3(friend);
+    if(friend4!=null){
+      return new JsonResult(JsonResult.SUCCESS, friend4);
+    }else{
+      return new JsonResult(JsonResult.FAIL, friend4);
+    }
+  } // service()friend
 
   @RequestMapping("delete")
   public JsonResult delete(Friend friend) throws Exception {

@@ -9,6 +9,7 @@ public interface FriendService {
   /*read-only : list, get*/
 
 
+  Friend get3(Friend friend) throws Exception;
   Friend get2(Friend friend) throws Exception;
   Friend get(Friend friend) throws Exception;
   void add(Friend friend) throws Exception;

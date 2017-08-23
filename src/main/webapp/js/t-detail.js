@@ -120,6 +120,19 @@ function f_btn(){
 		}
 	})
 }
+function f_btn(){
+	$.post('/friend/detail.json', {
+		'mno':mno,
+		'tno':tno
+	}, function(result) {
+		if(result.status=="success"){
+			$('.pro-fa-Btn').attr("value","on")
+			$('.pro-fa-Btn').attr("src","addd.png")
+		}
+	})
+}
+
+
 
 //스케줄에 표시
 function getCalData(no) {
@@ -147,6 +160,18 @@ $(".t-t-table").show();
 $(".pro-r-Btn").click(function(){
 	$(".t-t-table").hide();
 	$(".r-r-table").show();
+});
+
+// 리뷰작성 버튼
+$(".pro-rc-Btn").click(function(){
+	$.getJSON('/friend/detail3.json', {
+		'mno':mno,
+		'tno':tno
+		}, function(result) {
+			console.log(mno)
+			console.log(tno)
+			console.log(result)
+	})
 });
 })
 
