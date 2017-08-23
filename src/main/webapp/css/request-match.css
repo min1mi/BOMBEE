@@ -3,11 +3,29 @@
   html {
     font-size: 10px;
   }
+  .request-list {
+    height: 55px;
+  }
+  .request-info {
+    height: 55px;
+  }
+  .smile-size {
+    height: 41.7px;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
   html {
     font-size: 12px;
+  }
+  .request-list {
+    height: 64px;
+  }
+  .request-info {
+    height: 64px;
+  }
+  .smile-size {
+    height: 48.7px;
   }
 }
 /*iphone6 plus*/
@@ -16,31 +34,35 @@
     font-size: 14px;
   }
   .request-list {
-    height: 84px;
+    height: 71px;
+  }
+  .request-info {
+  	height: 71px;
+  }
+  .smile-size {
+    height: 53.7px;
   }
 }
 
-
 .smile-size {
 	float: left;
-  font-size: 3.5rem;
   width: 13%;
-  padding: 1%;
   margin: 2%;
   box-sizing: border-box;
-  height: 73%;
-  text-align: center;
-  line-height: .95;
-  background-color: #f7ac1a;
-  color: white;
+  background-color: white;
+  border: 1px solid #aaa;
   border-radius: 50%;
+  overflow: hidden;
 }
 
+.smile-size img {
+  width: 100%;
+  height: 100%;
+}
 .request-list {
   position: relative;
   font-size: 1.1rem;
   width: 100%;
-  height: 65px;
 }
 
 .request-list:first-child {
@@ -50,21 +72,20 @@
 
 .request-info {
 	position: relative;
-	height: 65px;
-	width: 52.5%;
+  width: 82.1%;
 	left: 18%;
   border-bottom: 1px solid #eee;
 }
 
-.user-name,
-.request-date,
-.request-content,
-.wish-date,
-.wish-period {
+.request-info .user-name,
+.request-info .request-date,
+.request-info .request-content,
+.request-info .wish-date,
+.request-info .wish-period {
 	position: absolute;
 }
 
-.user-name {
+.request-info .user-name {
   top: 10%;
   font-weight: 800;
   left: 0;
@@ -72,7 +93,7 @@
 
 .request-date {
 	top: 12%;
-  right: 5%;
+  right: 22%;
   color: #777;
   font-size: .9rem;
 
@@ -94,7 +115,7 @@
 .wish-period {
 	color: #777;
   top: 73%;
-  right: 5%;
+  right: 22%;
   font-size: .9rem;
 }
 
@@ -103,27 +124,40 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 30%;
+  width: 16%;
   height: 100%;
   border-bottom: 1px solid #eee;
 }
 
-.accept,
-.refuse {
-  font-weight: 600;
-  width: 50%;
-  height: 100%;
-  line-height: 3.5;
-  float: left;
-  border-radius: 0;
-}
-
-.accept {
-  color: white;
+.request-info .cancle {
   background-color: #ddd;
+  border-bottom: 1px solid #eee;
+  border-radius: 0;
+  color: black;
+  display: inline-block;
+  float: left;
+  font-weight: 600;
+  height: 100%;
+  line-height: 4;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  width: 20%;
 }
 
-.refuse {
-	background-color: #f7ac1a;
-	color: white;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

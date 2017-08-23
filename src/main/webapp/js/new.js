@@ -4,6 +4,7 @@ mypage = $('#header-mypage'),
 search = $('#header-search'),
 membertype = -1
 
+var login;
 var count = 0;
 var no = null;
 var index = 0;
@@ -67,9 +68,12 @@ $(document).ready(function() {
 				data:{no: no},
 				dataType:'json',
 				success: function(result) {
-					console.log(result.length)
-					$('.bell-alram').addClass('alram-on')
-					$('.bell-alram').text(result.length)
+					console.log(result)
+					
+					if(result.length > 0) {
+					  $('.bell-alram').addClass('alram-on')
+					  $('.bell-alram').text(result.length)
+					}
 				}
 			})
 		}
@@ -155,7 +159,8 @@ $.getJSON('/auth/userinfo.json', function(result) {
     if (result.data.profilePicture)
       $('.header-user').attr('src', result.data.profilePicture)
       
-    $('.user-name').text(result.data.name)
+    login = -1;
+    $('.header-menu-ul .user-name').text(result.data.name)
     $('.file .profile-img').attr('type', 'file')
     $('#header-li-login').text('Logout')
 
@@ -173,7 +178,10 @@ $.getJSON('/auth/userinfo.json', function(result) {
         location.href = '../main/main.html'
           
           $('.file .profile-img').attr('type', '')
-          $('.user-name').text('')
+          $('.bell-alram').removeClass('alram-on')
+          $('.header-menu-ul .user-name').text('')
+          login = 0
+          membertype = 0
       })
     })
   }else {
