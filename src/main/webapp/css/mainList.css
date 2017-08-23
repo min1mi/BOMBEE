@@ -173,7 +173,7 @@ body {
 	overflow: hidden;
   height: 50px;
   position: absolute;
-  bottom: 10%;
+  bottom: 0%;
 }
 
 .main-promotion-heightz img {
@@ -192,6 +192,9 @@ body {
 
 .promotion_in {
 	height: 100%;
+}
+.img img {
+	width:100%;
 }
 
 label {

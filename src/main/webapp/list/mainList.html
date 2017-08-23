@@ -109,6 +109,14 @@
     var type = $('.click').children().attr('value')
     var titleImage = []
     var imgTag = []
+    var width = 0
+    if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+            width = '_210.png'
+          else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+            width = '_190.png'
+          else if($(window)[0].innerWidth <= 320)
+            width = '_170.png'
+    console.log(width)
     var swiper = new Swiper('.swiper-container', {
       loop: true,
       autoplay: 2000,
@@ -174,7 +182,7 @@
         console.log(titleImage)
         btnClick()
         for (var i = 0; i < imgTag.length; i++) {
-          $('.'+imgTag[i]).attr('src', '../upload/'+titleImage[i]+'_titleMainList.png')
+          $('.'+imgTag[i]).attr('src', '../upload/'+titleImage[i]+width)
           console.log(imgTag[i])
           console.log(titleImage[i])
         }
