@@ -1,11 +1,12 @@
 
 var no = 0
+var tno = 0
 var lat
 var lon
 var price = $('#promotion_price')
 
 try {
-   no = location.href.split('?')[1].substring(3)
+   no = location.href.split('=')[1]
    console.log('no:' + no)
 } catch (err) {}
 
@@ -14,9 +15,13 @@ $(document).ready(function() {
   $('.header').load('../menu/new.html')
 })
 
+// 트레이너 상세 페이지 이동
+$('.footer-click').on('click', function() {
+  console.log(tno)
+  location.href = '../ekdma/t-detail.html?no=' + tno
+})
+
 // 맵 마커 시작
-
-
 function mapCreate() {
   var mapContainer = document.getElementById('map'), // 지도를 표시할 div
    mapOption = {
@@ -54,7 +59,8 @@ var swiper = new Swiper('.swiper-container', {
 
 
 $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
-    console.log(result.data.promotion)
+    console.log(result.data)
+    tno = result.data.promotion.tno
     lat = result.data.promotion.lat
     lon = result.data.promotion.lng
     console.log(lat)

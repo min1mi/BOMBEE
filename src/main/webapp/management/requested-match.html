@@ -27,7 +27,13 @@
 	<script id="requested-template" type="text/x-handlebars-template">
 		{{#this}}
 		<div class='requested-list'>
-			<div class='fa fa-smile-o smile-size'></div>
+			{{#if mPic}}
+			  <div class='user-img-size'>
+			  	<img class='' src='{{mPic}}'>
+		  	</div>
+			{{^}}
+				<div class='fa fa-smile-o smile-size'></div>
+			{{/if}}
 			<div class='requested-info'>
 				<span class='user-name'>{{mname}}</span>
 				<span class='requested-date'>{{pm}} {{time}}</span>
@@ -36,8 +42,8 @@
 				<span class='wish-period' value={{period}}>{{period}}개월</span>
 			</div>
 			<div class='btn-form'>
-				<div class='accept btn' data-trano='{{trano}}' data-mno='{{mno}}'>수락</div>
-				<div class='refuse btn' data-trano='{{trano}}' data-mno='{{mno}}'>거절</div>
+				<div class='accept btn' data-trano='{{trano}}' data-mno='{{mno}}'>거절</div>
+				<div class='refuse btn' data-trano='{{trano}}' data-mno='{{mno}}'>수락</div>
 			</div>
 		</div>
 		{{/this}}

@@ -50,7 +50,7 @@
 /*iphone6 plus*/
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
   .container {
     max-width: 768px;
@@ -58,7 +58,7 @@
   }
 	.header-edit {
 		height: 43.797px;
-	  line-height: 1.6;
+	  line-height: 1.8;
 	}
 	.profile-bell {
     top: 80px;
@@ -339,7 +339,7 @@ body {
   border-radius: 50%;
   border: 4px solid white;
   overflow: hidden;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 	text-align: center;
   background-color: white;
   color: black;
@@ -368,7 +368,8 @@ body {
     border: 2px solid white;
     border-radius: 10px;
     padding: 0 4%;
-    font-size: 1.4rem
+    font-size: 1.4rem;
+    padding-bottom: 1%;
 }
 
 .file .profile-img {

@@ -10,7 +10,7 @@ var no = null;
 var index = 0;
 $(document).ready(function() {
   getHeaderData()
-
+  
   window.fbAsyncInit = function() {
     FB.init({
       appId : '484853665195171',
@@ -32,6 +32,7 @@ $(document).ready(function() {
   }(document, 'script', 'facebook-jssdk'));
 
   $('.header-menu-button').click(function() {
+    selectRequest()
     console.log(no)
     if (login == -1) {
       $.ajax({
@@ -140,6 +141,7 @@ function getHeaderData() {
         $('#header-li-login').text('Logout')
 
         profileFiles()
+        
 
         $('#header-li-login').click(() => {
           if (Kakao.Auth != undefined) {
@@ -156,6 +158,7 @@ function getHeaderData() {
 
               $('.file .profile-img').attr('type', '')
               $('.bell-alram').removeClass('alram-on')
+              $('.bell-alram').text('')
               $('.header-menu-ul .user-name').text('')
               login = 0
               membertype = 0
@@ -172,7 +175,15 @@ function getHeaderData() {
 }
 
 
-
+function selectRequest() {
+  $('.mobile-container #users').on('click', function() {
+    console.log(membertype)
+    if (membertype == 1)
+      location.href = '../management/request-match.html'
+      else
+        location.href = '../management/requested-match.html'
+  })
+}
 
 
 function profileFiles() {
