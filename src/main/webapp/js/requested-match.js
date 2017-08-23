@@ -1,14 +1,14 @@
 $(function() {
   $('.header').load('../menu/new.html')
 })
-
 var json = '/auth/userinfo.json'
 var no = -1
 var trano = -1
 getData(json, no)
 var sdt =-1
 var period = -1
-var othername
+var othername = -1
+var mymno = -1
 console.log("서버주소="+ location.host)
 function getData(json, no) {
   $.getJSON(json, {
@@ -35,12 +35,14 @@ function getData(json, no) {
       btnConnect()
     } else if (json == '/friend/friendDelete.json') {
       console.log(result)
-      location.reload()
+      if(othername != -1 && mymno != -1)
+    	  ajaxNode(1, othername, mymno, "친구거절")
     } else if (json == '/friend/friendUpdate.json') {
       // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
       // mno 도 날려야함 no는 tno
-      location.reload()
-      console.log(result)
+    	console.log(result)
+    	if(othername != -1 && mymno != -1)
+      	  ajaxNode(1, othername, mymno, "친구수락")
     }
   })
 }
@@ -49,24 +51,11 @@ function btnConnect() {
     trano = $(this).attr('data-trano')
     mymno = $(this).attr('data-mno')
     console.log(mymno)
-    $.ajax({
-				url: 'http://'+ location.host +':8888/alert/add.json',
-				type: 'post',
-				data:{
-					type: 1,
-					othername: '1',
-					mymno: mymno,
-					kinds: "친구거절"
-					},
-				dataType:'json',
-				success: function(result) {
-					console.log(result)
-				}
-			})
     getData('/friend/friendDelete.json', trano)
   })
   $('.accept').click(function() {
     trano = $(this).attr('data-trano')
+    mymno = $(this).attr('data-mno')
     period=$(this).parent().parent().children('.requested-info').children('.wish-period').attr('value')
     sdt = $(this).parent().parent().children('.requested-info').children('.wish-date').attr('value')
     if(period != -1 || sdt != -1)
@@ -75,4 +64,21 @@ function btnConnect() {
       console.log('잘못됨')
   })
   console.log(trano)
+}
+function ajaxNode(no, othername, mymno, kinds){
+	$.ajax({
+		url: 'http://'+ location.host +':8888/alert/add.json',
+		type: 'post',
+		data:{
+			type: no,
+			othername: othername,
+			mymno: mymno,
+			kinds: kinds
+			},
+		dataType:'json',
+		success: function(result) {
+			console.log(result)
+			location.reload()
+		}
+	})
 }

@@ -9,9 +9,12 @@ $(function() {
 	slideDate();
 
 });
-var trano = (location.href).split('=')[1]
-var filenames = $('#filenames');
+var trano = (location.href).split('=')[1].split('#')[0]
+console.log(trano)
 
+var filenames = $('#filenames');
+var othername = -1
+var mymno = -1
 var today,
 mealkcal = $('.food-kcal'),
 mealname = $('.food-name'),
@@ -26,6 +29,7 @@ console.log($(window))
 function getPromotionName(no) {
   $.getJSON('promotion-user-name.json', {'trainingNo': no}, function(result) {
     console.log(result)
+    mymno = result.data.tno
     $('.user').text(result.data.promotionTitle)
   })
 }
@@ -69,6 +73,10 @@ $('#files').fileupload({
 	}, 
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
+		if(othername != -1 && mymno != -1){
+			if(mealtype == 'breakfast' || mealtype == 'lunch' || mealtype == 'dinner')
+			ajaxNode(2, othername, mymno, mealtype)
+		}
 		location.reload()
 	}
 
@@ -142,6 +150,7 @@ var startDate,
 endDate, totalKcal = 0;
 
 $.getJSON('/auth/userinfo.json', function(result) {
+	othername = result.data.name
     $('.user').text(result.data.name)
      })
 
@@ -406,3 +415,21 @@ Handlebars.registerHelper('iphonefive', function(meal ,options) {
 	if(meal.width == 4) 
 		return options.fn(this);
 });
+
+function ajaxNode(no, othername, mymno, kinds){
+	$.ajax({
+		url: 'http://'+ location.host +':8888/alert/add.json',
+		type: 'post',
+		data:{
+			type: no,
+			othername: othername,
+			mymno: mymno,
+			kinds: kinds
+			},
+		dataType:'json',
+		success: function(result) {
+			console.log(result)
+			location.reload()
+		}
+	})
+}

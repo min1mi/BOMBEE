@@ -49,7 +49,7 @@
 
 	<select id="selectPromotionUsername" resultMap="usermealMap2"
 		parameterType="map">
-		select m.name, p.titl
+		select m.name, p.titl, tt.tno
 		from memb m
 		inner join tcher_trainer tt on tt.mno = m.mno
 		inner join promotion p on tt.pno = p.pno
