@@ -314,7 +314,6 @@ body {
 .header-menu-ul .profile {
   position: relative;
   margin: 0;
-  z-index: 3;
 }
 
 .header-profile {

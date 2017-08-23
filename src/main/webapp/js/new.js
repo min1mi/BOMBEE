@@ -180,8 +180,8 @@ function selectRequest() {
     console.log(membertype)
     if (membertype == 1)
       location.href = '../management/request-match.html'
-      else
-        location.href = '../management/requested-match.html'
+    else if(membertype == 2)
+      location.href = '../management/requested-match.html'
   })
 }
 
