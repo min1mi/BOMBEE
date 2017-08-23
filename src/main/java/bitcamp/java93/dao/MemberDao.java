@@ -10,4 +10,5 @@ public interface MemberDao {
   int update(Member member);
   int list(Member member);
   int profileUpdate(Member member);
+  Member selectOne(int no);
 }

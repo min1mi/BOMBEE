@@ -25,6 +25,12 @@
     where id=#{id} and pwd=password(#{pwd}) and mtype = 1
   </select>
   
+  <select id="selectOne" resultMap="memberMap" parameterType="int">
+    select accounttype, email, id, mtype, name, mno, img
+    from memb
+    where mno = #{no}
+  </select>
+  
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
     insert into memb(name, id, email, pwd, accounttype, mtype) 

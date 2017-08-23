@@ -32,6 +32,11 @@ public class MemberServiceImpl implements MemberService {
   public void profileUpdate(Member member) throws Exception {
     memberDao.profileUpdate(member);
   }
+
+  @Override
+  public Member get(int no) throws Exception {
+    return memberDao.selectOne(no);
+  }
   
 }
 

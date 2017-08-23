@@ -5,6 +5,7 @@ import java.io.File;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,13 +28,24 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, member);
   }
   
+  @RequestMapping("getinfo")
+  public JsonResult get(int no, Model model) throws Exception {
+    Member member = memberService.get(no);
+    if (member == null) {
+      return new JsonResult(JsonResult.FAIL, no+"번 회원이 없습니다");
+    }
+    model.addAttribute("member", member);
+    return new JsonResult(JsonResult.SUCCESS, member);
+    
+  }
+  
   @RequestMapping("profile-upload")
   public JsonResult profileUpload(Member member, MultipartFile[] files) throws Exception {
 
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));
     files[0].transferTo(file);
-
+    System.out.println(newFilename);
     member.setProfilePicture("/upload/" + newFilename);
     
     
@@ -60,7 +72,7 @@ public class MemberControl {
 
     memberService.profileUpdate(member);
 
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, member.getProfilePicture());
   }
   
   

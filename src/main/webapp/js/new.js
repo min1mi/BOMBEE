@@ -9,6 +9,7 @@ var count = 0;
 var no = null;
 var index = 0;
 $(document).ready(function() {
+  getHeaderData()
 
   window.fbAsyncInit = function() {
     FB.init({
@@ -29,55 +30,26 @@ $(document).ready(function() {
     js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=784647978380545";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-  
 
-  $('#profile-files').fileupload({
-    url: '/member/profile-upload.json',        // 서버에 요청할 URL
-    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-    sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
-    disableImageResize: /Android(?!.*Chrome)|Opera/
-    .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    processalways: function(e, data) {
-      console.log('fileuploadprocessalways()...');
-      console.log(data.files);
-        data.submit();
-    }, 
-    submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-      data.formData = {
-          'no': no
-      }
-      console.log('submit()...');
-    }, 
-    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-      console.log(data.result);
-      location.reload()
+  $('.header-menu-button').click(function() {
+    console.log(no)
+    if (login == -1) {
+      $.ajax({
+        url: 'http://localhost:8888/alert/get.json',
+        type: 'post',
+        data:{no: no},
+        dataType:'json',
+        success: function(result) {
+          console.log(result)
+
+          if(result.length > 0) {
+            $('.bell-alram').addClass('alram-on')
+            $('.bell-alram').text(result.length)
+          }
+        }
+      })
     }
 
-  });
-
-  
-  
-  $('.header-menu-button').click(function() {
-	  console.log(no)
-		if (login == -1) {
-			$.ajax({
-				url: 'http://localhost:8888/alert/get.json',
-				type: 'post',
-				data:{no: no},
-				dataType:'json',
-				success: function(result) {
-					console.log(result)
-					
-					if(result.length > 0) {
-					  $('.bell-alram').addClass('alram-on')
-					  $('.bell-alram').text(result.length)
-					}
-				}
-			})
-		}
-	  
     $(".header-menu-button").toggleClass('header-menu-button-open');
     $(".header-menu-items").toggleClass('header-menu-items-open');
     $('#header-search-bar').val('')
@@ -128,17 +100,17 @@ $(document).ready(function() {
     count = 0;
   })
   $('#header-meeting').click(function() {
-	  location.href = '../main/main.html'
+    location.href = '../main/main.html'
   })
-  
+
   $('#header-management').click(function() {
-	  if(membertype == -1)
-		  location.href = '../auth/login.html'
-	  else if(membertype == 1)
-		  location.href = '../main/u-login.html'
-	  else if(membertype == 2)
-		  location.href= '../main/t-login.html'
-		  })
+    if(membertype == -1)
+      location.href = '../auth/login.html'
+        else if(membertype == 1)
+          location.href = '../main/u-login.html'
+            else if(membertype == 2)
+              location.href= '../main/t-login.html'
+  })
 
 
   $('.header-logo-bee').click(function() {
@@ -150,53 +122,88 @@ $(document).ready(function() {
 
 });
 
-$.getJSON('/auth/userinfo.json', function(result) {
-  console.log(result)
-  if (result.status != 'fail') {
-    no = result.data.no
-    membertype = result.data.membertype
+function getHeaderData() {
+  $.getJSON('/auth/userinfo.json', function(result) {
+    console.log(result)
+    if (result.status != 'fail') {
+      no = result.data.no
+      membertype = result.data.membertype
 
-    if (result.data.profilePicture)
-      $('.header-user').attr('src', result.data.profilePicture)
-      
-    login = -1;
-    $('.header-menu-ul .user-name').text(result.data.name)
-    $('.file .profile-img').attr('type', 'file')
-    $('#header-li-login').text('Logout')
+      $.getJSON('/member/getinfo.json', {'no': no}, function(result) {
+        console.log(result)
+        if (result.data.profilePicture)
+          $('.header-user').attr('src', result.data.profilePicture +'_170.png')
 
-    $('#header-li-login').click(() => {
-      if (Kakao.Auth != undefined) {
-        Kakao.Auth.logout(function() {
-          console.log('응 아니야');
-        }) 
-      }
-      FB.logout(function(response){
-        console.log("로그아웃됬따")
-      }) 
-      $.getJSON('/auth/logout.json', function(result) {
-        console.log('로그아웃됨')
-        location.href = '../main/main.html'
-          
-          $('.file .profile-img').attr('type', '')
-          $('.bell-alram').removeClass('alram-on')
-          $('.header-menu-ul .user-name').text('')
-          login = 0
-          membertype = 0
+          login = -1;
+        $('.header-menu-ul .user-name').text(result.data.name)
+        $('.file .profile-img').attr('type', 'file')
+        $('#header-li-login').text('Logout')
+
+        profileFiles()
+
+        $('#header-li-login').click(() => {
+          if (Kakao.Auth != undefined) {
+            Kakao.Auth.logout(function() {
+              console.log('응 아니야');
+            }) 
+          }
+          FB.logout(function(response){
+            console.log("로그아웃됬따")
+          }) 
+          $.getJSON('/auth/logout.json', function(result) {
+            console.log('로그아웃됨')
+            location.href = '../main/main.html'
+
+              $('.file .profile-img').attr('type', '')
+              $('.bell-alram').removeClass('alram-on')
+              $('.header-menu-ul .user-name').text('')
+              login = 0
+              membertype = 0
+          })
+        })
       })
-    })
-  }else {
-    $('#header-li-login').click(() => {
-      location.href = '../auth/login.html'
-    })
-  }
-})
+      
+    }else {
+      $('#header-li-login').click(() => {
+        location.href = '../auth/login.html'
+      })
+    }
+  })
+}
+
+
+
+
+
+function profileFiles() {
+  $('#profile-files').fileupload({
+    url: '/member/profile-upload.json',        // 서버에 요청할 URL
+    dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+    sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+    autoUpload: true,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+    .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+    processalways: function(e, data) {
+      console.log('fileuploadprocessalways()...');
+      console.log(data.files);
+      data.submit();
+    }, 
+    submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+      data.formData = {
+          'no': no
+      }
+      console.log('submit()...');
+    }, 
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log(data.result.data);
+      location.reload()
+    }
+  });
+}
 
 
 
 
 
 
-
-
-
-//
