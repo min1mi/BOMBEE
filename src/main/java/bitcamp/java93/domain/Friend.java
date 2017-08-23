@@ -20,7 +20,6 @@ public class Friend {
   String tPic;
   int wishtime;
   boolean writerev;
-  
   public int getNo() {
     return no;
   }
@@ -129,12 +128,20 @@ public class Friend {
   public void setWishtime(int wishtime) {
     this.wishtime = wishtime;
   }
+  public boolean isWriterev() {
+    return writerev;
+  }
+  public void setWriterev(boolean writerev) {
+    this.writerev = writerev;
+  }
   @Override
   public String toString() {
     return "Friend [no=" + no + ", tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno="
         + pno + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname
         + ", date=" + date + ", time=" + time + ", pm=" + pm + ", title=" + title + ", mPic=" + mPic + ", tPic=" + tPic
-        + ", wishtime=" + wishtime + "]";
+        + ", wishtime=" + wishtime + ", writerev=" + writerev + "]";
   }
+  
+  
   
 }
