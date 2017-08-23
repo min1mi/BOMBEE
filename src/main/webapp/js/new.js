@@ -59,6 +59,21 @@ $(document).ready(function() {
   
   
   $('.header-menu-button').click(function() {
+	  console.log(no)
+		if (login == -1) {
+			$.ajax({
+				url: 'http://localhost:8888/alert/get.json',
+				type: 'post',
+				data:{no: no},
+				dataType:'json',
+				success: function(result) {
+					console.log(result.length)
+					$('.bell-alram').addClass('alram-on')
+					$('.bell-alram').text(result.length)
+				}
+			})
+		}
+	  
     $(".header-menu-button").toggleClass('header-menu-button-open');
     $(".header-menu-items").toggleClass('header-menu-items-open');
     $('#header-search-bar').val('')
