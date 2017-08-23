@@ -3,6 +3,36 @@
   border: 1px solid blue;
  
 }
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:2.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+
 .skql {
   border: 1px solid #ddd;
   width: 30px;
@@ -17,6 +47,10 @@
   position: absolute;
   left: 0px;
   top : 0px;
+}
+.score-point {
+	margin: 0% 0% 0% 0%;
+	
 }
 .pro-tt {
 	display : inline-block;
@@ -312,8 +346,9 @@ td {
   font-size: 4rem !important;
 }
 .t-review {
+	display: none;
   width: 100%;
-  height: 600px;
+  height: 374px;
   border : 1px solid red;
 }
 .ratingCard h2{
@@ -323,9 +358,9 @@ td {
 }
 .ratingCard{
   padding: 40px;
-  width: 270px;
+  width: 96%;
   background-color: #F7F7F7;
-  margin: 100px auto 10px;
+  margin: 2% 0% 0% 2%;
   border-radius: 10px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;

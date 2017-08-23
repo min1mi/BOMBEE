@@ -33,27 +33,6 @@
 
   <div class="like"><i class="likeBtn fa fa-star-o" aria-hidden="true" value="off"></i></div>
   
-   <div class="t-review">
-    <div class="ratingCard">
-    <h2>강사 리뷰?</h2>
-    <form method="post">
-       <p class="p_class">
-          <input id="radio1" type="radio" name="radio_rate" value="5">
-            <label for="radio1">&#9786;</label>
-          <input id="radio2" type="radio" name="radio_rate" value="4">
-            <label for="radio2">&#9786;</label>
-          <input id="radio3" type="radio" name="radio_rate" value="3">
-            <label for="radio3">&#9786;</label>
-          <input id="radio4" type="radio" name="radio_rate" value="2">
-            <label for="radio4">&#9786;</label>
-          <input id="radio5" type="radio" name="radio_rate" value="1">
-            <label for="radio5">&#9786;</label>
-      </p>
-        <textarea name="rate_comment" class="comment_area" placeholder="Leave your comment here"></textarea><br>
-          <input type="submit" name="rating_submit" value="Post!">
-    </form>
-  </div>
-</div>
       <div id="detail-container">
       </div>
 
@@ -253,6 +232,35 @@
 	        </div> -->
         </div>
       </div>
+			<div class="t-review">
+				<div class="ratingCard">
+				<h2>강사리뷰작성</h2>
+				<form method="post">
+					<div class='rating-stars text-center'>
+				    <ul id='stars'>
+				      <li class='star' title='Poor' data-value='1'>
+				        <i class='fa fa-star fa-fw'></i>
+				      </li>
+				      <li class='star' title='Fair' data-value='2'>
+				        <i class='fa fa-star fa-fw'></i>
+				      </li>
+				      <li class='star' title='Good' data-value='3'>
+				        <i class='fa fa-star fa-fw'></i>
+				      </li>
+				      <li class='star' title='Excellent' data-value='4'>
+				        <i class='fa fa-star fa-fw'></i>
+				      </li>
+				      <li class='star' title='WOW!!!' data-value='5'>
+				        <i class='fa fa-star fa-fw'></i>
+				      </li>
+				    </ul>
+				  </div>
+				  
+					<textarea name="rate_comment" class="comment_area" placeholder="강사후기써줘요"></textarea><br>
+					<input class="re-add-Btn" type="button" name="rating_submit" value="등록">
+				</form>
+				</div>
+			</div>
 
 
 <div class="bottomdiv"></div>

@@ -8,7 +8,76 @@ var tname
 var tpic
 var realpic
 var membertype
+var fiScore = "";
+fiReview = $('.comment_area'),
+fiTrano = "";
 
+$(document).ready(function(){
+	  
+	  /* 1. Visualizing things on Hover - See next part for action on click */
+	  $('#stars li').on('mouseover', function(){
+	    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+	   
+	    // Now highlight all the stars that's not after the current hovered star
+	    $(this).parent().children('li.star').each(function(e){
+	      if (e < onStar) {
+	        $(this).addClass('hover');
+	      }
+	      else {
+	        $(this).removeClass('hover');
+	      }
+	    });
+	    
+	  }).on('mouseout', function(){
+	    $(this).parent().children('li.star').each(function(e){
+	      $(this).removeClass('hover');
+	    });
+	  });
+	  
+	  
+	  /* 2. Action to perform on click */
+	  $('#stars li').on('click', function(){
+	    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+	    var stars = $(this).parent().children('li.star');
+	    
+	    for (i = 0; i < stars.length; i++) {
+	      $(stars[i]).removeClass('selected');
+	    }
+	    
+	    for (i = 0; i < onStar; i++) {
+	      $(stars[i]).addClass('selected');
+	    }
+	    
+	    // JUST RESPONSE (Not needed)
+	    fiScore = parseInt($('#stars li.selected').last().data('value'), 10);
+	    
+	    return fiScore;
+	    
+	  });
+	  
+	  
+	});
+
+
+	function responseMessage(msg) {
+	  $('.success-box').fadeIn(200);  
+	  $('.success-box div.text-message').html("<span>" + msg + "</span>");
+	}
+$('.re-add-Btn').on('click', function() {
+	console.log("fiscore 밑밑밑")
+	console.log(fiScore)
+	console.log("fire")
+	console.log(fiReview.val())
+	console.log(fiTrano)
+    $.post('/review/add.json', {
+      'score' : fiScore,
+      'review': fiReview.val(),
+      'trano': fiTrano
+    }, function(result) {
+ 
+    }, 'json')
+  
+})
 
 //로그인정보 담는 유저인포
 $.getJSON('/auth/userinfo.json', function(result) {
@@ -155,10 +224,13 @@ jQuery(document).ready(function($){
 
 $(".pro-t-Btn").click(function(){
 	$(".r-r-table").hide();
-$(".t-t-table").show();
+	$(".t-review").hide();
+	$(".t-t-table").show();
+
 });
 $(".pro-r-Btn").click(function(){
 	$(".t-t-table").hide();
+	$(".t-review").hide();
 	$(".r-r-table").show();
 });
 
@@ -170,15 +242,19 @@ $(".pro-rc-Btn").click(function(){
 		}, function(result) {
 			console.log(result)
 			if (result.status == "fail") {
-				alert("친구신청하세요")
+				alert("친구신청하세요")//트레이닝중이아니다
 			}else if (result.data.writerev ==true) {
-				alert("한번에 한번이야")
-			}else if (result.data.trano !=null){
-				alert("리뷰등록하세요")
+				alert("한번에 한번이야")//이미 작성했다
+			}else if (result.data.writerev == false){
+				$(".t-t-table").hide();
+				$(".r-r-table").hide();
+				$(".t-review").show();
 			}
 			console.log(mno)
 			console.log(tno)
-			console.log(result)
+			console.log(result.data.trano)
+			fiTrano = result.data.trano
+			return fiTrano
 	})
 });
 })
