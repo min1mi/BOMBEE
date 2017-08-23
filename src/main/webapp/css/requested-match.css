@@ -3,11 +3,29 @@
   html {
     font-size: 10px;
   }
+  .requested-list {
+    height: 55px;
+  }
+  .requested-info {
+    height: 55px;
+  }
+  .requested-list .smile-size {
+    height: 41.7px;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
   html {
     font-size: 12px;
+  }
+  .requested-list {
+    height: 64px;
+  }
+  .requested-info {
+    height: 64px;
+  }
+  .requested-list .smile-size {
+    height: 48.7px;
   }
 }
 /*iphone6 plus*/
@@ -15,8 +33,14 @@
   html {
     font-size: 14px;
   }
-  .request-list {
-    height: 84px;
+  .requested-list {
+    height: 71px;
+  }
+  .requested-info {
+  	height: 71px;
+  }
+  .requested-list .smile-size {
+    height: 53.7px;
   }
 }
 
@@ -40,7 +64,6 @@
   position: relative;
   font-size: 1.1rem;
   width: 100%;
-  height: 65px;
 }
 
 .requested-list:first-child {
@@ -50,7 +73,6 @@
 
 .requested-info {
 	position: relative;
-	height: 65px;
 	width: 52.5%;
 	left: 18%;
   border-bottom: 1px solid #eee;

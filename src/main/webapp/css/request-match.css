@@ -72,12 +72,12 @@
 
 .request-info {
 	position: relative;
-  width: 82.1%;
+  width: 60%;
 	left: 18%;
   border-bottom: 1px solid #eee;
 }
 
-.request-info .user-name,
+.request-info .trainer-name,
 .request-info .request-date,
 .request-info .request-content,
 .request-info .wish-date,
@@ -85,7 +85,7 @@
 	position: absolute;
 }
 
-.request-info .user-name {
+.request-info .trainer-name {
   top: 10%;
   font-weight: 800;
   left: 0;
@@ -119,31 +119,26 @@
   font-size: .9rem;
 }
 
-.btn-form {
+.request-list .btn-form {
   display: inline-block;
   position: absolute;
   top: 0;
   right: 0;
-  width: 16%;
+  width: 20%;
   height: 100%;
   border-bottom: 1px solid #eee;
 }
 
-.request-info .cancle {
+.request-list .cancle {
   background-color: #ddd;
-  border-bottom: 1px solid #eee;
   border-radius: 0;
-  color: black;
-  display: inline-block;
+  color: #666;
   float: left;
   font-weight: 600;
   height: 100%;
   line-height: 4;
-  position: absolute;
-  right: 0;
-  top: 0;
   text-align: center;
-  width: 20%;
+  width: 100%;
 }
 
 
