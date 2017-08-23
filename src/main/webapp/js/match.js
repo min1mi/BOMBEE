@@ -20,6 +20,8 @@
   startDay,
   period,
   time
+  var othername =-1
+  var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
 
   function getData(json, no, day) {
     $.getJSON(json, {
@@ -29,6 +31,7 @@
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
           mno = result.data.no
+          othername = result.data.name
           console.log(mno)
           getData('/promotion/promotion.json', tno, '')
         }
@@ -145,13 +148,35 @@
 		  'period':period,
 		  'wishtime':wishtime
 	  }, function(result) {
+		  if(othername != -1 && mymno != -1) 
+			  ajaxNode(1, othername, mymno, "친구요청")
+		othername = -1
+		mymno = -1
 	    window.history.go(-1)
 		  
 	  })
   }
   
   
-  
+  function ajaxNode(no, othername, mymno, kinds){
+		$.ajax({
+			url: 'http://'+ location.host +':8888/alert/add.json',
+			type: 'post',
+			data:{
+				type: no,
+				othername: othername,
+				mymno: mymno,
+				kinds: kinds
+				},
+			dataType:'json',
+			success: function(result) {
+				mymno = -1
+				othername =-1
+				console.log(result)
+				location.reload()
+			}
+		})
+	}
   
   
   

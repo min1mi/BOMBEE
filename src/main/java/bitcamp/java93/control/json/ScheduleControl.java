@@ -43,7 +43,7 @@ public class ScheduleControl {
     
     Schedule schedule = scheduleService.get(no);
     if (schedule == null) {
-      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
+      return new JsonResult(JsonResult.FAIL, no + "번 강사의 스케쥴이 비었습니다.");
     }
     return new JsonResult(JsonResult.SUCCESS, schedule);
   } // service()

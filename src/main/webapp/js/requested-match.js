@@ -77,6 +77,8 @@ function ajaxNode(no, othername, mymno, kinds){
 			},
 		dataType:'json',
 		success: function(result) {
+			othername = -1
+			mymno = -1
 			console.log(result)
 			location.reload()
 		}
