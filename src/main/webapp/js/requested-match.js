@@ -8,6 +8,7 @@ var trano = -1
 getData(json, no)
 var sdt =-1
 var period = -1
+var othername
 console.log("서버주소="+ location.host)
 function getData(json, no) {
   $.getJSON(json, {
@@ -18,6 +19,7 @@ function getData(json, no) {
     if (json == '/auth/userinfo.json') {
       if (result.data.membertype == 2)
         no = result.data.no
+        othername = result.data.name
       else
         location.href = '../auth/login.html'
       console.log()
@@ -45,7 +47,21 @@ function getData(json, no) {
 function btnConnect() {
   $('.refuse').click(function() {
     trano = $(this).attr('data-trano')
-    getData('/friend/friendDelete.json', trano)
+    $.ajax({
+				url: 'http://'+ location.host +':8888/alert/add.json',
+				type: 'post',
+				data:{
+					type: 1,
+					othername: '1',
+					mymno: no,
+					kinds: "친구거절"
+					},
+				dataType:'json',
+				success: function(result) {
+					console.log(result)
+				}
+			})
+    //getData('/friend/friendDelete.json', trano)
   })
   $('.accept').click(function() {
     trano = $(this).attr('data-trano')
