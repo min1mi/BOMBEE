@@ -168,6 +168,13 @@ $(".pro-rc-Btn").click(function(){
 		'mno':mno,
 		'tno':tno
 		}, function(result) {
+			if (result.data.trano == null) {
+				alert("친구신청해요")
+			}else if (result.data.WRITEREV ==true) {
+				alert("한번에 한번이야")
+			}else if (result.data.trano !=null){
+				alert("잘될꺼야")
+			}
 			console.log(mno)
 			console.log(tno)
 			console.log(result)

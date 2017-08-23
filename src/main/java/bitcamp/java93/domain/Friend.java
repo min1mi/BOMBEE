@@ -19,6 +19,8 @@ public class Friend {
   String mPic;
   String tPic;
   int wishtime;
+  boolean writerev;
+  
   public int getNo() {
     return no;
   }
