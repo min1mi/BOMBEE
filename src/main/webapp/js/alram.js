@@ -15,11 +15,12 @@ $.getJSON('/auth/userinfo.json', function(result) {
       dataType:'json',
       success: function(result) {
         console.log(result)
-//          var templateFn = Handlebars.compile($('#alram-template').text())
-//          var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//          var container = $('.alram-container')
-//          container.html("")
-//          container.html(generatedHTML)
+          var templateFn = Handlebars.compile($('#alram-template').text())
+          var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+          var container = $('.alram-info-container')
+          container.html("")
+          console.log(container.html(generatedHTML))
+          container.html(generatedHTML)
         if(result.length < 0) {
         }
       }

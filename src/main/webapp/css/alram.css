@@ -13,7 +13,7 @@
     height: 41.7px;
 
   }
-  .trainer-img-size {
+  .alram-img-size {
     height: 41.7px;
   }
   .alram-content {
@@ -35,7 +35,7 @@
     height: 48.7px;
     line-height: 1.05;
   }
-  .trainer-img-size {
+  .alram-img-size {
     height: 48.7px;
   }
   .alram-content {
@@ -56,7 +56,7 @@
   .smile-size {
     height: 71.7px;
   }
-  .trainer-img-size {
+  .alram-img-size {
     height: 71.7px;
   }
   .alram-content {
@@ -64,7 +64,7 @@
 	}
 }
 
-.trainer-img-size {
+.alram-img-size {
 	float: left;
   width: 13%;
   margin: 2%;
@@ -88,7 +88,7 @@
   text-align: center;
 }
 
-.trainer-img-size img {
+.alram-img-size img {
   width: 100%;
   height: 100%;
 }
@@ -107,7 +107,7 @@
   float: left;
   border-bottom: 1px solid #eee;
 }
-.alram-container {
+.alram-info-container {
 	position: relative;
 }
 
@@ -118,7 +118,7 @@
   float: right;
   padding: 10.5% 8%;
 }
-.alram-container .cancle {
+.alram-info-container .cancle {
   color: #666;
   font-weight: 600;
   text-align: center;
