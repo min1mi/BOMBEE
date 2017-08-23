@@ -93,7 +93,7 @@
   height : 80px;
   display: inline-block;
   margin-top : 3%;
-  padding-top: 34%;
+  padding-top: 37%;
   font-size : 1.2rem;
   text-align: center;
   color: silver;
@@ -114,11 +114,11 @@
 }
 
 .body-time {
-  margin-top: -141%;
+  margin-top: -142%;
   margin-left: 32%;
   background-color: #dfdfdf;
   width: 62%;
-  height : 571px;
+
   /*display: inline-block;*/
   /*border: 1px solid red;*/
   /*position: absolute;*/
@@ -138,7 +138,7 @@
 
 .h-time {
 	text-align:center;
-	font-size:1.8rem;
+	font-size:2.9rem;
   margin-top: 1%;
   color: #dfdfdf;
   background-color: white;

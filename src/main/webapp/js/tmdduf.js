@@ -26,11 +26,11 @@ $('.body-day div').click(function() {
         $('.day').css('background-color', "white")
         $('.day').css("font-size", "1.2rem")
         $('.day').css("color", "silver");
-        $('.day').css("padding-top", "34%");
+        $('.day').css("padding-top", "37%");
         $('.day').css("font-weight", "normal");
         $(this).css('background-color', "#F7AC1A")
-        $(this).css("font-size", "2rem");
-        $(this).css("padding-top", "25%");
+        $(this).css("font-size", "2.7rem");
+        $(this).css("padding-top", "26%");
         $(this).css("color", "white");
         $(this).css("font-weight", "bold");
         $(this).css("border-radius", "50%");
