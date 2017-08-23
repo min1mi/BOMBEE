@@ -7,6 +7,14 @@
   	var selectVal = $('#select-container')
   	var deleteX
   	var promotionAdd = $('#promotion-add')
+  	var width = 0
+  	if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+  		width = 6
+  		else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+  			width = 5
+  			else if($(window)[0].innerWidth <= 320)
+  				width = 4
+  				console.log(width)
   	$(function() {
   		deleteBtn.click(function() {
   			if (deleteCan == 0) {
@@ -114,11 +122,18 @@
   	  	     }
   	  	    })
   	}
+    Handlebars.registerHelper('iphonesix', function(a, options) {
+		if(width == 6) 
+			return options.fn(this);
+	});
+
+	Handlebars.registerHelper('iphonesixs', function(a, options) {
+		if(width == 5) 
+			return options.fn(this);
+	});
+
+	Handlebars.registerHelper('iphonefive', function(a, options) {
+		if(width == 4) 
+			return options.fn(this);
+	});
   	
-  	Handlebars.registerHelper('index', function(index, path,options) {
-  		console.log(path)
-      if (index == 0) {
-    	  console.log(options.fn(this))
-        return options.fn(this);
-      } 
-    });
