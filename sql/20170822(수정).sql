@@ -142,7 +142,7 @@ CREATE TABLE `TCHER_TRAINER` (
 	`CONFIRM`  BOOLEAN      NOT NULL COMMENT '수락여부', -- 수락여부
 	`REQDATE`  VARCHAR(255) NOT NULL COMMENT '요청날짜', -- 요청날짜
 	`WISHTIME` INTEGER      NOT NULL COMMENT '원하는타임', -- 원하는타임
-	`WRITEREV` BOOLEAN      NOT NULL COMMENT '리뷰작성' -- 리뷰작성
+	`WRITEREV` BOOLEAN      NULL     COMMENT '리뷰작성' -- 리뷰작성
 )
 COMMENT '개인트레이너';
 

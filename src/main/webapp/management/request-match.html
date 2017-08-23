@@ -20,131 +20,34 @@
 <body>
 	<div class='request-match-container'>
 		<div class='header'></div>
-		<div class='request-container'>
-      <div class='request-list'>
-        <div class='smile-size'>
-          <img src='image/user.png'>
-        </div>
-        <div class='request-info'>
-          <span class='user-name'>강사1</span>
-          <span class='request-date'>오후 07:22</span>
-          <span class='request-content'>프로모션1</span>
-          <span class='wish-date' value={{sdt}}>2017-08-12 12시</span>
-          <span class='wish-period' value={{period}}>3개월</span>
-        </div>
-				<div class='btn-form'>
-          <div class='cancle btn' data-trano='{{trano}}'>요청취소</div>
-        </div>
-      </div>
-      <div class='request-list'>
-        <div class='smile-size'></div>
-        <div class='request-info'>
-          <span class='user-name'>강사1</span>
-          <span class='request-date'>오후 07:22</span>
-          <span class='request-content'>프로모션1</span>
-          <span class='wish-date' value={{sdt}}>2017-08-12 12시</span>
-          <span class='wish-period' value={{period}}>3개월</span>
-        </div>
-        <div class='btn-form'>
-          <div class='cancle btn' data-trano='{{trano}}'>요청취소</div>
-        </div>
-      </div>
-      <div class='request-list'>
-        <div class='fa fa-smile-o smile-size'></div>
-        <div class='request-info'>
-          <span class='user-name'>강사1</span>
-          <span class='request-date'>오후 07:22</span>
-          <span class='request-content'>프로모션1</span>
-          <span class='wish-date' value={{sdt}}>2017-08-12 12시</span>
-          <span class='wish-period' value={{period}}>3개월</span>
-        </div>
-        <div class='btn-form'>
-          <div class='cancle btn' data-trano='{{trano}}'>요청취소</div>
-        </div>
-      </div>
-    </div>
+		<div class='request-container'></div>
 	</div>
 
-<!--
 	<script id="request-template" type="text/x-handlebars-template">
 		{{#this}}
 		<div class='request-list'>
-			<div class='fa fa-smile-o smile-size'></div>
+		  {{if tPic}}
+			  <div class='smile-size'>
+			  	<img class='' src='{{tPic}}'>
+		  	</div>
+			{{^}}
+				<div class='fa fa-smile-o smile-size'></div>
+			{{/if}}
 			<div class='request-info'>
-				<span class='trainer-name'>{{mname}}</span>
+				<span class='trainer-name'>{{tname}}</span>
 				<span class='request-date'>{{pm}} {{time}}</span>
 				<span class='request-content'>{{title}}</span>
-				<span class='wish-date' value={{sdt}}>{{sdt}} {{wishtime}}시</span>
-				<span class='wish-period' value={{period}}>{{period}}개월</span>
+				<span class='wish-date'>{{sdt}} {{wishtime}}시</span>
+				<span class='wish-period'>{{period}}개월</span>
 			</div>
 			<div class='btn-form'>
-				<div class='accept btn' data-trano='{{trano}}'>수락</div>
-				<div class='refuse btn' data-trano='{{trano}}'>거절</div>
+				<div class='cancle btn' data-trano='{{trano}}'>요청취소</div>
 			</div>
 		</div>
 		{{/this}}
-</script> -->
-</body>
-<script>
-   $(function() {
-    $('.header').load('../menu/new.html')
-  })
-  
-  
-  var json = '/auth/userinfo.json'
-  var no = -1
-  var trano = -1
-  getData(json, no)
-  var sdt =-1
-  var period = -1
-  function getData(json, no) {
-    $.getJSON(json, {
-      'no' : no,
-      'sdt':sdt,
-      'period':period
-    }, function(result) {
-      if (json == '/auth/userinfo.json') {
-        if (result.data.membertype == 1)
-          no = result.data.no
-        else
-          location.href = '../auth/login.html'
-        console.log(no)
-        getData('/friend/addMlist.json', no)
-      } else if (json == '/friend/addMlist.json') {
-        console.log(result)
-        //var templateFn = Handlebars.compile($('#request-template').text())
-  			//var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  			//var container = $('.request-container')
-  			//container.html("")
-  			//container.html(generatedHTML)
-
-  			btnConnect()
-      } else if (json == '/friend/friendDelete.json') {
-        console.log(result)
-      } else if (json == '/friend/friendUpdate.json') {
-        // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
-        // mno 도 날려야함 no는 tno
-
-        console.log(result)
-      }
-    })
-  }
-  function btnConnect() {
-    $('.refuse').click(function() {
-    	trano = $(this).attr('data-trano')
-      getData('/friend/friendDelete.json', trano)
-    })
-    $('.accept').click(function() {
-    	trano = $(this).attr('data-trano')
-    	period=$(this).parent().parent().children('.request-info').children('.wish-period').attr('value')
-    	sdt = $(this).parent().parent().children('.request-info').children('.wish-date').attr('value')
-    	if(period != -1 || sdt != -1);
-    		//getData('/friend/friendUpdate.json', trano)
-    	else
-    		console.log('잘못됨')
-    })
-    console.log(trano)
-  } 
 </script>
+</body>
+
+<script src='../js/request-match.js'></script>
 
 </html>
