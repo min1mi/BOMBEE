@@ -60,10 +60,6 @@ $(document).ready(function(){
 	});
 
 
-	function responseMessage(msg) {
-	  $('.success-box').fadeIn(200);  
-	  $('.success-box div.text-message').html("<span>" + msg + "</span>");
-	}
 $('.re-add-Btn').on('click', function() {
 	console.log("fiscore 밑밑밑")
 	console.log(fiScore)
@@ -101,6 +97,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
   generateTemplate();
 	generateTemplate2('/promotion/promotionTitle.json');
 	generateTemplate3()
+	generateTemplate4()
 	getCalData(no);
 // getData1('/promotion/promotionTitle.json');
 })
@@ -169,6 +166,24 @@ function generateTemplate3() {
 				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
 			})
 }
+function generateTemplate4() {
+	console.log("평점로드")
+	console.log(no)
+	console.log(tno)
+	console.log(mno)
+	console.log("평점로드")
+	$.getJSON('/review/detail3.json', {'tno' : no }, function(result) {
+		console.log("강남")
+		console.log(result)
+		console.log("겅뷱")
+				var templateFn = Handlebars.compile($('#rating-template').text())
+				var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+				var container = $('.rating')
+				var html = container.html()
+				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+			})
+}
+
 
 //좋아요 버튼
 function f_like(){

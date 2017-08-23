@@ -15,6 +15,7 @@ public interface ReviewService {
   List<Review> get(int no) throws Exception;
   void add(Review review) throws Exception;
   Review get2(Review review) throws Exception;
+  Review get3(Review review) throws Exception;
   void update(Review review) throws Exception;
   
 }

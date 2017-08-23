@@ -16,6 +16,11 @@
   display:inline-block;
   
 }
+.rating {
+	border : solid red 5px;
+	width : 400px;
+	height : 400px;
+}
 
 /* Idle State of the stars */
 .rating-stars ul > li.star > i.fa {

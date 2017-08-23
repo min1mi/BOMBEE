@@ -27,6 +27,9 @@ public  class ReviewServiceImpl implements ReviewService {
   public Review get2(Review review) throws Exception {
     return reviewDao.detail2(review);
   }
+  public Review get3(Review review) throws Exception {
+    return reviewDao.detail3(review);
+  }
 
   public void update(Review review) throws Exception {
     reviewDao.update(review.getTrano());

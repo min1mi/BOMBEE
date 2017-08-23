@@ -41,6 +41,11 @@
     where tt.tno=#{tno}
   </select>
   
+  <select id="detail3" resultMap="reviewMap" parameterType="review">
+       select AVG(tr.score)
+   tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+    where tt.tno=#{tno}
+  </select><!-- 평균구하는거 -->
   
   <update id="update" parameterType="int">
    update tcher_trainer set
