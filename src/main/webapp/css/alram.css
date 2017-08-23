@@ -1,0 +1,165 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  html {
+    font-size: 10px;
+  }
+  .alram-list {
+    height: 55px;
+  }
+  .alram-info {
+    height: 55px;
+  }
+  .smile-size {
+    height: 41.7px;
+
+  }
+  .trainer-img-size {
+    height: 41.7px;
+  }
+  .alram-content {
+		height: 55px;
+	}
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 12px;
+  }
+  .alram-list {
+    height: 64px;
+  }
+  .alram-info {
+    height: 64px;
+  }
+  .smile-size {
+    height: 48.7px;
+    line-height: 1.05;
+  }
+  .trainer-img-size {
+    height: 48.7px;
+  }
+  .alram-content {
+		height: 64px;
+	}
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+  .alram-list {
+    height: 89px;
+  }
+  .alram-info {
+  	height: 89px;
+  }
+  .smile-size {
+    height: 71.7px;
+  }
+  .trainer-img-size {
+    height: 71.7px;
+  }
+  .alram-content {
+		height: 60px;
+	}
+}
+
+.trainer-img-size {
+	float: left;
+  width: 13%;
+  margin: 2%;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.smile-size {
+	float: left;
+  width: 17.2%;
+  margin: 2%;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.trainer-img-size img {
+  width: 100%;
+  height: 100%;
+}
+.alram-list {
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.alram-list:first-child {
+  width: 100%;
+  border: none;
+}
+
+.alram-info {
+  width: 78.8%;
+  float: left;
+  border-bottom: 1px solid #eee;
+}
+.alram-container {
+	position: relative;
+}
+
+.cancle-btn-form {
+  display: inline-block;
+  width: 21%;
+  height: 100%;
+  float: right;
+  padding: 10.5% 8%;
+}
+.alram-container .cancle {
+  color: #666;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.alram-content {
+	display: inline-block;
+	padding: 3% 2%;
+	width: 79%;
+}
+
+.alram-date {
+  position: absolute;
+  color: #777;
+  font-size: .9rem;
+  display: inline-block;
+  width: 24%;
+  bottom: 7%;
+  left: 23%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
