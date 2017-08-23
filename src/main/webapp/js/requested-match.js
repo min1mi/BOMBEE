@@ -8,7 +8,7 @@ var trano = -1
 getData(json, no)
 var sdt =-1
 var period = -1
-
+console.log("서버주소="+ location.host)
 function getData(json, no) {
   $.getJSON(json, {
     'no' : no,
