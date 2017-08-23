@@ -63,7 +63,7 @@ function btnConnect() {
 					console.log(result)
 				}
 			})
-    //getData('/friend/friendDelete.json', trano)
+    getData('/friend/friendDelete.json', trano)
   })
   $('.accept').click(function() {
     trano = $(this).attr('data-trano')
