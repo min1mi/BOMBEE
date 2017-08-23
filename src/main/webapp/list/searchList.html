@@ -123,8 +123,9 @@
         {{#each promotionList}}
        <div class='list-pro list-div' value={{pno}}>
         <div class='img-div'>
-          <img class='pro-img' src='../upload/{{#each photoList}}{{this}}{{/each}}_titleMainList.png'>
+          <img class='pro-img' src='../upload/{{#each photoList}}{{#iphonesix this}}{{this}}_210{{/iphonesix}}{{#iphonesixs this}}{{this}}_190{{/iphonesixs}}{{#iphonefive this}}{{this}}_170{{/iphonefive}}{{/each}}.png'>
         </div>
+      <div class='lope'>
       <div id='list-title1'>{{title}}</div>
        <div id='list-height'>
        <div class='inline-block sport'>
@@ -132,6 +133,7 @@
         </div>
        <div class='inline-block meter1'>{{meter}}M</div>
        </div>
+</div>
       </div>
           {{/each}}
           {{else}}

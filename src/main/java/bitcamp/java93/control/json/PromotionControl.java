@@ -159,7 +159,24 @@ public class PromotionControl {
         Thumbnails.of(file).size(190, 150).outputFormat("png").toFile(thumbnail);
         thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_promotion"));
         Thumbnails.of(file).size(414, 350).outputFormat("png").toFile(thumbnail);
-          
+        
+        ////////
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_210"));
+        Thumbnails.of(file).size(210, 170).outputFormat("png").toFile(thumbnail);
+        // 아이폰6+
+        //////////
+        
+        ///
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_190"));
+        Thumbnails.of(file).size(190, 170).outputFormat("png").toFile(thumbnail);
+        /// 아이폰6
+        
+        //
+        thumbnail = new File(ctx.getRealPath("/upload/" + newFilename + "_170"));
+        Thumbnails.of(file).size(170, 170).outputFormat("png").toFile(thumbnail);
+        
+        // 아이폰5
+        
         fileList.add(newFilename);
       }
     if (titleName != null) {

@@ -34,7 +34,15 @@ var findLat = 0
 var findLon = 0
 var count = 0
 console.log(1)
-$(function(){
+var width = 0
+if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+				width = 6
+			else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+				width = 5
+			else if($(window)[0].innerWidth <= 320)
+				width = 4
+console.log(width)
+				
 	mapHeader.click(function (){
 		$('.list-div').remove()
 		mapHeader.css('display', 'none')
@@ -104,7 +112,6 @@ $(function(){
 		$('#first').prop('selected', 'selected')
 		GPSFind()
 		  })
-		})
 
 var mapContainer = $('#map')[0], // 지도를 표시할 div 
     mapOption = { 
@@ -457,3 +464,18 @@ function ajax() {
 			getData('/promotion/tList.json', types, '')
 	}
 }
+  
+  Handlebars.registerHelper('iphonesix', function(a, options) {
+		if(width == 6) 
+			return options.fn(this);
+	});
+
+	Handlebars.registerHelper('iphonesixs', function(a, options) {
+		if(width == 5) 
+			return options.fn(this);
+	});
+
+	Handlebars.registerHelper('iphonefive', function(a, options) {
+		if(width == 4) 
+			return options.fn(this);
+	});
