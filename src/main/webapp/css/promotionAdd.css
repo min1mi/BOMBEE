@@ -71,7 +71,7 @@
     right: 20px;
   }
   .title, .date, .price {
-    height: 76px;
+    height: 68px;
   }
   .company_address {
   	height: 120px;
@@ -81,7 +81,7 @@
 .date,
 .price,
 .company_address {
-	padding: 6% 5%;
+	padding: 5% 5%;
 }
 }
 

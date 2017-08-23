@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/menu.css'>
-  <link rel='stylesheet' href='promotionDetail.css'>
+  <link rel='stylesheet' href='../css/promotionDetail.css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
 
 </head>
@@ -64,7 +64,7 @@
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=e93af6b0f8e2ad445bda7e9b6a416ad1&libraries=services"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
-  <script src="promotionDetail.js"></script>
+  <script src="../js/promotionDetail.js"></script>
 
 
   <script id = 'detail-template' type='text/x-handlebars-template'>
@@ -79,9 +79,8 @@
         </span>
       </div>
       <div class='promotionDetail_Adress'>
-        <span id='company' style="font-weight:500; font-size:1.5rem;">
-          {{comname}}</span><br>
-        <span id='address' style='font-weight:300;'>{{comaddr}}</span>
+        <span id='company'>{{comname}}</span><br>
+        <span id='address'>{{comaddr}}</span>
       </div>
       <div class='promotionDetail_Adress_Arrow '>
         <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
@@ -89,7 +88,7 @@
     </div>
 
     <div class="addressPanel">
-      <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
+      <div id="map"></div>
     </div>
 
 
@@ -101,9 +100,7 @@
           </div>
           <span>{{sdt}}</span>
         </div>
-        <div class='date-slash'>
-          /
-        </div>
+        <span class='date-slash'>/</span>
         <div class='date-end'>
           <div class='promotion-icon'>
             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -114,7 +111,7 @@
     </div>
 
     <div class="addressPanel">
-      <div id="map" style="width:100%;height:250px; margin-bottom:10px;"></div>
+      <div id="map"</div>
     </div>
 
     <div class='promotionDetail_contents'>
@@ -129,7 +126,7 @@
     {{#each promotionList}}
       {{#each photoList}}
         <div class="swiper-slide">
-          <img src="/upload/{{this}}_promotion.png" width="100%" >
+          <img src="/upload/{{this}}_promotion.png">
         </div>
       {{/each}}
     {{/each}}
