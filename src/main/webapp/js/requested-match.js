@@ -17,10 +17,10 @@ function getData(json, no) {
     'period':period
   }, function(result) {
     if (json == '/auth/userinfo.json') {
-      if (result.data.membertype == 2)
+      if (result.data.membertype == 2) {
         no = result.data.no
         othername = result.data.name
-      else
+      }else
         location.href = '../auth/login.html'
       console.log()
       getData('/friend/addList.json', no)
@@ -47,13 +47,15 @@ function getData(json, no) {
 function btnConnect() {
   $('.refuse').click(function() {
     trano = $(this).attr('data-trano')
+    mymno = $(this).attr('data-mno')
+    console.log(mymno)
     $.ajax({
 				url: 'http://'+ location.host +':8888/alert/add.json',
 				type: 'post',
 				data:{
 					type: 1,
 					othername: '1',
-					mymno: no,
+					mymno: mymno,
 					kinds: "친구거절"
 					},
 				dataType:'json',
