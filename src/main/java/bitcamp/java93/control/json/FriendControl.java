@@ -51,6 +51,8 @@ public class FriendControl {
   
   @RequestMapping("detail3")
   public JsonResult detail3(Friend friend) throws Exception {
+    System.out.println("1111"+friend.getMno());
+    System.out.println("22222"+friend.getTno());
     Friend friend4 = friendService.get3(friend);
     if(friend4!=null){
       return new JsonResult(JsonResult.SUCCESS, friend4);

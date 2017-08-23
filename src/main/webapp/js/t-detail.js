@@ -9,7 +9,8 @@ var tpic
 var realpic
 var membertype
 var fiScore = "";
-fiReview = $('.comment_area'),
+
+var fiReview = $('.comment_area'),
 fiTrano = "";
 
 $(document).ready(function(){
@@ -74,7 +75,13 @@ $('.re-add-Btn').on('click', function() {
       'review': fiReview.val(),
       'trano': fiTrano
     }, function(result) {
- 
+    	console.log("골칫거리")
+    	console.log(fiTrano)
+    	$.post('/review/boolean.json', {
+    		'trano' : fiTrano
+    	},function(result) {
+    	    	console.log("리뷰상태변경완료")
+    	    }, 'json')
     }, 'json')
   
 })
@@ -240,6 +247,8 @@ $(".pro-rc-Btn").click(function(){
 		'mno':mno,
 		'tno':tno
 		}, function(result) {
+			console.log(tno)
+			console.log(mno)
 			console.log(result)
 			if (result.status == "fail") {
 				alert("친구신청하세요")//트레이닝중이아니다

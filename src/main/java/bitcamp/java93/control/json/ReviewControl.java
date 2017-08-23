@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java93.domain.Friend;
 import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Review;
+import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.ReviewService;
 
 @RestController
@@ -39,5 +40,13 @@ public class ReviewControl {
       return new JsonResult(JsonResult.FAIL, review1);
     }
   } // service()friend
+  
+  @RequestMapping("boolean")
+  public JsonResult update(Review review) throws Exception {
+    System.out.println("==========================="+review.getTrano());
+    reviewService.update(review);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+
 
 }

@@ -41,7 +41,12 @@
     where tt.tno=#{tno}
   </select>
   
-
+  
+  <update id="update" parameterType="int">
+   update tcher_trainer set
+    writerev=true
+    where trano=#{no};
+  </update>
 
 
 </mapper>

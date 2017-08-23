@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import bitcamp.java93.dao.ReviewDao;
 import bitcamp.java93.domain.Friend;
 import bitcamp.java93.domain.Review;
+import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.ReviewService;
 
 @Service
@@ -27,5 +28,9 @@ public  class ReviewServiceImpl implements ReviewService {
     return reviewDao.detail2(review);
   }
 
+  public void update(Review review) throws Exception {
+    reviewDao.update(review.getTrano());
+
+  }
 
 }
