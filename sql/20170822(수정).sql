@@ -90,7 +90,7 @@ CREATE TABLE `CHAT` (
 	`CNO`     INTEGER      NOT NULL COMMENT '채팅번호', -- 채팅번호
 	`MNO`     INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
 	`TNO`     INTEGER      NOT NULL COMMENT '강사회원번호', -- 강사회원번호
-	`COL`     INTEGER      NOT NULL COMMENT '보낸사람', -- 보낸사람
+	`WHOSEND` INTEGER      NOT NULL COMMENT '보낸사람', -- 보낸사람
 	`MSG`     TEXT         NOT NULL COMMENT '메세지', -- 메세지
 	`DATE`    VARCHAR(255) NOT NULL COMMENT '일시', -- 일시
 	`CONFIRM` BOOLEAN      NOT NULL COMMENT '읽은여부' -- 읽은여부
