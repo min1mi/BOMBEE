@@ -11,6 +11,7 @@ public class Chat {
   String message;
   String yourName;
   String tPath;
+  String mPath;
 
   boolean confirm;
 
@@ -78,6 +79,14 @@ public class Chat {
     this.tPath = tPath;
   }
 
+  public String getmPath() {
+    return mPath;
+  }
+
+  public void setmPath(String mPath) {
+    this.mPath = mPath;
+  }
+
   public boolean isConfirm() {
     return confirm;
   }
@@ -90,8 +99,8 @@ public class Chat {
   public String toString() {
     return "Chat [noList=" + noList + ", tnoList=" + tnoList + ", memberno=" + memberno + ", trainerno=" + trainerno
         + ", arrivedate=" + arrivedate + ", message=" + message + ", yourName=" + yourName + ", tPath=" + tPath
-        + ", confirm=" + confirm + "]";
+        + ", mPath=" + mPath + ", confirm=" + confirm + "]";
   }
 
-
+ 
 }
