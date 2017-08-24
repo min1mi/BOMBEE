@@ -107,6 +107,7 @@ function ajaxNode(no, othername, mymno, kinds){
 		success: function(result) {
 			othername = -1
 			mymno = -1
+			othermno = -1
 			console.log(result)
 			if(count == -1) 
 				location.reload()
