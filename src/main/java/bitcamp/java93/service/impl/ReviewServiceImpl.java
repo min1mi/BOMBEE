@@ -24,11 +24,11 @@ public  class ReviewServiceImpl implements ReviewService {
     return reviewDao.detail(no);
   }
   
-  public Review get2(Review review) throws Exception {
-    return reviewDao.detail2(review);
+  public List<Review> get2(int  no) throws Exception {
+    return reviewDao.detail2(no);
   }
-  public Review get3(Review review) throws Exception {
-    return reviewDao.detail3(review);
+  public Double get3(int no) throws Exception {
+    return reviewDao.detail3(no);
   }
 
   public void update(Review review) throws Exception {

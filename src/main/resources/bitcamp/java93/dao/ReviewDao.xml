@@ -15,6 +15,10 @@
     <result column="mno" property="mno"/>
     <result column="trano" property="trano"/>
     <result column="tno" property="tno"/>
+    <result column="pno" property="pno"/>
+    <result column="sdt" property="sdt"/>
+    <result column="edt" property="edt"/>
+    <result column="avg" property="avg"/>
     <result column="writerev" property="writerev"/>
   
   </resultMap>
@@ -36,14 +40,18 @@
   </select>
     
     <select id="detail2" resultMap="reviewMap" parameterType="review">
-       select * 
-   tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
-    where tt.tno=#{tno}
+       select * ,(select AVG(tr.score)
+       from  tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+       left join memb m on tt.mno = m.mno
+       where tt.tno=#{tno}) as avg
+       from tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+       where tt.tno=#{tno}
   </select>
   
   <select id="detail3" resultMap="reviewMap" parameterType="review">
-       select AVG(tr.score)
-   tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+       select AVG(tr.score) as avg
+  from  tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+  left join memb m on tt.mno = m.mno
     where tt.tno=#{tno}
   </select><!-- 평균구하는거 -->
   

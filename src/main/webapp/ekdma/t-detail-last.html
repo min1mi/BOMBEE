@@ -370,9 +370,9 @@
   </div>
 </script>
 <script id="rating-template" type="text/x-handlebars-template">
-
-  <div>2{{avg(tr.score)}}</div>
-
+{{#this}}
+  <div>{{avg}}</div>
+{{/this}}
 </script>
 
 <script type="text/javascript" src="../js/t-detail-last.js"></script>

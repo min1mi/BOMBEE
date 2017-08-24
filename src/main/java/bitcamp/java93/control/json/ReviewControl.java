@@ -32,28 +32,18 @@ public class ReviewControl {
   }
 
   @RequestMapping("detail2")
-  public JsonResult detail2(Review review) throws Exception {
-    Review review1 = reviewService.get2(review);
-    if(review1 != null){
-      return new JsonResult(JsonResult.SUCCESS, review1);
-    }else{
-      return new JsonResult(JsonResult.FAIL, review1);
-    }
+  public JsonResult detail2(int no) throws Exception {
+    ;
+      return new JsonResult(JsonResult.SUCCESS, reviewService.get2(no));
   } // service()friend
   
   @RequestMapping("detail3")
-  public JsonResult detail3(Review review) throws Exception {
-    Review review2 = reviewService.get3(review);
-    if(review2 != null){
-      return new JsonResult(JsonResult.SUCCESS, review2);
-    }else{
-      return new JsonResult(JsonResult.FAIL, review2);
-    }
+  public JsonResult detail3(int no) throws Exception {
+    return new JsonResult(JsonResult.FAIL, reviewService.get3(no));
   } // service()friend
   
   @RequestMapping("boolean")
   public JsonResult update(Review review) throws Exception {
-    System.out.println("==========================="+review.getTrano());
     reviewService.update(review);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }

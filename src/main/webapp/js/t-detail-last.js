@@ -153,7 +153,7 @@ function generateTemplate2(json) {
 }
 function generateTemplate3() {
 	console.log("리뷰 nononono=" + no)
-	$.getJSON('/review/detail.json', {no}, function(result) {
+	$.getJSON('/review/detail2.json', {no}, function(result) {
 		console.log("승열11")
 				 console.log(result)
 				console.log("승열22")

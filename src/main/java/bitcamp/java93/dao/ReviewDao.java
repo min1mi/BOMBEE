@@ -8,8 +8,8 @@ public interface ReviewDao {
 
   int insert(Review review);
   List<Review> detail(int no);
-  Review detail2(Review review);
-  Review detail3(Review review);
+  List<Review> detail2(int no);
+  Double detail3(int no);
   int update(int no);
   
 }
