@@ -1,9 +1,6 @@
 /*iphone5*/
 
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 10px;
-  }
   .tab-slider--tabs:after {
     height: 30px;
     top: 14.5px;
@@ -29,7 +26,7 @@
   }
   #inputfiles, #updatefiles {
     width: 93%;
-    height: 64%;
+    height: 67%;
     top: 2.5%;
     left: 3.5%;
   }
@@ -39,9 +36,6 @@
 /*iphone6*/
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 12px;
-  }
   .tab-slider--tabs:after {
     height: 35.250px;
     top: 16px;
@@ -67,7 +61,7 @@
   }
   #inputfiles, #updatefiles {
     width: 94%;
-    height: 70%;
+    height: 69.1%;
     top: 2.3%;
     left: 3%;
   }
@@ -77,9 +71,6 @@
 /*iphone6 plus*/
 
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
   .tab-slider--tabs:after {
     height: 38.9px;
     top: 15px;
@@ -105,7 +96,7 @@
   }
   #inputfiles, #updatefiles {
     width: 94%;
-    height: 66%;
+    height: 66.5%;
     top: 2.3%;
     left: 3%;
   }

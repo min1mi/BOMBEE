@@ -1,8 +1,8 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 10px;
-  }
+	html {
+		font-size: 8px;
+	}
   .request-list {
     height: 55px;
   }
@@ -19,9 +19,6 @@
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 12px;
-  }
   .request-list {
     height: 64px;
   }
@@ -38,9 +35,6 @@
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
   .request-list {
     height: 71px;
   }
@@ -85,11 +79,12 @@
 }
 .request-list {
   position: relative;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   width: 100%;
 }
 
 .request-list:first-child {
+	margin-top: 1%;
   width: 100%;
   border: none;
 }
@@ -119,13 +114,13 @@
 	top: 12%;
   right: 3%;
   color: #777;
-  font-size: .9rem;
+  font-size: 1.3rem;
 
 }
 .request-content {
   top: 42%;
   left: 0;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #777;
 }
 
@@ -133,14 +128,14 @@
 	color: #777;
   top: 73%;
   left: 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .wish-period {
 	color: #777;
   top: 73%;
   right: 3%;
-  font-size: .9rem;
+  font-size: 1.25rem;
 }
 
 .request-list .btn-form {
@@ -163,7 +158,7 @@
   line-height: 4.5;
   text-align: center;
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding: 0;
 }
 

@@ -99,6 +99,7 @@
 		<div class='confirm-food input-food'>
 			<div id='updatefiles'></div>
 			<input class='comfirm-food-name' type="text" placeholder='Food Name' readonly>
+			<label class="food-img-form"></label>
 			<input class='comfirm-food-kcal' type='number' placeholder='Food Kcal' readonly>
 			<button id='foodConfirmBtn' type='button' class='foodConfirmBtn btn'>Confirm</button>
 		</div>
@@ -115,7 +116,7 @@
 			{{#each sortedMeals}} {{#if mealpicture}}
 			<div class='meal' value='{{mealno}}'>
 				<div class='img-fix'>
-					<img src='{{mealpicture}}_350.png'>
+					<img src='{{mealpicture}}_190.png'>
 				</div>
 				<p class='meal-type'>{{mealtype}}</p>
 				<p class='meal-name'>{{mealname}}</p>

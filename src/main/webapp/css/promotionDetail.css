@@ -1,18 +1,27 @@
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html{
-    font-size: 11px;
-  }
+	.date-start-end .promotion-icon {
+  	font-size: 1.6rem;
+	}
+	.date-start-end span {
+		font-size: 1.4rem;
+	}
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 13px;
-  }
+	.date-start-end .promotion-icon {
+  	font-size: 1.8rem;
+	}
+	.date-start-end span {
+		font-size: 1.6rem;
+	}
 }
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
-  html {
-    font-size: 14px;
-  }
+	.date-start-end .promotion-icon {
+  	font-size: 1.8rem;
+	}
+	.date-start-end span {
+		font-size: 1.6rem;
+	}
 }
 
   .swiper-container {
@@ -66,10 +75,10 @@
 
 .promotionDetail_Adress #address {
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 .promotionDetail_Adress #company {
-	font-size: 1.6rem;
+	font-size: 2rem;
 	font-weight: 300;
 }
 .addressPanel #map {
@@ -98,9 +107,7 @@
 }
 
 .date-start-end {
-  font-size: 1.3rem;
   float: left;
-  /*border: 1px solid black;*/
   width: 100%;
 }
 
@@ -108,33 +115,37 @@
   width: 26%;
 }
 
-.date-slash {
-  font-size: 3.3rem;
-  text-align: center;
-  width: 10%;
+.date-start-end span {
+  margin-top: 2%;
+  display: inline-block;
+}
+
+.date-start-end .date-slash {
+	font-size: 3.3rem;
   position: absolute;
-  left: 44%;
-  top: -17%;
+  top: -4px;
+  left: 47%;
+  text-align: center;
   color: #ccc;
   font-weight: 100;
-
+  display: inline-block;
 }
 
 .date-start {
   font-weight: 200;
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 .date-end {
   font-weight: 200;
   float: right;
-  width: 50%;
+  width: 40%;
   text-align: right;
 }
 
 .map-icon {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .promotionDetail_companyAdress {

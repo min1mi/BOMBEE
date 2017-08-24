@@ -1,13 +1,31 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 10px;
-  }
   .tab-slider--tabs:after{
     height: 30px;
     top: 14.5px;
     left: 1px;
   }
+  .tab-slider--tabs.slide0:after{
+  	left: calc(100%/120);
+	}
+	.tab-slider--tabs.slide1:after{
+	  left: calc(100%/6.6);
+	}
+	.tab-slider--tabs.slide2:after{
+	  left: calc(100%/3.44);
+	}
+	.tab-slider--tabs.slide3:after{
+	  left: calc(100%/2.32);
+	}
+	.tab-slider--tabs.slide4:after{
+	  left: calc(100%/1.75);
+	}
+	.tab-slider--tabs.slide5:after{
+	  left: calc(100%/1.399);
+	}
+	.tab-slider--tabs.slide6:after{
+	  left:calc(100%/1.165);
+	}
   .week-container .info {
     height: 27px;
   }
@@ -34,14 +52,32 @@
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 12px;
-  }
   .tab-slider--tabs:after{
     height: 35.250px;
     top: 16px;
     left: 2px;
   }
+  .tab-slider--tabs.slide0:after{
+  left: calc(100%/120);
+	}
+	.tab-slider--tabs.slide1:after{
+	  left: calc(100%/6.6);
+	}
+	.tab-slider--tabs.slide2:after{
+	  left: calc(100%/3.39);
+	}
+	.tab-slider--tabs.slide3:after{
+	  left: calc(100%/2.29);
+	}
+	.tab-slider--tabs.slide4:after{
+	  left: calc(100%/1.73);
+	}
+	.tab-slider--tabs.slide5:after{
+	  left: calc(100%/1.39);
+	}
+	.tab-slider--tabs.slide6:after{
+	  left:calc(100%/1.155);
+	}
   .week-container .info {
     height: 28.5px;
   }
@@ -68,14 +104,32 @@
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
   .tab-slider--tabs:after{
     height: 38.9px;
     top: 15px;
     left: 2.5px;
   }
+  .tab-slider--tabs.slide0:after{
+  left: calc(100%/120);
+	}
+	.tab-slider--tabs.slide1:after{
+	  left: calc(100%/6.6);
+	}
+	.tab-slider--tabs.slide2:after{
+	  left: calc(100%/3.37);
+	}
+	.tab-slider--tabs.slide3:after{
+	  left: calc(100%/2.27);
+	}
+	.tab-slider--tabs.slide4:after{
+	  left: calc(100%/1.7);
+	}
+	.tab-slider--tabs.slide5:after{
+	  left: calc(100%/1.37);
+	}
+	.tab-slider--tabs.slide6:after{
+	  left:calc(100%/1.144);
+	}
   .week-container .info {
     height: 30px;
   }
@@ -141,28 +195,6 @@ input:focus {
   border-radius:70px;
 }
 
-
-.tab-slider--tabs.slide0:after{
-  left: calc(100%/120);
-}
-.tab-slider--tabs.slide1:after{
-  left: calc(100%/6.65);
-}
-.tab-slider--tabs.slide2:after{
-  left: calc(100%/3.41);
-}
-.tab-slider--tabs.slide3:after{
-  left: calc(100%/2.3);
-}
-.tab-slider--tabs.slide4:after{
-  left: calc(100%/1.725);
-}
-.tab-slider--tabs.slide5:after{
-  left: calc(100%/1.39);
-}
-.tab-slider--tabs.slide6:after{
-  left:calc(100%/1.156);
-}
 .tab-slider--trigger{
   font-size: 0.8rem;
   line-height:1;
@@ -195,7 +227,7 @@ input:focus {
 .user-container .day {
 
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   width: 80%;
   margin-top: 24%;
   font-weight: bold;
@@ -227,17 +259,18 @@ input:focus {
   display: inline-block;
 }
 .week-container .year-month {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   position: absolute;
   right: 0px;
 }
 .week-container .username {
-  font-size: 1.4rem;
-  position: absolute;
+  font-size: 1.6rem;
+  font-weight: 700;
+  position: absolut;
   left: 0px;
 }
 .week-container .month {
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 .week-container .info-container {
   position: relative;
@@ -245,7 +278,7 @@ input:focus {
 .week-container .kcal-info{
   background-color: white;
   position: absolute;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   height: 30px;
   top: 0;
   width: 30%;
@@ -254,11 +287,15 @@ input:focus {
 
 .kcal-info .kcal-total {
   width: auto;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
 }
 
 .tab-slider--body img {
   width: 150%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tab-slider--body > div {
@@ -271,6 +308,7 @@ input:focus {
 
 .img-fix {
   display: inline-block;
+  position: relative;
   width: 55%;
   height: 91%;
   border-radius: 10px;
@@ -288,7 +326,7 @@ input:focus {
 }
 .user-container .meal-type {
   position: absolute;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   font-weight: lighter;
   display: inline-block;
   width: 40%;
@@ -298,7 +336,7 @@ input:focus {
 
 .user-container .meal-name {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   display: inline-block;
   width: 40%;
@@ -308,7 +346,7 @@ input:focus {
 
 .user-container .meal-kcal {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: lighter;
   display: inline-block;
   width: 40%;
@@ -316,7 +354,7 @@ input:focus {
   right: 1%;
 }
 .kcal-body > .kcal-info .kcal {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: lighter;
     display: inline-block;
     width: 26%;
@@ -325,7 +363,7 @@ input:focus {
 }
 .kcal-body > .meal .kcal {
   position: absolute;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: lighter;
   display: inline-block;
   width: 40%;
@@ -395,7 +433,7 @@ input:focus {
 	display: inline-block;
 	width: 47%;
 	margin: 3% 2%;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 
 .food-name, .already-food-name {
@@ -409,7 +447,7 @@ input:focus {
 .foodAddBtn {
 	position: absolute;
 	width: 50%;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: bold;
 	background-color: #f7ac1a;
 	border-radius: 10px;
@@ -420,7 +458,7 @@ input:focus {
 .foodUpdateBtn {
 	position: absolute;
 	width: 40%;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: bold;
 	background-color: #f7ac1a;
 	border-radius: 10px;
@@ -430,7 +468,7 @@ input:focus {
 .foodDeleteBtn {
 	position: absolute;
 	width: 40%;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: bold;
 	background-color: #f7ac1a;
 	border-radius: 10px;
@@ -461,7 +499,11 @@ input:focus {
 }
 
 .img-size {
-	width: 332.72px;
+	position: absolute;
+	width: 100%;
 	height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 /**/

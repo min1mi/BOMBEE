@@ -1,29 +1,29 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-html {
-  font-size: 11px;
-}
-.list {
-  height: 139px;
-}
+	.list {
+	  height: 139px;
+	}
+	.endDate {
+  	left: 66.5%;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-html {
-  font-size: 13px;
-}
-.list {
-  height: 150px;
-}
+	.list {
+	  height: 150px;
+	}
+	.endDate {
+  	left: 62.5%;
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-html {
-  font-size: 14px;
-}
-.list {
-  height: 155px;
-}
+	.list {
+	  height: 155px;
+	}
+	.endDate {
+  	left: 60%;
+	}
 }
 
 .list {
@@ -46,21 +46,18 @@ height: 90%;
 .trainer,
 .mealBtn {
 position: absolute;
-font-size: 1.1rem;
+font-size: 1.5rem;
 margin-left: 1%;
 }
 
 .userName {
 top: 10%;
-font-size: 1.4rem;
+font-size: 1.7rem;
 font-weight: 800;
 }
 .startDate,
 .endDate  {
 top: 47%;
-}
-.endDate {
-left: 63%;
 }
 .promotionName {
 top: 32%;
@@ -70,7 +67,7 @@ font-weight: 600;
 .mealBtn {
 bottom: 6.5%;
 right: 3%;
-font-size: 1.3rem;
+font-size: 1.4rem;
 font-weight: 600;
 box-shadow: 2px 2px 2px 1px;
 }
