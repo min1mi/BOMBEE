@@ -11,9 +11,11 @@
 	href='../node_modules/jquery-ui-dist/jquery-ui.min.css'>
 <link rel='stylesheet' href='../css/bombee.css'>
 <link rel='stylesheet' href='../css/requested-match.css'>
+<link rel="stylesheet" type="text/css" href="../node_modules/sweetalert/dist/sweetalert.css">
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <title>Requested Match</title>
 </head>
 
@@ -42,8 +44,8 @@
 				<span class='wish-period' value={{period}}>{{period}}개월</span>
 			</div>
 			<div class='btn-form'>
-				<div class='accept btn' data-trano='{{trano}}' data-mno='{{mno}}'>거절</div>
-				<div class='refuse btn' data-trano='{{trano}}' data-mno='{{mno}}'>수락</div>
+				<div class='refuse btn' data-trano={{trano}} data-mno='{{mno}}'>거절</div>
+				<div class='accept btn' data-trano={{trano}} data-mno='{{mno}}'>수락</div>
 			</div>
 		</div>
 		{{/this}}

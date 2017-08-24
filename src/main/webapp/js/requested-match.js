@@ -9,8 +9,11 @@ var sdt =-1
 var period = -1
 var othername = -1
 var mymno = -1
+var othermno = -1
+var count = -1
 console.log("서버주소="+ location.host)
 function getData(json, no) {
+	console.log(no)
   $.getJSON(json, {
     'no' : no,
     'sdt':sdt,
@@ -19,6 +22,7 @@ function getData(json, no) {
     if (json == '/auth/userinfo.json') {
       if (result.data.membertype == 2) {
         no = result.data.no
+        othermno = result.data.no
         othername = result.data.name
       }else
         location.href = '../auth/login.html'
@@ -35,23 +39,46 @@ function getData(json, no) {
       btnConnect()
     } else if (json == '/friend/friendDelete.json') {
       console.log(result)
-      if(othername != -1 && mymno != -1)
+      if(othername != -1 && mymno != -1 && othermno != -1) {
     	  ajaxNode(1, othername, mymno, "친구거절")
+      }
     } else if (json == '/friend/friendUpdate.json') {
       // 수락 버튼을 눌렀을 때 실행하면 되는데 sdt를 오늘 날짜로 다시 update해줘야함
       // mno 도 날려야함 no는 tno
     	console.log(result)
-    	if(othername != -1 && mymno != -1)
+    	if(othername != -1 && mymno != -1 &&	 othermno != -1)
       	  ajaxNode(1, othername, mymno, "친구수락")
     }
   })
 }
 function btnConnect() {
   $('.refuse').click(function() {
+	count = 1
     trano = $(this).attr('data-trano')
     mymno = $(this).attr('data-mno')
+    console.log(trano)
     console.log(mymno)
-    getData('/friend/friendDelete.json', trano)
+    console.log(othername)
+    swal({
+    	  title: "Are you sure?",
+    	  text: "Refuse friend request will you do it?",
+    	  type: "warning",
+    	  showCancelButton: true,
+    	  confirmButtonColor: "#DD6B55",
+    	  confirmButtonText: "Yes, delete it!",
+    	  cancelButtonText: "No, cancel plx!",
+    	  closeOnConfirm: false,
+    	  closeOnCancel: false
+    	},
+    	function(isConfirm){
+    		sweetTabindex()
+    	  if (isConfirm) {
+    		getData('/friend/friendDelete.json', trano)
+    	    swal("Deleted!", "Successfully deleted.", "success");
+    	  } else {
+    	    swal("Cancelled", "Request canceled :)", "error");
+    	  }
+    	});
   })
   $('.accept').click(function() {
     trano = $(this).attr('data-trano')
@@ -73,6 +100,7 @@ function ajaxNode(no, othername, mymno, kinds){
 			type: no,
 			othername: othername,
 			mymno: mymno,
+			othermno: othermno,
 			kinds: kinds
 			},
 		dataType:'json',
@@ -80,7 +108,15 @@ function ajaxNode(no, othername, mymno, kinds){
 			othername = -1
 			mymno = -1
 			console.log(result)
-			location.reload()
+			if(count == -1) 
+				location.reload()
+			else 
+				count = 1
 		}
+	})
+}
+function sweetTabindex() {
+	$('.confirm').click(function() {
+		location.reload()
 	})
 }
