@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
   content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 <link rel='stylesheet' href='../css/bombee.css'>
  <link rel='stylesheet' href='../css/promotionControl.css'>
@@ -39,7 +40,8 @@
 	{{#each list}}
        <div class='list-pro list-div' value={{pno}}>
         <div class='img-div'>
-          <img class='pro-img' src='../upload/{{titlePic}}{{#iphonesix this}}_210{{/iphonesix}}{{#iphonesixs this}}_190{{/iphonesixs}}{{#iphonefive this}}_170{{/iphonefive}}.png' value='{{pno}}'><i class="fa fa-times" aria-hidden="true"></i>
+          <img class='pro-img' src='../upload/{{titlePic}}{{#iphonesix this}}_210{{/iphonesix}}{{#iphonesixs this}}_190{{/iphonesixs}}{{#iphonefive this}}_170{{/iphonefive}}.png' value='{{pno}}'>
+					<i class="fa fa-times-circle" aria-hidden="true"></i>
         </div>
       <div id='list-title1'>{{title}}</div>
        <div id='list-height'>

@@ -12,6 +12,7 @@
   .header-edit {
 		height: 28.8px;
 	  line-height: 1.3;
+	  font-size: 1.6rem;
 	}
 	.profile-bell {
     top: 55px;
@@ -20,6 +21,15 @@
 	.profile-user {
     top: 55px;
     right: 0;
+	}
+	.mobile-container .alram-on {
+    top: 27%;
+    width: 22px;
+    height: 22px;
+    line-height: 1.4;
+	}
+	.header-menu-ul .header-font-size {
+	font-size: 2.8rem;
 	}
 }
 
@@ -36,6 +46,7 @@
 	.header-edit {
 		height: 37.954px;
 	  line-height: 1.6;
+	  font-size: 2rem;
 	}
 	.profile-bell {
     top: 75px;
@@ -44,6 +55,15 @@
 	.profile-user {
     top: 75px;
     right: 0;
+	}
+	.mobile-container .alram-on {
+    top: 30%;
+    width: 24px;
+    height: 24px;
+    line-height: 1.5;
+	}
+	.header-menu-ul .header-font-size {
+		font-size: 3.2rem;
 	}
 }
 
@@ -59,6 +79,7 @@
 	.header-edit {
 		height: 43.797px;
 	  line-height: 1.8;
+	  font-size: 2rem;
 	}
 	.profile-bell {
     top: 80px;
@@ -70,6 +91,15 @@
 	}
 	.header-profile {
     height: 137px;
+	}
+	.mobile-container .alram-on {
+    top: 30%;
+    width: 27px;
+    height: 27px;
+    line-height: 1.6;
+	}
+	.header-menu-ul .header-font-size {
+		font-size: 3.5rem;
 	}
 }
 
@@ -338,26 +368,18 @@ body {
   border-radius: 50%;
   border: 4px solid white;
   overflow: hidden;
-  font-size: 1.4rem;
 	text-align: center;
   background-color: white;
   color: black;
 }
 
-.header-menu-ul .profile-bell {
-    position: absolute;
-    top: 34%;
-    left: 3%;
-} 
-
+.header-menu-ul .profile-bell,
 .header-menu-ul .profile-user {
     position: absolute;
-    top: 34%;
-    right: 0;
-}
+} 
 
 .header-menu-ul .user-name {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 3%;
 }
 
@@ -366,9 +388,8 @@ body {
     margin-top: 4%;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 0 4%;
-    font-size: 1.4rem;
-    padding-bottom: 1%;
+    padding: 1% 4%;
+    font-size: 1.6rem;
 }
 
 .file .profile-img {
@@ -388,21 +409,17 @@ body {
 }
 
 .header-menu-ul .header-font-size {
-	font-size: 2.5rem;
 	color: white;
 }
 
 .mobile-container .alram-on {
-  position: absolute;
-  display: inline-block;
-  background-color: crimson;
-  top: 31%;
-  width: 26px;
-  height: 26px;
-  line-height: 1.5;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  left: 10%;
+	position: absolute;
+	display: inline-block;
+	background-color: crimson;
+	border-radius: 50%;
+	font-size: 1.6rem;
+	text-align: center;
+	left: 10%;
 }
 
 

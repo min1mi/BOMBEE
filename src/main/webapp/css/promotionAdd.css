@@ -1,7 +1,4 @@
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 11px;
-  }
   #swal2-content {
     font-weight: 400;
     font-size: 17px
@@ -28,9 +25,6 @@
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 13px;
-  }
   #swal2-content {
     font-weight: 400;
     font-size: 19px
@@ -57,9 +51,6 @@
 }
 
 @media (min-device-width: 414px) and (max-device-width: 735px) {
-  html {
-    font-size: 14px;
-  }
   #swal2-content {
     font-weight: 400;
     font-size: 21px
@@ -93,11 +84,11 @@
 */
 
 div>input {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .fa-fontsize {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .projectAdd-container {
@@ -120,7 +111,7 @@ div>input {
 .projectAdd-top {
   width: 100%;
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   text-align: center;
   line-height: 45px;
   background-color: #3f3f3f;
@@ -210,12 +201,12 @@ div>input {
 
 .companyAddress #company {
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin: 0px;
 }
 
 .companyAddress #address {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin: 0px;
 }
 
@@ -299,7 +290,7 @@ div>input {
 }
 
 .address {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .contents {
@@ -311,7 +302,7 @@ div>input {
 
 .promotionText {
   /*background-color: #F0F0F0;*/
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border: white;
   border-radius: 5px;
   width: 100%;
@@ -320,7 +311,7 @@ div>input {
 }
 
 .promotionText::-webkit-input-placeholder {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .titleInput-updateColor, .dateStart-updateColor, .dateEnd-updateColor, .priceIn-updateColor, .promotionText-updateColor {
