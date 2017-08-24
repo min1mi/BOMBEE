@@ -2,7 +2,8 @@ var management = $('#header-management'),
 meeting = $('#header-meeting'),
 mypage = $('#header-mypage'),
 search = $('#header-search'),
-membertype = -1
+membertype = -1,
+logintype
 
 var login;
 var count = 0;
@@ -14,7 +15,7 @@ $(document).ready(function() {
   window.fbAsyncInit = function() {
     FB.init({
       appId : '484853665195171',
-      cookie : true,
+      cookie : false,
       xfbml : true,
       version : 'v2.8'
     });
@@ -129,7 +130,7 @@ function getHeaderData() {
     if (result.status != 'fail') {
       no = result.data.no
       membertype = result.data.membertype
-
+      logintype = result.data.accounttype
       $.getJSON('/member/getinfo.json', {'no': no}, function(result) {
         console.log(result)
         if (result.data.profilePicture)
@@ -141,37 +142,61 @@ function getHeaderData() {
         $('#header-li-login').text('Logout')
 
         profileFiles()
-        
 
-        $('#header-li-login').click(() => {
-          if (Kakao.Auth != undefined) {
-            Kakao.Auth.logout(function() {
-              console.log('응 아니야');
-            }) 
-          }
-          FB.logout(function(response){
-            console.log("로그아웃됬따")
-          }) 
-          $.getJSON('/auth/logout.json', function(result) {
+      })
+      
+      $('#header-li-login').click(() => {
+        $.getJSON('/auth/logout.json', function(result) {
+          if (result.status != 'fail') {
+            console.log('로그인타입', logintype)
+            if (logintype == 2) {
+              kakaoLogout()
+              console.log('카톡 로그아웃2')
+              
+            } else if (logintype == 1) {
+              facebookLogout()
+              console.log('페북 로그아웃2')
+            }
+            
             console.log('로그아웃됨')
             location.href = '../main/main.html'
-
-              $('.file .profile-img').attr('type', '')
-              $('.bell-alram').removeClass('alram-on')
-              $('.bell-alram').text('')
-              $('.header-menu-ul .user-name').text('')
-              login = 0
-              membertype = 0
-          })
+          
+          $('.file .profile-img').attr('type', '')
+          $('.bell-alram').removeClass('alram-on')
+          $('.bell-alram').text('')
+          $('.header-menu-ul .user-name').text('')
+          login = 0
+          membertype = 0
+          }
         })
       })
       
-    }else {
+    } else {
       $('#header-li-login').click(() => {
         location.href = '../auth/login.html'
       })
     }
   })
+}
+
+function kakaoLogout() {
+  Kakao.Auth.logout(function() {
+    console.log('카톡 로그아웃')
+  });
+  deleteCookie( "kakao_login" );
+  createLoginKakao();
+}
+
+function facebookLogout() {
+  console.log('페북 드렁왔다')
+  FB.getLoginStatus(function(response) {
+    console.log(response);
+    if (response && response.status === 'connected') {
+      FB.logout(function(response) {
+        window.location.reload();
+      });
+    }
+  });
 }
 
 

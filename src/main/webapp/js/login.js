@@ -25,7 +25,10 @@ $(document).ready(function() {
 
 $(window).on("load", function() {
   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+    if (response && response.status === 'connected') {
+      FB.logout(function(response) {
+      });
+    }
   });
 })
 
@@ -144,13 +147,11 @@ $('#kakao').on('click', function() {
 
 
 
-$('#facebook').on('click', function() {/*
-  location.href='../ekdma/t-login.html' */
+$('#facebook').on('click', function() {
   FB.login(function(response) {
     FB.api('/me?fields=id,name,email', function (response) {
       console.log(JSON.stringify(response));
       firstLogin(response)
-
     }, {scope: 'public_profile,email'});
   })
 })
@@ -164,7 +165,7 @@ $('#usertype').click(function() {
 
 $('#trainertype').click(function() {
   loginType = $(this).val()
-})
+})                        
 
 var filter = "win16|win32|win64|mac|macintel"; 
 
@@ -189,8 +190,14 @@ sendBtn.on('click', function() {
           location.reload()
         }
       });
+    } else {
+      FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+          FB.logout(function(response) {
+          });
+        }
+      });
     }
-    
     if ( navigator.platform ) { 
       if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
         if(result.data == 'ok')

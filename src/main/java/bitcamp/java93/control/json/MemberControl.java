@@ -22,7 +22,7 @@ public class MemberControl {
   @Autowired
   ServletContext ctx;
   
-  @RequestMapping("add")
+  @RequestMapping("add") /*0: bombee, 1: facebook, 2: kakao*/
   public JsonResult add(Member member) throws Exception {
     memberService.add(member);
     return new JsonResult(JsonResult.SUCCESS, member);
