@@ -1,6 +1,5 @@
 .container {
-  width: 414px;
-  border: 1px solid blue;
+  width: 100%;
  
 }
 
@@ -15,11 +14,6 @@
 .rating-stars ul > li.star {
   display:inline-block;
   
-}
-.rating {
-	border : solid red 5px;
-	width : 400px;
-	height : 400px;
 }
 
 /* Idle State of the stars */
@@ -37,7 +31,6 @@
 .rating-stars ul > li.star.selected > i.fa {
   color:#FF912C;
 }
-
 .skql {
   border: 1px solid #ddd;
   width: 30px;
@@ -59,51 +52,76 @@
 }
 .pro-tt {
 	display : inline-block;
+	padding-top:5px;
 }
 .r-r-table {
 	/*border: 1px solid green;*/
 	height : auto;
-	display:none;
 	padding : 2%;
 	background-color : #f2f2f2; 
 	
 }
 .pro-rc-Btn {
-	margin : 0% 0% 0% 20%;
+	position:absolute;
+	right:15%;
 }
 .r-r-inner {
 	overflow:hidden;
 	overflow-y:scroll;
 	width : 100%;
 	max-height : 453px;
+	margin: 10px 0;
+	
   
 }
 .xmf {
 	width : 100%;
-	height : 162px;
 	margin : 0% 0% 1% 0%;
 	border: 1px solid silver;
 	padding : 3%;
 	background-color : white;
 	border-radius: 5px;
+	position:relative;
 }
 .r-mno {
 	display : inline-block;
-	width : 23%;
-	height : 38px;
+	width : 15%;
 	font-size : 2rem;
 	
 }
 .r-score {
 	display : inline-block;
-  width : 50%;
+  width : 45%;
   height : 38px;
-  margin : -5% 0% 0% 11%;
+  margin-top : -3%;
+  
+}
+.rev-delete {
+	  display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background: #f7ac1a;
+    border-radius: 25px;
+    transition: background 0.4s ease;
+}
+.r-del {
+	  position: absolute;
+    display: inline-block;
+    width: 30%;
+    margin: 0 5px;
+    margin-top: -5%;
+    top: 29%;
+    right: 2%;
+    height: 30px;
   
 }
 .r-info {
   width : 100%;
-  height : 80px;
   margin : 3% 0% 0% 0%;
   border: 1px solid silver;
   border-radius: 10px;
@@ -146,29 +164,29 @@
 }
 .info {
   width : 80%;
-  margin: 46% 0% 0% 10%;
+  margin: 5% 5%;
   overflow:visible;
   /*border: 1px brown solid;*/
 }
 .proro-pic {
-  margin-top: 0%;
-  height: 250px;
-  overflow:hidden;
-  display: inline-block;
-  /*padding-left: 100px;*/
+	height:100px;
+	width:100px;
+	  position: absolute;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
 }
+
 .proro-pic1 {
-  z-index: 0;
-  margin-top: -10%;
-  /*display: inline-block;*/
-  /*padding-left: 100px;*/
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
-.cont-box{
-	margin-top: -2%;
-width:100%;height:0px;
-border-right:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
-border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
-float: left;
+.img-box {
+	position:relative;
+	width:100%;
+	height:100px;
 }
 .cont-box1{
 width:100%;height:0px;
@@ -190,9 +208,7 @@ margin-top: -40%;
 /*.outer {
   float: left;
 }*/
-.proro-pic {
-  width: 100%;
-}
+
 .tab-wrap * {
 	margin: 0px;
 	padding: 0px;
@@ -254,28 +270,52 @@ margin-top: -40%;
 	display: block;
 }
 .d-bottom-Btn {
-	
-  padding-bottom: 6%;
-  top: 83%;
+	position:fixed;
+	bottom: 1%;
   width: 100%;
-
-  background-color : white;
 }
 .vytl {
 	height: 500px;
 }
 .pro-fa-Btn {
-  width: 34%;
-  margin-left : 2%;
-  height: 40px;
+  width: 40%;
+  margin:0 4%;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  background: #f7ac1a;
+  border-radius: 25px;
+  transition: background 0.4s ease;
 }
-.pro-add-Btn {
-  margin-left: 1%;
-  width: 34%;
+.pro-chat-Btn {
+  width: 40%;
+  margin:0 4%;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  background: #f7ac1a;
+  border-radius: 25px;
+  transition: background 0.4s ease;
+}
+.menu-bar {
+	  position: relative;
+    height: 30px;
+    margin: 2% 2%;
+    font-weight:bold;
 }
 .pro-t-Btn {
-  margin: -2% 0% 0% 1%;
-  width: 25%;
+  position:absolute;
+  left:10%;
+}
+.pro-r-Btn {
+	position:absolute;
+	left:45%;
 }
 .bottomdiv {
 	height: 145;
@@ -436,4 +476,11 @@ input[type="radio"]:checked ~ label {
 .pro-pic {
   width: 150px;
   height: 150px;
+}
+#rev-header {
+	border: solid 2px red;
+	width:100%;
+	height:50px; /* 임시로 줌 */
+	background-color:white;
+	border:solid 2px silver;
 }

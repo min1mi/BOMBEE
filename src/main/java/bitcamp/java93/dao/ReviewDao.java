@@ -11,5 +11,6 @@ public interface ReviewDao {
   List<Review> detail2(int no);
   Double detail3(int no);
   int update(int no);
-  
+  void delete(int no);
+  void reviewUpdate(int no);
 }

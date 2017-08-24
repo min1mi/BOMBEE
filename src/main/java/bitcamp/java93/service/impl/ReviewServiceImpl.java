@@ -27,13 +27,20 @@ public  class ReviewServiceImpl implements ReviewService {
   public List<Review> get2(int  no) throws Exception {
     return reviewDao.detail2(no);
   }
-  public Double get3(int no) throws Exception {
-    return reviewDao.detail3(no);
-  }
 
   public void update(Review review) throws Exception {
     reviewDao.update(review.getTrano());
 
+  }
+
+  @Override
+  public void delete(int no) throws Exception {
+    reviewDao.delete(no);
+  }
+
+  @Override
+  public void reviewUpdate(int no) throws Exception {
+    reviewDao.reviewUpdate(no);
   }
 
 }

@@ -30,20 +30,15 @@
       <!-- header-form 헤더-->
     </div>
     <div class="vytl">
-
   <div class="like"><i class="likeBtn fa fa-star-o" aria-hidden="true" value="off"></i></div>
-  
       <div id="detail-container">
       </div>
-
-
-      <div class="rating"></div>
-
-      <div class="sl">  </div>
-
-      <div class="pro-tt pro-t-Btn">시간확인</div>
-      <div class="pro-tt pro-r-Btn">리뷰</div>
-      <div class="pro-tt pro-rc-Btn">리뷰작성</div>
+      <!-- <div class="sl">  </div> -->
+      <div class="menu-bar">
+	      <div class="pro-tt pro-t-Btn">시간확인</div>
+	      <div class="pro-tt pro-r-Btn">리뷰</div>
+	      <div class="pro-tt pro-rc-Btn">리뷰작성</div>
+      </div>
       <table class="t-t-table">
         <thead>
           <th style="width: 30px"></th>
@@ -57,8 +52,6 @@
         </thead>
         <tbody>
         <!-- {{#users}} -->
-
-
         <tr class='pro'>
           <td class="pro-time">09</td>
           <td class="pro-time-off" value="off" data-bookno="MON09"></td>
@@ -203,32 +196,8 @@
         </tbody>
       </table>
       <div class="r-r-table">
+        <div id='rev-header'></div>
         <div class="r-r-inner">
-		      <!--<div class="xmf">
-	          <div class="r-mno">양승열</div>
-	          <img class="r-score" src="../image/score1.png">
-	          <div class="r-info">김사장님 대박이에요</div>
-		      </div>
-		      <div class="xmf">
-	          <div class="r-mno">양송열</div>
-	          <img class="r-score" src="../image/score2.png">
-	          <div class="r-info">이사장님 대박이에요</div>
-	        </div>
-	        <div class="xmf">
-	          <div class="r-mno">양숭열</div>
-	          <img class="r-score" src="../image/score3.png">
-	          <div class="r-info">홍사장님 대박이에요</div>
-	        </div>
-	        <div class="xmf">
-	          <div class="r-mno">양슝열</div>
-	          <img class="r-score" src="../image/score4.png">
-	          <div class="r-info">박사장님 대박이에요</div>
-	        </div>
-	        <div class="xmf">
-	          <div class="r-mno">양숑열</div>
-	          <img class="r-score" src="../image/score5.png">
-	          <div class="r-info">여기사장님 대박이에요</div>
-	        </div> -->
         </div>
       </div>
 			<div class="t-review">
@@ -263,27 +232,21 @@
 
 
 <div class="bottomdiv"></div>
-
 <div class="d-bottom-Btn">
   <button class="pro-fa-Btn"  type="button" >친구신청</button>
-  <img class="pro-add-Btn" src="oneone.png">
+  <button class="pro-chat-Btn"  type="button" >채팅</button>
 </div>
-
-
 </div>
-
 <div class='backscreen'></div>
   <div class='matching-container' data-open='close'>
     <div class='matching clearfix'>
       <div class='promotion-container'></div>
-
       <div class='matching-date clearfix'>
         <div class='matching-start-date'>
           <i class="fa fa-calendar calendar" aria-hidden="true"></i> <input
             class='dateStart' type="text" id="datepicker-start"
             placeholder="Start-Date ">
         </div>
-
         <div class='period-form'>
           <select class='period form-control'>
             <option selected value='1'>1개월</option>
@@ -302,7 +265,6 @@
         </div>
       </div>
       <div class='times clearfix'></div>
-
       <div class='btn-form'>
         <button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
       </div>
@@ -314,6 +276,11 @@
        <div class="xmf">
           <div class="r-mno">{{name}}</div>
           <img class="r-score" src="../image/score{{score}}.png">
+          <div class="r-del" data-mno={{mno}} id='{{mno}}'>
+            <button type="button"
+            class="rev-delete"  data-review='{{reviewno}}'
+           data-trano='{{trano}}'>삭제</button>
+          </div>
           <div class="r-info">{{review}}</div>
         </div>
       {{/this}}
@@ -352,9 +319,9 @@
 
 <script id="detail-template" type="text/x-handlebars-template">
 
-  <div class="proro-pic"><image class="proro-pic1" style="width : 100%" src="{{tcherpic}}_140.png"></div>
-  <div class="cont-box">
-  </div>
+   <div class='img-box'>
+    <div class="proro-pic"><image class="proro-pic1"  src="{{tcherpic}}_140.png"></div>
+   </div>
   <div><h1 class="t-name">{{name}}</h1>
     <h3 class="t-spono"></h3></div>
   <div class="info">{{introduction}}</div>
@@ -368,11 +335,6 @@
   </div>
   <div class="cont-box1">
   </div>
-</script>
-<script id="rating-template" type="text/x-handlebars-template">
-{{#this}}
-  <div>{{avg}}</div>
-{{/this}}
 </script>
 
 <script type="text/javascript" src="../js/t-detail-last.js"></script>

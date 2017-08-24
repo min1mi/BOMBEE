@@ -40,26 +40,26 @@
   </select>
     
     <select id="detail2" resultMap="reviewMap" parameterType="review">
-       select * ,(select AVG(tr.score)
+       select tt.*, tr.*, m.* ,(select AVG(tr.score)
        from  tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
        left join memb m on tt.mno = m.mno
        where tt.tno=#{tno}) as avg
-       from tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
+       from tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano
+              left join memb m on tt.mno = m.mno
        where tt.tno=#{tno}
   </select>
-  
-  <select id="detail3" resultMap="reviewMap" parameterType="review">
-       select AVG(tr.score) as avg
-  from  tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
-  left join memb m on tt.mno = m.mno
-    where tt.tno=#{tno}
-  </select><!-- 평균구하는거 -->
-  
+    
   <update id="update" parameterType="int">
    update tcher_trainer set
     writerev=true
     where trano=#{no};
   </update>
-
+  
+  <update id="updateReview" parameterType="string">
+    update tcher_review set review=#{review} where reviewno = #{no} 
+  </update>
+  <delete id='delete' parameterType="int">
+    delete from tcher_review where reviewno = #{no}
+  </delete>
 
 </mapper>

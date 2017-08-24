@@ -2,7 +2,7 @@ var  mno
 var no
 var tno
 var mname
-
+var mymno = -1
 var tname
 var tpic
 var realpic
@@ -84,6 +84,7 @@ $('.re-add-Btn').on('click', function() {
 //로그인정보 담는 유저인포
 $.getJSON('/auth/userinfo.json', function(result) {
 	mno = result.data.no
+	mymno = result.data.no
 	mname = result.data.name
 	membertype = result.data.membertype
 	// no = 0
@@ -96,7 +97,6 @@ $.getJSON('/auth/userinfo.json', function(result) {
   generateTemplate();
 	generateTemplate2('/promotion/promotionTitle.json');
 	generateTemplate3()
-	generateTemplate4()
 	getCalData(no);
 // getData1('/promotion/promotionTitle.json');
 })
@@ -163,26 +163,11 @@ function generateTemplate3() {
 				var container = $('.r-r-inner')
 				var html = container.html()
 				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+				if($('#'+mymno))
+					$('#'+mymno).css('display', '')
+				reviewBtn()
 			})
 }
-function generateTemplate4() {
-	console.log("평점로드")
-	console.log(no)
-	console.log(tno)
-	console.log(mno)
-	console.log("평점로드")
-	$.getJSON('/review/detail3.json', {'tno' : no }, function(result) {
-		console.log("강남")
-		console.log(result)
-		console.log("겅뷱")
-				var templateFn = Handlebars.compile($('#rating-template').text())
-				var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-				var container = $('.rating')
-				var html = container.html()
-				container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
-			})
-}
-
 
 //좋아요 버튼
 function f_like(){
@@ -268,10 +253,7 @@ $(".pro-rc-Btn").click(function(){
 });
 })
 
-
-
-
-$('.pro-add-Btn').on('click', function() {
+$('.pro-chat-Btn').on('click', function() {
 	console.log(mno + " : 회원번호")
 	console.log(tno + " : 강사번호")
 	console.log(mname + " : 회원이름")
@@ -326,5 +308,21 @@ function btnConect() {
 	imgBtn = $('.pro-pic')
 	imgBtn.click(function() { // 이미지클릭하면 화면넘어가는 거 처리
 			location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('value')
+	})
+}
+
+function reviewBtn() {
+	$('.rev-delete').click(function() {
+		reviewJson('/review/delete.json', $(this).attr('data-review'))
+	})
+//	$('.rev-modify').click(function() {
+//		reviewJson('/review/reviewUpdate.json', $(this).attr('data-review'))
+//	})
+}
+function reviewJson(json, reviewno) {
+	$.getJSON(json, {
+		'no':reviewno
+	}, function(result) {
+		location.reload()
 	})
 }

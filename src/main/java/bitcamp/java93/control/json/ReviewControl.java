@@ -4,18 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import bitcamp.java93.domain.Friend;
-import bitcamp.java93.domain.Member;
-import bitcamp.java93.domain.Review;
-import bitcamp.java93.domain.Trainer;
+
+import bitcamp.java93.domain.Review;  
 import bitcamp.java93.service.ReviewService;
 
-@RestController
+@RestController 
 @RequestMapping("/review/")
 public class ReviewControl {
   @Autowired
   ReviewService reviewService;
-
+  
 
   @RequestMapping("add")
   public JsonResult add(Review review) throws Exception {
@@ -23,23 +21,14 @@ public class ReviewControl {
     return new JsonResult(JsonResult.SUCCESS, review);
   }
 
-
   @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
-    
-    
       return new JsonResult(JsonResult.FAIL, reviewService.get(no));
   }
 
   @RequestMapping("detail2")
   public JsonResult detail2(int no) throws Exception {
-    ;
       return new JsonResult(JsonResult.SUCCESS, reviewService.get2(no));
-  } // service()friend
-  
-  @RequestMapping("detail3")
-  public JsonResult detail3(int no) throws Exception {
-    return new JsonResult(JsonResult.FAIL, reviewService.get3(no));
   } // service()friend
   
   @RequestMapping("boolean")
@@ -47,6 +36,18 @@ public class ReviewControl {
     reviewService.update(review);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+  
+  @RequestMapping("delete")
+  public JsonResult delete(int no) throws Exception {
+    reviewService.delete(no);
+      return new JsonResult(JsonResult.SUCCESS, "OK");
+  } // service()friend
+  
+  @RequestMapping("reviewUpdate")
+  public JsonResult reviewUpdate(int no) throws Exception {
+    reviewService.reviewUpdate(no);
+      return new JsonResult(JsonResult.SUCCESS, "OK");
+  } 
 
 
 }
