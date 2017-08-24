@@ -1,14 +1,14 @@
 /*iphone5~6*/
 @media ( min-device-width : 320px) and (max-device-width: 374px) {
-	html {
-		font-size: 12px;
+	.logintype-label {
+		font-size: 1rem;
 	}
 	.input-idpw .logininput {
 		height: 39px;
 		padding-top: 0;
 	}
 	.other-login {
-		margin-top: 28%;
+		margin-top: 26%;
 	}
 	.radioform {
 		margin: 0 16.7%;
@@ -16,15 +16,15 @@
 }
 /*iphone plus*/
 @media ( min-device-width : 375px) and (max-device-width: 413px) {
-	html {
-		font-size: 13px;
+	.logintype-label {
+		font-size: 1.1rem;
 	}
 	.input-idpw .logininput {
 		height: 43px;
 		padding-top: 0;
 	}
 	.other-login {
-		margin-top: 33%;
+		margin-top: 28%;
 	}
 	.radioform {
 		margin: 0 20.2%;
@@ -32,8 +32,8 @@
 }
 
 @media ( min-device-width : 414px) {
-	html {
-		font-size: 14px;
+	.logintype-label {
+		font-size: 1.2rem;
 	}
 	.input-idpw .logininput {
 		height: 50px;
@@ -100,7 +100,6 @@ a:active {
 
 .logintype-label {
 	position: relative;
-	font-size: 1.4rem;
 	color: white;
 }
 
@@ -149,7 +148,7 @@ a:active {
 	border-radius: 0px;
 	border-bottom: 2px solid white;
 	background-color: rgba(255, 255, 255, 0);
-	font-size : 1.5rem;
+	font-size : 1.2rem;
 	width: 100%;
 	box-sizing: border-box;
 	padding-top: 5%;
@@ -176,7 +175,7 @@ a:active {
 	display: inline-block;
 	text-align: center;
 	width: 100%;
-	font-size: 1.2rem;
+	font-size: .9rem;
 }
 
 .login-container .bottom {
@@ -184,7 +183,7 @@ a:active {
 	display: inline-block;
 	text-align: center;
 	width: 100%;
-	font-size: 1.2rem;
+	font-size: .99rem;
 	color: white;
 }
 
@@ -204,31 +203,6 @@ a:active {
 
 .right-btn .facebook-img {
 	width: 49%;
-}
-
-.other-login .kakao {
-	position: absolute;
-	top: 10%;
-	left: 12%;
-	width: 20%;
-	line-height: 2.1rem;
-	color: black;
-	background-color: #fae100;
-	font-size: 1.7rem;
-	font-weight: 600;
-}
-
-.other-login .facebook {
-	position: absolute;
-	top: 10%;
-	text-align: right;
-	line-height: 2.1rem;
-	right: 12%;
-	width: 20%;
-	color: white;
-	background-color: #3b5998;
-	font-size: 1.7rem;
-	font-weight: 600;
 }
 
 /**/

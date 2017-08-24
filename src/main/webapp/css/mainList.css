@@ -1,39 +1,114 @@
 @media ( min-device-width : 320px) and (max-device-width: 374px) {
-	html {
-		font-size: 12px;
-	}
 	.btn {
-		padding: 8px 8px 0 8px;
+		padding: 8px 6.5px 0 6.5px;
 		height: 30px;
+		font-size: 1.2rem;
 	}
 	.btn-group {
     margin-left: 5%;
 	}
+	.wrap{
+		height: 45px;
+	}
+	.swiper-slide img {
+		height: 200px;
+	}
+	.swiper-container {
+		height: 200px;
+	}
+	.main-promotion-heightz {
+		height: 70px;
+	}
+	.main-promotion-height {
+		height: 150px;
+	}
+	.main-promotion-height .img {
+	  height: 100px;
+	}
+	.main-promotion-height .span {
+	  height: 50px;
+	}
+	.main-promotion-heightz img {
+		height: 70px;
+	}
+	.main-promotion-height .span span {
+    font-size: 1.2rem;
+	}
 }
 /*iphone plus*/
 @media ( min-device-width : 375px) and (max-device-width: 413px) {
-	html {
-		font-size: 13px;
-	}
 	.btn {
-		padding: 8px 12px 0 12px;
+		padding: 8px 10px 0 10px;
 		height: 30px;
+		font-size: 1.3rem;
 	}
 	.btn-group {
     margin-left: 3%;
+	}
+	.wrap{
+		height: 50px;
+	}
+	.swiper-slide img {
+		height: 250px;
+	}
+	.swiper-container {
+		height: 250px;
+	}
+	.main-promotion-heightz {
+		height: 85px;
+	}
+	.main-promotion-height {
+		height: 170px;
+	}
+	.main-promotion-height .img {
+	  height: 120px;
+	}
+	.main-promotion-height .span {
+	  height: 50px;
+	}
+	.main-promotion-heightz img {
+		height: 85px;
+	}
+	.main-promotion-height .span span {
+    font-size: 1.3rem;
 	}
 }
 
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
-	html {
-		font-size: 15px;
-	}
 	.btn {
 		padding: 8px 12px 0 12px;
 		height: 35px;
+		font-size: 1.4rem;
 	}
 	.btn-group {
-    margin-left: 3%;
+    margin-left: 2%;
+	}
+	.wrap{
+		height: 50px;
+	}
+	.swiper-slide img {
+		height: 300px;
+	}
+	.swiper-container {
+		height: 300px;
+	}
+	.main-promotion-heightz {
+		height: 100px;
+	}
+	.main-promotion-height {
+		height: 200px;
+	}
+	.main-promotion-height .img {
+	  height: 150px;
+	}
+	.main-promotion-height .span {
+	  height: 50px;
+	}
+	.main-promotion-heightz img {
+		height: 100px;
+	}
+	.main-promotion-height .span span {
+    font-size: 1.4rem;
 	}
 }
 
@@ -46,8 +121,7 @@ body {
 
 .swiper-container {
 	width: 100%;
-	height: 300px;
-	margin-top: 30px;
+	margin-top: 10%;
 }
 
 .swiper-slide {
@@ -61,15 +135,11 @@ body {
 	align-items: center;
 }
 
-.allList-container .wrap .scrollBlind .btn-group .margin-minus {
-	margin-left: -6px;
-}
 
 .btn {
-	padding-top: 8px;
-	font-size: 1rem;
 	background-color: white;
 	border: none;
+	margin-top: 2%;
 }
 
 .btn-group>.btn {
@@ -90,9 +160,7 @@ body {
 	white-space: nowrap;
 	width: 100%;
 	display: inline;
-	height: 50px;
 	background-color: white;
-	font
 }
 
 .scrollBlind {
@@ -136,13 +204,12 @@ body {
 }
 
 .main-promotion-heightz {
-	height: 100px;
 	overflow: hidden;
 	border-radius: 5px;
+	position: relative;
 }
 
 .main-promotion-height {
-	height: 200px;
 	background-color: white;
 }
 
@@ -162,7 +229,6 @@ body {
 
 .main-promotion-height .img {
 	overflow: hidden;
-  height: 150px;
   position: absolute;
   left: 50%;
   width: 100%;
@@ -171,14 +237,16 @@ body {
 
 .main-promotion-height .span {
 	overflow: hidden;
-  height: 50px;
   position: absolute;
   bottom: 0%;
 }
 
 .main-promotion-heightz img {
+	position: absolute;
 	width: 100%;
-	height: 100px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .click {
@@ -187,7 +255,6 @@ body {
 
 .swiper-slide img {
 	width: 100%;
-	height: 300px;
 }
 
 .promotion_in {

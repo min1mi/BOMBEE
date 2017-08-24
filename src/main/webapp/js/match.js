@@ -123,6 +123,20 @@
     })
   })
   
+    $('.matchBtn').on('click', function() {
+    if (matchingContainer.attr('data-open') == 'close') {
+      backscreen.show()
+      matchingContainer.show()
+      matchingContainer.attr('data-open', 'open')
+    }
+    
+    backscreen.on('click', function() {
+      backscreen.hide()
+      matchingContainer.hide()
+      matchingContainer.attr('data-open', 'close')
+    })
+  })
+  
   $('.dateStart').change(function () {
 	  $('.times').css('display','none')
       startDay = $('.dateStart').val().split(' ')[1]

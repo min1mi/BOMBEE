@@ -1,8 +1,5 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 10px;
-  }
 	.matching-container {
     margin-top: 30%;
 	}
@@ -12,12 +9,15 @@
 	.period {
 	  height: 24px;
 	}
+	.promotion-endDate {
+    left: 66.5%;
+	}
+	.promotion-startDate, .promotion-endDate {
+    font-size: 1.1rem;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 12px;
-  }
 	.matching-container {
     margin-top: 26%;
 	}
@@ -30,12 +30,15 @@
 	.period {
 	  height: 31.5px;
 	}
+	.promotion-endDate {
+    left: 62.5%;
+	}
+	.promotion-startDate, .promotion-endDate {
+    font-size: 1.1rem;
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
 	.matching-container {
     margin-top: 24%;
 	}
@@ -47,6 +50,12 @@
 	}
 	.period {
 	  height: 34px;
+	}
+	.promotion-endDate {
+    left: 60.5%;
+	}
+	.promotion-startDate, .promotion-endDate {
+    font-size: 1.2rem;
 	}
 }
 
@@ -112,27 +121,19 @@
   width: 100%;
 }
 
-.promotion-name,
 .promotion-startDate,
 .promotion-endDate {
   position: absolute;
   margin-left: 2%;
-  font-size: 1.1rem;
+	top: 50%;
 }
 
 .promotion-name {
+  position: absolute;
+  margin-left: 2%;
   top: 10%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 800;
-}
-
-.promotion-startDate {
-  top: 50%;
-}
-
-.promotion-endDate {
-  top: 50%;
-  left: 69%;
 }
 
 .btn-form {
@@ -142,7 +143,7 @@
 }
 .matchingBtn {
 	width: 100%;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: bold;
 	background-color: #f7ac1a;
 	border-radius: 10px;
@@ -168,6 +169,7 @@
   padding-left: 2%;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 1.3rem;
 }
 
 .period-form {
@@ -199,7 +201,7 @@
 	height: 8%;
 	display: inline-block;
 	font-weight: 700;
-	font-size: 1.1rem;
+	font-size: 1.3rem;
 	padding: 2% 3%;
 	border: 1px solid #ddd;
 }
