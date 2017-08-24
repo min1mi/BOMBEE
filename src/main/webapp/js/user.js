@@ -15,6 +15,7 @@ console.log(trano)
 var filenames = $('#filenames');
 var othername = -1
 var mymno = -1
+var othermno = -1
 var today,
 mealkcal = $('.food-kcal'),
 mealname = $('.food-name'),
@@ -73,9 +74,9 @@ $('#files').fileupload({
 	}, 
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
-		if(othername != -1 && mymno != -1){
+		if(othername != -1 && mymno != -1 && othermno != -1){
 			if(mealtype == 'breakfast' || mealtype == 'lunch' || mealtype == 'dinner')
-			ajaxNode(2, othername, mymno, mealtype)
+			ajaxNode(2, othername, mymno, mealtype, othermno)
 		}
 		location.reload()
 	}
@@ -151,6 +152,7 @@ endDate, totalKcal = 0;
 
 $.getJSON('/auth/userinfo.json', function(result) {
 	othername = result.data.name
+	othermno = result.data.no
     $('.user').text(result.data.name)
      })
 
@@ -416,7 +418,7 @@ Handlebars.registerHelper('iphonefive', function(meal ,options) {
 		return options.fn(this);
 });
 
-function ajaxNode(no, othername, mymno, kinds){
+function ajaxNode(no, othername, mymno, kinds, othermno){
 	$.ajax({
 		url: 'http://'+ location.host +':8888/alert/add.json',
 		type: 'post',
@@ -424,13 +426,15 @@ function ajaxNode(no, othername, mymno, kinds){
 			type: no,
 			othername: othername,
 			mymno: mymno,
-			kinds: kinds
+			kinds: kinds,
+			othermno: othermno
 			},
 		dataType:'json',
 		success: function(result) {
 			console.log(result)
 			othername = -1
 			mymno = -1
+			othermno = -1
 			location.reload()
 		}
 	})
