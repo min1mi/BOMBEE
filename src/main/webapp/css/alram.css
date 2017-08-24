@@ -1,52 +1,43 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  html {
-    font-size: 10px;
-  }
   .alram-list {
-    height: 55px;
+    height: 69px;
   }
   .alram-info {
-    height: 55px;
+    height: 69px;
   }
   .smile-size {
-    height: 41.7px;
+    height: 55.7px;
 
   }
   .alram-img-size {
-    height: 41.7px;
+    height: 55.7px;
   }
   .alram-content {
-		height: 55px;
+		height: 50px;
 	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  html {
-    font-size: 12px;
-  }
   .alram-list {
-    height: 64px;
+    height: 80px;
   }
   .alram-info {
-    height: 64px;
+    height: 80px;
   }
   .smile-size {
-    height: 48.7px;
+    height: 64.7px;
     line-height: 1.05;
   }
   .alram-img-size {
-    height: 48.7px;
+    height: 64.7px;
   }
   .alram-content {
-		height: 64px;
+		height: 56px;
 	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  html {
-    font-size: 14px;
-  }
   .alram-list {
     height: 89px;
   }
@@ -66,11 +57,10 @@
 
 .alram-img-size {
 	float: left;
-  width: 13%;
+  width: 17.3%;
   margin: 2%;
   box-sizing: border-box;
   background-color: white;
-  border: 1px solid #aaa;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -93,8 +83,9 @@
   height: 100%;
 }
 .alram-list {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   width: 100%;
+  position: relative;
 }
 
 .alram-list:first-child {
@@ -103,7 +94,7 @@
 }
 
 .alram-info {
-  width: 78.8%;
+  width: 78.7%;
   float: left;
   border-bottom: 1px solid #eee;
 }
@@ -116,28 +107,36 @@
   width: 21%;
   height: 100%;
   float: right;
-  padding: 10.5% 8%;
+  padding: 10% 8%;
 }
 .alram-info-container .cancle {
   color: #666;
   font-weight: 600;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .alram-content {
 	display: inline-block;
-	padding: 3% 2%;
+	padding: 5% 2%;
 	width: 79%;
+}
+
+.alram-content .name {
+	font-weight: 600;
+}
+
+.alram-content .kinds {
+	font-weight: 600;
 }
 
 .alram-date {
   position: absolute;
   color: #777;
-  font-size: .9rem;
+  font-size: 1.1rem;
   display: inline-block;
   width: 24%;
-  bottom: 7%;
+  bottom: 9%;
   left: 23%;
 }
 

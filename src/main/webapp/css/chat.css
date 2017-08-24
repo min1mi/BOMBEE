@@ -1,8 +1,5 @@
 /*iphone5~6*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  body {
-    font-size: 12px;
-  }
   dl {
     margin-bottom: 27px;
   }
@@ -16,9 +13,6 @@
 }
 /*iphone plus*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  body {
-    font-size: 13px;
-  }
   dl {
     margin-bottom: 31px;
   }
@@ -31,14 +25,8 @@
 }
 
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
-  body {
-    font-size: 14px;
-  }
   dl {
     margin-bottom: 33px;
-  }
-  dd {
-    margin-top: 22px;
   }
   .chat-line img{
     height: 62px;
@@ -55,11 +43,11 @@ dl {
 }
 dt {
   position: absolute;
-  float: left;
 }
 dd {
-  float: left;
-  position: absolute;
+	position: absolute;
+  font-size: 1.4rem;
+  top: 12.5%;
 }
 
 .chat-container {
@@ -81,7 +69,7 @@ dd {
 .chat-header > .close-btn {
   position: absolute;
   right: 5%;
-	top: 24%;
+	top: 30%;
   font-size: 2rem;
   font-weight: normal;
 }

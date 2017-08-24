@@ -211,18 +211,6 @@ function f_btn(){
 		}
 	})
 }
-function f_btn(){
-	$.post('/friend/detail.json', {
-		'mno':mno,
-		'tno':tno
-	}, function(result) {
-		if(result.status=="success"){
-			$('.pro-fa-Btn').attr("value","on")
-			$('.pro-fa-Btn').attr("src","addd.png")
-		}
-	})
-}
-
 
 
 //스케줄에 표시
@@ -298,8 +286,8 @@ $('.pro-add-Btn').on('click', function() {
 	realpic = location.host + tpic
 	location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + mno + '&yourNo='
 			+ tno +'&yourName='
-			+ mname +'&membertype='
-			+ tname +'&imagePath='+ realpic;
+			+ tname +'&membertype='
+			+ membertype +'&imagePath='+ realpic;
 })
 
 //친구버튼 눌렀을떄
