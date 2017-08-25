@@ -141,10 +141,7 @@ public class PromotionControl {
   
   @RequestMapping("promotionTitlePicList")
   public JsonResult getPromotionTitlePicList(int no) throws Exception {
-    HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", promotionService.getPromotionTitlePicList(no));
-
-    return new JsonResult(JsonResult.SUCCESS, dataMap);
+    return new JsonResult(JsonResult.SUCCESS, promotionService.getPromotionTitlePicList(no));
   }
   
   @RequestMapping("add")

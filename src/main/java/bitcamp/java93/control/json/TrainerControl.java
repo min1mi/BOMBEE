@@ -74,6 +74,9 @@ public class TrainerControl {
     thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_350"));
     Thumbnails.of(file).size(350, 350).outputFormat("png").toFile(thumbnailfile);
     
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_450"));
+    Thumbnails.of(file).size(450, 300).outputFormat("png").toFile(thumbnailfile);
+    
     trainerService.update(trainer);
     
     

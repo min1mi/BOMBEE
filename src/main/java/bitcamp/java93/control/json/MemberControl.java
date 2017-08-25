@@ -69,6 +69,9 @@ public class MemberControl {
     Thumbnails.of(file).size(146, 121).outputFormat("png").toFile(thumbnailfile);
     
     // 아이폰5
+    
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_450"));
+    Thumbnails.of(file).size(450, 300).outputFormat("png").toFile(thumbnailfile);
 
     memberService.profileUpdate(member);
 

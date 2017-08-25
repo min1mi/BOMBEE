@@ -102,6 +102,7 @@ $(document).ready(function() {
     $('#header-logo').slideToggle()
     count = 0;
   })
+  
   $('#header-meeting').click(function() {
     location.href = '../list/mainList.html'
   })
@@ -114,7 +115,6 @@ $(document).ready(function() {
             else if(membertype == 2)
               location.href= '../main/t-login.html'
   })
-
 
   $('.header-logo-bee').click(function() {
     if (no != null)

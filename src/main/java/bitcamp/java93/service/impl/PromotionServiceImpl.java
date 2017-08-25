@@ -193,8 +193,7 @@ public class PromotionServiceImpl implements PromotionService {
 
   @Override
   public List<Promotion> getPromotionTitlePicList(int no) throws Exception {
-    promotionDao.getPromotionTitlePicList(no);
-    return null;
+    return promotionDao.getPromotionTitlePicList(no);
   }
   
 }

@@ -29,22 +29,7 @@
     <div class='trainer-promotion'>
       <div class='promotion'><span>Promotion</span></div>
 				<div class='promotion-image-form swiper-container'>
-					<div class="swiper-wrapper">
-						<div class='swiper-slide' >
-							<img class='promotion-image' src='../image/두준.jpg'>
-						</div>
-						<div class='swiper-slide'>
-							<img class='promotion-image' src='../image/두준.jpg'>
-						</div>
-						<div class='swiper-slide'>
-              <img class='promotion-image' src='../image/두준.jpg'>
-            </div>
-            <div class='swiper-slide'>
-              <img class='promotion-image' src='../image/두준.jpg'>
-            </div>
-            <div class='swiper-slide'>
-              <img class='promotion-image' src='../image/두준.jpg'>
-            </div>
+					<div class="swiper-wrapper" id='img-container'>
 					</div>
 					<div class="swiper-scrollbar"></div>
 				</div>
@@ -264,7 +249,7 @@
     <script id='trainer-info-template' type="text/x-handlebars-template">
     {{#this}}
     <div class='trainer-image'>
-      <img class='trainer-profile-image' src='..{{tcherpic}}'>
+      <img class='trainer-profile-image' src='..{{tcherpic}}_450.png'>
     </div>
     <div class='trainer-name'>
       <span>{{name}} 강사</span>
@@ -321,6 +306,13 @@
         <div class='time-box btn' value={{this}}>{{this}}시</div>
       {{/this}}
   </script>
+  <script id="promotionTitle-template" type="text/x-handlebars-template">
+    {{#this}}
+    <div class='swiper-slide' >
+      <img class='promotion-image' src='../upload/{{titlePic}}_170.png' value={{pno}}>
+    </div>
+    {{/this}}
+</script>
    <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
 	<script src="../js/trainerDetail.js"></script>
 	<script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>

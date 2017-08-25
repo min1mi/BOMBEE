@@ -73,6 +73,7 @@ no = location.href.split('?')[1].split('=')[1]
 getDatas(json, no, 'trainer-info-template', 'trainer-info-container')
 getDatas('/schedule/detail.json', no, '', '')
 getDatas('/review/detail2.json', no, 'review-template', 'rev-form')
+getDatas('/promotion/promotionTitlePicList.json', no, 'promotionTitle-template', 'img-container')
 
 function getDatas(json, no, template, containers) {
 	console.log(template)
@@ -119,6 +120,8 @@ function getDatas(json, no, template, containers) {
 	    	}
 	    }else if (json == '/review/detail2.json') {
 	    	
+	    }else if (json == '/promotion/promotionTitlePicList.json'){
+	    	btnPromotionImgConnect()
 	    }
 	})
 }
@@ -298,8 +301,8 @@ function getData(json, no, day) {
 		realpic = location.host + tpic
 		location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 				+ tno +'&yourName='
-				+ mname +'&membertype='
-				+ tname +'&imagePath='+ realpic;
+				+ tname +'&membertype='
+				+ membertype +'&imagePath='+ realpic;
 	})
 
   
@@ -318,5 +321,12 @@ var swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 30,
-        grabCursor: true
+        grabCursor: true,
+        observer:true
     });
+  
+  function btnPromotionImgConnect() {
+	  $('.promotion-image').click(function() {
+		  location.href = '../promotion/promotionDetail.html?no='+$(this).attr('value')
+	  }) 
+  }
