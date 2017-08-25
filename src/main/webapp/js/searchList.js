@@ -210,7 +210,7 @@ function mapMarker(address, imageSrc , size, no, check) {
             	
             }else {
             	if(teacherOrPromotion == 0) {
-            	 location.href = '../promotionDetail/promotionDetail.html?no='+$(this)[0].Vd
+            	 location.href = '../promotion/promotionDetail.html?no='+$(this)[0].Vd
             	}else if(teacherOrPromotion == 1)
             		 location.href = '../profile/t-profile.html?no='+$(this)[0].Vd
             }
@@ -379,7 +379,7 @@ function getData(json, type, create) {
       if(create == '#addList' || create == '#list-container') {
     	  $('.list-div').click(function() {
     		  if(teacherOrPromotion == 1)
-    			  location.href = '../promotionDetail/trainerDetail.html?no='+$(this).attr('value')
+    			  location.href = '../promotion/trainerDetail.html?no='+$(this).attr('value')
     		  else if(teacherOrPromotion == 0)
     			  location.href = '../promotion/promotionDetail.html?no='+$(this).attr('value')
     	      })

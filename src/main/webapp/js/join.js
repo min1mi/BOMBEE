@@ -49,7 +49,7 @@ $('#add-btn').on('click', function() {
 
 
       }, function(success) {
-        location.href = '../main/main.html'
+        location.href = '../index.html'
 
       }, 'json')
     }, 'json')
@@ -74,7 +74,7 @@ $('#add-btn').on('click', function() {
 
 
       }, function(success) {
-        location.href = '../main/main.html'
+        location.href = '../index.html'
 
       }, 'json')
     }, 'json')
