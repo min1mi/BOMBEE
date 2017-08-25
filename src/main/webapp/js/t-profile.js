@@ -217,7 +217,7 @@ $('.pro-save-Btn').on('click', function() {
 	'introduction': fiIntroduction.val(),
 	'tno': no
 	}, function(result) {
-	  location.href = '../ekdma/tmdduf0.html'
+	  location.href = '../profile/schedule.html'
 
 	}, 'json')
 

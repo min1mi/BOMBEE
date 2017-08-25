@@ -149,7 +149,7 @@ $("#save_Btn").on('click',function() {
 			'day': time.slice(0,3),
 			'time':time.slice(3,5)
 		}, function(result) {
-		location.href = '/ekdma/tmdduf0.html'
+		location.href = '/profile/t-profile.html'
 
 		}, 'json')
 		}
