@@ -11,9 +11,11 @@
   <link rel='stylesheet' href='../css/menu.css'>
   <link rel='stylesheet' href='../css/trainerdetail.css'>
   <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="../node_modules/sweetalert2/dist/sweetalert2.css">
   <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
   <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  <script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
   
 
 </head>
@@ -218,10 +220,39 @@
       </div>
     </div>
     </div>
-        <div class='times clearfix'></div>
+<div class='backscreen'></div>
+  <div class='matching-container' data-open='close'>
+    <div class='matching clearfix'>
+      <div class='promotion-container'></div>
+      <div class='matching-date clearfix'>
+        <div class='matching-start-date'>
+          <i class="fa fa-calendar calendar" aria-hidden="true"></i> <input
+            class='dateStart' type="text" id="datepicker-start"
+            placeholder="Start-Date ">
+        </div>
+        <div class='period-form'>
+          <select class='period form-control'>
+            <option selected value='1'>1개월</option>
+            <option value='2'>2개월</option>
+            <option value='3'>3개월</option>
+            <option value='4'>4개월</option>
+            <option value='5'>5개월</option>
+            <option value='6'>6개월</option>
+            <option value='7'>7개월</option>
+            <option value='8'>8개월</option>
+            <option value='9'>9개월</option>
+            <option value='10'>10개월</option>
+            <option value='11'>11개월</option>
+            <option value='12'>12개월</option>
+          </select>
+        </div>
+      </div>
+      <div class='times clearfix'></div>
       <div class='btn-form'>
         <button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
       </div>
+    </div>
+  </div>
 <div class="d-bottom-Btn">
       <div class='bottom-form'>
         <button class="pro-friend-Btn">친구신청</button>
@@ -273,5 +304,6 @@
     </script>
    <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
 	<script src="../js/trainerDetail.js"></script>
+	<script src="../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 </body>
 </html>
