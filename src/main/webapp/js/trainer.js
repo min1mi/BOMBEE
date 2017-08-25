@@ -259,3 +259,18 @@ function slideDate() {
 
 	});
 }
+
+Handlebars.registerHelper('iphonesix', function(meal ,options) {
+	if(meal.width == 6) 
+		return options.fn(this);
+});
+
+Handlebars.registerHelper('iphonesixs', function(meal ,options) {
+	if(meal.width == 5) 
+		return options.fn(this);
+});
+
+Handlebars.registerHelper('iphonefive', function(meal ,options) {
+	if(meal.width == 4) 
+		return options.fn(this);
+});

@@ -260,7 +260,7 @@ $('.pro-chat-Btn').on('click', function() {
 	console.log(location.host + tpic)
 
 	realpic = location.host + tpic
-	location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + mno + '&yourNo='
+	location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 			+ tno +'&yourName='
 			+ mname +'&membertype='
 			+ tname +'&imagePath='+ realpic;
