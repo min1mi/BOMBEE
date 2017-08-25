@@ -116,7 +116,7 @@
 			{{#each sortedMeals}} {{#if mealpicture}}
 			<div class='meal' value='{{mealno}}'>
 				<div class='img-fix'>
-					<img src='{{mealpicture}}_190.png'>
+					<img src='{{#iphonesix this}}{{mealpicture}}_190{{/iphonesix}}{{#iphonesixs this}}{{mealpicture}}_170{{/iphonesixs}}{{#iphonefive this}}{{mealpicture}}_146{{/iphonefive}}.png'>
 				</div>
 				<p class='meal-type'>{{mealtype}}</p>
 				<p class='meal-name'>{{mealname}}</p>
