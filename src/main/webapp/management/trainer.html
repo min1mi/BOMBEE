@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<div class='user-container'>
+	<div class='trainer-container'>
 		<div class='header'></div>
 
 		<div class='slider-container week-container clearfix '>
@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	
-	<script id="user-template" type="text/x-handlebars-template">
+	<script id="trainer-template" type="text/x-handlebars-template">
 		{{#each mealList}}
 		<div id='{{day}}' class='tab-slider--body kcal-body'>
 			<div class='kcal-info'>
@@ -118,7 +118,11 @@
 				<div class='img-fix'>
 					<img src='{{#iphonesix this}}{{mealpicture}}_190{{/iphonesix}}{{#iphonesixs this}}{{mealpicture}}_170{{/iphonesixs}}{{#iphonefive this}}{{mealpicture}}_146{{/iphonefive}}.png'>
 				</div>
+				{{#confirm confirm}}
+				<p class='meal-type check'>{{mealtype}}</p>
+				{{else}}
 				<p class='meal-type'>{{mealtype}}</p>
+				{{/confirm}}
 				<p class='meal-name'>{{mealname}}</p>
 				<p class='meal-kcal' value='{{mealkcal}}'>{{mealkcal}} kcal</p>
 			</div>

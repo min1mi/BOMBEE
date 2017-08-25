@@ -13,14 +13,13 @@ public class Usermeal extends Meal {
   List<Meal> meal;
   String date;
   String day;
-  Boolean confirm;
   int trainingNo;
   
   @Override
   public String toString() {
-    return "Usermeal [meal=" + meal + ", date=" + date + ", day=" + day + ", confirm=" + confirm + ", trainingNo="
-        + trainingNo + ", mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname
-        + ", mealkcal=" + mealkcal + ", mealno=" + mealno + "]";
+    return "Usermeal [meal=" + meal + ", date=" + date + ", day=" + day + ", trainingNo=" + trainingNo + ", mealtype="
+        + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal=" + mealkcal + ", confirm="
+        + confirm + ", mealno=" + mealno + "]";
   }
 
   public List<Meal> getMeal() {
@@ -47,14 +46,6 @@ public class Usermeal extends Meal {
     this.day = day;
   }
 
-  public Boolean getConfirm() {
-    return confirm;
-  }
-
-  public void setConfirm(Boolean confirm) {
-    this.confirm = confirm;
-  }
-
   public int getTrainingNo() {
     return trainingNo;
   }
@@ -62,5 +53,6 @@ public class Usermeal extends Meal {
   public void setTrainingNo(int trainingNo) {
     this.trainingNo = trainingNo;
   }
-
+  
+  
 }

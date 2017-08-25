@@ -102,6 +102,70 @@
   }
 }
 
+.trainer-container {
+  /*font-family: "UhBeepuding", serif;*/
+  height: 100%;
+  background-color: white;
+}
+.trainer-container .weekly a {
+  padding: 10px 0;
+  color: black;
+}
+.trainer-container .weekly {
+  width: calc(100%/7);
+  margin-left: -4px;
+
+}
+
+
+.trainer-container .day {
+
+  text-align: center;
+  font-size: 1.7rem;
+  width: 80%;
+  margin-top: 24%;
+  font-weight: bold;
+  display: inline-block;
+}
+.trainer-container .tab-slider--tabs > div{
+  display: inline-block;
+  border: none;
+  border-right: 1px solid lightgray;
+}
+
+.trainer-container .tab-slider--tabs > div:last-child {
+  border: none;
+}
+
+.trainer-container .meal-type {
+  position: absolute;
+  font-size: 1.4rem;
+  font-weight: lighter;
+  display: inline-block;
+  width: 40%;
+  top: 6%;
+  right: 1%;
+}
+
+.trainer-container .meal-name {
+  position: absolute;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: inline-block;
+  width: 40%;
+  top: 30%;
+  right: 1%;
+}
+
+.trainer-container .meal-kcal {
+  position: absolute;
+  font-size: 1.6rem;
+  font-weight: lighter;
+  display: inline-block;
+  width: 40%;
+  top: 75%;
+  right: 1%;
+}
 .comfirm-food-name, .comfirm-food-kcal {
   padding: 2% 0 2% 2%;
   position: absolute;
@@ -134,5 +198,16 @@
   left: 25%;
 }
 
+.check:after {
+	content: "Check";
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 3px solid #f7ac1a;
+  padding: 0% 4%;
+  float: right;
+  margin-right: 5%;
+  background-color: white;
+}
 
 /**/

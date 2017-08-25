@@ -19,7 +19,8 @@ confirmmealname = $('.confirm-food-name'),
 confirmmealkcal = $('.confirm-food-kcal'),
 mealtype,
 mealno,
-width
+width,
+check
 
 if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
   width = 6
@@ -57,7 +58,7 @@ function generateTemplate() {
       var data = result.data
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
       arrayData(data)
-      var templateFn = Handlebars.compile($('#user-template').text())
+      var templateFn = Handlebars.compile($('#trainer-template').text())
       var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
       var container = $('#meal-container')
       container.html("")
@@ -70,7 +71,7 @@ function generateTemplate() {
       popcontainer.html("")
       var html1 = popcontainer.html()
       popcontainer.html(html1 + generatedHTML1)
-
+        
       date(current)
       autoSelect(moment(current._i))
       inputMeal()
@@ -95,6 +96,7 @@ function arrayData(data) {
       if (!sortedMealLists[j]){
         sortedMealLists[j] = {day: 'day' + j, meal: []}
       }
+
       data.mealList = sortedMealLists
     }
   }
@@ -125,6 +127,8 @@ function arrayData(data) {
     }
     data.mealList[i].totalKcal = totalKcal
     totalKcal = 0;
+    
+
 //  $('#day' + i).children().children('.kcal-total').text(totalKcal)
   }
 }
@@ -215,6 +219,7 @@ backscreen = $('.backscreen');
 
 function inputMeal() {
   $('.update').on('click', function() {
+    check = $(this).children('.meal-type')
     today = $(this).parent().attr('id')
     mealtype = $(this).children('.meal-type').text()
     mealno = $(this).attr('value')
@@ -283,3 +288,15 @@ Handlebars.registerHelper('iphonefive', function(meal ,options) {
   if(width == 4) 
     return options.fn(this);
 });
+
+Handlebars.registerHelper('confirm', function(confirm ,options) {
+  if(confirm == true) 
+    return options.fn(this);
+  else
+    return options.inverse(this);
+});
+
+
+
+
+//

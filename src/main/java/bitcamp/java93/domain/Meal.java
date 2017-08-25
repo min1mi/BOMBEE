@@ -5,23 +5,14 @@ public class Meal {
   String mealpicture;
   String mealname;
   String mealkcal;
+  Boolean confirm;
   int mealno;
   
-
   @Override
   public String toString() {
     return "Meal [mealtype=" + mealtype + ", mealpicture=" + mealpicture + ", mealname=" + mealname + ", mealkcal="
-        + mealkcal + ", mealno=" + mealno + "]";
+        + mealkcal + ", confirm=" + confirm + ", mealno=" + mealno + "]";
   }
-  
-  public int getMealno() {
-    return mealno;
-  }
-
-  public void setMealno(int mealno) {
-    this.mealno = mealno;
-  }
-
   public String getMealtype() {
     return mealtype;
   }
@@ -46,7 +37,19 @@ public class Meal {
   public void setMealkcal(String mealkcal) {
     this.mealkcal = mealkcal;
   }
-
+  public Boolean getConfirm() {
+    return confirm;
+  }
+  public void setConfirm(Boolean confirm) {
+    this.confirm = confirm;
+  }
+  public int getMealno() {
+    return mealno;
+  }
+  public void setMealno(int mealno) {
+    this.mealno = mealno;
+  }
+  
   
   
 }

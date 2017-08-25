@@ -324,6 +324,7 @@ input:focus {
 .meal {
   position: relative;
 }
+
 .user-container .meal-type {
   position: absolute;
   font-size: 1.4rem;
@@ -506,4 +507,23 @@ input:focus {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.check:after {
+	content: "Check";
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 3px solid #f7ac1a;
+  padding: 0% 4%;
+  float: right;
+  margin-right: 5%;
+  background-color: white;
+}
+
+
+
+
+
+
+
+
 /**/

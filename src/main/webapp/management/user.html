@@ -131,7 +131,11 @@
 				<div class='img-fix'>
 					<img src='{{#iphonesix this}}{{mealpicture}}_190{{/iphonesix}}{{#iphonesixs this}}{{mealpicture}}_170{{/iphonesixs}}{{#iphonefive this}}{{mealpicture}}_146{{/iphonefive}}.png'>
 				</div>
+				{{#confirm confirm}}
+				<p class='meal-type check'>{{mealtype}}</p>
+				{{else}}
 				<p class='meal-type'>{{mealtype}}</p>
+				{{/confirm}}
 				<p class='meal-name'>{{mealname}}</p>
 				<p class='meal-kcal' value='{{mealkcal}}'>{{mealkcal}} kcal</p>
 			</div>

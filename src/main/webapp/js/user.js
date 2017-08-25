@@ -189,7 +189,10 @@ function generateTemplate() {
 
 			date(current)
 			autoSelect(moment(current._i))
+			
+			$('.check').parent().removeClass('update')
 			inputMeal()
+			
 		})
 }
 function arrayData(data) {
@@ -448,3 +451,9 @@ function ajaxNode(no, othername, mymno, kinds, othermno){
 		}
 	})
 }
+Handlebars.registerHelper('confirm', function(confirm ,options) {
+  if(confirm == true) 
+    return options.fn(this);
+  else
+    return options.inverse(this);
+});

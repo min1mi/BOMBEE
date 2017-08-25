@@ -10,7 +10,6 @@
 	<resultMap type="usermeal" id="usermealMap">
 		<id column="day" property="day" />
 		<result column="date" property="date" />
-		<result column="confirm" property="confirm" />
 		<result column="mealpic" property="mealpicture" />
 		<result column="mealkcal" property="mealkcal" />
 		<result column="mealname" property="mealname" />
@@ -18,6 +17,7 @@
 		<result column="trano" property="trainingNo" />
 		<result column="name" property="name" />
 		<collection property="meal" ofType="Meal">
+			<result column="confirm" property="confirm" />
 			<result column="mealno" property="mealno" />
 			<result column="mealpic" property="mealpicture" />
 			<result column="mealkcal" property="mealkcal" />
