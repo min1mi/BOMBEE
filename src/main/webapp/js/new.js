@@ -103,7 +103,7 @@ $(document).ready(function() {
     count = 0;
   })
   $('#header-meeting').click(function() {
-    location.href = '../main/main.html'
+    location.href = '../list/mainList.html'
   })
 
   $('#header-management').click(function() {
