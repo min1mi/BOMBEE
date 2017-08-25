@@ -53,6 +53,7 @@ function generateTemplate() {
   endDate = current.endOf('week').format("YYYY-MM-DD")
   $.getJSON('usermeal-list.json', {"startDate": startDate,
     "endDate": endDate, "trainingNo": trano}, function(result) {
+      console.log(result)
       var data = result.data
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
       arrayData(data)
@@ -220,8 +221,9 @@ function inputMeal() {
 
     $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).addClass("img-size").appendTo($('#updatefiles'));
     $('.comfirm-food-name').val($(this).children('.meal-name').text())
-    $('.confirm-food-kcal').val($(this).children('.meal-kcal').attr('value'))
+    $('.comfirm-food-kcal').val($(this).children('.meal-kcal').attr('value'))
 
+    console.log($(this).children('.meal-kcal').attr('value'))
     if(confirmmeal.attr('data-open') == 'close') {
       backscreen.show()
       confirmmeal.show()
