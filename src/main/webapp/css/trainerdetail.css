@@ -68,6 +68,7 @@
 }
 .review-form {
   border: 1px solid gray;
+  position: relative;
 }
 .r-del {
   position: absolute;
