@@ -33,7 +33,8 @@ $(document).ready(function() {
   }(document, 'script', 'facebook-jssdk'));
 
   $('.header-menu-button').click(function() {
-    selectRequest()
+    viewFriend()
+    viewRequested()
     console.log(no)
     if (login == -1) {
       $.ajax({
@@ -150,8 +151,11 @@ function getHeaderData() {
           if (result.status != 'fail') {
             console.log('로그인타입', logintype)
             if (logintype == 2) {
-              kakaoLogout()
-              console.log('카톡 로그아웃2')
+              if (Kakao.Auth != undefined) {
+                Kakao.Auth.logout() 
+                deleteCookie( "kakao_login" );
+                createLoginKakao();
+              }
               
             } else if (logintype == 1) {
               facebookLogout()
@@ -179,14 +183,6 @@ function getHeaderData() {
   })
 }
 
-function kakaoLogout() {
-  Kakao.Auth.logout(function() {
-    console.log('카톡 로그아웃')
-  });
-  deleteCookie( "kakao_login" );
-  createLoginKakao();
-}
-
 function facebookLogout() {
   console.log('페북 드렁왔다')
   FB.getLoginStatus(function(response) {
@@ -200,13 +196,19 @@ function facebookLogout() {
 }
 
 
-function selectRequest() {
+function viewFriend() {
   $('.mobile-container #users').on('click', function() {
     console.log(membertype)
     if (membertype == 1)
       location.href = '../management/request-match.html'
     else if(membertype == 2)
       location.href = '../management/requested-match.html'
+  })
+}
+
+function viewRequested() {
+  $('#alram').on('click', function() {
+    location.href = '../alram/alram.html'
   })
 }
 
