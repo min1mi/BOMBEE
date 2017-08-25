@@ -74,9 +74,17 @@ $('#files').fileupload({
 	}, 
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
+		var type
 		if(othername != -1 && mymno != -1 && othermno != -1){
-			if(mealtype == 'breakfast' || mealtype == 'lunch' || mealtype == 'dinner')
-			ajaxNode(2, othername, mymno, mealtype, othermno)
+			if(mealtype == 'breakfast' || mealtype == 'lunch' || mealtype == 'dinner') {
+			  if(mealtype == 'breakfast')
+			    type= '아침을 등록'
+			  else if (mealtype == 'lunch')
+			    type= '점심을 등록'
+			  else if (mealtype == 'dinner')
+			    type = '저녁을 등록'
+			  ajaxNode(2, othername, mymno, type, othermno)
+			}
 		}
 		location.reload()
 	}
@@ -210,6 +218,7 @@ function arrayData(data) {
 	for (var dayMeal of data.mealList) {
 		var sortedMeals = [];
 		for (var meal of dayMeal.meal) {
+		  console.log(meal)
 			switch (meal.mealtype) {
 			case "breakfast": sortedMeals[0] = meal; break;
 			case "lunch": sortedMeals[1] = meal; break;
@@ -351,11 +360,11 @@ function inputMeal() {
 		console.log($('.add-meal').children('.already-food'))
 		today = $(this).parent().attr('id')
 		if($(this).attr('value') == 0) {
-			mealtype = '아침을 업데이트'
+			mealtype = 'breakfast'
 		} else if ($(this).attr('value') == 1) {
-			mealtype = '점심을 업데이트'
+			mealtype = 'lunch'
 		} else if ($(this).attr('value') == 2) {
-			mealtype = '저녁을 업데이트'
+			mealtype = 'dinner'
 		}
 		if(addmeal.attr('data-open') == 'close') {
 			backscreen.show()
