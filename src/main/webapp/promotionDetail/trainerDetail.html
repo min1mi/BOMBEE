@@ -9,38 +9,47 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='../css/bombee.css'>
   <link rel='stylesheet' href='../css/menu.css'>
-  <link rel='stylesheet' href='../css/t-detail-last.css'>
   <link rel='stylesheet' href='../css/trainerdetail.css'>
+  <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
+  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
+  <script src='../node_modules/jquery/dist/jquery.min.js'></script>
+  
 
 </head>
 
 <body>
+  <div class='header'></div>
   <div class='trainer-detail-container'>
-    <div class='trainer-image'>
-      <img class='trainer-profile-image' src='../image/두준.jpg'>
-    </div>
-    <div class='trainer-name'><span>윤두준 강사</span></div>
-    <div class='trainer-intro'>
-      <div class='intro'><span>Introduce</span></div>
-      <div class='intro'><span>1. 안녕하세요</span></div>
-      <div class='intro'><span>2. 윤두준입니다.</span></div>
-      <div class='intro'><span>3. 제가 한 잘생김 합니다.</span></div>
-      <div class='intro'><span>4. 잘부탁드립니다.</span></div>
-    </div>
+    <div class='trainer-scoll-container'>
+			<div id='trainer-info-container'></div>
+		</div>
     <div class='trainer-promotion'>
       <div class='promotion'><span>Promotion</span></div>
-      <div class='promotion-image-form'>
-        <div class='image-form'>
-          <img class='promotion-image' src='../image/두준.jpg'>
-        </div>
-        <div class='image-form'>
-          <img class='promotion-image' src='../image/두준.jpg'>
-        </div>
-      </div>
-    </div>
+				<div class='promotion-image-form swiper-container'>
+					<div class="swiper-wrapper">
+						<div class='swiper-slide' >
+							<img class='promotion-image' src='../image/두준.jpg'>
+						</div>
+						<div class='swiper-slide'>
+							<img class='promotion-image' src='../image/두준.jpg'>
+						</div>
+						<div class='swiper-slide'>
+              <img class='promotion-image' src='../image/두준.jpg'>
+            </div>
+            <div class='swiper-slide'>
+              <img class='promotion-image' src='../image/두준.jpg'>
+            </div>
+            <div class='swiper-slide'>
+              <img class='promotion-image' src='../image/두준.jpg'>
+            </div>
+					</div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</div>
     <div class='trainer-schedule'>
-      <div class='schedule'><span>Schedule</span> <span class='more'>더보기</span></div>
-      <table class="t-t-table">
+      <div class='schedule'><span>Schedule</span> <span class='more' value=1>더보기</span></div>
+      <table class="t-t-table" style='display: none'>
         <thead>
           <th style="width: 30px"></th>
           <th>월</th>
@@ -200,50 +209,69 @@
       </table>
     </div>
     <div class='trainer-map'>
-      <div class='map'><span>Map</span> <span class='more'>더보기</span></div>
-      <div class='map2'>지도 들어갈 곳</div>
+      <div class='map'><span>Map</span> <span class='more' value=2>더보기</span></div>
+      <div id="map" style="width: 100%; height: 350px; display: none;"></div>
     </div>
     <div class='trainer-review'>
-      <div class='review'><span>Review</span> <span class='more'>더보기</span></div>
-      <div class='review-form xmf'>
-        <div class="r-mno">회원1</div>
-        <img class="r-score" src="../image/score4.png">
-        <div class="r-del" data-mno={{mno}} id='{{mno}}'>
-          <button type="button"
-          class="rev-delete"  data-review='{{reviewno}}'
-         data-trano='{{trano}}'>삭제</button>
-        </div>
-        <div class="r-info">너무 좋아염 잘생겼어염^^</div>
-      </div>
-      <div class='review-form xmf'>
-        <div class="r-mno">회원1</div>
-        <img class="r-score" src="../image/score4.png">
-        <div class="r-del" data-mno={{mno}} id='{{mno}}'>
-          <button type="button"
-          class="rev-delete"  data-review='{{reviewno}}'
-         data-trano='{{trano}}'>삭제</button>
-        </div>
-        <div class="r-info">너무 좋아염 잘생겼어염^^</div>
-      </div>
-      <div class='review-form xmf'>
-        <div class="r-mno">회원1</div>
-        <img class="r-score" src="../image/score4.png">
-        <div class="r-del" data-mno={{mno}} id='{{mno}}'>
-          <button type="button"
-          class="rev-delete"  data-review='{{reviewno}}'
-         data-trano='{{trano}}'>삭제</button>
-        </div>
-        <div class="r-info">너무 좋아염 잘생겼어염^^</div>
+      <div class='review'><span>Review</span> <span class='more' value=3>더보기</span></div>
+      <div id='rev-form' style='display: none'> 
       </div>
     </div>
-    <div class="d-bottom-Btn">
+    </div>
+        <div class='times clearfix'></div>
+      <div class='btn-form'>
+        <button id='matchingBtn' type='button' class='matchingBtn btn'>Matching</button>
+      </div>
+<div class="d-bottom-Btn">
       <div class='bottom-form'>
-        <span class="pro-friend-Btn">친구신청</span>
-        <span class="pro-chatting-Btn">채팅</span>
-        <span class="pro-review-Btn">리뷰작성</span>
+        <button class="pro-friend-Btn">친구신청</button>
+        <button class="pro-chatting-Btn">채팅</button>
+        <button class="pro-review-Btn">리뷰작성</button>
       </div>
     </div>
+    
+    <script id='trainer-info-template' type="text/x-handlebars-template">
+    {{#this}}
+    <div class='trainer-image'>
+      <img class='trainer-profile-image' src='..{{tcherpic}}'>
+    </div>
+    <div class='trainer-name'>
+      <span>{{name}} 강사</span>
+    </div>
+    <div class='trainer-intro'>
+      <div class='intro'>
+        <span>Introduce</span>
+      </div>
+      <div class='intro'>
+        <span>1. 안녕하세요</span>
+      </div>
+      <div class='intro'>
+        <span>2. 윤두준입니다.</span>
+      </div>
+      <div class='intro'>
+        <span>3. 제가 한 잘생김 합니다.</span>
+      </div>
+      <div class='intro'>
+        <span>4. 잘부탁드립니다.</span>
+      </div>
+    </div>
+  {{/this}}
+    </script>
+	<script id='review-template' type="text/x-handlebars-template">
+  {{#this}}
+    <div class='review-form xmf'  >
+    <div class="r-mno">{{name}}</div>
+    <img class="r-score" src="../image/score{{score}}.png">
+    <div class="r-del" data-mno={{mno}} id='{{mno}}'>
+      <button type="button"
+      class="rev-delete"  data-review='{{reviewno}}'
+     data-trano='{{trano}}' style='display: none'>삭제</button>
+    </div>
+    <div class="r-info">{{review}}</div>
   </div>
+  {{/this}}
+    </script>
+   <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=d0a9bddab20a1619c64b68ece64342c5&libraries=services"></script>
+	<script src="../js/trainerDetail.js"></script>
 </body>
-
 </html>
