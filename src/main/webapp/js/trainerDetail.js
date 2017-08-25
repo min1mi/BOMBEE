@@ -88,6 +88,7 @@ function getDatas(json, no, template, containers) {
 		}
 	    
 	    if(json == '/trainer/detail.json') {
+	    	console.log(result)
 	    	tno = result.data.no
 			tname = result.data.name
 			tpic = result.data.tcherpic
@@ -109,6 +110,7 @@ function getDatas(json, no, template, containers) {
 				console.log("선택하세요")
 			}
 	    }else if(json == '/schedule/detail.json') {
+	    	console.log("-000000")
 	    	var bookNo = result.data.weeklist.day+result.data.weeklist.time,
 	    	weeklist = result.data.weeklist
 	    	for (var week of weeklist) {

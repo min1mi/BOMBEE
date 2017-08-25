@@ -379,5 +379,22 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 15;
 }
+.ok {
+  background-color: #eddfba;
+}
+
+th {
+  text-align: center;
+  background-color:#F7AC1A;
+  width: 13.5%;
+  color : white;
+}
+tr {
+  height: 30px;
+}
+td {
+  height: 30px;
+}
+
 
 
