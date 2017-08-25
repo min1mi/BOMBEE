@@ -351,11 +351,11 @@ function inputMeal() {
 		console.log($('.add-meal').children('.already-food'))
 		today = $(this).parent().attr('id')
 		if($(this).attr('value') == 0) {
-			mealtype = 'breakfast'
+			mealtype = '아침을 업데이트'
 		} else if ($(this).attr('value') == 1) {
-			mealtype = 'lunch'
+			mealtype = '점심을 업데이트'
 		} else if ($(this).attr('value') == 2) {
-			mealtype = 'dinner'
+			mealtype = '저녁을 업데이트'
 		}
 		if(addmeal.attr('data-open') == 'close') {
 			backscreen.show()
