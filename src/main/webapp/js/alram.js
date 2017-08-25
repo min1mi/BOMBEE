@@ -20,6 +20,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
           var container = $('.alram-info-container')
           container.html("")
           container.html(generatedHTML)
+          btnConnect()
         if(result.length < 0) {
         }
       }
@@ -27,8 +28,7 @@ $.getJSON('/auth/userinfo.json', function(result) {
   }
 })
 
-
-      
+  
 function btnConnect() {
   $('.cancle').click(function() {
     trano = $(this).attr('data-trano')
