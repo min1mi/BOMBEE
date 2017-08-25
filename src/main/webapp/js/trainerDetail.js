@@ -7,7 +7,7 @@ var lat = 33.450701;
 // 위도
 var lon = 126.570667;
 // 경도
-
+var realpic
 var wishtime
 var mno = -1
 var tno = location.href.split('=')[1]
@@ -16,6 +16,10 @@ var startDate,
 startDay,
 period,
 time
+var tname = -1
+var mymno = -1
+var mname = -1
+var membertype = -1
 var othername =-1
 var othermno = -1
 var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
@@ -61,7 +65,7 @@ $(document).ready(function() {
 	      minDate: 0
 	    });
 	
-	getData(json, mno, '')
+	getData('/auth/userinfo.json', mno, '')
     $( "#accordion" ).accordion();
 })
 
@@ -126,6 +130,9 @@ function getData(json, no, day) {
           mno = result.data.no
           othername = result.data.name
           othermno = result.data.no
+          mymno = result.data.no
+      	  mname = result.data.name
+      	  membertype = result.data.membertype
           console.log(mno)
           getData('/promotion/promotion.json', tno, '')
         }
@@ -285,7 +292,14 @@ function getData(json, no, day) {
 			}
 		})
 	}
-  
+  $('.pro-chatting-Btn').on('click', function() {
+		realpic = location.host + tpic
+		location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
+				+ tno +'&yourName='
+				+ mname +'&membertype='
+				+ tname +'&imagePath='+ realpic;
+	})
+
   
 $('.more').click(function() {
 	if ($(this).attr('value') == 1)
