@@ -163,7 +163,7 @@ function getHeaderData() {
             }
             
             console.log('로그아웃됨')
-            location.href = '../main/main.html'
+            location.href = '../index.html'
           
           $('.file .profile-img').attr('type', '')
           $('.bell-alram').removeClass('alram-on')
@@ -207,7 +207,7 @@ function viewFriend() {
 }
 
 function viewRequested() {
-  $('#alram').on('click', function() {
+  $('.mobile-container #alram').on('click', function() {
     location.href = '../alram/alram.html'
   })
 }
