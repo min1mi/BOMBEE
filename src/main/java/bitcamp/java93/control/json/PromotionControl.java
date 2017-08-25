@@ -276,7 +276,7 @@ public class PromotionControl {
      return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
-  @Scheduled(cron="* * * * * ?")
+  @Scheduled(cron="0 0 0 * * ?")
   public void promotionSchedule() throws Exception {
     promotionService.scheduleStatus();
     promotionService.expireStatus();

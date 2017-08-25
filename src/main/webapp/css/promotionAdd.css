@@ -65,7 +65,7 @@
     height: 68px;
   }
   .company_address {
-  	height: 120px;
+  	height: 107px;
   }
   .company_address, 
 .title,
@@ -206,8 +206,9 @@ div>input {
 }
 
 .companyAddress #address {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin: 0px;
+  white-space: pre-line;
 }
 
 .company_address .promotion-icon {

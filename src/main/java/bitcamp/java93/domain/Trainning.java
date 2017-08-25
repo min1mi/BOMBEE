@@ -13,6 +13,18 @@ public class Trainning extends Trainer {
   double lng;
   int meter;
   List <String> photoList;
+  int expire;
+  
+  @Override
+  public String toString() {
+    return "Trainning [pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
+        + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList
+        + ", expire=" + expire + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
+        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tcherpic="
+        + tcherpic + ", tno=" + tno + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
+        + pwd + ", profilePicture=" + profilePicture + ", membertype=" + membertype + ", accounttype=" + accounttype
+        + "]";
+  }
   public int getPno() {
     return pno;
   }
@@ -73,17 +85,12 @@ public class Trainning extends Trainer {
   public void setPhotoList(List<String> photoList) {
     this.photoList = photoList;
   }
-  @Override
-  public String toString() {
-    return "Trainning [pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
-        + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList
-        + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr + ", comdetailaddr=" + comdetailaddr
-        + ", spono=" + spono + ", introduction=" + introduction + ", tno=" + tno + ", no=" + no + ", id=" + id
-        + ", name=" + name + ", email=" + email + ", pwd=" + pwd + ", profilePicture=" + profilePicture
-        + ", membertype=" + membertype + ", accounttype=" + accounttype + "]";
+  public int getExpire() {
+    return expire;
   }
-  
+  public void setExpire(int expire) {
+    this.expire = expire;
+  }
 
-  
   
 }

@@ -165,7 +165,7 @@ $('#image_upload').fileupload({
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
     console.log(data.result);
-    location.href = '../promotionControl/promotionControl.html'
+    location.href = '../promotion/promotionControl.html'
     console.log('서버갔다옴.')
   },
   submit: function (e, data) {
@@ -251,7 +251,7 @@ $('.topClose').click(function(){
         closeOnCancel: true,
         animation: false,
         preConfirm: function() {
-          location.href='../promotionControl/promotionControl.html'
+          location.href='../promotion/promotionControl.html'
         }
  }
 );

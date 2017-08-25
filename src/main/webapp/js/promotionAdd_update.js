@@ -203,7 +203,7 @@ $('#image_upload').fileupload({
 		console.log(data.result);
 		console.log(titleSelectPic)
 		console.log('서버갔다옴.')
-		location.href = '../promotionControl/promotionControl.html'
+		location.href = '../promotion/promotionControl.html'
 			count = 0
 	},
 	submit: function (e, data) {
@@ -286,7 +286,7 @@ $('.save').click(function() {
 					titlePic: $('.title-select').children().attr('value'),
 					indexPic: index_pic
 				},function(result) {
-					location.href = '../promotionControl/promotionControl.html'
+					location.href = '../promotion/promotionControl.html'
 				}
 				)
 			}
@@ -365,7 +365,7 @@ $('.topClose').click(function(){
 		closeOnCancel: true,
 		animation: false,
 		preConfirm: function() {
-			location.href='../promotionControl/promotionControl.html'
+			location.href='../promotion/promotionControl.html'
 		}
 	}
 	);

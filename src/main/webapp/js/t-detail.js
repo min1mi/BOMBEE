@@ -284,7 +284,7 @@ $('.pro-add-Btn').on('click', function() {
 	console.log(location.host + tpic)
 
 	realpic = location.host + tpic
-	location.href = 'http://192.168.0.19:8888/detail-chat.html?myNo=' + mno + '&yourNo='
+	location.href = 'http:' + location.host + '/detail-chat.html?myNo=' + mno + '&yourNo='
 			+ tno +'&yourName='
 			+ tname +'&membertype='
 			+ membertype +'&imagePath='+ realpic;
@@ -352,6 +352,6 @@ $('.likeBtn').click(function() {
 function btnConect() {
 	imgBtn = $('.pro-pic')
 	imgBtn.click(function() { // 이미지클릭하면 화면넘어가는 거 처리
-			location.href = '../promotionDetail/promotionDetail.html?no='+$(this).attr('value')
+			location.href = '../promotion/promotionDetail.html?no='+$(this).attr('value')
 	})
 }

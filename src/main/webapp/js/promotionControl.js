@@ -36,7 +36,7 @@
   				getData('/promotion/promotionTitle.json')
   		})
   		promotionAdd.click (function() {
-  			location.href = '../promotionAdd/promotionAdd.html'
+  			location.href = '../promotion/promotionAdd.html'
   		})
   	})
   $.getJSON('/auth/userinfo.json', function(result) {
@@ -87,7 +87,7 @@
   			}
   			else {
   				//디테일 정보로 가는거 구현
-  				location.href = '../promotionAdd/promotionAdd_update.html?no='+$(this).attr('value')
+  				location.href = '../promotion/promotionAdd_update.html?no='+$(this).attr('value')
   			}
   		})
   	}
