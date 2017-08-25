@@ -1,4 +1,3 @@
-
 var no = 0
 var tno = 0
 var lat
@@ -18,7 +17,7 @@ $(document).ready(function() {
 // 트레이너 상세 페이지 이동
 $('.footer-click').on('click', function() {
   console.log(tno)
-  location.href = '../ekdma/t-detail.html?no=' + tno
+  location.href = '../promotionDetail/trainerDetail.html?no=' + tno
 })
 
 // 맵 마커 시작
@@ -73,7 +72,6 @@ $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
     var html = container.html()
     container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
 
-
     // 이미지 템플릿 처리
     var templateFn2 = Handlebars.compile($('#swiper-template').text())
     var generatedHTML2 = templateFn2(result.data.promotion) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -93,7 +91,5 @@ $.getJSON('/promotion/detail.json', {'no' : no}, function(result) {
         } else {
           panel.style.maxHeight = panel.scrollHeight + "px";
         }
-
       }
-
   })
