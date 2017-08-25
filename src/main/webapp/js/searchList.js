@@ -126,8 +126,8 @@ var geocoder = new daum.maps.services.Geocoder();
 $('#map').css('height', screen.availHeight-207+'px')
 GPSFind()
 	
-getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902', '#codeList', '#code-container')
-
+//getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902', '#codeList', '#code-container')
+getData('../jsp/addressLoad_1.jsp', '#codeList', '#code-container')
 
 function GPSFind(){
 	//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
@@ -387,11 +387,18 @@ function getData(json, type, create) {
     })
   }
 
+
+
 function cityList(type){
-	if (type == 'city')
-		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, '#siList', '#si-container')
+	if (type == 'city'){
+//		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admSiList.json?authkey=a32d52326f4cd3bd8b9654&admCode='+admCode, '#siList', '#si-container')
+		var authKey = 'a32d52326f4cd3bd8b9654'
+		getData('../jsp/addressLoad_2.jsp?authkey='+ authKey + '&admCode=' + admCode, '#siList', '#si-container')
+	}
 	else
-		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admDongList.json?authkey=09a445732f975b572bf0c7&admCode='+admCode, '#siList', '#dong-container')
+		var authKey = '09a445732f975b572bf0c7'
+//		getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admDongList.json?authkey=09a445732f975b572bf0c7&admCode='+admCode, '#siList', '#dong-container')
+			getData('../jsp/addressLoad_3.jsp?authkey='+ authKey + '&admCode=' + admCode, '#siList', '#dong-container')
 	}
 
 function searchAddress(searchAddr) {
