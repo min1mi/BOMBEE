@@ -58,7 +58,6 @@ $(document).ready(function(){
 	  
 	});
 
-
 $('.re-add-Btn').on('click', function() {
 	console.log("fiscore 밑밑밑")
 	console.log(fiScore)

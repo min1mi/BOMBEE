@@ -1,0 +1,134 @@
+.t-t-table {
+    margin-top: 3%;
+    display: block;
+}
+.trainer-image {
+  width: 100%;
+  height: 250px;
+  top: 70px; /* 헤더 제외하고 위에 1% 띄우기*/
+  overflow: hidden;
+  position: relative;
+}
+.trainer-profile-image {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.trainer-name {
+  margin-top: 18%;
+  height: 50px;
+  line-height: 2.7;
+  padding: 0 38%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+.trainer-intro .intro,
+.trainer-promotion .promotion span,
+.trainer-schedule .schedule,
+.trainer-map .map,
+.trainer-review .review {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 2% 0 2% 5%;
+}
+.trainer-intro .intro:first-child{
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 2% 0;
+}
+.trainer-intro {
+  border-bottom: 1px solid #ddd;
+  margin: 2% 5%
+}
+.trainer-promotion .promotion {
+  margin: 2% 0;
+}
+.promotion-image-form {
+  border: 1px solid red;
+  height: 170px;
+  padding: 2%;
+}
+.image-form {
+  position: relative;
+  float: left;
+  display: inline-block;
+  width: 40%;
+  height: 152px;
+  margin-right: 2%;
+}
+.promotion-image {
+  position: absolute;
+  width: 100%;
+}
+.schedule .more,
+.map .more,
+.review .more {
+  float: right;
+  margin-right: 5%;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.review-form {
+  border: 1px solid gray;
+}
+.r-del {
+  position: absolute;
+  display: inline-block;
+  width: 17%;
+  margin: 0 5px;
+  right: 2%;
+  height: 30px;
+  top: 10%;
+}
+.r-mno {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.r-score {
+  display: inline-block;
+  width: 45%;
+  height: 31px;
+  margin: 0;
+}
+.d-bottom-Btn {
+  position: fixed;
+  bottom: 1%;
+  background-color: black;
+  height: 55px;
+  width: 100%;
+}
+.bottom-form {
+  background-color: #f7ac1a;
+  display: inline-block;
+}
+.d-bottom-Btn span {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
+.map2 {
+  height: 400px;
+  border: 1px solid gray;
+}
