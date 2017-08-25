@@ -109,6 +109,9 @@
 .d-bottom-Btn span {
   color: white;
 }
+.trainer-detail-container {
+	max-height: 600px;
+}
 
 
 
