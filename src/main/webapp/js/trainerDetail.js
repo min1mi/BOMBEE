@@ -205,14 +205,6 @@ function getData(json, no, day) {
     console.log(mno ,tno, pno, startDate, period, startDay, wishtime)
     insertTcher_trainer('/friend/addReq.json',mno,tno, pno, startDate, period, wishtime)
     }
-//    $.post('', {
-//      'tno': tno, 
-//      'pno': pno, 
-//      'sdt': startDate
-//      
-//      }, function() {
-//        
-//    })
   })
   
   $('.pro-friend-Btn').on('click', function() {

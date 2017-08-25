@@ -262,7 +262,7 @@ $('.pro-chat-Btn').on('click', function() {
 	realpic = location.host + tpic
 	location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 			+ tno +'&yourName='
-			+ tname +'&membertype='
+			+ mname +'&membertype='
 			+ tname +'&imagePath='+ realpic;
 })
 

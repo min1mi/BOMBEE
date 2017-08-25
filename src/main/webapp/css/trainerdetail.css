@@ -42,6 +42,10 @@
   border-bottom: 1px solid #ddd;
   margin: 2% 5%
 }
+.intro-tcher {
+	text-align: center;
+	margin: 5% 5%;
+}
 .trainer-promotion .promotion {
   margin: 2% 0;
 }
