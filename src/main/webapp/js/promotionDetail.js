@@ -17,7 +17,7 @@ $(document).ready(function() {
 // 트레이너 상세 페이지 이동
 $('.footer-click').on('click', function() {
   console.log(tno)
-  location.href = '../promotionDetail/trainerDetail.html?no=' + tno
+  location.href = '../t-detail/trainerDetail.html?no=' + tno
 })
 
 // 맵 마커 시작
