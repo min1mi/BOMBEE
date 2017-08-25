@@ -16,6 +16,8 @@ body {
 }
 .intro {
 	text-align:center;
+	margin: 0 5%;
+	white-space:pre-line;
 }
 
 .search-header-font {
