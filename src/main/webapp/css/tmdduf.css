@@ -1,3 +1,26 @@
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  .main-container #meeting,
+  .main-container #management {
+    width: 199px;
+  }
+  #bg-img {
+    height: 667px;
+  }
+  #body-img {
+    height: 667px;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  
+  }
+}
+
 .pro-container {
   width: 415px;
 }
