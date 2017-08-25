@@ -190,6 +190,12 @@ public class PromotionServiceImpl implements PromotionService {
   public void expireStatus() throws Exception {
     promotionDao.expireStatus();
   }
+
+  @Override
+  public List<Promotion> getPromotionTitlePicList(int no) throws Exception {
+    promotionDao.getPromotionTitlePicList(no);
+    return null;
+  }
   
 }
 

@@ -188,6 +188,9 @@ where p.pno = #{no};
      where t.tno = #{no}
     order by p.titl asc
   </select>
+  <select id="getPromotionTitlePicList" resultMap="promotionMap" parameterType="int">
+    select i.pimg, p.pno from promotion p inner join promotionimg i on p.pno = i.pno where titlePic = 1 and p.tno = #{no}
+  </select>
   
   <delete id="delAddImage" parameterType="string">
     delete from promotionimg

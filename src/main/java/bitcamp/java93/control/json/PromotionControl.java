@@ -139,6 +139,14 @@ public class PromotionControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("promotionTitlePicList")
+  public JsonResult getPromotionTitlePicList(int no) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", promotionService.getPromotionTitlePicList(no));
+
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   @RequestMapping("add")
   public JsonResult addPromotion(Promotion promotion, MultipartFile[] files) throws Exception {
     System.out.println(promotion);

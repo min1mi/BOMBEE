@@ -13,6 +13,7 @@ public interface PromotionDao {
   List<Promotion> firstList();
   List<Promotion> healthFirstList(int typeNo);
   List<Promotion> healthNextList(int lastNo, int typeNo);
+  List<Promotion> getPromotionTitlePicList(int no);
   Promotion selectOne(int no);
   Promotion selectOneByEmailPassword(Map<String,Object> valueMap);
   int insert(Promotion Promotion);

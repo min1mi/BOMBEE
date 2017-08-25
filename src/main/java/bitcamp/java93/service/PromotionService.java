@@ -19,6 +19,7 @@ public interface PromotionService {
   List<Promotion> healthFirstList(int typeNo) throws Exception;
   List<Promotion> getPromotionList(int no) throws Exception;
   List<Promotion> getPromotionListTitle(int no) throws Exception;
+  List<Promotion> getPromotionTitlePicList(int no) throws Exception;
   int deletePromotions(ArrayList<Integer> arr) throws Exception;
   void delAddImage(String delI) throws Exception;
 	void updatePromotion(Promotion promotion, int titleNo) throws Exception;
