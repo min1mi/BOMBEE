@@ -30,4 +30,6 @@ public interface PromotionDao {
  int deletePromotionImg(int pno);
  void titleImageInit(int pno);
  void updateTitlePic(String titleName);
+void scheduleStatus();
+void expireStatus();
 }

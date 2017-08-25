@@ -23,6 +23,7 @@
         <result column="introduction" property="introduction"/>
         <result column="pimg" property="titlePic"/>
         <result column="tipic" property="tiPic"/>
+        <result column="expire" property="expire"/>
     <collection property="promotionList" ofType="Trainning">
         <id column="pno" property="pno" />
         <result column="titl" property="title" />
@@ -39,6 +40,7 @@
         <result column="lng" property="lng"/>
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
+        <result column="expire" property="expire"/>
         <result column="introduction" property="introduction"/>
         <collection property="photoList" ofType="string">
           <result column="pimg"/>
@@ -216,6 +218,18 @@ where p.pno = #{no};
     update promotionimg set
       titlePic = 1
       where pimg = #{titleName}
+  </update>
+  
+  <update id="scheduleStatus" parameterType="promotion">
+  	update promotion set
+  	expire = 1
+  	where sdt <![CDATA[ = ]]> curdate() or (sdt <![CDATA[ < ]]> curdate() and edt <![CDATA[ >= ]]> curdate())
+  </update>
+  
+  <update id="expireStatus" parameterType="promotion">
+  	update promotion set
+  	expire = 2
+  	where edt <![CDATA[ <= ]]> curdate()
   </update>
   
   <!-- update promotionimg set

@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -275,6 +276,12 @@ public class PromotionControl {
      return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   
+  @Scheduled(cron="* * * * * ?")
+  public void promotionSchedule() throws Exception {
+    promotionService.scheduleStatus();
+    promotionService.expireStatus();
+    System.out.println("바꼇음");
+  }
   int count = 0;
   synchronized private String getNewFilename() {
     if (count > 100) {

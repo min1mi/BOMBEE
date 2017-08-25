@@ -181,6 +181,15 @@ public class PromotionServiceImpl implements PromotionService {
     promotionDao.updateTitlePic(titleName);
     
   }
+
+  @Override
+  public void scheduleStatus() throws Exception {
+    promotionDao.scheduleStatus();
+  }
+  @Override
+  public void expireStatus() throws Exception {
+    promotionDao.expireStatus();
+  }
   
 }
 
