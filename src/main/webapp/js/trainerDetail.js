@@ -17,11 +17,11 @@ startDay,
 period,
 time
 var tname = -1
-var mymno = -1
+var othermno = -1
 var mname = -1
 var membertype = -1
 var othername =-1
-var othermno = location.href.split('?')[1].split('=')[1].split('#')[0]
+var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
 function mapCreate() {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
@@ -132,7 +132,8 @@ function getData(json, no, day) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
           mno = result.data.no
-          mymno = result.data.no
+          othermno = result.data.no
+          othername = result.data.name
       	  mname = result.data.name
       	  membertype = result.data.membertype
           console.log(mno)
