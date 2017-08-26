@@ -1,23 +1,70 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-
+.cont-box {
+    border-right: 320px solid transparent;
+    border-top: 158px solid #F7AC1A;
+    margin-top: -5.6%;
+}
+.cont-box1 {
+     border-left:320px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:155px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+    margin-top: -30%;
+}
+  #box1 {
+  width : 40%;
+    margin: 1% 0% 0% -18%;
+  }
+  .pro-img {
+    margin-top:38%;
+  }
+  #pro-type > select {
+    width: 117%;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  .main-container #meeting,
-  .main-container #management {
-    width: 199px;
+  .cont-box {
+    border-right:375px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+    margin-top: -5.3%;
+
+}
+.cont-box1 {
+     border-left:375px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+    margin-top: -34%;
+}
+  #box1 {
+  margin: 4% 0% 0% -17%;
   }
-  #bg-img {
-    height: 667px;
+  .pro-img {
+    margin-top:38%;
   }
-  #body-img {
-    height: 667px;
+  #pro-type > select {
+    width: 139%;
   }
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  
+  .cont-box {
+    margin-top: -5.3%;
+    border-right:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+}
+  .cont-box1 {
+    border-left:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
+    border-bottom:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
+    
+    margin-top: -24%;
+}
+  #box1 {
+    margin: 4% 0% 0% -15%; 
+  }
+  .pro-save-Btn {
+  margin: -2% 0% 0% 44% !important;
+  }
+  #pro-type > select {
+    width: 154%;
   }
 }
 
@@ -99,26 +146,22 @@
   width: 100%;
   cursor: pointer;
   border: 1px solid red;
-  margin: -44% 0% 0% 0%;
   height: 183px;
 }
+
 .cont-box{
-width:390px;height:0px;
-border-right:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
-border-top:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
-float: left;
-margin-top: -49%;
+  width : 100%;
+  float: left;
 }
 .cont-box1{
-width:390px;height:0px;
-border-left:414px solid transparent; /*border의 성질을 이용해 오른쪽테두리만 투명으로 만든다. */
-border-bottom:200px solid #F7AC1A; /*border를 사용해 두께를 만든다.*/
-margin-top: -40%;
+width:100%;height:0px;
 }
+
+
 #pro-select {
   margin: 0% 3%;
   padding-left: 4%;
-	-webkit-appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   -webkit-border-bottom: 2px #F7AC1A solid;
@@ -128,17 +171,17 @@ margin-top: -40%;
 
 }
 #a {
-	padding: 10px;
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  display: block;
 
-	border-right: 30px solid transparent;
-	border-bottom: 30px solid white;;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid white;;
 
-	height: 0;
-	line-height: 50px;
+  height: 0;
+  line-height: 50px;
 }
 
 
@@ -158,13 +201,10 @@ margin-top: -40%;
 }
 
 #box1 {
-  width: 180px;
-  height: 180px;
   border-radius: 50%;
-
-  margin: 10% 0% 0% 0%;
   text-align: center;
   line-height: 200px;
+  position: absolute
 }
 
 
@@ -172,7 +212,6 @@ margin-top: -40%;
 #pro-type > select {
   padding-left: 15%;
   display: inline-block;
-  width:153%;
   height: 45px;
   font-size : 1.6rem;
   color:black;
@@ -194,7 +233,7 @@ margin-top: -40%;
 }
 #pro-dd {
   width: 94%;
-  font-size : 1.4rem;
+  font-size : 1rem;
   padding: 3%;
   margin:0% 3%;
   border: 2px #F7AC1A solid;
@@ -220,21 +259,17 @@ margin-top: -40%;
 input:focus {
   outline: none !important;
 }
-.pro-place:focus {
-  outline: none !important;
-}
 input:read-only {
-  outline: none;
-  background-color: white;
+  outline: none !important;
+    background-color: white !important;
 }
 .pro-bottom-Btn {
   width: 100%;
   padding: 5% 0% 0% 10%;
 }
-/*.pro-view-Btn{
-  width: 45%;
-}*/
- .pro-save-Btn {
+
+.pro-save-Btn {
+  margin: -5% 0% 0% 44%;
+  position: absolute;
    width: 45%;
-   margin : -3% 0% 0% 56%;
- }
+}
