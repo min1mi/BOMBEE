@@ -276,12 +276,6 @@ $(".pro-rc-Btn").click(function(){
 
 $('.pro-add-Btn').on('click', function() {
 	boool = false;
-	console.log(mno + " : 회원번호")
-	console.log(tno + " : 강사번호")
-	console.log(boool + " : 참거짓")
-	console.log(mname + " : 회원이름")
-	console.log(tname + " : 강사이름")
-	console.log(location.host + tpic)
 
 	realpic = location.host + tpic
 	location.href = 'http:' + location.host + '/detail-chat.html?myNo=' + mno + '&yourNo='
