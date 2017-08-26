@@ -300,13 +300,15 @@ function getData(json, no, day) {
   
 $('.more').click(function() {
 	if ($(this).attr('value') == 1) {
-	  if($(this).text('접기')) {
+	  if($(this).text() == '접기') {
 	    $(this).text('펼치기')
-	    $(this).children('.updown').removeClass('fa-angle-up').addClass('fa-angle-down')
+	    $(this).children('.up').css('display', 'none')
+	    $(this).children('.down').css('display', '')
+	    
 	    
 	  } else if($(this).text('펼치기')) {
-	    $(this).text('접기')
-	    $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
+//	    $(this).text('접기')
+//	    $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
 	  }
 	  
 	  $(this).parent().parent().children('table').slideToggle()

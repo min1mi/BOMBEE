@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Trainer;
 //"/member/*", "/leture/*", "/manager/*", "/teacher/*"
-@WebFilter({"/promotion/*", "/management/*", "/main/*", "/profile/*",
-           "/t-detail/*", "/chat/*" })
+@WebFilter({"/promotion/*", "/management/*", "/main/t-login.html",
+            "/main/u-login.html", "/profile/*",
+           "/t-detail/*", "/chat/*"})
 public class AuthCheckFilter implements Filter {
 
   public AuthCheckFilter() {}

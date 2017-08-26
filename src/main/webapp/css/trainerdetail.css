@@ -401,8 +401,10 @@ td {
   height: 30px;
 }
 
-.updown {
+.more.up,
+.more .down {
 	font-size: 1.8rem;
 }
+
 
 
