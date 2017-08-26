@@ -1,3 +1,65 @@
+
+/*iphone5*/
+@media (min-device-width: 320px) and (max-device-width: 374px) {
+  .matching-container {
+    margin-top: 30%;
+  }
+  .promotion-container {
+    height: 210px;
+  }
+  .period {
+    height: 24px;
+  }
+  .promotion-endDate {
+    left: 66.5%;
+  }
+  .promotion-startDate, .promotion-endDate {
+    font-size: 1.1rem;
+  }
+}
+/*iphone6*/
+@media (min-device-width: 375px) and (max-device-width: 413px) {
+  .matching-container {
+    margin-top: 26%;
+  }
+  .dateStart {
+    height: 32px;
+  }
+  .promotion-container {
+    height: 250px;
+  }
+  .period {
+    height: 31.5px;
+  }
+  .promotion-endDate {
+    left: 62.5%;
+  }
+  .promotion-startDate, .promotion-endDate {
+    font-size: 1.1rem;
+  }
+}
+/*iphone6 plus*/
+@media (min-device-width: 414px) and (max-device-width: 767px) {
+  .matching-container {
+    margin-top: 24%;
+  }
+  .dateStart {
+    height: 34px;
+  }
+  .promotion-container {
+    height: 290px;
+  }
+  .period {
+    height: 34px;
+  }
+  .promotion-endDate {
+    left: 60.5%;
+  }
+  .promotion-startDate, .promotion-endDate {
+    font-size: 1.2rem;
+  }
+}
+
 .t-t-table {
     margin-top: 3%;
     display: block;
@@ -164,67 +226,6 @@
 }
 .pro-time-off {
   border : 1px solid #e6e6e6;
-}
-
-/*iphone5*/
-@media (min-device-width: 320px) and (max-device-width: 374px) {
-  .matching-container {
-    margin-top: 30%;
-  }
-  .promotion-container {
-    height: 210px;
-  }
-  .period {
-    height: 24px;
-  }
-  .promotion-endDate {
-    left: 66.5%;
-  }
-  .promotion-startDate, .promotion-endDate {
-    font-size: 1.1rem;
-  }
-}
-/*iphone6*/
-@media (min-device-width: 375px) and (max-device-width: 413px) {
-  .matching-container {
-    margin-top: 26%;
-  }
-  .dateStart {
-    height: 32px;
-  }
-  .promotion-container {
-    height: 250px;
-  }
-  .period {
-    height: 31.5px;
-  }
-  .promotion-endDate {
-    left: 62.5%;
-  }
-  .promotion-startDate, .promotion-endDate {
-    font-size: 1.1rem;
-  }
-}
-/*iphone6 plus*/
-@media (min-device-width: 414px) and (max-device-width: 767px) {
-  .matching-container {
-    margin-top: 24%;
-  }
-  .dateStart {
-    height: 34px;
-  }
-  .promotion-container {
-    height: 290px;
-  }
-  .period {
-    height: 34px;
-  }
-  .promotion-endDate {
-    left: 60.5%;
-  }
-  .promotion-startDate, .promotion-endDate {
-    font-size: 1.2rem;
-  }
 }
 
 .matchBtn {
@@ -400,5 +401,8 @@ td {
   height: 30px;
 }
 
+.updown {
+	font-size: 1.8rem;
+}
 
 

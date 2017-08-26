@@ -55,7 +55,7 @@ var callback = function(result, status) {
 
 
 $(document).ready(function() {
-	$('.header').load('../menu/new.html')
+	$('.header').load('../main/header.html')
 	$("#datepicker-start").datepicker({
 	      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
 	      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -299,12 +299,27 @@ function getData(json, no, day) {
 
   
 $('.more').click(function() {
-	if ($(this).attr('value') == 1)
-		$(this).parent().parent().children('table').slideToggle()
-	else if($(this).attr('value') == 2)
+	if ($(this).attr('value') == 1) {
+	  if($(this).text('접기')) {
+	    $(this).text('펼치기')
+	    $(this).children('.updown').removeClass('fa-angle-up').addClass('fa-angle-down')
+	    
+	  } else if($(this).text('펼치기')) {
+	    $(this).text('접기')
+	    $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
+	  }
+	  
+	  $(this).parent().parent().children('table').slideToggle()
+	  
+	} else if($(this).attr('value') == 2) {
+	  $(this).text('펼치기')
+	  $(this).children('.updown').removeClass('fa-angle-up').addClass('fa-angle-down')
 		$(this).parent().parent().children('#map').slideToggle()
-	else if($(this).attr('value') == 3)
+	} else if($(this).attr('value') == 3) {
+	  $(this).text('접기')
+	  $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
 		$(this).parent().parent().children('#rev-form').slideToggle()
+	}
 })
 
 var swiper = new Swiper('.swiper-container', {

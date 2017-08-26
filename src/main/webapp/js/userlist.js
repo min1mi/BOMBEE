@@ -2,7 +2,7 @@ var json = '/auth/userinfo.json'
   var no = 0
   var mealBtn
     $(document).ready(function() {
-      $('.header').load('../menu/new.html')
+      $('.header').load('../main/header.html')
     })
     getData(json, no)
     function getData(jsonType, no) {

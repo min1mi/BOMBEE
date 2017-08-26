@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	    $('.header').load('../menu/new.html')
+	    $('.header').load('../main/header.html')
 
   })
 

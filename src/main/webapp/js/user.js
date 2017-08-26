@@ -1,6 +1,6 @@
 $(function() {
 	moment().format();
-	$('.header').load('../menu/new.html')
+	$('.header').load('../main/header.html')
 
 	getPromotionName(trano)
 	generateTemplate();
