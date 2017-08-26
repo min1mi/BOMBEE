@@ -208,7 +208,7 @@ function viewFriend() {
 
 function viewRequested() {
   $('.mobile-container #alram').on('click', function() {
-    location.href = '../alram/alram.html'
+    location.href = '../alram/alram.html?no='+no
   })
 }
 

@@ -41,13 +41,15 @@ function getData(json, no) {
       btnConnect()
     } else if (json == '/friend/friendDelete.json') {
       console.log(result)
+      location.reload()
     }
   })
 }
 function btnConnect() {
   $('.cancle').click(function() {
     trano = $(this).attr('data-trano')
-    getData('/friend/friendDelete.json', trano)
+    console.log(trano)
+//    getData('/friend/friendDelete.json', trano)
   })
   console.log(trano)
 } 
