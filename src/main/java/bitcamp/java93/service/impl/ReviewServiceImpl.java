@@ -43,4 +43,9 @@ public  class ReviewServiceImpl implements ReviewService {
     reviewDao.reviewUpdate(no);
   }
 
+  @Override
+  public List<Review> canReviewList(int no, int day) throws Exception {
+    return reviewDao.canReviewList(no, day);
+  }
+
 }

@@ -48,6 +48,12 @@ public class ReviewControl {
     reviewService.reviewUpdate(no);
       return new JsonResult(JsonResult.SUCCESS, "OK");
   } 
+  
+  @RequestMapping("canReviewList")
+  public JsonResult canReviewList(int no, int day) throws Exception {
+    reviewService.canReviewList(no, day);// no가 mno day가 tno
+      return new JsonResult(JsonResult.SUCCESS, "OK");
+  } 
 
 
 }

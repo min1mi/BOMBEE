@@ -49,7 +49,7 @@ function btnConnect() {
   $('.cancle').click(function() {
     trano = $(this).attr('data-trano')
     console.log(trano)
-//    getData('/friend/friendDelete.json', trano)
+    getData('/friend/friendDelete.json', trano)
   })
   console.log(trano)
 } 

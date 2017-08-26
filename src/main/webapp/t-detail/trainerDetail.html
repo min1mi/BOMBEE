@@ -36,8 +36,7 @@
 			</div>
     <div class='trainer-schedule'>
       <div class='schedule'><span>Schedule</span> 
-      <span class='more moreup' value=1 style="display: '';">접기 <span class="up fa fa-angle-up" aria-hidden="true"></span></span>
-      <span class='more moredown' value=1 style="display: none;">펼치기 <span class="down fa fa-angle-down" aria-hidden="true"></span></span>
+      <span class='more' value=1><span class="up fa fa-angle-up" aria-hidden="true"></span></span>
       </div>
       <table class="t-t-table" >
         <thead>
@@ -199,12 +198,15 @@
       </table>
     </div>
     <div class='trainer-map'>
-      <div class='map'><span>Map</span> <span class='more' value=2>접기 <i class="updown fa fa-angle-up" aria-hidden="true"></i></span></div>
+      <div class='map'><span>Map</span> <span class='more' value=2><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
       <div id="map" style="width: 100%; height: 350px;"></div>
     </div>
     <div class='trainer-review'>
-      <div class='review'><span>Review</span> <span class='more' value=3>더보기 <i class="updown fa fa-angle-down" aria-hidden="true"></i></span></div>
-      <div id='rev-form'> 
+      <div class='review'><span>Review</span> <span class='more' value=3><i class="fa fa-angle-up" aria-hidden="true"></i></span></div>
+      <div id="r-r-table">
+         <div id= "r-r-container">
+					<div id="r-r-inner"></div>
+				</div>
       </div>
     </div>
     </div>
@@ -269,15 +271,21 @@
     </script>
 	<script id='review-template' type="text/x-handlebars-template">
   {{#this}}
-    <div class='review-form xmf'  >
-    <div class="r-mno">{{name}}</div>
-    <img class="r-score" src="../image/score{{score}}.png">
+    <div class='review-form xmf'>
+    {{#isScore score}}
+    <div class='r-score' value={{score}}>
+    {{/isScore}}
+</div>
+    <div class="inline r-score-number">{{score}}</div>
     <div class="r-del" data-mno={{mno}} id='{{mno}}'>
       <button type="button"
-      class="rev-delete"  data-review='{{reviewno}}'
+      class="rev-delete {{mno}}"  data-review='{{reviewno}}'
      data-trano='{{trano}}' style='display: none'>삭제</button>
     </div>
-    <div class="r-info">{{review}}</div>
+    <div class="r-info r-title">살빼기 다이어트</div>
+    <div class="r-info r-content">ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ</div>
+    <div class="inline r-name">권봉수</div>
+    <div class="inline r-date">2017-08-25</div>
   </div>
   {{/this}}
     </script>

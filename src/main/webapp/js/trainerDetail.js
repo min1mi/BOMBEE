@@ -10,7 +10,7 @@ var lon = 126.570667;
 var realpic
 var wishtime
 var mno = -1
-var tno = location.href.split('=')[1]
+var tno = parseInt(location.href.split('=')[1])
 var pno
 var startDate,
 startDay,
@@ -22,6 +22,7 @@ var mname = -1
 var membertype = -1
 var othername =-1
 var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
+var myDeleteBtn = -1
 function mapCreate() {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
@@ -64,16 +65,15 @@ $(document).ready(function() {
 	      minDate: 0
 	    });
 	
-	getData('/auth/userinfo.json', mno, '')
+	
     $( "#accordion" ).accordion();
 })
-
+getData('/auth/userinfo.json', mno, '')
 no = location.href.split('?')[1].split('=')[1]
 getDatas(json, no, 'trainer-info-template', 'trainer-info-container')
 getDatas('/schedule/detail.json', no, '', '')
-getDatas('/review/detail2.json', no, 'review-template', 'rev-form')
+getDatas('/review/detail2.json', no, 'review-template', 'r-r-inner')
 getDatas('/promotion/promotionTitlePicList.json', no, 'promotionTitle-template', 'img-container')
-
 function getDatas(json, no, template, containers) {
 	console.log(template)
 	$.getJSON(json, {no}, function(result) {
@@ -118,7 +118,10 @@ function getDatas(json, no, template, containers) {
 	    		$('td[data-bookno=' + bookNo + ']').addClass('ok')
 	    	}
 	    }else if (json == '/review/detail2.json') {
-	    	
+	    	console.log(myDeleteBtn)
+	    	if($('.'+myDeleteBtn))
+				$('.'+myDeleteBtn).css('display', '')
+			reviewBtn()
 	    }else if (json == '/promotion/promotionTitlePicList.json'){
 	    	btnPromotionImgConnect()
 	    }
@@ -126,18 +129,21 @@ function getDatas(json, no, template, containers) {
 }
 function getData(json, no, day) {
     $.getJSON(json, {
-      'no': no,
-      'day':day
+      no: no,
+      day:day
     }, function(result) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
           mno = result.data.no
           othermno = result.data.no
+          myDeleteBtn = result.data.no
           othername = result.data.name
       	  mname = result.data.name
       	  membertype = result.data.membertype
           console.log(mno)
           getData('/promotion/promotion.json', tno, '')
+          console.log(mno,tno)
+          getData('/review/canReviewList.json', mno, tno)
         }
       } else if (json == '/promotion/promotion.json') {
         console.log(result.data.list)
@@ -165,9 +171,15 @@ function getData(json, no, day) {
         container.html(generatedHTML)
         connectBtn()
         $('.times').toggle()
+      } else if(json == '/review/delete.json') {
+    	  location.reload()
+      } else if(json == '/review/canReviewList') {
+    	  console.log("-----------------")
+    	  console.log(result)
       }
     })
   }
+
 
   function selectPromotion() {
     $('.promotion-list').on('click', function() {
@@ -297,28 +309,13 @@ function getData(json, no, day) {
 
   
 $('.more').click(function() {
-	if ($(this).attr('value') == 1) {
-	  if($(this).attr('class') == 'moreup') {
-	    $(this).css('display', 'none')
-	    $('.schedule .more .moredown').css('display', '')
-	    
-	    
-	  } else if($(this).text() == '펼치기') {
-	    $(this).css('display', 'none')
-      $('.moreup').css('display', '')
-	  }
-	  
+	 $(this).children('.fa').toggleClass( 'fa-angle-down', 'fa-angle-up')
+	if ($(this).attr('value') == 1) 
 	  $(this).parent().parent().children('table').slideToggle()
-	  
-	} else if($(this).attr('value') == 2) {
-	  $(this).text('펼치기')
-	  $(this).children('.updown').removeClass('fa-angle-up').addClass('fa-angle-down')
+	 else if($(this).attr('value') == 2) 
 		$(this).parent().parent().children('#map').slideToggle()
-	} else if($(this).attr('value') == 3) {
-	  $(this).text('접기')
-	  $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
-		$(this).parent().parent().children('#rev-form').slideToggle()
-	}
+	 else if($(this).attr('value') == 3) ;
+		$(this).parent().parent().children('#r-r-table').slideToggle()
 })
 
 var swiper = new Swiper('.swiper-container', {
@@ -336,3 +333,25 @@ var swiper = new Swiper('.swiper-container', {
 		  location.href = '../promotion/promotionDetail.html?no='+$(this).attr('value')
 	  }) 
   }
+  
+  function reviewBtn() {
+		$('.rev-delete').click(function() {
+			getData('/review/delete.json', $(this).attr('data-review'), '')
+		})
+	}
+  
+  Handlebars.registerHelper('isScore', function(score ,options) {
+	  var empty = 5
+	  var str = ''
+	  empty -= score
+	  for(var i = 1; i <= score; i++) 
+		  str += "<i class='fa fa-star' aria-hidden='true'></i>"
+    if (score % score != 0) {
+      str += "<i class='fa fa-star-half-o' aria-hidden='true'></i>"
+    }
+    if (empty != 0) {
+    	for (var i = 1; i <= empty; i++) 
+    		str += "<i class='fa fa-star-o' aria-hidden='true'></i>"
+    }
+    return (options.fn(this)+str)
+  });

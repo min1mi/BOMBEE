@@ -18,5 +18,5 @@ public interface ReviewService {
   void update(Review review) throws Exception;
   void delete(int no) throws Exception;
   void reviewUpdate(int no) throws Exception;
-  
+  List<Review> canReviewList(int no, int day) throws Exception;
 }

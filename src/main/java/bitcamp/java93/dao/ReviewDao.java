@@ -13,4 +13,5 @@ public interface ReviewDao {
   int update(int no);
   void delete(int no);
   void reviewUpdate(int no);
+  List<Review> canReviewList(int no, int day);
 }

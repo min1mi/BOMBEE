@@ -1,6 +1,5 @@
 package bitcamp.java93.domain;
 
-import java.util.List;
 
 public class Review{
   
@@ -16,6 +15,8 @@ public class Review{
   String edt;
   double avg;
   boolean writerev;
+  String proTitle;
+  String date;
   public int getReviewno() {
     return reviewno;
   }
@@ -88,11 +89,22 @@ public class Review{
   public void setWriterev(boolean writerev) {
     this.writerev = writerev;
   }
+  public String getProTitle() {
+    return proTitle;
+  }
+  public void setProTitle(String proTitle) {
+    this.proTitle = proTitle;
+  }
+  public String getDate() {
+    return date;
+  }
+  public void setDate(String date) {
+    this.date = date;
+  }
   @Override
   public String toString() {
     return "Review [reviewno=" + reviewno + ", trano=" + trano + ", score=" + score + ", review=" + review + ", mno="
         + mno + ", name=" + name + ", tno=" + tno + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", avg=" + avg
-        + ", writerev=" + writerev + "]";
+        + ", writerev=" + writerev + ", proTitle=" + proTitle + ", date=" + date + "]";
   }
-  
 }
