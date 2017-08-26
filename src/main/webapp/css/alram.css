@@ -8,7 +8,7 @@
   }
   .smile-size {
     height: 55.7px;
-
+    font-size: 5.5rem;
   }
   .alram-img-size {
     height: 55.7px;
@@ -27,7 +27,7 @@
   }
   .smile-size {
     height: 64.7px;
-    line-height: 1.05;
+    font-size: 6.2rem;
   }
   .alram-img-size {
     height: 64.7px;
@@ -46,6 +46,7 @@
   }
   .smile-size {
     height: 71.7px;
+    font-size: 7rem;
   }
   .alram-img-size {
     height: 71.7px;
@@ -74,7 +75,6 @@
   border: 1px solid #aaa;
   border-radius: 50%;
   overflow: hidden;
-  font-size: 5rem;
   text-align: center;
 }
 
