@@ -1,5 +1,8 @@
 package bitcamp.java93.control.json;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,8 +54,10 @@ public class ReviewControl {
   
   @RequestMapping("canReviewList")
   public JsonResult canReviewList(int no, int day) throws Exception {
-    reviewService.canReviewList(no, day);// no가 mno day가 tno
-      return new JsonResult(JsonResult.SUCCESS, "OK");
+    // no가 mno day가 tno
+    HashMap<String, List<Review>> map = new HashMap<String, List<Review>>();
+    map.put("list", reviewService.canReviewList(no, day));
+      return new JsonResult(JsonResult.SUCCESS, map);
   } 
 
 

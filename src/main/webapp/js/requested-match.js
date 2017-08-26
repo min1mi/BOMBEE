@@ -109,10 +109,9 @@ function ajaxNode(no, othername, mymno, kinds){
 			mymno = -1
 			othermno = -1
 			console.log(result)
-			if(count == -1) 
-				location.reload()
-			else 
+			if(count != -1) 
 				count = 1
+			location.reload()
 		}
 	})
 }

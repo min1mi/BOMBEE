@@ -1,14 +1,13 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.ReviewDao;
-import bitcamp.java93.domain.Friend;
 import bitcamp.java93.domain.Review;
-import bitcamp.java93.domain.Trainer;
 import bitcamp.java93.service.ReviewService;
 
 @Service
@@ -45,7 +44,12 @@ public  class ReviewServiceImpl implements ReviewService {
 
   @Override
   public List<Review> canReviewList(int no, int day) throws Exception {
-    return reviewDao.canReviewList(no, day);
+    System.out.println("서비스임플"+no );
+    System.out.println("서비스임플"+day );
+    HashMap<String, Integer> dataMap = new HashMap<String, Integer>();
+    dataMap.put("mno", no);
+    dataMap.put("tno", day);
+    return reviewDao.canReviewList(dataMap);
   }
 
 }

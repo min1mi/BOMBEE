@@ -20,15 +20,16 @@
     <result column="edt" property="edt"/>
     <result column="avg" property="avg"/>
     <result column="writerev" property="writerev"/>
-    <result column="proTitle" property="protitl"/>
+    <result column="protitl" property="title"/>
     <result column="date" property="date"/>
+    <result column="pimg" property="titlePic"/>
   </resultMap>
 
 
 <insert id="insert" parameterType="review" 
           useGeneratedKeys="true" keyColumn="reviewno" keyProperty="reviewno">
     insert into tcher_review(score, trano, review, pno, protitl, date) 
-    values(#{score}, #{trano}, #{review}, #{pno}, #{protitle}, now())
+    values(#{score}, #{trano}, #{review}, #{pno}, #{title}, now())
   </insert>
   
 
@@ -51,9 +52,12 @@
        where tt.tno=#{tno}
   </select>
     
-    <select id="canReviewList" resultMap="reviewMap" parameterType="int">
-      select * from tcher_trainer
-      where writerev = 0 and mno = #{no} and tno = #{day}
+    <select id="canReviewList" resultMap="reviewMap" parameterType="map">
+      select tt.*, pi.pimg, p.titl as protitl
+      from tcher_trainer tt
+      inner join promotion p on tt.pno = p.pno
+      inner join promotionimg pi on p.pno = pi.pno
+      where tt.writerev = 0 and tt.mno = #{mno} and tt.tno = #{tno} and pi.titlePic = 1
     </select>
     
   <update id="update" parameterType="int">

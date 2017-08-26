@@ -15,8 +15,9 @@ public class Review{
   String edt;
   double avg;
   boolean writerev;
-  String proTitle;
+  String title;
   String date;
+  String titlePic;
   public int getReviewno() {
     return reviewno;
   }
@@ -89,11 +90,11 @@ public class Review{
   public void setWriterev(boolean writerev) {
     this.writerev = writerev;
   }
-  public String getProTitle() {
-    return proTitle;
+  public String getTitle() {
+    return title;
   }
-  public void setProTitle(String proTitle) {
-    this.proTitle = proTitle;
+  public void setTitle(String title) {
+    this.title = title;
   }
   public String getDate() {
     return date;
@@ -101,10 +102,18 @@ public class Review{
   public void setDate(String date) {
     this.date = date;
   }
+  public String getTitlePic() {
+    return titlePic;
+  }
+  public void setTitlePic(String titlePic) {
+    this.titlePic = titlePic;
+  }
   @Override
   public String toString() {
     return "Review [reviewno=" + reviewno + ", trano=" + trano + ", score=" + score + ", review=" + review + ", mno="
         + mno + ", name=" + name + ", tno=" + tno + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", avg=" + avg
-        + ", writerev=" + writerev + ", proTitle=" + proTitle + ", date=" + date + "]";
+        + ", writerev=" + writerev + ", title=" + title + ", date=" + date + ", titlePic=" + titlePic + "]";
   }
+  
+  
 }

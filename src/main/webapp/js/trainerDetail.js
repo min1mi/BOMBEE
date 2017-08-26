@@ -11,11 +11,14 @@ var realpic
 var wishtime
 var mno = -1
 var tno = parseInt(location.href.split('=')[1])
-var pno
+var pno = null
+var trano = null
+var protitle
 var startDate,
 startDay,
 period,
-time
+time,
+fiScore // 별 스코어
 var tname = -1
 var othermno = -1
 var mname = -1
@@ -23,6 +26,7 @@ var membertype = -1
 var othername =-1
 var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
 var myDeleteBtn = -1
+var backscreenType = 0
 function mapCreate() {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
@@ -65,9 +69,50 @@ $(document).ready(function() {
 	      minDate: 0
 	    });
 	
-	
-    $( "#accordion" ).accordion();
+	/* 1. Visualizing things on Hover - See next part for action on click */
+	  $('#stars li').on('mouseover', function(){
+	    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+	   
+	    // Now highlight all the stars that's not after the current hovered star
+	    $(this).parent().children('li.star').each(function(e){
+	      if (e < onStar) {
+	        $(this).addClass('hover');
+	      }
+	      else {
+	        $(this).removeClass('hover');
+	      }
+	    });
+	    
+	  }).on('mouseout', function(){
+	    $(this).parent().children('li.star').each(function(e){
+	      $(this).removeClass('hover');
+	    });
+	  });
+	  
+	  
+	  /* 2. Action to perform on click */
+	  $('#stars li').on('click', function(){
+	    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+	    var stars = $(this).parent().children('li.star');
+	    
+	    for (i = 0; i < stars.length; i++) {
+	      $(stars[i]).removeClass('selected');
+	    }
+	    
+	    for (i = 0; i < onStar; i++) {
+	      $(stars[i]).addClass('selected');
+	    }
+	    
+	    // JUST RESPONSE (Not needed)
+	    fiScore = parseInt($('#stars li.selected').last().data('value'), 10);
+	    
+	    return fiScore;
+	    
+	  });
+	  
+	  ///////////////////////E
 })
+
 getData('/auth/userinfo.json', mno, '')
 no = location.href.split('?')[1].split('=')[1]
 getDatas(json, no, 'trainer-info-template', 'trainer-info-container')
@@ -75,7 +120,6 @@ getDatas('/schedule/detail.json', no, '', '')
 getDatas('/review/detail2.json', no, 'review-template', 'r-r-inner')
 getDatas('/promotion/promotionTitlePicList.json', no, 'promotionTitle-template', 'img-container')
 function getDatas(json, no, template, containers) {
-	console.log(template)
 	$.getJSON(json, {no}, function(result) {
 		console.log(result)
 		if(template != '' && containers != '') {
@@ -140,17 +184,32 @@ function getData(json, no, day) {
           othername = result.data.name
       	  mname = result.data.name
       	  membertype = result.data.membertype
-          console.log(mno)
-          getData('/promotion/promotion.json', tno, '')
-          console.log(mno,tno)
-          getData('/review/canReviewList.json', mno, tno)
+      	  getData('/review/canReviewList.json', mno, tno)
         }
-      } else if (json == '/promotion/promotion.json') {
-        console.log(result.data.list)
+      } else if (json == '/promotion/promotion.json' || json == '/review/canReviewList.json') {
+    	  for(var i = 0; i < result.data.list.length; i++) {
+    		  if(undefined ==result.data.list[i].trano)
+    			  result.data.list[i].trano = null
+    	  }
+    	  var cont
+    	  if(json == '/promotion/promotion.json')
+    		  cont = '.promotion-container'
+    	  else if (json == '/review/canReviewList.json') {
+    		  if(result.data.list.length != 0) {
+    			  cont = '.select-promotion-container'
+    			 $('.button').addClass('button1')
+    			 $('.button1').removeClass('button')
+    			 $('.pro-review-Btn').css('display', '')
+    		  }else if(result.data.list.length == 0) {
+    			  ;
+    		  }
+    	  }
+    	console.log(cont)
+        console.log(result.data)
         var data = result.data
         var templateFn = Handlebars.compile($('#match-template').text())
         var generatedHTML = templateFn(result.data)
-        var container = $('.promotion-container')
+        var container = $(cont)
         container.html('')
         container.html(generatedHTML)
         
@@ -186,21 +245,25 @@ function getData(json, no, day) {
       $('.promotion-list').css('border', '')
       $(this).css('border', '2px solid #f7ac1a')
       pno = $(this).attr('data-pno')
-      console.log(pno)
+      if(backscreenType == 2) {
+    	  protitle = $(this).children('.promotion-name').text()
+    	  trano = $(this).attr('data-trano')
+      }
     })
   }
   
   var matchingContainer = $('.matching-container'),
-    backscreen = $('.backscreen');
+    backscreen = $('.backscreen'),
+    reviewSelect = $('.review-select-container'),
+    reviewWriteCon = $('.review-write-container')
+    
+    
 
   $('.matchingBtn').on('click', function() {
 	  	startDate = $('.dateStart').val().split(' ')[0]
 	  	startDay = $('.dateStart').val().split(' ')[1]
         period = $('.period').val().split('개월')[0]
     if(tno == null || pno == null || startDate == null || period == null || startDay == null || wishtime == undefined || mno == -1) {
-    	console.log('값을 못넣음')
-    	console.log(no)
-    	console.log(no ,tno, pno, startDate, period, startDay, wishtime)
     	swal({
 		    title:"필수 입력란이 비었습니다.",
 		    type: "warning",
@@ -209,26 +272,60 @@ function getData(json, no, day) {
 		    timer: 1500
 	  	  }
 		);
-    }else {
-    console.log("json 요청")
-    console.log(mno)
-    console.log(mno ,tno, pno, startDate, period, startDay, wishtime)
+    }else 
     insertTcher_trainer('/friend/addReq.json',mno,tno, pno, startDate, period, wishtime)
-    }
   })
   
+  $('.reviewWrite').on('click', function() {
+  if(trano == null ) {
+  	swal({
+		    title:"개인트레이너 프로모션을 선택하세요",
+		    type: "warning",
+		    animation: false,
+		    showConfirmButton:false,
+		    timer: 1500
+	  	  }
+		);
+  }else {
+	  if(reviewWriteCon.attr('data-open') == 'close') {
+		  reviewSelect.hide()
+		  reviewWriteCon.show()
+		  reviewWriteCon.attr('data-open', 'open')
+		  $('.review-text-container').focus()
+	  }
+  }
+//  insertTcher_trainer('/friend/addReq.json',mno,tno, pno, startDate, period, wishtime)
+})
+
+
+$('.reviewAdd').on('click', function() {
+	console.log($('.review-text-container').val())
+    $.post('/review/add.json', {
+      'score' : fiScore,
+      'review': $('.review-text-container').val(),
+      'trano': trano,
+      'title':protitle,
+      'pno':pno
+    }, function(result) {
+    	$.post('/review/boolean.json', {
+    		'trano' : trano
+    	},function(result) {
+    	    location.reload()
+    	    }, 'json')
+    }, 'json')
+  
+})
+
+
+
   $('.pro-friend-Btn').on('click', function() {
+	  getData('/promotion/promotion.json', tno, 1)
     if (matchingContainer.attr('data-open') == 'close') {
       backscreen.show()
+      backscreenType = 1
       matchingContainer.show()
       matchingContainer.attr('data-open', 'open')
     }
-    
-    backscreen.on('click', function() {
-      backscreen.hide()
-      matchingContainer.hide()
-      matchingContainer.attr('data-open', 'close')
-    })
   })
   
     $('.matchBtn').on('click', function() {
@@ -237,13 +334,25 @@ function getData(json, no, day) {
       matchingContainer.show()
       matchingContainer.attr('data-open', 'open')
     }
-    
-    backscreen.on('click', function() {
-      backscreen.hide()
-      matchingContainer.hide()
-      matchingContainer.attr('data-open', 'close')
-    })
   })
+  
+  backscreen.on('click', function() {
+	  backscreen.hide()
+		  if(backscreenType == 2) {
+			  reviewSelect.hide()
+			  reviewSelect.attr('data-open', 'close')
+			  reviewWriteCon.hide()
+			  reviewWriteCon.attr('data-open', 'close')
+		  }else if(backscreenType == 1) {
+			  matchingContainer.hide()
+			  matchingContainer.attr('data-open', 'close')
+		  }
+		  
+		  backscreenType == 0
+		  pno = null
+		  protitle = null
+		  trano = null
+	  })
   
   $('.dateStart').change(function () {
 	  $('.times').css('display','none')
@@ -272,7 +381,7 @@ function getData(json, no, day) {
 	  }, function(result) {
 		  if(othername != -1 && mymno != -1 && othermno != -1) 
 			  ajaxNode(1, othername, mymno, "친구요청", othermno)
-	    window.history.go(-1)
+	    location.reload()
 		  
 	  })
   }
@@ -346,12 +455,21 @@ var swiper = new Swiper('.swiper-container', {
 	  empty -= score
 	  for(var i = 1; i <= score; i++) 
 		  str += "<i class='fa fa-star' aria-hidden='true'></i>"
-    if (score % score != 0) {
-      str += "<i class='fa fa-star-half-o' aria-hidden='true'></i>"
-    }
     if (empty != 0) {
     	for (var i = 1; i <= empty; i++) 
     		str += "<i class='fa fa-star-o' aria-hidden='true'></i>"
     }
     return (options.fn(this)+str)
   });
+  
+
+  $('.pro-review-Btn').click(function() {
+	  getData('/review/canReviewList.json', mno, tno)
+	  if (reviewSelect.attr('data-open') == 'close') {
+		  backscreenType = 2
+		  backscreen.show()
+		  reviewSelect.show()
+		  reviewSelect.attr('data-open', 'open')
+	  }
+  })
+  

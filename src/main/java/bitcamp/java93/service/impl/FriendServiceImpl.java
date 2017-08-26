@@ -47,7 +47,7 @@ public Friend get3(Friend friend) throws Exception {
     for (int i = 0; i < arr.size(); i++) {
       if(arr.get(i).getPm().equals("PM"))
         arr.get(i).setPm("오후");
-      else if(arr.get(i).getPm().equals("PM"))
+      else if(arr.get(i).getPm().equals("AM"))
         arr.get(i).setPm("오전");
     }
     return arr;
@@ -73,7 +73,7 @@ public Friend get3(Friend friend) throws Exception {
     for (int i = 0; i < arr.size(); i++) {
       if(arr.get(i).getPm().equals("PM"))
         arr.get(i).setPm("오후");
-      else if(arr.get(i).getPm().equals("PM"))
+      else if(arr.get(i).getPm().equals("AM"))
         arr.get(i).setPm("오전");
     }
     return arr;

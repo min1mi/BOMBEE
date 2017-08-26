@@ -1,5 +1,6 @@
 package bitcamp.java93.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import bitcamp.java93.domain.Review;
@@ -13,5 +14,5 @@ public interface ReviewDao {
   int update(int no);
   void delete(int no);
   void reviewUpdate(int no);
-  List<Review> canReviewList(int no, int day);
+  List<Review> canReviewList(HashMap<String, Integer> dataMap);
 }

@@ -39,9 +39,9 @@
   </insert>
 
 <insert id="addReq" parameterType="friend">
-          insert into tcher_trainer(mno, tno, pno, sdt, edt, period, reqdate, wishtime, confirm)
+          insert into tcher_trainer(mno, tno, pno, sdt, edt, period, reqdate, wishtime, confirm, writerev)
           values(#{mno}, #{tno}, #{pno}, #{sdt}, date_add(#{sdt}, interval 30 day),
-          #{period}, now(), #{wishtime}, 0)
+          #{period}, now(), #{wishtime}, 0, 0)
   </insert>
 
 

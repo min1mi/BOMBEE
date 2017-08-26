@@ -1,11 +1,14 @@
 
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-  .matching-container {
+  .matching-container, .review-select-container, .review-write-container {
     margin-top: 30%;
   }
-  .promotion-container {
+  .promotion-container, .select-promotion-container {
     height: 210px;
+  }
+  .review-text-container {
+    height: 170px;
   }
   .period {
     height: 24px;
@@ -16,17 +19,30 @@
   .promotion-startDate, .promotion-endDate {
     font-size: 1.1rem;
   }
+  .r-score i {
+  margin: 0 1px;
+  font-size: 1.37rem;
+  color: #f7ac1a;
+  }
+  
+  .r-score-number {
+    width: 3%;
+    font-size: 1.5rem;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
-  .matching-container {
+ .matching-container, .review-select-container, .review-write-container {
     margin-top: 26%;
   }
   .dateStart {
     height: 32px;
   }
-  .promotion-container {
+   .promotion-container, .select-promotion-container {
     height: 250px;
+  }
+  .review-text-container {
+    height: 210px;
   }
   .period {
     height: 31.5px;
@@ -37,18 +53,31 @@
   .promotion-startDate, .promotion-endDate {
     font-size: 1.1rem;
   }
+  .r-score i {
+  margin: 0 1px;
+  font-size: 1.6rem;
+  color: #f7ac1a;
+  }
+  
+  .r-score-number {
+    width: 3%;
+    font-size: 1.75rem;
+  }
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
-  .matching-container {
+ .matching-container, .review-select-container, .review-write-container {
     margin-top: 24%;
   }
   .dateStart {
     height: 34px;
   }
-  .promotion-container {
+   .promotion-container, .select-promotion-container {
     height: 290px;
   }
+   .review-text-container {
+    height:250px;
+   }
   .period {
     height: 34px;
   }
@@ -57,6 +86,17 @@
   }
   .promotion-startDate, .promotion-endDate {
     font-size: 1.2rem;
+  }
+  
+  .r-score i {
+  margin: 0 1px;
+  font-size: 1.8rem;
+  color: #f7ac1a;
+  }
+  
+  .r-score-number {
+  width : 3%;
+  font-size : 2rem;
   }
 }
 
@@ -70,6 +110,37 @@
   overflow: hidden;
   position: relative;
 }
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+/* 별설정*/
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:2.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+/* 별설정 여기 까지*/
 .trainer-profile-image {
   position: absolute;
   width: 100%;
@@ -143,40 +214,28 @@
 	width: 100%;
 }
 
-.pro-friend-Btn {
-  width: 23%;
+.button  {
+  width: 41%;
   margin:2% 4%;
   color: #fff;
   cursor: pointer;
   height: 40px;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
   background: #f7ac1a;
   border-radius: 25px;
   transition: background 0.4s ease;
 }
-.pro-chatting-Btn {
-  width: 23%;
+
+.button1  {
+  width: 24%;
   margin:2% 4%;
   color: #fff;
   cursor: pointer;
   height: 40px;
   border: none;
-  font-size: 1.8rem;
-  font-weight: 500;
-  background: #f7ac1a;
-  border-radius: 25px;
-  transition: background 0.4s ease;
-}
-.pro-review-Btn {
-  width: 23%;
-  margin:2% 4%;
-  color: #fff;
-  cursor: pointer;
-  height: 40px;
-  border: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
   background: #f7ac1a;
   border-radius: 25px;
@@ -208,7 +267,7 @@
 .matchBtn {
   border: 1px solid red;
 }
-.matching-container {
+ .matching-container, .review-select-container, .review-write-container {
   display: none;
   position: absolute;
   background-color: #f3f3f3;
@@ -232,7 +291,7 @@
   top: 20%;
 }
 
-.promotion-container {
+   .promotion-container, .select-promotion-container, .review-text-container {
   background-color: white;
   overflow-x:hidden;
   overflow-y:auto;
@@ -241,6 +300,10 @@
   border-radius: 10px;
 }
 
+.review-text-container {
+	resize :none;
+	outline:none;
+}
 .promotion-list {
   position: relative;
   border-top: 1px solid silver;
@@ -288,6 +351,15 @@
   margin-bottom: 4%;
 }
 .matchingBtn {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: #f7ac1a;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.btn{
   width: 100%;
   font-size: 1.6rem;
   font-weight: bold;
@@ -361,6 +433,15 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 15;
 }
+.backscreen1 {
+  position: absolute;
+  top: 0;
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 15;
+}
 .ok {
   background-color: #eddfba;
 }
@@ -403,10 +484,7 @@ td {
   border-radius: 5px;
   position:relative;
 }
-.r-score-number {
-  width : 3%;
-  font-size : 2rem;
-}
+
 .r-score {
   display : inline-block;
   width : 26%;
@@ -424,11 +502,7 @@ td {
 	margin: 0 2%;
    font-size: 1.5rem;
 }
-.r-score i {
-	margin: 0 1px;
-	font-size: 1.8rem;
-	color: #f7ac1a;
-}
+
 .rev-delete {
     display: inline-block;
     width: 100%;
