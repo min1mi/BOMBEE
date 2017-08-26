@@ -298,15 +298,14 @@ function getData(json, no, day) {
   
 $('.more').click(function() {
 	if ($(this).attr('value') == 1) {
-	  if($(this).text() == '접기') {
-	    $(this).text('펼치기')
-	    $(this).children('.up').css('display', 'none')
-	    $(this).children('.down').css('display', '')
+	  if($(this).attr('class') == 'moreup') {
+	    $(this).css('display', 'none')
+	    $('.schedule .more .moredown').css('display', '')
 	    
 	    
-	  } else if($(this).text('펼치기')) {
-//	    $(this).text('접기')
-//	    $(this).children('.updown').removeClass('fa-angle-down').addClass('fa-angle-up')
+	  } else if($(this).text() == '펼치기') {
+	    $(this).css('display', 'none')
+      $('.moreup').css('display', '')
 	  }
 	  
 	  $(this).parent().parent().children('table').slideToggle()
