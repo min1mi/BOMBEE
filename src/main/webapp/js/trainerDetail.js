@@ -21,8 +21,7 @@ var mymno = -1
 var mname = -1
 var membertype = -1
 var othername =-1
-var othermno = -1
-var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
+var othermno = location.href.split('?')[1].split('=')[1].split('#')[0]
 function mapCreate() {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
@@ -92,6 +91,7 @@ function getDatas(json, no, template, containers) {
 	    	console.log(result)
 	    	tno = result.data.no
 			tname = result.data.name
+			othername = result.data.name
 			tpic = result.data.tcherpic
 			geocoder.addressSearch(result.data.comaddr, callback);
 			switch (result.data.spono){
@@ -111,7 +111,6 @@ function getDatas(json, no, template, containers) {
 				console.log("선택하세요")
 			}
 	    }else if(json == '/schedule/detail.json') {
-	    	console.log("-000000")
 	    	var bookNo = result.data.weeklist.day+result.data.weeklist.time,
 	    	weeklist = result.data.weeklist
 	    	for (var week of weeklist) {
@@ -133,8 +132,6 @@ function getData(json, no, day) {
       if (json == '/auth/userinfo.json') {
         if (result.data.membertype == 1) {
           mno = result.data.no
-          othername = result.data.name
-          othermno = result.data.no
           mymno = result.data.no
       	  mname = result.data.name
       	  membertype = result.data.membertype
