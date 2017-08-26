@@ -1,5 +1,5 @@
 $(function() {
-  $('.header').load('../menu/new.html')
+  $('.header').load('../main/header.html')
 })
 var json = '/auth/userinfo.json'
 var no = -1

@@ -11,7 +11,7 @@ try {
 
 // 헤더 로딩
 $(document).ready(function() {
-  $('.header').load('../menu/new.html')
+  $('.header').load('../main/header.html')
 })
 
 // 트레이너 상세 페이지 이동

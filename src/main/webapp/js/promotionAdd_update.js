@@ -6,7 +6,7 @@ $(function() {
 		dateFormat: "yy-mm-dd",
 		buttonText: "달력"
 	});
-	$('.header').load('../menu/new.html')
+	$('.header').load('../main/header.html')
 	$('.projectAdd-textArea').css('height', textHeight+'px');
 
 	var textHeight = screen.availHeight-355-100;

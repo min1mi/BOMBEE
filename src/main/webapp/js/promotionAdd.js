@@ -7,7 +7,7 @@ $(function() {
     buttonText: "달력",
     minDate: 0
   });
-  $('.header').load('../menu/new.html')
+  $('.header').load('../main/header.html')
   $('.projectAdd-textArea').css('height', textHeight+'px');
 
   var textHeight = screen.availHeight-355-100;
