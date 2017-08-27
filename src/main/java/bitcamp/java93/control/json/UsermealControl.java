@@ -53,8 +53,7 @@ public class UsermealControl {
 //    Thumbnails.of(file).size(190, 140).outputFormat("png").toFile(thumbnailfile);
 //    
 //    
-//    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_340"));
-//    Thumbnails.of(file).size(340, 310).outputFormat("png").toFile(thumbnailfile);
+
 //    // 아이폰6+
 //    //////////
 //    
@@ -62,16 +61,14 @@ public class UsermealControl {
 //    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_170"));
 //    Thumbnails.of(file).size(170, 120).outputFormat("png").toFile(thumbnailfile);
 //    
-//    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_310"));
-//    Thumbnails.of(file).size(310, 300).outputFormat("png").toFile(thumbnailfile);
+
 //    /// 아이폰6
 //    
 //    //
 //    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_146"));
 //    Thumbnails.of(file).size(146, 121).outputFormat("png").toFile(thumbnailfile);
 //    
-//    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_263"));
-//    Thumbnails.of(file).size(263, 235).outputFormat("png").toFile(thumbnailfile);
+
 //    // 아이폰5
 //    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_350"));
 //    Thumbnails.of(file).size(350, 350).outputFormat("png").toFile(thumbnailfile);
@@ -82,17 +79,27 @@ public class UsermealControl {
       ////////
       thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_190"));
       Thumbnails.of(file).size(190, 140).outputFormat("png").toFile(thumbnailfile);
+      
+      thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_340"));
+      Thumbnails.of(file).size(340, 310).outputFormat("png").toFile(thumbnailfile);
       // 아이폰6+
       //////////
       
       ///
       thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_170"));
       Thumbnails.of(file).size(170, 120).outputFormat("png").toFile(thumbnailfile);
+      
+      thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_310"));
+      Thumbnails.of(file).size(310, 300).outputFormat("png").toFile(thumbnailfile);
       /// 아이폰6
       
       //
       thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_146"));
       Thumbnails.of(file).size(146, 121).outputFormat("png").toFile(thumbnailfile);
+      
+      
+      thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_263"));
+      Thumbnails.of(file).size(263, 235).outputFormat("png").toFile(thumbnailfile);
       
       // 아이폰5
 
@@ -119,19 +126,27 @@ public class UsermealControl {
     ////////
     thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_190"));
     Thumbnails.of(file).size(190, 140).outputFormat("png").toFile(thumbnailfile);
+    
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_340"));
+    Thumbnails.of(file).size(340, 310).outputFormat("png").toFile(thumbnailfile);
     // 아이폰6+
     //////////
     
     ///
     thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_170"));
     Thumbnails.of(file).size(170, 120).outputFormat("png").toFile(thumbnailfile);
+    
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_310"));
+    Thumbnails.of(file).size(310, 300).outputFormat("png").toFile(thumbnailfile);
     /// 아이폰6
     
     //
     thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_146"));
     Thumbnails.of(file).size(146, 121).outputFormat("png").toFile(thumbnailfile);
     
-    // 아이폰5
+    
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_263"));
+    Thumbnails.of(file).size(263, 235).outputFormat("png").toFile(thumbnailfile);
 
     System.out.println(usermeal);
     usermealService.update(usermeal);

@@ -291,7 +291,7 @@ input:focus {
 }
 
 .tab-slider--body img {
-  width: 150%;
+  width: 100%;
   position: absolute;
   left: 50%;
   top: 50%;

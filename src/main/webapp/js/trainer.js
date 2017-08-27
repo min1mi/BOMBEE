@@ -223,8 +223,15 @@ function inputMeal() {
     today = $(this).parent().attr('id')
     mealtype = $(this).children('.meal-type').text()
     mealno = $(this).attr('value')
-
-    $("<img>").attr('src', $(this).children('.img-fix').children().attr('src')).addClass("img-size").appendTo($('#updatefiles'));
+    
+    var split = $("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_')[2]) //원본을 위해만든 개잔머리
+    var phone = split.attr('src').split('.')[0]
+	if(phone == '190')
+		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_'+split.attr('src'))[0]+'_340.png').addClass("img-size").appendTo($('#updatefiles'));
+	else if (phone == '170')
+		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_'+split.attr('src'))[0]+'_310.png').addClass("img-size").appendTo($('#updatefiles'));
+	else if(phone == '146')
+		$("<img>").attr('src', $(this).children('.img-fix').children().attr('src').split('_'+split.attr('src'))[0]+'_263.png').addClass("img-size").appendTo($('#updatefiles'));
     $('.comfirm-food-name').val($(this).children('.meal-name').text())
     $('.comfirm-food-kcal').val($(this).children('.meal-kcal').attr('value'))
 
