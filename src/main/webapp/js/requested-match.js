@@ -36,6 +36,9 @@ function getData(json, no) {
       container.html("")
       container.html(generatedHTML)
 
+      if(result.data == 0)
+        $('.no-alram').css('display', '')
+        
       btnConnect()
     } else if (json == '/friend/friendDelete.json') {
       console.log(result)
@@ -56,9 +59,6 @@ function btnConnect() {
 	count = 1
     trano = $(this).attr('data-trano')
     mymno = $(this).attr('data-mno')
-    console.log(trano)
-    console.log(mymno)
-    console.log(othername)
     swal({
     	  title: "Are you sure?",
     	  text: "Refuse friend request will you do it?",

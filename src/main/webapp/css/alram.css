@@ -16,6 +16,16 @@
   .alram-content {
 		height: 50px;
 	}
+	.no-alram {
+		width: 67%;
+	}
+	.no-alram-size {
+		font-size: 2.5rem;
+	}
+	.no-alram-cont {
+		font-size: 1.5rem;
+		margin-top: 1%;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -35,6 +45,16 @@
   .alram-content {
 		height: 56px;
 	}
+	.no-alram {
+		width: 64%;
+	}
+	.no-alram-size {
+		font-size: 2.6rem;
+	}
+	.no-alram-cont {
+		font-size: 1.7rem;
+		margin-top: 1%;
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
@@ -53,6 +73,16 @@
   }
   .alram-content {
 		height: 60px;
+	}
+	.no-alram {
+		width: 62%;
+	}
+	.no-alram-size {
+		font-size: 3rem;
+	}
+	.no-alram-cont {
+		font-size: 1.8rem;
+		margin-top: 2%;
 	}
 }
 
@@ -149,8 +179,18 @@
   bottom: 9%;
   left: 40%;
 }
-
-
+.no-alram {
+	color: #777;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.no-alram-cont {
+	float: right;
+  display: inline-block;
+}
 
 
 

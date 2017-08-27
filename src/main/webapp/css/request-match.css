@@ -1,8 +1,5 @@
 /*iphone5*/
 @media (min-device-width: 320px) and (max-device-width: 374px) {
-	html {
-		font-size: 8px;
-	}
   .request-list {
     height: 55px;
   }
@@ -16,6 +13,16 @@
   .trainer-img-size {
     height: 41.7px;
   }
+	.no-alram {
+		width: 84%;
+	}
+	.no-alram-size {
+		font-size: 2.5rem;
+	}
+	.no-alram-cont {
+		font-size: 1.5rem;
+		margin-top: 0.5%;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -32,6 +39,16 @@
   .trainer-img-size {
     height: 48.7px;
   }
+	.no-alram {
+		width: 80%;
+	}
+	.no-alram-size {
+		font-size: 2.6rem;
+	}
+	.no-alram-cont {
+		font-size: 1.7rem;
+		margin-top: .5%;
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
@@ -47,6 +64,16 @@
   .trainer-img-size {
     height: 53.7px;
   }
+	.no-alram {
+		width: 77%;
+	}
+	.no-alram-size {
+		font-size: 3rem;
+	}
+	.no-alram-cont {
+		font-size: 1.8rem;
+		margin-top: 2%;
+	}
 }
 
 .trainer-img-size {
@@ -161,7 +188,18 @@
   font-size: 1.5rem;
   padding: 0;
 }
-
+.no-alram {
+	color: #777;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.no-alram-cont {
+	float: right;
+  display: inline-block;
+}
 
 
 

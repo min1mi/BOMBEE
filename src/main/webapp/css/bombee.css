@@ -31,6 +31,9 @@
 	.header-menu-ul .header-font-size {
 	font-size: 2.8rem;
 	}
+	.header-profile {
+		height: 90px;
+	}
 }
 
 /*iphone6*/
@@ -64,6 +67,9 @@
 	}
 	.header-menu-ul .header-font-size {
 		font-size: 3.2rem;
+	}
+	.header-profile {
+		height: 117.5px;
 	}
 }
 

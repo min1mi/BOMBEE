@@ -38,6 +38,9 @@ function getData(json, no) {
       container.html("")
       container.html(generatedHTML)
 
+      if(result.data == 0)
+        $('.no-alram').css('display', '')
+        
       btnConnect()
     } else if (json == '/friend/friendDelete.json') {
       console.log(result)
