@@ -3,6 +3,12 @@
   .list {
 		height: 139px;
 	}
+ .review-write-container {
+    margin-top: 30%;
+  }
+  .review-text-container {
+    height: 170px;
+  }
 	.endDate {
   	left: 66.5%;
 	}
@@ -22,6 +28,12 @@
   .list {
 		height: 150px;
 	}
+	.review-write-container {
+    margin-top: 26%;
+  }
+  .review-text-container {
+    height: 210px;
+  }
 	.endDate {
   	left: 62.5%;
 	}
@@ -41,6 +53,12 @@
   .list {
 		height: 155px;
 	}
+	.review-write-container {
+    margin-top: 24%;
+  }
+  .review-text-container {
+    height:250px;
+   }
 	.endDate {
   	left: 62%;
 	}
@@ -74,7 +92,8 @@
 .endDate,
 .trainerName,
 .trainer,
-.mealBtn {
+.mealBtn,
+.revBtn {
   position: absolute;
   font-size: 1.5rem;
   margin-left: 1%;
@@ -107,6 +126,14 @@
 	box-shadow: 2px 2px 2px 1px;
 }
 
+.revBtn {
+	  bottom: 6.5%;
+    left: 42%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 2px 2px 2px 1px;
+}
+
 .no-tcher {
   color: #777;
   font-weight: 600;
@@ -119,10 +146,93 @@
   float: right;
   display: inline-block;
 }
+/* Rating Star Widgets Style */
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+/* 별설정*/
 
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:2.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
 
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
 
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+/* 별설정 여기 까지*/
 
+.matching {
+  /*display: none;*/
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  top: 20%;
+}
+
+.review-text-container {
+  background-color: white;
+  overflow-x:hidden;
+  overflow-y:auto;
+  width: 100%;
+  top: 0;
+  border-radius: 10px;
+  resize :none;
+  outline:none;
+}
+
+.btn-form {
+  width: 50%;
+  margin: 2% auto;
+  margin-bottom: 4%;
+}
+
+.button {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: #f7ac1a;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.backscreen {
+  position: absolute;
+  top: 0;
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 15;
+}
+
+.review-write-container {
+  display: none;
+  position: absolute;
+  background-color: #f3f3f3;
+  width: 85.5%;
+  height: auto;
+  top: 0;
+  left: 7.25%;
+  border-radius: 10px;
+  padding: 2% 2% 0 2%;
+  z-index: 20;
+}
 
 
 

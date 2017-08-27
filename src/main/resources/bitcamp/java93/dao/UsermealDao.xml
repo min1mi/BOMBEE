@@ -37,6 +37,7 @@
 		<result column="name" property="name" />
 		<result column="titl" property="promotionTitle" />
 		<result column="pimg" property="proImg" />
+		<result column="writerev" property="writerev"/>
 	</resultMap>
 
 	<select id="selectWeeklist" resultMap="usermealMap"
