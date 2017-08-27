@@ -38,7 +38,7 @@ $(document).ready(function() {
     console.log(no)
     if (login == -1) {
       $.ajax({
-        url: 'http://localhost:8888/alert/get.json',
+        url: 'https://www.bombees.com/alert/get.json',
         type: 'post',
         data:{no: no},
         dataType:'json',
