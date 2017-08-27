@@ -60,7 +60,7 @@ public class TrainerControl {
   } // service()
   
   
-  @RequestMapping("update")
+  @RequestMapping("alreadyUpdate")
   public JsonResult update(Trainer trainer, MultipartFile[] files) throws Exception {
     String newFilename = this.getNewFilename();
     File file = new File(ctx.getRealPath("/upload/" + newFilename));
@@ -83,7 +83,7 @@ public class TrainerControl {
     
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
-  @RequestMapping("update2")
+  @RequestMapping("update")
   public JsonResult update(Trainer trainer) throws Exception {
     trainerService.update(trainer);
     return new JsonResult(JsonResult.SUCCESS, "ok");

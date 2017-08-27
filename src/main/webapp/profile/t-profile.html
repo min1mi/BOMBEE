@@ -46,18 +46,23 @@
 
 <body>
 	<div class="pro-container">
-		<!--ekdma-container 맨 밖 컨테이너 -->
-		<div class="header">
-			<!-- header-form 헤더-->
-		</div>
+		<div class="header"></div>
 
-
-
-		<div class="profile-container">
-			<div class="cont-box"></div>
+		<div class="profile-container"></div>
+		<div class='save-btn'>SAVE</div>
+		<div class="cont-box1"></div>
+	</div>
+	
+	<script id="profile-template" type="text/x-handlebars-template">
+	{{#this}}
+  <div class="cont-box"></div>
 			<div class='trainer-profile'>
 				<div class='cont-profile'>
-					<img class='cont-profile-img' src='../image/header-user.png'>
+				{{#if tcherpic}}
+					<img id='box1' class='cont-profile-img' src='{{tcherpic}}'>
+				{{else}}
+					<img id='box1' class='cont-profile-img' src='../image/header-user.png'>
+				{{/if}}
 				</div>
 				<div class='cont-file'>
 					<input id="profile-files" class='profile-img' type='file'
@@ -67,95 +72,52 @@
 					<i class=' fa fa-camera'></i>
 				</div>
 			</div>
-			<div class='user-name'>홍길동</div>
+			<div class='user-name'>{{name}}</div>
 
 			<div class='cont-detail'>
-				<span class='health-name'>운동 종목 | </span>
-				<div class="pro-type">
+				<div class='detail-type bottom-line'>
+					<div class='health-name'>운동 종목</div>
+					<div class="pro-type">
 
-					<select id="pro-select" class='health-box'>
-						<option class='spono' id="spono" value="null">꼭!선택하세요</option>
-						<option class='spono' id="spono1" value="1">요가</option>
-						<option class='spono' id="spono2" value="2">헬스</option>
-						<option class='spono' id="spono3" value="3">스피닝</option>
-						<option class='spono' id="spono4" value="4">필라테스</option>
-					</select>
+						<select id="pro-select" class='health-box'>
+							<option class='spono' id="spono" value="null">꼭!선택하세요</option>
+							<option class='spono' id="spono1" value="1">요가</option>
+							<option class='spono' id="spono2" value="2">헬스</option>
+							<option class='spono' id="spono3" value="3">스피닝</option>
+							<option class='spono' id="spono4" value="4">필라테스</option>
+						</select>
+					</div>
 				</div>
-				<span class='company-name'>근무지 이름 | </span>
-				<div class='company'>울트라맨 헬스장</div>
-				<div class='address-form'>근무지 주소 </div>
-				<div class='name-zip-code'>우편 번호  |</div>
-				<div class='zip-code'>13134</div>
-				<div class='name-address'>기본 주소 : </div>
-				<div class='address'>서울시 강남구 서초동</div>
-				<div class='name-address-detail'>상세 주소 : </div>
-				<div class='address-detail'>1234번지 비트캠프 701호</div>
-				<p id="pro-dt">소개</p>
-				<textarea class="Desc introduction" rows="10" id="pro-dd">{{introduction}}</textarea>
+				<div class='detail-company-name bottom-line'>
+					<div class='company-name'>근무지 이름</div>
+					<input class='company' type='text' value='{{comname}}'>
+				</div>
+				<div class='detail-company-address bottom-line'>
+					<div class='address-form'>
+						근무지 주소 <i class="fa fa-pencil"
+							onclick="sample2_execDaumPostcode()"></i>
+					</div>
+					<div class='name-zip-code'>우편 번호</div>
+					<input class='zip-code' id="sample2_postcode" type='number'
+						value='{{zipcode}}' readonly>
+					<div class='name-address'>기본 주소</div>
+					<input class='address' id="sample2_address" type='text'
+						value='{{comaddr}}' readonly>
+					<div class='name-address-detail'>상세 주소</div>
+					<input class='address-detail' id="sample2_addressDetail"
+						type='text' value='{{comdetailaddr}}'>
+					<div id="layer">
+						<img id="btnCloseLayer" onclick="closeDaumPostcode()" alt="X">
+					</div>
+				</div>
+				<div class='detail-intro'>
+					<div class='introduce' id="pro-dt">소개</div>
+					<textarea class="Desc introduction" rows="10" id="pro-dd"
+						placeholder='소개글을 적어주세요^^'>{{introduction}}</textarea>
+				</div>
 			</div>
-		</div>
-		<div class="cont-box1"></div>
-
-
-	</div>
-
-	</div>
-	<!-- 
-<script id="profile-template" type="text/x-handlebars-template">
-  <center>
-    <div class="brand">
-      <label for="img-upload">
-      {{#if tcherpic}}
-        <img  id="box1" src="{{tcherpic}}_140.png">
-      {{^}}
-        <img  id="box1" src="../image/profile.jpg">
-      {{/if}}
-      </label>
-    </div>
-  </center>
-
-
-  <div id='updatefiles'></div>
-  <div class="cont-box">
-  </div>
-
-  <input id="already-files" class='pro-img' type="file" name='files' for="box1"/>
-      <div>
-      <input class="pro-name user name" type="text" placeholder="이름" value="{{name}}" readonly onfocus="this.blur();">
-
-
-         <div id="pro-type">
-
-           <select id="pro-select">
-                <option class='spono' id="spono" value="null">꼭!선택하세요</option>
-                <option class='spono' id="spono1" value="1" >요가</option>
-                <option class='spono' id="spono2" value="2" >헬스</option>
-                <option class='spono' id="spono3" value="3" >스피닝</option>
-                <option class='spono' id="spono4" value="4" >필라테스</option>
-           </select>
-         </div>
-
-      </div>
-      <div class='trainer-join'>
-        <input class="form-control pro-place company_name" id="pro-place-1" type="text" placeholder="상호명" value="{{comname}}">
-        <input class="form-control pro-place pro-place-2 zip" id="sample2_postcode" type="text" placeholder="우편번호" value="{{zipcode}}"readonly onfocus="this.blur();">
-
-        <img   class="pro-place-Btn"onclick="sample2_execDaumPostcode()" src="../image/mapmap.png">
-      </div>
-      <input type="text" class="form-control pro-place pro-place-4 address" id="sample2_address" placeholder="기본주소" value="{{comaddr}}" readonly onfocus="this.blur();">
-
-      <input class="form-control pro-place pro-place-3 detail_address" id="sample2_addressDetail" type="text" placeholder="상세주소" value="{{comdetailaddr}}">
-      <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-        <img  id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-      </div>
-      <p id="pro-dt">소개</p>
-      <textarea  class="Desc introduction" rows="10" id="pro-dd">{{introduction}}</textarea>
-    </div>
-  </div>
-
-
+{{/this}}
 </script>
--->
 	<script type="text/javascript" src="../js/t-profile.js"></script>
 </body>
 </html>

@@ -12,9 +12,21 @@
 		margin-top: -30%;
 	}
 	.cont-edit {
-		height: 28.8px;
-		line-height: 1.3;
-		font-size: 1.6rem;
+		height: 48px;
+		line-height: 1.7;
+		font-size: 2.5rem;
+	}
+	.cont-file .profile-img {
+		height: 160px;
+	}
+	.pro-type .health-box {
+		height: 34px;
+	}
+	.cont-profile {
+		height: 160px;
+	}
+	.cont-box {
+		top: 13.7%;
 	}
 }
 /*iphone6*/
@@ -32,9 +44,26 @@
 		margin-top: -34%;
 	}
 	.cont-edit {
-		height: 37.954px;
+		height: 56.2px;
 		line-height: 1.6;
-		font-size: 2rem;
+		font-size: 3rem;
+	}
+	.cont-file .profile-img {
+		height: 187.5px;
+	}
+	.pro-type .health-box {
+		height: 34px;
+	}
+	.cont-profile {
+		height: 187.5px;
+	}
+	.cont-detail .zip-code,
+	.cont-detail .address,
+	.cont-detail .address-detail {
+		width: 70%;
+	}
+	.cont-box {
+		top: 12%;
 	}
 }
 /*iphone6 plus*/
@@ -57,21 +86,30 @@
 		font-size: 3rem;
 	}
 	.cont-file .profile-img {
-		height: 203px;
+		height: 207px;
 	}
 	.pro-type .health-box {
 		height: 34px;
+	}
+	.cont-profile {
+		height: 207px;
+	}
+	.cont-detail .zip-code,
+	.cont-detail .address,
+	.cont-detail .address-detail {
+		width: 73%;
+	}
+	.cont-box {
+		top: 11.1%;
 	}
 }
 
 .cont-box {
 	position: absolute;
 	width: 100%;
-	top: 11.1%;
 }
 
 .cont-box1 {
-	position: absolute;
 	width: 100%;
 	height: 0px;
 	bottom: 0;
@@ -80,7 +118,6 @@
 .cont-profile {
 	position: absolute;
 	width: 50%;
-	height: 207px;
 	border-radius: 50%;
 	overflow: hidden;
 	left: 50%;
@@ -126,66 +163,119 @@
 }
 
 .cont-detail {
-	padding: 5% 3%;
+	padding: 0 3%;
+	border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  margin-top: 2%;
 }
 .health-name,
-.cont-detail .company-name {
+.cont-detail .company-name,
+.cont-detail .introduce {
 	font-weight: 600;
-	font-size: 1.6rem;
+	font-size: 1.5rem;
   display: inline-block;
-  width: 26%;
-  margin-right: 3%;
-  text-align: right;
+  text-align: left;
+  margin-top: 3.5%;
+  margin-left: 1%;
+ 	color: #777;
 }
 
 .pro-type {
 	display: inline-block;
 	width: 50%;
+	position: absolute;
+	right: 4%;
 }
 
 .pro-type .health-box {
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #ccc;
+	font-weight: 600;
 }
 
 .cont-detail .company {
 	display: inline-block;
-  width: 69%;
-	padding: 3% 1% 4% 1%;
+  position: absolute;
+  right: 4%;
+  padding-top: 3%;
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
 }
 .cont-detail .address-form {
 	font-weight: 600;
-	font-size: 1.6rem;
-	width: 23.5%;
-  margin-right: 3%;
-  text-align: right;
-}
-.cont-detail .zip-code,
-.cont-detail .address,
-.cont-detail .address-detail {
-	display: inline-block;
-	width: 63%;
+	font-size: 1.5rem;
+  margin-left: 1%;
+  margin-top: 3.5%;
+  text-align: left;
+	color: #777;
 }
 .cont-detail .name-zip-code,
 .cont-detail .name-address,
 .cont-detail .name-address-detail {
+	color: #777;
 	font-weight: 700;
-	font-size: 1.7rem;
-	width: 31%;
-  text-align: right;
-  padding: 2% 5%;
+	font-size: 1.5rem;
+  text-align: left;
+  padding: 2% 2% 2% 5%;
   display: inline-block;
 }
-
-
-
-
-
-
-
-
-
+.cont-detail .zip-code,
+.cont-detail .address,
+.cont-detail .address-detail {
+	font-weight: 600;
+	display: inline-block;
+	text-align: right;
+	border: none;
+	outline: none;
+	font-size: 1.5rem;
+}
+.bottom-line {
+	border-bottom: 1px solid #eee;
+}
+.detail-type {
+	padding-bottom: 1%;
+	height: 44px;
+}
+.detail-company-name {
+	height: 44px;
+}
+.detail-company-address {
+	height: 140px;
+}
+.introduction {
+	width: 100%;
+	margin-top: 1%;
+	margin-bottom: 3%;
+	padding: 1%
+}
+.pro-container .save-btn {
+	font-size: 5rem;
+  right: 8%;
+  font-weight: 600;
+  position: absolute;
+}
+#layer {
+	display: none; 
+	position: fixed; 
+	overflow: hidden; 
+	z-index: 1; 
+	-webkit-overflow-scrolling: touch;
+	top: 25%;
+}
+#layer #btnCloseLayer {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 0 1%;
+  color: crimson;
+  font-weight: 800;
+}
 
 
 
