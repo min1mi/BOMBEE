@@ -67,7 +67,8 @@
           <div class='btn mealBtn' value={{trano}}>Check My Meal</div>
           {{#if writerev}}
           {{else}}
-          <div class='btn revBtn' value={{trano}}>리뷰작성</div>
+          <div class='btn revBtn' data-trano={{trano}} data-title={{promotionTitle}}
+          data-pno={{pno}}>리뷰작성</div>
           {{/if}}
         </div>
       </div>
