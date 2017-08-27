@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel='stylesheet' href='../css/bombee.css'>
-  <link rel='stylesheet' href='../css/chat.css'>
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='../css/bombee.css'>
+<link rel='stylesheet' href='../css/chat.css'>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 </head>
 <body>
-<div class='chat-container'>
+	<div class='chat-container'>
 
-  <div class='chat-body'>
-    <div class='chat-header'>
-      <span class="fa fa-times close-btn" aria-hidden="true"></span>
-      <span class='chat-list'>목록</span>
-    </div>
-    <div class='chat-content' id='chat-container'>
+		<div class='chat-body'>
+			<div class='chat-header'>
+				<span class="fa fa-times close-btn" aria-hidden="true"></span> <span
+					class='chat-list'>목록</span>
+			</div>
+			<div class='chat-content' id='chat-container'></div>
+			<div class='no-alram' style='display: none'>
+				<i class="fa fa-meh-o no-alram-size" aria-hidden="true"></i> <span
+					class='no-alram-cont'>앗! 도착한 채팅이 없습니다!</span>
+			</div>
+		</div>
+	</div>
 
-    </div>
-  </div>
-</div>
-
-<script id="chat-template" type="text/x-handlebars-template">
+	<script id="chat-template" type="text/x-handlebars-template">
   {{#each data}}
   <div class='chat-line'>
       {{#if tPath}}
@@ -46,6 +49,6 @@
 
 
 
-<script type="text/javascript" src='../js/chat.js'></script>
+	<script type="text/javascript" src='../js/chat.js'></script>
 </body>
 </html>

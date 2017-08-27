@@ -6,6 +6,16 @@
 	.bee {
 		margin-top: 4%;
 	}
+		.no-alram {
+		width: 76%;
+	}
+	.no-alram-size {
+		font-size: 2.5rem;
+	}
+	.no-alram-cont {
+		font-size: 1.5rem;
+		margin-top: 1%;
+	}
 }
 /*iphone plus*/
 @media ( min-device-width : 375px) and (max-device-width: 413px) {
@@ -13,12 +23,32 @@
     margin-left: 19px;
     font-size: 2.3rem;
 	}
+	.no-alram {
+		width: 74%;
+	}
+	.no-alram-size {
+		font-size: 2.8rem;
+	}
+	.no-alram-cont {
+		font-size: 1.7rem;
+		margin-top: 1%;
+	}
 }
 
 @media ( min-device-width : 414px) and (max-device-width: 735px) {
   .inline-block span {
     margin-left: 19px;
     font-size: 2.6rem;
+	}
+	.no-alram {
+		width: 71%;
+	}
+	.no-alram-size {
+		font-size: 3rem;
+	}
+	.no-alram-cont {
+		font-size: 1.8rem;
+		margin-top: 1.5%;
 	}
 }
 
@@ -216,3 +246,30 @@ select option {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.no-alram {
+	color: #777;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.no-alram-cont {
+	float: right;
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

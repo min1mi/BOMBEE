@@ -176,8 +176,8 @@
   margin: 2% 5%
 }
 .intro-tcher {
-	text-align: center;
-	margin: 5% 5%;
+	text-align: left;
+	margin: 3% 5% 5% 5%;
 }
 .trainer-promotion .promotion {
   margin: 2% 0;
@@ -543,3 +543,20 @@ td {
 #r-r-container {
 	width: 100%;
 }
+.intro-tcher span {
+	white-space: pre-line;
+  word-break: keep-all;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

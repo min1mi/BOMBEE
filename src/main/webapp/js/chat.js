@@ -51,6 +51,9 @@ function getChat(no, json) {
       var html = container.html()
       container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
       chatDetailBtn()
+      
+      if(result.data == 0) 
+          $('.no-alram').css('display', '')
      })
 }
 
