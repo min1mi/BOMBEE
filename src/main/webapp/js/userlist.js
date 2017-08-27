@@ -15,12 +15,16 @@ var json = '/auth/userinfo.json'
           json = '/management/usersList.json'
           getData(json, no)
         }else if(json == '/management/usersList.json') {
-          var templateFn = Handlebars.compile($('#user-template').text())
-          var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-          var container = $('.user')
-          var html = container.html()
-          container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
-          mealBtn()
+        	if(result.data.length == 0) 
+			    $('.no-user').css('display', '')
+			 else {
+				 var templateFn = Handlebars.compile($('#user-template').text())
+				 var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+				 var container = $('.user')
+				 var html = container.html()
+				 container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
+				 mealBtn()
+			 }
         }
       })
     }

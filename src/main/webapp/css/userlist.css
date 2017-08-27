@@ -6,6 +6,17 @@
 	.endDate {
   	left: 66.5%;
 	}
+	
+	 .no-user {
+    width: 67%;
+  }
+  .no-user-size {
+    font-size: 2.5rem;
+  }
+  .no-user-cont {
+    font-size: 1.5rem;
+    margin-top: 1%;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -15,6 +26,16 @@
 	.endDate {
   	left: 62.5%;
 	}
+	 .no-user {
+    width: 64%;
+  }
+  .no-user-size {
+    font-size: 2.6rem;
+  }
+  .no-user-cont {
+    font-size: 1.7rem;
+    margin-top: 1%;
+  }
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
@@ -24,6 +45,16 @@
 	.endDate {
   	left: 60%;
 	}
+	 .no-user {
+    width: 62%;
+  }
+  .no-user-size {
+    font-size: 3rem;
+  }
+  .no-user-cont {
+    font-size: 1.8rem;
+    margin-top: 2%;
+  }
 }
 
 .list {
@@ -71,3 +102,17 @@ font-size: 1.4rem;
 font-weight: 600;
 box-shadow: 2px 2px 2px 1px;
 }
+
+.no-user {
+  color: #777;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.no-user-cont {
+  float: right;
+  display: inline-block;
+}
+
