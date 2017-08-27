@@ -11,7 +11,7 @@ public class usermealList {
   boolean confirm;
   int mno;
   int tno;
-  
+  boolean writerev;
   public int getTrano() {
     return trano;
   }
@@ -72,11 +72,18 @@ public class usermealList {
   public void setTno(int tno) {
     this.tno = tno;
   }
+  public boolean isWriterev() {
+    return writerev;
+  }
+  public void setWriterev(boolean writerev) {
+    this.writerev = writerev;
+  }
   @Override
   public String toString() {
     return "usermealList [trano=" + trano + ", pno=" + pno + ", sdt=" + sdt + ", edt=" + edt + ", name=" + name
         + ", promotionTitle=" + promotionTitle + ", proImg=" + proImg + ", confirm=" + confirm + ", mno=" + mno
-        + ", tno=" + tno + "]";
+        + ", tno=" + tno + ", writerev=" + writerev + "]";
   }
+  
   
 }

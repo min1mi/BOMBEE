@@ -29,6 +29,12 @@
     width: 3%;
     font-size: 1.5rem;
   }
+  .trainer-detail-container {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 78.5vh;
+  }
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -62,6 +68,12 @@
   .r-score-number {
     width: 3%;
     font-size: 1.75rem;
+  }
+  .trainer-detail-container {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 81.5vh;
   }
 }
 /*iphone6 plus*/
@@ -97,6 +109,12 @@
   .r-score-number {
   width : 3%;
   font-size : 2rem;
+  }
+  .trainer-detail-container {
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 82.5vh;
   }
 }
 
@@ -204,12 +222,7 @@
   font-weight: 500;
 }
 
-.trainer-detail-container {
-	  width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    max-height: 84vh;
-}
+
 .trainer-scoll-container {
 	width: 100%;
 }
@@ -433,15 +446,6 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 15;
 }
-.backscreen1 {
-  position: absolute;
-  top: 0;
-  display: none;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 15;
-}
 .ok {
   background-color: #eddfba;
 }
@@ -546,6 +550,11 @@ td {
 .intro-tcher span {
 	white-space: pre-line;
   word-break: keep-all;
+}
+.d-bottom-Btn {
+	width:100%;
+	position:fixed;
+	bottom: 1%;
 }
 
 

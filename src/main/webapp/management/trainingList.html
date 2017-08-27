@@ -25,6 +25,34 @@
       <i class="fa fa-meh-o no-tcher-size" aria-hidden="true"></i> <span
         class='no-tcher-cont'>앗! 매칭된 트레이너가 없습니다!</span>
     </div>
+    <div class='backscreen'></div>
+    <div class='review-write-container' data-open='close'>
+    <div class='matching clearfix'>
+      <div class='rating-stars text-center'>
+            <ul id='stars'>
+              <li class='star hover selected' title='Poor' data-value='1'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Fair' data-value='2'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Good' data-value='3'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='Excellent' data-value='4'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+              <li class='star' title='WOW!!!' data-value='5'>
+                <i class='fa fa-star fa-fw'></i>
+              </li>
+            </ul>
+          </div>
+      <textarea class='review-text-container'></textarea>
+      <div class='btn-form'>
+        <button type='button' class='reviewAdd button'>작성완료</button>
+      </div>
+    </div>
+  </div>
 	</div>
 
 	<script id="training-template" type="text/x-handlebars-template">
@@ -37,6 +65,10 @@
           <span class='trainerName'>{{name}}</span>
           <span class='trainer'>강사</span>
           <div class='btn mealBtn' value={{trano}}>Check My Meal</div>
+          {{#if writerev}}
+          {{else}}
+          <div class='btn revBtn' value={{trano}}>리뷰작성</div>
+          {{/if}}
         </div>
       </div>
       {{/each}}
