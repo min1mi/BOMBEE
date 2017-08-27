@@ -57,7 +57,7 @@
       from tcher_trainer tt
       inner join promotion p on tt.pno = p.pno
       inner join promotionimg pi on p.pno = pi.pno
-      where tt.writerev = 0 and tt.mno = #{mno} and tt.tno = #{tno} and pi.titlePic = 1
+      where tt.writerev = 0 and tt.mno = #{mno} and tt.tno = #{tno} and pi.titlePic = 1 and tt.confirm = 1
     </select>
     
   <update id="update" parameterType="int">

@@ -172,7 +172,7 @@ public class PromotionServiceImpl implements PromotionService {
 
   @Override
   public int deletePromotionOne(int pno) throws Exception {
-    promotionDao.deletePromotionImg(pno);
+//    promotionDao.deletePromotionImg(pno);
     return promotionDao.deletePromotions(pno);
   }
 
