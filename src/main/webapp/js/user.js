@@ -78,11 +78,11 @@ $('#files').fileupload({
 		if(othername != -1 && mymno != -1 && othermno != -1){
 			if(mealtype == 'breakfast' || mealtype == 'lunch' || mealtype == 'dinner') {
 			  if(mealtype == 'breakfast')
-			    type= '아침을 등록'
+			    type= '아침 식사 등록'
 			  else if (mealtype == 'lunch')
-			    type= '점심을 등록'
+			    type= '점심 식사 등록'
 			  else if (mealtype == 'dinner')
-			    type = '저녁을 등록'
+			    type = '저녁 식사 등록'
 			  ajaxNode(2, othername, mymno, type, othermno)
 			}
 		}
