@@ -11,7 +11,12 @@
   }
   .requested-list .smile-size {
     height: 41.7px;
+	  font-size: 4.5rem;
   }
+	.requested-list .accept, .requested-list .refuse {
+    line-height: 3.5;
+    padding: 3% 10%;
+	}
 }
 /*iphone6*/
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -23,7 +28,13 @@
   }
   .requested-list .smile-size {
     height: 48.7px;
+ 		 font-size: 4.4rem;
   }
+	.requested-list .accept, .requested-list .refuse {
+    line-height: 3.5;
+    padding: 3% 10%;
+    
+	}
 }
 /*iphone6 plus*/
 @media (min-device-width: 414px) and (max-device-width: 767px) {
@@ -35,7 +46,12 @@
   }
   .requested-list .smile-size {
     height: 53.7px;
+ 	 font-size: 5rem;
   }
+	.requested-list .accept, .requested-list .refuse {
+    line-height: 3.8;
+    padding: 3% 12%;
+	}
 }
 
 .user-img-size {
@@ -56,12 +72,10 @@
 
 .requested-list .smile-size {
 	float: left;
-  font-size: 3.5rem;
   width: 13%;
   padding: 1%;
   margin: 2%;
   box-sizing: border-box;
-  height: 73%;
   text-align: center;
   line-height: .95;
   background-color: #f7ac1a;
@@ -145,8 +159,8 @@
   font-weight: 600;
   width: 50%;
   height: 100%;
-  line-height: 3.5;
   float: left;
+  font-size: 1.6rem;
   border-radius: 0;
 }
 

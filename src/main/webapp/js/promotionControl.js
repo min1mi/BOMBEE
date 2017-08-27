@@ -65,7 +65,7 @@
   }
   	
   	function btnConect() {
-  		imgBtn = $('.pro-img') 
+  		imgBtn = $('.list-pro') 
   		deleteX = $('.fa-times-circle')
   		deleteX.click(function() { // 엑스표 누르면 디비에서 지우는거 처리
   			console.log($(this).parent().parent().attr('value'))

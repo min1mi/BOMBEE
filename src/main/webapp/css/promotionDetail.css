@@ -5,6 +5,11 @@
 	.date-start-end span {
 		font-size: 1.4rem;
 	}
+	.date-start-end .date-slash {
+		top: 10%;
+		font-size: 2.3rem;
+	  left: 46%;
+	}
 }
 
 @media (min-device-width: 375px) and (max-device-width: 413px) {
@@ -14,13 +19,24 @@
 	.date-start-end span {
 		font-size: 1.6rem;
 	}
+	.date-start-end .date-slash {
+	  left: 45%;
+	  top: 0;
+	  font-size: 2.8rem;
+	}
 }
+
 @media (min-device-width: 414px) and (max-device-width: 735px)  {
 	.date-start-end .promotion-icon {
   	font-size: 1.8rem;
 	}
 	.date-start-end span {
 		font-size: 1.6rem;
+	}
+	.date-start-end .date-slash {
+	  left: 44%;
+	  top: -13%;
+	  font-size: 3.5rem;
 	}
 }
 
@@ -78,8 +94,8 @@
 	font-size: 1.4rem;
 }
 .promotionDetail_Adress #company {
-	font-size: 2rem;
-	font-weight: 300;
+	font-size: 1.8rem;
+	font-weight: 600;
 }
 .addressPanel #map {
 	width:100%;
@@ -112,19 +128,20 @@
 }
 
 .date-start-end .promotion-icon {
-  width: 26%;
+  width: 18%;
 }
 
 .date-start-end span {
   margin-top: 2%;
   display: inline-block;
 }
+.date-start-end .edt {
+	float: left;
+	margin-left: 5%;
+}
 
 .date-start-end .date-slash {
-	font-size: 3.3rem;
   position: absolute;
-  top: -4px;
-  left: 47%;
   text-align: center;
   color: #ccc;
   font-weight: 100;
@@ -171,7 +188,7 @@
   height: 100%;
   padding: 15px;
   margin-bottom: 14%;
-
+	font-size: 1.6rem;
 }
 
 .promotionDetail_container > .footer {
@@ -188,29 +205,24 @@
 }
 
 .footer-price {
-  padding-left: 15px;
-  padding-top: 3.3%;
-  width: 35%;
-  float:left;
-  color: black;
-}
-.footer-price {
-  text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
+	  text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
   -moz-text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
   -webkit-text-shadow: -2px 0 #F7AC1A, 0 2px #F7AC1A, 2px 0 #F7AC1A, 0 -2px #F7AC1A;
-}
-
-.footer-price * {
-  font-size: 1.5rem;
+  float:left;
+  color: black;
+	font-size: 2.3rem;
+  margin-left: 10%;
+  margin-top: 3.5%;
 }
 
 .footer-click {
-  width: 65%;
-  float:left;
+  float: right;
+  margin-top: 3.5%;
+  font-size: 2.3rem;
+  margin-right: 10%;
 }
 
 .footer-click > p{
-  padding-top: 3.2%;
   font-size: 2rem;
   border: 0;
 }
