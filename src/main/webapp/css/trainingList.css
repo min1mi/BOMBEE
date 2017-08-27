@@ -1,241 +1,259 @@
 /*iphone5*/
-@media (min-device-width: 320px) and (max-device-width: 374px) {
-  .list {
+@media ( min-device-width : 320px) and (max-device-width: 374px) {
+	.list {
 		height: 139px;
 	}
- .review-write-container {
-    margin-top: 30%;
-  }
-  .review-text-container {
-    height: 170px;
-  }
+	.review-write-container {
+		margin-top: 30%;
+	}
+	.review-text-container {
+		height: 170px;
+	}
 	.endDate {
-  	left: 66.5%;
+		left: 66.5%;
 	}
 	.no-tcher {
-    width: 76%;
-  }
-  .no-tcher-size {
-    font-size: 2.5rem;
-  }
-  .no-tcher-cont {
-    font-size: 1.5rem;
-    margin-top: 1%;
-  }
+		width: 76%;
+	}
+	.no-tcher-size {
+		font-size: 2.5rem;
+	}
+	.no-tcher-cont {
+		font-size: 1.5rem;
+		margin-top: 1%;
+	}
+	.mealBtn {
+		right: 2%;
+		font-size: 1.2rem;
+	}
+	.revBtn {
+		left: 37%;
+		font-size: 1.2rem;
+	}
 }
 /*iphone6*/
-@media (min-device-width: 375px) and (max-device-width: 413px) {
-  .list {
+@media ( min-device-width : 375px) and (max-device-width: 413px) {
+	.list {
 		height: 150px;
 	}
 	.review-write-container {
-    margin-top: 26%;
-  }
-  .review-text-container {
-    height: 210px;
-  }
-	.endDate {
-  	left: 62.5%;
+		margin-top: 26%;
 	}
-   .no-tcher {
-    width: 73%;
-  }
-  .no-tcher-size {
-    font-size: 2.6rem;
-  }
-  .no-tcher-cont {
-    font-size: 1.7rem;
-    margin-top: 1%;
-  }
+	.review-text-container {
+		height: 210px;
+	}
+	.endDate {
+		left: 62.5%;
+	}
+	.no-tcher {
+		width: 73%;
+	}
+	.no-tcher-size {
+		font-size: 2.6rem;
+	}
+	.no-tcher-cont {
+		font-size: 1.7rem;
+		margin-top: 1%;
+	}
+	.mealBtn {
+		right: 2%;
+		font-size: 1.3rem;
+	}
+	.revBtn {
+		left: 41%;
+		font-size: 1.3rem;
+	}
 }
 /*iphone6 plus*/
-@media (min-device-width: 414px) and (max-device-width: 767px) {
-  .list {
+@media ( min-device-width : 414px) and (max-device-width: 767px) {
+	.list {
 		height: 155px;
 	}
 	.review-write-container {
-    margin-top: 24%;
-  }
-  .review-text-container {
-    height:250px;
-   }
-	.endDate {
-  	left: 62%;
+		margin-top: 24%;
 	}
-   .no-tcher {
-    width: 71%;
-  }
-  .no-tcher-size {
-    font-size: 3rem;
-  }
-  .no-tcher-cont {
-    font-size: 1.8rem;
-    margin-top: 2%;
-  }
+	.review-text-container {
+		height: 250px;
+	}
+	.endDate {
+		left: 62%;
+	}
+	.no-tcher {
+		width: 71%;
+	}
+	.no-tcher-size {
+		font-size: 3rem;
+	}
+	.no-tcher-cont {
+		font-size: 1.8rem;
+		margin-top: 2%;
+	}
+	.mealBtn {
+		right: 2%;
+		font-size: 1.4rem;
+	}
+	.revBtn {
+		left: 42.5%;
+		font-size: 1.4rem;
+	}
 }
 
 .list {
-  position: relative;
-  border-bottom: 1px solid silver;
-}
-.training:first-child[.list] {
-  margin-top: 3%;
-}
-.list img {
-  margin: 2%;
-  width: 35%;
-  height: 90%;
+	position: relative;
+	border-bottom: 1px solid silver;
 }
 
-.promotionName,
-.startDate,
-.endDate,
-.trainerName,
-.trainer,
-.mealBtn,
-.revBtn {
-  position: absolute;
-  font-size: 1.5rem;
-  margin-left: 1%;
+.training:first-child[ .list] {
+	margin-top: 3%;
+}
+
+.list img {
+	margin: 2%;
+	width: 35%;
+	height: 90%;
+}
+
+.promotionName, .startDate, .endDate, .trainerName, .trainer {
+	position: absolute;
+	font-size: 1.5rem;
+	margin-left: 1%;
 }
 
 .promotionName {
-  top: 10%;
-  font-size: 1.7rem;
-  font-weight: 800;
+	top: 10%;
+	font-size: 1.7rem;
+	font-weight: 800;
 }
-.startDate,
-.endDate  {
-  top: 32%;
+
+.startDate, .endDate {
+	top: 32%;
 }
 
 .trainerName {
-  top: 47%;
-  font-weight: 600;
+	top: 47%;
+	font-weight: 600;
 }
+
 .trainer {
 	top: 47%;
 	left: 51%
 }
 
 .mealBtn {
+	position: absolute;
+	margin-left: 1%;
 	bottom: 6.5%;
-	right: 3%;
-	font-size: 1.4rem;
 	font-weight: 600;
 	box-shadow: 2px 2px 2px 1px;
 	padding: 1%;
 }
 
 .revBtn {
- 	bottom: 6.5%;
-  left: 41%;
-  font-size: 1.4rem;
-  font-weight: 600;
-  box-shadow: 2px 2px 2px 1px;
-  padding: 1%;
+	position: absolute;
+	margin-left: 1%;
+	bottom: 6.5%;
+	font-weight: 600;
+	box-shadow: 2px 2px 2px 1px;
+	padding: 1%;
 }
 
 .no-tcher {
-  color: #777;
-  font-weight: 600;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	color: #777;
+	font-weight: 600;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
+
 .no-tcher-cont {
-  float: right;
-  display: inline-block;
+	float: right;
+	display: inline-block;
 }
 /* Rating Star Widgets Style */
 .rating-stars ul {
-  list-style-type:none;
-  padding:0;
-  
-  -moz-user-select:none;
-  -webkit-user-select:none;
+	list-style-type: none;
+	padding: 0;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
-.rating-stars ul > li.star {
-  display:inline-block;
-  
+
+.rating-stars ul>li.star {
+	display: inline-block;
 }
 /* 별설정*/
 
 /* Idle State of the stars */
-.rating-stars ul > li.star > i.fa {
-  font-size:2.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+.rating-stars ul>li.star>i.fa {
+	font-size: 2.5em; /* Change the size of the stars */
+	color: #ccc; /* Color on idle state */
 }
 
 /* Hover state of the stars */
-.rating-stars ul > li.star.hover > i.fa {
-  color:#FFCC36;
+.rating-stars ul>li.star.hover>i.fa {
+	color: #FFCC36;
 }
 
 /* Selected state of the stars */
-.rating-stars ul > li.star.selected > i.fa {
-  color:#FF912C;
+.rating-stars ul>li.star.selected>i.fa {
+	color: #FF912C;
 }
 /* 별설정 여기 까지*/
-
 .matching {
-  /*display: none;*/
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  top: 20%;
+	/*display: none;*/
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	top: 20%;
 }
 
 .review-text-container {
-  background-color: white;
-  overflow-x:hidden;
-  overflow-y:auto;
-  width: 100%;
-  top: 0;
-  border-radius: 10px;
-  resize :none;
-  outline:none;
+	background-color: white;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	top: 0;
+	border-radius: 10px;
+	resize: none;
+	outline: none;
 }
 
 .btn-form {
-  width: 50%;
-  margin: 2% auto;
-  margin-bottom: 4%;
+	width: 50%;
+	margin: 2% auto;
+	margin-bottom: 4%;
 }
 
 .button {
-  width: 100%;
-  font-size: 1.6rem;
-  font-weight: bold;
-  background-color: #f7ac1a;
-  border-radius: 10px;
-  margin: 0 auto;
+	width: 100%;
+	font-size: 1.6rem;
+	font-weight: bold;
+	background-color: #f7ac1a;
+	border-radius: 10px;
+	margin: 0 auto;
 }
 
 .backscreen {
-  position: absolute;
-  top: 0;
-  display: none;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 15;
+	position: absolute;
+	top: 0;
+	display: none;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 15;
 }
 
 .review-write-container {
-  display: none;
-  position: absolute;
-  background-color: #f3f3f3;
-  width: 85.5%;
-  height: auto;
-  top: 0;
-  left: 7.25%;
-  border-radius: 10px;
-  padding: 2% 2% 0 2%;
-  z-index: 20;
+	display: none;
+	position: absolute;
+	background-color: #f3f3f3;
+	width: 85.5%;
+	height: auto;
+	top: 0;
+	left: 7.25%;
+	border-radius: 10px;
+	padding: 2% 2% 0 2%;
+	z-index: 20;
 }
-
-
 
 /**/
