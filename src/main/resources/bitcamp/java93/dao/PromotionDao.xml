@@ -55,7 +55,7 @@
   AS meter, i.pimg
   from promotion p inner join tcher t on p.tno = t.tno
   left outer join promotionimg i on p.pno = i.pno
-  where i.titlepic = 1
+  where i.titlepic = 1 and p.expire < 2
   having meter <  3000
   ORDER BY meter 
   LIMIT 0,3000 ]]>
@@ -68,7 +68,7 @@
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
-         where i.titlepic = 1
+         where i.titlepic = 1 and p.expire <![CDATA[ < ]]> 2
          GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
@@ -82,7 +82,7 @@ FROM memb m left join tcher t  on t.tno = m.mno
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno
-         where i.titlepic = 1
+         where i.titlepic = 1 and p.expire <![CDATA[ < ]]> 2
          GROUP BY m.id
   having meter <![CDATA[ < ]]> 3000
   ORDER BY meter 
@@ -114,7 +114,7 @@ from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
   where p.pno < #{lastNo}
   and p.pno > #{lastNo}-6
-  and p.pno > 0 and i.titlepic = 1
+  and p.pno > 0 and i.titlepic = 1 and p.expire < 2
   order by p.pno desc
   ]]>
   </select>
@@ -125,7 +125,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg, p.expire
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno > 0 and i.titlepic = 1
+  where p.pno > 0 and i.titlepic = 1 and p.expire < 2
   order by p.pno desc
   limit 0, 6;
   ]]>
@@ -137,7 +137,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg, p.expire
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno > 0 and t.spono = #{typeNo} and i.titlepic = 1
+  where p.pno > 0 and t.spono = #{typeNo} and i.titlepic = 1 and p.expire < 2
   order by p.pno desc
   limit 0, 6;
   ]]>
@@ -149,7 +149,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           p.tno, p.lat, p.lng, i.pimg, p.expire
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-  where p.pno <= #{lastNo}  and i.titlepic = 1
+  where p.pno <= #{lastNo}  and i.titlepic = 1 and p.expire < 2
   and p.pno > #{lastNo}-6
   and p.pno > 0  and t.spono = #{typeNo}
  
@@ -163,7 +163,7 @@ select p.pno, p.titl, p.sdt, p.edt, p.pric, t.company, t.comaddr, t.comdetailadd
           where pno = #{no} and titlepic = 1) as tipic
 from tcher t left outer join promotion p on t.tno = p.tno
         left outer join promotionimg i on p.pno = i.pno
-where p.pno = #{no};
+where p.pno = #{no}; 
 
   </select>
   
@@ -173,19 +173,24 @@ where p.pno = #{no};
     from promotion p inner join tcher t  on p.tno=t.tno
                             left outer join promotionimg i on p.pno = i.pno
                             
-     where t.tno = #{no} and i.titlepic = 1
+     where t.tno = #{no} and i.titlepic = 1 and p.expire <![CDATA[ < ]]> 2
     order by p.pno desc
   </select>
   
-    <delete id="deletePromotions" parameterType="int">
+  <update id="deletePromotions" parameterType="int">
+    update promotion set expire = 2
+    where pno=#{no}
+  </update>
+  
+     <!-- <delete id="deletePromotions" parameterType="int">
     delete from promotion
     where pno=#{no}
-  </delete>
+  </delete> -->
   <select id="selectPromotionListTitle" resultMap="promotionMap" parameterType="int">
     select  *
     from promotion p inner join tcher t  on p.tno=t.tno
     left outer join promotionimg i on p.pno = i.pno
-     where t.tno = #{no}
+     where t.tno = #{no} and p.expire <![CDATA[ < ]]> 2
     order by p.titl asc
   </select>
   <select id="getPromotionTitlePicList" resultMap="promotionMap" parameterType="int">

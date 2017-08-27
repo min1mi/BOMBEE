@@ -212,10 +212,8 @@ function mapMarker(address, imageSrc , size, no, check) {
             	if(teacherOrPromotion == 0) {
             	 location.href = '../promotion/promotionDetail.html?no='+$(this)[0].Vd
             	}else if(teacherOrPromotion == 1)
-            		 location.href = '../profile/t-profile.html?no='+$(this)[0].Vd
+            		 location.href = '../t-detail/trainerDetail.html?no='+$(this)[0].Vd
             }
-            
-            
       })
 	})
 }

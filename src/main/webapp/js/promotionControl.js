@@ -66,12 +66,12 @@
   	
   	function btnConect() {
   		imgBtn = $('.list-pro') 
-  		deleteX = $('.fa-times-circle')
-  		deleteX.click(function() { // 엑스표 누르면 디비에서 지우는거 처리
-  			console.log($(this).parent().parent().attr('value'))
+  		$('.fa-times-circle').unbind().bind('click',function(e) { // 엑스표 누르면 디비에서 지우는거 처리
   			ajax($(this).parent().parent().attr('value'))
+  			event.stopPropagation();
+  			console.log(1)
   		})
-  		imgBtn.click(function() { // 이미지클릭하면 화면넘어가는 거 처리
+  		imgBtn.unbind().bind("click", function() { // 이미지클릭하면 화면넘어가는 거 처리
   			if (deleteCan != 0) {
   				if ($(this).attr('value') == 0) {
   					$(this).parent().parent().addClass('border')
