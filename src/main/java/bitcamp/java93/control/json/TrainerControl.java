@@ -24,7 +24,8 @@ public class TrainerControl {
   
   @RequestMapping("add")
   public JsonResult add(Trainer trainer) throws Exception {
-    trainerService.add(trainer);
+    System.out.println(trainer);
+   trainerService.add(trainer);
     return new JsonResult(JsonResult.SUCCESS, trainer);
   }
   @RequestMapping("get")

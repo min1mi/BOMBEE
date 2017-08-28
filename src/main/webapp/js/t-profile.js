@@ -142,7 +142,7 @@ function getData() {
     }
 
     $('#profile-files').fileupload({
-      url: '/trainer/alreadUupdate.json',        // 서버에 요청할 URL
+      url: '/trainer/alreadyUpdate.json',        // 서버에 요청할 URL
       dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
       sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
       singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.

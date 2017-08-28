@@ -9,9 +9,13 @@ var login;
 var count = 0;
 var no = null;
 var index = 0;
+
 $(document).ready(function() {
   getHeaderData()
   
+  $('.header-img').click(function() {
+	  location.href = '../'
+  })
   window.fbAsyncInit = function() {
     FB.init({
       appId : '484853665195171',
