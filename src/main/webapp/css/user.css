@@ -141,8 +141,7 @@
 		height: 312px;
 	}
 	.input-food-container {
-		height: 460px;
-		margin-top: 44%;
+		margin-top: 25%;
 	}
 	.input-food .food-img {
 		height: 312px;
@@ -154,7 +153,7 @@
 		left: 3%;
 	}
 	.input-food-container {
-		height: 63%;
+		height: 70%;
 	}
 }
 /*@font-face {font-family: 'UhBeepuding';src: url('../font/UhBeepuding.eot');}

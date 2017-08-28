@@ -119,6 +119,10 @@
 		overflow-y: scroll;
 		max-height: 82.5vh;
 	}
+	.matching-start-date {
+		margin-left: 6%;
+		width: 55%;
+	}
 }
 
 .t-t-table {
@@ -592,7 +596,7 @@ td {
 	width: 100%;
 	position: fixed;
 	bottom: 1%;
-	z-index:5;
+	z-index:4;
 }
 
 /**/
