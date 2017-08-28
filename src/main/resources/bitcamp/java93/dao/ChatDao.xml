@@ -29,7 +29,7 @@
   </select>
   
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
-		select DISTINCT  c.mno, c.tno, c.date, c.msg, c.confirm, m.name, m.img as ming
+		select DISTINCT  c.mno, c.tno, c.date, c.msg, c.confirm, m.name, m.img as mimg
 		from chat c inner join memb m on c.mno = m.mno
 		where c.tno = #{trainerno}
 		order by date desc;

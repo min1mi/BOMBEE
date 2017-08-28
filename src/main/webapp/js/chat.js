@@ -41,6 +41,13 @@ $.getJSON('/auth/userinfo.json', function(result) {
 function getChat(no, json) {
   $.getJSON(json, {no}, function(result) {
     console.log(result)
+    if(no != -1) {
+    	for(var i = 0; i < result.data.length; i++) {
+    		if(undefined == result.data[i].mPath)
+    			result.data[i].mPath = null
+    	}
+    	console.log(result.data)
+    }
     yourName = result.data.you
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
       var templateFn = Handlebars.compile($('#chat-template').text())
@@ -63,18 +70,12 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       console.log('강사로그인')
       if (tno == chatInfo.trainerno){
         yourNo = chatInfo.memberno
-        if (server == 'http://'+location.host)
-        	server = 'http://'+ location.host +'/image/user'
         return options.fn(this);
       }
     }else if (tno == -1) {
       console.log('멤버로그인')
       if (no == chatInfo.memberno) {
         yourNo = chatInfo.trainerno
-        if (server == 'http://'+location.host)
-        	server = 'http://'+location.host+chatInfo.tPath
-        console.log(server)
-        
       }
     }
       
@@ -85,9 +86,11 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
   function chatDetailBtn() {
     chatLine = $('.chat-line')
     chatLine.click(function () {
+    	var img = '/'+ $(this).children('div').children('img').attr('src').split('/')[1] +'/'+
+		$(this).children('div').children('img').attr('src').split('/')[2]
     location.href = 'https://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
         + $(this).children('dl').children('dt').attr('value')+'&yourName='
         +$(this).children('dl').children('dt').text()+'&membertype='+membertype +
-        '&imagePath='+ server;
+        '&imagePath='+ server+img;
     })
   }
