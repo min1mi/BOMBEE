@@ -31,7 +31,7 @@
 		width: 100%;
 		overflow: hidden;
 		overflow-y: scroll;
-		max-height: 78.5vh;
+		max-height: 69vh;
 	}
 	.matching-start-date {
 		margin-left: 5%;
@@ -74,7 +74,7 @@
 		width: 100%;
 		overflow: hidden;
 		overflow-y: scroll;
-		max-height: 81.5vh;
+		max-height: 71vh;
 	}
 	.matching-start-date {
 		margin-left: 6%;
@@ -117,7 +117,7 @@
 		width: 100%;
 		overflow: hidden;
 		overflow-y: scroll;
-		max-height: 82.5vh;
+		max-height: 73.5vh;
 	}
 	.matching-start-date {
 		margin-left: 6%;
@@ -595,7 +595,7 @@ td {
 .d-bottom-Btn {
 	width: 100%;
 	position: fixed;
-	bottom: 1%;
+	bottom: 0%;
 	z-index:4;
 }
 

@@ -27,6 +27,7 @@ var othername =-1
 var mymno = location.href.split('?')[1].split('=')[1].split('#')[0]
 var myDeleteBtn = -1
 var backscreenType = 0
+
 function mapCreate() {
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
