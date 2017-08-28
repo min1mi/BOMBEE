@@ -12,7 +12,7 @@ $(function() {
   $('#trainer').click(function() {
     joinType = $(this).val()
     borderBottom('#trainer')
-    $('.main-box').css('background-image', 'url(../image/join-tall.jpg)');
+    $('.main-box').css({'background-image': 'url(' + '../image/L-Image/' + images[Math.floor(Math.random() * images.length)] + ')'});
     $('.trainer-join').css('display', '')
   })
 })
