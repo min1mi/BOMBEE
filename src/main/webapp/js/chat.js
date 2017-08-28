@@ -7,7 +7,7 @@ var myNo
 var membertype
 
 /* var server = location.host + '/upload/' */
-var server = 'http://'+location.host
+var server = 'https://'+location.host
 console.log(server)
 
 $('.close-btn').on('click', function(){
@@ -86,7 +86,7 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
   function chatDetailBtn() {
     chatLine = $('.chat-line')
     chatLine.click(function () {
-    location.href = 'http://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+    location.href = 'https://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
         + $(this).children('dl').children('dt').attr('value')+'&yourName='
         +$(this).children('dl').children('dt').text()+'&membertype='+membertype +
         '&imagePath='+ server;

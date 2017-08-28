@@ -29,7 +29,7 @@ function btnConnect() {
 } 
 function ajaxNode(json, no) {
 	$.ajax({
-		  url: 'http://' + location.host + ':8888'+json,
+		  url: 'https://' + location.host + ':8888'+json,
 		  type: 'post',
 		  data:{no: no},
 		  dataType:'json',
