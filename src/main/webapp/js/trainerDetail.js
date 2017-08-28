@@ -409,7 +409,8 @@ $('.reviewAdd').on('click', function() {
 		})
 	}
   $('.pro-chatting-Btn').on('click', function() {
-		realpic = location.host + tpic
+		realpic = 'https://' + location.host + tpic
+		console.log(realpic)
 		location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 				+ tno +'&yourName='
 				+ tname +'&membertype='
