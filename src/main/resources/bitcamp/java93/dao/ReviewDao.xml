@@ -50,6 +50,7 @@
        from tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano
               left join memb m on tt.mno = m.mno
        where tt.tno=#{tno}
+       order by tr.reviewno desc
   </select>
     
     <select id="canReviewList" resultMap="reviewMap" parameterType="map">

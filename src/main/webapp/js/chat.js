@@ -42,8 +42,6 @@ function getChat(no, json) {
   $.getJSON(json, {no}, function(result) {
     console.log(result)
     yourName = result.data.you
-    
-    console.log(yourNo)
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
       var templateFn = Handlebars.compile($('#chat-template').text())
       var generatedHTML = templateFn(result) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
@@ -65,15 +63,16 @@ Handlebars.registerHelper('youAndMe', function(chatInfo ,options) {
       console.log('강사로그인')
       if (tno == chatInfo.trainerno){
         yourNo = chatInfo.memberno
-        server += '/image/user'
-        console.log(server)
+        if (server == 'http://'+location.host)
+        	server = 'http://'+ location.host +'/image/user'
         return options.fn(this);
       }
     }else if (tno == -1) {
       console.log('멤버로그인')
       if (no == chatInfo.memberno) {
         yourNo = chatInfo.trainerno
-        server += chatInfo.tPath
+        if (server == 'http://'+location.host)
+        	server = 'http://'+location.host+chatInfo.tPath
         console.log(server)
         
       }
