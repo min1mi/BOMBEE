@@ -135,7 +135,6 @@ function getDatas(json, no, template, containers) {
 	    	console.log(result)
 	    	tno = result.data.no
 			tname = result.data.name
-			othername = result.data.name
 			tpic = result.data.tcherpic
 			geocoder.addressSearch(result.data.comaddr, callback);
 			switch (result.data.spono){
@@ -294,7 +293,6 @@ function getData(json, no, day) {
 		  $('.review-text-container').focus()
 	  }
   }
-//  insertTcher_trainer('/friend/addReq.json',mno,tno, pno, startDate, period, wishtime)
 })
 
 
