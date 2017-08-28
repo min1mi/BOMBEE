@@ -336,7 +336,7 @@ Handlebars.registerHelper('type', function(promotionList, options) {
 	if (promotionList[0].spono == 1)
 		promotionList[0].sport = '../image/health.png';
 	else if (promotionList[0].spono == 2)
-		promotionList[0].sport = '../image/bike.png';
+		promotionList[0].sport = '../image/crossfit.png';
 	else if (promotionList[0].spono == 3)
 		promotionList[0].sport = '../image/yoga.png';
 	else
@@ -365,7 +365,8 @@ function getData(json, type, create) {
     	'lon': findLon
     }, function(result) {
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
-		console.log(result)
+    	if(type== '#list-template')
+    		console.log(result)
       var templateFn = Handlebars.compile($(type).text())
       if (type== '#map-template' || type== '#list-template' || type== '#tlist-template')
     	  var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.

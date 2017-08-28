@@ -119,10 +119,6 @@
 		overflow-y: scroll;
 		max-height: 82.5vh;
 	}
-	.matching-start-date {
-		margin-left: 6%;
-		width: 55%;
-	}
 }
 
 .t-t-table {
@@ -224,7 +220,17 @@
 }
 
 .promotion-image {
-	width: 100%;
+	z-index: 3;
+  width: 100%;
+}
+.schedule .more,
+.map .more,
+.review .more {
+  float: right;
+  margin-right: 5%;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .schedule .more, .map .more, .review .more {
@@ -586,6 +592,7 @@ td {
 	width: 100%;
 	position: fixed;
 	bottom: 1%;
+	z-index:5;
 }
 
 /**/

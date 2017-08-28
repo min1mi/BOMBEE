@@ -409,8 +409,9 @@ $('.reviewAdd').on('click', function() {
 		})
 	}
   $('.pro-chatting-Btn').on('click', function() {
-		realpic = location.host + tpic
-		location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
+		realpic = 'https://' + location.host + tpic
+		console.log(realpic)
+		location.href = 'https://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 				+ tno +'&yourName='
 				+ tname +'&membertype='
 				+ membertype +'&imagePath='+ realpic;
@@ -431,7 +432,6 @@ var swiper = new Swiper('.swiper-container', {
         scrollbar: '.swiper-scrollbar',
         scrollbarHide: true,
         slidesPerView: 'auto',
-        centeredSlides: true,
         spaceBetween: 30,
         grabCursor: true,
         observer:true

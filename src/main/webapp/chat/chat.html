@@ -33,7 +33,11 @@
       {{#if tPath}}
     <div><img src='..{{tPath}}' id='chat-user'/></div>
       {{else}}
-    <div><img src='../image/user' id='chat-user'/></div>
+        {{#if mPath}}
+          <div><img src='..{{mPath}}' id='chat-user'/></div>
+        {{else}}
+          <div><img src='../image/user' id='chat-user'/></div>
+        {{/if}}
       {{/if}}
     <dl>
        {{#youAndMe this}}

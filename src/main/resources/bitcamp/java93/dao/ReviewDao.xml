@@ -43,13 +43,15 @@
   </select> -->
     
     <select id="detail2" resultMap="reviewMap" parameterType="review">
-       select tt.*, tr.*, m.* ,(select AVG(tr.score)
+       select tt.*, tr.reviewno, tr.trano, tr.review, tr.score, tr.pno, tr.protitl,
+       date_format(tr.date, "%Y-%m-%d") as date, m.* ,(select AVG(tr.score)
        from  tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano 
        left join memb m on tt.mno = m.mno
        where tt.tno=#{tno}) as avg
        from tcher_review tr left join tcher_trainer tt on tr.trano=tt.trano
               left join memb m on tt.mno = m.mno
        where tt.tno=#{tno}
+       order by tr.reviewno desc
   </select>
     
     <select id="canReviewList" resultMap="reviewMap" parameterType="map">

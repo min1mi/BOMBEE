@@ -12,19 +12,21 @@ fiScore
     $('.header').load('../main/header.html')
     
     $('.reviewAdd').on('click', function() {
-	    $.post('/review/add.json', {
-	      'score' : fiScore,
-	      'review': $('.review-text-container').val(),
-	      'trano': trano,
-	      'title':protitle,
-	      'pno':pno
-	    }, function(result) {
-    	$.post('/review/boolean.json', {
-    		'trano' : trano
-    	},function(result) {
-    	    location.reload()
-    	    }, 'json')
-    	}, 'json')
+	    if(pno != null && protitle != null && trano != null) {
+	    	$.post('/review/add.json', {
+	  	      'score' : fiScore,
+	  	      'review': $('.review-text-container').val(),
+	  	      'trano': trano,
+	  	      'title':protitle,
+	  	      'pno':pno
+	  	    }, function(result) {
+	      	$.post('/review/boolean.json', {
+	      		'trano' : trano
+	      	},function(result) {
+	      	    location.reload()
+	      	    }, 'json')
+	      	}, 'json')
+	    }
     })
     backscreen.on('click', function() {
     	backscreen.hide()
@@ -113,6 +115,9 @@ function mealBtn() {
 		backscreen.show()
 		reviewWriteCon.show()
 		reviewWriteCon.attr('data-open', 'open')
+		trano = $(this).attr('data-trano')
+		pno = $(this).attr('data-pno')
+		protitle = $(this).attr('data-title')
 	  }
 	})
 }

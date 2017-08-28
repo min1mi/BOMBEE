@@ -94,7 +94,7 @@ function btnConnect() {
 }
 function ajaxNode(no, othername, mymno, kinds){
 	$.ajax({
-		url: 'http://'+ location.host +':8888/alert/add.json',
+		url: 'https://'+ location.host +':8888/alert/add.json',
 		type: 'post',
 		data:{
 			type: no,
