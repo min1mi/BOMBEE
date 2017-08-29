@@ -366,7 +366,7 @@ function getData(json, type, create) {
     	'lat': findLat,
     	'lon': findLon
     }, function(result) {
-    	if(type == '#tlist-template'){
+    	if(type == '#list-template'){
     		console.log(result)
     		console.log('11111111111111111')
     	}

@@ -201,17 +201,11 @@
   display: inline-block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.request-content {
+	white-space: nowrap;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+  width: 94%;
+}

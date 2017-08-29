@@ -45,7 +45,8 @@ endDate, totalKcal = 0;
 
 function getUsername(no) {
   $.getJSON('promotion-user-name.json', {'trainingNo': no}, function(result) {
-    $('.user').text(result.data.name)
+	  console.log(result.data.name)
+    $('.user').text("  "+result.data.name)
   })
 }
 

@@ -101,6 +101,14 @@
 	.input-food-container {
 		height: 75%;
 	}
+	.user  {
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+  width: 64%;
+  }
 
 }
 /*iphone6 plus*/
@@ -110,6 +118,14 @@
 		top: 15px;
 		left: 2.5px;
 	}
+	.user  {
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  overflow: hidden;
+  width: 71%;
+  }
 	.tab-slider--tabs.slide0:after {
 		left: calc(100%/ 120);
 	}
@@ -266,9 +282,10 @@ input:focus {
 }
 
 .week-container .year-month {
-	font-size: 1.6rem;
-	position: absolute;
-	right: 0px;
+	  font-size: 1.6rem;
+    position: absolute;
+    right: 0px;
+    top: 0px;
 }
 
 .week-container .username {
@@ -276,6 +293,7 @@ input:focus {
 	font-weight: 700;
 	position: absolut;
 	left: 0px;
+	width: 65%;
 }
 
 .week-container .month {
@@ -530,5 +548,6 @@ input:focus {
 	margin-right: 5%;
 	background-color: white;
 }
+
 
 /**/

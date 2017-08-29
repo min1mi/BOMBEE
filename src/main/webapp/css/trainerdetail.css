@@ -378,11 +378,20 @@
 }
 
 .promotion-name {
-	position: absolute;
-	margin-left: 2%;
-	top: 10%;
-	font-size: 1.3rem;
-	font-weight: 800;
+	  position: absolute;
+    margin-left: 2%;
+    top: 10%;
+    font-size: 1.3rem;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    width: 55%;
 }
 
 .btn-form {

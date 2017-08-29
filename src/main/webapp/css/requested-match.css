@@ -152,7 +152,13 @@
 	left: 0;
 	font-size: 1.5rem;
 	color: #777;
-}
+	white-space: nowrap;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-word;
+	overflow: hidden;
+	width: 92%;
+	}
 
 .requested-list .wish-date {
 	color: #777;

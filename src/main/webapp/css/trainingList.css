@@ -123,7 +123,12 @@
 	top: 10%;
 	font-size: 1.7rem;
 	font-weight: 800;
-}
+	white-space: nowrap;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-word;
+	overflow: hidden;
+	width: 55%;}
 
 .startDate, .endDate {
 	top: 32%;
