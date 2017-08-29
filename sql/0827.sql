@@ -110,7 +110,7 @@ CREATE TABLE PROMOTION (
   PNO     INTEGER      NOT NULL COMMENT '프로모션 번호', -- 프로모션 번호
   TITL    VARCHAR(50)  NOT NULL COMMENT '제목', -- 제목
   PRIC    INTEGER      NOT NULL COMMENT '가격', -- 가격
-  CONTENT VARCHAR(255) NOT NULL COMMENT '내용', -- 내용
+  CONTENT TEXT         NOT NULL COMMENT '내용', -- 내용
   SDT     VARCHAR(255) NOT NULL COMMENT '시작날짜', -- 시작날짜
   EDT     VARCHAR(255) NOT NULL COMMENT '종료날짜', -- 종료날짜
   TNO     INTEGER      NOT NULL COMMENT '강사회원번호', -- 강사회원번호
