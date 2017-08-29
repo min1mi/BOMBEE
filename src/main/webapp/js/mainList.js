@@ -128,7 +128,7 @@ $('#health').click(() => {
   category = '#health'
     borderBottom(category)
     json = '/promotion/health-firstList.json'
-    $('.main-promotion-heightz').children('img').attr('src', '../image/health_m.jpg')
+    $('.main-promotion-heightz').children('img').attr('src', '../image/health_m.png')
       getData(json, 1)
 
 })
