@@ -19,4 +19,5 @@ public interface FriendDao {
   void friendDelete(int no);
   int addReq(Friend friend);
   void friendUpdate(Friend friend);
+  void addAlert(Friend friend);
 }

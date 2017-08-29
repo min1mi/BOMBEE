@@ -370,47 +370,55 @@ $('.reviewAdd').on('click', function() {
   }
   
   function insertTcher_trainer(json, mno, tno, pno, sdt, period, wishtime) {
-	  $.getJSON(json, {
-		  'mno':mno,
-		  'tno':tno,
-		  'pno':pno,
-		  'sdt':sdt,
-		  'period':period,
-		  'wishtime':wishtime
-	  }, function(result) {
-		  if(othername != -1 && mymno != -1 && othermno != -1) 
-			  ajaxNode(1, othername, mymno, "친구요청", othermno)
-	    location.reload()
-		  
-	  })
+	  if (othername != -1 && mymno != -1 && othermno != -1) {
+		  $.getJSON(json, {
+			  'mno':mno,
+			  'tno':tno,
+			  'pno':pno,
+			  'sdt':sdt,
+			  'period':period,
+			  'wishtime':wishtime,
+			  'typenum':1,
+			  'othername': othername,
+			  'mymno':mymno,
+			  'type':"친구요청",
+			  'othermno':othermno
+		  }, function(result) {
+	//		  if(othername != -1 && mymno != -1 && othermno != -1) 
+	//			  ajaxNode(1, othername, mymno, "친구요청", othermno)
+		    location.reload()
+			  
+		  })
+	  }
   }
   
-  
-  function ajaxNode(no, othername, mymno, kinds, othermno){
-		$.ajax({
-			url: 'http://'+ location.host +':8888/alert/add.json',
-			type: 'post',
-			data:{
-				type: no,
-				othername: othername,
-				mymno: mymno,
-				kinds: kinds,
-				othermno: othermno
-				},
-			dataType:'json',
-			success: function(result) {
-				mymno = -1
-				othername =-1
-				othermno = -1
-				console.log(result)
-				location.reload()
-			}
-		})
-	}
+//  
+//  function ajaxNode(no, othername, mymno, kinds, othermno){
+//	  console.log(json)
+//		$.ajax({
+//			url: 'http://'+ location.host +':8888/alert/add.json',
+//			type: 'post',
+//			data:{
+//				type: no,
+//				othername: othername,
+//				mymno: mymno,
+//				kinds: kinds,
+//				othermno: othermno
+//				},
+//			dataType:'json',
+//			success: function(result) {
+//				mymno = -1
+//				othername =-1
+//				othermno = -1
+//				console.log(result)
+//				location.reload()
+//			}
+//		})
+//	}
   $('.pro-chatting-Btn').on('click', function() {
-		realpic = 'https://' + location.host + tpic
+		realpic = 'http://' + location.host + tpic
 		console.log(realpic)
-		location.href = 'https://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
+		location.href = 'http://'+location.host+':8888/detail-chat.html?myNo=' + mno + '&yourNo='
 				+ tno +'&yourName='
 				+ tname +'&membertype='
 				+ membertype +'&imagePath='+ realpic;

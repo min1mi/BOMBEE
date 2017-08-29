@@ -43,6 +43,12 @@
           values(#{mno}, #{tno}, #{pno}, #{sdt}, date_add(#{sdt}, interval 30 day),
           #{period}, now(), #{wishtime}, 0, 0)
   </insert>
+  
+  <insert id="addAlert" parameterType="friend">
+      insert into alert(othername, mymno, kinds, date,
+      confirm, type, othermno) 
+      values(#{othername}, #{mymno}, #{type}, now(), 0, #{typenum}, #{othermno})
+  </insert>
 
 
   <select id="detail" resultMap="friendMap" parameterType="friend">

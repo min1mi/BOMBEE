@@ -60,6 +60,7 @@ public Friend get3(Friend friend) throws Exception {
   @Override
   public int addReq(Friend friend) throws Exception {
     friendDao.addReq(friend);
+    friendDao.addAlert(friend);
     return 0;
   }
   @Override

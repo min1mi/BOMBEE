@@ -20,6 +20,11 @@ public class Friend {
   String tPic;
   int wishtime;
   boolean writerev;
+  String othername;
+  String type;
+  int othermno;
+  int mymno;
+  int typenum;
   public int getNo() {
     return no;
   }
@@ -134,14 +139,44 @@ public class Friend {
   public void setWriterev(boolean writerev) {
     this.writerev = writerev;
   }
+  public String getOthername() {
+    return othername;
+  }
+  public void setOthername(String othername) {
+    this.othername = othername;
+  }
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
+  }
+  public int getOthermno() {
+    return othermno;
+  }
+  public void setOthermno(int othermno) {
+    this.othermno = othermno;
+  }
+  public int getMymno() {
+    return mymno;
+  }
+  public void setMymno(int mymno) {
+    this.mymno = mymno;
+  }
+  public int getTypenum() {
+    return typenum;
+  }
+  public void setTypenum(int typenum) {
+    this.typenum = typenum;
+  }
   @Override
   public String toString() {
     return "Friend [no=" + no + ", tno=" + tno + ", mno=" + mno + ", confirm=" + confirm + ", trano=" + trano + ", pno="
         + pno + ", period=" + period + ", sdt=" + sdt + ", edt=" + edt + ", mname=" + mname + ", tname=" + tname
         + ", date=" + date + ", time=" + time + ", pm=" + pm + ", title=" + title + ", mPic=" + mPic + ", tPic=" + tPic
-        + ", wishtime=" + wishtime + ", writerev=" + writerev + "]";
+        + ", wishtime=" + wishtime + ", writerev=" + writerev + ", othername=" + othername + ", type=" + type
+        + ", othermno=" + othermno + ", mymno=" + mymno + ", typenum=" + typenum + "]";
   }
-  
   
   
 }
