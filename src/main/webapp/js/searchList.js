@@ -382,7 +382,7 @@ function getData(json, type, create) {
       if(create == '#addList' || create == '#list-container') {
     	  $('.list-div').click(function() {
     		  if(teacherOrPromotion == 1)
-    			  location.href = '../promotion/trainerDetail.html?no='+$(this).attr('value')
+    			  location.href = '../t-detail/trainerDetail.html?no='+$(this).attr('value')
     		  else if(teacherOrPromotion == 0)
     			  location.href = '../promotion/promotionDetail.html?no='+$(this).attr('value')
     	      })
