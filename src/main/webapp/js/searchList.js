@@ -41,8 +41,10 @@ if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414)
 				width = 5
 			else if($(window)[0].innerWidth <= 320)
 				width = 4
-console.log(width)
 				
+	$('#header-logo').children('img').click(function() {
+		location.href = '../'
+	})
 	mapHeader.click(function (){
 		$('.list-div').remove()
 		mapHeader.css('display', 'none')
