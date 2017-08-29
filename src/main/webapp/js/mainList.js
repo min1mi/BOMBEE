@@ -76,8 +76,6 @@ function getData(json, typeNo) {
         var container = $('#promotion-in')
         var html = container.html()
         container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
-        console.log(imgTag)
-        console.log(titleImage)
         btnClick()
         for (var i = 0; i < imgTag.length; i++) {
           $('.'+imgTag[i]).attr('src', '../upload/'+titleImage[i]+width)
@@ -104,6 +102,7 @@ $('#searchMapGo').click(function () {
 $('#hot-cos').click(() => {
   category = '#hot-cos'
     borderBottom(category)
+    $('.main-promotion-heightz').children('img').attr('src', '../image/hot-cos_m.jpg')
     json = '/promotion/hot-firstList.json'
       getData(json, 0)
 })
@@ -112,6 +111,7 @@ $('#pilates').click(() => {
   category = '#pilates'
     borderBottom(category)
     json = '/promotion/health-firstList.json'
+    $('.main-promotion-heightz').children('img').attr('src', '../image/pilates_m.jpg')
       getData(json, 4)
 
 })
@@ -120,6 +120,7 @@ $('#yoga').click(() => {
   category = '#yoga'
     borderBottom(category)
     json = '/promotion/health-firstList.json'
+    $('.main-promotion-heightz').children('img').attr('src', '../image/yoga_m.jpg')
       getData(json, 3)
 })
 
@@ -127,12 +128,14 @@ $('#health').click(() => {
   category = '#health'
     borderBottom(category)
     json = '/promotion/health-firstList.json'
+    $('.main-promotion-heightz').children('img').attr('src', '../image/health_m.jpg')
       getData(json, 1)
 
 })
 $('#spinning').click(() => {
   category = '#spinning'
     borderBottom(category)
+    $('.main-promotion-heightz').children('img').attr('src', '../image/crosspit_m.jpg')
     json = '/promotion/health-firstList.json'
       getData(json, 2)
 })
