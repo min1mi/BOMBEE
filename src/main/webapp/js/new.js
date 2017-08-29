@@ -53,7 +53,7 @@ $(document).ready(function() {
     console.log(no)
     if (login == -1) {
       $.ajax({
-        url: 'https://www.bombees.com:8888/alert/get.json',
+        url: 'http://' + location.host + ':8888/alert/get.json',
         type: 'post',
         data:{no: no},
         dataType:'json',
