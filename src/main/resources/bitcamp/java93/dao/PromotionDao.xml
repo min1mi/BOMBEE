@@ -41,6 +41,7 @@
         <result column="meter" property="meter"/>
         <result column="name" property="name"/>
         <result column="expire" property="expire"/>
+        <result column="tipic" property="tiPic"/>
         <result column="introduction" property="introduction"/>
         <collection property="photoList" ofType="string">
           <result column="pimg"/>
@@ -64,7 +65,7 @@
     SELECT  p.pno, p.titl, t.tno, m.name, t.comaddr, p.content, p.lng, p.lat, t.spono, t.introduction,
 (((6371*acos(cos(radians(#{lat}))*cos(radians(p.lat))*cos(radians(p.lng)
   -radians(#{lon}))+sin(radians(#{lat}))*sin(radians(p.lat)))))*1000)
-  AS meter , i.pimg
+  AS meter , i.pimg, m.img as tipic
 FROM memb m left join tcher t  on t.tno = m.mno 
          left join promotion p on p.tno = t.tno 
          left outer join promotionimg i on p.pno = i.pno

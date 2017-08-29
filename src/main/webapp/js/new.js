@@ -4,11 +4,22 @@ mypage = $('#header-mypage'),
 search = $('#header-search'),
 membertype = -1,
 logintype
-
+var imgsize;
 var login;
 var count = 0;
 var no = null;
 var index = 0;
+var phoneWidth
+if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+	phoneWidth = 6
+else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+	phoneWidth = 5
+else if($(window)[0].innerWidth <= 320)
+	phoneWidth = 4
+	// 사진업데이트할때 폰해상도에 맡게 짜르기위한 아이폰5,6,6+ 구분 변수
+	// 숫자 4  = 아이폰5
+	// 숫자 5 = 아이폰6
+	// 숫자 6 = 아이폰6+
 
 $(document).ready(function() {
   getHeaderData()
@@ -138,8 +149,15 @@ function getHeaderData() {
       logintype = result.data.accounttype
       $.getJSON('/member/getinfo.json', {'no': no}, function(result) {
         console.log(result)
-        if (result.data.profilePicture)
-          $('.header-user').attr('src', result.data.profilePicture +'_170.png')
+        if (result.data.profilePicture) {
+        	if(phoneWidth == 6)
+        		imgsize = '_190.png'
+        	else if (phoneWidth == 5)
+        		imgsize = '_170.png'
+        	else if (phoneWidth == 4)
+        		imgsize = '_170.png'
+        	$('.header-user').attr('src', result.data.profilePicture +imgsize)
+        }
 
           login = -1;
         $('.header-menu-ul .user-name').text(result.data.name)

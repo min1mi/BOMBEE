@@ -5,6 +5,7 @@ import java.util.List;
 public class Trainning extends Trainer {
   int pno;
   String title;
+  String tiPic;
   int pric;
   String content;
   String sdt;
@@ -14,17 +15,6 @@ public class Trainning extends Trainer {
   int meter;
   List <String> photoList;
   int expire;
-  
-  @Override
-  public String toString() {
-    return "Trainning [pno=" + pno + ", title=" + title + ", pric=" + pric + ", content=" + content + ", sdt=" + sdt
-        + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList=" + photoList
-        + ", expire=" + expire + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
-        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tcherpic="
-        + tcherpic + ", tno=" + tno + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
-        + pwd + ", profilePicture=" + profilePicture + ", membertype=" + membertype + ", accounttype=" + accounttype
-        + "]";
-  }
   public int getPno() {
     return pno;
   }
@@ -36,6 +26,12 @@ public class Trainning extends Trainer {
   }
   public void setTitle(String title) {
     this.title = title;
+  }
+  public String getTiPic() {
+    return tiPic;
+  }
+  public void setTiPic(String tiPic) {
+    this.tiPic = tiPic;
   }
   public int getPric() {
     return pric;
@@ -91,6 +87,17 @@ public class Trainning extends Trainer {
   public void setExpire(int expire) {
     this.expire = expire;
   }
+  @Override
+  public String toString() {
+    return "Trainning [pno=" + pno + ", title=" + title + ", tiPic=" + tiPic + ", pric=" + pric + ", content=" + content
+        + ", sdt=" + sdt + ", edt=" + edt + ", lat=" + lat + ", lng=" + lng + ", meter=" + meter + ", photoList="
+        + photoList + ", expire=" + expire + ", comname=" + comname + ", zipcode=" + zipcode + ", comaddr=" + comaddr
+        + ", comdetailaddr=" + comdetailaddr + ", spono=" + spono + ", introduction=" + introduction + ", tcherpic="
+        + tcherpic + ", tno=" + tno + ", no=" + no + ", id=" + id + ", name=" + name + ", email=" + email + ", pwd="
+        + pwd + ", profilePicture=" + profilePicture + ", membertype=" + membertype + ", accounttype=" + accounttype
+        + "]";
+  }
+  
 
   
 }

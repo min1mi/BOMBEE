@@ -364,6 +364,10 @@ function getData(json, type, create) {
     	'lat': findLat,
     	'lon': findLon
     }, function(result) {
+    	if(type == '#tlist-template'){
+    		console.log(result)
+    		console.log('11111111111111111')
+    	}
       // 템플릿 소스를 가지고 템플릿을 처리할 함수를 얻는다.
     	if(type== '#list-template')
     		console.log(result)
