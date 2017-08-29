@@ -10,7 +10,7 @@ import bitcamp.java93.domain.Friend;
 import bitcamp.java93.service.FriendService;
 
 @Service
-public  class FriendServiceImpl implements FriendService {
+public class FriendServiceImpl implements FriendService {
   @Autowired
   FriendDao friendDao;
 
