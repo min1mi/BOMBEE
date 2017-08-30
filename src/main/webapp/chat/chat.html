@@ -45,12 +45,12 @@
        {{else}}
        <dt id='youAndMe' value='{{trainerno}}'>{{yourName}}</dt>
        {{/youAndMe}}
-			 <dt class='arrive-date'>{{arrivedate}}</dt>
+			 <dt class='arrive-date'>{{arrivedate}} {{pm}} {{time}}</dt>
 
 			 {{#chat-confirm this.unread}}
 			 <dt id='chat-confirm' class='confirm confirm-on'>{{unread}}</dt>
 			 {{else}}
-			 <dt id='chat-confirm' class='confirm'>{{unread}}</dt>
+			 <dt id='chat-confirm' class='confirm'></dt>
 			 {{/chat-confirm}}
 
       <dd>{{message}}</dd>

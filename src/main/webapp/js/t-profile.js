@@ -59,6 +59,8 @@ function sample2_execDaumPostcode() {
   initLayerPosition();
 }
 
+
+
 //브라우저의 크기 변경에 따라 레이어를 가운데로 이동시키고자 하실때에는
 //resize이벤트나, orientationchange이벤트를 이용하여 값이 변경될때마다 아래 함수를 실행 시켜 주시거나,
 //직접 element_layer의 top,left값을 수정해 주시면 됩니다.
@@ -85,7 +87,18 @@ fiIntroduction
 var spono,
 saveBtn = $('.save-btn')
 
+var phoneWidth
 
+if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+	phoneWidth = 6
+else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+	phoneWidth = 5
+else if($(window)[0].innerWidth <= 320)
+	phoneWidth = 4
+	// 사진업데이트할때 폰해상도에 맡게 짜르기위한 아이폰5,6,6+ 구분 변수
+	// 숫자 4  = 아이폰5
+	// 숫자 5 = 아이폰6
+	// 숫자 6 = 아이폰6+
 
 
 $.getJSON('/auth/userinfo.json', function(result) {
@@ -141,7 +154,7 @@ function getData() {
       spono = $('#pro-select option:selected').val()
     }
 
-    $('#profile-files').fileupload({
+    $('#profile-filess').fileupload({
       url: '/trainer/alreadyUpdate.json',        // 서버에 요청할 URL
       dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
       sequentialUploads: false,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
@@ -157,6 +170,7 @@ function getData() {
           console.log(data.files);
           var imagesDiv = $('#box1');
           imagesDiv.html("");
+          console.log(data.files[0])
           try {
             if (data.files[0].preview.toDataURL) {
               $("#box1").attr('src', data.files[0].preview.toDataURL());
@@ -191,9 +205,9 @@ function getData() {
 }
 saveBtn.on('click', function() {
   console.log("클릭클릭")
-  console.log($('#box1').attr('src').split("_140.png")[0])
+  console.log($('#box1').attr('src').split("_190.png")[0])
   $.post('/trainer/update.json', {
-    'tcherpic' : $('#box1').attr('src').split("_140.png")[0],
+    'tcherpic' : $('#box1').attr('src').split("_190.png")[0],
     'spono': spono,
     'comname':fiComname.val(),
     'zipcode': fiZipcode.val(),

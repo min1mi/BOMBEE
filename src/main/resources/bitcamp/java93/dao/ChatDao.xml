@@ -13,6 +13,8 @@
     <result column="name" property="yourName" />
     <result column="timg" property="tPath"/>
     <result column="mimg" property="mPath"/>
+    <result column="pm" property="pm"/>
+    <result column="time" property="time"/>
     <collection property="noList" ofType="string">
       <result column="mno"/>
     </collection>
@@ -24,9 +26,11 @@
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
 		select 
 		c.mno, tno,
-		substring_index(group_concat(date order by date desc), ',', 1) as date,
+		substring_index(group_concat(date_format(date, '%Y-%m-%d') order by date desc), ',', 1)  as date,
 		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
-		sum(if(confirm=0, if(whosend=tno, 1, 0), 0)) as unread,
+		sum(if(confirm=0, if(whosend=c.tno, 1, 0), 0)) as unread,
+		date_format(date, '%h:%i') as time,
+    date_format(date, '%p') as pm,
 		m.name, m.img as timg
 		from chat c inner join memb m on c.tno=m.mno
 		group by c.mno, c.tno
@@ -51,14 +55,21 @@
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
 		select 
 		c.mno, tno,
-		substring_index(group_concat(date order by date desc), ',', 1) as date,
+		substring_index(group_concat(date_format(date, '%Y-%m-%d') order by date desc), ',', 1)  as date,
 		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
-		sum(if(confirm=0, if(whosend=tno, 1, 0), 0)) as unread,
+		sum(if(confirm=0, if(whosend=c.mno, 1, 0), 0)) as unread,
+		date_format(date, '%h:%i') as time,
+    date_format(date, '%p') as pm,
 		m.name, m.img as timg
 		from chat c inner join memb m on c.mno=m.mno
 		group by c.mno, c.tno
 		having c.tno = #{trainerno}
-		order by c.date desc;
+		
   </select>
+  
+  <update id="updateRead" parameterType="chat">
+      update  chat set confirm = true
+        where tno = #{trainerno} and whosend != #{mymno} and mno = #{memberno}
+  </update>
   
 </mapper>
