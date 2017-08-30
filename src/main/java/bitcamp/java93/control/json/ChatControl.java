@@ -21,13 +21,12 @@ public class ChatControl {
     System.out.println(chatService.trainerlist(no));
     return new JsonResult(JsonResult.SUCCESS, chatService.trainerlist(no));
   }
-
-//  @RequestMapping("searchMusician")
-//  public JsonResult searchMusician(HttpSession session, String location) throws Exception {
-//    HashMap<String,Object> dataMap = new HashMap<>();
-//    List<Musician> search= (List<Musician>)musicianService.searchMusician(getLoginMember(session).getNo() ,location);
-//    dataMap.put("listSurf", search);
-//    return new JsonResult(JsonResult.SUCCESS, dataMap);
-//  }
-
+  @RequestMapping("memberChat")
+  public int memberChatStatus(int no) throws Exception {
+    return chatService.memberChatStatus(no);
+  }
+  @RequestMapping("trainerChat")
+  public int trainerChatStatus(int no) throws Exception {
+    return chatService.trainerChatStatus(no);
+  }
 }

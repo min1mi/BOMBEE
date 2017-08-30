@@ -12,8 +12,18 @@ public class Chat {
   String yourName;
   String tPath;
   String mPath;
-
   boolean confirm;
+  int unread;
+  
+  
+
+  public int getUnread() {
+    return unread;
+  }
+
+  public void setUnread(int unread) {
+    this.unread = unread;
+  }
 
   public List<String> getNoList() {
     return noList;
@@ -99,7 +109,7 @@ public class Chat {
   public String toString() {
     return "Chat [noList=" + noList + ", tnoList=" + tnoList + ", memberno=" + memberno + ", trainerno=" + trainerno
         + ", arrivedate=" + arrivedate + ", message=" + message + ", yourName=" + yourName + ", tPath=" + tPath
-        + ", mPath=" + mPath + ", confirm=" + confirm + "]";
+        + ", mPath=" + mPath + ", confirm=" + confirm + ", unread=" + unread + "]";
   }
 
  

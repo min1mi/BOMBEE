@@ -28,6 +28,12 @@
     height: 22px;
     line-height: 1.4;
 	}
+	.mobile-container .chat-alram-on {
+    top: 27%;
+    width: 22px;
+    height: 22px;
+    line-height: 1.4;
+	}
 	.header-menu-ul .header-font-size {
 	font-size: 2.8rem;
 	}
@@ -60,6 +66,12 @@
     right: 0;
 	}
 	.mobile-container .alram-on {
+    top: 30%;
+    width: 24px;
+    height: 24px;
+    line-height: 1.5;
+	}
+	.mobile-container .chat-alram-on {
     top: 30%;
     width: 24px;
     height: 24px;
@@ -99,6 +111,12 @@
     height: 137px;
 	}
 	.mobile-container .alram-on {
+    top: 30%;
+    width: 27px;
+    height: 27px;
+    line-height: 1.6;
+	}
+	.mobile-container .chat-alram-on {
     top: 30%;
     width: 27px;
     height: 27px;
@@ -421,11 +439,24 @@ body {
 .mobile-container .alram-on {
 	position: absolute;
 	display: inline-block;
-	background-color: crimson;
+	background-color: #fd4d06;
 	border-radius: 50%;
 	font-size: 1.6rem;
 	text-align: center;
 	left: 10%;
+}
+
+.mobile-container .chat-alram-on {
+	position: absolute;
+	display: inline-block;
+	background-color: #fd4d06;
+	border-radius: 50%;
+	font-size: 1.6rem;
+	text-align: center;
+	left: 64%;
+  top: -4%;
+  font-weight: 600;
+  color: white;
 }
 
 

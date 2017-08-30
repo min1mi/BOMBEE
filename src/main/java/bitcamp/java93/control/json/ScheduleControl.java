@@ -1,7 +1,5 @@
 package bitcamp.java93.control.json;
  
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,10 +57,5 @@ public class ScheduleControl {
    return new JsonResult(JsonResult.SUCCESS, scheduleService.tcherSelectSchedule(no, day));
   }
     
-  private Trainer getLoginTrainer(HttpSession session) {
-    Trainer loginMember = (Trainer) session.getAttribute("loginMember");
-    return loginMember;
-  }
-  
 }
 

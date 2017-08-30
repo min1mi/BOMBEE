@@ -9,4 +9,6 @@ public interface ChatDao {
   List<Chat> selectTrainerAll(int no);
   int insert(Chat chat);
   int delete(int no);
+  int memberChatStatus(int no);
+  int trainerChatStatus(int no);
 }

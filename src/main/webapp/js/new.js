@@ -42,7 +42,7 @@ $(document).ready(function() {
     console.log(no)
     if (login == -1) {
       $.ajax({
-        url: 'https://www.bombees.com:8888/alert/get.json',
+        url: 'http://' + location.host +':8888/alert/get.json',
         type: 'post',
         data:{no: no},
         dataType:'json',
@@ -136,6 +136,24 @@ function getHeaderData() {
       no = result.data.no
       membertype = result.data.membertype
       logintype = result.data.accounttype
+      
+      if (membertype == 1) {
+        $.getJSON('/chat/memberChat.json', {'no' : no}, function(result) {
+          if(result > 0) {
+            $('.chat-alram').addClass('chat-alram-on')
+            $('.chat-alram').text(result)
+          }
+        })
+        
+      } else if (membertype == 2) {
+        $.getJSON('/chat/trainerChat.json', {'no' : no}, function(result) {
+          if(result > 0) {
+            $('.chat-alram').addClass('chat-alram-on')
+            $('.chat-alram').text(result)
+          }
+        })
+      }
+      
       $.getJSON('/member/getinfo.json', {'no': no}, function(result) {
         console.log(result)
         if (result.data.profilePicture)
@@ -172,6 +190,8 @@ function getHeaderData() {
           $('.file .profile-img').attr('type', '')
           $('.bell-alram').removeClass('alram-on')
           $('.bell-alram').text('')
+          $('.chat-alram').removeClass('chat-alram-on')
+          $('.chat-alram').text('')
           $('.header-menu-ul .user-name').text('')
           login = 0
           membertype = 0

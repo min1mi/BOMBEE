@@ -9,6 +9,7 @@
     <result column="date" property="arrivedate" />
     <result column="msg" property="message" />
     <result column="confirm" property="confirm" />
+    <result column="unread" property="unread" />
     <result column="name" property="yourName" />
     <result column="timg" property="tPath"/>
     <result column="mimg" property="mPath"/>
@@ -21,17 +22,43 @@
   </resultMap>
   
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
-		select DISTINCT c.tno, c.mno, c.date, c.msg, c.confirm, m.name, m.img as timg
-		from chat c  inner join memb m on c.tno = m.mno
-		                inner join tcher t on c.tno = t.tno
-		where c.mno = #{memberno}
-		order by date desc;
+		select 
+		c.mno, tno,
+		substring_index(group_concat(date order by date desc), ',', 1) as date,
+		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
+		sum(if(confirm=0, if(whosend=tno, 1, 0), 0)) as unread,
+		m.name, m.img as timg
+		from chat c inner join memb m on c.tno=m.mno
+		group by c.mno, c.tno
+		having c.mno = #{memberno}
+		order by c.date desc;
+		
+		
+  </select>
+  
+  <select id="memberChatStatus" resultType="int" parameterType="chat">
+  	select count(*)
+  	from chat
+  	where confirm = 0 and mno = #{memberno} and whosend !=#{memberno}
+  </select>
+  
+  <select id="trainerChatStatus" resultType="int" parameterType="chat">
+  	select count(*)
+  	from chat
+  	where confirm = 0 and tno = #{trainerno} and whosend != #{trainerno}
   </select>
   
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
-		select DISTINCT  c.mno, c.tno, c.date, c.msg, c.confirm, m.name, m.img as mimg
-		from chat c inner join memb m on c.mno = m.mno
-		where c.tno = #{trainerno}
-		order by date desc;
+		select 
+		c.mno, tno,
+		substring_index(group_concat(date order by date desc), ',', 1) as date,
+		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
+		sum(if(confirm=0, if(whosend=tno, 1, 0), 0)) as unread,
+		m.name, m.img as timg
+		from chat c inner join memb m on c.mno=m.mno
+		group by c.mno, c.tno
+		having c.tno = #{trainerno}
+		order by c.date desc;
   </select>
+  
 </mapper>

@@ -296,28 +296,6 @@ public class PromotionControl {
   }
 }
   
-  
-//  @RequestMapping("detail")
-//  public JsonResult detail(int no) throws Exception {
-//    Promotion promotion = teacherService.get(no);
-//    if (teacher == null) {
-//      return new JsonResult(JsonResult.FAIL, no + "번 강사가 없습니다.");
-//    }
-//    return new JsonResult(JsonResult.SUCCESS, teacher);
-//  }
-//  
-//  @RequestMapping("update")
-//  public JsonResult update(Teacher teacher) throws Exception {
-//    teacherService.update(teacher);
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }
-//  
-//  @RequestMapping("delete")
-//  public JsonResult delete(int no) throws Exception {
-//    teacherService.remove(no);
-//    return new JsonResult(JsonResult.SUCCESS, "ok");
-//  }  
-//  
 
 
 

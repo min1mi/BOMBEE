@@ -9,4 +9,6 @@ public interface ChatService {
   /*read-only : list, get*/
   List<Chat> memberlist(int no) throws Exception;
   List<Chat> trainerlist(int no) throws Exception;
+  int memberChatStatus(int no) throws Exception;
+  int trainerChatStatus(int no) throws Exception;
 }

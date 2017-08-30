@@ -41,10 +41,18 @@
       {{/if}}
     <dl>
        {{#youAndMe this}}
-      <dt id='youAndMe' value='{{memberno}}'>{{yourName}}</dt>
+       <dt id='youAndMe' value='{{memberno}}'>{{yourName}}</dt>
        {{else}}
        <dt id='youAndMe' value='{{trainerno}}'>{{yourName}}</dt>
        {{/youAndMe}}
+			 <dt class='arrive-date'>{{arrivedate}}</dt>
+
+			 {{#chat-confirm this.unread}}
+			 <dt id='chat-confirm' class='confirm confirm-on'>{{unread}}</dt>
+			 {{else}}
+			 <dt id='chat-confirm' class='confirm'>{{unread}}</dt>
+			 {{/chat-confirm}}
+
       <dd>{{message}}</dd>
     </dl>
   </div>
