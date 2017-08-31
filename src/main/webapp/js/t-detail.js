@@ -278,7 +278,7 @@ $('.pro-add-Btn').on('click', function() {
 	boool = false;
 
 	realpic = location.host + tpic
-	location.href = 'http://' + location.host + '/detail-chat.html?myNo=' + mno + '&yourNo='
+	location.href = 'https://' + location.host + '/detail-chat.html?myNo=' + mno + '&yourNo='
 			+ tno +'&yourName='
 			+ tname +'&membertype='
 			+ membertype +'&imagePath='+ realpic;

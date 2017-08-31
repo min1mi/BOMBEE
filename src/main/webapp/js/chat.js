@@ -157,7 +157,7 @@ function chatDetailBtn() {
 	  })
     var img = '/'+ $(this).children('div').children('img').attr('src').split('/')[1] +'/'+
     $(this).children('div').children('img').attr('src').split('/')[2]
-    location.href = 'http://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
+    location.href = 'https://' + location.host + ':8888/detail-chat.html?myNo=' + myNo + '&yourNo='
     + $(this).children('dl').children().first().attr('value')+'&yourName='
     +$(this).children('dl').children().first().text()+'&membertype='+membertype +
     '&imagePath='+ server+img;
