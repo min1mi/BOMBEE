@@ -6,7 +6,7 @@
   <resultMap type="chat" id="chatMap">
     <id column='mno' property='memberno'/>
     <id column="tno" property="trainerno" />
-    <result column="date" property="arrivedate" />
+    <result column="arrivedate" property="arrivedate" />
     <result column="msg" property="message" />
     <result column="confirm" property="confirm" />
     <result column="unread" property="unread" />
@@ -24,19 +24,33 @@
   </resultMap>
   
   <select id="selectMemberAll" resultMap="chatMap" parameterType="int">
-		select 
-		c.mno, tno,
-		substring_index(group_concat(date_format(date, '%Y-%m-%d') order by date desc), ',', 1)  as date,
-		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
-		sum(if(confirm=0, if(whosend=c.tno, 1, 0), 0)) as unread,
-		date_format(date, '%h:%i') as time,
-    date_format(date, '%p') as pm,
-		m.name, m.img as timg
-		from chat c inner join memb m on c.tno=m.mno
-		group by c.mno, c.tno
-		having c.mno = #{memberno}
-		order by c.date desc;
-		
+	 select 
+    substring_index(group_concat(c.cno order by date desc), ',', 1)  as cno,
+    substring_index(group_concat(c.tno order by date desc), ',', 1)  as tno,
+    substring_index(group_concat(c.mno order by date desc), ',', 1)  as mno,
+    substring_index(group_concat(date_format(c.date, '%Y-%m-%d') order by date desc), ',', 1)  as arrivedate,
+    substring_index(group_concat(c.msg order by date desc), ',', 1) as msg,
+    sum(if(confirm=0, if(whosend=c.tno, 1, 0), 0)) as unread,
+    substring_index(group_concat(date_format(c.date, '%h:%i') order by date desc), ',', 1)  as time,
+        substring_index(group_concat(date_format(c.date, '%p') order by date desc), ',', 1) as pm,
+    m.name, m.img as timg
+    from chat c inner join memb m on c.tno=m.mno
+    group by c.mno, c.tno
+    having c.mno = #{memberno}
+    order by cno desc; 
+<!-- 		select 
+    c.mno, tno,cno,id, date,
+    date_format(c.date, '%Y-%m-%d')  as arrivedate,
+    substring_index(group_concat(c.msg order by date desc), ',', 1) as msg,
+    sum(if(confirm=0, if(whosend=c.tno, 1, 0), 0)) as unread,
+    date_format(c.date, '%h:%i')  as time,
+    date_format(c.date, '%p') as pm,
+    m.name, m.img as timg
+    from chat c inner join memb m on c.mno=m.mno
+    group by c.mno, c.tno
+    having c.mno = #{memberno}
+    order by date desc;
+		 -->
 		
   </select>
   
@@ -53,18 +67,33 @@
   </select>
   
   <select id="selectTrainerAll" resultMap="chatMap" parameterType="int">
-		select 
-		c.mno, tno,
-		substring_index(group_concat(date_format(date, '%Y-%m-%d') order by date desc), ',', 1)  as date,
-		substring_index(group_concat(msg order by date desc), ',', 1) as msg,
-		sum(if(confirm=0, if(whosend=c.mno, 1, 0), 0)) as unread,
-		date_format(date, '%h:%i') as time,
-    date_format(date, '%p') as pm,
-		m.name, m.img as timg
-		from chat c inner join memb m on c.mno=m.mno
-		group by c.mno, c.tno
-		having c.tno = #{trainerno}
-		
+    select 
+    substring_index(group_concat(c.cno order by date desc), ',', 1)  as cno,
+    substring_index(group_concat(c.tno order by date desc), ',', 1)  as tno,
+    substring_index(group_concat(c.mno order by date desc), ',', 1)  as mno,
+    substring_index(group_concat(date_format(c.date, '%Y-%m-%d') order by date desc), ',', 1)  as arrivedate,
+    substring_index(group_concat(c.msg order by date desc), ',', 1) as msg,
+    sum(if(confirm=0, if(whosend=c.mno, 1, 0), 0)) as unread,
+    substring_index(group_concat(date_format(c.date, '%h:%i') order by date desc), ',', 1)  as time,
+        substring_index(group_concat(date_format(c.date, '%p') order by date desc), ',', 1) as pm,
+    m.name, m.img as timg
+    from chat c inner join memb m on c.mno=m.mno
+    group by c.mno, c.tno
+    having c.tno = #{trainerno}
+    order by cno desc; 
+<!-- 		select 
+    c.mno, tno,cno,id, date,
+    date_format(c.date, '%Y-%m-%d')  as arrivedate,
+    substring_index(group_concat(c.msg order by date desc), ',', 1) as msg,
+    sum(if(confirm=0, if(whosend=c.mno, 1, 0), 0)) as unread,
+    date_format(c.date, '%h:%i')  as time,
+    date_format(c.date, '%p') as pm,
+    m.name, m.img as timg
+    from chat c inner join memb m on c.mno=m.mno
+    group by c.mno, c.tno
+    having c.tno = #{trainerno}
+    order by date desc;
+		 -->
   </select>
   
   <update id="updateRead" parameterType="chat">

@@ -71,6 +71,21 @@ public class TrainerControl {
     
     File thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_140"));
     Thumbnails.of(file).size(140, 140).outputFormat("png").toFile(thumbnailfile);
+
+    ////////
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_190"));
+    Thumbnails.of(file).size(190, 140).outputFormat("png").toFile(thumbnailfile);
+    // 아이폰6+
+    //////////
+    
+    ///
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_170"));
+    Thumbnails.of(file).size(170, 120).outputFormat("png").toFile(thumbnailfile);
+    /// 아이폰6
+    
+    //
+    thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_146"));
+    Thumbnails.of(file).size(146, 121).outputFormat("png").toFile(thumbnailfile);
     
     thumbnailfile = new File(ctx.getRealPath("/upload/" + newFilename + "_350"));
     Thumbnails.of(file).size(350, 350).outputFormat("png").toFile(thumbnailfile);

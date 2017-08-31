@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.domain.Chat;
 import bitcamp.java93.service.ChatService;
 
 @RestController
@@ -28,5 +29,9 @@ public class ChatControl {
   @RequestMapping("trainerChat")
   public int trainerChatStatus(int no) throws Exception {
     return chatService.trainerChatStatus(no);
+  }
+  @RequestMapping("updateRead")
+  public int updateRead(Chat chat) throws Exception {
+    return chatService.updateRead(chat);
   }
 }

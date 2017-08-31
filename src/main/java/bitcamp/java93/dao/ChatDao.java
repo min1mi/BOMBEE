@@ -11,4 +11,5 @@ public interface ChatDao {
   int delete(int no);
   int memberChatStatus(int no);
   int trainerChatStatus(int no);
+  int updateRead(Chat chat);
 }

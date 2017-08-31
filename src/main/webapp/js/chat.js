@@ -52,21 +52,35 @@ function getChat(no, json) {
     for(var i = 0; i < result.data.length; i++) {
     	empty.addClass(''+i)
     	empty = empty.next()
+    	if(type!=0) {
+    		if(result.data[i].tPath == undefined)
+        		result.data[i].tPath = null
+    	}
     }
 	for(var i = 0; i < result.data.length; i++) {
+		if(result.data[i].tPath != null)
+			$('.'+i + ' img').attr('src', result.data[i].tPath)
+		else 
+			$('.'+i + ' img').attr('src', '../image/user')
+		if(tno != -1) {
+			$('.'+i + ' #youAndMe').text('')
+			$('.'+i + ' #youAndMe').val(result.data[i].memberno)
+		}else if(no != -1) {
+			$('.'+i + ' #youAndMe').text('')
+			$('.'+i + ' #youAndMe').val(result.data[i].trainerno)
+		}
+		$('.'+i + ' dl'+ ' dt').text('')
+		$('.'+i + ' dl'+ ' dt').text(result.data[i].yourName)
+		$('.'+i + ' .arrive-date').text('')
+		$('.'+i + ' .arrive-date').text(result.data[i].arrivedate+' '+result.data[i].pm + ' '+ result.data[i].time)
 		$('.'+i + ' dd').text('')
 		$('.'+i + ' dd').text(result.data[i].message)
+		if(result.data[i].unread != 0) {
+			$('.'+i + ' #chat-confirm').addClass('confirm-on').text(result.data[i].unread)
+		}else 
+			$('.'+i + ' #chat-confirm').removeClass('confirm-on').text('')
 	}
-	if(length > result.data.length) {
-		for(var i = length-1; i > result.data.length-1; i--) {
-			$('.'+i).remove()
-		}
-	}else if (length < result.data.length) {
-		length = result.data.length
-		for(;length < result.data.length; length++) {
-			$('div').addClass('chat-line').addClass('length')
-		}
-	}
+	
 
     if(no != -1) {
       for(var i = 0; i < result.data.length; i++) {

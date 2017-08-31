@@ -11,4 +11,5 @@ public interface ChatService {
   List<Chat> trainerlist(int no) throws Exception;
   int memberChatStatus(int no) throws Exception;
   int trainerChatStatus(int no) throws Exception;
+  int updateRead(Chat chat) throws Exception;
 }
