@@ -12,7 +12,11 @@ var server = 'http://'+location.host
 console.log(server)
 
 $('.close-btn').on('click', function(){
-  window.history.go(-1)
+  if(location.host == 'https://www.bombees.com:8888/detail-chat.html')
+    window.history.go(-3)
+  else
+    window.history.go(-1)
+  
 })
 
 chatLoad()

@@ -45,7 +45,7 @@ function firstLogin(response) {
     if ( navigator.platform ) { 
       if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
         if(result.data == 'ok')
-          window.history.go(-2)
+          location.href='../index.html'
 
           else {
             console.log(response)
@@ -56,7 +56,7 @@ function firstLogin(response) {
           }
       } else { 
         if(result.data == 'ok')
-          window.history.go(-1)
+          location.href='../index.html'
           else {
             console.log(response)
             if(response.kaccount_email)
@@ -116,10 +116,10 @@ function login(result) {
     if ( navigator.platform ) { 
       if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
         if(result.data == 'ok')
-          window.history.go(-2)
+          location.href='../index.html'
       } else { 
         if(result.data == 'ok')
-          window.history.go(-1)
+          location.href='../index.html'
       } 
     }
   }, 'json') // login.json
@@ -201,10 +201,10 @@ sendBtn.on('click', function() {
     if ( navigator.platform ) { 
       if ( filter.indexOf( navigator.platform.toLowerCase() ) < 0 ) { 
         if(result.data == 'ok')
-          window.history.go(-2)
+          location.href='../index.html'
       } else { 
         if(result.data == 'ok')
-          window.history.go(-1)
+          location.href='../index.html'
       } 
     }
   }, 'json')
