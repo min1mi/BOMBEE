@@ -28,10 +28,13 @@
 - Build : Gradle
 - Server : AWS(Amazon WebServer), Tomcat8, NodeJS
 - Front End : AJAX, moment.js
-- Api : Kakao Login, Daum map,
+- Api : Kakao Login, Daum map
 - Tool : Eclipse, Atom, eXERD,
 ```
 # 화면
-![로그인화면](./ReadmeImage/봄비메인.jpg) 
+- Login
+
+<img src="./ReadmeImage/봄비메인.jpg" width="250">
+
 
 # 테이블 구조
