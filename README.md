@@ -34,5 +34,6 @@
 # 화면
 - Login
 
-![Login](https://github.com/min1mi/BOMBEE/tree/master/ReadmeImage/봄비메인.jpg | width=100px)
+<img src="https://github.com/min1mi/BOMBEE/tree/master/ReadmeImage/봄비메인.jpg" width="100">
+
 # 테이블 구조
