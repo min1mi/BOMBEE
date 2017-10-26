@@ -34,5 +34,5 @@
 # 화면
 - Login
 
-![Login](./ReadmeImage/봄비메인.jpg){:height="36px" width="36px"}
+![Login](./ReadmeImage/봄비메인.jpg | width=100px)
 # 테이블 구조
