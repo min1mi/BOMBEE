@@ -192,7 +192,7 @@
 | TRANO **`(FK)`**| 연결된 개인트레이너 번호	| INTEGER NOT NULL|
 | SCORE | 평점	| INTEGER	NOT NULL|
 | PNO | 연결된 프로모션 번호 | INTEGER	NOT NULL|
-| PROTITL | 프로모션 타이틀 | VARCHAR(255)	NOT NULL|
+| PROTITL | 연결된 프로모션 타이틀 | VARCHAR(255)	NOT NULL|
 | DATE | 리뷰 작성 날짜	| VARCHAR(255) NOT NULL|
 
 | CHAT 테이블(채팅)|||
