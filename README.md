@@ -27,9 +27,9 @@
 - DB : MySql
 - Build : Gradle
 - Server : AWS(Amazon WebServer), Tomcat8, NodeJS
-- Front End : AJAX, moment.js
+- Front End : AJAX, jQuery, moment.js, sweetalert
 - Api : Kakao Login, Daum map
-- Tool : Eclipse, Atom, eXERD,
+- Tool : Eclipse, Atom, eXERD
 ```
 # 화면
 - Login
