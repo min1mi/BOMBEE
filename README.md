@@ -70,7 +70,7 @@
 
 - Apply for Match
 
-<img src="./ReadmeImage/친구.jpg" width="250">
+<img src="./ReadmeImage/친구신청.jpg" width="250">
 
 - Notification
 
