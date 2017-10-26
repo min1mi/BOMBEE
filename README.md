@@ -100,7 +100,7 @@
 
 - DB table
 
-<img src="./ReadmeImage/테이블구조.PNG">
+<img src="./ReadmeImage/테이블구조1.PNG">
 
 | ACCOUNT MEMB 테이블(일반 사용자)|||
 | :-----: | :-: |:-: |
