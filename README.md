@@ -96,11 +96,11 @@
 
 <img src="./ReadmeImage/채팅목록.jpg" width="250"> <img src="./ReadmeImage/채팅.jpg" width="250">
 
+# 테이블 구조
+
 - DB table
 
-<img src="./ReadmeImage/테이블구조.png">
-
-# 테이블 구조
+<img src="./ReadmeImage/테이블구조.PNG">
 
 | ACCOUNT MEMB 테이블(일반 사용자)|||
 | :-----: | :-: |:-: |
