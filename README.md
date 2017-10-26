@@ -33,5 +33,6 @@
 ```
 # 화면
 - Login
-<img src="봄비메인.jpg" alt="Login" style="width: 200px;"/>
+<img src="봄비메인.jpg" style="width: 200px;"></img>
+
 # 테이블 구조
