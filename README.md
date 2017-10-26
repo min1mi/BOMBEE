@@ -36,5 +36,72 @@
 
 <img src="./ReadmeImage/봄비메인.jpg" width="250">
 
+- Sign Up
+
+<img src="./ReadmeImage/회원가입1.jpg" width="250">
+<img src="./ReadmeImage/회원가입2.jpg" width="250">
+
+- Main
+
+<img src="./ReadmeImage/메인1.jpg" width="250">
+<img src="./ReadmeImage/메인2.jpg" width="250">
+
+- Real-time Location Map
+
+<img src="./ReadmeImage/맵.jpg" width="250">
+
+- Navigator Bar
+
+<img src="./ReadmeImage/네비게이터.jpg" width="250">
+
+- Promotion List
+
+<img src="./ReadmeImage/프로모션.jpg" width="250">
+
+- Trainer
+
+<img src="./ReadmeImage/강사1.jpg" width="250">
+<img src="./ReadmeImage/강사2.jpg" width="250">
+<img src="./ReadmeImage/강사3.jpg" width="250">
+
+- Add Promotion
+
+<img src="./ReadmeImage/프로모션등록.jpg" width="250">
+
+- Promotion Add List
+
+<img src="./ReadmeImage/프로모션등록정보.jpg" width="250">
+
+- Apply for Match
+
+<img src="./ReadmeImage/친구요청.jpg" width="250">
+
+- Notification
+
+<img src="./ReadmeImage/강사알림.jpg" width="250">
+<img src="./ReadmeImage/회원알림.jpg" width="250">
+
+- Matching Request List
+
+<img src="./ReadmeImage/강사친구요청.jpg" width="250">
+<img src="./ReadmeImage/회원친구요청.jpg" width="250">
+
+- Promotion in Progress
+
+<img src="./ReadmeImage/진행중프로모션.jpg" width="250">
+
+- Diet Management
+
+<img src="./ReadmeImage/식단.jpg" width="250">
+
+- Review
+
+<img src="./ReadmeImage/리뷰.jpg" width="250">
+<img src="./ReadmeImage/리뷰작성.jpg" width="250">
+
+- Chating
+
+<img src="./ReadmeImage/채팅목록.jpg" width="250">
+<img src="./ReadmeImage/채팅.jpg" width="250">
 
 # 테이블 구조
