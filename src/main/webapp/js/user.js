@@ -1,7 +1,6 @@
 $(function() {
 	moment().format();
 	$('.header').load('../main/header.html')
-
 	getPromotionName(trano)
 	generateTemplate();
 	date(current);
@@ -24,9 +23,9 @@ alreadymealkcal = $('.already-food-kcal'),
 mealtype,
 mealno;
 var phoneWidth
-if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414)
 	phoneWidth = 6
-else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375)
 	phoneWidth = 5
 else if($(window)[0].innerWidth <= 320)
 	phoneWidth = 4
@@ -55,7 +54,7 @@ $('#files').fileupload({
 	disableImageResize: /Android(?!.*Chrome)|Opera/
 	.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
 	previewMaxWidth: 340,   // 미리보기 이미지 너비
-	previewMaxHeight: 312,  // 미리보기 이미지 높이 
+	previewMaxHeight: 312,  // 미리보기 이미지 높이
 	previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 	processalways: function(e, data) {
 		console.log('fileuploadprocessalways()...');
@@ -72,17 +71,17 @@ $('#files').fileupload({
 		$('#foodAddBtn').click(function() {
 			data.submit();
 		});
-	}, 
+	},
 	submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
 		data.formData = {
-				'mealkcal': mealkcal.val(), 
-				'mealname': mealname.val(), 
+				'mealkcal': mealkcal.val(),
+				'mealname': mealname.val(),
 				'mealtype': mealtype,
 				'day': today,
 				'trainingNo': trano
 		}
 		console.log('submit()...');
-	}, 
+	},
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
 		var type
@@ -111,7 +110,7 @@ $('#already-files').fileupload({
 	disableImageResize: /Android(?!.*Chrome)|Opera/
 	.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
 	previewMaxWidth: 340,   // 미리보기 이미지 너비
-	previewMaxHeight: 312,  // 미리보기 이미지 높이 
+	previewMaxHeight: 312,  // 미리보기 이미지 높이
 	previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 	processalways: function(e, data) {
 		console.log('fileuploadprocessalways()...');
@@ -128,18 +127,18 @@ $('#already-files').fileupload({
 			console.log('눌렸다')
 			data.submit();
 		});
-	}, 
+	},
 	submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
 		data.formData = {
 				'mealno' : mealno,
-				'mealkcal': alreadymealkcal.val(), 
-				'mealname': alreadymealname.val(), 
+				'mealkcal': alreadymealkcal.val(),
+				'mealname': alreadymealname.val(),
 				'mealtype': mealtype,
 				'day': today,
         'trainingNo': trano
 		}
 		console.log('submit()...');
-	}, 
+	},
 	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log(data.result);
 		location.reload()
@@ -163,8 +162,8 @@ $('#foodUpdateBtn').on('click', function() {
 	$.post('/management/nopicmeal-update.json', {
 		'mealpicture': $('#updatefiles img').attr('src').split(iphone)[0],
 		'mealno' : mealno,
-		'mealkcal': alreadymealkcal.val(), 
-		'mealname': alreadymealname.val(), 
+		'mealkcal': alreadymealkcal.val(),
+		'mealname': alreadymealname.val(),
 		'mealtype': mealtype,
 		'day': today,
 		'trainingNo': trano
@@ -207,10 +206,10 @@ function generateTemplate() {
 
 			date(current)
 			autoSelect(moment(current._i))
-			
+
 			$('.check').parent().removeClass('update')
 			inputMeal()
-			
+
 		})
 }
 function arrayData(data) {
@@ -245,9 +244,9 @@ function arrayData(data) {
 			case "lunch": sortedMeals[1] = meal; break;
 			case "dinner": sortedMeals[2] = meal; break;
 			}
-			if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414) 
+			if($(window)[0].innerWidth > 375 && $(window)[0].innerWidth <= 414)
 				meal.width = 6
-			else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375) 
+			else if($(window)[0].innerWidth > 320 && $(window)[0].innerWidth <= 375)
 				meal.width = 5
 			else if($(window)[0].innerWidth <= 320)
 				meal.width = 4
@@ -258,7 +257,7 @@ function arrayData(data) {
 				sortedMeals[i] = {index: i};
 			}
 		}
-		
+
 		dayMeal.sortedMeals = sortedMeals;
 		console.log(dayMeal.sortedMeals)
 	}
@@ -440,17 +439,17 @@ function slideDate() {
 }
 
 Handlebars.registerHelper('iphonesix', function(meal ,options) {
-	if(meal.width == 6) 
+	if(meal.width == 6)
 		return options.fn(this);
 });
 
 Handlebars.registerHelper('iphonesixs', function(meal ,options) {
-	if(meal.width == 5) 
+	if(meal.width == 5)
 		return options.fn(this);
 });
 
 Handlebars.registerHelper('iphonefive', function(meal ,options) {
-	if(meal.width == 4) 
+	if(meal.width == 4)
 		return options.fn(this);
 });
 
@@ -476,7 +475,7 @@ function ajaxNode(no, othername, mymno, kinds, othermno){
 	})
 }
 Handlebars.registerHelper('confirm', function(confirm ,options) {
-  if(confirm == true) 
+  if(confirm == true)
     return options.fn(this);
   else
     return options.inverse(this);
