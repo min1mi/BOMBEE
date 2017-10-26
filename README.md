@@ -32,5 +32,6 @@
 - Tool : Eclipse, Atom, eXERD, 
 ```
 # 화면
+<img src="./ReadmeImage/봄비메인.jpg"width="40%"></img>
 ![로그인화면](./ReadmeImage/봄비메인.jpg) 
 # 테이블 구조
