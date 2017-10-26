@@ -34,6 +34,6 @@
 # 화면
 - Login
 
-<img src="./ReadmeImage/봄비메인.jpg" width="50%">
+<img src="./ReadmeImage/봄비메인.jpg" width="400">
 
 # 테이블 구조
