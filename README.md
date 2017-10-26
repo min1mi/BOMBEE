@@ -43,8 +43,8 @@
 
 - Main
 
-<img src="./ReadmeImage/메인1.jpg" width="250" float="left">
-<img src="./ReadmeImage/메인2.jpg" width="250" float="left">
+<img src="./ReadmeImage/메인1.jpg" width="250" align="left">
+<img src="./ReadmeImage/메인2.jpg" width="250" align="left">
 
 - Real-time Location Map
 
