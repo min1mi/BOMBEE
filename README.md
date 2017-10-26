@@ -38,7 +38,7 @@
 
 - Sign Up
 
-<img src="./ReadmeImage/회원가입1.jpg" width="250">
+<img src="./ReadmeImage/회원가입1.jpg" width="250" align="left">
 <img src="./ReadmeImage/회원가입2.jpg" width="250">
 
 - Main
