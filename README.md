@@ -35,7 +35,7 @@
 - Login
 
 <img src="./ReadmeImage/봄비메인.jpg" width="250">
-<img src="./ReadmeImage/봄비메인.jpg" width="300">
-<img src="./ReadmeImage/봄비메인.jpg" width="400">
+
+
 
 # 테이블 구조
