@@ -14,11 +14,11 @@
 ## 화면
 - Login
 
-<img src="Readme/Image/봄비메인.jpg" width="250">
+<img src="../Image/봄비메인.jpg" width="250">
 
 - Sign Up
 
-<img src="./Readme/Image/회원가입1.jpg" width="250"> <img src="./Readme/Image/회원가입2.jpg" width="250">
+<img src="../Image/회원가입1.jpg" width="250"> <img src="../Image/회원가입2.jpg" width="250">
 <br><br>
 ## 사용기술
 * JavaScript libraies : blue-imp-fileupload, jQuery-Ui,  SweetAlert2
