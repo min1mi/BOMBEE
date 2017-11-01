@@ -14,7 +14,7 @@
 ## 화면
 - Login
 
-<img src="./Readme/Image/봄비메인.jpg" width="250">
+<img src="Readme/Image/봄비메인.jpg" width="250">
 
 - Sign Up
 
