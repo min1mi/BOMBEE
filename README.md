@@ -101,6 +101,7 @@
 
 # 테이블 구조
 
+[테이블 구조]("./Readme/database/readme.md")<br>
 - DB table
 
 <img src="./Readme/Image/테이블구조1.PNG">
