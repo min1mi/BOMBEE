@@ -33,7 +33,7 @@
 ```
 #
 
-1. [회원가입/로그인](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page1.md)<br>
+1. [회원가입/로그인](https://github.com/min1mi/BOMBEE/tree/master/Readme/Page/pade1.md)<br>
 2. [이벤트 등록/조회/수정/삭제](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page2.md)<br>
 3. [뮤지션 상세조회 및 참여 요청](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page3.md)<br>
 4. [관심 뮤지션 관리](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page4.md)<br>
@@ -42,13 +42,6 @@
 7. [이벤트 상세조회 및 이벤트 지원](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page7.md)<br>
 7. [공동 제작 부분](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page8.md)<br><br><br>
 # 화면
-- Login
-
-<img src="./Readme/Image/봄비메인.jpg" width="250">
-
-- Sign Up
-
-<img src="./Readme/Image/회원가입1.jpg" width="250"> <img src="./Readme/Image/회원가입2.jpg" width="250">
 
 - Main
 
