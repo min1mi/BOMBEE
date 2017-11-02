@@ -45,7 +45,7 @@
 10. [Notification](./Readme/Page/Notification.md)<br>
 11. [Matching Request List](./Readme/Page/Matching_Request_List.md)<br>
 12. [Promotion in Progress](./Readme/Page/Promotion_in_Progress.md)<br>
-13. [Diet Management](./Readme/Page/Diet Management.md)<br>
+13. [Diet Management](./Readme/Page/Diet_Management.md)<br>
 14. [Chating](./Readme/Page/Chating.md)<br>
 <br><br>
 # 화면
