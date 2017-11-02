@@ -10,7 +10,7 @@
 ## 화면
 - Real-time Location Map
 
-<img src="./Readme/Image/맵.jpg" width="250"> <img src="./Readme/Image/맵1.jpg" width="250"> <img src="./Readme/Image/맵2.jpg" width="250">
+<img src="../Image/맵.jpg" width="250"> <img src="../Image/맵1.jpg" width="250"> <img src="../Image/맵2.jpg" width="250">
 <br><br>
 ## 사용기술
 * JavaScript libraies : Handlebars, jQuery<br>
