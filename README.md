@@ -44,7 +44,7 @@
 9. [Apply for Match](./Readme/Page/Apply_for_Match.md)<br>
 10. [Notification](./Readme/Page/Notification.md)<br>
 11. [Matching Request List](./Readme/Page/Matching Request List.md)<br>
-12. [Promotion in Progress](./Readme/Page/Promotion in Progress.md)<br>
+12. [Promotion in Progress](./Readme/Page/Promotion_in_Progress.md)<br>
 13. [Diet Management](./Readme/Page/Diet Management.md)<br>
 14. [Review](./Readme/Page/Review.md)<br>
 15. [Chating](./Readme/Page/Chating.md)<br>
@@ -54,10 +54,6 @@
 - Matching Request List
 
 <img src="./Readme/Image/강사친구요청.jpg" width="250"> <img src="./Readme/Image/회원친구요청.jpg" width="250">
-
-- Promotion in Progress
-
-<img src="./Readme/Image/진행중프로모션.jpg" width="250">
 
 - Diet Management
 
