@@ -21,7 +21,7 @@
 <img src="../Image/회원가입1.jpg" width="250"> <img src="../Image/회원가입2.jpg" width="250">
 <br><br>
 ## 사용기술
-* JavaScript libraies : blue-imp-fileupload, jQuery-Ui,  SweetAlert2
+* JavaScript libraies : blue-imp-fileupload, jQuery, jQuery-Ui, SweetAlert2
 * Java library : thumbnailator<br>
 * Api : Daum 우편번호 서비스<br>
 
