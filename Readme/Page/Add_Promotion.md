@@ -13,7 +13,7 @@
 ## 화면
 - Promotion Add
 
-<img src="../Readme/Image/프로모션등록.jpg" width="250">
+<img src="../Image/프로모션등록.jpg" width="250">
 <br><br>
 ## 사용기술
 * JavaScript libraies : sweetalert2, jQuery, font-awesome, swiper, blueimp-file-upload, datepicker, geocoder<br>
