@@ -1,12 +1,11 @@
 # 4. Navigator
 
 ## 페이지 소개
-* 인기코스 및 운동 종목별 프로모션을 확인할 수 있는 페이지입니다.
-* 실시간 위치 기반으로 트레이너 및 프로모션을 확인할 수 있는 페이지입니다.
+* 사용자가 웹 사이트를 사용 하는데 정보를 빠르게 찾을 수 있도록 하는 안내페이지입니다.
 <br><br>
 ## 구동원리
-* 일정한 시간이 지나면 운동종목 사진이 슬라이드로 넘어가게 함(Swiper)
-* 스크롤링을 통해 종목별 프로모션을 추가로 가져오게 함
+* 확인 하지 않은 알림을 숫자로 표시 함
+* 로그인 시 사용자 프로필 사진 변경(업로드) 가능
 <br><br>
 ## 화면
 - Navigator
@@ -15,6 +14,6 @@
 
 <br><br>
 ## 사용기술
-* JavaScript libraies : Swiper, Handlebars, jQuery<br>
+* JavaScript libraies : blue-imp-fileupload, jQuery<br>
 
 ## [BOMBEE (돌아가기)](../../README.md)<br>
