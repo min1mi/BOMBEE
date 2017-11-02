@@ -25,4 +25,4 @@
 * Java library : thumbnailator<br>
 * Api : Daum 우편번호 서비스<br>
 
-## [BOMBEE (돌아가기)](https://github.com/min1mi/BOMBEE)<br>
+## [BOMBEE (돌아가기)](./Readme/README.md)<br>
