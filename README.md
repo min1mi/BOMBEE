@@ -51,18 +51,6 @@
 <br><br>
 # 화면
 
-- Navigator Bar
-
-<img src="./Readme/Image/네비게이터.jpg" width="250">
-
-- Promotion List
-
-<img src="./Readme/Image/프로모션.jpg" width="250">
-
-- Trainer
-
-<img src="./Readme/Image/강사1.jpg" width="250"> <img src="./Readme/Image/강사2.jpg" width="250"> <img src="./Readme/Image/강사3.jpg" width="250">
-
 - Add Promotion
 
 <img src="./Readme/Image/프로모션등록.jpg" width="250">
