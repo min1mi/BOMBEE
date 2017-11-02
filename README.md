@@ -31,7 +31,7 @@
 - Api : Kakao Login, Daum map, 공공데이터 오픈 API(부동산 개방데이터의 법정동조회서비스)
 - Tool : Eclipse, Atom, eXERD
 ```
-#
+# 상세기능 설명 및 화면
 
 1. [Sign Up/Login](./Readme/Page/Sing_Up_Login.md)<br>
 2. [BOMBEE Main](./Readme/Page/BOMBEE_Main.md)<br>
@@ -48,14 +48,5 @@
 13. [Diet Management](./Readme/Page/Diet_Management.md)<br>
 14. [Chating](./Readme/Page/Chating.md)<br>
 <br><br>
-# 화면
-
-- Diet Management
-
-<img src="./Readme/Image/식단.jpg" width="250">
-
-- Chating
-
-<img src="./Readme/Image/채팅목록.jpg" width="250"> <img src="./Readme/Image/채팅.jpg" width="250">
 
 ## [테이블 구조](./Readme/database/readme.md)<br>
