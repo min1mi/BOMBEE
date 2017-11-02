@@ -51,6 +51,6 @@
 
 ## [데이터베이스 테이블 구조]<br>
 
-<img src=".Readme/Image/테이블구조1.PNG"><br>
+<img src="./Readme/Image/테이블구조1.PNG"><br>
 
 ### [상세 테이블 구조](./Readme/database/readme.md)
