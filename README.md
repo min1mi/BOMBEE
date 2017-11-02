@@ -33,7 +33,7 @@
 ```
 #
 
-1. [회원가입/로그인](https://github.com/min1mi/BOMBEE/blob/master/Readme/Page/page1.md)<br>
+1. [회원가입/로그인](./Readme/Page/page1.md)<br>
 2. [이벤트 등록/조회/수정/삭제](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page2.md)<br>
 3. [뮤지션 상세조회 및 참여 요청](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page3.md)<br>
 4. [관심 뮤지션 관리](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page4.md)<br>
