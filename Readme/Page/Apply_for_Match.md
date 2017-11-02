@@ -11,6 +11,7 @@
 <img src="../Image/친구신청.jpg" width="250">
 <br><br>
 ## 사용기술
+
 * JavaScript libraies : jQuery<br>
 
 ## [BOMBEE (돌아가기)](../../README.md)<br>
