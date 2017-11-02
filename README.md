@@ -37,16 +37,17 @@
 2. [BOMBEE Main](./Readme/Page/page2.md)<br>
 3. [Real-time Location Map](./Readme/Page/page3.md)<br>
 4. [Navigator Bar](./Readme/Page/page4.md)<br>
-5. [Trainer](./Readme/Page/page5.md)<br>
-6. [Add Promotion](./Readme/Page/page6.md)<br>
-7. [Promotion Add List](./Readme/Page/page7.md)<br>
-8. [Apply for Match](./Readme/Page/page8.md)<br>
-9. [Notification](./Readme/Page/page9.md)<br>
-10. [Matching Request List](./Readme/Page/page10.md)<br>
-11. [Promotion in Progress](./Readme/Page/page11.md)<br>
-12. [Diet Management](./Readme/Page/page12.md)<br>
-13. [Review](./Readme/Page/page13.md)<br>
-14. [Chating](./Readme/Page/page14.md)<br>
+5. [Promotion List](./Readme/Page/page5.md)<br>
+6. [Trainer](./Readme/Page/page5.md)<br>
+7. [Add Promotion](./Readme/Page/page6.md)<br>
+8. [Promotion Add List](./Readme/Page/page7.md)<br>
+9. [Apply for Match](./Readme/Page/page8.md)<br>
+10. [Notification](./Readme/Page/page9.md)<br>
+11. [Matching Request List](./Readme/Page/page10.md)<br>
+12. [Promotion in Progress](./Readme/Page/page11.md)<br>
+13. [Diet Management](./Readme/Page/page12.md)<br>
+14. [Review](./Readme/Page/page13.md)<br>
+15. [Chating](./Readme/Page/page14.md)<br>
 <br><br>
 # 화면
 
