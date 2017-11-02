@@ -2,8 +2,6 @@
 
 - DB table
 
-<img src="../Image/테이블구조1.PNG">
-
 | ACCOUNT MEMB 테이블(일반 사용자)|||
 | :-----: | :-: |:-: |
 | MNO **`(PK)`**	|회원번호	|INTEGER NOT NULL|

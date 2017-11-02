@@ -49,4 +49,7 @@
 14. [Chating](./Readme/Page/Chating.md)<br>
 <br><br>
 
-## [테이블 구조](./Readme/database/readme.md)<br>
+## [데이터베이스 테이블 구조]<br>
+
+<img src="./Image/테이블구조1.PNG"><br>
+
