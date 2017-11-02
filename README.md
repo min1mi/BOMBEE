@@ -51,22 +51,6 @@
 <br><br>
 # 화면
 
-- Add Promotion
-
-<img src="./Readme/Image/프로모션등록.jpg" width="250">
-
-- Promotion Add List
-
-<img src="./Readme/Image/프로모션등록정보.jpg" width="250">
-
-- Apply for Match
-
-<img src="./Readme/Image/친구신청.jpg" width="250">
-
-- Notification
-
-<img src="./Readme/Image/강사알림.jpg" width="250"> <img src="./Readme/Image/회원알림.jpg" width="250">
-
 - Matching Request List
 
 <img src="./Readme/Image/강사친구요청.jpg" width="250"> <img src="./Readme/Image/회원친구요청.jpg" width="250">
