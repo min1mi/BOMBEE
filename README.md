@@ -28,7 +28,7 @@
 - Build : Gradle
 - Server : AWS(Amazon WebServer), Tomcat8, NodeJS
 - Front End : AJAX, moment.js
-- Api : Kakao Login, Daum map
+- Api : Kakao Login, Daum map, 공공데이터 오픈 API(부동산 개방데이터의 법정동조회서비스)
 - Tool : Eclipse, Atom, eXERD,
 ```
 #
@@ -42,10 +42,6 @@
 7. [이벤트 상세조회 및 이벤트 지원](./Readme/Page/page7.md)<br>
 7. [공동 제작 부분](./Readme/Page/page8.md)<br><br><br>
 # 화면
-
-- Real-time Location Map
-
-<img src="./Readme/Image/맵.jpg" width="250">
 
 - Navigator Bar
 
