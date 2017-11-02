@@ -19,8 +19,8 @@ $(function() {
   $('#datepicker-end').on("change", function(){
     $('.arrowEnd').css('display','none')
   });
-  
-  
+
+
 });
 
 var addrInput = $('#address')
@@ -94,7 +94,7 @@ function handleFileSelect(e) {
         	titleSelectPic = $('.title-select').children().attr('value')
         	console.log('titleSelectPic:' + titleSelectPic)
         })
-      
+
       }
       reader.readAsDataURL(f);
     });
@@ -127,11 +127,11 @@ $('#image_upload').fileupload({
         console.log('Added file: ' + file.name);
     });
     $('.save').click(function() {
-    	
+
     		if(title.val() == '' ||
     				pric.val() =='' ||
-    				content.val() =='' || 
-    				sdt.val() =='' || 
+    				content.val() =='' ||
+    				sdt.val() =='' ||
     				edt.val() =='' ||
     				storedFiles.length == 0){
     			console.log("모든 입력 값 필요")
@@ -157,9 +157,9 @@ $('#image_upload').fileupload({
     			} else
     				data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
     		}
-    	  
-    	
-    	
+
+
+
     });
   },
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
@@ -192,8 +192,8 @@ $('.save').click(function() {
 
 	if(title.val() == '' ||
 			pric.val() =='' ||
-			content.val() =='' || 
-			sdt.val() =='' || 
+			content.val() =='' ||
+			sdt.val() =='' ||
 			edt.val() =='' ||
 			storedFiles.length == 0){
 		console.log("모든 입력 값 필요")
