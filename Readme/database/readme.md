@@ -1,3 +1,5 @@
+## [테이블 구조](./Readme/database/readme.md)<br>
+
 - DB table
 
 <img src="./ReadmeImage/database/테이블구조1.PNG">
@@ -107,3 +109,5 @@
 | WHOSEND | 보낸 사람	| INTEGER	NOT NULL|
 | MSG | 메세지	| TEXT	NOT NULL|
 | CONFIRM | 확인 여부 | BOOLEAN NOT NULL|
+
+## [BOMBEE (돌아가기)](../../README.md)<br>
