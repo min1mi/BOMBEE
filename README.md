@@ -37,7 +37,7 @@
 2. [BOMBEE Main](./Readme/Page/BOMBEE Main.md)<br>
 3. [Real-time Location Map](./Readme/Page/Real-time Location Map.md)<br>
 4. [Navigator Bar](./Readme/Page/Navigator Bar.md)<br>
-5. [Promotion List](./Readme/Page/Promotion List.md)<br>
+5. [Promotion Info](./Readme/Page/Promotion Info.md)<br>
 6. [Trainer](./Readme/Page/Trainer.md)<br>
 7. [Add Promotion](./Readme/Page/Add Promotion.md)<br>
 8. [Promotion Add List](./Readme/Page/Promotion Add List.md)<br>
