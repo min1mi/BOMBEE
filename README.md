@@ -34,18 +34,14 @@
 #
 
 1. [회원가입/로그인](./Readme/Page/page1.md)<br>
-2. [이벤트 등록/조회/수정/삭제](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page2.md)<br>
-3. [뮤지션 상세조회 및 참여 요청](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page3.md)<br>
-4. [관심 뮤지션 관리](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page4.md)<br>
-5. [뮤지션 회원가입](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page5.md)<br>
-6. [뮤지션 포트폴리오 관리](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page6.md)<br>
-7. [이벤트 상세조회 및 이벤트 지원](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page7.md)<br>
-7. [공동 제작 부분](https://github.com/k0102575/ProjectArmu/blob/master/README%20md/page8.md)<br><br><br>
+2. [메인](./Readme/Page/page2.md)<br>
+3. [실시간 위치 기반 트레이너 및 프로모션 검색](./Readme/Page/page3.md)<br>
+4. [관심 뮤지션 관리](./Readme/Page/page4.md)<br>
+5. [뮤지션 회원가입](./Readme/Page/page5.md)<br>
+6. [뮤지션 포트폴리오 관리](./Readme/Page/page6.md)<br>
+7. [이벤트 상세조회 및 이벤트 지원](./Readme/Page/page7.md)<br>
+7. [공동 제작 부분](./Readme/Page/page8.md)<br><br><br>
 # 화면
-
-- Main
-
-<img src="./Readme/Image/메인1.jpg" width="250"> <img src="./Readme/Image/메인2.jpg" width="250">
 
 - Real-time Location Map
 
