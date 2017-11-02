@@ -10,7 +10,7 @@
 
 - Promotion Add List
 
-<img src="../Image/프로모션등록정보.jpg" width="250">
+<img src="../Image/프로모션등록정보.png" width="250">
 <br><br>
 ## 사용기술
 * JavaScript libraies : jQuery, Handlebars
