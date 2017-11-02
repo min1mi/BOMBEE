@@ -16,6 +16,6 @@
 ## 사용기술
 * JavaScript libraies : jQuery, Handlebars
 
-### [BOMCHAT (BOMCHAT)](https://github.com/min1mi/BOMCHAT)<br>
+### [BOMCHAT](https://github.com/min1mi/BOMCHAT)<br>
 
 ## [BOMBEE (돌아가기)](../../README.md)<br>
