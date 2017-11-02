@@ -1,4 +1,4 @@
-## [테이블 구조](./Readme/database/readme.md)<br>
+## [테이블 구조]<br>
 
 - DB table
 
