@@ -41,7 +41,7 @@
 6. [Trainer](./Readme/Page/Trainer.md)<br>
 7. [Add Promotion](./Readme/Page/Add_Promotion.md)<br>
 8. [Promotion Add List](./Readme/Page/Promotion Add List.md)<br>
-9. [Apply for Match](./Readme/Page/Apply for Match.md)<br>
+9. [Apply for Match](./Readme/Page/Apply_for_Match.md)<br>
 10. [Notification](./Readme/Page/Notification.md)<br>
 11. [Matching Request List](./Readme/Page/Matching Request List.md)<br>
 12. [Promotion in Progress](./Readme/Page/Promotion in Progress.md)<br>
