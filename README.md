@@ -50,17 +50,9 @@
 <br><br>
 # 화면
 
-- Matching Request List
-
-<img src="./Readme/Image/강사친구요청.jpg" width="250"> <img src="./Readme/Image/회원친구요청.jpg" width="250">
-
 - Diet Management
 
 <img src="./Readme/Image/식단.jpg" width="250">
-
-- Review
-
-<img src="./Readme/Image/리뷰.jpg" width="250"> <img src="./Readme/Image/리뷰작성.jpg" width="250">
 
 - Chating
 
