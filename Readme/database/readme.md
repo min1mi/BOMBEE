@@ -1,9 +1,8 @@
 ## [테이블 구조]<br>
 
-<img src="../Image/테이블구조.png"> 
 - DB table
 
-<img src="./ReadmeImage/database/테이블구조1.PNG">
+<img src="../Image/테이블구조1.PNG">
 
 | ACCOUNT MEMB 테이블(일반 사용자)|||
 | :-----: | :-: |:-: |
