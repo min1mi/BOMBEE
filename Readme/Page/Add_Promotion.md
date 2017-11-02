@@ -10,7 +10,7 @@
 ## 화면
 - Promotion Info
 
-<img src="../Readme/Image/프로모션.jpg" width="250"> <img src="../Readme/Image/프로모션1.jpg" width="250">
+<img src="../Readme/Image/프로모션등록.jpg" width="250">
 <br><br>
 ## 사용기술
 * JavaScript libraies : Handlebars, jQuery<br>

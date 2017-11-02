@@ -39,7 +39,7 @@
 4. [Navigator Bar](./Readme/Page/Navigator_Bar.md)<br>
 5. [Promotion Info](./Readme/Page/Promotion_Info.md)<br>
 6. [Trainer](./Readme/Page/Trainer.md)<br>
-7. [Add Promotion](./Readme/Page/Add Promotion.md)<br>
+7. [Add Promotion](./Readme/Page/Add_Promotion.md)<br>
 8. [Promotion Add List](./Readme/Page/Promotion Add List.md)<br>
 9. [Apply for Match](./Readme/Page/Apply for Match.md)<br>
 10. [Notification](./Readme/Page/Notification.md)<br>
