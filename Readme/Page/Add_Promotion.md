@@ -16,7 +16,7 @@
 <img src="../Image/프로모션등록.jpg" width="250">
 <br><br>
 ## 사용기술
-* JavaScript libraies : sweetalert2, jQuery, font-awesome, swiper, blueimp-file-upload, datepicker, geocoder<br>
-* Api : Daum Map<br>
+* JavaScript libraies : sweetalert2, jQuery, font-awesome, swiper, blueimp-file-upload, datepicker<br>
+* Api : Daum Map, geocoder<br>
 
 ## [BOMBEE (돌아가기)](../../README.md)<br>
