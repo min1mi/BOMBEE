@@ -26,7 +26,7 @@
 - Back End : Spring Framework
 - DB : MySql
 - Build : Gradle
-- Server : AWS(Amazon WebServer), Tomcat8, NodeJS
+- Server : AWS(Amazon WebService), Tomcat8, NodeJS
 - Front End : AJAX, moment.js
 - Api : Kakao Login, Daum map, 공공데이터 오픈 API(부동산 개방데이터의 법정동조회서비스)
 - Tool : Eclipse, Atom, eXERD

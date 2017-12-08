@@ -13,7 +13,6 @@ console.log(server)
 
 $('.close-btn').on('click', function(){
     location.href ='../index.html'
-})
 
 chatLoad()
 
@@ -60,7 +59,7 @@ function getChat(no, json) {
 	for(var i = 0; i < result.data.length; i++) {
 		if(result.data[i].tPath != null)
 			$('.'+i + ' img').attr('src', result.data[i].tPath)
-		else 
+		else
 			$('.'+i + ' img').attr('src', '../image/user')
 		if(tno != -1) {
 			$('.'+i + ' #youAndMe').text('')
@@ -77,10 +76,10 @@ function getChat(no, json) {
 		$('.'+i + ' dd').text(result.data[i].message)
 		if(result.data[i].unread != 0) {
 			$('.'+i + ' #chat-confirm').addClass('confirm-on').text(result.data[i].unread)
-		}else 
+		}else
 			$('.'+i + ' #chat-confirm').removeClass('confirm-on').text('')
 	}
-	
+
 
     if(no != -1) {
       for(var i = 0; i < result.data.length; i++) {
@@ -99,15 +98,15 @@ function getChat(no, json) {
         var html = container.html()
         container.html(html + generatedHTML) // 새 tr 태그들로 설정한다.
         chatDetailBtn()
-        
+
         type = 1
     }
-    if(result.data == 0) 
+    if(result.data == 0)
       $('.no-alram').css('display', '')
-      
+
     $.each(result.data, function(i, item) {
       console.log(item.unread)
-      
+
     })
   })
 }
