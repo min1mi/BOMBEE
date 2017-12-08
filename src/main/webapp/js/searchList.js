@@ -126,28 +126,27 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 var geocoder = new daum.maps.services.Geocoder();
 // 주소-좌표 변환 객체를 생성합니다
 $('#map').css('height', screen.availHeight-207+'px')
-GPSFind()
+
 	
 //getData('http://openapi.nsdi.go.kr/nsdi/eios/service/rest/AdmService/admCodeList.json?authkey=4c3dd139ed40e85475d902', '#codeList', '#code-container')
 getData('../jsp/addressLoad_1.jsp', '#codeList', '#code-container')
+GPSFind()
 
 function GPSFind(){
 	//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
 	if (navigator.geolocation) {
 	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		
 	    navigator.geolocation.getCurrentPosition(function(position) {
-	    	var emp = 0
 	    	
 	        findLat = position.coords.latitude // 위도
 	        findLon = position.coords.longitude; // 경도
-	    	emp = position.coords.latitude
-	        if(emp != 0 && count > 0) {
+	        if( count > 0) {
 	        	ajax()
-	        	map.setCenter(new daum.maps.LatLng(findLat, findLon))
 	        }
 	    	if (count == 0)
 	    		getData(json, types, '') //처음엔 '#map-template' 스크립트와 생성될 div가 없어서 연결될 애가없음으로 ''을줌
-
+	    	map.setCenter(new daum.maps.LatLng(findLat, findLon))
 	        var locPosition = new daum.maps.LatLng(findLat, findLon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 	            message = ''; // 인포윈도우에 표시될 내용입니다
 	            count++
@@ -203,7 +202,7 @@ function mapMarker(address, imageSrc , size, no, check) {
         daum.maps.event.addListener(marker, 'click', function() {
             // 마커 위에 인포윈도우를 표시합니다
             if(check != 0) {
-            	toggleAddr = $(this)[0].Vd
+            	toggleAddr = $(this)[0].Xd
             	console.log(toggleAddr)
             	$('.list-div').remove()
             	getData(json,  '#list-template', '#addList')
@@ -212,9 +211,10 @@ function mapMarker(address, imageSrc , size, no, check) {
             	
             }else {
             	if(teacherOrPromotion == 0) {
-            	 location.href = '../promotion/promotionDetail.html?no='+$(this)[0].Vd
+            		;
+            	 location.href = '../promotion/promotionDetail.html?no='+$(this)[0].Xd
             	}else if(teacherOrPromotion == 1)
-            		 location.href = '../t-detail/trainerDetail.html?no='+$(this)[0].Vd
+            		 location.href = '../t-detail/trainerDetail.html?no='+$(this)[0].Xd
             }
       })
 	})

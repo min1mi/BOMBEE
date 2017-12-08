@@ -8,15 +8,11 @@ var membertype
 var type = 0
 var length = 0
 /* var server = location.host + '/upload/' */
-var server = 'http://'+location.host
+var server = 'https://'+location.host
 console.log(server)
 
 $('.close-btn').on('click', function(){
-  if(location.host == 'https://www.bombees.com:8888/detail-chat.html')
-    window.history.go(-3)
-  else
-    window.history.go(-1)
-  
+    location.href ='../index.html'
 })
 
 chatLoad()
